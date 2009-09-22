@@ -1,5 +1,8 @@
-#summary Introducción a subversion.
 #labels subversion
+== Autor ==
+Tobías Díaz Chirón
+
+#summary Introducción a subversion.
 
 = Introducción a Subversion =
 
