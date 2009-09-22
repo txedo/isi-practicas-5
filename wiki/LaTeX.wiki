@@ -124,3 +124,6 @@ En *auctex* las teclas para introducir estos comandos son `Ctrl-C Ctrl-F Ctrl-B`
 
 
 Y con esto podemos escribir la mayoría de los elementos que usamos en nuestros documentos. Otra cosa sería tener que utilizar tablas o elementos más complejos, que si hacen falta, se explican y tan contentos...
+
+== Autor ==
+Tobías Díaz Chirón
