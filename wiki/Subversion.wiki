@@ -1,8 +1,5 @@
-#labels subversion
-== Autor ==
-Tobías Díaz Chirón
-
 #summary Introducción a subversion.
+#labels subversion
 
 = Introducción a Subversion =
 
@@ -58,3 +55,6 @@ $ svn add doc/
 Todo ello son ejemplos de cómo añadir ficheros, pero tened en cuenta que `add` *no sube* los ficheros, para terminar de subirlos, ya sabéis: `svn ci`.
 
 Y esto es todo, cuando os familiaricéis con esto del `svn` ya os comentaré como mover/renombrar ficheros y como borrarlos. También hay un montón de opciones chulas como estadísticas y tal que nos puede venir bien para ver quién hace qué...
+
+== Autor ==
+Tobías Díaz Chirón
