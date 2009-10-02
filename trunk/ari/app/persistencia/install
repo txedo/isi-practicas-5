@@ -1,0 +1,38 @@
+/*
+mysql --user root -p
+drop database <db>;
+drop table <table>;
+describe <table>;
+show databases;
+show tables;
+*/
+
+CREATE DATABASE ari;
+
+USE ari;
+
+CREATE TABLE dic (
+       term VARCHAR(256) NOT NULL default '',
+       numDocs INT NOT NULL default '0',
+       PRIMARY KEY (term)
+) TYPE=InnoDB;
+
+CREATE TABLE docs (
+       idDoc INT NOT NULL AUTO_INCREMENT,
+       title TEXT default '',
+       path TEXT NOT NULL default '',
+       PRIMARY KEY (idDoc)
+) TYPE=InnoDB AUTO_INCREMENT=1;
+
+CREATE TABLE postingFile (
+       term VARCHAR(256) NOT NULL default '',
+       idDoc INT NOT NULL,
+       frecuency INT NOT NULL default '0',
+       PRIMARY KEY (term, idDoc),
+       FOREIGN KEY (term) REFERENCES dic (term) ON DELETE CASCADE ON UPDATE CASCADE,
+       FOREIGN KEY (idDoc) REFERENCES docs (idDoc) ON DELETE CASCADE ON UPDATE CASCADE
+) TYPE=InnoDB;
+
+
+
+
