@@ -1,0 +1,5 @@
+#summary Enlaces de interés
+
+= ARI =
+
+API de MYSQLdb: http://mysql-python.sourceforge.net/MySQLdb.html#connection-objects
