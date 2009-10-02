@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--Generated with glade3 3.4.5 on Fri Oct  2 12:34:08 2009 -->
+<glade-interface>
+  <widget class="GtkWindow" id="window1">
+    <property name="visible">True</property>
+    <property name="title" translatable="yes">Indexator</property>
+    <property name="resizable">False</property>
+    <child>
+      <widget class="GtkLayout" id="layout1">
+        <property name="visible">True</property>
+        <child>
+          <widget class="GtkButton" id="btnStart">
+            <property name="width_request">95</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="label" translatable="yes">Start</property>
+            <property name="response_id">0</property>
+          </widget>
+          <packing>
+            <property name="x">206</property>
+            <property name="y">175</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkRadioButton" id="radiobutton1">
+            <property name="width_request">150</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Choose a file:</property>
+            <property name="response_id">0</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">radiobutton2</property>
+          </widget>
+          <packing>
+            <property name="x">18</property>
+            <property name="y">13</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkRadioButton" id="radiobutton2">
+            <property name="width_request">150</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Choose a directory:</property>
+            <property name="response_id">0</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">radiobutton1</property>
+          </widget>
+          <packing>
+            <property name="x">17</property>
+            <property name="y">93</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="txtPathFile">
+            <property name="width_request">224</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">●</property>
+          </widget>
+          <packing>
+            <property name="x">21</property>
+            <property name="y">44</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkEntry" id="txtPathDirectory">
+            <property name="width_request">224</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="invisible_char">●</property>
+          </widget>
+          <packing>
+            <property name="x">20</property>
+            <property name="y">125</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="btnBrowseFile">
+            <property name="width_request">53</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="label" translatable="yes">...
+</property>
+            <property name="response_id">0</property>
+          </widget>
+          <packing>
+            <property name="x">248</property>
+            <property name="y">44</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="btnBrowseDirectory">
+            <property name="width_request">53</property>
+            <property name="height_request">25</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="label" translatable="yes">...
+</property>
+            <property name="response_id">0</property>
+          </widget>
+          <packing>
+            <property name="x">249</property>
+            <property name="y">125</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lblStatusBar">
+            <property name="width_request">319</property>
+            <property name="height_request">20</property>
+            <property name="visible">True</property>
+            <property name="single_line_mode">True</property>
+          </widget>
+          <packing>
+            <property name="y">224</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>
