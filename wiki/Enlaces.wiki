@@ -3,4 +3,5 @@
 = ARI =
 
 API de MYSQLdb: http://mysql-python.sourceforge.net/MySQLdb.html#connection-objects
-HowTo de expresiones regulares: http://www.amk.ca/python/howto/regex/
+
+Expresiones regulares en Python: http://www.amk.ca/python/howto/regex/
