@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.5 on Sat Oct  3 13:33:37 2009 -->
+<!--Generated with glade3 3.4.5 on Mon Oct  5 19:17:24 2009 -->
 <glade-interface>
-  <widget class="GtkWindow" id="window1">
+  <widget class="GtkWindow" id="window">
     <property name="visible">True</property>
-    <property name="title" translatable="yes">Indexator</property>
-    <property name="resizable">False</property>
+    <property name="title" translatable="yes">Index Engine</property>
     <child>
       <widget class="GtkLayout" id="layout1">
         <property name="visible">True</property>
@@ -15,9 +14,15 @@
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="has_focus">True</property>
+            <property name="is_focus">True</property>
+            <property name="can_default">True</property>
+            <property name="has_default">True</property>
             <property name="receives_default">True</property>
             <property name="label" translatable="yes">Start</property>
             <property name="response_id">0</property>
+            <signal name="clicked" handler="on_btnStart_clicked"/>
+            <signal name="activate" handler="on_btnStart_activate"/>
           </widget>
           <packing>
             <property name="x">206</property>
@@ -25,7 +30,7 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkRadioButton" id="radiobutton1">
+          <widget class="GtkRadioButton" id="rbFile">
             <property name="width_request">150</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
@@ -34,7 +39,7 @@
             <property name="response_id">0</property>
             <property name="active">True</property>
             <property name="draw_indicator">True</property>
-            <property name="group">radiobutton2</property>
+            <signal name="group_changed" handler="on_rbFile_group_changed"/>
           </widget>
           <packing>
             <property name="x">18</property>
@@ -42,7 +47,7 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkRadioButton" id="radiobutton2">
+          <widget class="GtkRadioButton" id="rbDirectory">
             <property name="width_request">150</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
@@ -51,7 +56,8 @@
             <property name="response_id">0</property>
             <property name="active">True</property>
             <property name="draw_indicator">True</property>
-            <property name="group">radiobutton1</property>
+            <property name="group">rbFile</property>
+            <signal name="group_changed" handler="on_rbDirectory_group_changed"/>
           </widget>
           <packing>
             <property name="x">17</property>
@@ -59,7 +65,7 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkEntry" id="txtPathFile">
+          <widget class="GtkEntry" id="txtFilePath">
             <property name="width_request">224</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
@@ -72,7 +78,7 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkEntry" id="txtPathDirectory">
+          <widget class="GtkEntry" id="txtDirectoryPath">
             <property name="width_request">224</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
@@ -94,6 +100,8 @@
             <property name="label" translatable="yes">...
 </property>
             <property name="response_id">0</property>
+            <signal name="clicked" handler="on_btnBrowseFile_clicked"/>
+            <signal name="activate" handler="on_btnBrowseFile_activate"/>
           </widget>
           <packing>
             <property name="x">248</property>
@@ -110,6 +118,8 @@
             <property name="label" translatable="yes">...
 </property>
             <property name="response_id">0</property>
+            <signal name="clicked" handler="on_btnBrowseDirectory_clicked"/>
+            <signal name="activate" handler="on_btnBrowseDirectory_activate"/>
           </widget>
           <packing>
             <property name="x">249</property>
