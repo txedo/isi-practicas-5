@@ -1,1 +1,2 @@
 Esto es una cadena de prueba. Tiene signos de puntuacion con espacios,y sin espacios. Tambien tiene nombres como 123:a? 
+
