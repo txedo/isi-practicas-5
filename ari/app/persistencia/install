@@ -21,16 +21,16 @@ CREATE TABLE doc (
        id_doc INT NOT NULL AUTO_INCREMENT,
        title TEXT default '',
        path TEXT NOT NULL default '',
-       PRIMARY KEY (idDoc)
+       PRIMARY KEY (id_doc)
 ) TYPE=InnoDB AUTO_INCREMENT=1;
 
 CREATE TABLE posting_file (
        term VARCHAR(256) NOT NULL default '',
        id_doc INT NOT NULL,
        frequency INT NOT NULL default '1',
-       PRIMARY KEY (term, idDoc),
+       PRIMARY KEY (term, id_doc),
        FOREIGN KEY (term) REFERENCES dic (term) ON DELETE CASCADE ON UPDATE CASCADE,
-       FOREIGN KEY (idDoc) REFERENCES docs (idDoc) ON DELETE CASCADE ON UPDATE CASCADE
+       FOREIGN KEY (id_doc) REFERENCES doc (id_doc) ON DELETE CASCADE ON UPDATE CASCADE
 ) TYPE=InnoDB;
 
 
