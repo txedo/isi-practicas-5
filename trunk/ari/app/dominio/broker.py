@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../persistencia')
-import agente
+from agente import *
 from config import *
 
 
@@ -41,23 +41,32 @@ class Broker:
         
     
     def update_term_dic(self, term):
-
-
-
-    def update_term_posting_file(self, term):
         self.__agente = Agente()
-        sql = "UPDATE posting_file SET frequency=frequency+1 WHERE term='"+term+"'"
+        sql = "UPDATE dic SET num_docs=num_docs+1 WHERE term='"+term+"'"
+        self.__agente.execute(sql)
+        self.__agente.close()
+
+
+    def update_term_posting_file(self, term, id_doc):
+        self.__agente = Agente()
+        sql = "UPDATE posting_file SET frequency=frequency+1 WHERE term='"+term+"' AND id_doc="+id_doc
         self.__agente.execute(sql)
         self.__agente.close()
 
 
     def exist_term_dic(self, term):
-
-
-
-    def exist_term_posting_file(self, term):
         self.__agente = Agente()
-        sql = "SELECT COUNT(*) FROM posting_file WHERE term='"+term+"'"
+        sql = "SELECT COUNT(*) FROM dic WHERE term='"+term+"'"
+        result = self.__agente.query(sql)
+        existe = True
+        if result[0][0] == 0: existe = False
+        self.__agente.close()
+        return existe
+
+
+    def exist_term_posting_file(self, term, id_doc):
+        self.__agente = Agente()
+        sql = "SELECT COUNT(*) FROM posting_file WHERE term='"+term+"' AND id_doc="+id_doc
         result = self.__agente.query(sql)
         existe = True
         if result[0][0] == 0: existe = False
