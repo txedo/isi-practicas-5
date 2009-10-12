@@ -13,21 +13,21 @@ USE ari;
 
 CREATE TABLE dic (
        term VARCHAR(256) NOT NULL default '',
-       numDocs INT NOT NULL default '0',
+       num_docs INT NOT NULL default '1',
        PRIMARY KEY (term)
 ) TYPE=InnoDB;
 
-CREATE TABLE docs (
-       idDoc INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE doc (
+       id_doc INT NOT NULL AUTO_INCREMENT,
        title TEXT default '',
        path TEXT NOT NULL default '',
        PRIMARY KEY (idDoc)
 ) TYPE=InnoDB AUTO_INCREMENT=1;
 
-CREATE TABLE postingFile (
+CREATE TABLE posting_file (
        term VARCHAR(256) NOT NULL default '',
-       idDoc INT NOT NULL,
-       frecuency INT NOT NULL default '0',
+       id_doc INT NOT NULL,
+       frequency INT NOT NULL default '1',
        PRIMARY KEY (term, idDoc),
        FOREIGN KEY (term) REFERENCES dic (term) ON DELETE CASCADE ON UPDATE CASCADE,
        FOREIGN KEY (idDoc) REFERENCES docs (idDoc) ON DELETE CASCADE ON UPDATE CASCADE
