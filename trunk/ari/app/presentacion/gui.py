@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-#    gTerm - a text terminal prototype
+#    Index Engine
 #    Copyright (C) 2009, Jose Domingo Lopez Lopez & Juan Andrada Romero
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,6 +22,10 @@ pygtk.require('2.0')
 import gtk, gtk.glade
 
 import string
+
+import sys
+sys.path.append('../dominio')
+import analyzer
 
 #ICON = gtk.gdk.pixbuf_new_from_file("terminal_icon.jpg")
 TITLE = "Index Engine"
@@ -142,11 +146,15 @@ class Aplicacion:
     def btnStart_activate_cb(self, widget):
         rbFile = self.gui['rbFile']
         rbDirectory = self.gui['rbDirectory']
+        ############
+        anal = analyzer.Analyzer()
+        ############
         if rbFile.get_active():
             print "Indexamos un fichero"
+            anal.file_index(self.gui['txtFilePath'].get_text())
         elif rbDirectory.get_active():
             print "Indexamos todos los ficheros de un directorio"
-
+            anal.folder_index(self.gui['txtDirectoryPath'].get_text())
         
 def main():
     gtk.main()
