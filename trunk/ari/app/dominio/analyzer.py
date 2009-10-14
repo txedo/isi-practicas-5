@@ -10,14 +10,13 @@ class Analyzer:
 
     # Inicializamos los atributos de la clase (la stop_list)
     def __init__(self):    
-        self.stop_list = (open("../misc/stoplist","r")).read()
+        self.stop_list = (open("../misc/stoplist","r")).read().split("\n")
         self.dao = None
 
 
     # Metodo para indexar un fichero
     def file_index(self, path):
         analyzing_directory = True
-
         if not os.path.isfile(path):
             print path
             pass # Tratamiento de enlaces simbolicos o ruta incorrecta
@@ -36,19 +35,22 @@ class Analyzer:
             fd = open(path, "r")
             for line in fd.readlines():
                 word_list = self.parser(line.lower())
-                # Para cada una de las palabras procesadas y devueltas por el parser, si no pertenece a la stop_list, actualizamos su frecuencia
-                for word in word_list:
-                    # Si la palabra ya aparecia en el documento (es decir, en el posting_file de este documento), se aumenta su frecuencia
-                    if self.dao.exist_term_posting_file(word, last_id):
-                        self.dao.update_term_posting_file(word, last_id)
-                    else:
-                        # Si es la primera vez que aparece la palabra en el documento, se comprueba si esa 
-                        # palabra ya aparecia en otro documento. Si no, se anade al diccionario (ademas de al posting_file)
-                        if self.dao.exist_term_dic(word):
-                            self.dao.update_term_dic(word)
+                # Si el parser ha procesado alguna palabra, se actualiza la base de datos
+                if len(word_list) > 0:
+                   # print "Word list definitiva", word_list
+                    # Para cada una de las palabras procesadas y devueltas por el parser, si no pertenece a la stop_list, actualizamos su frecuencia
+                    for word in word_list:
+                        # Si la palabra ya aparecia en el documento (es decir, en el posting_file de este documento), se aumenta su frecuencia
+                        if self.dao.exist_term_posting_file(word, last_id):
+                            self.dao.update_term_posting_file(word, last_id)
                         else:
-                            self.dao.insert_term_dic(word)
-                        self.dao.insert_term_posting_file(word, last_id)
+                            # Si es la primera vez que aparece la palabra en el documento, se comprueba si esa 
+                            # palabra ya aparecia en otro documento. Si no, se anade al diccionario (ademas de al posting_file)
+                            if self.dao.exist_term_dic(word):
+                                self.dao.update_term_dic(word)
+                            else:
+                                self.dao.insert_term_dic(word)
+                            self.dao.insert_term_posting_file(word, last_id)
                         
             if not analyzing_directory:
                 self.dao.close()
@@ -75,35 +77,61 @@ class Analyzer:
     def parser(self, line):
         result = []
         word_list = []
+        separadores=string.punctuation+string.whitespace
         ip_pattern = re.compile('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})')
-        foo = line.translate(string.maketrans("",""),"\t+\n+\r+") # Se cambian los tabuladores por espacios
-        word_list = foo.split(" ") # Se obtiene una lista al separar por espacios
+        #foo = line.translate(string.maketrans("",""),string.whitespace) # Se cambian los tabuladores por espacios
+        #foo = re.sub('[%s]' % re.escape(string.whitespace), " ", line)
+        word_list = line.split(" ") # Se obtiene una lista al separar por espacios
+        #print "LINEA: ", word_list
         # Para cada palabra de la lista, si NO esta en la stop_list y no es una palabra vacia, se parsea
         for word in word_list:
-            if word <> '' and word not in self.stop_list:
+            #print "Palabra: ", word
+            if (word not in string.whitespace) and (word not in self.stop_list):
                 # Si la palabra es una direccion IP, se toma dicha palabra como termino
                 if ip_pattern.match(word):
                     result.append(word)
                 else: # Si es direccion web, email u otra palabra, se separa por signos de puntuacion
-                    print "word: ", word
-                    word_parts = (re.sub('[%s]' % re.escape(string.punctuation), " ", word)).split(" ")
-                    print "world_parts: ", word_parts
+                    #print "word: ", word
+                    # Eliminamos el caracter ' (con \\' tambien peta la base de datos)
+                    word.replace("\'","a")
+                    word_parts = (re.sub('[%s]' % re.escape(separadores), " ", word)).split(" ")
+                    #print "word_parts: ", word_parts
                     is_compound_word = False
+                    delete = False
+                    # Copia auxiliar para poder recorrer toda la lista de palabras
+                    aux = word_parts[:]
                     # Se comprueba que al separar la palabra por signos de puntuacion, todas las palabras obtenidas tengan sentido
-                    for w in word_parts:
-                        if w == '':
+                    for w in aux:
+                        #print "Palabra: ", w
+                        if w in string.whitespace: 
                             word_parts.remove(w)
+                        # Si una palabra de la stop_list solo va seguida de espacios, se elimina
                         elif w in self.stop_list:
-                            is_compound_word = True
-                            break
+                            for i in aux[aux.index(w)+1:]:
+                                if i in string.whitespace:
+                                    delete = True                                          
+                                else:
+                                    delete = False
+                                    break
+                            if not delete:
+                                is_compound_word = True
+                                #print "Palabra que no puede separarse porque esta en la stoplist:", w
+                                #print self.stop_list[self.stop_list.index(w)]
+                                break
+                            else:
+                                word_parts.remove(w)
+                    #print "Word parts despues ", word_parts
                     # Si se puede separar la palabra, todas ellas se consideran terminos
                     if not is_compound_word:
+                        #print "Entra aqui"
                         result.extend(word_parts)
                     # Si no se puede separar, se mete la palabra compuesta
                     else:
+                        #print "Entra alli"
                         result.append(word)
+            
         return result
 
 
 anal = Analyzer()
-anal.file_index("/home/txedo/Desktop/3Dfx-HOWTO.txt")
+anal.file_index("/home/juan/Escritorio/3Dfx-HOWTO.txt")
