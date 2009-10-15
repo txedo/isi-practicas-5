@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 #    Index Engine
 #    Copyright (C) 2009, Jose Domingo Lopez Lopez & Juan Andrada Romero
