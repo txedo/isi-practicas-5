@@ -147,15 +147,21 @@ class Aplicacion:
     def btnStart_activate_cb(self, widget):
         rbFile = self.gui['rbFile']
         rbDirectory = self.gui['rbDirectory']
-        ############
-        anal = analyzer.Analyzer()
-        ############
-        if rbFile.get_active():
-            print "Indexamos un fichero"
-            anal.file_index(self.gui['txtFilePath'].get_text())
-        elif rbDirectory.get_active():
-            print "Indexamos todos los ficheros de un directorio"
-            anal.folder_index(self.gui['txtDirectoryPath'].get_text())
+        try:
+            anal = analyzer.Analyzer()
+            if rbFile.get_active():
+                print "Indexamos un fichero"
+                anal.file_index(self.gui['txtFilePath'].get_text())
+            elif rbDirectory.get_active():
+                print "Indexamos todos los ficheros de un directorio"
+                anal.folder_index(self.gui['txtDirectoryPath'].get_text())
+        except Exception, e:
+            message = gtk.MessageDialog(None, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_NONE, "aaaaaaaaaaaaaaaaiba que chorrazo")
+            message.set_title("jejeje")
+            message.add_buttons(gtk.STOCK_OK, gtk.RESPONSE_OK)
+            resp = message.run()
+            if resp==gtk.RESPONSE_OK:
+                message.destroy()
         
 def main():
     gtk.main()
