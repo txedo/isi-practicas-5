@@ -15,10 +15,12 @@ import psyco
 import sys
 sys.path.append('../dominio')
 import analyzer
+import MySQLdb
 
 psyco.full()
 
 from optparse import OptionParser
+from exception import *
 
 # Parse arguments
 parser=OptionParser(usage="%prog (-f <file_name> | -d <directory_name>)", version="%prog 1.0",
@@ -37,6 +39,21 @@ else:
     analyzer = analyzer.Analyzer()
     
     if options.file_name:
-        analyzer.file_index(options.file_name)
+        try:
+            analyzer.file_index(options.file_name)
+        except MySQLdb.Error, e:
+            print "SQL Exception: "+e.args[1]
+        except FileException, e:
+            print str(e)
+        except Exception, e:
+            print "Exception: "+str(e)
     elif options.directory_name:
-        analyzer.folder_index(options.directory_name)
+        try:
+            analyzer.folder_index(options.directory_name)
+        except MySQLdb.Error, e:
+            print "SQL Exception: "+e.args[1]
+        except FolderException, e:
+            print str(e)
+        except Exception, e:
+            print "Exception: "+str(e)
+
