@@ -1,6 +1,13 @@
 import MySQLdb
 
+class ConnectionException(exception.Exception):
+    def __init__(self):
+		return
+		
+	def __str__(self):
+		print "Connection cannot be created
 
+    
 class Agente(object):
 
 
@@ -18,8 +25,9 @@ class Agente(object):
             # Metodo para almacenar las transacciones en la BBDD de manera permanente
             cls.__conn.autocommit(1)
             return cls.__instance
-        except:
-            raise Exception, "Connection to database cannot be created"
+        except ConnectionException, e:
+            raise e
+                 
 
     def close ( self ):
         try:
