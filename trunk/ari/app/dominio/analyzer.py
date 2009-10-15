@@ -72,7 +72,7 @@ class Analyzer:
     def folder_index(self, path):
         # Si no es un directorio, se lanza una excepcion
         if not os.path.isdir(path):
-            raise Exception, path+" is not a directory"
+            raise Exception, path+" is not a folder"
         else:
             try: 
                 # Se lista el contenido del directorio y se procesan los ficheros
