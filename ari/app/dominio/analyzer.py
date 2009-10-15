@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import re
 import string
 import os
@@ -5,6 +7,9 @@ import shutil
 import sys
 sys.path.append('../persistencia')
 import dao
+import psyco
+
+psyco.full()
 
 class Analyzer:
 
@@ -37,7 +42,6 @@ class Analyzer:
                 word_list = self.parser(line.lower())
                 # Si el parser ha procesado alguna palabra, se actualiza la base de datos
                 if len(word_list) > 0:
-                   # print "Word list definitiva", word_list
                     # Para cada una de las palabras procesadas y devueltas por el parser, si no pertenece a la stop_list, actualizamos su frecuencia
                     for word in word_list:
                         # Si la palabra ya aparecia en el documento (es decir, en el posting_file de este documento), se aumenta su frecuencia
@@ -79,30 +83,23 @@ class Analyzer:
         word_list = []
         separadores=string.punctuation+string.whitespace
         ip_pattern = re.compile('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})')
-        #foo = line.translate(string.maketrans("",""),string.whitespace) # Se cambian los tabuladores por espacios
-        #foo = re.sub('[%s]' % re.escape(string.whitespace), " ", line)
         word_list = line.split(" ") # Se obtiene una lista al separar por espacios
-        #print "LINEA: ", word_list
         # Para cada palabra de la lista, si NO esta en la stop_list y no es una palabra vacia, se parsea
         for word in word_list:
-            #print "Palabra: ", word
             if (word not in string.whitespace) and (word not in self.stop_list):
                 # Si la palabra es una direccion IP, se toma dicha palabra como termino
                 if ip_pattern.match(word):
                     result.append(word)
                 else: # Si es direccion web, email u otra palabra, se separa por signos de puntuacion
-                    #print "word: ", word
                     # Eliminamos el caracter ' (con \\' tambien peta la base de datos)
-                    word.replace("\'","a")
+                    word = word.replace("'","\\'")
                     word_parts = (re.sub('[%s]' % re.escape(separadores), " ", word)).split(" ")
-                    #print "word_parts: ", word_parts
                     is_compound_word = False
                     delete = False
                     # Copia auxiliar para poder recorrer toda la lista de palabras
                     aux = word_parts[:]
                     # Se comprueba que al separar la palabra por signos de puntuacion, todas las palabras obtenidas tengan sentido
                     for w in aux:
-                        #print "Palabra: ", w
                         if w in string.whitespace: 
                             word_parts.remove(w)
                         # Si una palabra de la stop_list solo va seguida de espacios, se elimina
@@ -115,23 +112,15 @@ class Analyzer:
                                     break
                             if not delete:
                                 is_compound_word = True
-                                #print "Palabra que no puede separarse porque esta en la stoplist:", w
-                                #print self.stop_list[self.stop_list.index(w)]
                                 break
                             else:
                                 word_parts.remove(w)
-                    #print "Word parts despues ", word_parts
                     # Si se puede separar la palabra, todas ellas se consideran terminos
                     if not is_compound_word:
-                        #print "Entra aqui"
                         result.extend(word_parts)
                     # Si no se puede separar, se mete la palabra compuesta
                     else:
-                        #print "Entra alli"
                         result.append(word)
             
         return result
 
-
-anal = Analyzer()
-anal.file_index("/home/juan/Escritorio/3Dfx-HOWTO.txt")
