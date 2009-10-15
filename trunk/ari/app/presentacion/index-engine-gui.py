@@ -27,6 +27,8 @@ import string
 import sys
 sys.path.append('../dominio')
 import analyzer
+import MySQLdb
+from exception import *
 
 #ICON = gtk.gdk.pixbuf_new_from_file("terminal_icon.jpg")
 TITLE = "Index Engine"
@@ -148,20 +150,53 @@ class Aplicacion:
         rbFile = self.gui['rbFile']
         rbDirectory = self.gui['rbDirectory']
         try:
+
             anal = analyzer.Analyzer()
             if rbFile.get_active():
-                print "Indexamos un fichero"
-                anal.file_index(self.gui['txtFilePath'].get_text())
+                file_path = self.gui['txtFilePath'].get_text()
+                if file_path <> '':
+                    anal.file_index(file_path)
+                else:   
+                    message = self.handle_exception_gui("File not found", "Browse a file")
+                    resp = message.run()
+                    if resp==gtk.RESPONSE_OK:
+                        message.destroy()
             elif rbDirectory.get_active():
-                print "Indexamos todos los ficheros de un directorio"
-                anal.folder_index(self.gui['txtDirectoryPath'].get_text())
-        except Exception, e:
-            message = gtk.MessageDialog(None, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_NONE, "aaaaaaaaaaaaaaaaiba que chorrazo")
-            message.set_title("jejeje")
-            message.add_buttons(gtk.STOCK_OK, gtk.RESPONSE_OK)
+                folder_path = self.gui['txtDirectoryPath'].get_text()
+                if folder_path <> '':
+                    anal.folder_index(folder_path)
+                else:
+                    message = self.handle_exception_gui("Folder not found", "Browse a folder")
+                    resp = message.run()
+                    if resp==gtk.RESPONSE_OK:
+                        message.destroy()
+        except MySQLdb.Error, e:
+            message = self.handle_exception_gui("SQL Exception", e.args[1])
             resp = message.run()
             if resp==gtk.RESPONSE_OK:
                 message.destroy()
+        except FileException, e:
+            message = self.handle_exception_gui("File path incorrect", str(e))
+            resp = message.run()
+            if resp==gtk.RESPONSE_OK:
+                message.destroy()
+        except FolderException, e:
+            message = self.handle_exception_gui("Folder path incorrect", str(e))
+            resp = message.run()
+            if resp==gtk.RESPONSE_OK:
+                message.destroy()
+        except Exception, e:
+            message = self.handle_exception_gui("Exception", str(e))
+            resp = message.run()
+            if resp==gtk.RESPONSE_OK:
+                message.destroy()
+        
+    def handle_exception_gui (self, title, error):
+        message = gtk.MessageDialog(None, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_NONE, error)
+        message.set_title(title)
+        message.add_buttons(gtk.STOCK_OK, gtk.RESPONSE_OK)
+        return message
+
         
 def main():
     gtk.main()

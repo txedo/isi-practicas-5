@@ -14,7 +14,7 @@ class Dao:
         try:          
             self.__agente.execute(sql)
         except:
-            raise Exception, "Failed to insert a term into dictionary"
+            raise
         
 
     def insert_term_posting_file(self, term, id_doc):
@@ -22,7 +22,7 @@ class Dao:
         try:
             self.__agente.execute(sql)
         except:
-            raise Exception, "Failed to insert a term into posting_file"
+            raise
 
     
     def insert_doc(self, doc):
@@ -40,7 +40,7 @@ class Dao:
             self.__agente.execute(sql)
             return (path, last_id)
         except:
-            raise Exception, "Failed to insert a document into documents"
+            raise
         
     
     def update_term_dic(self, term):
@@ -48,7 +48,7 @@ class Dao:
         try:            
             self.__agente.execute(sql)
         except:
-            raise Exception, "Failed to update a term into dictionary"
+            raise 
 
 
     def update_term_posting_file(self, term, id_doc):
@@ -56,7 +56,7 @@ class Dao:
         try:            
             self.__agente.execute(sql)
         except:
-            raise Exception, "Failed to update a term into posting_file"
+            raise 
 
 
     def exist_term_dic(self, term):
