@@ -99,7 +99,7 @@ class Analyzer:
     def parser(self, line):
         result = []
         word_list = []
-        line = unicode(line, "iso-8859-1").encode("utf-8")
+        #line = unicode(line, "iso-8859-1").encode("utf-8")
         line = re.sub('[%s]' % re.escape(string.whitespace), " ", line)
         line = line.replace("\\","\\\\")
         line = line.replace("'","\\'")
@@ -119,15 +119,18 @@ class Analyzer:
                 else: # Si es direccion web, email u otra palabra, se separa por signos de puntuacion
                     # Estandarizamos las vocales
                     reg = re.compile("á|à|ä|â")
-                    reg.sub("a",word)
+                    word = reg.sub("a",word)
                     reg = re.compile("é|è|ë|ê")
-                    reg.sub("e",word)
+                    word = reg.sub("e",word)
                     reg = re.compile("í|ì|ï|î")
-                    reg.sub("i",word)
+                    word = reg.sub("i",word)
                     reg = re.compile("ó|ò|ö|ô")
-                    reg.sub("o",word)
+                    word = reg.sub("o",word)
                     reg = re.compile("ú|ù|ü|û")
-                    reg.sub("u",word)
+                    word = reg.sub("u",word)
+                    reg = re.compile("´|`|¨|^")
+                    word = reg.sub(" ",word)
+                    
                     word_parts = (re.sub('[%s]' % re.escape(separadores), " ", word)).split(" ")
                     is_compound_word = False
                     delete = False
