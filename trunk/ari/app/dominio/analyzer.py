@@ -99,6 +99,10 @@ class Analyzer:
     def parser(self, line):
         result = []
         word_list = []
+        line = unicode(line, "iso-8859-1").encode("utf-8")
+        line = re.sub('[%s]' % re.escape(string.whitespace), " ", line)
+        line = line.replace("\\","\\\\")
+        line = line.replace("'","\\'")
         separadores=string.punctuation+string.whitespace
         ip_pattern = re.compile('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})')
         word_list = line.split(" ") # Se obtiene una lista al separar por espacios
@@ -106,7 +110,8 @@ class Analyzer:
         for word in word_list:
             if (word not in string.whitespace) and (word not in self.stop_list):
                 # Evitamos errores de SQLInjection
-                word = word.replace("'","\\'")
+                #word = word.replace("\\","\\\\")
+                #word = word.replace("'","\\'")
                 # Si la palabra es una direccion IP, se toma dicha palabra como termino
                 if ip_pattern.match(word):
                     word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
