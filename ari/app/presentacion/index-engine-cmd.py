@@ -16,6 +16,7 @@ import sys
 sys.path.append('../dominio')
 import analyzer
 import MySQLdb
+import datetime
 
 psyco.full()
 
@@ -40,7 +41,10 @@ else:
     
     if options.file_name:
         try:
+            d1 = datetime.datetime.now()
             analyzer.file_index(options.file_name)
+            d2 = datetime.datetime.now()
+            print d2-d1
         except MySQLdb.Error, e:
             print "SQL Exception: "+e.args[1]
         except FileException, e:

@@ -9,6 +9,8 @@ sys.path.append('../persistencia')
 import dao
 import psyco
 from exception import *
+from config import *
+from cache import *
 
 psyco.full()
 
@@ -19,6 +21,7 @@ class Analyzer:
         self.stop_list = (open("../misc/stoplist","r")).read().split("\n")
         self.dao = None
         self.posting_file = {}
+        self.cache = Cache()
 
 
     # Metodo para indexar un fichero
@@ -52,10 +55,17 @@ class Analyzer:
                                 self.posting_file[word] = 1
                                 # Si es la primera vez que aparece la palabra en el documento, se comprueba si esa 
                                 # palabra ya aparecia en otro documento. Si no, se anade al diccionario (ademas de al posting_file)
-                                if self.dao.exist_term_dic(word):
-                                    self.dao.update_term_dic(word)
+                                what_cache = self.cache.exists(word)
+                                if what_cache == NOT_CACHE:
+                                    (exist_term, frequency) = self.dao.exist_term_dic(word)
+                                    if not exist_term:
+                                        self.cache.load(word,NEW_CACHE)
+                                    else:
+                                        self.cache.load(word,OLD_CACHE,frequency+1)
                                 else:
-                                    self.dao.insert_term_dic(word)
+                                    frequency = self.cache.get_frequency(word,what_cache)
+                                    self.cache.load(word,what_cache,frequency+1)
+                self.cache.synchronize()
                 for k in self.posting_file.keys():
                     self.dao.insert_term_posting_file(k, last_id, self.posting_file[k])
             except:
@@ -95,12 +105,13 @@ class Analyzer:
         # Para cada palabra de la lista, si NO esta en la stop_list y no es una palabra vacia, se parsea
         for word in word_list:
             if (word not in string.whitespace) and (word not in self.stop_list):
+                # Evitamos errores de SQLInjection
+                word = word.replace("'","\\'")
                 # Si la palabra es una direccion IP, se toma dicha palabra como termino
                 if ip_pattern.match(word):
+                    word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
                     result.append(word)
                 else: # Si es direccion web, email u otra palabra, se separa por signos de puntuacion
-                    # Eliminamos el caracter
-                    word = word.replace("'","\\'")
                     # Estandarizamos las vocales
                     reg = re.compile("á|à|ä|â")
                     reg.sub("a",word)
