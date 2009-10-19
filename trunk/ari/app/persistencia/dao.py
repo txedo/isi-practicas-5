@@ -9,8 +9,8 @@ class Dao:
         except:
             raise
 
-    def insert_term_dic(self, term):
-        sql = "INSERT INTO dic (term) VALUES ('"+term+"')"
+    def insert_term_dic(self, term, frequency=1):
+        sql = "INSERT INTO dic VALUES ('"+term+"',"+str(frequency)+")"
         try:          
             self.__agente.execute(sql)
         except:
@@ -51,8 +51,8 @@ class Dao:
             raise
         
     
-    def update_term_dic(self, term):
-        sql = "UPDATE dic SET num_docs=num_docs+1 WHERE term='"+term+"'"
+    def update_term_dic(self, term, frequency):
+        sql = "UPDATE dic SET num_docs="+str(frequency)+" WHERE term='"+term+"'"
         try:            
             self.__agente.execute(sql)
         except:
@@ -68,12 +68,15 @@ class Dao:
 
 
     def exist_term_dic(self, term):
-        sql = "SELECT COUNT(*) FROM dic WHERE term='"+term+"'"
-        try:            
+        sql = "SELECT num_docs FROM dic WHERE term='"+term+"'"
+        try:
+            frequency = 0
+            exist = False
             result = self.__agente.query(sql)
-            existe = True
-            if result[0][0] == 0: existe = False
-            return existe
+            if result:
+                exist = True
+                frequency = result[0][0]
+            return (exist,frequency)
         except:
             raise
 
