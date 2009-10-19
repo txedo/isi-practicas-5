@@ -18,6 +18,7 @@ class Analyzer:
     def __init__(self):    
         self.stop_list = (open("../misc/stoplist","r")).read().split("\n")
         self.dao = None
+        self.posting_file = {}
 
 
     # Metodo para indexar un fichero
@@ -45,16 +46,18 @@ class Analyzer:
                         # Para cada una de las palabras procesadas y devueltas por el parser, si no pertenece a la stop_list, actualizamos su frecuencia
                         for word in word_list:
                             # Si la palabra ya aparecia en el documento (es decir, en el posting_file de este documento), se aumenta su frecuencia
-                            if self.dao.exist_term_posting_file(word, last_id):
-                                self.dao.update_term_posting_file(word, last_id)
-                            else:
+                            try:
+                                self.posting_file[word] += 1
+                            except:
+                                self.posting_file[word] = 1
                                 # Si es la primera vez que aparece la palabra en el documento, se comprueba si esa 
                                 # palabra ya aparecia en otro documento. Si no, se anade al diccionario (ademas de al posting_file)
                                 if self.dao.exist_term_dic(word):
                                     self.dao.update_term_dic(word)
                                 else:
                                     self.dao.insert_term_dic(word)
-                                self.dao.insert_term_posting_file(word, last_id)
+                for k in self.posting_file.keys():
+                    self.dao.insert_term_posting_file(k, last_id, self.posting_file[k])
             except:
                 raise
             if not analyzing_directory:
@@ -76,6 +79,7 @@ class Analyzer:
                     if os.path.isdir(full_path):
                         pass # Tratamiento de directorios
                     else:
+                        self.posting_file = {}
                         self.file_index(full_path)
                 self.dao.close()
             except: 
@@ -117,7 +121,7 @@ class Analyzer:
                     for w in aux:
                         if w in string.whitespace: 
                             word_parts.remove(w)
-                        # Si una palabra de la stop_list solo va seguida de espacios, se elimina
+                        # Si en la lista solo aparece una palabra de la stop_list con espacios, se elimina
                         elif w in self.stop_list:
                             for i in aux:
                                 if i is not w:

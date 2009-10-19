@@ -24,6 +24,14 @@ class Dao:
         except:
             raise
 
+
+    def insert_term_posting_file(self, term, id_doc, frequency):
+        sql = "INSERT INTO posting_file VALUES ('"+term+"',"+str(id_doc)+","+str(frequency)+")"
+        try:
+            self.__agente.execute(sql)
+        except:
+            raise
+
     
     def insert_doc(self, doc):
         # Insertamos el nuevo documento
