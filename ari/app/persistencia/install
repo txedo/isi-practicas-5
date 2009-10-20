@@ -7,12 +7,11 @@ show databases;
 show tables;
 */
 
-CREATE DATABASE ari;
-
+CREATE DATABASE ari CHARACTER SET utf8 COLLATE utf8_bin;
 USE ari;
 
 CREATE TABLE dic (
-       term VARCHAR(256) NOT NULL default '',
+       term VARCHAR(255) NOT NULL default '',
        num_docs INT NOT NULL default '1',
        PRIMARY KEY (term)
 ) TYPE=InnoDB;
@@ -25,7 +24,7 @@ CREATE TABLE doc (
 ) TYPE=InnoDB AUTO_INCREMENT=1;
 
 CREATE TABLE posting_file (
-       term VARCHAR(256) NOT NULL default '',
+       term VARCHAR(255) NOT NULL default '',
        id_doc INT NOT NULL,
        frequency INT NOT NULL default '1',
        PRIMARY KEY (term, id_doc),

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.5 on Mon Oct  5 19:17:24 2009 -->
+<!--Generated with glade3 3.4.5 on Tue Oct 20 19:15:10 2009 -->
 <glade-interface>
   <widget class="GtkWindow" id="window">
     <property name="visible">True</property>
@@ -127,11 +127,10 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkLabel" id="lblStatusBar">
-            <property name="width_request">319</property>
-            <property name="height_request">20</property>
+          <widget class="GtkProgressBar" id="progressbar">
+            <property name="width_request">325</property>
+            <property name="height_request">25</property>
             <property name="visible">True</property>
-            <property name="single_line_mode">True</property>
           </widget>
           <packing>
             <property name="y">224</property>
