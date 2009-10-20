@@ -16,16 +16,19 @@
 #
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
-    
+
+import psyco
+psyco.full()
+
 import pygtk
 pygtk.require('2.0')
 import gtk, gtk.glade, gobject
 
 import string
 
-import sys
-sys.path.append('../dominio')
+import sys, os
+sys.path.append(os.getcwd() + "/../dominio")
+
 import analyzer
 import MySQLdb
 from exception import *
@@ -171,6 +174,7 @@ class Aplicacion:
         rbFile = self.gui['rbFile']
         rbDirectory = self.gui['rbDirectory']
         try:
+            widget.set_sensitive(False)
             init = datetime.datetime.now()
             if rbFile.get_active():
                 file_path = self.gui['txtFilePath'].get_text()
@@ -215,6 +219,7 @@ class Aplicacion:
             resp = message.run()
             if resp==gtk.RESPONSE_OK:
                 message.destroy()
+        widget.set_sensitive(True)
         
     def handle_exception_gui (self, title, error):
         message = gtk.MessageDialog(None, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_NONE, error)
