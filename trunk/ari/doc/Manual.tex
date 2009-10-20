@@ -18,11 +18,11 @@ documental. En la distribución del software se ofrece un fichero
 ``install'' bajo el directorio ``persistencia'', que contiene las
 sentencias necesarias para crear la base de datos y sus tablas
 mediante el intérprete de MySQL. Si no sabe acceder al intérprete de
-su servdor MySQL escriba la siguiente sentencia en un terminal:
-\texttt{mysql -u root -p}
+su servidor MySQL escriba la siguiente sentencia en un terminal:
+\begin{center} \texttt{mysql -u root -p} \end{center}
 
 Llegados a este punto ya tiene su sistema listo para ser utilizado. A
-continuación se hablrará de cada una de las interfaces disponibles en
+continuación se hablará de cada una de las interfaces disponibles en
 el sistema para el usuario.
 
 \subsection{Interfaz gráfica de usuario}
@@ -40,6 +40,13 @@ ventana son:
           dado. Al pulsar el botón correspondiente, se abrirá un nuevo
           diálogo que permitirá al usuario elegir un directorio. 
 \end{milista}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.75]{./images/gui}
+	\caption{Interfaz de usuario gráfica}
+	\label{fig:index-engine-gui}
+\end{figure} 
 
 Una vez elegido un fichero o un directorio, basta con hacer clic en el
 botón llamado ''Start'' para que comienze la indexación, mostrando una
@@ -60,3 +67,10 @@ realizar.
 \end{milista}
 Si es necesario, se puede consultar la ayuda con el parámetro ``-h''o
 ``--help'' (ver Figura \ref{fig:menu-ayuda})
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.55]{./images/menu-ayuda}
+	\caption{Interfaz de usuario gráfica}
+	\label{fig:menu-ayuda}
+\end{figure} 
