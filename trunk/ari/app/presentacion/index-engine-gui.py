@@ -20,7 +20,7 @@
     
 import pygtk
 pygtk.require('2.0')
-import gtk, gtk.glade
+import gtk, gtk.glade, gobject
 
 import string
 
@@ -29,6 +29,8 @@ sys.path.append('../dominio')
 import analyzer
 import MySQLdb
 from exception import *
+
+import threading, time, datetime
 
 #ICON = gtk.gdk.pixbuf_new_from_file("terminal_icon.jpg")
 TITLE = "Index Engine"
@@ -50,6 +52,8 @@ class Aplicacion:
     
     
     def __init__(self, glade_file):
+        self.analyzer = analyzer.Analyzer()
+        self.working=False
         # Diccionario de senales y callbacks
         self.dic = {
             "on_btnBrowseFile_activate" : self.btnBrowseFile_activate_cb,
@@ -72,10 +76,12 @@ class Aplicacion:
 
 
     def __guiInit(self):
-        self.window.resize(325,225)
+        self.window.resize(325,250)
         #self.window.set_resizable(False)
         self.window.set_title(TITLE)
         #self.window.set_icon(ICON)
+        self.gui['progressbar'].set_text("Choose an option...")
+        self.gui['progressbar'].set_fraction(0.0)
         # Conectamos los radio buttons con un callback para notificar cuando cambia la seleccion
         rbFile = self.gui['rbFile']
         rbFile.connect("toggled", self.callback, "file")
@@ -110,6 +116,8 @@ class Aplicacion:
 
 
     def destroy(self, widget):
+        if self.analyzer.dao <> None:
+            self.analyzer.dao.close()
         gtk.main_quit()
         
         
@@ -146,16 +154,30 @@ class Aplicacion:
         fcdialog.destroy()
         
         
+    def init_pb(self, init):
+         time.sleep(0.2)
+         while self.analyzer.working:
+             self.gui['progressbar'].set_text(str(self.analyzer))
+             self.gui['progressbar'].pulse()
+             while gtk.events_pending():
+                 gtk.main_iteration()
+                 time.sleep(0.2)
+         self.gui['progressbar'].set_fraction(1.0)
+         finish = datetime.datetime.now()
+         self.gui['progressbar'].set_text("Index finished in " + str(finish-init))
+
+
     def btnStart_activate_cb(self, widget):
         rbFile = self.gui['rbFile']
         rbDirectory = self.gui['rbDirectory']
         try:
-
-            anal = analyzer.Analyzer()
+            init = datetime.datetime.now()
             if rbFile.get_active():
                 file_path = self.gui['txtFilePath'].get_text()
                 if file_path <> '':
-                    anal.file_index(file_path)
+                    t = threading.Thread(target=self.analyzer.file_index,args=(file_path,))
+                    t.start()
+                    self.init_pb(init)
                 else:   
                     message = self.handle_exception_gui("File not found", "Browse a file")
                     resp = message.run()
@@ -164,12 +186,15 @@ class Aplicacion:
             elif rbDirectory.get_active():
                 folder_path = self.gui['txtDirectoryPath'].get_text()
                 if folder_path <> '':
-                    anal.folder_index(folder_path)
+                    t = threading.Thread(target=self.analyzer.folder_index,args=(folder_path,))
+                    t.start()
+                    self.init_pb(init)
                 else:
                     message = self.handle_exception_gui("Folder not found", "Browse a folder")
                     resp = message.run()
                     if resp==gtk.RESPONSE_OK:
                         message.destroy()
+            
         except MySQLdb.Error, e:
             message = self.handle_exception_gui("SQL Exception", e.args[1])
             resp = message.run()

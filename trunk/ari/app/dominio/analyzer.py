@@ -22,11 +22,20 @@ class Analyzer:
         self.dao = None
         self.posting_file = {}
         self.cache = Cache()
+        self.__current_working_file = None
+        self.__current_file = 0
+        self.__total_files = 1
+        self.working = False
+        self.__analyzing_directory = False
+
+
+    def __str__(self):
+        return "("+str(self.__current_file)+"/"+str(self.__total_files)+") Indexing "+self.__current_working_file
 
 
     # Metodo para indexar un fichero
     def file_index(self, path):
-        analyzing_directory = True
+        self.posting_file = {}
         # Es un enlace simbolico o no existe la ruta
         if not os.path.isfile(path):
             raise FileException(path)
@@ -35,8 +44,13 @@ class Analyzer:
             try: 
                 if self.dao == None:
                     self.dao = dao.Dao()
-                    analyzing_directory = False
+                if not self.__analyzing_directory:
+                    self.__current_file = 1
+                else:
+                    self.__current_file = self.__current_file + 1
+                self.working=True
                 file_name = (path.split("/"))[-1] # Tomamos el nombre del archivo
+                self.__current_working_file = file_name
                 (system_path, last_id) = self.dao.insert_doc(file_name) # Recuperamos la ruta del repositorio y el id de ese documento
                 # Copiamos el documento al repositorio
                 shutil.copy2(path, system_path)
@@ -68,10 +82,10 @@ class Analyzer:
                 self.cache.synchronize()
                 for k in self.posting_file.keys():
                     self.dao.insert_term_posting_file(k, last_id, self.posting_file[k])
+
+                self.working=False
             except:
                 raise
-            if not analyzing_directory:
-                self.dao.close()
                             
 
     # Metodo para indexar un directorio
@@ -80,18 +94,21 @@ class Analyzer:
         if not os.path.isdir(path):
             raise FolderException(path)
         else:
-            try: 
+            try:
+                self.__analyzing_directory = True
                 # Se lista el contenido del directorio y se procesan los ficheros
                 list_files = os.listdir(path)
+                self.__total_files = len(list_files)
+                self.__current_file = 0
                 self.dao = dao.Dao()
                 for f in list_files:
                     full_path = path+"/"+f
                     if os.path.isdir(full_path):
                         pass # Tratamiento de directorios
                     else:
-                        self.posting_file = {}
                         self.file_index(full_path)
-                self.dao.close()
+                self.__total_files = 1
+                self.__analyzing_directory = False
             except: 
                 raise
 
@@ -100,7 +117,8 @@ class Analyzer:
         result = []
         word_list = []
         #line = unicode(line, "iso-8859-1").encode("utf-8")
-        line = re.sub('[%s]' % re.escape(string.whitespace), " ", line)
+        #line = re.sub('[%s]' % re.escape(string.whitespace), " ", line)
+        # Evitamos errores de SQLInjection
         line = line.replace("\\","\\\\")
         line = line.replace("'","\\'")
         separadores=string.punctuation+string.whitespace
@@ -109,9 +127,6 @@ class Analyzer:
         # Para cada palabra de la lista, si NO esta en la stop_list y no es una palabra vacia, se parsea
         for word in word_list:
             if (word not in string.whitespace) and (word not in self.stop_list):
-                # Evitamos errores de SQLInjection
-                #word = word.replace("\\","\\\\")
-                #word = word.replace("'","\\'")
                 # Si la palabra es una direccion IP, se toma dicha palabra como termino
                 if ip_pattern.match(word):
                     word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
@@ -128,7 +143,7 @@ class Analyzer:
                     word = reg.sub("o",word)
                     reg = re.compile("ú|ù|ü|û")
                     word = reg.sub("u",word)
-                    reg = re.compile("´|`|¨|^")
+                    reg = re.compile("´|`|¨|^|§")
                     word = reg.sub(" ",word)
                     
                     word_parts = (re.sub('[%s]' % re.escape(separadores), " ", word)).split(" ")
@@ -159,6 +174,7 @@ class Analyzer:
                         result.extend(word_parts)
                     # Si no se puede separar, se mete la palabra compuesta
                     else:
+                        word = re.sub('[%s]' % re.escape(string.whitespace), "", word)
                         result.append(word)
             
         return result
