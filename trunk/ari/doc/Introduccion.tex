@@ -1,13 +1,15 @@
 \section{Introducción}
-\subsection{Enunciado del problema}
 
-\subsection{Diseño elegido}
-Para implementar la práctica y, en concreto, este motor de indexación, se utilizará el lenguaje de programación Python (\cite{Python}). 
+Este documento aborda uno de los módulos del sistema a desarrollar, el cúal es el módulo de importación e indexación de documentos. En la sección \ref{decisiones} se tratarán las decisiones de diseño tomadas a la hora de desarrollar este módulo. En la sección \ref{manual} se explica brevemente el funcionamiento de esta aplicación y, para terminar, se comentan algunas estadísticas de funcionamiento del sistema. 
 
-Para implementar los elementos necesarios para la indexación de documentos, como son el \textit{Posting$\_$File}, la tabla de documentos y el diccionario de términos, se ha optado por utilizar una base de datos relacional, siguiendo el diagrama mostrado en la Figura \ref{BD}. Las tablas que se representan son:
 
-\begin{milista}
-	\item \textbf{dic}: implementa el diccionario de términos. Tiene los campos \textit{term} y \textit{num$\_$docs}, que representan cada uno de los términos encontrados, junto con el número de documentos donde aparece cada término.
-	\item \textbf{doc}: implementa la tabla de documentos. Tiene los campos \textit{id$\_$doc}, \textit{title} y \textit{path} para almacenar un identificador único de documento, el título del documento y la ruta del sistema donde se almacena una copia de dicho documento. 
-	\item \textbf{posting$\_$file}: implementa el posting$\_$file. Contiene los campos \textit{term}, \textit{id$\_$doc} y \textit{frequency} para representar la frecuencia con la que aparece un término en un documento. Por tanto, el campo \textit{term} hace referencia a términos del diccionario, y el campo \textit{id$\_$doc} hace referencia a los documentos de la tabla de documentos.
-\end{milista}
+
+
+
+
+
+
+
+
+
+
