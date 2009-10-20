@@ -1,0 +1,17 @@
+\section{Manual de usuario}
+
+\subsection{Interfaz de usuario gráfica}
+Al ejecutar la interfaz gráfica, contenida en el archivo \textit{index-engine-gui.py} de la capa de presentación, se mostrará la ventana principal, tal y como aparece en la Figura \ref{principal}. Las opciones de dicha ventana son:
+
+\begin{milista}
+	\item \textbf{Choose a file}: esta opción sirve para indexar un único fichero. Al pulsar el botón, se abrirá un nuevo diálogo que permitirá seleccionar el fichero deseado.
+	\item \textbf{Choose a directory}: esta opción sirve para indexar todos los ficheros contenidos en el directorio dado. Al pulsar el botón correspondiente, se abrirá un nuevo diálogo que permitirá elegir un directorio.
+\end{milista}
+
+Una vez elegido un fichero o un directorio, basta con hacer clic en el botón llamado ''Start'' para que comienze la indexación, mostrando una barra de progreso para informar del avance de la indexación de los ficheros (ver Figura \ref{progreso}).
+
+\subsection{Interfaz de usuario por línea de comandos}
+
+Esta aplicación también puede invocarse desde una línea de comandos. Para ello, desde la capa de presentación, hay que lanzar la siguiente órden: \textit{python index-engine-cmd.py [-f|-d] [file$\_$name|directory$\_$name]}.
+
+......................
