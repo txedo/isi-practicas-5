@@ -1,0 +1,27 @@
+\section{Futuras mejoras}
+
+\paragraph{Cache} Como se dice en la sección de estadísticas (ver
+\ref{estadisticas}}, la memoria caché no es tan óptima como se
+esperaba. En próximas versiones se tratará de afinar la granuralidad
+de esta funcionalidad para así minimizar, en la medida de lo posible,
+el número de accesos a disco.
+
+\paragraph{Extensibilidad} El sistema es completamente extensible
+gracias a su arquitectura multicapa. Como prueba de ello se han
+incorporado dos interfaces de usuario, una gráfica y otra basada en
+texto, pero se quiere explotar más las posibilidades que nos brinda
+esta arquitectura. Para ello se tratará de preparar la capa de
+persistencia de modo que haya modos de almacenamiento alternativos a
+la base de datos relacional que se utiliza actualmente.
+
+\paragraph{Uso de disco} Aunque esta mejora ya está implícita en el
+uso de memorias caché, se tratará de mejorar esta característica en
+otro ámbito. Actualmente, cuando el sistema lee línea a línea el
+fichero que está parseando para su indexación. El inconveniente de
+este diseño está en que se están solicitando accesos a disco de forma
+continua (uno por cada línea). Para reducir esta operación a un sólo
+acceso a disco se leerá el fichero completo y se guardará en la
+memoria RAM, de modo que el acceso a cada una de las líneas será más
+eficiente. Esto es posible ya que los ficheros con los que trabaja el
+sistema son de texto plano y no tienen un gran volumen.
+
