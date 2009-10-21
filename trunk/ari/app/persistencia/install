@@ -17,7 +17,7 @@
 
 # ==========================================================
 # Orden para acceder a la consola de MySQL:
-    # mysql -u root -p <password>
+    # mysql -u root -p
 
 # Orden para usar una base de datos:
     # use <db>
