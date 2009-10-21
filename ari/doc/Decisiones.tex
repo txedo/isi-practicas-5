@@ -20,7 +20,7 @@ Para implementar los elementos necesarios para la indexación de
 documentos, como son el \textit{Posting$\_$File}, la tabla de
 documentos y el diccionario de términos, se ha optado por utilizar una
 base de datos relacional, siguiendo el diagrama mostrado en la Figura
-\ref{BD}. Las tablas que se representan son: 
+\ref{fig:BD}. Las tablas que se representan son: 
 
 \begin{milista}
 	\item \textbf{dic}: implementa el diccionario de
@@ -128,7 +128,7 @@ y realiza la siguientes acciones:
           vocales sin acentuar. 
 	\item En cada una de las palabras de la línea, se sustituyen
           los separadores que pueda contener la palabra por un espacio
-          en blanco, obteniendo así una lista de palabras, que recibe
+          en blanc y se divide la palabra por dichos espacios, obteniendo así una lista de palabras, que recibe
           el siguiente tratamiento: 
 	\begin{enumerate}
 	\item Se eliminan los espacios en blanco.
@@ -142,26 +142,28 @@ y realiza la siguientes acciones:
           la stop$\_$list rodeada de espacios, dicha palabra se
           ignora. Por ejemplo, al separar la palabra ''$\backslash$t
           already?'', se obtendria la lista ['' '', '' '', already,''
-          ''], que solo contiene una palabra de la stop$\_$list
+          ''], que sólo contiene una palabra de la stop$\_$list
           rodeada de espacios, lo cual no tiene sentido.  
-	\item En las direcciones web o de e-mail, el tratamiento es el
-          mismo: se separa la palabra por seaparadores, obteniendo una
-          lista y alamcenando las palabras por separado. Esto
-          soluciona el siguiente problema: si el texto no tiene una
+	\item En las direcciones web o e-mail, el tratamiento es el
+          mismo: se divide la palabra por separadores, obteniendo una
+          lista y almacenando las palabras por separado. \\
+          \indent Esto soluciona el siguiente problema: si el texto no tiene una
           escritura correcta y apareciese la palabra
           ''juanro.1987@gmail.com.Hola'', con este tratamiento se
-          alamcenarían las palabras ''juanro'', ''1987'', ''gmail'',
+          almacenarían las palabras ''juanro'', ''1987'', ''gmail'',
           ''com'' y ''hola''. Sin embargo, si tratasemos un e-mail
           como una palabra completa hasta que se encontrase un
           espacio, se almacenaría como término
-          ''juanro.1987@gmail.com.Hola'', que luego no se encontraría
+          ''juanro.1987@gmail.com.Hola'', que luego no se encontraría en el diccionario 
           si alguien consulta por la dirección de e-mail
           ''juanro.1987@gmail.com''. En nuestro caso, como este mismo
           parser se va a aplicar a las consultas, la cadena anterior
           recibiría el mismo tratamiento y podría recuperar los
-          términos que se habían almacenado por separado. 
+          términos que se habían almacenado en el diccionario por separado. 
 	\end{enumerate}
 \end{milista}
+
+En resumen, este módulo parser se ha implementado para dar el mismo tratamiento a las cadenas de los documentos a indexar como a las cadenas de consultas.
 
 \paragraph{Codificación de documentos y de la base de datos} Tras
 realizar múltiples pruebas con diferentes documentos, se observaron
@@ -177,16 +179,14 @@ posting$\_$file de cada documento en memoria en forma de diccionario
 (tabla hash), para conseguir que los accesos sean más rápidos. Se han
 realizado pruebas y para un documento de unas 25.000 líneas, el tamaño
 del posting$\_$file no excede de los 13MB en memoria. Por tanto, esta
-opción es más eficiente en cuanto a tiempo que ir accediendo a la base
-de datos por cada uno de los términos que se deben almacenar de cada
-uno de los documentos. 
+opción es más eficiente en cuanto a tiempo, ya que sólo se vuelca el diccionario cuando se termina de procesar el documento, en lugar de ir accediendo a la base de datos por cada uno de los términos que se deben almacenar del documento.
 
 
-\paragraph{Memoria caché} Se ha implementado una memoria caché pero,
+\paragraph{Memoria caché} Se ha implementado una memoria caché, pero,
 tal como se puede analizar en la sección de estadísticas
 (\ref{estadisticas}), no se han obtenido los resultados esperados
 (minimizar el número de accesos a disco). La idea se ha implementado
-con dos diccionarios (en Python son equivalentes a tablas hash):
+con dos diccionarios:
 \begin{milista}
 \item \texttt{new}. Contiene nuevos términos que no están en la base
   de datos y que serán insertados con la sentencia ``INSERT''.
