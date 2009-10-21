@@ -56,7 +56,7 @@ class Dao:
     
     def insert_doc(self, doc):
         # Insertamos el nuevo documento
-        sql = "INSERT INTO doc (id_doc, title) VALUES('%','"+doc+"')"
+        sql = "INSERT INTO doc (title) VALUES ('"+doc+"')"
         try:        
             self.__agente.execute(sql)
             # Recuperamos el ID que se le ha asignado
