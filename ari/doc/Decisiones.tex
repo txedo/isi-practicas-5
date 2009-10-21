@@ -83,7 +83,9 @@ datos. Dichas clases implementan un patrón Agente Singleton y un
 patrón fabricación pura o DAO. El primer patrón es el que se encarga
 de inicializar la conexión de la base de datos si no existe ya una
 instancia del agente, cerrar la conexión y ejecutar las sentencias sql
-que recibe del patrón DAO. Dicho patrón se ha utilizado para
+que recibe del patrón DAO. 
+
+Por su parte, el patrón DAO se ha utilizado para
 desacoplar el dominio de la persistencia, evitando así que las propias
 clases del dominio creen las secuencias sql necesarias para gestionar
 la base de datos, pasando ésto a ser responsabilidad del patrón
@@ -99,12 +101,12 @@ creaba cada vez que se quería acceder a ella, como, por ejemplo, al
 actualizar la frecuencia de un término en el \textit{posting$\_$file},
 cerrándose al terminar el acceso. Esto consumía mucho tiempo y el
 acceso a disco era muy elevado, por lo que se ha optado por
-inicializar la conexión con la base de datos al lanzar la apliación, y
+inicializar la conexión con la base de datos al lanzar la aplicación, y
 cerrarla cuando la aplicación finaliza. 
 
 \paragraph{Copia de documentos} Cuando se analiza un documento para
 realizar su indexación, en un primer momento se copiaba el documento
-en la base de datos documental leyendo línea por línea. Este proceso
+en la base de datos documental del sistema leyendo línea por línea. Este proceso
 era algo lento, por lo que finalmente se ha utilizado una llamada al
 sistema implementada en C, consiguiendo que la copia del documento
 completo sea instantánea.  
@@ -128,7 +130,7 @@ y realiza la siguientes acciones:
           vocales sin acentuar. 
 	\item En cada una de las palabras de la línea, se sustituyen
           los separadores que pueda contener la palabra por un espacio
-          en blanc y se divide la palabra por dichos espacios, obteniendo así una lista de palabras, que recibe
+          en blanco y se divide la palabra por dichos espacios, obteniendo así una lista de palabras, que recibe
           el siguiente tratamiento: 
 	\begin{enumerate}
 	\item Se eliminan los espacios en blanco.
@@ -163,7 +165,7 @@ y realiza la siguientes acciones:
 	\end{enumerate}
 \end{milista}
 
-En resumen, este módulo parser se ha implementado para dar el mismo tratamiento a las cadenas de los documentos a indexar como a las cadenas de consultas.
+En resumen, este módulo parser se ha implementado para dar el mismo tratamiento tanto a las cadenas de los documentos a indexar como a las cadenas de consultas.
 
 \paragraph{Codificación de documentos y de la base de datos} Tras
 realizar múltiples pruebas con diferentes documentos, se observaron
@@ -179,8 +181,7 @@ posting$\_$file de cada documento en memoria en forma de diccionario
 (tabla hash), para conseguir que los accesos sean más rápidos. Se han
 realizado pruebas y para un documento de unas 25.000 líneas, el tamaño
 del posting$\_$file no excede de los 13MB en memoria. Por tanto, esta
-opción es más eficiente en cuanto a tiempo, ya que sólo se vuelca el diccionario cuando se termina de procesar el documento, en lugar de ir accediendo a la base de datos por cada uno de los términos que se deben almacenar del documento.
-
+opción es más eficiente en cuanto a tiempo, ya que sólo se vuelca el diccionario a la base de datos cuando se termina de procesar el documento, en lugar de ir accediendo a la base de datos por cada uno de los términos que se deben almacenar.
 
 \paragraph{Memoria caché} Se ha implementado una memoria caché, pero,
 tal como se puede analizar en la sección de estadísticas

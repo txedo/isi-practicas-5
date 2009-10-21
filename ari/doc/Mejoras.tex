@@ -1,6 +1,6 @@
-\section{Futuras mejoras}
+\section{Futuras mejoras} \label{mejoras}
 
-\paragraph{Cache} Como se dice en la sección de estadísticas (ver
+\paragraph{Cache} Como se dice en la sección de estadísticas (sección
 \ref{estadisticas}), la memoria caché no es tan óptima como se
 esperaba. En próximas versiones se tratará de afinar la granuralidad
 de esta funcionalidad para así minimizar, en la medida de lo posible,
@@ -16,9 +16,8 @@ la base de datos relacional que se utiliza actualmente.
 
 \paragraph{Uso de disco} Aunque esta mejora ya está implícita en el
 uso de memorias caché, se tratará de mejorar esta característica en
-otro ámbito. Actualmente, cuando el sistema lee línea a línea el
-fichero que está parseando para su indexación. El inconveniente de
-este diseño está en que se están solicitando accesos a disco de forma
+otro ámbito. Actualmente, el sistema lee línea a línea el
+fichero que está parseando para su indexación, por lo que se están solicitando accesos a disco de forma
 continua (uno por cada línea). Para reducir esta operación a un sólo
 acceso a disco se leerá el fichero completo y se guardará en la
 memoria RAM, de modo que el acceso a cada una de las líneas será más
