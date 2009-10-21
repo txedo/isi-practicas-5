@@ -1,26 +1,26 @@
 \section{Futuras mejoras}
 
-\paragraph{Cache} Como se dice en la secci√≥n de estad√≠sticas (ver
-\ref{estadisticas}), la memoria cach√© no es tan √≥ptima como se
-esperaba. En pr√≥ximas versiones se tratar√° de afinar la granuralidad
-de esta funcionalidad para as√≠ minimizar, en la medida de lo posible,
-el n√∫mero de accesos a disco.
+\paragraph{Cache} Como se dice en la secciÛn de estadÌsticas (ver
+\ref{estadisticas}), la memoria cachÈ no es tan Ûptima como se
+esperaba. En prÛximas versiones se tratar· de afinar la granuralidad
+de esta funcionalidad para asÌ minimizar, en la medida de lo posible,
+el n˙mero de accesos a disco.
 
 \paragraph{Extensibilidad} El sistema es completamente extensible
 gracias a su arquitectura multicapa. Como prueba de ello se han
-incorporado dos interfaces de usuario, una gr√°fica y otra basada en
-texto, pero se quiere explotar m√°s las posibilidades que nos brinda
-esta arquitectura. Para ello se tratar√° de preparar la capa de
+incorporado dos interfaces de usuario, una gr·fica y otra basada en
+texto, pero se quiere explotar m·s las posibilidades que nos brinda
+esta arquitectura. Para ello se tratar· de preparar la capa de
 persistencia de modo que haya modos de almacenamiento alternativos a
 la base de datos relacional que se utiliza actualmente.
 
-\paragraph{Uso de disco} Aunque esta mejora ya est√° impl√≠cita en el
-uso de memorias cach√©, se tratar√° de mejorar esta caracter√≠stica en
-otro √°mbito. Actualmente, cuando el sistema lee l√≠nea a l√≠nea el
-fichero que est√° parseando para su indexaci√≥n. El inconveniente de
-este dise√±o est√° en que se est√°n solicitando accesos a disco de forma
-continua (uno por cada l√≠nea). Para reducir esta operaci√≥n a un s√≥lo
-acceso a disco se leer√° el fichero completo y se guardar√° en la
-memoria RAM, de modo que el acceso a cada una de las l√≠neas ser√° m√°s
+\paragraph{Uso de disco} Aunque esta mejora ya est· implÌcita en el
+uso de memorias cachÈ, se tratar· de mejorar esta caracterÌstica en
+otro ·mbito. Actualmente, cuando el sistema lee lÌnea a lÌnea el
+fichero que est· parseando para su indexaciÛn. El inconveniente de
+este diseÒo est· en que se est·n solicitando accesos a disco de forma
+continua (uno por cada lÌnea). Para reducir esta operaciÛn a un sÛlo
+acceso a disco se leer· el fichero completo y se guardar· en la
+memoria RAM, de modo que el acceso a cada una de las lÌneas ser· m·s
 eficiente. Esto es posible ya que los ficheros con los que trabaja el
 sistema son de texto plano y no tienen un gran volumen.
