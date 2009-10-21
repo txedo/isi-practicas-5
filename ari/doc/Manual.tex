@@ -1,4 +1,4 @@
-\section{Manual de usuario}
+\section{Manual de usuario} \label{manual}
 
 \subsection{Instalación}
 La aplicación se ha desarrollado en Python y su interfaz gráfica de
@@ -6,11 +6,12 @@ usuario en GTK. Además, ésta requiere de los servicios de un servidor
 MySQL. Dicho esto, el sistema en el cual se ejecutará la aplicación
 debe tener instalado el siguiente software:
 \begin{milista}
-\item python2.5 o superior (\cite{Python})
-\item gtk (\cite{GTK})
-\item pygtk (\cite{PyGTK})
-\item mysql (\cite{MySQL})
-\item python-mysqldb (\cite{python-mysqldb})
+\item Python v2.5 o superior (\cite{Python})
+\item GTK (\cite{GTK})
+\item Psyco (\cite{psyco})
+\item PyGTK (\cite{PyGTK})
+\item MySQL (\cite{MySQL})
+\item MySQLdb module for Python (\cite{python-mysqldb})
 \end{milista}
 
 Ahora debe crear la base de datos que utilizará el sistema
@@ -19,10 +20,12 @@ documental. En la distribución del software se ofrece un fichero
 sentencias necesarias para crear la base de datos y sus tablas
 mediante el intérprete de MySQL. Si no sabe acceder al intérprete de
 su servidor MySQL escriba la siguiente sentencia en un terminal:
+
 \begin{center} \texttt{mysql -u root -p} \end{center}
 
-Llegados a este punto ya tiene su sistema listo para ser utilizado. A
-continuación se hablará de cada una de las interfaces disponibles en
+Introduzca la contraseña que estableció al instalar el servidor de MySQL y cree las tablas con el fichero comentado anteriormente. Llegados a este punto, ya tiene su sistema listo para ser utilizado. 
+
+A continuación se hablará de cada una de las interfaces disponibles en
 el sistema para el usuario.
 
 \subsection{Interfaz gráfica de usuario}
@@ -61,11 +64,11 @@ en la capa de presentación del sistema. Para lanzarla, es necesario
 proporcionarle dos parámetros, en función de la operación que queramos
 realizar.
 \begin{milista}
-\item [-f | --file] <ruta$\_$a$\_$un$\_$fichero>. Para indexar un único fichero.
-\item [-d | --directory] <ruta$\_$a$\_$un$\_$directorio>. Para indexar todos
+\item \texttt{[-f | --file] <ruta$\_$a$\_$un$\_$fichero>}. Para indexar un único fichero.
+\item \texttt{[-d | --directory] <ruta$\_$a$\_$un$\_$directorio>}. Para indexar todos
   los ficheros alojados en un directorio
 \end{milista}
-Si es necesario, se puede consultar la ayuda con el parámetro ``-h''o
+Si es necesario, se puede consultar la ayuda con el parámetro ``-h'' o
 ``--help'' (ver Figura \ref{fig:menu-ayuda})
 
 \begin{figure}[h]
