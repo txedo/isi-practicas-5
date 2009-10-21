@@ -28,7 +28,7 @@ class Agente(object):
     __conn=None
 
 
-    # Constructor
+    # Constructor singleton
     def __new__(cls):
         try:
             # Si no hay ninguna instancia del agente, se inicializa la conexion de la base de datos
@@ -48,7 +48,7 @@ class Agente(object):
             raise e
 
 
-    # Metodos que implementan operacion CRUD (3 comillas en la consulta)
+    # Metodos que ejecutan sentencias sql en la base de datos
     def query ( self, sql ):
         try:
             cursor=self.__conn.cursor()
