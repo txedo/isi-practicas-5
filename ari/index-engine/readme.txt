@@ -5,14 +5,15 @@ se ejecutará la aplicación:
 · pygtk
 · mysql
 · python-mysqldb
+· psyco
 
 Ahora debe crear la base de datos que utilizará el sistema
 documental. En la distribución del software se ofrece un fichero
-``install'' bajo el directorio ``persistencia'', que contiene las
+"install" bajo el directorio "persistencia", que contiene las
 sentencias necesarias para crear la base de datos y sus tablas
 mediante el intérprete de MySQL. Si no sabe acceder al intérprete de
 su servdor MySQL escriba la siguiente sentencia en un terminal:
-\texttt{mysql -u root -p}
+mysql -u root -p
 
 Llegados a este punto ya tiene su sistema listo para ser utilizado. Si
 tiene alguna duda sobre su uso consulte el Manual de Usuario
