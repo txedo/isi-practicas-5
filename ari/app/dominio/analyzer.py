@@ -34,7 +34,7 @@ from cache import *
 
 class Analyzer:
 
-    # Inicializamos los atributos de la clase (la stop_list)
+    # Inicializamos los atributos de la clase
     def __init__(self):    
         self.stop_list = (open("../misc/stoplist","r")).read().split("\n")
         self.dao = None
@@ -54,7 +54,7 @@ class Analyzer:
     # Metodo para indexar un fichero
     def file_index(self, path):
         self.posting_file = {}
-        # Es un enlace simbolico o no existe la ruta
+        # No existe la ruta
         if not os.path.isfile(path):
             raise FileException(path)
         else:
@@ -78,7 +78,7 @@ class Analyzer:
                     word_list = self.parser(line.lower())
                     # Si el parser ha procesado alguna palabra, se actualiza la base de datos
                     if len(word_list) > 0:
-                        # Para cada una de las palabras procesadas y devueltas por el parser, si no pertenece a la stop_list, actualizamos su frecuencia
+                        # Para cada una de las palabras procesadas y devueltas por el parser, actualizamos su frecuencia
                         for word in word_list:
                             # Si la palabra ya aparecia en el documento (es decir, en el posting_file de este documento), se aumenta su frecuencia
                             try:
@@ -86,7 +86,7 @@ class Analyzer:
                             except:
                                 self.posting_file[word] = 1
                                 # Si es la primera vez que aparece la palabra en el documento, se comprueba si esa 
-                                # palabra ya aparecia en otro documento. Si no, se anade al diccionario (ademas de al posting_file)
+                                # palabra ya aparecia en otro documento. Si no, se anade al diccionario
                                 what_cache = self.cache.exists(word)
                                 if what_cache == NOT_CACHE:
                                     (exist_term, frequency) = self.dao.exist_term_dic(word)
@@ -97,6 +97,7 @@ class Analyzer:
                                 else:
                                     frequency = self.cache.get_frequency(word,what_cache)
                                     self.cache.load(word,what_cache,frequency+1)
+                # Al terminar de procesar el documento, se actualiza la base de datos con los datos de la cache y se escribe el posting_file
                 self.cache.synchronize()
                 for k in self.posting_file.keys():
                     self.dao.insert_term_posting_file(k, last_id, self.posting_file[k])
@@ -122,7 +123,7 @@ class Analyzer:
                 for f in list_files:
                     full_path = path+"/"+f
                     if os.path.isdir(full_path):
-                        pass # Tratamiento de directorios
+                        pass # Tratamiento de directorios (no tiene recursividad)
                     else:
                         self.file_index(full_path)
                 self.__total_files = 1
@@ -134,18 +135,16 @@ class Analyzer:
     def parser(self, line):
         result = []
         word_list = []
-        #line = unicode(line, "iso-8859-1").encode("utf-8")
-        #line = re.sub('[%s]' % re.escape(string.whitespace), " ", line)
         # Evitamos errores de SQLInjection
         line = line.replace("\\","\\\\")
         line = line.replace("'","\\'")
         separadores=string.punctuation+string.whitespace
         ip_pattern = re.compile('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})')
         word_list = line.split(" ") # Se obtiene una lista al separar por espacios
-        # Para cada palabra de la lista, si NO esta en la stop_list y no es una palabra vacia, se parsea
+        # Para cada palabra de la lista, si no esta en la stop_list y no es una palabra vacia, se parsea
         for word in word_list:
             if (word not in string.whitespace) and (word not in self.stop_list):
-                # Si la palabra es una direccion IP, se toma dicha palabra como termino
+                # Si la palabra es una direccion IP, se toma dicha palabra como termino (eliminando signos de puntuación menos el punto)
                 if ip_pattern.match(word):
                     word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
                     result.append(word)
@@ -163,7 +162,7 @@ class Analyzer:
                     word = reg.sub("u",word)
                     reg = re.compile("´|`|¨|^|§")
                     word = reg.sub(" ",word)
-                    
+                    # Dividimos la palabra en partes, al reemplazar los separadores
                     word_parts = (re.sub('[%s]' % re.escape(separadores), " ", word)).split(" ")
                     is_compound_word = False
                     delete = False
@@ -171,9 +170,10 @@ class Analyzer:
                     aux = word_parts[:]
                     # Se comprueba que al separar la palabra por signos de puntuacion, todas las palabras obtenidas tengan sentido
                     for w in aux:
+                        # Un espacio en blanco se elimina
                         if w in string.whitespace: 
                             word_parts.remove(w)
-                        # Si en la lista solo aparece una palabra de la stop_list con espacios, se elimina
+                        # Si en la lista solo aparece una palabra de la stop_list rodeada de espacios, se elimina
                         elif w in self.stop_list:
                             for i in aux:
                                 if i is not w:
@@ -190,7 +190,7 @@ class Analyzer:
                     # Si se puede separar la palabra, todas ellas se consideran terminos
                     if not is_compound_word:
                         result.extend(word_parts)
-                    # Si no se puede separar, se mete la palabra compuesta
+                    # Si no se puede separar, se mete la palabra compuesta (sin espacios)
                     else:
                         word = re.sub('[%s]' % re.escape(string.whitespace), "", word)
                         result.append(word)

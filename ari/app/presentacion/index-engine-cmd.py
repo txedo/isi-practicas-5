@@ -89,6 +89,7 @@ else:
             print label
             while analyzer.working:
                 new_label = str(analyzer)
+                # Al cambiar de documento, se actualiza el mensaje que se muestra por pantalla
                 if label <> new_label:
                     d3 = datetime.datetime.now()
                     if ndoc==1:

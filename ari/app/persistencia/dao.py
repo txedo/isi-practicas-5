@@ -30,6 +30,8 @@ class Dao:
         except:
             raise
 
+    # Metodos para insertar terminos en las tablas de la base de datos
+
     def insert_term_dic(self, term, frequency=1):
         sql = "INSERT INTO dic VALUES ('"+term+"',"+str(frequency)+")"
         try:          
@@ -71,6 +73,7 @@ class Dao:
         except:
             raise
         
+    # Metodos para actualizar frecuencias de los terminos en el diccionario y en el posting_file
     
     def update_term_dic(self, term, frequency):
         sql = "UPDATE dic SET num_docs="+str(frequency)+" WHERE term='"+term+"'"
@@ -87,6 +90,8 @@ class Dao:
         except:
             raise 
 
+
+    # Metodos para comporbar si ya existen terminos en el diccionario y en el posting_file
 
     def exist_term_dic(self, term):
         sql = "SELECT num_docs FROM dic WHERE term='"+term+"'"

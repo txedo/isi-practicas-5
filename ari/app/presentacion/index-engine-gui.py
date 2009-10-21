@@ -80,7 +80,6 @@ class Aplicacion:
 
     def __guiInit(self):
         self.window.resize(325,250)
-        #self.window.set_resizable(False)
         self.window.set_title(TITLE)
         #self.window.set_icon(ICON)
         self.gui['progressbar'].set_text("Choose an option...")
@@ -157,6 +156,7 @@ class Aplicacion:
         fcdialog.destroy()
         
         
+    # Metodo para actualizar la barra de progreso
     def init_pb(self, init):
          time.sleep(0.2)
          while self.analyzer.working:

@@ -35,7 +35,7 @@ class Cache:
         except:
             raise
 
-
+    # Metodo que devuelve si existe un termino en alguna cache
     def exists(self, term):
         what_cache = None
         if term in self.__new: what_cache = NEW_CACHE
@@ -44,6 +44,7 @@ class Cache:
         return what_cache
 
 
+    # Metodo que almacena en una cache un termino, con frecuencia 1 por defecto
     def load(self,term,cache,frequency=1):
         self.caches[cache][term] = frequency
         if len(self.__new) + len(self.__old) >= MAX_CACHE_SIZE:
@@ -54,9 +55,10 @@ class Cache:
         return self.caches[cache][term]
 
     
+    # Metodo que copia el contenido de las caches a la base de datos. Esto se hace al terminar de procesar un documento 
+    # o cuando la cache se llena
     def synchronize (self):
         try:
-            #print "-->", len(self.__new) + len(self.__old)
             for n in self.__new:
                 self.dao.insert_term_dic(n,self.__new[n])
             self.__new={}

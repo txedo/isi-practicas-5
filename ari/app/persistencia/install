@@ -15,14 +15,31 @@
 #     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-# NOTES:
-# ======
-# mysql --user root -p
-# drop database <db>;
-# drop table <table>;
-# describe <table>;
-# show databases;
-# show tables;
+# ==========================================================
+# Orden para acceder a la consola de MySQL:
+    # mysql -u root -p <password>
+
+# Orden para usar una base de datos:
+    # use <db>
+
+# Orden para borrar una base de datos: 
+    # drop database <db>;
+
+# Orden para borrar una tabla:
+    # drop table <table>;
+
+# Orden para ver los atributos de una tabla:
+    # describe <table>;
+
+# Orden para ver todas las bases de datos:
+    # show databases;
+
+# Orden para ver las tablas de una base de datos concreta:
+    # show tables;
+
+# Para crear inicialmente la base de datos, acceder al 
+# interprete de MySQL y copiar las siguientes lineas en el
+# ===========================================================
 
 
 CREATE DATABASE ari CHARACTER SET utf8 COLLATE utf8_bin;
