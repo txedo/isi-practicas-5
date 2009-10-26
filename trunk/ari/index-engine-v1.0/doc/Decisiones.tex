@@ -1,0 +1,213 @@
+\section{Decisiones de diseño} \label{decisiones}
+
+\subsection{Lenguaje de programación y sistema operativo elegido}
+
+Para implementar el sistema, se ha decidido utilizar el lenguaje de
+programación Python (\cite{Python}). Se ha seleccionado este lenguaje
+de programación ya que permite el uso de estructuras como diccionarios
+(tablas hash), listas, manejadores de archivos, llamadas al sistema,
+definición de patrones mediante expresiones regulares, etc. Dichos
+elementos han facilitado el desarrollo de este módulo del sistema, ya
+que Python los gestiona de una manera eficaz y permite su uso de uso
+de una manera sencilla. 
+
+Por otra parte, hemos elegido un sistema UNIX porque nos resulta más
+cómodo a la hora de implementar el sistema. 
+
+\subsection{Diseño de la base de datos}
+
+Para implementar los elementos necesarios para la indexación de
+documentos, como son el \textit{Posting$\_$File}, la tabla de
+documentos y el diccionario de términos, se ha optado por utilizar una
+base de datos relacional, siguiendo el diagrama mostrado en la Figura
+\ref{fig:BD}. Las tablas que se representan son: 
+
+\begin{milista}
+	\item \textbf{dic}: implementa el diccionario de
+          términos. Tiene los campos \textit{term} y
+          \textit{num$\_$docs}, que representan cada uno de los
+          términos encontrados, junto con el número de documentos
+          donde aparece cada término. 
+	\item \textbf{doc}: implementa la tabla de documentos. Tiene
+          los campos \textit{id$\_$doc}, \textit{title} y
+          \textit{path} para almacenar un identificador único de
+          documento, el título del documento y la ruta del sistema
+          donde se almacena una copia de dicho documento.  
+	\item \textbf{posting$\_$file}: implementa el
+          posting$\_$file. Contiene los campos \textit{term},
+          \textit{id$\_$doc} y \textit{frequency} para representar la
+          frecuencia con la que aparece un término en un
+          documento. Por tanto, el campo \textit{term} hace referencia
+          a términos del diccionario, y el campo \textit{id$\_$doc}
+          hace referencia a los documentos de la tabla de documentos. 
+\end{milista}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.75]{./images/BD}
+	\caption{Diagrama de la base de datos}
+	\label{fig:BD}
+\end{figure} 
+
+Como sistema gestor de base de datos se ha optado por utilizar MySQL,
+ya que es ligero, libre, gratuito (ya que no se destina a fines
+comerciales) y compatible con otros sistemas, como Windows. 
+
+\subsection{Desarrollo del sistema}
+Para terminar, en esta subsección se comentan las diferentes
+decisiones de diseño, así como los problemas que han surgido a la hora
+de desarrollar el módulo de importación e indexación de documentos. 
+
+\subsubsection{Diseño multicapa}
+Este módulo se ha desarrollado siguiendo el enfoque multicapa, para
+desacoplar las operaciones del dominio de las operaciones de
+persistencia y presentación, consiguiendo así un sistema extensible y
+reutilizable. 
+
+Un ejemplo de la extensibilidad del sistema es que en la capa de
+presentación se han implementado dos interfaces de usuario, una en
+modo gráfico y otra por línea de comandos, tal y como se detallan en
+la sección \ref{manual}.  
+
+En la capa de dominio, se almacenan las clases que implementan esta
+aplicación, como son el analizador de los documentos y las clases
+auxiliares que utiliza, como las cachés y un archivo de
+configuración. Las clases de la capa de presentación conocen a las
+clases de dominio (en concreto, al analizador), pero no al revés, por
+lo que podría cambiarse la interfaz de usuario sin tener que cambiar
+las clases de dominio. 
+
+Por otra parte, en la capa de persistencia se encuentran las clases
+que se encargan de almacenar la información en la base de
+datos. Dichas clases implementan un patrón Agente Singleton y un
+patrón fabricación pura o DAO. El primer patrón es el que se encarga
+de inicializar la conexión de la base de datos si no existe ya una
+instancia del agente, cerrar la conexión y ejecutar las sentencias sql
+que recibe del patrón DAO. 
+
+Por su parte, el patrón DAO se ha utilizado para
+desacoplar el dominio de la persistencia, evitando así que las propias
+clases del dominio creen las secuencias sql necesarias para gestionar
+la base de datos, pasando ésto a ser responsabilidad del patrón
+DAO. Por tanto, si en algún momento se cambia el sistema gestor de
+base de datos, las clases de dominio no se verían afectadas, ya que
+sólo habría que cambiar el agente y el DAO.  
+
+\subsubsection{Analizador de documentos}
+
+\paragraph{Conexión con la base de datos} En una primera iteración del
+desarrollo de la aplicación, la conexión con la base de datos se
+creaba cada vez que se quería acceder a ella, como, por ejemplo, al
+actualizar la frecuencia de un término en el \textit{posting$\_$file},
+cerrándose al terminar el acceso. Esto consumía mucho tiempo y el
+acceso a disco era muy elevado, por lo que se ha optado por
+inicializar la conexión con la base de datos al lanzar la aplicación, y
+cerrarla cuando la aplicación finaliza. 
+
+\paragraph{Copia de documentos} Cuando se analiza un documento para
+realizar su indexación, en un primer momento se copiaba el documento
+en la base de datos documental del sistema leyendo línea por línea. Este proceso
+era algo lento, por lo que finalmente se ha utilizado una llamada al
+sistema implementada en C, consiguiendo que la copia del documento
+completo sea instantánea.  
+
+\paragraph{Parser} Para realizar el tratamiento de los documentos y
+prepararlos para su indexación, se ha implementado el método
+\textit{parser}. Dicho módulo recibe una línea del documento a indexar
+y realiza la siguientes acciones:  
+\begin{milista}
+	\item En primer lugar, se escapan los caracteres
+          ''$\backslash$'' y '' ' '' de las palabras que los
+          contengan, ya que si se intenta insertar un término con esos
+          caracteres, la sentencia sql no se forma de manera correcta
+          y se provoca una excepción al ejecutar esa sentencia en la
+          base de datos.  
+	\item Se definen separadores de palabras, que son tanto los
+          signos de puntuación, como los espacios en blanco
+          (incluyendo saltos de línea, tabuladores, etc). Se define
+          también un patrón para detectar direcciones IP. 
+	\item Se sustituyen las vocales acentuadas de las palabras por
+          vocales sin acentuar. 
+	\item En cada una de las palabras de la línea, se sustituyen
+          los separadores que pueda contener la palabra por un espacio
+          en blanco y se divide la palabra por dichos espacios, obteniendo así una lista de palabras, que recibe
+          el siguiente tratamiento: 
+	\begin{enumerate}
+	\item Se eliminan los espacios en blanco.
+	\item Si alguna palabra de la lista que se ha obtenido al
+          dividir una palabra por separadores se encuentra en la
+          stop$\_$list, dicha palabra no se divide, ya que quedarían
+          palabras sin sentido. Por ejemplo, si la palabra ''F-14'' se
+          divide en ''[F,'' '',14]'', al encontrarse ''F'' en la
+          stop$\_$list, se almacenaría todo el término sin separarse. 
+	\item Si al dividir la palabra solo se obtiene una palabra de
+          la stop$\_$list rodeada de espacios, dicha palabra se
+          ignora. Por ejemplo, al separar la palabra ''$\backslash$t
+          already?'', se obtendria la lista ['' '', '' '', already,''
+          ''], que sólo contiene una palabra de la stop$\_$list
+          rodeada de espacios, lo cual no tiene sentido.  
+	\item En las direcciones web o e-mail, el tratamiento es el
+          mismo: se divide la palabra por separadores, obteniendo una
+          lista y almacenando las palabras por separado. \\
+          \indent Esto soluciona el siguiente problema: si el texto no tiene una
+          escritura correcta y apareciese la palabra
+          ''juanro.1987@gmail.com.Hola'', con este tratamiento se
+          almacenarían las palabras ''juanro'', ''1987'', ''gmail'',
+          ''com'' y ''hola''. Sin embargo, si tratasemos un e-mail
+          como una palabra completa hasta que se encontrase un
+          espacio, se almacenaría como término
+          ''juanro.1987@gmail.com.Hola'', que luego no se encontraría en el diccionario 
+          si alguien consulta por la dirección de e-mail
+          ''juanro.1987@gmail.com''. En nuestro caso, como este mismo
+          parser se va a aplicar a las consultas, la cadena anterior
+          recibiría el mismo tratamiento y podría recuperar los
+          términos que se habían almacenado en el diccionario por separado. 
+	\end{enumerate}
+\end{milista}
+
+En resumen, este módulo parser se ha implementado para dar el mismo tratamiento tanto a las cadenas de los documentos a indexar como a las cadenas de consultas.
+
+\paragraph{Codificación de documentos y de la base de datos} Tras
+realizar múltiples pruebas con diferentes documentos, se observaron
+fallos a la hora de recuperar y almacenar términos en la base de
+datos. Estos fallos eran debidos a la codificación de los documentos,
+que debe ser UTF-8 para el corrrecto funcionamiento en sistemas
+UNIX. Por tanto, todos los documentos de la colección se han
+estandarizado a la codificación UTF-8, al igual que las diferentes
+tablas de la base de datos. 
+
+\paragraph{Posting$\_$file} Se ha optado por almacenar el
+posting$\_$file de cada documento en memoria en forma de diccionario
+(tabla hash), para conseguir que los accesos sean más rápidos. Se han
+realizado pruebas y para un documento de unas 25.000 líneas, el tamaño
+del posting$\_$file no excede de los 13MB en memoria. Por tanto, esta
+opción es más eficiente en cuanto a tiempo, ya que sólo se vuelca el diccionario a la base de datos cuando se termina de procesar el documento, en lugar de ir accediendo a la base de datos por cada uno de los términos que se deben almacenar.
+
+\paragraph{Memoria caché} Se ha implementado una memoria caché, pero,
+tal como se puede analizar en la sección de estadísticas
+(\ref{estadisticas}), no se han obtenido los resultados esperados
+(minimizar el número de accesos a disco). La idea se ha implementado
+con dos diccionarios:
+\begin{milista}
+\item \texttt{new}. Contiene nuevos términos que no están en la base
+  de datos y que serán insertados con la sentencia ``INSERT''.
+\item \texttt{old}. Contiene términos que ya estaban en la base de
+  datos, es decir, que han sido recuperados de ésta, y serán
+  actualizados con la sentencia ``UPDATE''.
+\end{milista}
+Dado que no hemos llegado al suficiente grado de granuralidad en este
+diseño, aunque no minimizamos el número de accesos a disco, al menos
+hacemos que éstos sean en intervalos más espaciados en el tiempo, de
+modo que no se ocupa el recurso de forma constante.
+
+\paragraph{Psyco} Psyco es un módulo externo que realiza una
+compilación \emph{just-in-time} y que incrementa la
+velocidad de ejecución del código Python (ya que éste no se
+interpretará). Gracias a este módulo el tiempo de ejecución de la
+aplicación se puede reducir hasta la mitad.
+
+
+
+
+
+
