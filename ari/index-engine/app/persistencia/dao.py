@@ -30,6 +30,11 @@ class Dao:
         except:
             raise
 
+
+    def execute (self, sql):
+        self.__agente.execute(sql)
+
+
     # Metodos para insertar terminos en las tablas de la base de datos
 
     def insert_term_dic(self, term, frequency=1):

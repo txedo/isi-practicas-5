@@ -74,19 +74,22 @@ class Analyzer:
                 shutil.copy2(path, system_path)
                 # Abrimos y leemos el documento linea a linea, pasando cada linea por el parser
                 fd = open(path, "r")
-                for line in fd.readlines():
+                document = fd.readlines()
+                for line in document:
                     word_list = self.parser(line.lower())
                     # Si el parser ha procesado alguna palabra, se actualiza la base de datos
                     if len(word_list) > 0:
                         # Para cada una de las palabras procesadas y devueltas por el parser, actualizamos su frecuencia
                         for word in word_list:
                             # Si la palabra ya aparecia en el documento (es decir, en el posting_file de este documento), se aumenta su frecuencia
+                            self.cache.add(word)
                             try:
                                 self.posting_file[word] += 1
                             except:
                                 self.posting_file[word] = 1
                                 # Si es la primera vez que aparece la palabra en el documento, se comprueba si esa 
                                 # palabra ya aparecia en otro documento. Si no, se anade al diccionario
+                                """
                                 what_cache = self.cache.exists(word)
                                 if what_cache == NOT_CACHE:
                                     (exist_term, frequency) = self.dao.exist_term_dic(word)
@@ -97,11 +100,13 @@ class Analyzer:
                                 else:
                                     frequency = self.cache.get_frequency(word,what_cache)
                                     self.cache.load(word,what_cache,frequency+1)
+                                """
                 # Al terminar de procesar el documento, se actualiza la base de datos con los datos de la cache y se escribe el posting_file
                 self.cache.synchronize()
-                for k in self.posting_file.keys():
-                    self.dao.insert_term_posting_file(k, last_id, self.posting_file[k])
-
+                sql = "INSERT INTO posting_file VALUES "
+                for k in self.posting_file:
+                    sql += "('"+k+"',"+str(last_id)+","+str(self.posting_file[k])+"),"
+                self.dao.execute(sql[:len(sql)-1]+";")
                 self.working=False
             except:
                 raise

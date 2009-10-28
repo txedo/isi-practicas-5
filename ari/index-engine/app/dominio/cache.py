@@ -25,6 +25,7 @@ sys.path.append(os.getcwd() + "/../persistencia")
 import dao
 from config import *
 
+"""
 class Cache:
     def __init__(self):
         try:
@@ -68,3 +69,31 @@ class Cache:
             self.caches = [self.__new, self.__old]
         except:
             raise
+
+"""
+
+class Cache:
+    def __init__(self):
+        try:
+            self.dao = dao.Dao()
+            self.buffer = []
+        except:
+            raise
+
+
+    def add (self, term):
+        self.buffer.append(term)
+        if len(self.buffer) >= MAX_CACHE_SIZE:
+            self.synchronize()
+
+
+    # Metodo que copia el contenido de las caches a la base de datos. Esto se hace al terminar de procesar un documento 
+    # o cuando la cache se llena
+    def synchronize (self):
+        sql = "INSERT INTO dic VALUES "
+        for i in self.buffer:
+            sql += "('"+i+"',1),"
+        sql = sql[:len(sql)-1]+" ON DUPLICATE KEY UPDATE num_docs=num_docs+1"
+        self.dao.execute(sql)
+        self.buffer = []
+        
