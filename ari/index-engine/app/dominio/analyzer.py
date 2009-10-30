@@ -145,6 +145,14 @@ class Analyzer:
         line = line.replace("'","\\'")
         separadores=string.punctuation+string.whitespace
         ip_pattern = re.compile('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})')
+        section_numbers_pattern = re.compile(r'[0-9]\.?[0-9]?\.?[0-9]?\.[0-9]?\.?[0-9]?\.?$')
+        acentoA_pattern = "Á|À|Â|Ä|á|à|â|ä"
+        acentoE_pattern = "É|È|Ê|Ë|é|è|ê|ë"
+        acentoI_pattern = "Í|Ì|Î|Ï|í|ì|î|ï"
+        acentoO_pattern = "Ó|Ò|Ô|Ö|ó|ò|ô|ö|Ø"
+        acentoU_pattern = "Ú|Ù|Û|Ü|ú|ù|û|ü"
+        acentoY_pattern = "ý|Ý|ÿ|Ÿ|ỳ|Ỳ"
+        acentoC_pattern = "Ç|ç"
         word_list = line.split(" ") # Se obtiene una lista al separar por espacios
         # Para cada palabra de la lista, si no esta en la stop_list y no es una palabra vacia, se parsea
         for word in word_list:
@@ -153,20 +161,32 @@ class Analyzer:
                 if ip_pattern.match(word):
                     word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
                     result.append(word)
+                # Se ignoran separadores de seccion
+                # elif not section_numbers_pattern.match(word): PETA EN UN DOCUMENTO CON LA NUEVA STOP_LIST
                 else: # Si es direccion web, email u otra palabra, se separa por signos de puntuacion
                     # Estandarizamos las vocales
-                    reg = re.compile("á|à|ä|â")
-                    word = reg.sub("a",word)
-                    reg = re.compile("é|è|ë|ê")
-                    word = reg.sub("e",word)
-                    reg = re.compile("í|ì|ï|î")
-                    word = reg.sub("i",word)
-                    reg = re.compile("ó|ò|ö|ô")
-                    word = reg.sub("o",word)
-                    reg = re.compile("ú|ù|ü|û")
-                    word = reg.sub("u",word)
-                    reg = re.compile("´|`|¨|^|§")
-                    word = reg.sub(" ",word)
+                    # Estandarizamos las vocales
+                    if re.search(acentoA_pattern, word): 
+                        reg = re.compile("Á|À|Â|Ä|á|à|â|ä")
+                        word = reg.sub("a",word)
+                    if re.search(acentoE_pattern, word): 
+                        reg = re.compile("É|È|Ê|Ë|é|è|ê|ë")
+                        word = reg.sub("e",word)
+                    if re.search(acentoI_pattern, word):            
+                        reg = re.compile("Í|Ì|Î|Ï|í|ì|î|ï")         
+                        word = reg.sub("i",word)
+                    if re.search(acentoO_pattern, word):    
+                        reg = re.compile("Ó|Ò|Ô|Ö|ó|ò|ô|ö|Ø")                 
+                        word = reg.sub("o",word)
+                    if re.search(acentoU_pattern, word):   
+                        reg = re.compile("Ú|Ù|Û|Ü|ú|ù|û|ü")                  
+                        word = reg.sub("u",word)
+                    if re.search(acentoY_pattern, word):   
+                        reg = re.compile("ý|Ý|ÿ|Ÿ|ỳ|Ỳ")                  
+                        word = reg.sub("y",word)   
+                    if re.search(acentoC_pattern, word):   
+                        reg = re.compile("Ç|ç")                  
+                        word = reg.sub("c",word) 
                     # Dividimos la palabra en partes, al reemplazar los separadores
                     word_parts = (re.sub('[%s]' % re.escape(separadores), " ", word)).split(" ")
                     is_compound_word = False
