@@ -144,8 +144,10 @@ class Analyzer:
         line = line.replace("\\","\\\\")
         line = line.replace("'","\\'")
         separadores=string.punctuation+string.whitespace
-        ip_pattern = re.compile('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})')
+        # Definicion de patrones
+        ip_pattern = re.compile('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$')
         section_numbers_pattern = re.compile(r'[0-9]\.?[0-9]?\.?[0-9]?\.[0-9]?\.?[0-9]?\.?$')
+        number_pattern = re.compile(r'[0-9]+$')
         acentoA_pattern = "Á|À|Â|Ä|á|à|â|ä"
         acentoE_pattern = "É|È|Ê|Ë|é|è|ê|ë"
         acentoI_pattern = "Í|Ì|Î|Ï|í|ì|î|ï"
@@ -153,18 +155,18 @@ class Analyzer:
         acentoU_pattern = "Ú|Ù|Û|Ü|ú|ù|û|ü"
         acentoY_pattern = "ý|Ý|ÿ|Ÿ|ỳ|Ỳ"
         acentoC_pattern = "Ç|ç"
-        word_list = line.split(" ") # Se obtiene una lista al separar por espacios
-        # Para cada palabra de la lista, si no esta en la stop_list y no es una palabra vacia, se parsea
+        # Se obtiene una lista de palabras al separar por espacios
+        word_list = line.split(" ") 
         for word in word_list:
-            if (word not in string.whitespace) and (word not in self.stop_list):
+            # Para cada palabra de la lista, si no esta en la stop_list, no es una palabra vacia y no es un numero, se parsea
+            if (word not in string.whitespace) and (word not in self.stop_list) and (not number_pattern.match(word)):
                 # Si la palabra es una direccion IP, se toma dicha palabra como termino (eliminando signos de puntuación menos el punto)
                 if ip_pattern.match(word):
-                    word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
+                    #word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
                     result.append(word)
                 # Se ignoran separadores de seccion
-                # elif not section_numbers_pattern.match(word): PETA EN UN DOCUMENTO CON LA NUEVA STOP_LIST
-                else: # Si es direccion web, email u otra palabra, se separa por signos de puntuacion
-                    # Estandarizamos las vocales
+                elif (not section_numbers_pattern.match(word)):
+                #else: # Si es direccion web, email u otra palabra, se separa por signos de puntuacion
                     # Estandarizamos las vocales
                     if re.search(acentoA_pattern, word): 
                         reg = re.compile("Á|À|Â|Ä|á|à|â|ä")
@@ -198,11 +200,11 @@ class Analyzer:
                         # Un espacio en blanco se elimina
                         if w in string.whitespace: 
                             word_parts.remove(w)
-                        # Si en la lista solo aparece una palabra de la stop_list rodeada de espacios, se elimina
+                        # Si en la lista solo aparece una palabra de la stop_list rodeada de espacios o de otras palabras de la stop_list, se elimina
                         elif w in self.stop_list:
                             for i in aux:
                                 if i is not w:
-                                    if i in string.whitespace:
+                                    if (i in string.whitespace) or (i in self.stop_list):
                                         delete = True
                                     else:
                                         delete = False
@@ -211,7 +213,8 @@ class Analyzer:
                                 is_compound_word = True
                                 break
                             else:
-                                word_parts.remove(w)
+                                word_parts=[]
+                                break
                     # Si se puede separar la palabra, todas ellas se consideran terminos
                     if not is_compound_word:
                         result.extend(word_parts)
