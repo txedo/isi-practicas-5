@@ -82,13 +82,13 @@ class Analyzer:
                         # Para cada una de las palabras procesadas y devueltas por el parser, actualizamos su frecuencia
                         for word in word_list:
                             # Si la palabra ya aparecia en el documento (es decir, en el posting_file de este documento), se aumenta su frecuencia
-                            self.cache.add(word)
                             try:
                                 self.posting_file[word] += 1
                             except:
                                 self.posting_file[word] = 1
                                 # Si es la primera vez que aparece la palabra en el documento, se comprueba si esa 
                                 # palabra ya aparecia en otro documento. Si no, se anade al diccionario
+                                self.cache.add(word)
                                 """
                                 what_cache = self.cache.exists(word)
                                 if what_cache == NOT_CACHE:
