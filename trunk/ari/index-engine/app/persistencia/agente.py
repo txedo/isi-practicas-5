@@ -34,7 +34,7 @@ class Agente(object):
             # Si no hay ninguna instancia del agente, se inicializa la conexion de la base de datos
             if not cls.__instance:
                 cls.__instance=object.__new__(cls)
-            cls.__conn = MySQLdb.connect(host="localhost", user="root", passwd="ari", db="ari", charset = "utf8", use_unicode = True)
+            cls.__conn = MySQLdb.connect(host="localhost", user="ari", passwd="ira", db="ari", charset = "utf8", use_unicode = True)
             # Metodo para almacenar las transacciones en la BBDD de manera permanente
             cls.__conn.autocommit(1)
             return cls.__instance
