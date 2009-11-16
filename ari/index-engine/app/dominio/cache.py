@@ -75,15 +75,26 @@ class Cache:
 class Cache:
     def __init__(self):
         try:
-            self.dao = dao.Dao()
             self.buffer = []
+            self.list_postings = {}
+            self.dao = dao.Dao()
+
         except:
             raise
 
 
     def add (self, term):
+        """
+        NO FUNCIONA BIEN, PORQUE EN EL DUPLICATE KEY NO PUEDES INDICAR QUE SE SUME UN CIERTO NUMERO
+        HABRIA QUE HACER UN UPDATE SI SE HACE DE ESTA FORMA
+
+            try:
+                self.buffer[term] += 1
+            except:
+                self.buffer[term] = 1
+        """
         self.buffer.append(term)
-        if len(self.buffer) >= MAX_CACHE_SIZE:
+        if len(self.buffer) >= 12000:
             self.synchronize()
 
 
@@ -92,8 +103,21 @@ class Cache:
     def synchronize (self):
         sql = "INSERT INTO dic VALUES "
         for i in self.buffer:
-            sql += "('"+i+"',1),"
+            sql += "('"+i+"', 1),"
         sql = sql[:len(sql)-1]+" ON DUPLICATE KEY UPDATE num_docs=num_docs+1"
+        """str(self.buffer[i])"""
         self.dao.execute(sql)
         self.buffer = []
+
         
+    def save_posting (self, post, last_id, current_file, total_files):
+        self.list_postings[last_id] = post
+        if (len(self.list_postings.keys()) >= 70) or (current_file == total_files):
+            self.synchronize()
+            sql = "INSERT INTO posting_file VALUES "
+            for id_doc in self.list_postings:
+                for term in self.list_postings[id_doc]:
+                    sql += "('"+term+"',"+str(id_doc)+","+str(self.list_postings[id_doc][term])+"),"
+            self.dao.execute(sql[:len(sql)-1]+";")
+            self.list_postings = {}
+        return False # Para actualizar el working

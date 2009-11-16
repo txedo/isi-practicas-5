@@ -84,7 +84,7 @@ else:
             d1 = datetime.datetime.now()
             t = threading.Thread(target=analyzer.folder_index, args=(options.directory_name,))
             t.start()
-            time.sleep(0.2)
+            """time.sleep(0.2)
             label = str(analyzer)
             print label
             while analyzer.working:
@@ -101,9 +101,11 @@ else:
                     label=new_label
                     print label
                     ndoc+=1
-                time.sleep(0.2)
+                time.sleep(0.2)"""
+            t.join()
             d2 = datetime.datetime.now()
-            print "\t** Time spent:", (d2-d3), "**"
+            # print "\t** Time spent:", (d2-d3), "**"
+            
             print "Index finished in ", d2-d1
         except MySQLdb.Error, e:
             print "SQL Exception: "+e.args[1]

@@ -60,12 +60,13 @@ class Analyzer:
         else:
             # Controlamos si indexamos un directorio o un fichero
             try: 
-                if self.dao == None:
-                    self.dao = dao.Dao()
                 if not self.__analyzing_directory:
+                    self.dao = Dao()
                     self.__current_file = 1
                 else:
                     self.__current_file = self.__current_file + 1
+
+                print self.__current_file, path
                 self.working=True
                 file_name = (path.split("/"))[-1] # Tomamos el nombre del archivo
                 self.__current_working_file = file_name
@@ -102,12 +103,15 @@ class Analyzer:
                                     self.cache.load(word,what_cache,frequency+1)
                                 """
                 # Al terminar de procesar el documento, se actualiza la base de datos con los datos de la cache y se escribe el posting_file
-                self.cache.synchronize()
+                """self.cache.synchronize()
                 sql = "INSERT INTO posting_file VALUES "
                 for k in self.posting_file:
                     sql += "('"+k+"',"+str(last_id)+","+str(self.posting_file[k])+"),"
                 self.dao.execute(sql[:len(sql)-1]+";")
-                self.working=False
+                self.working=False"""
+                self.working = self.cache.save_posting(self.posting_file, last_id, self.__current_file, self.__total_files)
+                if not self.__analyzing_directory:
+                    self.dao.close()
             except:
                 raise
                             
@@ -133,6 +137,7 @@ class Analyzer:
                         self.file_index(full_path)
                 self.__total_files = 1
                 self.__analyzing_directory = False
+                self.dao.close()
             except: 
                 raise
 
