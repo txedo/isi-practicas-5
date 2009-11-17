@@ -75,7 +75,7 @@ class Cache:
 class Cache:
     def __init__(self):
         try:
-            self.buffer = []
+            self.buffer = {}
             self.list_postings = {}
             self.dao = dao.Dao()
 
@@ -84,35 +84,31 @@ class Cache:
 
 
     def add (self, term):
-        """
-        NO FUNCIONA BIEN, PORQUE EN EL DUPLICATE KEY NO PUEDES INDICAR QUE SE SUME UN CIERTO NUMERO
-        HABRIA QUE HACER UN UPDATE SI SE HACE DE ESTA FORMA
-
-            try:
-                self.buffer[term] += 1
-            except:
-                self.buffer[term] = 1
+        try:
+            self.buffer[term] += 1
+        except:
+            self.buffer[term] = 1
         """
         self.buffer.append(term)
-        if len(self.buffer) >= 12000:
+        """
+        if len(self.buffer) >= 8000:
             self.synchronize()
-
+        
 
     # Metodo que copia el contenido de las caches a la base de datos. Esto se hace al terminar de procesar un documento 
     # o cuando la cache se llena
     def synchronize (self):
-        sql = "INSERT INTO dic VALUES "
+        sql = "INSERT INTO dic (term, num_docs) VALUES "
         for i in self.buffer:
-            sql += "('"+i+"', 1),"
-        sql = sql[:len(sql)-1]+" ON DUPLICATE KEY UPDATE num_docs=num_docs+1"
-        """str(self.buffer[i])"""
+            sql += "('"+i+"', " + str(self.buffer[i]) + "),"
+        sql = sql[:len(sql)-1]+" ON DUPLICATE KEY UPDATE num_docs=num_docs+VALUES(num_docs)"
         self.dao.execute(sql)
-        self.buffer = []
+        self.buffer = {}
 
         
     def save_posting (self, post, last_id, current_file, total_files):
         self.list_postings[last_id] = post
-        if (len(self.list_postings.keys()) >= 70) or (current_file == total_files):
+        if (len(self.list_postings.keys()) >= 50) or (current_file == total_files):
             self.synchronize()
             sql = "INSERT INTO posting_file VALUES "
             for id_doc in self.list_postings:
