@@ -152,7 +152,7 @@ class Analyzer:
         # Definicion de patrones
         ip_pattern = re.compile('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$')
         section_numbers_pattern = re.compile(r'[0-9]\.?[0-9]?\.?[0-9]?\.[0-9]?\.?[0-9]?\.?$')
-        number_pattern = re.compile(r'[0-9]+$')
+        #number_pattern = re.compile(r'[0-9]+$')
         acentoA_pattern = "Á|À|Â|Ä|á|à|â|ä"
         acentoE_pattern = "É|È|Ê|Ë|é|è|ê|ë"
         acentoI_pattern = "Í|Ì|Î|Ï|í|ì|î|ï"
@@ -164,7 +164,7 @@ class Analyzer:
         word_list = line.split(" ") 
         for word in word_list:
             # Para cada palabra de la lista, si no esta en la stop_list, no es una palabra vacia y no es un numero, se parsea
-            if (word not in string.whitespace) and (word not in self.stop_list) and (not number_pattern.match(word)):
+            if (word not in string.whitespace) and (word not in self.stop_list):
                 # Si la palabra es una direccion IP, se toma dicha palabra como termino (eliminando signos de puntuación menos el punto)
                 if ip_pattern.match(word):
                     #word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
@@ -191,42 +191,22 @@ class Analyzer:
                     if re.search(acentoY_pattern, word):   
                         reg = re.compile("ý|Ý|ÿ|Ÿ|ỳ|Ỳ")                  
                         word = reg.sub("y",word)   
-                    if re.search(acentoC_pattern, word):   
-                        reg = re.compile("Ç|ç")                  
-                        word = reg.sub("c",word) 
-                    # Dividimos la palabra en partes, al reemplazar los separadores
+                    #if re.search(acentoC_pattern, word):   
+                    #    reg = re.compile("Ç|ç")                  
+                    #    word = reg.sub("c",word) 
+
+
+                    # Dividimos la palabra en partes, al reemplazar los separadores      
                     word_parts = (re.sub('[%s]' % re.escape(separadores), " ", word)).split(" ")
-                    is_compound_word = False
-                    delete = False
                     # Copia auxiliar para poder recorrer toda la lista de palabras
                     aux = word_parts[:]
                     # Se comprueba que al separar la palabra por signos de puntuacion, todas las palabras obtenidas tengan sentido
                     for w in aux:
-                        # Un espacio en blanco se elimina
-                        if w in string.whitespace: 
+                        # Un espacio en blanco se elimina. Si no comienza por letra tambien
+                        if (w in string.whitespace) or (not w[0].isalpha()) or (w in self.stop_list): 
                             word_parts.remove(w)
-                        # Si en la lista solo aparece una palabra de la stop_list rodeada de espacios o de otras palabras de la stop_list, se elimina
-                        elif w in self.stop_list:
-                            for i in aux:
-                                if i is not w:
-                                    if (i in string.whitespace) or (i in self.stop_list):
-                                        delete = True
-                                    else:
-                                        delete = False
-                                        break
-                            if not delete:
-                                is_compound_word = True
-                                break
-                            else:
-                                word_parts=[]
-                                break
-                    # Si se puede separar la palabra, todas ellas se consideran terminos
-                    if not is_compound_word:
-                        result.extend(word_parts)
-                    # Si no se puede separar, se mete la palabra compuesta (sin espacios)
-                    else:
-                        word = re.sub('[%s]' % re.escape(string.whitespace), "", word)
-                        result.append(word)
+                        
+                    result.extend(word_parts)
             
         return result
     
