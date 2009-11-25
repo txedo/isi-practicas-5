@@ -23,8 +23,6 @@ psyco.full()
 import sys, os
 sys.path.append(os.getcwd() + "/../persistencia")
 
-
-import os
 import shutil
 import dao
 from parser import *
