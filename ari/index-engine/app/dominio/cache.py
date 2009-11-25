@@ -76,7 +76,7 @@ class Cache:
     def __init__(self):
         try:
             self.buffer = {}
-            self.list_postings = {}
+            #self.list_postings = {}
             self.dao = dao.Dao()
 
         except:
@@ -91,22 +91,18 @@ class Cache:
         """
         self.buffer.append(term)
         """
-        if len(self.buffer) >= 8000:
+        if len(self.buffer) >= MAX_CACHE_SIZE:
             self.synchronize()
         
 
     # Metodo que copia el contenido de las caches a la base de datos. Esto se hace al terminar de procesar un documento 
     # o cuando la cache se llena
-    def synchronize (self):
-        sql = "INSERT INTO dic (term, num_docs) VALUES "
-        for i in self.buffer:
-            sql += "('"+i+"', " + str(self.buffer[i]) + "),"
-        sql = sql[:len(sql)-1]+" ON DUPLICATE KEY UPDATE num_docs=num_docs+VALUES(num_docs)"
-        self.dao.execute(sql)
+    def synchronize (self):        
+        self.dao.insert_term_dic_duplicate(self.buffer)
         self.buffer = {}
 
         
-    def save_posting (self, post, last_id, current_file, total_files):
+    """def save_posting (self, post, last_id, current_file, total_files):
         self.list_postings[last_id] = post
         if (len(self.list_postings.keys()) >= 50) or (current_file == total_files):
             self.synchronize()
@@ -116,4 +112,4 @@ class Cache:
                     sql += "('"+term+"',"+str(id_doc)+","+str(self.list_postings[id_doc][term])+"),"
             self.dao.execute(sql[:len(sql)-1]+";")
             self.list_postings = {}
-        return False # Para actualizar el working
+        return False # Para actualizar el working"""
