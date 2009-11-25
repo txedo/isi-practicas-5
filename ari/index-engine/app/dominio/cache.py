@@ -98,7 +98,8 @@ class Cache:
     # Metodo que copia el contenido de las caches a la base de datos. Esto se hace al terminar de procesar un documento 
     # o cuando la cache se llena
     def synchronize (self):        
-        self.dao.insert_term_dic_duplicate(self.buffer)
+        #self.dao.insert_term_dic_duplicate(self.buffer)
+        self.dao.insert_aux(self.buffer)
         self.buffer = {}
 
         

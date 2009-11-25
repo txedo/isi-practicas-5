@@ -22,6 +22,7 @@ psyco.full()
 import re
 import string
 
+
 class Parser:
 
     def __init__(self):
@@ -76,21 +77,26 @@ class Parser:
                     if re.search(acentoY_pattern, word):   
                         reg = re.compile("ý|Ý|ÿ|Ÿ|ỳ|Ỳ")                  
                         word = reg.sub("y",word)   
-                    #if re.search(acentoC_pattern, word):   
-                    #    reg = re.compile("Ç|ç")                  
-                    #    word = reg.sub("c",word) 
+                    if re.search(acentoC_pattern, word):   
+                        reg = re.compile("Ç|ç")                  
+                        word = reg.sub("c",word) 
 
-
-                    # Dividimos la palabra en partes, al reemplazar los separadores      
-                    word_parts = (re.sub('[%s]' % re.escape(separadores), " ", word)).split(" ")
-                    # Copia auxiliar para poder recorrer toda la lista de palabras
-                    aux = word_parts[:]
-                    # Se comprueba que al separar la palabra por signos de puntuacion, todas las palabras obtenidas tengan sentido
-                    for w in aux:
-                        # Un espacio en blanco se elimina. Si no comienza por letra tambien
-                        if (w in string.whitespace) or (not w[0].isalnum()) or (w in self.stop_list): 
-                            word_parts.remove(w)
-                        
-                    result.extend(word_parts)
+                    # Si la palabra contiene un guion, las palabras separadas por ese guion se juntan, por si tambien aparecen en 
+                    # otros documentos juntas. Por ejemplo, back-up o backup; cd-rom o cdrom
+                    if (word[0].isalpha()) and ((word.find("-"))>-1):
+                        w = (re.sub('[%s]' % re.escape(string.punctuation), "", word))
+                        result.append(w)
+                    elif word[0].isalnum():
+                        word_parts = (re.sub('[%s]' % re.escape(separadores), " ", word)).split(" ")
+                        # Copia auxiliar para poder recorrer toda la lista de palabras
+                        aux = word_parts[:]
+                        # Se comprueba que al separar la palabra por signos de puntuacion, todas las palabras obtenidas tengan sentido
+                        for w in aux:
+                            # Un espacio en blanco se elimina. Si no comienza por letra tambien
+                            if (w in string.whitespace) or (not w[0].isalnum()) or (w in self.stop_list): 
+                                word_parts.remove(w)                    
+                        result.extend(word_parts)
             
         return result
+
+    

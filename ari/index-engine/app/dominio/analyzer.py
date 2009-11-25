@@ -110,6 +110,7 @@ class Analyzer:
                 else:
                     self.working=False"""
                 if not self.__analyzing_directory:
+                    self.dao.update_dic()
                     self.dao.close()
             except:
                 raise
@@ -135,6 +136,7 @@ class Analyzer:
                     else:
                         self.file_index(full_path)
                 self.__total_files = 1
+                self.dao.update_dic()
                 self.__analyzing_directory = False
                 self.dao.close()
             except: 
