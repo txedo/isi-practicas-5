@@ -6,6 +6,11 @@ class Vector:
     def __init__(self): 
         self.__components = {}
 
+
+    def add(self, term, weight):
+        self.__components[term] = weight
+
+
     def get_similarity (self, question):
         product = 0
         module_vector = 0
@@ -21,10 +26,3 @@ class Vector:
         module_question = math.sqrt(module_question)
 
         return (product / (module_vector * module_question))
-
-    def build (self, lista):
-        
-            
-            
-        
-        
