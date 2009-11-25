@@ -25,7 +25,7 @@ sys.path.append(os.getcwd() + "/../persistencia")
 
 import shutil
 import dao
-from parser import *
+from parse import *
 from exception import *
 from config import *
 from cache import *
@@ -34,7 +34,7 @@ class Analyzer:
 
     # Inicializamos los atributos de la clase
     def __init__(self):
-        self.__parser = Parser()  
+        self.__parser = Parser()
         self.dao = None
         self.posting_file = {}
         self.cache = Cache()
