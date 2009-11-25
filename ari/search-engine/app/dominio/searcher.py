@@ -26,6 +26,7 @@ sys.path.append(os.getcwd() + "/../persistencia")
 import dao
 import math
 from vector import *
+from operator import itemgetter
 
 class Searcher:
 
@@ -35,13 +36,23 @@ class Searcher:
         self.__document_vectors = {}
 
     #wij = ftij x fidj = ftij x log(d/fdj)
+    #sorted(d.items(), key=itemgetter(1), reverse=True)
     def search(self, question):
         #question es un diccionario termino-peso
-        total_num_docs = dao.get_num_docs()
-        result = dao.select(question.keys())
+        total_num_docs = self.__dao.get_num_docs()
+        result = self.__dao.select(question.keys())
         for row in result:
+            #row[0] -> term
+            #row[1] -> id_doc
+            #row[2] -> frequency
+            #row[3] -> num_docs
             try:
                 self.__document_vectors[row[1]].add(row[0], row[2]*math.log(total_num_docs/row[3]))
             except:
                 self.__document_vectors[row[1]] = Vector()
                 self.__document_vectors[row[1]].add(row[0], row[2]*math.log(total_num_docs/row[3]))
+        similarity_set = {}
+        for v in self.__document_vectors:
+            similarity_set[v] = self.__document_vectors[v].get_similarity(question)
+        sorted_similarity_set = sorted(similarity_set.items(), key=itemgetter(1), reverse=True)
+        return sorted_similarity_set

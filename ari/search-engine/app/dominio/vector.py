@@ -1,6 +1,8 @@
 import psyco
 psyco.full()
 
+import math
+
 class Vector:
     
     def __init__(self): 
@@ -12,6 +14,7 @@ class Vector:
 
 
     def get_similarity (self, question):
+        similarity = 0
         product = 0
         module_vector = 0
         module_question = 0
@@ -24,5 +27,8 @@ class Vector:
             module_vector += math.pow(self.__components[term] , 2)
         module_vector = math.sqrt(module_vector)
         module_question = math.sqrt(module_question)
-
-        return (product / (module_vector * module_question))
+        try:
+            similarity = (product / (module_vector * module_question))
+        except ZeroDivisionError:
+            raise ZeroDivisionError
+        return similarity

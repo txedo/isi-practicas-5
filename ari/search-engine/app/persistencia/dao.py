@@ -45,6 +45,16 @@ class Dao:
             raise
 
 
+    def get_num_docs(self):
+        result = 0
+        try:
+            sql = "SELECT COUNT(id_doc) FROM doc"
+            result = int(self.query(sql)[0][0])
+        except:
+            raise
+        return result
+
+
     def select (self, question):
         timestamp = str(datetime.datetime.now().microsecond)
         view_name = "view_relevant_docs_"+timestamp
