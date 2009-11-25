@@ -45,6 +45,17 @@ class Dao:
             raise
         
 
+    def insert_term_dic_duplicate(self, term_buffer):
+        sql = "INSERT INTO dic (term, num_docs) VALUES "
+        try:          
+            for i in term_buffer:
+                sql += "('"+i+"', " + str(term_buffer[i]) + "),"
+            sql = sql[:len(sql)-1]+" ON DUPLICATE KEY UPDATE num_docs=num_docs+VALUES(num_docs)"
+            self.__agente.execute(sql)
+        except:
+            raise
+
+
     def insert_term_posting_file(self, term, id_doc):
         sql = "INSERT INTO posting_file (term, id_doc) VALUES ('"+term+"',"+str(id_doc)+")"
         try:
@@ -60,7 +71,17 @@ class Dao:
         except:
             raise
 
-    
+
+    def insert_term_posting_file_multi(self, posting_file, last_id):
+        sql = "INSERT INTO posting_file VALUES "
+        try:
+            for k in posting_file:
+                sql += "('"+k+"',"+str(last_id)+","+str(posting_file[k])+"),"
+            self.__agente.execute(sql[:len(sql)-1]+";")
+        except:
+            raise
+
+
     def insert_doc(self, doc):
         # Insertamos el nuevo documento
         sql = "INSERT INTO doc (title) VALUES ('"+doc+"')"
@@ -77,6 +98,7 @@ class Dao:
             return (path, last_id)
         except:
             raise
+
         
     # Metodos para actualizar frecuencias de los terminos en el diccionario y en el posting_file
     
@@ -121,6 +143,8 @@ class Dao:
             return existe
         except:
             raise           
+
+
 
 
     def close (self):
