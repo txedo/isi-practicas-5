@@ -38,8 +38,13 @@ class Searcher:
     #wij = ftij x fidj = ftij x log(d/fdj)
     #sorted(d.items(), key=itemgetter(1), reverse=True)
     def search(self, question):
+        module_question = 0
         #question es un diccionario termino-peso
         total_num_docs = self.__dao.get_num_docs()
+        # Sacamos el modulo de la pregunta
+        for term in question:
+            module_question += question[term]
+        module_question = math.sqrt(module_question)
         result = self.__dao.select(question.keys())
         for row in result:
             #row[0] -> term
@@ -47,12 +52,13 @@ class Searcher:
             #row[2] -> frequency
             #row[3] -> num_docs
             try:
-                self.__document_vectors[row[1]].add(row[0], row[2]*math.log(total_num_docs/row[3]))
+                self.__document_vectors[row[1]].add(row[0], row[2]*(math.log(float(total_num_docs)/float(row[3]))))
             except:
                 self.__document_vectors[row[1]] = Vector()
-                self.__document_vectors[row[1]].add(row[0], row[2]*math.log(total_num_docs/row[3]))
+                self.__document_vectors[row[1]].add(row[0], row[2]*(math.log(float(total_num_docs)/float(row[3]))))
+
         similarity_set = {}
         for v in self.__document_vectors:
-            similarity_set[v] = self.__document_vectors[v].get_similarity(question)
+            similarity_set[v] = self.__document_vectors[v].get_similarity(question, module_question)
         sorted_similarity_set = sorted(similarity_set.items(), key=itemgetter(1), reverse=True)
         return sorted_similarity_set
