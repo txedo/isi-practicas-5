@@ -102,7 +102,7 @@ class Analyzer:
                                 """
                 # Al terminar de procesar el documento, se actualiza la base de datos con los datos de la cache y se escribe el posting_file
                 if len(self.posting_file)>0:
-                    self.cache.synchronize()
+                    #self.cache.synchronize()
                     self.dao.insert_term_posting_file_multi(self.posting_file, last_id)                
                 self.working=False
                 """if len(self.posting_file)>0:
@@ -110,6 +110,9 @@ class Analyzer:
                 else:
                     self.working=False"""
                 if not self.__analyzing_directory:
+                    # Al terminar de indexar los documentos, vacimos la cache y volcamos la tabla auxiliar al diccionario
+                    self.cache.synchronize ()
+                    self.dao.update_dic()
                     self.dao.update_dic()
                     self.dao.close()
             except:
@@ -136,6 +139,8 @@ class Analyzer:
                     else:
                         self.file_index(full_path)
                 self.__total_files = 1
+                # Al terminar de indexar los documentos, vacimos la cache y volcamos la tabla auxiliar al diccionario
+                self.cache.synchronize ()
                 self.dao.update_dic()
                 self.__analyzing_directory = False
                 self.dao.close()
