@@ -143,7 +143,7 @@ class Dao:
         sql = "CREATE VIEW " + view_name + " AS SELECT a.term, sum(a.num_docs) AS num_docs FROM aux a GROUP BY a.term"
         try:
             self.execute(sql)
-            db_size = int((self.query("SELECT COUNT(num_docs) FROM dic"))[0][0])
+            db_size = self.get_num_docs()
             if db_size >0:
                 #timestamp = str(datetime.datetime.now().microsecond)
                 #view_name_res = "view_res_"+timestamp
