@@ -19,11 +19,19 @@
 import psyco
 psyco.full()
 
-import os
+import exceptions
 
-REPOSITORY_PATH = os.getcwd() + "/../persistencia/repository/"
+class FileException(exceptions.Exception):
+		
+    def __init__(self, path): 
+        self.path=path
+        return
+    def __str__(self): return self.path+" is not a file"
 
-NOT_CACHE = -1
-NEW_CACHE = 0
-OLD_CACHE = 1
-MAX_CACHE_SIZE = 7000
+
+class FolderException(exceptions.Exception):
+		
+    def __init__(self, path): 
+        self.path=path
+        return
+    def __str__(self): return self.path+" is not a folder"
