@@ -62,7 +62,7 @@ class Dao:
         result = None
 
         try:
-            d1 = datetime.datetime.now()
+            #d1 = datetime.datetime.now()
             sql_view = "CREATE VIEW " + view_name + " AS SELECT DISTINCT p1.id_doc FROM posting_file p1 WHERE p1.term IN ("
             for i in question:
                 sql_view += "'" + i + "',"
@@ -70,11 +70,11 @@ class Dao:
             self.execute(sql_view)
             #print datetime.datetime.now()-d1
             #d1 = datetime.datetime.now()
-            sql_select = "SELECT p.term, p.id_doc, p.frequency, d.num_docs FROM posting_file p, dic d WHERE p.id_doc IN (SELECT * FROM " + view_name + ") and d.term=p.term"
+            sql_select = "SELECT HIGH_PRIORITY p.term, p.id_doc, p.frequency, d.num_docs FROM posting_file p, dic d WHERE p.id_doc IN (SELECT * FROM " + view_name + ") and d.term=p.term"
             result = self.query(sql_select)
+            #print datetime.datetime.now()-d1
             sql_drop_view = "DROP VIEW " + view_name
             self.execute(sql_drop_view)
-            print datetime.datetime.now()-d1
             #input()
         except:
             raise
@@ -83,82 +83,15 @@ class Dao:
         return result
 
 
-    """def select (self, question):
-        timestamp = str(datetime.datetime.now().microsecond)
-        view_name = "view_relevant_docs_"+timestamp
-        result = None
-
-        try:
-            d1 = datetime.datetime.now()
-            sql_view = "CREATE VIEW " + view_name + " AS SELECT DISTINCT p1.id_doc FROM posting_file p1 WHERE p1.term IN ("
-            for i in question:
-                sql_view += "'" + i + "',"
-            sql_view = sql_view[:len(sql_view)-1] + ")"
-            self.execute(sql_view)
-            #print datetime.datetime.now()-d1
-            #d1 = str(datetime.datetime.now().microsecond)
-            sql_select = "CREATE VIEW res AS SELECT p.term, p.id_doc, p.frequency, d.num_docs FROM posting_file p, dic d WHERE p.id_doc IN (SELECT * FROM " + view_name + ") and d.term=p.term"
-            self.execute(sql_select)
-            result = self.query("SELECT * FROM res")
-            #print datetime.datetime.now()-d1
-            sql_drop_view = "DROP VIEW " + view_name
-            self.execute(sql_drop_view)
-            sql_drop_view = "DROP VIEW res"
-            self.execute(sql_drop_view)
-            #input()
-            print datetime.datetime.now()-d1
-        except:
-            raise
-
-        return result"""
-
-
     # Metodos para insertar terminos en las tablas de la base de datos     
 
-    """def insert_term_dic_duplicate(self, term_buffer):
+    def insert_term_dic_duplicate(self, term_buffer):
         sql = "INSERT INTO dic (term, num_docs) VALUES "
         try:          
             for i in term_buffer:
                 sql += "('"+i+"', " + str(term_buffer[i]) + "),"
             sql = sql[:len(sql)-1]+" ON DUPLICATE KEY UPDATE num_docs=num_docs+VALUES(num_docs)"
             self.execute(sql)
-        except:
-            raise"""
-
-
-    def insert_aux(self, term_buffer):
-        sql = "INSERT INTO aux (term, num_docs) VALUES "
-        try:          
-            for i in term_buffer:
-                sql += "('"+i+"', " + str(term_buffer[i]) + "),"
-            sql = sql[:len(sql)-1]+";"
-            self.execute(sql)
-        except:
-            raise
-
-
-    def update_dic(self):
-        timestamp = str(datetime.datetime.now().microsecond)
-        view_name = "view_sum_"+timestamp
-        sql = "CREATE VIEW " + view_name + " AS SELECT a.term, sum(a.num_docs) AS num_docs FROM aux a GROUP BY a.term"
-        try:
-            self.execute(sql)
-            db_size = self.get_num_docs()
-            if db_size >0:
-                #timestamp = str(datetime.datetime.now().microsecond)
-                #view_name_res = "view_res_"+timestamp
-                #sql = "CREATE VIEW " + view_name_res + " AS SELECT d.term, (d.num_docs+v.num_docs) AS num_docs FROM dic d, "+ view_name + " v WHERE d.term=v.term"
-                #self.execute(sql)
-                #sql = "DELETE FROM DIC d WHERE d.term IN (SELECT v.term FROM " + view_name_res +" v)"
-                #self.execute(sql)
-                sql = "INSERT INTO dic (term, num_docs) (SELECT * FROM " + view_name+ ") ON DUPLICATE KEY UPDATE dic.num_docs=dic.num_docs+VALUES(num_docs)"
-                self.execute(sql)
-                #self.execute("DROP VIEW "+view_name_res)
-            else:  
-                sql = "INSERT INTO dic (term, num_docs) (SELECT * FROM " + view_name + ")"
-                self.execute(sql)
-            self.execute("DROP VIEW "+view_name)
-            self.clean_aux()
         except:
             raise
 
@@ -187,14 +120,6 @@ class Dao:
             sql = "UPDATE doc SET path='" + path + "' WHERE id_doc=" + str(last_id)
             self.execute(sql)
             return (path, last_id)
-        except:
-            raise
-
-    
-    def clean_aux (self):
-        sql = "DELETE FROM aux"
-        try:
-            self.execute(sql)
         except:
             raise
 
