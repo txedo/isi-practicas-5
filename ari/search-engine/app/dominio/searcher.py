@@ -25,6 +25,7 @@ sys.path.append(os.getcwd() + "/../persistencia")
 
 import dao
 import math
+import datetime
 from vector import *
 from operator import itemgetter
 
@@ -38,6 +39,7 @@ class Searcher:
     #wij = ftij x fidj = ftij x log(d/fdj)
     #sorted(d.items(), key=itemgetter(1), reverse=True)
     def search(self, question):
+        d1 = datetime.datetime.now()
         module_question = 0
         #question es un diccionario termino-peso
         total_num_docs = self.__dao.get_num_docs()
@@ -61,4 +63,5 @@ class Searcher:
         for v in self.__document_vectors:
             similarity_set[v] = self.__document_vectors[v].get_similarity(question, module_question)
         sorted_similarity_set = sorted(similarity_set.items(), key=itemgetter(1), reverse=True)
+        print datetime.datetime.now()-d1
         return sorted_similarity_set
