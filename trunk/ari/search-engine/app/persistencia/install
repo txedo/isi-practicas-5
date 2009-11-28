@@ -59,13 +59,14 @@ CREATE TABLE doc (
 ) TYPE=InnoDB AUTO_INCREMENT=1;
 
 CREATE TABLE posting_file (
+       id INT NOT NULL AUTO_INCREMENT,
        term VARCHAR(255) NOT NULL default '',
        id_doc INT NOT NULL,
        frequency INT NOT NULL default '1',
-       PRIMARY KEY (term, id_doc),
+       PRIMARY KEY (id),
        FOREIGN KEY (term) REFERENCES dic (term) ON DELETE CASCADE ON UPDATE CASCADE,
        FOREIGN KEY (id_doc) REFERENCES doc (id_doc) ON DELETE CASCADE ON UPDATE CASCADE
-) TYPE=InnoDB;
+) TYPE=InnoDB AUTO_INCREMENT=1;
 
 
 
