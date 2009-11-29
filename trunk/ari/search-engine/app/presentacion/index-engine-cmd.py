@@ -43,12 +43,12 @@ from exception import *
 
 # Parse arguments
 parser=OptionParser(usage="%prog (-f <file_name> | -d <directory_name>)", version="%prog 1.0",
-		    description="Index Engine")
+                    description="Index Engine")
 parser.set_defaults(sparse_output=False,binarize=False)
 parser.add_option("-f","--file",action="store",type="string",dest="file_name",
                   help="name of input file to index")
 parser.add_option("-d","--directory",action="store",type="string",dest="directory_name",
-		  help="name of the input directory to walk and to index")
+                  help="name of the input directory to walk and to index")
 (options,args)=parser.parse_args()
 
 
@@ -84,7 +84,7 @@ else:
             d1 = datetime.datetime.now()
             t = threading.Thread(target=analyzer.folder_index, args=(options.directory_name,))
             t.start()
-            """time.sleep(0.2)
+            time.sleep(0.2)
             label = str(analyzer)
             print label
             while analyzer.working:
@@ -101,11 +101,9 @@ else:
                     label=new_label
                     print label
                     ndoc+=1
-                time.sleep(0.2)"""
-            t.join()
+                time.sleep(0.2)
             d2 = datetime.datetime.now()
-            # print "\t** Time spent:", (d2-d3), "**"
-            
+            print "\t** Time spent:", (d2-d3), "**"
             print "Index finished in ", d2-d1
         except MySQLdb.Error, e:
             print "SQL Exception: "+e.args[1]
