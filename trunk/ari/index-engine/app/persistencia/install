@@ -45,18 +45,11 @@
 CREATE DATABASE ari CHARACTER SET utf8 COLLATE utf8_bin;
 USE ari;
 
-CREATE TABLE aux (
-       id INT NOT NULL AUTO_INCREMENT,
-       term CHAR(255) NOT NULL default '',
-       num_docs INT NOT NULL default '1',
-       PRIMARY KEY (id)
-) TYPE=InnoDB AUTO_INCREMENT=1;
-
 CREATE TABLE dic (
-       term CHAR(255) NOT NULL default '',
+       term VARCHAR(255) NOT NULL default '',
        num_docs INT NOT NULL default '1',
        PRIMARY KEY (term)
-) TYPE=InnoDB AUTO_INCREMENT=1;
+) TYPE=InnoDB;
 
 CREATE TABLE doc (
        id_doc INT NOT NULL AUTO_INCREMENT,
@@ -67,10 +60,11 @@ CREATE TABLE doc (
 
 CREATE TABLE posting_file (
        id INT NOT NULL AUTO_INCREMENT,
-       term CHAR(255) NOT NULL default '',
+       term VARCHAR(255) NOT NULL default '',
        id_doc INT NOT NULL,
        frequency INT NOT NULL default '1',
        PRIMARY KEY (id),
+       FOREIGN KEY (term) REFERENCES dic (term) ON DELETE CASCADE ON UPDATE CASCADE,
        FOREIGN KEY (id_doc) REFERENCES doc (id_doc) ON DELETE CASCADE ON UPDATE CASCADE
 ) TYPE=InnoDB AUTO_INCREMENT=1;
 

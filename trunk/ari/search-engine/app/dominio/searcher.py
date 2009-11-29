@@ -26,6 +26,7 @@ sys.path.append(os.getcwd() + "/../persistencia")
 import dao
 import math
 import datetime
+from exception import *
 from vector import *
 from operator import itemgetter
 
@@ -36,32 +37,45 @@ class Searcher:
         self.__total_num_docs = 0
         self.__document_vectors = {}
 
-    #wij = ftij x fidj = ftij x log(d/fdj)
-    #sorted(d.items(), key=itemgetter(1), reverse=True)
+    # question es un diccionario (termino-peso)
     def search(self, question):
         d1 = datetime.datetime.now()
         module_question = 0
-        #question es un diccionario termino-peso
-        total_num_docs = self.__dao.get_num_docs()
-        # Sacamos el modulo de la pregunta
-        for term in question:
-            module_question += question[term]
-        module_question = math.sqrt(module_question)
-        result = self.__dao.select(question.keys())
-        for row in result:
-            #row[0] -> term
-            #row[1] -> id_doc
-            #row[2] -> frequency
-            #row[3] -> num_docs
-            try:
-                self.__document_vectors[row[1]].add(row[0], row[2]*(math.log(float(total_num_docs)/float(row[3]))))
-            except:
-                self.__document_vectors[row[1]] = Vector()
-                self.__document_vectors[row[1]].add(row[0], row[2]*(math.log(float(total_num_docs)/float(row[3]))))
-
         similarity_set = {}
-        for v in self.__document_vectors:
-            similarity_set[v] = self.__document_vectors[v].get_similarity(question, module_question)
-        sorted_similarity_set = sorted(similarity_set.items(), key=itemgetter(1), reverse=True)
+        total_num_docs = self.__dao.get_num_docs()
+        # Si se ha indexado algun documento, se procesa la pregunta
+        if total_num_docs > 0:
+            # Obtenemos los datos de los documentos con algun termino en comun con la pregunta
+            result = self.__dao.select(question.keys())
+            # Si existen los terminos de la pregunta en algun documento, se hacen los calculos
+            if len(result) > 0:
+                # Calculamos el modulo de la pregunta
+                for term in question:
+                    module_question += question[term]
+                module_question = math.sqrt(module_question)
+                # Recorremos las filas que devuelve la base de datos y vamos calculando los pesos de cada termino en cada documento
+                for row in result:
+                    # row[0] -> term
+                    # row[1] -> id_doc
+                    # row[2] -> frequency (ftij)
+                    # row[3] -> num_docs (fdj)
+                    # El try indica que algun termino del documento ha aparecido anteriormente, por lo que ya tiene un vector creado
+                    # El except indica que es la primera vez que aparece un termino de un documento, por lo que se inicializa el vector de dicho documento
+                    # El vector de un documento contiene el termino y su peso
+                    # wij = ftij x fidj = ftij x log(d/fdj)
+                    try:
+                        self.__document_vectors[row[1]].add(row[0], row[2]*(math.log(float(total_num_docs)/float(row[3]))))
+                    except:
+                        self.__document_vectors[row[1]] = Vector()
+                        self.__document_vectors[row[1]].add(row[0], row[2]*(math.log(float(total_num_docs)/float(row[3]))))
+                # Una vez creados los vectores documentos, se calcula la semejanza de cada uno de ellos y se ordenan de mayor a menor semejanza
+                for v in self.__document_vectors:
+                    similarity_set[v] = self.__document_vectors[v].get_similarity(question, module_question)
+                sorted_similarity_set = sorted(similarity_set.items(), key=itemgetter(1), reverse=True)
+            else:
+                raise TermNotFound()
+        else:
+            raise NoFilesIndexed()
         print datetime.datetime.now()-d1
         return sorted_similarity_set
+
