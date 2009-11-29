@@ -64,7 +64,6 @@ class Analyzer:
                 else:
                     self.__current_file = self.__current_file + 1
 
-                print self.__current_file, path
                 self.working=True
                 file_name = (path.split("/"))[-1] # Tomamos el nombre del archivo
                 self.__current_working_file = file_name

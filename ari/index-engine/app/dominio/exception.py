@@ -35,3 +35,17 @@ class FolderException(exceptions.Exception):
         self.path=path
         return
     def __str__(self): return self.path+" is not a folder"
+
+
+class NoFilesIndexed(exceptions.Exception):
+		
+    def __init__(self): 
+        return
+    def __str__(self): return "There is no file indexed in the database"
+
+
+class TermNotFound(exceptions.Exception):
+		
+    def __init__(self): 
+        return
+    def __str__(self): return "There is no document that contains those terms"
