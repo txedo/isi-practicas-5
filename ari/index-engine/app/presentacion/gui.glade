@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.5 on Tue Oct 20 19:15:10 2009 -->
+<?xml version="1.0"?>
 <glade-interface>
+  <!-- interface-requires gtk+ 2.6 -->
+  <!-- interface-naming-policy toplevel-contextual -->
   <widget class="GtkWindow" id="window">
     <property name="visible">True</property>
     <property name="title" translatable="yes">Index Engine</property>
@@ -10,6 +10,7 @@
         <property name="visible">True</property>
         <child>
           <widget class="GtkButton" id="btnStart">
+            <property name="label" translatable="yes">Start</property>
             <property name="width_request">95</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
@@ -19,8 +20,6 @@
             <property name="can_default">True</property>
             <property name="has_default">True</property>
             <property name="receives_default">True</property>
-            <property name="label" translatable="yes">Start</property>
-            <property name="response_id">0</property>
             <signal name="clicked" handler="on_btnStart_clicked"/>
             <signal name="activate" handler="on_btnStart_activate"/>
           </widget>
@@ -31,12 +30,12 @@
         </child>
         <child>
           <widget class="GtkRadioButton" id="rbFile">
+            <property name="label" translatable="yes">Choose a file:</property>
             <property name="width_request">150</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="label" translatable="yes">Choose a file:</property>
-            <property name="response_id">0</property>
+            <property name="receives_default">False</property>
             <property name="active">True</property>
             <property name="draw_indicator">True</property>
             <signal name="group_changed" handler="on_rbFile_group_changed"/>
@@ -48,12 +47,12 @@
         </child>
         <child>
           <widget class="GtkRadioButton" id="rbDirectory">
+            <property name="label" translatable="yes">Choose a directory:</property>
             <property name="width_request">150</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="label" translatable="yes">Choose a directory:</property>
-            <property name="response_id">0</property>
+            <property name="receives_default">False</property>
             <property name="active">True</property>
             <property name="draw_indicator">True</property>
             <property name="group">rbFile</property>
@@ -70,7 +69,7 @@
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="invisible_char">●</property>
+            <property name="invisible_char">&#x25CF;</property>
           </widget>
           <packing>
             <property name="x">21</property>
@@ -83,7 +82,7 @@
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="invisible_char">●</property>
+            <property name="invisible_char">&#x25CF;</property>
           </widget>
           <packing>
             <property name="x">20</property>
@@ -92,14 +91,13 @@
         </child>
         <child>
           <widget class="GtkButton" id="btnBrowseFile">
+            <property name="label" translatable="yes">...
+</property>
             <property name="width_request">53</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="label" translatable="yes">...
-</property>
-            <property name="response_id">0</property>
             <signal name="clicked" handler="on_btnBrowseFile_clicked"/>
             <signal name="activate" handler="on_btnBrowseFile_activate"/>
           </widget>
@@ -110,14 +108,13 @@
         </child>
         <child>
           <widget class="GtkButton" id="btnBrowseDirectory">
+            <property name="label" translatable="yes">...
+</property>
             <property name="width_request">53</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="label" translatable="yes">...
-</property>
-            <property name="response_id">0</property>
             <signal name="clicked" handler="on_btnBrowseDirectory_clicked"/>
             <signal name="activate" handler="on_btnBrowseDirectory_activate"/>
           </widget>
