@@ -46,18 +46,19 @@ class Parser:
         acentoU_pattern = "Ú|Ù|Û|Ü|ú|ù|û|ü"
         acentoY_pattern = "ý|Ý|ÿ|Ÿ|ỳ|Ỳ"
         acentoC_pattern = "Ç|ç"
-        # Se obtiene una lista de palabras al separar por espacios
-        word_list = line.split(" ") 
+        # Se obtiene una lista de palabras
+        word_list = (re.sub('[%s]' % re.escape(separadores.replace("-.","")), " ", line)).split(" ")
         for word in word_list:
-            # Para cada palabra de la lista, si no esta en la stop_list, no es una palabra vacia y no es un numero, se parsea
+            word_parts = [] 
+            word_list_parts = []
+            # Para cada palabra de la lista, si no esta en la stop_list y no es una palabra vacia
             if (word not in string.whitespace) and (word not in self.stop_list):
-                # Si la palabra es una direccion IP, se toma dicha palabra como termino (eliminando signos de puntuación menos el punto)
+                # Si la palabra es una direccion IP, se toma dicha palabra como termino
                 if ip_pattern.match(word):
                     #word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
                     result.append(word)
                 # Se ignoran separadores de seccion
                 elif (not section_numbers_pattern.match(word)):
-                #else: # Si es direccion web, email u otra palabra, se separa por signos de puntuacion
                     # Estandarizamos las vocales
                     if re.search(acentoA_pattern, word): 
                         reg = re.compile("Á|À|Â|Ä|á|à|â|ä")
@@ -81,21 +82,28 @@ class Parser:
                         reg = re.compile("Ç|ç")                  
                         word = reg.sub("c",word) 
 
-                    # Si la palabra contiene un guion, las palabras separadas por ese guion se juntan, por si tambien aparecen en 
-                    # otros documentos juntas. Por ejemplo, back-up o backup; cd-rom o cdrom
-                    if (word[0].isalpha()) and ((word.find("-"))>-1):
-                        w = (re.sub('[%s]' % re.escape(string.punctuation), "", word))
-                        result.append(w)
-                    elif word[0].isalnum():
-                        word_parts = (re.sub('[%s]' % re.escape(separadores), " ", word)).split(" ")
-                        # Copia auxiliar para poder recorrer toda la lista de palabras
-                        aux = word_parts[:]
-                        # Se comprueba que al separar la palabra por signos de puntuacion, todas las palabras obtenidas tengan sentido
-                        for w in aux:
-                            # Un espacio en blanco se elimina. Si no comienza por letra tambien
-                            if (w in string.whitespace) or (not w[0].isalnum()) or (w in self.stop_list): 
-                                word_parts.remove(w)                    
-                        result.extend(word_parts)
+                    # Eliminamos los puntos
+                    word_list_parts = (re.sub('[%s]' % re.escape("."), " ", word)).split(" ")
+                    # De las palabras obtenidas al separar por el punto, si comprueban si tienen guion
+                    for w in word_list_parts:
+                        # Si la palabra contiene un guion, las palabras separadas por ese guion se almacenan separadas. Tambien se almacenan con el guion
+                        if w not in separadores:
+                            if w[0].isalpha():
+                                if w.find("-")>-1:
+                                    word_parts.extend((re.sub('[%s]' % re.escape("-"), " ", w)).split(" "))
+                                # Si la palabra acaba en guion, no se introduce junta
+                                if w[len(w)-1]!="-":
+                                    result.append(w)
+    
+                    # Copia auxiliar para poder recorrer toda la lista de palabras
+                    aux = word_parts[:]
+                    # Se comprueba que al separar la palabra por signos de puntuacion, todas las palabras obtenidas tengan sentido
+                    for a in aux:
+                        # Un espacio en blanco se elimina. Si no comienza por una caracter alfanumerico o esta en la stoplist, tambien
+                        if (a in string.whitespace) or (not a[0].isalnum()) or (a in self.stop_list): 
+                            word_parts.remove(a) 
+                          
+                    result.extend(word_parts)
             
         return result
 
