@@ -43,6 +43,8 @@ class Searcher:
         module_question = 0
         similarity_set = {}
         total_num_docs = self.__dao.get_num_docs()
+        result=None
+        self.__document_vectors = {}
         # Si se ha indexado algun documento, se procesa la pregunta
         if total_num_docs > 0:
             # Obtenemos los datos de los documentos con algun termino en comun con la pregunta
@@ -59,6 +61,7 @@ class Searcher:
                     # row[1] -> id_doc
                     # row[2] -> frequency (ftij)
                     # row[3] -> num_docs (fdj)
+                    # row[4] -> title
                     # El try indica que algun termino del documento ha aparecido anteriormente, por lo que ya tiene un vector creado
                     # El except indica que es la primera vez que aparece un termino de un documento, por lo que se inicializa el vector de dicho documento
                     # El vector de un documento contiene el termino y su peso
@@ -67,10 +70,12 @@ class Searcher:
                         self.__document_vectors[row[1]].add(row[0], row[2]*(math.log(float(total_num_docs)/float(row[3]))))
                     except:
                         self.__document_vectors[row[1]] = Vector()
+                        self.__document_vectors[row[1]].set_title(str(row[4]))
                         self.__document_vectors[row[1]].add(row[0], row[2]*(math.log(float(total_num_docs)/float(row[3]))))
                 # Una vez creados los vectores documentos, se calcula la semejanza de cada uno de ellos y se ordenan de mayor a menor semejanza
+                # Se devuelve el id_documento, su semejanza y el titulo de ese documento
                 for v in self.__document_vectors:
-                    similarity_set[v] = self.__document_vectors[v].get_similarity(question, module_question)
+                    similarity_set[v] = (self.__document_vectors[v].get_similarity(question, module_question), self.__document_vectors[v].get_title())
                 sorted_similarity_set = sorted(similarity_set.items(), key=itemgetter(1), reverse=True)
             else:
                 raise TermNotFound()

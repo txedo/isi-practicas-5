@@ -121,14 +121,14 @@ class Dao:
 
         try:
             #d1 = datetime.datetime.now()
-            sql_view = "CREATE VIEW " + view_name + " AS SELECT DISTINCT p1.id_doc FROM posting_file p1 USE INDEX (id_doc) WHERE p1.term IN ("
+            sql_view = "CREATE VIEW " + view_name + " AS SELECT DISTINCT p1.id_doc FROM posting_file p1 USE INDEX (term) WHERE p1.term IN ("
             for i in question:
                 sql_view += "'" + i + "',"
             sql_view = sql_view[:len(sql_view)-1] + ")"
             self.execute(sql_view)
             #print datetime.datetime.now()-d1
             #d1 = datetime.datetime.now()
-            sql_select = "SELECT HIGH_PRIORITY posting_file.term,posting_file.id_doc,frequency,num_docs from posting_file USE INDEX (term,id_doc) join " +view_name +" v join dic on posting_file.id_doc=v.id_doc and dic.term=posting_file.term"
+            sql_select = "SELECT HIGH_PRIORITY posting_file.term,posting_file.id_doc,frequency,num_docs,title from posting_file USE INDEX (term,id_doc) join " +view_name +" v join dic join doc on posting_file.id_doc=v.id_doc and dic.term=posting_file.term and posting_file.id_doc=doc.id_doc"
             result = self.query(sql_select)
             #print datetime.datetime.now()-d1
             sql_drop_view = "DROP VIEW " + view_name
