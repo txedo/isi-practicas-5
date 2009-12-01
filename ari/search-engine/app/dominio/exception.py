@@ -49,3 +49,4 @@ class TermNotFound(exceptions.Exception):
     def __init__(self): 
         return
     def __str__(self): return "There is no document that contains those terms"
+

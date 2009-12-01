@@ -33,6 +33,8 @@ import threading, time, datetime
 import indexEngineGUI
 import parse, searcher
 
+from exception import * 
+
 #ICON = gtk.gdk.pixbuf_new_from_file("terminal_icon.jpg")
 TITLE = "Index Engine"
 
@@ -124,28 +126,58 @@ class Aplicacion:
         pass
 
     def searchButton_clicked_cb(self, widget):
+        terms = self.gui['textEntry'].get_text()
         question_dic = {}
-        question = self.gui['textEntry'].get_text()
-        s = searcher.Searcher()
-        p = parse.Parser()
-        print "Procesar la pregunta ", question
-        question_parts = p.parse(question)
-        print question_parts
-        if self.gui['defaultWeightRadioButton'].get_active():
-            # pesos por defecto
-            for q in question_parts:
-                question_dic[q] = 1
-        else:
-            # pesos personalizados
-            for q in question_parts:
-                question_dic[q] = 1
-            question_dic = self.create_weight_window(question_parts)
-        res = s.search(question_dic)
-        print res
+        question_parts = []
+        search=True
+        weights_sum = 0
+        try:
+            if terms <> '':                
+                question = self.gui['textEntry'].get_text()
+                s = searcher.Searcher()
+                p = parse.Parser()
+                print "Procesar la pregunta ", question
+                question_parts_aux = p.parse(question)
+                print question_parts_aux
+                # Se eliminan terminos repetidos en la busqueda
+                for q in question_parts_aux: 
+                    if q not in question_parts:
+                        question_parts.append(q)
+                print question_parts
+                if self.gui['defaultWeightRadioButton'].get_active():
+                    # Pesos por defecto
+                    for q in question_parts:
+                        question_dic[q] = 1
+                else:
+                    # Pesos personalizados
+                    #for q in question_parts:
+                    #    question_dic[q] = 1
+                    (question_dic, weights_sum)= self.create_weight_window(question_parts)
+                    if weights_sum == 0:
+                        search=False
+                if search:
+                    res = s.search(question_dic)
+                    print res
+                else:
+                    self.__showErrorDialog("Error", "At least one term must have a weight greater than 0")
+            else:
+                self.__showErrorDialog("Error", "Enter any term")
+
+        except MySQLdb.Error, e:
+            self.__showErrorDialog("Error", "SQL Exception: "+e.args[1])
+        except TermNotFound, e:
+            self.__showErrorDialog("Error", str(e))
+        except NoFilesIndexed, e:
+            self.__showErrorDialog("Error", str(e))
+        except Exception, e:
+            self.__showErrorDialog("Error", "Exception: "+str(e))
+        widget.set_sensitive(True)
+        
 
     def create_weight_window(self, question_parts):
         slider_list = []
         question_dic = {}
+        weights_sum = 0
         dialog = gtk.Dialog (title="Weight customization", parent=self.window, flags=gtk.DIALOG_MODAL, buttons=(gtk.STOCK_OK, gtk.RESPONSE_OK))
         dialog.set_resizable(False)
         for q in question_parts:
@@ -167,9 +199,10 @@ class Aplicacion:
             hbox.show()
         response = dialog.run()
         for i in range(len(slider_list)):
-            question_dic[question_parts[i]] = slider_list[i].get_value()
+            question_dic[question_parts[i]] = float(slider_list[i].get_value())
+            weights_sum += slider_list[i].get_value()
         dialog.destroy()
-        return question_dic
+        return (question_dic, weights_sum)
 
     def aboutMenuItem_activate_cb(self, widget):
         authors = ["Jose Domingo Lopez Lopez\nJuan Andrada Romero"]

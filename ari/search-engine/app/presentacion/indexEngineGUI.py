@@ -65,6 +65,8 @@ class Aplicacion:
             "on_btnBrowseFile_clicked" : self.btnBrowseFile_activate_cb,
             "on_btnBrowseDirectory_clicked" : self.btnBrowseDirectory_activate_cb,
             "on_btnStart_clicked" : self.btnStart_activate_cb,
+            "on_btnClose_activate" : self.btnClose_activate_cb,
+            "on_btnClose_clicked" : self.btnClose_activate_cb,
             }
         # Creo la instancia de la GUI
         self.gui = GUI(glade_file)
@@ -79,7 +81,7 @@ class Aplicacion:
 
 
     def __guiInit(self):
-        self.window.resize(325,250)
+        self.window.resize(440,250)
         self.window.set_title(TITLE)
         #self.window.set_icon(ICON)
         self.gui['progressbar'].set_text("Choose an option...")
@@ -118,11 +120,14 @@ class Aplicacion:
 
 
     def destroy(self, widget):
-        if self.analyzer.dao <> None:
+         if self.analyzer.dao <> None:
             self.analyzer.dao.close()
-        gtk.main_quit()
+         gtk.main_quit()
         
-        
+       
+    def btnClose_activate_cb(self, widget):
+        self.destroy(widget)
+ 
     def btnBrowseFile_activate_cb(self, widget):
         fcdialog = gtk.FileChooserDialog(title="Select a file to index...", parent=self.window, 
                                          action=gtk.FILE_CHOOSER_ACTION_OPEN, 
