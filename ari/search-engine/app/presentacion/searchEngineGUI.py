@@ -28,8 +28,10 @@ import sys, os
 sys.path.append(os.getcwd() + "/../dominio")
 
 import MySQLdb
-
 import threading, time, datetime
+
+import indexEngineGUI
+import parse, searcher
 
 #ICON = gtk.gdk.pixbuf_new_from_file("terminal_icon.jpg")
 TITLE = "Index Engine"
@@ -53,7 +55,6 @@ class Aplicacion:
         self.working=False
         # Diccionario de senales y callbacks
         self.dic = {
-            "on_searchButton_activate" : self.searchButton_activate_cb,
             "on_searchButton_clicked" : self.searchButton_clicked_cb,
             "on_aboutMenuItem_activate" : self.aboutMenuItem_activate_cb,
             "on_quitMenuItem_activate" : self.quitMenuItem_activate_cb,
@@ -68,7 +69,6 @@ class Aplicacion:
         #self.gui['indexer_window'].hide()
         # Creo esta conexion para que sea destruida al cerrar
         self.window.connect('destroy', self.destroy)
-        self.gui['indexer_window'].connect("delete-event", self.on_delete_event)
         # Para los dialogos conectar "delete-event" y "close"
         # Inicializaciones de la interfaz en codigo
         self.__guiInit()
@@ -119,20 +119,57 @@ class Aplicacion:
         errordialog.destroy()
         return response
 
-    def handle_exception_gui (self, title, error):
-        message = gtk.MessageDialog(None, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_NONE, error)
-        message.set_title(title)
-        message.add_buttons(gtk.STOCK_OK, gtk.RESPONSE_OK)
-        return message
          
     def init_pb(self, init):
         pass
 
-    def searchButton_activate_cb(self, widget):
-        pass
-
     def searchButton_clicked_cb(self, widget):
-        pass
+        question_dic = {}
+        question = self.gui['textEntry'].get_text()
+        s = searcher.Searcher()
+        p = parse.Parser()
+        print "Procesar la pregunta ", question
+        question_parts = p.parse(question)
+        print question_parts
+        if self.gui['defaultWeightRadioButton'].get_active():
+            # pesos por defecto
+            for q in question_parts:
+                question_dic[q] = 1
+        else:
+            # pesos personalizados
+            for q in question_parts:
+                question_dic[q] = 1
+            question_dic = self.create_weight_window(question_parts)
+        res = s.search(question_dic)
+        print res
+
+    def create_weight_window(self, question_parts):
+        slider_list = []
+        question_dic = {}
+        dialog = gtk.Dialog (title="Weight customization", parent=self.window, flags=gtk.DIALOG_MODAL, buttons=(gtk.STOCK_OK, gtk.RESPONSE_OK))
+        dialog.set_resizable(False)
+        for q in question_parts:
+            label = gtk.Label()
+            label.set_text(q)
+            hbox = gtk.HBox(homogeneous=True, spacing=10)
+            hbox.pack_start(label, expand=False, fill=False, padding=10)
+            #dialog.vbox.pack_start(label)
+            label.show()
+            adj = gtk.Adjustment(value=1, lower=0, upper=1, step_incr=0.01, page_incr=0, page_size=0)
+            slider = gtk.HScale(adj)
+            slider.set_digits(2)
+            slider.set_size_request(90,-1)
+            hbox.pack_start(slider, expand=True, fill=True, padding=10)
+            #dialog.vbox.pack_start(slider)
+            slider.show()
+            slider_list.append(slider)
+            dialog.vbox.pack_start(hbox, expand=False, fill=False, padding=0)
+            hbox.show()
+        response = dialog.run()
+        for i in range(len(slider_list)):
+            question_dic[question_parts[i]] = slider_list[i].get_value()
+        dialog.destroy()
+        return question_dic
 
     def aboutMenuItem_activate_cb(self, widget):
         authors = ["Jose Domingo Lopez Lopez\nJuan Andrada Romero"]
@@ -148,8 +185,11 @@ class Aplicacion:
         dialog.destroy()
 
     def indexEngineMenuItem_activate_cb(self, widget):
-        indexerWindow = self.gui['indexer_window']
-        indexerWindow.show()
+        indexer = indexEngineGUI.Aplicacion('index-engine-gui.glade')
+        indexer.gui['window'].connect("delete-event", self.on_delete_event)
+        indexer.gui['window'].set_modal(True)
+        indexer.gui['window'].set_transient_for(self.window)
+        indexer.gui['window'].set_position(gtk.WIN_POS_CENTER_ON_PARENT)
 
     def quitMenuItem_activate_cb(self, widget):
         self.destroy(widget)
@@ -160,5 +200,5 @@ def main():
 
 
 if __name__ == '__main__':
-    app = Aplicacion('gui.glade')
+    app = Aplicacion('search-engine-gui.glade')
     main()

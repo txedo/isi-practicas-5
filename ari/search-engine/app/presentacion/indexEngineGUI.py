@@ -233,5 +233,5 @@ def main():
 
 
 if __name__ == '__main__':
-    app = Aplicacion('gui.glade')
+    app = Aplicacion('index-engine-gui.glade')
     main()

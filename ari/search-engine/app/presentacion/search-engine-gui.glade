@@ -132,7 +132,10 @@
                 <property name="height_request">30</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
+                <property name="is_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <property name="activates_default">True</property>
               </widget>
               <packing>
                 <property name="x">20</property>
@@ -146,9 +149,10 @@
                 <property name="height_request">30</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="can_default">True</property>
+                <property name="has_default">True</property>
                 <property name="receives_default">True</property>
                 <signal name="clicked" handler="on_searchButton_clicked"/>
-                <signal name="activate" handler="on_searchButton_activate"/>
               </widget>
               <packing>
                 <property name="x">280</property>
@@ -203,144 +207,6 @@
           </widget>
           <packing>
             <property name="position">1</property>
-          </packing>
-        </child>
-      </widget>
-    </child>
-  </widget>
-  <widget class="GtkWindow" id="indexer_window">
-    <property name="width_request">325</property>
-    <property name="height_request">250</property>
-    <property name="title" translatable="yes">Index Engine</property>
-    <property name="resizable">False</property>
-    <property name="modal">True</property>
-    <property name="destroy_with_parent">True</property>
-    <child>
-      <widget class="GtkVBox" id="vbox2">
-        <property name="width_request">325</property>
-        <property name="height_request">250</property>
-        <property name="visible">True</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <widget class="GtkLayout" id="layout2">
-            <property name="visible">True</property>
-            <child>
-              <widget class="GtkButton" id="btnStart">
-                <property name="label" translatable="yes">Start</property>
-                <property name="width_request">95</property>
-                <property name="height_request">30</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="can_default">True</property>
-                <property name="has_default">True</property>
-                <property name="receives_default">True</property>
-              </widget>
-              <packing>
-                <property name="x">206</property>
-                <property name="y">175</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkRadioButton" id="rbFile">
-                <property name="label" translatable="yes">Choose a file:</property>
-                <property name="width_request">150</property>
-                <property name="height_request">25</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">False</property>
-                <property name="active">True</property>
-                <property name="draw_indicator">True</property>
-              </widget>
-              <packing>
-                <property name="x">18</property>
-                <property name="y">13</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkRadioButton" id="rbDirectory">
-                <property name="label" translatable="yes">Choose a directory:</property>
-                <property name="width_request">150</property>
-                <property name="height_request">25</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">False</property>
-                <property name="draw_indicator">True</property>
-                <property name="group">rbFile</property>
-              </widget>
-              <packing>
-                <property name="x">17</property>
-                <property name="y">93</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkEntry" id="txtFilePath">
-                <property name="width_request">224</property>
-                <property name="height_request">25</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
-              </widget>
-              <packing>
-                <property name="x">21</property>
-                <property name="y">44</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkEntry" id="txtDirectoryPath">
-                <property name="width_request">224</property>
-                <property name="height_request">25</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
-              </widget>
-              <packing>
-                <property name="x">20</property>
-                <property name="y">125</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkButton" id="btnBrowseFile">
-                <property name="label" translatable="yes">...
-</property>
-                <property name="width_request">53</property>
-                <property name="height_request">25</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-              </widget>
-              <packing>
-                <property name="x">248</property>
-                <property name="y">44</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkButton" id="btnBrowseDirectory">
-                <property name="label" translatable="yes">...
-</property>
-                <property name="width_request">53</property>
-                <property name="height_request">25</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-              </widget>
-              <packing>
-                <property name="x">249</property>
-                <property name="y">125</property>
-              </packing>
-            </child>
-            <child>
-              <widget class="GtkProgressBar" id="progressbar1">
-                <property name="width_request">325</property>
-                <property name="height_request">25</property>
-                <property name="visible">True</property>
-              </widget>
-              <packing>
-                <property name="y">224</property>
-              </packing>
-            </child>
-          </widget>
-          <packing>
-            <property name="position">0</property>
           </packing>
         </child>
       </widget>
