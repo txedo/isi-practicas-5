@@ -58,8 +58,9 @@ class Analyzer:
         else:
             # Controlamos si indexamos un directorio o un fichero
             try: 
-                if not self.__analyzing_directory:
+                if self.dao == None:
                     self.dao = dao.Dao()
+                if not self.__analyzing_directory:
                     self.__current_file = 1
                 else:
                     self.__current_file = self.__current_file + 1
@@ -108,9 +109,10 @@ class Analyzer:
                     self.working = self.cache.save_posting(self.posting_file, last_id, self.__current_file, self.__total_files)
                 else:
                     self.working=False"""
-                if not self.__analyzing_directory:
+                """if not self.__analyzing_directory:
                     # Al terminar de indexar los documentos, vacimos la cache y volcamos la tabla auxiliar al diccionario
                     self.dao.close()
+                    self.dao=None"""
             except:
                 raise
                             
@@ -137,7 +139,6 @@ class Analyzer:
                 self.__total_files = 1
                 # Al terminar de indexar los documentos, vacimos la cache y volcamos la tabla auxiliar al diccionario
                 self.__analyzing_directory = False
-                self.dao.close()
             except: 
                 raise
 

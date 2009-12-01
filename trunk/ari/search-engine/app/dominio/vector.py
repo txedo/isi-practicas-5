@@ -30,9 +30,9 @@ class Vector:
 
         try:
             similarity = (product / (module_vector * module_question))
+            return similarity
         except ZeroDivisionError:
             raise ZeroDivisionError
-        return similarity
 
     def get_title(self):
         return self.__title

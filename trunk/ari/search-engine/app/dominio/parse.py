@@ -88,13 +88,12 @@ class Parser:
                     for w in word_list_parts:
                         # Si la palabra contiene un guion, las palabras separadas por ese guion se almacenan separadas. Tambien se almacenan con el guion
                         if w not in separadores:
-                            if w[0].isalpha():
+                            if w[0].isalnum():
                                 if w.find("-")>-1:
                                     word_parts.extend((re.sub('[%s]' % re.escape("-"), " ", w)).split(" "))
                                 # Si la palabra acaba en guion, no se introduce junta
                                 if w[len(w)-1]!="-":
                                     result.append(w)
-    
                     # Copia auxiliar para poder recorrer toda la lista de palabras
                     aux = word_parts[:]
                     # Se comprueba que al separar la palabra por signos de puntuacion, todas las palabras obtenidas tengan sentido

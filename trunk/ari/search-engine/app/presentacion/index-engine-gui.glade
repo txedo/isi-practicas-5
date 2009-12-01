@@ -11,7 +11,7 @@
         <child>
           <widget class="GtkButton" id="btnStart">
             <property name="label" translatable="yes">Start</property>
-            <property name="width_request">95</property>
+            <property name="width_request">88</property>
             <property name="height_request">30</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -24,7 +24,7 @@
             <signal name="activate" handler="on_btnStart_activate"/>
           </widget>
           <packing>
-            <property name="x">206</property>
+            <property name="x">338</property>
             <property name="y">175</property>
           </packing>
         </child>
@@ -65,7 +65,7 @@
         </child>
         <child>
           <widget class="GtkEntry" id="txtFilePath">
-            <property name="width_request">224</property>
+            <property name="width_request">349</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -78,7 +78,7 @@
         </child>
         <child>
           <widget class="GtkEntry" id="txtDirectoryPath">
-            <property name="width_request">224</property>
+            <property name="width_request">351</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -102,8 +102,8 @@
             <signal name="activate" handler="on_btnBrowseFile_activate"/>
           </widget>
           <packing>
-            <property name="x">248</property>
-            <property name="y">44</property>
+            <property name="x">374</property>
+            <property name="y">45</property>
           </packing>
         </child>
         <child>
@@ -119,18 +119,34 @@
             <signal name="activate" handler="on_btnBrowseDirectory_activate"/>
           </widget>
           <packing>
-            <property name="x">249</property>
+            <property name="x">374</property>
             <property name="y">125</property>
           </packing>
         </child>
         <child>
           <widget class="GtkProgressBar" id="progressbar">
-            <property name="width_request">325</property>
+            <property name="width_request">440</property>
             <property name="height_request">25</property>
             <property name="visible">True</property>
           </widget>
           <packing>
             <property name="y">224</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="btnClose">
+            <property name="label" translatable="yes">Close</property>
+            <property name="width_request">86</property>
+            <property name="height_request">31</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_btnClose_clicked"/>
+            <signal name="activate" handler="on_btnClose_activate"/>
+          </widget>
+          <packing>
+            <property name="x">244</property>
+            <property name="y">175</property>
           </packing>
         </child>
       </widget>
