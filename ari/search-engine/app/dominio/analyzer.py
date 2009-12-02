@@ -43,6 +43,7 @@ class Analyzer:
         self.__total_files = 1
         self.working = False
         self.__analyzing_directory = False
+        self.exception = None
 
 
     def __str__(self):
@@ -54,7 +55,7 @@ class Analyzer:
         self.posting_file = {}
         # No existe la ruta
         if not os.path.isfile(path):
-            raise FileException(path)
+            self.exception = FileException(path)
         else:
             # Controlamos si indexamos un directorio o un fichero
             try: 
@@ -88,40 +89,20 @@ class Analyzer:
                                 # Si es la primera vez que aparece la palabra en el documento, se comprueba si esa 
                                 # palabra ya aparecia en otro documento. Si no, se anade al diccionario
                                 self.cache.add(word)
-                                """
-                                what_cache = self.cache.exists(word)
-                                if what_cache == NOT_CACHE:
-                                    (exist_term, frequency) = self.dao.exist_term_dic(word)
-                                    if not exist_term:
-                                        self.cache.load(word,NEW_CACHE)
-                                    else:
-                                        self.cache.load(word,OLD_CACHE,frequency+1)
-                                else:
-                                    frequency = self.cache.get_frequency(word,what_cache)
-                                    self.cache.load(word,what_cache,frequency+1)
-                                """
                 # Al terminar de procesar el documento, se actualiza la base de datos con los datos de la cache y se escribe el posting_file
                 if len(self.posting_file)>0:
                     self.cache.synchronize()
                     self.dao.insert_term_posting_file_multi(self.posting_file, last_id)                
                 self.working=False
-                """if len(self.posting_file)>0:
-                    self.working = self.cache.save_posting(self.posting_file, last_id, self.__current_file, self.__total_files)
-                else:
-                    self.working=False"""
-                """if not self.__analyzing_directory:
-                    # Al terminar de indexar los documentos, vacimos la cache y volcamos la tabla auxiliar al diccionario
-                    self.dao.close()
-                    self.dao=None"""
-            except:
-                raise
+            except Exception, e:
+                self.exception = e
                             
 
     # Metodo para indexar un directorio
     def folder_index(self, path):
         # Si no es un directorio, se lanza una excepcion
         if not os.path.isdir(path):
-            raise FolderException(path)
+            self.exception = FolderException(path)
         else:
             try:
                 self.__analyzing_directory = True
@@ -139,8 +120,8 @@ class Analyzer:
                 self.__total_files = 1
                 # Al terminar de indexar los documentos, vacimos la cache y volcamos la tabla auxiliar al diccionario
                 self.__analyzing_directory = False
-            except: 
-                raise
+            except Exception, e: 
+                self.exception = e
 
 
    

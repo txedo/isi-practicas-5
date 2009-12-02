@@ -22,7 +22,7 @@ psyco.full()
 
 import pygtk
 pygtk.require('2.0')
-import gtk, gtk.glade, gobject
+import gtk, gtk.glade
 
 import string
 
@@ -55,7 +55,8 @@ class Aplicacion:
     
     
     def __init__(self, glade_file):
-        self.analyzer = analyzer.Analyzer()
+        self.invoked = False
+        self.analyzer = None
         self.working=False
         # Diccionario de senales y callbacks
         self.dic = {
@@ -94,12 +95,19 @@ class Aplicacion:
         rbDirectory.connect("toggled", self.callback, "directory")
         # Inicializamos activada la parte de ficheros y desactivada la parte de directorios
         txtFilePath = self.gui['txtFilePath']
-        txtFilePath.set_editable(False)
+        #txtFilePath.set_editable(False)
         txtDirectoryPath = self.gui['txtDirectoryPath']
-        txtDirectoryPath.set_editable(False)
+        #txtDirectoryPath.set_editable(False)
         txtDirectoryPath.set_sensitive(False)
         btnBrowseDirectory = self.gui['btnBrowseDirectory']
         btnBrowseDirectory.set_sensitive(False)
+        try:
+            self.analyzer = analyzer.Analyzer()
+        except Exception, e:
+            message = self.handle_exception_gui("Exception", str(e))
+            resp = message.run()
+            if resp==gtk.RESPONSE_OK:
+                message.destroy()
 
 
     def callback (self, widget, data=None):
@@ -120,13 +128,17 @@ class Aplicacion:
 
 
     def destroy(self, widget):
-         if self.analyzer.dao <> None:
-            self.analyzer.dao.close()
-         gtk.main_quit()
+        if self.analyzer <> None:
+            if self.analyzer.dao <> None:
+                self.analyzer.dao.close()
+        gtk.main_quit()
         
        
     def btnClose_activate_cb(self, widget):
-        self.destroy(widget)
+        if not self.invoked:
+            self.destroy(widget)
+        else:
+            self.window.hide()
  
     def btnBrowseFile_activate_cb(self, widget):
         fcdialog = gtk.FileChooserDialog(title="Select a file to index...", parent=self.window, 
@@ -163,16 +175,16 @@ class Aplicacion:
         
     # Metodo para actualizar la barra de progreso
     def init_pb(self, init):
-         time.sleep(0.2)
-         while self.analyzer.working:
-             self.gui['progressbar'].set_text(str(self.analyzer))
-             self.gui['progressbar'].pulse()
-             while gtk.events_pending():
-                 gtk.main_iteration()
-                 time.sleep(0.2)
-         self.gui['progressbar'].set_fraction(1.0)
-         finish = datetime.datetime.now()
-         self.gui['progressbar'].set_text("Index finished in " + str(finish-init))
+        time.sleep(0.2)
+        while self.analyzer.working:
+            self.gui['progressbar'].set_text(str(self.analyzer))
+            self.gui['progressbar'].pulse()
+            while gtk.events_pending():
+                gtk.main_iteration()
+                time.sleep(0.2)
+        self.gui['progressbar'].set_fraction(1.0)
+        finish = datetime.datetime.now()
+        self.gui['progressbar'].set_text("Index finished in " + str(finish-init))
 
 
     def btnStart_activate_cb(self, widget):
@@ -185,53 +197,40 @@ class Aplicacion:
                 file_path = self.gui['txtFilePath'].get_text()
                 if file_path <> '':
                     t = threading.Thread(target=self.analyzer.file_index,args=(file_path,))
-                    t.start()
-                    self.init_pb(init)
-                else:   
-                    message = self.handle_exception_gui("File not found", "Browse a file")
-                    resp = message.run()
-                    if resp==gtk.RESPONSE_OK:
-                        message.destroy()
+                else:
+                    raise FileException(file_path)
             elif rbDirectory.get_active():
                 folder_path = self.gui['txtDirectoryPath'].get_text()
                 if folder_path <> '':
                     t = threading.Thread(target=self.analyzer.folder_index,args=(folder_path,))
-                    t.start()
-                    self.init_pb(init)
                 else:
-                    message = self.handle_exception_gui("Folder not found", "Browse a folder")
-                    resp = message.run()
-                    if resp==gtk.RESPONSE_OK:
-                        message.destroy()
-            
+                    raise FolderException(folder_path)
+            t.start()
+            self.init_pb(init)
+            t.join()
+            if self.analyzer.exception <> None:
+                self.gui['progressbar'].set_text("An error has ocurred")
+                self.gui['progressbar'].set_fraction(0.0)
+                raise self.analyzer.exception
         except MySQLdb.Error, e:
-            message = self.handle_exception_gui("SQL Exception", e.args[1])
-            resp = message.run()
-            if resp==gtk.RESPONSE_OK:
-                message.destroy()
+            self.__showErrorDialog("SQL Exception", e.args[1])
         except FileException, e:
-            message = self.handle_exception_gui("File path incorrect", str(e))
-            resp = message.run()
-            if resp==gtk.RESPONSE_OK:
-                message.destroy()
+            self.__showErrorDialog("Wrong file path", str(e))
         except FolderException, e:
-            message = self.handle_exception_gui("Folder path incorrect", str(e))
-            resp = message.run()
-            if resp==gtk.RESPONSE_OK:
-                message.destroy()
+            self.__showErrorDialog("Wrong folder path", str(e))
         except Exception, e:
-            message = self.handle_exception_gui("Exception", str(e))
-            resp = message.run()
-            if resp==gtk.RESPONSE_OK:
-                message.destroy()
+            self.__showErrorDialog("Exception", str(e))
         widget.set_sensitive(True)
         
-    def handle_exception_gui (self, title, error):
-        message = gtk.MessageDialog(None, gtk.DIALOG_MODAL, gtk.MESSAGE_ERROR, gtk.BUTTONS_NONE, error)
-        message.set_title(title)
-        message.add_buttons(gtk.STOCK_OK, gtk.RESPONSE_OK)
-        return message
 
+    def __showErrorDialog (self, title, secondary_text):
+        errordialog = gtk.MessageDialog (parent=self.window, flags=gtk.DIALOG_MODAL, type=gtk.MESSAGE_ERROR, buttons=gtk.BUTTONS_NONE)
+        errordialog.set_title(title)
+        errordialog.format_secondary_text(secondary_text)
+        errordialog.add_buttons(gtk.STOCK_OK, gtk.RESPONSE_OK)
+        response = errordialog.run()
+        errordialog.destroy()
+        return response
         
 def main():
     gtk.main()

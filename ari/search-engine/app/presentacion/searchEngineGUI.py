@@ -36,7 +36,7 @@ import parse, searcher
 from exception import * 
 
 #ICON = gtk.gdk.pixbuf_new_from_file("terminal_icon.jpg")
-TITLE = "Index Engine"
+TITLE = "Search Engine"
 
 
 # Envoltura del fichero de gui generado por Glade
@@ -91,6 +91,7 @@ class Aplicacion:
         #print "Delete was called but I won't die!"
         widget.hide()
         return True
+
 
     def destroy(self, widget):
         gtk.main_quit()
@@ -226,6 +227,7 @@ class Aplicacion:
         indexer.gui['window'].set_modal(True)
         indexer.gui['window'].set_transient_for(self.window)
         indexer.gui['window'].set_position(gtk.WIN_POS_CENTER_ON_PARENT)
+        indexer.invoked = True
 
     def quitMenuItem_activate_cb(self, widget):
         self.destroy(widget)

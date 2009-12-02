@@ -70,6 +70,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="invisible_char">&#x25CF;</property>
+            <property name="activates_default">True</property>
           </widget>
           <packing>
             <property name="x">21</property>
@@ -83,6 +84,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="invisible_char">&#x25CF;</property>
+            <property name="activates_default">True</property>
           </widget>
           <packing>
             <property name="x">20</property>
@@ -98,6 +100,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="focus_on_click">False</property>
             <signal name="clicked" handler="on_btnBrowseFile_clicked"/>
             <signal name="activate" handler="on_btnBrowseFile_activate"/>
           </widget>
@@ -115,6 +118,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="focus_on_click">False</property>
             <signal name="clicked" handler="on_btnBrowseDirectory_clicked"/>
             <signal name="activate" handler="on_btnBrowseDirectory_activate"/>
           </widget>
