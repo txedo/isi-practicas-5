@@ -138,7 +138,6 @@ class Aplicacion:
                 p = parse.Parser()
                 print "Procesar la pregunta ", question
                 question_parts_aux = p.parse(question)
-                print question_parts_aux
                 # Se eliminan terminos repetidos en la busqueda
                 for q in question_parts_aux: 
                     if q not in question_parts:
@@ -155,9 +154,13 @@ class Aplicacion:
                     (question_dic, weights_sum)= self.create_weight_window(question_parts)
                     if weights_sum == 0:
                         search=False
+                # Si hay algun peso distinto de 0 y algun termino que no este en la stop_list, se busca
                 if search:
-                    res = s.search(question_dic)
-                    print res
+                    if len(question_parts)>0:                
+                        res = s.search(question_dic)
+                        print res
+                    else:
+                        raise TermNotFound()
                 else:
                     self.__showErrorDialog("Error", "At least one term must have a weight greater than 0")
             else:
