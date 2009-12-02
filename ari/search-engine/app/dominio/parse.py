@@ -38,7 +38,7 @@ class Parser:
         # Definicion de patrones
         ip_pattern = re.compile('([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$')
         section_numbers_pattern = re.compile(r'[0-9]\.?[0-9]?\.?[0-9]?\.[0-9]?\.?[0-9]?\.?$')
-        #number_pattern = re.compile(r'[0-9]+$')
+        number_pattern = re.compile('[0-9]+$')
         acentoA_pattern = "Á|À|Â|Ä|á|à|â|ä"
         acentoE_pattern = "É|È|Ê|Ë|é|è|ê|ë"
         acentoI_pattern = "Í|Ì|Î|Ï|í|ì|î|ï"
@@ -56,6 +56,9 @@ class Parser:
                 # Si la palabra es una direccion IP, se toma dicha palabra como termino
                 if ip_pattern.match(word):
                     #word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
+                    result.append(word)
+                # Se almacenan tambien los numeros 
+                elif number_pattern.match(word):
                     result.append(word)
                 # Se ignoran separadores de seccion
                 elif (not section_numbers_pattern.match(word)):
@@ -91,9 +94,11 @@ class Parser:
                             if w[0].isalnum():
                                 if w.find("-")>-1:
                                     word_parts.extend((re.sub('[%s]' % re.escape("-"), " ", w)).split(" "))
-                                # Si la palabra acaba en guion, no se introduce junta
-                                if w[len(w)-1]!="-":
-                                    result.append(w)
+                                    # Si la palabra no acaba en guion, se tiene en cuenta
+                                    if w[len(w)-1]!="-":
+                                        result.append(w) 
+                                else:
+                                    result.append(w)               
                     # Copia auxiliar para poder recorrer toda la lista de palabras
                     aux = word_parts[:]
                     # Se comprueba que al separar la palabra por signos de puntuacion, todas las palabras obtenidas tengan sentido
