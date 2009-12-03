@@ -1,0 +1,86 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Instrucciones
+
+Verificar
+
+Verificar
+
+Verificar
+
+Incorrecto
+
+Siguiente
+
+Incorrecto
+
+Incorrecto
+
+Siguiente
+
+Siguiente
+
+Siguiente
+
+for (i = 
+
+
+
+; i
+
+&lt;
+
+
+
+; i+ ){
+
+for(j = ;j &gt; ;j- ){
+ aux = i * j;
+}
+
+}
+
+
+
+
+
+int aux;
+
+Escriba el valor final de la variable aux
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

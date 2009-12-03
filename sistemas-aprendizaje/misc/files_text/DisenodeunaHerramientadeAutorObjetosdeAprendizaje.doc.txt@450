@@ -1,0 +1,450 @@
+Diseno de una Herramienta de Autor Objetos de Aprendizaje
+
+Ing. Irina Elena Argota Vega1 , Ing. Katia Garcia Martinez2,
+
+Ing. Suneidis Vinent Torres3, Ing. Belkis Grissel Gonzalez Rodriguez4
+
+1Universidad de las Ciencias Informaticas, Carretera a San Antonio de
+los Banos, km 2 ?, Boyeros, La Habana, Cuba. iargota@uci,.cu
+
+2Organizacion Nacional de Estadisticas (ONE), ome0206Carretera a San
+Antonio de los Banos, km 2 ?, Boyeros, La Habana, Cuba.
+ome0206@otehb.co.cu
+
+3Universidad de las Ciencias Informaticas, Carretera a San Antonio de
+los Banos, km 2 ?, Boyeros, La Habana, Cuba. svinent@uci.cu
+
+4Universidad de las Ciencias Informaticas, Carretera a San Antonio de
+los Banos, km 2 ?, Boyeros, La Habana, Cuba. bgonzalez@uci.cu
+
+Resumen
+
+.
+
+Unido a este concepto aparece la definicion de Objeto de Aprendizaje
+(OA) dada por cualquier recurso con una intencion formativa, compuesto
+de uno o varios elementos digitales, descritos con metadatos, que pueda
+ser utilizado y reutilizado. Producto a las necesidades de los
+especialistas cubanos y del mundo de tener una herramienta que apoye el
+proceso docente y que permita crear objetos interactivos en los cursos
+que imparten es que se tuvo la idea de disenar en software libre (liber
+ndose del software propietario) bajo la licencia General Public Licence
+(LGPL): la Herramienta de Autor de Objetos de Aprendizaje.
+
+Palabras Claves:
+
+Herramientas de Autor, Metadatos, Objetos de Aprendizaje.
+
+I. Introduccion
+
+Actualmente el desarrollo de la educacion favorece directamente al
+progreso social y economico de una region o un pais. Para que esta
+premisa tenga efecto, es basico y previo un aumento de las capacidades
+personales de cada individuo. El objetivo fundamental de la educacion es
+proporcionar a los estudiantes, una formacion plena que les ayude a
+estructurar su identidad y a desarrollar sus conocimientos en aras de
+participar en la construccion de la sociedad. [1]
+
+Internet exige cambios en el ambito educativo, y los profesionales de la
+educacion tienen multiples razones para aprovechar las nuevas
+posibilidades que este medio ofrece para impulsar este cambio hacia un
+nuevo paradigma educativo mas personalizado y centrado en la actividad
+de los estudiantes. Se hace necesaria la alfabetizacion digital de los
+alumnos y el aprovechamiento de las Tecnologias de la Informatica y las
+Comunicaciones (TIC) para alcanzar una mayor productividad, ya que estas
+pueden suministrar medios para la mejora de los procesos de ensenanza -
+aprendizaje y para la gestion de los entornos educativos en general. Un
+ejemplo de estos entornos son los llamados Entornos Virtuales de
+Aprendizaje (EVA). [2]
+
+Un EVA, tambien conocido como Sistema de Gestion del Aprendizaje (SGA),
+es un software instalado en un servidor que se utiliza para crear,
+gestionar y distribuir cursos destinados a la preparacion individual de
+cada estudiante. Sirve ademas de contenedor de cursos y de Objetos de
+Aprendizaje (OA), e incorpora otras herramientas para facilitar la
+comunicacion y el trabajo colaborativo entre profesores y estudiantes
+permitiendo el seguimiento y evaluacion del alumno. [3]
+
+Un OA es una entidad, digital o no digital, que puede ser utilizada,
+reutilizada y referenciada durante el aprendizaje apoyado con
+tecnologia. [4]
+
+ La Universidad de Ciencias Informaticas (UCI), como ente productor y
+exportador de software, establece como una de sus principales lineas de
+produccion, el desarrollo de aplicaciones multimedia educativas, tanto
+para el propio desarrollo de formacion y aprendizaje de sus estudiantes,
+como para las diferentes ensenanzas e instituciones, ya sean nacionales
+o extranjeras.
+
+La comunidad de desarrollo de aplicaciones educativas de la UCI, durante
+el proceso de elaboracion de software educativo ha detectado un conjunto
+de irregularidades que atentan contra la calidad de las aplicaciones
+resultantes. Las principales son:
+
+La utilizacion de herramientas de proposito general no orientadas al
+conjunto de especificidades que se requieren para lograr una mayor
+calidad en el desarrollo de aplicaciones.
+
+La existencia de herramientas relativamente intuitivas y faciles de
+utilizar viene condicionada por las pocas prestaciones que ofrecen.
+Otras de mayores prestaciones estan basicamente orientadas a
+desarrolladores de software y no a especialistas de la educacion. Este
+fenomeno, en la mayoria de los casos, impide su empleo por parte de los
+expertos en contenido con su consecuente impacto negativo en las
+soluciones finales.
+
+Las Herramientas asociadas a la gestion del software educativo se
+encuentran dispersas y por lo tanto, no integran sus procesos
+fundamentales como la planificacion, el diseno, desarrollo y despliegue.
+
+
+La creciente presencia de la Red Global Mundial , en ingles, World Wide
+Web(Web) a la hora de distribuir los contenidos educativos olvidandose
+de que estos pueden distribuirse ademas mediante Aplicaciones Desktop,
+CD-ROM entre otras. Este problema afecta de manera directa a los paises
+pobres ya que se ven limitados debido a la velocidad de la red y en
+algunos casos, como en nuestro pais, la forma de acceso a la misma.[5]
+
+Surge asi la necesidad de crear un SGA que les facilite a los profesores
+la forma en que interactuan con los nuevos medios informaticos y
+contribuya a prescindir de las dificultades existentes en la actualidad.
+Dandole ademas la posibilidad de que desarrollen e implementen sus
+propias ideas, que se sientan comodos utilizando los nuevos recursos y
+medios de ensenanza. Los sistemas desarrollados deben permitir una mayor
+interaccion con los usuarios finales. Para suplir la necesidad planteada
+anteriormente es que se crea el proyecto Emedia con el objetivo de
+desarrollar y gestionar herramientas para el aprendizaje. Emedia se
+elabora sobre plataforma libre y esta compuesto por modulos
+independientes entre los que se destacan:
+
+SGA: Es la herramienta encargada del despliegue del sistema Emedia.
+
+Autor de Contenido: Posibilita la creacion de los guiones de contenidos
+necesarios para la construccion de cursos.
+
+Proyector: Se ocupa de la visualizacion de los OA.
+
+Interprete: Es un software que recibe un programa en lenguaje de alto
+nivel, lo analiza y lo ejecuta. Para analizar el programa completo, va
+traduciendo sentencias de codigo y ejecutandolas si estan bien, asi
+hasta completar el programa origen.
+
+Repositorio: Posibilita el almacenamiento, acceso y gestion de los OA
+desarrollados.
+
+ Ademas de los modulos antes mencionados se hace necesario buscar una
+via para crear OA, con el objetivo de poner en practica las ideas de los
+Especialistas en Contenido o Expertos. Por consiguiente, se hace
+imprescindible trazar una linea de desarrollo de una herramienta que
+permita la realizacion de dichos recursos, centrado en el diseno de la
+misma como un primer avance de la aplicacion, y que pueda contribuir a
+un posterior seguimiento.
+
+Por lo que el presente trabajo tiene como Objetivo General, disenar una
+herramienta Autor de Objetos de Aprendizaje.
+
+II. Materiales y Metodos
+
+La investigacion esta sustentada sobre la base de la utilizacion de
+diferentes metodos cientificos para la realizacion de la misma.
+
+A nivel teorico
+
+Metodos de analisis-sintesis e induccion-deduccion: Para el estudio de
+las concepciones y conceptos empleados en el campo; para analizar las
+teorias y documentos generados por desarrolladores de otras Herramientas
+de Autor como Atenex, Autore y Dokeos. En la revision y justificacion de
+la metodologia de desarrollo de software y tecnologias a utilizar.
+
+Analisis historico-logico: Para conocer, con mayor profundidad, los
+antecedentes y las tendencias actuales referidas a las herramientas de
+Autor existentes, ademas de conceptos, terminos y vocabularios propios
+del campo como herramienta de Autor, Objetos de Aprendizaje, entre
+otros, que contribuyen en gran medida al entendimiento del trabajo.
+
+Modelacion: Para la caracterizacion de las funcionalidades que tendra la
+aplicacion cuando se estaban definiendo los requisitos funcionales.
+
+A nivel Empirico
+
+Entrevista: En la busqueda de fundamentacion teorica de la necesidad de
+creacion del sistema Emedia.
+
+Experimentos: En la elaboracion de prototipos no funcionales, con el
+objetivo de validar los Casos de Uso identificados.
+
+III. Resultados
+
+La Herramienta de Autor de Objetos de Aprendizaje, que se propone
+funcionara como un componente de diseno independiente para la creacion
+de OA, que se integrara al sistema Emedia.
+
+La arquitectura propuesta persigue que la herramienta que se elabore
+pueda dar respuesta a los requerimientos de portabilidad,
+comprensibilidad, extensibilidad y eficiencia. Uno de los requerimientos
+que mas estresan la solucion es la cualidad de que el sistema pueda
+desplegarse en ambiente consola tipo Escritorio y tipo Web. Se impone
+una dualidad de conceptos en los que se aboga por el desempeno que se
+logra con las aplicaciones nativas en modo de consolas graficas, y por
+otro lado el empeno en la facilidad, ubiquidad y portabilidad que
+brindan las tecnologias Web.
+
+En esta primera etapa del desarrollo de la herramienta Autor de Objetos
+de Aprendizaje, no se aborda la capacidad de la herramienta de ser
+visualizada sobre la Web, sino que funcione como una herramienta
+escritorio. Es necesario garantizar que la futura integracion de este
+modulo al sistema Emedia este en correspondencia con la arquitectura
+definida para la herramienta principal.
+
+ La herramienta Autor de Objetos de Aprendizaje del sistema Emedia
+permite importar un guion de contenido previamente realizado por el
+Experto en el cual se muestra la forma en que el mismo quiere que se
+muestren los contenidos. El Montador es el encargado de poner en pr
+ctica estos contenidos creando OA que reflejen lo expresado por el
+Especialista. Los OA se crean con metadatos que garantizan una mejor
+localizacion para la hora de realizar una busqueda. Luego se le van
+agregando componentes que se pueden importar como video, audio, imagenes
+y animaciones, recursos que se encuentren en la aplicacion asi como
+tambien con plantillas predefinidas en la misma.
+
+El Modelo de Dominio (o Modelo Conceptual) que se presenta a
+continuacion es una representacion de los conceptos o area de interes de
+la herramienta, permitiendo un mayor entendimiento del sistema.
+
+Guion de Contenido: Incluira todo lo relativo a la organizacion y
+estructuracion de los contenidos. Como punto de partida podemos
+considerarlo como una primera aproximacion a una representacion
+hipertextual de los contenidos.
+
+Objeto de Aprendizaje: Entidad informativa digital desarrollada para la
+generacion de conocimiento. Un recurso digital que puede ser rehusado
+para ayudar en el aprendizaje.
+
+Componente: Elementos que seran utilizados por el Montador para
+confeccionar los OA. Estos elementos pueden ser extraidos de los OA y
+reutilizados dentro de otros, por ejemplo: videos, imagenes, textos,
+crucigramas, test, encuestas, etc.
+
+Montador: Es el unico capacitado para el trabajo en la aplicacion. Se
+ocupa de poner en practica las ideas del Experto expresadas en el guion
+de contenido.
+
+Plantilla: Patron que sirve como modelo para organizar una informacion
+determinada. El Modelo de Dominio se describe mediante un diagrama UML,
+especificamente con un diagrama de clases conceptuales significativas en
+el dominio del problema.
+
+Fig. 1 Modelo de Dominio de la Herramienta de OA
+
+Los requerimientos funcionales son capacidades o condiciones que el
+sistema debe cumplir. Para el modulo de Herramienta Autor de OA que se
+esta desarrollando ellos son:
+
+RF 1. Gestionar guion de contenido.
+
+RF 1.1 Importar guion de contenido.
+
+RF 1.2 Cerrar guion de contenido.
+
+RF 2. Crear OA (autor, titulo, fecha de creacion, dirigido a,
+objetivos).
+
+RF 3. Gestionar OA.
+
+RF 3.1 Cargar OA existente.
+
+RF 3.2 Modificar OA.
+
+RF 4. Gestionar Proyecto.
+
+RF 4.1 Adicionar proyecto.
+
+RF 4.2 Abrir proyecto.
+
+RF 4.3 Guardar proyecto.
+
+RF 4.4 Cerrar proyecto.
+
+RF 5. Gestionar Elemento Taxonomico.
+
+RF 5.1 Adicionar un elemento taxonomico.
+
+RF 5.2 Eliminar elemento taxonomico.
+
+RF 6. Gestionar plantilla.
+
+RF 6.1 Configurar plantilla (tipo de plantilla, titulo, puntuacion,
+tiempo e intentos).
+
+RF 6.2 Eliminar plantilla.
+
+RF 7. Gestionar componente.
+
+RF 7.1 Importar componente.
+
+RF 7.2 Adicionar componente.
+
+RF 7.3 Modificar propiedades del componente.
+
+RF 7.4 Eliminar componente.
+
+Los requerimientos no funcionales son propiedades o cualidades que el
+producto debe tener. Muestran las caracteristicas que hacen al producto
+atractivo, usable, rapido o confiable. No alteran la funcionalidad del
+producto, esto quiere decir que los requerimientos funcionales se
+mantienen invariables sin importarle con que propiedades o cualidades se
+relacionen.
+
+Requerimiento de Portabilidad.
+
+El sistema debe funcionar con sistemas operativos Windows o Linux.
+
+Requerimiento asociado al Licenciamiento.
+
+Se debe garantizar que el sistema sea software libre y, por tanto,
+cualquier componente software que se utilice tambien debera ser libre.
+
+Requerimiento de Rendimiento y Disponibilidad del Sistema.
+
+Se debe garantizar el tiempo de acceso a las diferentes ventanas y
+despliegues del sistema en menos de dos segundos. Se debe garantizar que
+las modificaciones realizadas sobre la configuracion del algun objeto
+(datos, despliegues, entre otros) sean actualizadas y reflejadas en un
+tiempo de un segundo.
+
+Requerimiento de Apariencia o interfaz externa.
+
+Se debe garantizar que el color sea gris como las aplicaciones en
+GNU/Linux. La interfaz debe ser de facil comprension en su
+funcionamiento permitiendo la utilizacion del sistema sin mucho
+entrenamiento.
+
+Requerimiento de Interfaces de Usuario.
+
+La aplicacion debe proveer al usuario una gran versatilidad en la
+presentacion de la informacion en las pantallas, en cuanto a
+disponibilidad de los recursos y organizacion de los mismos. Debe
+permitir el manejo de ambientes multi-ventanas o despliegues, visualiz
+ndose varios despliegues simultaneamente, sin generar efectos negativos
+en el rendimiento del sistema.
+
+Posibilidad de ocultar y mostrar las ventanas de configuracion del
+proyecto en un area determinada; o sea, que aunque se oculten estas se
+mantengan activas. Tambien debe ofrecerse la posibilidad de cerrarlas.
+
+Mostrar el nombre de la aplicacion en la parte superior izquierda
+mediante una barra de titulo.
+
+La aplicacion debe estar sectorizada en varias areas funcionales:
+
+Para el Menu y las Barras de Herramientas, utilizar la parte superior.
+
+Para los paneles de plantillas, videos, componentes, audio y animacion
+utilizar el lateral izquierdo.
+
+Para el panel de dependencia de los recursos de proyectos y del guion
+utilizar el lateral izquierdo.
+
+Para la barra de dibujo y otros simbolos utilizar la parte inferior.
+
+ Para realizar el diseno de los OA, utilizar la parte central.
+
+), pudiendo acceder mediante el clic derecho sobre un componente o por
+la combinacion de teclas calientes.
+
+Permitir tener un menu que posea una serie de opciones que garanticen
+realizar acciones para el manejo y control de los objetos graficos.
+
+Mostrar ventana de propiedades de cada recurso y componente.
+
+Requerimiento de Diseno e Implementacion.
+
+Se utilizara la biblioteca grafica Qt-Designer para el diseno del
+prototipo no funcional y el IDE Eclipse para su futura implementacion.
+
+Requerimiento legal.
+
+La biblioteca se regira por la licencia GNU/GPL.
+
+Requerimiento de seguridad.
+
+La informacion manejada por el sistema sera objeto de cuidadosa
+proteccion contra estados inconsistentes, esto se refiere a que debe
+tener validados todos los datos de entrada, asi como tambien la
+definicion de los tipos de variables que se almacenaran.
+
+El actor que interactua con el sistema es el Montador, que se encarga de
+crear los Objetos de Aprendizaje, apoyado de las funcionalidades
+brindadas por la aplicacion.
+
+A continuacion se modela la relacion que existe entre el actor Montador
+con los casos de usos definidos a partir de la captura de los
+requerimientos.
+
+	 Fig 2. Diagrama de Caso de Uso del Sistema.
+
+El prototipo de interfaz de usuario ayuda a comprender y especificar las
+interacciones entre los actores humanos y el sistema durante la captura
+de requisitos. No solo nos ayuda a desarrollar una buena interfaz gr
+fica, sino tambien a comprender mejor los casos de usos. A la hora de
+especificar la interfaz grafica de usuario tambien pueden utilizarse
+otros artefactos, como los modelos de interfaz grafica y los esquemas de
+pantalla.[6] A continuacion se muestran dos imagenes del prototipo no
+funcional de la herramienta de Autor de Objetos de Aprendizaje.
+
+Fig 3. Imagen del Prototipo no funcional.
+
+Las otras imagenes que pertenencen al prototipo se encuentran en la
+carpeta que lleva por nombre Prototipo No Funcional.
+
+IV. Conclusiones
+
+Con el estudio realizado de las herramientas de Autor se logro
+comprender conceptos relacionados con el ambiente donde se encuentra
+enmarcada la investigacion posibilitando la elaboracion de un modelo de
+dominio que permitio establecer relaciones entre dichos conceptos.
+
+Para realizar el diseno sobre plataformas de Software Libre existen un
+conjunto de tecnologias que de aplicarse correctamente perfeccionan la
+comprension y desarrollo de flujos de trabajo dentro del ciclo de vida
+de RUP.
+
+Se determinaron las principales funcionalidades del sistema a disenar y
+se obtuvo un prototipo no funcional de la aplicacion, lo que facilita la
+comprension de los casos de uso descritos.
+
+Para la implementacion de la herramienta se sugiere hacer un estudio del
+estandar SCORM.
+
+Referencias
+
+Rodriguez, Jose Palos. www.oei.es. [En linea] asenmac , 2008.
+http://www.oei.es/valores2/palos2.htm.
+
+Garcia, Lic. Dialina Emelina Luis. www.monografias.com. [En linea] 1997.
+http://www.monografias.com/trabajos47/profesor-sociales/profesor-sociale
+s.shtml.
+
+Anonimo. (s.f.). Recuperado el 27 de 11 de 2007, de
+http://64.233.169.104/search?q=cache:yhu4hDsWusIJ:tecnologias.gio.etsit.
+upm.es/elearning/lms--learning-management-system--sistema-de-gestion-de-
+aprendizaje--
+
+Learning Technology Standards Committee. ieee.org. [Online] 2005.
+http://ltsc.ieee.org/wg12/.
+
+Lorente Rodriguez, Abel Ernesto. Plataformas para el desarrollo y
+gestion de Cursos Educativos Multimedia. [CD-ROM] La Habana : Memorias
+Uciencia, Universidad de las Ciencias Informaticas (UCI), 2006.
+
+RUMBAUGH, J.; I. JACOBSON, et al. El proceso unificado de desarrollo de
+software. La Habana, Addison Wesley Longman, 2000. p.
+
+1
+
+2
+
+3
+
+4
+

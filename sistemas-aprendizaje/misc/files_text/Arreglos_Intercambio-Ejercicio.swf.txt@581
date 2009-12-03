@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ tabla[(3)][(3)]={{1,2,3,},{4,5,6,},{7,8,9}}
+Int i;
+Int j;
+Int respaldo[1][1]=0;
+For(i=(0); i&lt;(3);(i++)){
+For(j=0;j&lt;3;j++){
+If((i!=j)&amp;&amp;(i&lt;=j)){
+Respaldo= tabla [i] [j];
+Tabla[i][j]= table [(j)][(i)];
+Tabla[j][i]= (respaldo)
+
+}}}
+
+
+Verificar
+
+Verificar
+
+Verificar
+
+A¡ Incorrecto !
+
+A¡ Correcto !
+
+
+
+
+

@@ -1,0 +1,131 @@
+
+
+
+
+
+Ejemplo de Razones Afines
+
+Partiendo al mediodia el avion A vuela hacia el norte
+a 400 Km/h.
+
+400 Km/h
+
+Una hora despues el avion B vuela hacia el este con
+una velocidad de 300 Km/h.
+
+300 Km/h
+
+Despreciando la curvatura terrestre y la altura de los
+aviones y sea D la distancia que separa ambos aviones,
+halle la velocidad con la que esa distancia crece (dD/dt)
+en el momento en que sean las 4:30 PM.
+
+D(t)
+
+Retomando la figura, construyamos un triangulo.
+
+Conocemos las velocidades de los aviones:
+ Vel Avion A = 400 Km/h
+ Vel Avion B = 300 Km/h
+
+En la primera hora, el Avion A es el unico que avanza,
+por lo tanto toma ventaja sobre el avion B, recorriendo el
+avion A 400 Kms.
+
+En la siguiente hora, el avion A recorre otros 400 Kms,
+sumados a los 400 que llevaba hacen un total de 800 Kms,
+mientras que el avion B hace sus primeros 300 Kms en
+esta segunda hora porque se retraso una hora.
+
+Con esta informacion podemos construir una tabla para
+comprender mejor las distancias recorridas por
+cada avion en t horas.
+
+Avion A (Km)
+
+t (horas)
+
+Avion B (Km)
+
+0
+
+1
+
+400
+
+2
+
+800
+
+300
+
+3
+
+1200
+
+600
+
+4
+
+1600
+
+900
+
+A= 400 (t)
+
+B= 300 (t-1)
+
+t ³ 1
+
+Ahora empieza lo bueno, sabemos que, como la velocidad de A es 400 Km/h,
+ = 400 y como Vel B es 300 Km/h, = 300.
+
+dA
+dt
+
+dB
+dt
+
+D=?
+
+Por pitagoras, podemos encontrar la disancia D en terminos de A y B.
+
+D² = A² + B²
+
+2D = 2A + 2B
+
+dD
+dt
+
+Derivamos ambos lados
+
+Como el problema nos dice que t = 4.5, determinamos el valor de D cuando
+t = 4.5, sustituyendo t en A=400(t) y B=300(t-1) y asi hallando D con el
+teorema de pitagoras.
+
+D= [400(4.5)]² + [300(4.5-1)]² = 150 193
+
+Sustituimos el valor de A, B, D, , para hallar en la siguiente ecuacion.
+
+2(150 193 ) = 2(400)(4.5)(400) + 2(300)(3.5)(300)
+
+=
+
+2070000
+
+300 193
+
+6900 193
+
+193
+
+Por lo tanto:
+
+6900 193
+
+»
+
+496.67 Km /h 
+
+
+

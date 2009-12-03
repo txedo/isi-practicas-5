@@ -1,0 +1,2123 @@
+
+
+
+	
+
+
+
+
+	
+	YouTube - Microsoft SecondLight
+
+	
+
+	
+
+	#masthead { padding-bottom: 1px; }
+	#old-masthead { padding-bottom: 3px; }
+	#ytlive-promo-hdr { margin: 2px 0px 0px; }
+
+
+	
+	
+
+
+	
+	
+	
+
+	
+
+	
+
+	
+			window.google={kHL:"es"};
+	
+
+	
+
+	
+
+			function _hbLink (a,b) { return false; }
+			function urchinTracker (a) { }
+			function urchinTrackerDefer(a) { }
+
+		
+	var gXSRF_token = '';
+	var gXSRF_field_name = '';
+	var gXSRF_ql_pair = '';
+	var onLoadFunctionList = onLoadFunctionList || [];
+
+		gXSRF_token = 'b5rJrBd5Fi9GHLGPYSwDMH7wyQ18MTIyODQyNjU4OA==';
+		gXSRF_field_name = 'session_token';
+		onLoadFunctionList.push(function() { populate_session_token() });
+
+		gXSRF_ql_pair = 'session_token=-ctEOi2LwHloT8Ma6mJM3tVy7NR8MA==';
+
+
+		var gGoogleSuggest = true;
+		var gPixelGif = 'http://s.ytimg.com/yt/img/pixel-vfl73.gif';
+
+		var gIsResultsPage = false;
+
+		var gGeoTooltipText = 'Mueve este marcador a una nueva ubicaciA³n y, a continuaciA³n, haz clic en \"Buscar\" para encontrar vA­deos grabados en esa zona.';
+		var gGeoTooltipMoreText= 'Acerca o aleja la imagen para cambiar el radio de la bAosqueda.';
+		var gGeoTooltipButton = "" + 'Buscar' + "";
+		var gGeoTooltipMore = "" + 'mA¡s' + "&raquo;";
+		var gGeoTooltip = "" + gGeoTooltipText + gGeoTooltipMore + gGeoTooltipButton + "";
+		var gGeoTooltipMore = "" + gGeoTooltipText + gGeoTooltipMoreText + gGeoTooltipButton + "";
+		var gGeoSelectedLocationText = 'UbicaciA³n seleccionada';
+	
+
+
+
+
+	
+	Sub movie_player_FSCommand(ByVal command, ByVal args)
+		call movie_player_DoFSCommand(command, args)
+	End Sub
+	
+
+	
+		initWatchQueue(true);
+
+		var MSG_Hide = 'Ocultar';
+		var MSG_Show = 'Mostrar';
+		var MSG_Login = 'Accede para realizar esta operaciA³n.';
+		var MSG_Loading = 'Cargando...';
+		var MSG_ShowingAll = 'Mostrar todos los vA­deos';
+		var MSG_LoginFavorites = 'Debes haber iniciado sesiA³n para aA±adir este vA­deo a tus favoritos.';
+		var MSG_LoginAddPlaylist = 'Debes haber iniciado sesiA³n para aA±adir este vA­deo a una lista de reproducciA³n.';
+		var MSG_LoginReportConcern = 'Debes haber iniciado sesiA³n para notificar un problema.';
+		var MSG_FlagDefault = 'Selecciona un motivo.';
+
+		var isLoggedIn = false ;
+		
+
+		var swfUrl = canPlayV9Swf() ? 'http://s.ytimg.com/yt/swf/watch-vfl65425.swf' : 'http://s.ytimg.com/yt/swf/watch_v8-vfl65425.swf';
+		var swfArgs = {"usef": 0, "vq": null, "video_id": "XfzplPIrzjY", "l": 255, "sk": "_7QD11relyTZkbZsgQ_Q3IUbeMaThFOVC", "fmt_map": "6/720000/7/0/0,34/0/9/0/115", "t": "OEgsToPDskJg6jU3b5udf8X31czNgz4-", "hl": "es", "plid": "AARdKzySfXJlLnwYAAACgAAoAAA"};
+
+		var additionalStatsHonorsUrl = '/watch_ajax?v=XfzplPIrzjY&action_get_statistics_and_data=1&l=EN';
+		var additionalAudioInfoUrl = '/watch_ajax?v=XfzplPIrzjY&action_get_audio_info=1&l=EN';
+		var watchMapUrl = '/watch_ajax?v=XfzplPIrzjY&action_get_map=1';
+		var fullscreenUrl = '/watch_fullscreen?fs=1&vq=None&video_id=XfzplPIrzjY&l=255&sk=_7QD11relyTZkbZsgQ_Q3IUbeMaThFOVC&fmt_map=6%2F720000%2F7%2F0%2F0%2C34%2F0%2F9%2F0%2F115&t=OEgsToPDskJg6jU3b5udf8X31czNgz4-&hl=es&plid=AARdKzySfXJlLnwYAAACgAAoAAA&title=Microsoft SecondLight';
+		var watchGamUrl = null;
+		var watchDCUrl = null;
+		var watchTrackWithHitbox = false;
+		var watchIsPlayingAll = false;
+		var watchUsername = 'tbisho';
+		var pageVideoId = 'XfzplPIrzjY';
+		var pageVideoSearchQueryStr = ' Microsoft Research Surface PDC2008';
+		var pageFillRelatedVideoStartIndex = 20;
+		var pageFillRelatedVideoEndIndex = 40;
+		var relatedVideoGridUrl = '/related_ajax?action_get_related&video_id=XfzplPIrzjY&view_type=G&watch3=1&search=%20Microsoft%20Research%20Surface%20PDC2008';
+		var relatedVideoListUrl = '/related_ajax?action_get_related&video_id=XfzplPIrzjY&view_type=L&watch3=1&search=%20Microsoft%20Research%20Surface%20PDC2008';
+		var playnextFrom = '';
+		var playnextCount = '0';
+		var qlAutoscrollDestination = 0;
+		var watchSetWmode = false;
+		var embedUrl = 'http://www.youtube.com/v/XfzplPIrzjY&hl=es&fs=1';
+		var ytLocale = 'es_ES';
+	
+		var ad_eurl = null;
+
+		var axc = '';
+		var subscribeaxc = '';
+		
+
+
+
+			function showCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		var msg = new Object();
+		msg["post"] = "Accede a tu cuenta para publicar un comentario.";
+		showCommentReplyForm_js(form_id, reply_parent_id, is_main_comment_form, msg);
+	}
+
+	function updateCharCount(charCount_id, label_id, textArea) {
+		var msg = new Object();
+		msg["exceeded"] = "NAomero de caracteres que superan el lA­mite:";
+		msg["remaining"] = "NAomero de caracteres restantes:"; 
+		updateCharCount_js(charCount_id, label_id, textArea, 500, msg)
+	}
+
+	function loginMsg(div_id, display_val) {
+		var msg = new Object();
+		msg["login"] = 'Accede a tu cuenta.';
+		loginMsg_js(div_id, display_val, msg);
+	}
+
+	function printCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		var msg = new Object();
+		msg["post"] = "Publicar comentario";
+		msg["remaining"] = "NAomero de caracteres restantes:";
+		msg["discard"] = "Descartar"; 
+		printCommentReplyForm_js(form_id, reply_parent_id, is_main_comment_form, 'V', 'top.goog.i18n.bidi.setDirAttribute(event,this)', 'video_id', 'XfzplPIrzjY', '', 500, msg);
+	}
+
+	function postThreadedComment(comment_form_id) {
+		var msg = new Object();
+		msg["add"] = "AA±adiendo comentario...";
+		postThreadedComment_js(comment_form_id, msg);
+	}
+
+	function commentApproved(xmlHttpRequest) {
+		alert("El comentario se ha aprobado.")
+	}
+
+	function ThreadedCommentHandler(comment_form, comment_form_id) {
+		var msg = new Object();
+		msg["empty"] = "Debes introducir un comentario.";
+		msg["toolong"] = "Tu comentario no puede tener mA¡s de 500 caracteres.";
+		return ThreadedCommentHandler_js(comment_form, comment_form_id, msg);
+	}
+
+	function commentResponse(xmlHttpRequest) {
+		var msg = new Object();
+		msg["ok"] = "Comentario publicado.";
+		msg["pending"] = "Comentario pendiente de aprobaciA³n.";
+		msg["toolong"] = "El comentario que has introducido es demasiado largo. No puede contener mA¡s de 500 caracteres. Escribe un comentario mA¡s corto e intA©ntalo de nuevo.";
+		msg["tooshort"] = "El comentario que has introducido es demasiado corto. Escribe un comentario mA¡s largo e intA©ntalo de nuevo.";
+		msg["toosoon"] = "Se ha superado el lA­mite de comentarios.";
+		msg["email"] = "Para poder enviar comentarios debes confirmar tu direcciA³n de correo electrA³nico. Haz clic en Aceptar para confirmar tu direcciA³n de correo electrA³nico.";
+		msg["captchFail"] = "La respuesta a las letras de la imagen no ha sido correcta. Vuelve a intentarlo.";
+		msg["default"] = "Publicar comentario"; 
+		commentResponse_js(xmlHttpRequest, msg);
+	}
+
+	function load_all_comments(video_id, is_watch2) {
+		var msg = new Object();
+		msg["remove"] = "Cargando comentarios...";
+		load_all_comments_js(video_id, is_watch2, msg);
+	}
+
+
+
+
+	
+		onLoadFunctionList.push(function() { applyUserPrefs() });
+
+
+
+
+		onLoadFunctionList.push(function() { enableVideoQualityDisplay()});
+	
+	
+
+
+
+
+" onunload="performOnUnloadFunctions();">
+
+
+
+	
+		
+		
+		
+			
+				
+					
+
+
+
+
+	
+
+		" onclick="_hbLink('SignUp','UtilityLinks');" onmousedown="urchinTracker('/Events/Header/UtilLinks/SignUp');">Registrarse
+		Lista rA¡pida (0)
+		Ayuda
+			" onmousedown="urchinTracker('/Events/Header/UtilLinks/SignIn');">Acceder
+	
+
+	
+		
+	
+
+
+				
+				
+					
+		Mundial
+		EspaA±ol
+
+				
+						
+		
+			Cerrar
+			Establece la preferencia de contenido de tu paA­s (A¿QuA© es esto?)
+				Elige el contenido del paA­s (vA­deos y canales) que quieras ver. Al hacerlo no cambiarA¡ el idioma del sitio. 
+			
+		
+	
+			
+				var gContentRegions = [
+				[
+				['en_US','US','Mundial (todos)']				
+				]
+									,				[
+				['es_ES','ES','EspaA±a']									,				['es_MX','MX','MA©xico']				
+				]
+									,				[
+				['en_AU','AU','Australia']									,				['pt_BR','BR','Brasil']									,				['en_CA','CA','CanadA¡']									,				['cs_CZ','CZ','RepAoblica Checa']									,				['de_DE','DE','Alemania']									,				['fr_FR','FR','Francia']									,				['en_GB','GB','Reino Unido']									,				['zh_HK','HK','Hong Kong']									,				['en_IE','IE','Irlanda']									,				['en_IL','IL','Israel']									,				['en_IN','IN','La India']									,				['it_IT','IT','Italia']									,				['ja_JP','JP','JapA³n']									,				['ko_KR','KR','Corea del Sur']									,				['nl_NL','NL','PaA­ses Bajos']									,				['en_NZ','NZ','Nueva Zelanda']									,				['pl_PL','PL','Polonia']									,				['ru_RU','RU','Rusia']									,				['sv_SE','SE','Suecia']									,				['zh_TW','TW','TaiwA¡n']				
+				]
+				
+				];
+			
+			
+			
+	
+	
+
+						
+		
+			Cerrar
+			Establecer preferencia de idioma (A¿QuA© es esto?)
+			Elige el idioma en el que quieres ver YouTube. SA³lo se cambiarA¡ la interfaz, no el texto introducido por otros usuarios.
+			
+		
+	
+			
+				var gUILanguages = [
+				['de','Deutsch']									,				['en-GB','English (UK)']									,				['en','English (US)']									,				['es','EspaA±ol (EspaA±a)']									,				['es-MX','EspaA±ol (LatinoamA©rica)']									,				['fr','FranA§ais']									,				['it','Italiano']									,				['nl','Nederlands']									,				['pl','Polski']									,				['pt','PortuguAas (Brasil)']									,				['ru','PyccÄ¸Ð¸Ð¹']									,				['sv','Svenska']									,				['cs','ÄŒeskA½']									,				['zh-CN','ä¸­æ–‡ (c®€ä½“)']									,				['zh-TW','ä¸­æ–‡ (c¹e«”)']									,				['ja','æ—¥æœ¬eaž']									,				['ko','i•œeµ­i–´']				
+				];
+			
+			
+			
+	
+	
+
+			
+		
+		
+			
+				
+				Inicio
+				
+			
+			
+				
+					
+					VA­deos
+					
+				
+			
+			
+			
+				
+					
+					Canales
+					
+				
+			
+			
+				
+					
+					Comunidad
+					
+				
+			
+		
+
+		
+
+		
+			
+			
+								
+		
+			
+			Subir
+			
+		
+	
+
+
+				
+					
+					
+						VA­deos
+						Canales
+						Listas de reproducciA³n
+					
+					
+				
+				
+				
+					opciones avanzadas
+				
+			
+			
+		
+
+		
+
+		
+			Cargando...
+		
+
+		
+	 
+	
+
+	
+	
+	
+			
+		
+			Cerrar
+			
+					A¡Bienvenido/a a YouTube! 
+
+					
+					Sugerencia de idioma (preferencia establecida): EspaA±ol (EspaA±a)
+
+					
+					Para cambiar la preferencia de idioma, utiliza los enlaces situados en la parte superior de la pA¡gina junto al logotipo de YouTube.
+
+					
+					Haz clic en "Aceptar" para aceptar esta configuraciA³n o en "Cancelar" para ver el sitio en inglA©s.
+
+				
+					
+						
+							
+							Aceptar
+							
+						
+							
+							
+							Cancelar
+							
+						 
+						
+					
+				
+			
+			
+				
+
+					Welcome to YouTube! 
+
+					
+					Suggested Language (we have set your preference to this): Spanish
+
+					
+					To change your language preference, please use the links next to the YouTube logo at the top of the page.
+
+					
+					Click &quot;OK&quot; to accept this setting, or click &quot;Cancel&quot; to view the site in English.
+
+				
+					
+						
+							
+							OK
+							
+						
+							
+							
+							Cancel
+							
+						 
+						
+					
+				
+			
+				
+					Show message in English
+				
+				
+					Hide message in English
+				
+			
+		
+	
+
+
+	
+	
+	
+
+
+
+
+
+
+	Microsoft SecondLight
+
+
+
+
+	
+		
+			Hola, tienes JavaScript desactivado o una versiA³n antigua de Adobe Flash Player. Consigue la Aoltima versiA³n de Flash Player.
+			
+				document.write('Hola, tienes JavaScript desactivado o una versiA³n antigua de Adobe Flash Player. Consigue la Aoltima versiA³n de Flash Player.');
+			
+		
+	 
+	
+		var fo = writeMoviePlayer("watch-player-div");
+	
+
+
+		
+			ver con calidad normal
+			ver con alta calidad
+		
+
+
+
+	
+		
+			">
+				PuntuaciA³n:
+				
+
+		
+
+
+		document.getElementById('watch-rating-div').onmouseover = function() { hideDiv('defaultRatingMessage'); showDiv('hoverMessage'); };
+		document.getElementById('watch-rating-div').onmouseout = function() { showDiv('defaultRatingMessage'); hideDiv('hoverMessage'); };
+ 	
+		
+
+
+66 puntuaciones">Accede para puntuar.
+
+			
+
+			
+				
+					Reproducciones:
+					136740
+				
+
+				
+			
+
+			
+		
+
+		
+			
+				
+					
+						
+							
+							Compartir
+						
+						
+					
+						
+							
+							Favoritos
+						
+						
+					
+						
+							
+							Listas de reproducciA³n
+						
+						
+					
+						
+							
+							Marcar
+						
+						
+				
+			
+			
+			
+				
+					
+									
+				
+						
+							
+							MySpace
+						
+				
+			
+			
+				
+						
+							
+							Facebook
+						
+				
+			
+			
+				
+						
+							
+							Digg
+						
+				
+			
+	
+		mA¡s
+		menos
+	
+
+						
+					 
+					Este vA­deo aparecerA¡ en breve en tu blog.
+					Cargando...
+					Cargando...
+					Cargando...
+					Cargando...
+					Gracias por compartir este vA­deo.
+				
+				
+					
+						
+							
+							
+							
+							
+						
+					
+					Guardando...
+					
+						
+							
+							
+							
+							
+						
+					
+					
+						cerrar
+						
+						
+							Este vA­deo se ha aA±adido a tus favoritos.
+						
+						
+							Este vA­deo se ha eliminado de tus favoritos.
+						
+					
+					
+						
+							
+							Eliminar de Favoritos
+							
+						
+						
+							
+							AA±adir a Favoritos
+							
+						
+						
+					
+						
+						cerrar
+						
+									
+	
+			A¿Quieres aA±adir vA­deos a favoritos?
+
+		">A¡Accede a YouTube ya!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 		 
+
+						
+				
+				
+					Cargando...
+					El vA­deo se ha aA±adido a tu lista de reproducciA³n.
+						
+						cerrar
+						
+									
+	
+			A¿Quieres aA±adir a listas de reproducciA³n?
+
+		">A¡Accede a YouTube ya!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 		 
+
+						
+				
+				
+					Cargando...
+					
+						
+						cerrar
+						
+									
+	
+			A¿Quieres marcar un vA­deo?
+
+		">A¡Accede a YouTube ya!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 		 
+
+						
+				
+			 
+			
+		 
+
+	 
+
+
+	
+
+
+
+	
+		
+			
+				
+					Comentario
+				
+				
+					EstadA­sticas y datos
+				
+			
+		
+		
+			
+					
+		Respuestas en vA­deo: 0
+		Comentarios escritos: 37
+	
+
+	 small-expand-panel">
+			
+					" onclick="urchinTracker('/Events/VideoWatch/PostVideoResponseSignIn');">Acceder para publicar una respuesta en vA­deo
+			
+		Respuestas en vA­deo (0)
+		
+			Este vA­deo no tiene ninguna respuesta. SA© el primero en publicar una respuesta en vA­deo.
+		
+	
+
+	
+		
+			Accede para publicar un comentario.
+		
+		Comentarios escritos (37)
+
+		
+		
+				
+						
+		
+			Mostrar:
+			
+				todos los comentarios
+				excelente (+10 o mejor)
+				muy bueno (+5 o mejor)
+				bueno (0 o mejor)
+				intermedio (-5 o mejor)
+				malo (-10 o mejor)
+			 
+			
+				Ayuda
+				
+				CA¡mbialo para ver sA³lo los comentarios por encima de cierto valor.
+Para cambiar el valor de un comentario, haz clic en una miniatura.
+				
+			
+		
+	
+
+				
+
+			
+
+				
+									
+
+
+
+
+
+
+			
+
+
+		
+			
+				BladesmanLiam132
+				 (hace 3 semanas) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+	-2
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						that isï»¿ of no use whatsoever
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				AncientofAncients
+				 (hace 3 semanas) 
+				Mostrar
+				Ocultar
+			
+					
+	
+		+2
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						to be clear, Multitouch is not surface computing...not even close... 
+
+multi-touch means a computer can see 2,3,4 on a tablet, a touchpad or touchscreen, and respond accordingly.
+
+surface computing isï»¿ about a camera seeing whats on a surface, around a surface, and project onto this surface a image that is interactive. 
+
+THis means scannerless scanning, tabletless drawing, keyboardless typing, mouseless pointing etc, because the computer can see us.
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				AncientofAncients
+				 (hace 3 semanas) 
+				Mostrar
+				Ocultar
+			
+					
+	
+		+2
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						surface computing is being tested and developed on a table top for now. but the underlying technology will mean the computer can interact and display on any &quot;surface&quot;
+
+surface computing isï»¿ about making any surface interactive, turning a a surface into computer...thus &quot;surface computing&quot;
+
+This is what I envisioned when I first saw the tech demo in 2007, but apple snobs were saying &quot;apple already has surface computing, its called an iphone&quot; how small minded is that?
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+		
+
+		
+			
+				Ciph3rzer0
+				 (hace 3 semanas) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						The keyboard and mouse is a &quot;primitive&quot; way to communicate with the computer in the same way that having sex is a &quot;primitive&quot; way to reproduce. There are other more &quot;advanced&quot; ways to make new human beings, but they are not necessarily better or more efficient.
+
+Touch screensï»¿ and tablets and things like that are better for (what i feel is) a small subset of computing. So of course I feel that &quot;surface computing&quot; isn't worth the hype either.
+
+Primitive is not always worse than new and shiny.
+					
+				
+				
+			
+
+		
+
+	 
+
+
+
+			
+
+
+		
+			
+				AncientofAncients
+				 (hace 3 semanas) 
+				Mostrar
+				Ocultar
+			
+					
+	
+		+1
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						computers using cameras and projectors to interact with humans means a deeper and more engaging experience.
+
+computers can see us now, and the things we do, and respond to us through software.
+
+This means a shift from todays technology that need textual input through a keyboard, or some other primitive forms of input through devices suchï»¿ as tablets, touch screens, mice etc.
+
+people get hung up on the table idea, but dont see the underlying technology behind it.
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				sirdavid32
+				 (hace 3 semanas) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+	-1
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						okeyyy.....this is in the book of science, or borrowed from the old magician, optical illusion stuff? 
+Did anyone thought about securing information on this method? if It canA´t secure information on the method, but ratherï»¿ on the system that runs it, then itA´s just an &quot;optical-illution-on a tech plataform&quot;.
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				cjacobs627
+				 (hace 3 semanas) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						I totally agree with AncientofAncients....this technology is fantastic...and innovative beyond so many technologies... people used to say...what's the big deal about Futuresplash! Well...Futuresplash wasn't too useful when it came out...but it became what we now call Flash! Surface will find ways to be very useful, and the people who invented it...Iï»¿ also applaud you! Well done!!!!
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				inkswithbrush
+				 (hace 4 semanas) 
+				Mostrar
+				Ocultar
+			
+					
+	
+		+1
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						most impressiveï»¿
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				gunoa111
+				 (hace 4 semanas) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+	-3
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						well the product isï»¿ large enough to smash ur face with it
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				roblesvfx
+				 (hace 4 semanas) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+	-4
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						what's the point of that piece of paper?? whyï»¿ don't you just show it on the screen??...kinda useless
+					
+				
+				
+			
+
+
+	 
+
+
+
+		
+
+
+Siguiente
+
+
+
+	PA¡ginas:
+			1
+			2
+			3
+		&#160;...&#160;
+		
+
+
+
+
+
+				 
+
+					Ver los 37 comentarios
+
+				
+					A¿Quieres enviar algAon comentario?
+					
+						Ašnete a YouTube para obtener una cuenta gratuita o accede si ya eres miembro.
+					
+				 
+
+				
+		 
+	 
+
+
+			
+			
+					
+		
+			AA±adido: 29 de octubre de 2008
+			Reproducciones: 136740
+			Puntuaciones: 66
+		
+		
+			Respuestas: 0
+			Comentarios: 37
+			
+				Favorito: 158 veces
+			
+		
+	
+
+
+
+
+	
+
+	
+		
+			Galardones de este vA­deo
+			
+				
+					Cargando...
+				
+			
+		
+		
+			Sitios con enlaces a este vA­deo
+			
+				
+					Cargando...
+				
+			
+		
+	
+
+
+
+			
+		
+	
+
+ 
+
+
+	
+
+
+	
+		
+			
+				
+			
+			
+				
+					
+						
+						Suscribir
+						
+					
+				
+				
+					
+						
+						Anular suscripciA³n
+						
+					
+				
+				
+					
+				
+			
+			
+				tbisho
+
+
+				29 de octubre de 2008
+
+
+				
+					
+						(mA¡s informaciA³n)
+					
+					
+						(menos informaciA³n)
+					
+				
+			
+			
+		 
+		
+
+		
+					
+			A¿Quieres suscribirte?
+
+		">A¡Accede a YouTube ya!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 
+
+		 
+
+			
+		
+
+			
+				
+					Microsoft researchers demonstrate SecondLight, a new... 
+				
+			
+
+			
+				
+					Microsoft researchers demonstrate SecondLight, a new variation of the company's Surface technology, at the Professional Developers Conference in L.A. 
+				
+
+				
+					CategorA­a:
+					Ciencia y tecnologA­a
+
+				
+
+				
+					
+						Etiquetas:
+					
+					
+							Microsoft
+							Research
+							Surface
+							PDC2008
+					
+					
+				
+
+
+			 
+
+			
+				
+					URL
+					
+					
+				
+			
+
+
+			
+				
+					Insertar
+					
+						
+						
+							
+							Personalizar
+						
+					
+					
+				
+			 
+		 
+
+			Cargando...
+
+		
+	
+
+	
+		 
+
+
+
+	 
+
+
+
+	 
+
+
+
+
+
+		
+			
+				MA¡s de: tbisho
+			
+			
+				
+						Cargando...
+				 
+			
+			
+		 
+
+	
+ 	
+ 	
+			
+		
+			
+				Reproducir todos
+			
+			
+				Detener reproducciA³n automA¡tica
+			
+			|
+			
+				Reproducir siguiente
+			
+		
+
+
+		 Lista rA¡pida (0)
+
+
+		
+			
+							
+
+
+	
+		
+			
+					 1
+			
+			
+				
+			
+			
+				
+					
+				
+				
+					
+				
+			
+		
+		
+			
+				
+						
+			
+	
+
+	
+
+
+	
+
+			
+		
+
+		
+				
+					Borrar |
+					Guardar
+				
+		
+
+	 
+
+ 	
+	
+
+			
+			
+				VA­deos relacionados
+			
+			
+				
+							
+				
+			
+						onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/CXVfVJKbfr4/default.jpg', 'Microsoft Research: PlayAnywhere (2005)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Research: PlayAnywhere (2005) 
+				
+					 02:33 
+					De:	GeekVideo
+				
+				Reproducciones: 20643
+
+			
+		
+		
+		
+			
+						onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/V3HGfIy_zCI/default.jpg', 'Microsoft Surface Sphere')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Surface Sphere 
+				
+					 04:33 
+					De:	deeper2k
+				
+				Reproducciones: 324652
+
+			
+		
+		
+		
+			
+						onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/QZyAru9EzgA/default.jpg', 'Microsoft SecondLight')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft SecondLight 
+				
+					 02:19 
+					De:	SlashGear
+				
+				Reproducciones: 3417
+
+			
+		
+			
+		
+		
+			
+						onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/gpKmOBcR0vk/default.jpg', 'Dreamoc 3D display system.')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Dreamoc 3D display system. 
+				
+					 01:04 
+					De:	realfic22
+				
+				Reproducciones: 93763
+
+			
+		
+		
+		
+			
+						onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/rP5y7yp06n0/default.jpg', 'Microsoft Surface - The Possibilities')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Surface - The Possibilities 
+				
+					 01:21 
+					De:	ry8601
+				
+				Reproducciones: 1824273
+
+			
+		
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/9YA8x2sfvTw/default.jpg')" qlicon="9YA8x2sfvTw" alt="Microsoft PDC2008 - Surface App">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/9YA8x2sfvTw/default.jpg', 'Microsoft PDC2008 - Surface App')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft PDC2008 - Surface App 
+				
+					 02:13 
+					De:	elinormills
+				
+				Reproducciones: 3880
+
+			
+		
+			
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/muibPAUvOXk/default.jpg')" qlicon="muibPAUvOXk" alt="Microsoft Research : The vision">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/muibPAUvOXk/default.jpg', 'Microsoft Research : The vision')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Research : The vision 
+				
+					 02:23 
+					De:	mtoofr
+				
+				Reproducciones: 185164
+
+			
+		
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i3.ytimg.com/vi/Zxk_WywMTzc/default.jpg')" qlicon="Zxk_WywMTzc" alt="Microsoft Surface Demo @ CES 2008">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/Zxk_WywMTzc/default.jpg', 'Microsoft Surface Demo @ CES 2008')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Surface Demo @ CES 2008 
+				
+					 09:57 
+					De:	GerbilGod7
+				
+				Reproducciones: 509997
+
+			
+		
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/-8F4YF_pH-4/default.jpg')" qlicon="-8F4YF_pH-4" alt="Microsoft Windows Start-Up Sounds">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/-8F4YF_pH-4/default.jpg', 'Microsoft Windows Start-Up Sounds')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Windows Start-Up Sounds 
+				
+					 01:30 
+					De:	vbognot626
+				
+				Reproducciones: 462435
+
+			
+		
+			
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/0h_OO4Gz28c/default.jpg')" qlicon="0h_OO4Gz28c" alt="Microsoft Research laptop multi-touch">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/0h_OO4Gz28c/default.jpg', 'Microsoft Research laptop multi-touch')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Research laptop multi-touch 
+				
+					 05:32 
+					De:	phamoui
+				
+				Reproducciones: 10967
+
+			
+		
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i3.ytimg.com/vi/f2X3XPw9vP8/default.jpg')" qlicon="f2X3XPw9vP8" alt="Microsoft takes touch screens into the next dimension">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/f2X3XPw9vP8/default.jpg', 'Microsoft takes touch screens into the next dimension')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft takes touch screens into the next dimension 
+				
+					 01:24 
+					De:	newscientistvideo
+				
+				Reproducciones: 106658
+
+			
+		
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/CZrr7AZ9nCY/default.jpg')" qlicon="CZrr7AZ9nCY" alt="Microsoft Surface Parody">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/CZrr7AZ9nCY/default.jpg', 'Microsoft Surface Parody')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Surface Parody 
+				
+					 01:48 
+					De:	sarcasticgamer
+				
+				Reproducciones: 2591999
+
+			
+		
+			
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/5a3ZP25nizs/default.jpg')" qlicon="5a3ZP25nizs" alt="Microsoft Second Light">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/5a3ZP25nizs/default.jpg', 'Microsoft Second Light')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Second Light 
+				
+					 04:15 
+					De:	deeper2k
+				
+				Reproducciones: 1706
+
+			
+		
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/3HA4lSUhlbw/default.jpg')" qlicon="3HA4lSUhlbw" alt="Bill Gates' Last Day at Microsoft - CES 2008">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/3HA4lSUhlbw/default.jpg', 'Bill Gates\' Last Day at Microsoft - CES 2008')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Bill Gates' Last Day at Microsoft - CES 2008 
+				
+					 07:00 
+					De:	hewvideo
+				
+				Reproducciones: 411579
+
+			
+		
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/WazA77xcf0A/default.jpg')" qlicon="WazA77xcf0A" alt="Microsoft oPhone">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/WazA77xcf0A/default.jpg', 'Microsoft oPhone')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft oPhone 
+				
+					 03:02 
+					De:	blognc
+				
+				Reproducciones: 662281
+
+			
+		
+			
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/8Bo9UJOk_hI/default.jpg')" qlicon="8Bo9UJOk_hI" alt="Microsoft SecondLight">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/8Bo9UJOk_hI/default.jpg', 'Microsoft SecondLight')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft SecondLight 
+				
+					 02:13 
+					De:	PCGamesHardware
+				
+				Reproducciones: 730
+
+			
+		
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/PbqS9x7sBZA/default.jpg')" qlicon="PbqS9x7sBZA" alt="Microsoft Surface The Magic The Power The Possibilities :)">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/PbqS9x7sBZA/default.jpg', 'Microsoft Surface The Magic The Power The Possibilities :)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Surface The Magic The Power The Possibilities :) 
+				
+					 05:02 
+					De:	Spasticgrampa
+				
+				Reproducciones: 284127
+
+			
+		
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/kr1O917o4jI/default.jpg')" qlicon="kr1O917o4jI" alt="Microsoft Surface: Hands-on First Look">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/kr1O917o4jI/default.jpg', 'Microsoft Surface: Hands-on First Look')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Surface: Hands-on First Look 
+				
+					 04:16 
+					De:	popmechshow
+				
+				Reproducciones: 109736
+
+			
+		
+			
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/D5NrdoJvu9s/default.jpg')" qlicon="D5NrdoJvu9s" alt="Microsoft Second Light">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/D5NrdoJvu9s/default.jpg', 'Microsoft Second Light')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft Second Light 
+				
+					 02:13 
+					De:	dcivera
+				
+				Reproducciones: 7918
+
+			
+		
+		
+		
+			
+					 onload="delayLoad('related', this, 'http://i3.ytimg.com/vi/RH0p9VyzXQU/default.jpg')" qlicon="RH0p9VyzXQU" alt="Microsoft SecondLight">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/RH0p9VyzXQU/default.jpg', 'Microsoft SecondLight')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido
+
+			
+			
+				 Microsoft SecondLight 
+				
+					 02:13 
+					De:	pinguxero
+				
+				Reproducciones: 4073
+
+			
+		
+		
+
+		Cargando...
+			
+				
+					Ver los 40 vA­deos
+				
+			
+	
+
+				 
+			
+			
+		 
+
+	
+
+	
+		VA­deos promocionados
+		
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			Fichados - Jorge FernA¡n.. .
+		
+
+		02:21
+
+		
+			antena3
+
+		
+	
+
+				
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			FC Barcelon a - Resumen ...
+		
+
+		00:22
+
+		
+			fcbarcelona
+
+		
+	
+
+				
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			Amaia Montero - Quiero ...
+		
+
+		04:41
+
+		
+			amaiamonter...
+
+		
+	
+
+				
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			Tell it to the Fishes
+		
+
+		10:21
+
+		
+			futureshorts
+
+		
+	
+
+				
+			
+		
+	 
+
+ 
+
+
+
+
+		
+	
+	
+		
+			
+				 AA±adir a iGoogle
+				
+				
+					VA­deos
+					Canales
+					Listas de reproducciA³n
+				
+				
+			
+		
+		
+			
+				
+					Tu cuenta
+					Ayuda e informaciA³n
+					YouTube
+				
+				
+					VA­deos
+					Bandeja de entrada
+					Recursos de ayuda
+					Manual de YouTube
+					Sobre la empresa
+					Prensa
+				
+				
+					Favoritos
+					Suscripciones
+					Consejos de seguridad
+					Avisos de copyright
+					TestTube
+					Contacto
+				
+				
+					Listas de reproducciA³n
+					mA¡s...
+					API para desarrolladores
+					Instrucciones de la comunidad
+					TA©rminos de uso
+					Blog
+				
+				
+					
+					Publicidad
+					YouTube en tu sitio
+					PolA­tica de privacidad
+					
+					
+				
+
+				
+					
+					Manual de YouTube
+					
+				
+			
+		
+	
+	
+		&copy; 2008 YouTube, LLC
+	
+
+
+
+
+
+ 
+
+
+
+
+
+
+	window.setTimeout('window.google.ac.install(document.searchForm,document.searchForm.search_query,"yt",true,"cerrar",true,"Sugerencias")', 100);
+
+
+
+

@@ -1,0 +1,757 @@
+Lenguaje de programacion
+
+para paginas web
+
+HTML
+
+Indice
+
+ HYPERLINK \l "inntro" 1. Introduccion
+
+ HYPERLINK \l "que" 2. Que es el HTML
+
+ HYPERLINK \l "ori" 3. Origenes del HTML
+
+ HYPERLINK \l "crea" 4. Creacion de paginas web con lenguaje HTML
+
+ HYPERLINK \l "eti" 5. Etiquetas de parrafo
+
+ HYPERLINK \l "imagen" 6. Como insertar una imagen
+
+ HYPERLINK \l "con" 7. Conclusion
+
+ HYPERLINK \l "bi" 8. Bibliografia
+
+1. Introduccion
+
+El HTML no es mas que una aplicacion del SGML (Standard Generalized
+Markup Language), un sistema para definir tipos de documentos
+estructurados y lenguajes de marcas para representar esos mismos
+documentos. El termino HTML se suele referir a ambas cosas, tanto al
+tipo de documento como al lenguaje de marcas.
+
+A medida que nos afianzamos en el manejo de Internet cada uno de
+nosotros pasa por tres etapas diferentes: Al principio solamente
+conocemos unas pocas paginas, luego nos damos cuenta que existen
+buscadores lo cual lo hace mas interesante y por ultimo nos damos cuenta
+que en Internet no solamente se puede ver la informacion sino que
+tambien se puede publicar. ¿y que otra manera mas facil y mas sencilla?
+Si Internet tiene acceso a todos los rincones del mundo.
+
+Para que varias personas se comuniquen es necesarios que estas hablen un
+mismo idioma. El lenguaje que utilizan las computadoras que estan
+conectadas a Internet es HTML. A traves de esta monografia explicaremos
+que es HTML, sus origenes y el proceso de creacion de una pagina web.
+
+2. Que es el HTML
+
+El HTML, Hyper Text Markup Language (Lenguaje de marcacion de
+Hipertexto) es el lenguaje de marcas de texto utilizado normalmente en
+la www (World Wide Web). Fue creado en 1986 por el fisico nuclear Tim
+Berners-Lee; el cual tomo dos herramientas preexistentes: El concepto de
+Hipertexto (Conocido tambien como link o ancla) el cual permite conectar
+dos elementos entre si y el SGML (Lenguaje Estandar de Marcacion
+General) el cual sirve para colocar etiquetas o marcas en un texto que
+indique como debe verse. HTML no es propiamente un lenguaje de
+programacion como C++, Visual Basic, etc., sino un sistema de etiquetas.
+HTML no presenta ningun compilador, por lo tanto algun error de sintaxis
+que se presente este no lo detectara y se visualizara en la forma como
+este lo entienda.
+
+El entorno para trabajar HTML es simplemente un procesador de texto,
+como el que ofrecen los sistemas operativos Windows (Bloc de notas),
+UNIX (el editor vi o ed) o el que ofrece MS Office (Word). El conjunto
+de etiquetas que se creen, se deben guardar con la extension .htm o
+.html
+
+ de paginas Web en Internet, como Netscape Navigator, Mosaic, Opera y
+Microsoft Internet Explorer.
+
+Tambien existe el HTML Dinamico (DHTML), que es una mejora de Microsoft
+de la version 4.0 de HTML que le permite crear efectos especiales como,
+por ejemplo, texto que vuela desde la pagina palabra por palabra o
+efectos de transicion al estilo de anuncio publicitario giratorio entre
+pagina y pagina.
+
+A continuacion vamos a hablar un poco de historia:
+
+3. Origenes del HTML
+
+1986. Publicacion de la ISO 8879 que presenta el Standard General Markup
+Language, origen del HTML.
+
+1989. Tim Berners-Lee, a la sazon en el Centro Europeo de
+Investigaciones Nucleares presenta su articulo Information Management: A
+Proposal dedicandose de lleno al desarrollo de un sistema que permitiera
+el acceso en linea de manera uniforme a la informacion disponible en
+muchos recursos distintos, y que pudiese funcionar en maquinas que
+conectadas por redes basadas en TCP/IP.
+
+1990-1991. Tim Berners-Lee define el HTML como un subconjunto de SGML
+(Standard Generalized Markup Language), que mas tarde se llamara nivel
+0; soporta encabezados, listas y anclas. Se crea el nombre World Wide
+Web.
+
+1991. Tim Berners-Lee introduce el primer visor de HTML, LineMode, que
+trabaja en modo texto y solo en plataformas UNIX. El Centro Europeo de
+Investigaciones Nucleares realiza la apertura del primer sitio con
+acceso publico de World Wide Web el 17 de mayo (http://info.cern.ch).
+
+1992. Dan Connolly produce la primera Definicion de Tipo de Documento
+(DTD) para el lenguaje, llamada HTML 1.0, agregando a la definicion
+original atributos para modificar el estilo fisico del texto. Se
+distribuye Viola, primer visor grafico de Web y disponible solo para
+X.11.
+
+1993. Un nuevo visor que soporta un mayor nivel, Lynx, es producido por
+la Universidad de Kansas, si bien lee solo texto. Aparece Mosaic,
+desarrollado por el Centro Nacional para Aplicaciones de
+Supercomputadoras, es el primer visor de Web en entorno grafico que se
+hace disponible para computadoras personales, lo que lo hace
+inmediatamente popular. A fines de ano, comienzan a aparecer los
+primeros articulos sobre WWW en diarios y revistas de circulacion
+masiva. Tim Berners-Lee utiliza el trabajo del ano anterior de Connolly
+para presentar el borrador de la primera norma (RFC -Recommendation for
+Comments) de HTML para Internet.
+
+1994. La Universidad Tecnica de Graz desarrolla un servidor y clientes
+con mayores prestaciones para HTML, Hyper-G, que no tiene gran exito.
+Cello, primer visor de HTML que no requiere TCP/IP presentado por la
+Escuela de Leyes de la Universidad de Cornell. Dan Connolly y Karen
+Olson Muldrow redefinen el HTML para el nivel 2.0, que ahora soporta
+formularios. Un grupo de programadores que desarrollaran el Mosaic
+producen un nuevo visor de World Wide Web, Netscape (tambien conocido
+como Mozilla), que tiene una amplia aceptacion entre los usuarios, pero
+que soporta elementos de programacion que equivalen a una degeneracion
+del HTML (tamanos de letra, fondos). Se define un equivalente para los
+modelos en tres dimensiones del HTML, el VRML (Virtual Reality Modeling
+Language), que permite moverse dentro de los ambientes definidos. En
+este mismo ano se realizan la Primera y Segunda conferencias
+internacionales de WWW, en Ginebra y Chicago, respectivamente. Se crea
+la W3 Organization.
+
+1995. Dave S. Raggett (Hewlett-Packard, Inglaterra) comienza a compilar
+la normativa del nuevo nivel del lenguaje, el HTML 3.0, cuya principal
+novedad es el soporte de tablas. Microsoft produce su primer visor de
+Internet, el cual tambien utiliza elementos de HTML degenerados. Una
+nueva version de Netscape, Navigator 2.0, agrega soporte de encuadres.
+Sun Microsystems produce el primer visor de World Wide Web con soporte
+de un lenguaje de programacion, HotJava. Se celebran la Tercera y Cuarta
+conferencias internacionales de WWW, en Boston y Darmstadt
+respectivamente, y la conferencia de WWW para Asia y el Pacifico en
+Wagga-Wagga.
+
+1996. Netscape Communications y Microsoft presentan las nuevas versiones
+de sus visores que soportan gran parte del nivel de HTML 3.0. Aparecen
+visores no comerciales que implementan la norma completa de HTML 3.0. Se
+formaliza un nuevo nivel para la modelacion en tres dimensiones, VRML
+3.0, que permite interactuar con los objetos definidos. Se celebra la
+Quinta conferencia internacional de WWW en Rocquencourt.
+
+1997. D. Raggett presenta, en enero, la version normalizada del 3.2. En
+julio, aparece la version 4.0, experimental.
+
+1998. HTML 4.0.
+
+4. Creacion de paginas web con lenguaje HTML
+
+Para crear una pagina web se pueden utilizar varios programas
+especializados en esto, como por ejemplo, el Microsoft Front Page o el
+Macromedia Dreamweaver 3. Otra forma de disenar un archivo .html, es
+copiar todo en el Bloc de Notas del Windows, ya que este sencillo
+programa cumple con un requisito minimo que es la posibilidad de
+trabajar con las etiquetas con las que trabaja este lenguaje.
+
+A continuacion les mostraremos las etiquetas mas comunes que deben
+aprenderse para hacer una pagina Web.
+
+Estructura de los documentos de HTML
+
+Si se tiene en cuenta el contenido del documento, todos los documentos
+de HTML bien escritos comparten una estructura en comun. Un documento de
+HTML empieza con la etiqueta , que es la que encerrara el
+documento actual. Contiene dos secciones primordiales: la cabecera y el
+cuerpo encerradas respectivamente por los elementos  cabeza y
+ cuerpo.
+
+La cabecera puede contener informacion y siempre contiene el titulo del
+documento encerrado por el elemento .
+
+En el cuerpo se encuentra todo el contenido del documento, ya sea,
+texto, imagenes, sonidos, hipervinculos, etc.
+
+Un documento escrito en HTML contiene las siguientes etiquetas en el
+siguiente orden:
+
+Ejemplo:
+
+
+
+
+
+ Titulo de mi pagina de Internet 
+
+
+
+
+
+  Primera pagina  
+
+
+
+Esta es mi primera pagina, aunque todavia es muy sencilla. Como el
+lenguaje HTML no es dificil, pronto estaremos en condiciones de hacer
+cosas mas interesantes.
+
+ Aqui va un segundo parrafo.
+
+
+
+
+
+Para escribir titulos se usa la etiqueta  en donde x es un
+numero.
+
+Ejemplo:
+
+Titulo principal
+
+Titulo secundario
+
+Titulo terciario
+
+Titulo cuarto nivel
+
+Titulo quinto
+
+Titulo sexto
+
+Quedaria mas o menos asi:
+
+Titulo principal
+
+Titulo secundario
+
+Titulo terciario
+
+Titulo cuarto nivel
+
+Titulo quinto
+
+Titulo sexto
+
+5. Etiquetas de parrafo
+
+Para esto se utiliza la etiqueta  y . Este comando es muy util
+debido a que si uno escribe algo (en el editor que se este utilizando)
+por mucho espacio que uno le de siempre al texto, siempre va a aparecer
+en la misma linea.
+
+Para alinear un parrafo se utiliza el comando  y ,
+utilizado dentro de la etiqueta . Se puede alinear de tres formas
+diferentes:
+
+ Parrafo... 
+ Alinea a la izquierda.
+
+ Parrafo... 
+ Realiza un centrado.
+
+ Parrafo... 
+ Alinea a la derecha.
+
+Cuando nosotros queremos que lo que escribimos aparezca en otra linea
+utilizamos el comando .
+
+Al terminar de escribir un parrafo es conveniente y estetico utilizar el
+comando para separar un parrafo de otro que es 
+
+Etiquetas para darle formato al texto:
+
+Para el tamano y tipo de letra se usa la etiqueta  y , que
+posee tres atributos: tamano (Size), Tipo de letra o fuente (face) y
+color
+
+Formato:
+
+ y  Sirve para colocar un texto en Negrita.
+
+ y < /U> Sirve para subrayar un texto
+
+ y  Sirve para tachar un texto.
+
+ y  Cumple la misma funcion que 
+
+ y  Para colocar un texto en cursiva.
+
+texto con enfasis texto con enfasis
+
+citacion citacion
+
+definicion definicion
+
+teclado teclado
+
+ejemplo ejemplo
+
+SIZE: Regula el tamano de los caracteres.
+
+Ejemplo: texto... .
+
+FACE: Es la fuente que se quiere usar, Arial, Times new Roman, etc.
+
+Ejemplo:
+
+
+
+Color: Regula el color de los caracteres. En principio existen dos
+posibilidades para definir los colores en HTML:
+
+1. Mediante la especificacion de los valores RGB del color deseado en
+forma hexadecimal (RGB=Red/Green/Blue, valores Rojo/Verde/Azul)
+
+2. Mediante la especificacion del nombre del color en ingles
+
+Ejemplos:
+
+Blanco	Blanco	#FFFFFF
+
+Negro	Negro	#000000
+
+Rojo	Rojo	#FF0000
+
+Verde	Verde	#00FF00
+
+Azul	Azul	#0000FF
+
+Amarillo	Amarillo	#FFFF00
+
+Cyan	Cyan	#00FFFF
+
+Magenta	Magenta	#FF00FF
+
+
+
+Si nos decidimos a trabajar con valores hexadecimales, entonces tenemos
+la libertad de utilizar 16,7 millones de colores. De esta manera
+trabajamos independientemente de los navegadores Web.
+
+Si especificamos el nombre del color, podemos evitar la definicion del
+color en forma hexadecimal que es un poco mas dificil. Actualmente estan
+estandarizados tan solo 16 colores. Existen colores adicionales los
+cuales son dependientes de los navegadores Web.
+
+Primero que todo debe escribir un simbolo #. A continuacion siguen las 6
+cifras para la definicion del color. Las primeras 2 cifras definen el
+valor rojo, las siguientes 2 el valor verde y las 2 ultimas el valor
+azul.
+
+Las cifras hexadecimales son:
+
+0 (corresponde al decimal 0)
+
+1 (corresponde al decimal 1)
+
+2 (corresponde al decimal 2)
+
+3 (corresponde al decimal 3)
+
+4 (corresponde al decimal 4)
+
+5 (corresponde al decimal 5)
+
+6 (corresponde al decimal 6)
+
+7 (corresponde al decimal 7)
+
+8 (corresponde al decimal 8)
+
+9 (corresponde al decimal 9)
+
+A (corresponde al decimal 10)
+
+B (corresponde al decimal 11)
+
+C (corresponde al decimal 12)
+
+D (corresponde al decimal 13)
+
+E (corresponde al decimal 14)
+
+F (corresponde al decimal 15)
+
+(mirar el cuadro de la pagina anterior)
+
+Para ponerle color de fondo a la pagina escribir:
+
+ con el cual obtendremos un color de fondo
+gris oscuro.
+
+Colocar mal los colores de fondo en nuestras paginas puede provocar
+problemas. ¿Que ocurria con los links o enlaces si colocaramos un fondo
+de color azul?. Puesto que los links son azules cuando todavia no se han
+pulsado puede ocurrir que no se puedan leer con claridad o incluso que
+no se puedan distinguir en absoluto del fondo.
+
+Se puede imaginar todavia un caso peor si decidieramos colocar un fondo
+demasiado oscuro, tan oscuro que no permitiera distinguir con claridad
+la informacion que se presenta en pantalla. Podemos remediar esto
+eligiendo nosotros mismos el color que queremos que tengan los links o
+enlaces e incluso el texto, las etiquetas para hacer esto son las
+siguientes:
+
+text="#numero" Para el color del texto.
+
+link="#numero" Para el color de los enlaces.
+
+vlink="#numero" El color con que apareceran los enlaces ya visitados.
+
+alink="#numero" Color del enlace cuando lo pulsamos.
+
+Por lo tanto la etiqueta  puede quedar del siguiente modo:
+
+
+
+Ahora veremos como poner una imagen de fondo. Es muy sencillo, basta con
+usar la etiqueta:
+
+background="localizacion de la imagen" Esta etiqueta va dentro de la
+etiqueta .
+
+Ejemplo:
+
+
+
+Con esto lograremos que la imagen dragonball.gif aparezca como fondo en
+nuestra pagina.
+
+Etiquetas META
+
+ indica al visor de Internet las palabras clave y contenido de nuestra p
+gina Web. Muchos de los buscadores de paginas Web de Internet (Yahoo,
+Lycos, etc...) utilizan el contenido de esta directiva para incluir la p
+gina en sus bases de datos.
+
+Ejemplo:
+
+
+Moon">
+
+Indica al visor el nombre de la pagina y sus contenidos principales.
+
+
+
+Indica el nombre de la persona que elabora la pagina WEB
+
+
+
+Indica al visor las palabras clave para los buscadores de Internet.
+
+Para hacer listas:
+
+Las listas se definen de forma muy sencilla: se dice donde empieza la
+lista, donde empieza cada punto y donde acaba la lista. Las etiquetas
+que se utilicen en cada caso deben aparecer al principio de linea, o al
+menos sin texto por delante (solo espacios o tabulaciones).
+
+Las listas pueden ser: Lista desordenada,  (Unordered List).
+
+Lista ordenada,  (Ordered List).
+
+Ejemplos de diferentes tipos de listas:
+
+Lista con numeros romanos:
+
+
+
+Manzana
+
+Zanahoria
+
+Lechuga
+
+Tomate
+
+
+
+Manzana
+
+Zanahoria
+
+Lechuga
+
+Tomate
+
+Lista numerada:
+
+
+
+Manzana
+
+Zanahoria
+
+Lechuga
+
+Tomate
+
+
+
+Manzana
+
+Zanahoria
+
+Lechuga
+
+Tomate
+
+Lista con puntos:
+
+
+
+ Manzana
+
+ Zanahoria
+
+ Lechuga
+
+Tomate
+
+
+
+Manzana
+
+Zanahoria
+
+Lechuga
+
+Tomate
+
+Lista con circulos:
+
+
+
+ Manzana
+
+ Zanahoria
+
+ Lechuga
+
+ Tomate
+
+
+
+Manzana
+
+Zanahoria
+
+Lechuga
+
+Tomate
+
+Lista con cuadrados:
+
+
+
+ Manzana
+
+ Zanahoria
+
+ Lechuga
+
+ Tomate
+
+
+
+Manzana
+
+Zanahoria
+
+Lechuga
+
+Tomate
+
+6. Como insertar una imagen
+
+A la hora de crear una pagina Web podemos introducir graficos de forma
+muy sencilla, solo hay que tener en cuenta que las imagenes deben tener
+formato Gif o JPEG.
+
+La etiqueta utilizada para agregar imagenes a una pagina Web es  y
+va acompanada de un atributo fundamental "SCR", que indica la ruta donde
+se encuentra el archivo que contiene la imagen a insertar.
+
+Es decir:
+
+
+
+Supongamos que tenemos la imagen dragonball.gif, que esta presente en el
+mismo directorio en donde esta la pagina y que la queremos insertar. La
+etiqueta apropiada seria:
+
+
+
+Y el usuario vera en el browser:
+
+Para poner la imagen en la izquierda escribir:
+
+
+
+A la derecha: 
+
+Y si se quiere poner la imagen en el centro:
+
+  
+
+Hiperenlaces, Hyperlinks, Anclas o Links
+
+ de la NASA, debemos escribir en nuestro texto HTML:
+
+Pulse aqui para visitar a la NASA
+
+Que se veria de esta forma: Pulse aqui para visitar a la NASA
+
+ nos lleve a una imagen tenemos que escribir:
+
+>Foto entonces al hacer clic en el texto Foto nos abrira la
+imagen.gif.
+
+Tambien se puede ir a otro enlace por medio de una imagen. Lo unico que
+se debe hacer es cambiar el texto por una imagen:
+
+
+
+, al hacer clic nos envie al buscador Altavista.
+
+Si se quiere hacer un link para que nos manden un E-Mail se debe hacer
+de la siguiente manera:
+
+Mandame un Email
+
+Entonces cuando se haga clic sobre esta palabra Mandame un Email se
+abrira (por defecto) el Microsoft Outlook Express con la direccion del
+destinatario ya escrita.
+
+Caracteres especiales
+
+Existe una razon evidente que impide que podamos escribir ciertos
+simbolos directamente en un texto HTML, como por ejemplo el 
+simbolos tienen un significado en HTML, y es necesario diferenciar
+claramente cuando poseen ese significado y cuando queremos que aparezcan
+literalmente en el documento final. Por ejemplo, como ya sabemos, 
+indica el comienzo de una directiva, y, por ello, si queremos que
+aparezca en el texto como tal tendremos que dar un rodeo escribiendo
+algo que no de lugar a confusion, en este caso &lt;. Los simbolos
+afectados por esta limitacion, y la forma de escribirlos, se detallan a
+continuacion:
+
+< (Menor que): &lt;
+
+>(Mayor que): &gt;
+
+& (simbolo de and, o ampersand): &amp;
+
+" (comillas dobles): &quot;
+
+> en nuestro texto HTML original debemos poner &lt;&quot;hola&quot;&gt;.
+
+El otro caso especial se da cuando en un texto HTML se quiere escribir
+una ene, por ejemplo. Existe una forma facil de hacerlo, que consiste en
+utilizar codigos como las que antes se presentaron para escribir ciertos
+simbolos. Los codigos comienzan siempre con el simbolo &, y terminan con
+un punto y coma (;). Entre medias va un identificador del caracter que
+queremos que se escriba. Los codigos necesarias en nuestro idioma son:
+
+a: &aacute;
+
+e: &eacute;
+
+i: &iacute;
+
+o: &oacute;
+
+u: &uacute;
+
+A: &Aacute;
+
+E: &Eacute;
+
+I: &Iacute;
+
+O: &Oacute;
+
+U: &Uacute;
+
+u: &uuml;
+
+U: &Uuml;
+
+n: &ntilde;
+
+N: &Ntilde;
+
+¿: &#191;
+
+¡: &#161;
+
+?: &#63;
+
+!: &#33;
+
+@: &#64;
+
+Por lo tanto la palabra pagina la podriamos escribir como :
+
+pagina
+
+p&aacute;gina
+
+Otro ejemplo: ¿En que ano estamos?
+
+Seria: &#191En qu&eacute; a&ntilde;o estamos&#63;
+
+Es por ello que si deseamos que cualquier visor de paginas Web pueda
+visualizar las letras acentuadas de nuestro documento debemos utilizar
+sus correspondientes codigos para representarlas.
+
+Recuerden que las etiquetas se pueden escribir en mayusculas o en
+minusculas, es lo mismo poner ,  o .
+
+Una vez que terminamos de escribir todo nuestro documento, lo guardamos
+poniendole un nombre, y necesariamente lo debemos guardar con la
+extension .HTM o .HTML.
+
+Para ir visualizando lo que hemos estado haciendo tendriamos que abrir
+nuestro browser (Netscape o Internet Explorer), hacemos click en la
+opcion FILE o ARCHIVO, estando alli seleccionamos OPEN o ABRIR, le damos
+BROWSE o EXAMINAR, seleccionamos el archivo y le damos OPEN. Luego le
+damos ACEPTAR, e inmediatamente se abrira nuestra pagina.
+
+7. Conclusion
+
+Sin HTML no existiria el Internet que hoy conocemos, si no se hubiera
+inventado, seguiriamos con el aburrido FTP (Protocolo de Transferencia
+de Ficheros) mandandonos o bajando archivos que a veces ni sabiamos lo
+que eran, sin tener la posibilidad de visualizarlo antes. Ahora por
+medio de una pagina llena de colores y botones por la cual se puede
+navegar, se puede tener acceso a bastante informacion y archivos.
+
+El lenguaje de HTML abrio una puerta al mundo permitiendole a las
+personas expresar sus ideas por medio de paginas y mostrarselas a todas
+las personas de todos los paises.
+
+Con el HTML se logro un gran movimiento economico ya que muchisimas
+empresas publican, venden, y ofrecen sus productos, sus servicios y sus
+ofertas atrayendo a mayor cantidad de personas. Tambien gracias al HTML
+nacieron muchas empresas que ofrecen diversos servicios como Yahoo,
+Altavista, HotMail, Terra, Yupi, Mercadolibre, De Remate, etc.
+
+Infinitas son las posibilidades que te brindan las paginas WEB ya que no
+solo te dan la posibilidad de pasar el tiempo navegando, sino que
+tambien hasta se puede comprar un auto por Internet, solo basta con
+llenar un formulario con los datos personales y el numero de tarjeta de
+credito y en ocho dias lo tenemos en nuestra casa.
+
+Todo el universo de Internet se lo debemos al HTML, ya que todas las p
+ginas con las que se compone la World Wide Web estan hechas con el
+lenguaje de programacion HTML.
+

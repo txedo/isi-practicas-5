@@ -1,0 +1,798 @@
+
+
+
+	 quien se ha llevado mi queso - www.dalealplay.com
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+
+	
+	
+
+	
+ 
+ 	
+ function EnviarBuscador1()
+ {
+ if (document.searchform.search.value.length < 3 || document.searchform.search.value == "" || document.searchform.search.value == "Buscador de videos")
+ alert("Debes introducir una cadena de busqueda de mas 2 caracteres.");
+ else
+ document.searchform.submit();
+ }
+ 
+ function LimpiarCampo(search) {
+ if (search.value == "Buscador de videos")
+ search.value = "";
+ }
+ 
+
+
+
+
+
+	
+
+
+
+		var AAMB1 = "";
+	var AAMB2 = "";
+	var AAMB3 = "";
+	//-->
+
+
+
+		// Cache-busting and pageid value
+	var aamRnd = Math.round(Math.random() * 100000000);
+	// Adserver URL
+	adserver = "http://alant.antevenio.com/bservers";
+	// Ad tag targeting values which will be appended to each ad request section in the bserver ad call
+	allAdTags = "/AAMALL/acc_random=" + aamRnd + "/pageid=" + aamRnd;
+	// Individual tags for each ad request - increment the adx variable name and the AAMBx parameter.
+	ad1 = "/AAMB1/SITE=es.antevenio.dalealplay/AREA=OTHERS/CANAL=OCIO/AAMSZ=728X90";
+		ad2 = "/AAMB2/SITE=es.antevenio.dalealplay/AREA=OTHERS/CANAL=OCIO/AAMSZ=200X200";
+	ad3 = "/AAMB3/SITE=es.antevenio.dalealplay/AREA=OTHERS/CANAL=OCIO/AAMSZ=300X250";
+	
+	// bserver ad call – insert the adx variables
+	document.write('');
+	document.write('');
+	// End Hide -->
+
+
+
+		// Modify to reflect site specifics
+	adserver = "http://alant.antevenio.com";
+	target = "/SITE=es.antevenio.dalealplay/AREA=OTHERS/CANAL=OCIO/AAMSZ=INTER";
+
+	// Cache-busting and pageid values
+	random = Math.round(Math.random() * 100000000);
+	if (!pageNum) var pageNum = Math.round(Math.random() * 100000000);
+
+	document.write('	document.write('IPT SRC="' + adserver + '/jserver/acc_random=' + random + target + "/pageid=" + pageNum + '">');
+	document.write('	document.write('IPT>');
+	// End Hide -->
+
+
+
+	function getPubli(tag) {
+		document.writeln(eval(tag));
+	}
+
+
+
+
+
+	
+	
+		
+			
+				
+					
+				
+			
+		
+	
+	
+	
+	
+
+
+
+
+
+	getPubli('AAMB1')
+	
+	
+		
+			
+				
+ 	Dalealplay.com
+ 	¿quien se ha llevado mi queso? visto 348 vecesUn video motivacional que te ensenara la manera de superar los problemas y las crisis...
+Subido por dragondani el veintisiete de julio de dos mil ochomultinivel, crisis, economica, motivacional, crecimiento personal
+
+ 
+			
+
+
+	var swfDivName = 'logo';
+	cargaPlayer('/img/navidad/banner_dap_20.swf','290', '90', '#000000');
+
+			
+				
+					
+					
+					
+					
+					
+						Blog | 
+						Ayuda
+					
+
+				
+			
+				
+				
+					
+					
+				
+					
+				Mis Videos | 
+				Mis Favoritos | 
+				Mis Amigos | 
+				Usuarios bloqueados | 
+				Mi Perfil
+				
+			
+		
+	
+	
+	
+
+
+
+
+
+	
+
+
+
+			logado = false;
+	
+
+function masInfo() {
+	if($('mas_info_desc').visible())
+	{
+		Effect.toggle('mas_info_desc', 'blind', { duration: 0.5});
+		Effect.toggle('mas_info_desc_cort', 'blind', {delay:0.55, duration: 0.5 });
+	}
+	else
+	{
+		Effect.toggle('mas_info_desc_cort', 'blind', { duration: 0.5});
+		Effect.toggle('mas_info_desc', 'blind', {delay:0.5, duration: 0.5 });
+	}
+}	
+
+
+	
+	
+
+			
+
+
+		
+		
+			
+
+
+
+
+
+
+
+	var vid_categoria = '1';
+
+
+	
+		function borrarVideo()
+		{
+			if (confirm('Estas seguro que quieres Borrar este video')) {
+				document.borrar_video.submit();
+			}
+		}
+
+		function msg_error(error) {
+			if (error == "no_mail") {
+				alert("Por favor, introduzca una direccion de correo valida");
+			}
+			else if (error == "no_password") {
+				alert("Por favor, introduzca una contrasena");
+			}
+			else if (error == "no_nombre") {
+				alert("Su nombre por favor");
+			}
+			else if (error == "no_nombre_des") {
+				alert("El nombre del destinatario por favor");
+			}
+			else if (error == "error_mail_des") {
+				alert("Por favor, introduzca una direccion de correo valida para el destinatario");
+			}
+			else if (error == "no_motivo") {
+				alert("Por favor elige el motivo de su denuncia");
+			}
+			else if (error == "no_grupo") {
+				alert("Tienes que seleccionar algun grupo.");
+			}
+			else if (error == "no_tema_comentario") {
+				alert("No puede haber ningun campo vacio en el comentario.");
+			}
+		}
+	
+
+
+		
+			¿quien se ha llevado mi queso? (visto 348 veces)
+			
+			
+			
+				
+				
+					
+					
+						
+						
+						
+							
+									
+										Tu navegador tiene desactivado JavaScript o usa una version antigua de Macromedia Flash Player.
+
+										PINCHA AQUI para descargarte la ultima version y disfrutar de los videos de Dale Al Play.
+
+									
+							
+								
+						var AAMB6 = "";
+			//-->
+		
+							
+								function cargarVideo() {
+										// 										var fo = new SWFObject("/smarty/dap/mediaplayer.swf?file=116187/MIQUESO.MPG.flv&videoValoracion=4.86&autoStart=true", "movie_player", "627", "474", 9, "#000000");
+										fo.addParam("allowfullscreen","true");
+										fo.write("reproductorDiv");
+										// ]]>
+								}
+					
+																	//cargarVideo();
+										var swfDivName = 'reproductorDiv';
+										cargaPlayer('/smarty/dap/mediaplayer.swf?file=116187/MIQUESO.MPG.flv&videoValoracion=4.86&autoStart=true','627', '474', '#000000');
+															
+			
+			function showPubli(flashURL,clickURL) {
+				clickURL=clickURL.replace(new RegExp("&","g"), "-=-");
+				cargaPlayer('/smarty/dap/ppubli.swf?file=116187/MIQUESO.MPG.flv&videoValoracion=4.86&autoStart=true&publiURL='+flashURL+'&clickTag='+clickURL,'627', '474', '#000000');
+			}
+		
+
+		
+		
+						// Cache-busting and pageid value
+			var aamRnd = Math.round(Math.random() * 100000000);
+			// Adserver URL
+			adserver = 'http://alant.antevenio.com/jserver/SITE=es.antevenio.dalealplay/AREA=SANIDAD/CANAL=OCIO/AAMSZ=450x340/pageid=1';
+		
+
+			// bserver ad call insert the adx variables
+			document.write('');
+			document.write('');
+			// End Hide -->
+		
+		
+		
+			document.writeln(AAMB6);
+		
+							 
+							
+								Anadir a favoritos
+
+								Enviar a un amigo
+
+								
+									
+										Denuncia este Video
+									
+
+								
+									Anadir video a un grupo
+
+								Subtitular video
+
+							
+							
+			 
+			 
+			 
+			 Este contenido esta valorado en 3.5/5
+			 1
+			 2
+			 3
+			 4
+			 5
+			 
+							 Total: 4.86 con 7 votos
+							 Valoracion: ¡Puntua el contenido!
+							 
+								Compartir
+							 
+							
+							
+								Url:
+																	value="http://www.dalealplay.com/informaciondecontenido.php?con=116187" />
+								Reproductor de video:
+								
+							
+						 
+						
+						
+					
+					
+					
+					
+					
+						
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ dragondani
+ Videos: 19
+
+ Favoritos: 0
+
+ Amigos: 0
+
+ 
+ 
+ 
+ 
+ 	Un video motivacional que te ensenara la manera de superar los problemas y las crisis...
+
+ 	(Mas info)
+ 
+ 
+ 	Un video motivacional que te ensenara la manera de superar los problemas y las crisis...
+
+	 
+		 Anadido: 27 jul de 2008
+
+		 Tags: multinivel, crisis, economica, motivacional, crecimiento personal 
+
+	 
+ 	(Ocultar Informacion)
+	 
+	 	Categoria: Arte y Animacion
+
+ 
+ 
+ 
+ 
+ 
+						
+						
+							
+function google_ad_request_done(google_ads) {
+var s = '';
+var i;
+
+/*
+* Verifique que hay anuncios para publicar.
+*/
+if (google_ads.length == 0) {
+return;
+}
+
+
+if (google_ads[0].type == "image") {
+
+ s += 'Anuncios Google
+' +
+''" target="_top" title="go to ' + google_ads[0].visible_url +
+'">'"width="' + google_ads[0].image_width +
+'"height="' + google_ads[0].image_height + '">';
+
+} else {
+
+if (google_ads.length == 1) {
+ s += 'Anuncios Google
+' +
+''onmouseout="window.status=\'\'" ' +
+'onmouseover="window.status=\'go to ' +
+google_ads[0].visible_url + '\'" ' +
+'style="text-decoration:none">' +
+'' +
+'' + google_ads[0].line1 + '
+' +
+'' +
+google_ads[0].line2 + '' +
+google_ads[0].line3 + '
+' +
+'' +
+google_ads[0].visible_url + '
+';
+
+} else if (google_ads.length > 1) {
+
+ s += 'Anuncios Google
+'
+
+
+for(i = 0; i < google_ads.length; ++i) {
+
+s += '
+'onmouseout="window.status=\'\'" ' +
+'onmouseover="window.status=\'go to ' +
+google_ads[i].visible_url + '\'" ' +
+'style="text-decoration:none">' +
+'' +
+'' + google_ads[i].line1 + '
+' +
+'' +
+google_ads[i].line2 + '
+' +
+google_ads[i].line3 + '
+' +
+'' +
+google_ads[i].visible_url + '
+';
+}
+}
+ }
+
+ document.write(s);
+ return;
+ }
+
+google_ad_client = 'pub-8952924049391446';
+//google_ad_channel = '12345678';
+google_ad_slot = "2515785292";
+google_ad_output = 'js';
+google_max_num_ads = '3';
+google_ad_type = 'text';
+//google_image_size = '300x250';
+google_feedback = 'off';
+// -->
+
+
+
+ 						
+						
+						
+						
+						
+							getPubli('AAMB3')
+						
+						 
+						
+					
+					
+				
+					
+				
+			
+		
+
+
+		
+			
+		
+		
+			
+				
+				
+				
+					
+						Las mejores OFERTAS - Ver Mas Aqui
+						
+					
+					
+					
+				
+			
+		
+					
+
+	
+		
+		
+			
+				
+				
+					
+					
+						
+						
+							
+							Anadir comentario
+												
+						
+														
+							
+																					
+						
+						
+						
+					
+					
+					
+					
+					
+					
+						
+													Localizacion del video
+							
+						 -->
+						
+
+						
+						
+							
+							
+								amor, anuncio, argentina, arte, axati, broma, cachondeo, camara, clips, coche, comedia, culo, curioso, divertido, entrevista, fenomeno, futbol, guapa, italia, kiss, love, music, navidad, nieto, nuevas, oculta, pareja, peligro, pop, risa, risas, rock, sensual, sex, sexo, sexy, tecno, tendencias, tetas, videoclips, 
+							
+
+						
+							
+						
+						
+						
+						
+						
+						
+							
+								
+									
+										mas
+									
+									
+										videos relacionados
+										mas videos del este usuario
+									
+								
+							
+
+							
+							
+									
+									
+										
+									
+									
+										¿quien se ha llevado mi queso?
+										De: dragondani
+
+										Visto: 348 veces
+
+									
+								
+										
+									
+										
+									
+									
+										LA CRISIS ECONOMICA.
+										De: el nieto de orwell
+
+										Visto: 352 veces
+
+									
+								
+										
+									
+										
+									
+									
+										DEFORME SEMANAL 3 con La crisis economica
+										De: EnriqueHerrero
+
+										Visto: 17 veces
+
+									
+								
+										
+									
+										
+									
+									
+										Toc, Toc…No es Avon, es la Recesion...
+										De: Negopolis
+
+										Visto: 15 veces
+
+									
+								
+										
+									
+										
+									
+									
+										Afrontar la crisis
+										De: Negopolis
+
+										Visto: 13 veces
+
+									
+								
+								
+							
+
+							
+							
+										
+									
+										
+									
+									
+										crecimiento
+										De: musclevenice
+
+										Visto: 86 veces
+
+									
+								
+										
+									
+										
+									
+									
+										la factura de la crisis
+										De: marianoog
+
+										Visto: 181 veces
+
+									
+								
+										
+									
+										
+									
+									
+										Rajoy, "preocupado" por el recibo de...
+										De: que.es
+
+										Visto: 31 veces
+
+									
+								
+										
+									
+										
+									
+									
+										Solbes dice que el crecimiento sera...
+										De: que.es
+
+										Visto: 14 veces
+
+									
+								
+										
+									
+										
+									
+									
+										Caracteristicas de una web multinivel
+										De: dragondani
+
+										Visto: 115 veces
+
+									
+								
+	
+							
+							
+	
+
+							
+													
+						
+						
+						
+					
+									
+					
+					
+				
+			
+		
+		
+	
+
+	
+	
+	
+
+
+	cambiar_subtitulos('116187');
+
+
+
+
+	
+	
+		
+			
+				FAQ | 
+				Ayuda  | 
+								Bases Legales | 
+				Politica de privacidad
+			
+
+			
+				Copyright (c) 2008 · Todos los derechos reservados AdverNet S.L. C/ Juan Ignacio Luca de Tena 6 - 28027 Madrid.
+			
+
+		
+	
+	
+
+
+
+	
+	
+	
+		var _rsCI="es-vocento";
+		var _rsCG="0";
+		var _rsDN="//secure-uk.imrworldwide.com/";
+	
+	
+	
+		
+	
+	
+
+
+var IVW="http://vocento.ojdinteractiva.com/cgi-bin/ivw/CP/www.dalealplay.es/";
+document.write("");
+
+
+
+
+
+
+
+	
+		registrarEntrada();
+	
+
+	
+		if (document.getElementById('publi_contextual') != null) {
+			var iframe = '';
+			document.getElementById('publi_contextual').innerHTML=iframe;
+		}
+	
+
+
+
+
+
+

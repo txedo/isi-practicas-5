@@ -1,0 +1,385 @@
+Entorno de Recomendacion para el Desarrollo de Objetos de Aprendizaje
+
+Christian L. Vidal1, Victor H. Menendez2 y Manuel E. Prieto3
+
+1Universidad del Bio Bio, Chile.
+
+cvidal@ubiobio.cl
+
+2Universidad Autonoma de Yucatan, Mexico.
+
+mdoming@uady.mx
+
+3Universidad de Castilla-La Mancha, Espana.
+
+mdoming@uady.mx
+
+Resumen: Este trabajo presenta un entorno de recomendacion para el
+desarrollo de Objetos de Aprendizaje. El entorno que se propone tiene
+como objetivo proporcionar una infraestructura que apoye al profesor en
+el desarrollo de Objetos de Aprendizaje. Esta infraestructura orienta y
+recomienda al profesor acerca de metodos de diseno instruccional,
+tambien establece consideraciones acerca de estilos y teorias de
+aprendizaje y contenidos, todo esto para facilitar el desarrollo de
+nuevos Objetos de Aprendizaje. Otra de sus funciones es sugerir el uso
+de Objetos de Aprendizaje estandarizados existentes en un repositorio
+para la composicion de nuevos Objetos de Aprendizaje, considerando
+tambien el perfil y preferencias del propio profesor. El marco de
+trabajo se compone de tres areas: un modulo para la gestion de Objetos
+de Aprendizaje, una ontologia instruccional y un sistema recomendador.
+
+Abstract: This work presents an environment of recommendation for the
+development of Learning Objects. The environment proposed has aim to
+provide an infrastructure that helps the teacher in the development of
+Learning Objects. This architecture orientates and recommends the
+teacher about methods of instructional design, also it present
+considerations about learning styles, theories and contents, all them to
+facilitate the development of new Learning Objects. Another function is
+suggest the use of existing standardized Learning Objects in a
+repository for the composition of new Learning Objects, it takes care
+also the profile and preferences of the teacher. The framework consists
+of three areas: a module for the Learning Object management, the
+ontology instructional, and a System recommender.
+
+Introduccion
+
+El uso de Objetos de Aprendizaje ha permitido organizar el contenido
+digital en unidades independientes de manera de que puedan ser utilizado
+en diferentes contextos [10], por ejemplo en distintos LMS (Sistemas de
+Gestion de Aprendizajes). Se trata de un enfoque basado en componentes
+en donde los Objetos se componen y descomponen para formar nuevos
+recursos (por ejemplo cursos).
+
+En este sentido, la composicion de un Objeto de Aprendizaje es el
+proceso de combinar varios Objetos de Aprendizaje en una unidad
+instruccional de alto nivel y que cumple con objetivos especificos de
+aprendizaje bajo circunstancias contextuales concretas [8].
+
+Este proceso es similar al proceso de composicion que se sigue en la
+Ingenieria de Software basada en componentes, donde se localizan,
+adaptan y ensamblan componentes adecuados en una arquitectura definida.
+Pero el resultado de la composicion de un Objeto de Aprendizaje es una
+unidad instruccional de alto nivel, conformada por unidades mas simples.
+
+La construccion de tales Objetos de Aprendizaje es una tarea compleja,
+que requiere de la aplicacion de metodos de diseno de recursos para el
+aprendizaje, conocidos como metodos de diseno instruccional [11]. En
+este proceso deben considerarse distintas dimensiones que intervienen en
+el desarrollo de recursos de aprendizaje, como metodos de diseno
+instruccional (dimension temporal), teorias de aprendizaje y estilos de
+aprendizajes (dimension pedagogica), patrones pedagogicos y contenidos
+de aprendizaje (dimension de contenidos), modelos de evaluacion de
+calidad de Objetos de Aprendizaje (dimension de calidad) (figura 1).
+
+Figura 1: Dimensiones en el desarrollo de recursos instruccionales.
+
+Todo este conocimiento puede ser modelado y representado por una
+ontologia instruccional que permitira al profesor contar con una base de
+conocimiento que lo asista en las dimensiones involucradas en el
+desarrollo de Objetos de Aprendizaje.
+
+Por otra parte, los sistemas recomendadores podrian facilitar el
+desarrollo de recursos para el aprendizaje. Estos sistemas mejoran la
+busqueda y recuperacion tradicional de informacion, basada
+principalmente en palabra claves y utilizan informacion sobre
+preferencias de varios usuarios para predecir las de un usuario en
+particular [18]. En el contexto del desarrollo de Objetos de
+Aprendizaje, la recomendacion permitira al profesor obtener recursos mas
+acordes a su necesidad, gracias a informacion de preferencias de
+desarrollo o uso de otros profesores con cierta similitud al perfil del
+profesor, junto con el conocimiento contenido en la ontologia
+instruccional de apoyo.
+
+Presentacion del Marco
+
+El marco propuesto tiene como objetivo proporcionar una infraestructura
+que apoye al profesor en el desarrollo de Objetos de Aprendizaje. Esta
+infraestructura debera orientar y recomendar acerca de metodos de diseno
+instruccional, consideraciones acerca de estilos, teorias de aprendizaje
+y contenidos para desarrollar recursos de aprendizaje. Un elemento
+importante es sugerir el uso de Objetos de Aprendizaje estandarizados
+existentes en un repositorio para la composicion de nuevos recursos,
+considerando el perfil y preferencias del propio profesor.
+
+El marco de trabajo propuesto se compone de tres grandes areas:
+
+Una base de conocimiento instruccional, compuesta principalmente por
+conocimiento instruccional y pedagogico representado por un ontologia,
+
+Un modulo para la gestion de Objetos de Aprendizaje, orientado a la
+catalogacion/transformacion de los Objetos de Aprendizaje a un estandar
+de intercambio,
+
+Un Sistema de recomendacion, que en base a los requerimientos de
+desarrollo del recurso y del perfil del profesor apoyara al profesor en
+el desarrollo de recurso de aprendizaje.
+
+La Figura 1 muestra el marco de trabajo y destaca las tres grandes areas
+de trabajo.
+
+Figura 1: Marco general del entorno de recomendacion para el desarrollo
+de Objetos de Aprendizaje.
+
+El entorno de recomendacion debe considerar los siguientes aspectos:
+
+Los recursos de aprendizaje deben contener los metadatos adecuados para
+facilitar su ubicacion, recuperacion y posterior recomendacion. En este
+sentido el estandar empleado debe ser lo suficientemente generico como
+para que soporte estas tareas.
+
+El sistema recomendador debe considerar la calidad en el Objeto de
+Aprendizaje en la busqueda y en la sugerencia [17]. Esto se implementa
+en dos aspectos. El primero es referente a la calidad en el desarrollo
+de nuevos recursos. En segundo lugar debe existir algun mecanismo de
+evaluacion de la calidad de los Objetos ya existentes en el repositorio
+y que se usaran en el nuevo recurso, que sera de un mayor nivel de
+agregacion [3]. Existen algunos metodos de evaluacion usados por
+Repositorios de Objetos de Aprendizaje [12] [17], que pueden asegurar un
+nivel de calidad en los elementos recomendados.
+
+La Ontologia Instruccional, como base de conocimiento, sera usada por el
+sistema de recomendacion al desarrollo de recursos. Sin embargo podria
+tambien ser usada por otros sistemas automaticos por lo que debera estar
+expresada en un lenguaje de ontologias que permita la interoperabilidad,
+por ejemplo OWL.
+
+Gestion de Objetos de Aprendizaje
+
+McGreal [10] define un Objeto de Aprendizaje como cualquier recurso
+digital reusable que tiene encapsulado una leccion o ensamblado un grupo
+de lecciones en unidades, modulos, cursos e incluso programas de
+estudio. Considerando lo amplia de esta definicion cualquier archivo
+digital que este orientado a la instruccion puede ser considerado como
+un Objetos de Aprendizaje. Lo importante es que estos Objetos de
+Aprendizaje posean metadatos.
+
+Los metadatos ayudan a los usuarios a localizar, desarrollar, combinar,
+instalar y mantener Objetos de Aprendizaje para programas o cursos en
+linea [17]. La catalogacion del Objeto de Aprendizaje es uno de los
+factores que influye en el reuso del recurso [19].
+
+La gestion de Objetos de Aprendizaje incluye la transformacion de
+recursos instruccionales como Objetos de Aprendizaje, su almacenamiento
+y recuperacion. Entre sus funciones esta generar los metadatos
+necesarios para que un recurso digital, como un archivo de presentacion
+o un documento, pueda ser considerado como un Objeto de Aprendizaje.
+
+Otra funcion es la transformacion a un estandar propio de los metadatos
+de Objetos de Aprendizaje existentes segun un estandar como IMS, ARIADNE
+o Dublin Core.
+
+Todas estas actividades pueden ser realizadas de una de manera
+automatica o bien supervisada por el usuario.
+
+El conjunto de Objetos de Aprendizaje con metadatos genericos propios es
+almacenado en un repositorio. Este repositorio puede funcionar de dos
+maneras:
+
+Contenedor de Objetos de Aprendizaje y sus metadatos donde los Objetos y
+sus descriptores se encuentran dentro del sistema;
+
+Contenedor de metadatos, el repositorio contiene solo los descriptores y
+se accede al Objeto a traves de una referencia a su ubicacion fisica que
+se encuentra en otro sistema o repositorio de Objetos.
+
+La existencia de este repositorio con Objetos catalogados, que puede ser
+distribuido, permite una busqueda y recuperacion mas eficiente asi como
+la composicion de nuevos Objetos de Aprendizaje mediante la
+reutilizacion de Objetos de Aprendizaje de un menor nivel de
+granularidad.
+
+La base de conocimiento instruccional
+
+Una ontologia es una especificacion formal y explicita de una
+conceptualizacion compartida [5]. En e-learning, las ontologias se han
+usado, principalmente para describir sistematicamente cada Objeto de
+Aprendizaje, para permitir una busqueda semantica y dar a los usuarios
+un punto de referencia para los conceptos y terminologia compartida [9].
+
+
+Se considera una ontologia educacional a cualquiera que pueda ser
+utilizada en la ensenanza basada en tecnologias Web [6]. Las ontologias
+son usadas tambien para apoyar el desarrollo de Objetos de Aprendizaje
+[15][9][4][20][16][14][1]. Sin embargo, pocos entornos de desarrollo de
+Objetos de Aprendizaje proporcionan modelos de representacion del
+conocimiento de Diseno Instruccional. La ontologia de Rol Instruccional
+propuesta en [20] es uno de los entornos que considera la representacion
+del conocimiento de teoria instruccionales para apoyar la composicion de
+Objetos de Aprendizaje, sin embargo esta propuesta considera solo una
+teoria para el diseno instruccional y existen otras teorias
+instruccionales que tambien pueden ser usadas para asistir la
+composicion de Objetos de Aprendizaje.
+
+Se propone que mediante distintos tipos de ontologias educativas usadas
+en conjunto puede lograrse una efectiva representacion del conocimiento
+de teorias de aprendizaje y de diseno instruccional y de esta manera
+obtener recursos que consideren estos aspectos cruciales en los entornos
+de e-learning. Por ejemplo, puede utilizarse ontologias que correspondan
+a alguna de las clases propuestas en [2].
+
+La ontologia instruccional esta compuesta por subontologias: ontologia
+de contenidos, ontologia de modelo de aprendizaje, ontologia de
+evaluacion de calidad, ontologia de estrategia de ensenanza, ontologia
+de diseno instruccional que apoyan a las dimensiones necesarias para la
+construccion de Objetos de Aprendizaje y junto a los demas componentes
+de la infraestructura, debera apoyar la recomendacion acerca de metodos
+de diseno instruccional, estilos, teorias de aprendizaje y contenidos
+para desarrollar recursos, asi como sugerir el uso de Objetos de
+Aprendizaje de calidad existentes en un repositorio para la composicion
+de nuevos recursos, considerando tambien el perfil y preferencias del
+propio profesor.
+
+El sistema Recomendador
+
+El sistema recomendador realiza una concordancia entre la informacion
+del perfil de un usuario particular y la informacion de los perfiles de
+otros usuarios del mismo grupo y de esta manera sugerir o recomendar en
+base a las preferencias de ese grupo [18]. Por ejemplo, mediante un
+metodo de filtrado colaborativo [13], es posible sugerir Objetos de
+Aprendizaje a un profesor mediante las preferencias de otros profesores
+con perfiles similares.
+
+Particularmente, en este entorno el sistema recomendador sera el
+encargado de asistir al profesor en el desarrollo de Objetos de
+Aprendizaje. Para esto utiliza tres fuentes de informacion que
+corresponden a:
+
+La ontologia Instruccional
+
+Requerimientos y perfil del propio profesor
+
+Objetos catalogados en el repositorio de Objetos.
+
+La recomendacion se realiza mediante una interfaz que recibe consultas
+contextualizadas, es decir requerimientos acerca de como desarrollar un
+cierto recurso o acerca de que Objetos disponibles en el repositorio son
+mas adecuados para un cierto contexto instruccional (madurez de los
+estudiantes, naturaleza del curso, objetivos de aprendizaje, metodo
+pedagogico a usar, etc.). A lo anterior debe sumarse la informacion
+acerca del perfil del profesor (por ejemplo nivel de estudio, areas de
+conocimiento, Objetos usados anteriormente por el propio profesor o por
+otros con similar perfil, etc.)
+
+Conclusiones
+
+Se presento una vista general de un marco propuesto para el desarrollo
+de Objetos de Aprendizaje asistido por una ontologia instruccional. En
+este entorno un sistema recomendador interactua con el profesor para
+sugerirle Objetos ya existentes en el repositorio y orientaciones para
+el desarrollo de nuevos recursos.
+
+La ontologia instruccional juega un papel importante en el entorno de
+recomendacion para el desarrollo de Objetos de Aprendizaje. En ella se
+representa el conocimiento acerca de metodos de diseno instruccional,
+teorias de aprendizaje, contenidos, estilos de aprendizaje y evaluacion
+de calidad necesarios para obtener recursos efectivos para el
+e-learning.
+
+Actualmente se trabaja en cada una de las areas que componen el entorno.
+En relacion a la ontologia instruccional se analizan distintos modelos
+de representacion de conocimiento para determinar su pertinencia en
+relacion al conocimiento instruccional y pedagogico asi como sus
+metodologias de construccion. Con respecto a la gestion de Objetos de
+Aprendizaje se ha desarrollando una primera version para la generacion
+automatica de metadatos.
+
+La evaluacion de los Objetos de Aprendizaje es otra linea de trabajo que
+permitira una recomendacion de Objetos sustentada, entre otros
+criterios, en la calidad.
+
+Agradecimientos
+
+Este trabajo ha sido posible gracias al proyecto A/8172/07, AECI, Espa
+a; al proyecto PAC06-0059 SCAIWEB, JCCM, Espana; al proyecto
+TIN2007-67494 F-META, MEC-FEDER, Espana, y al proyecto YUC
+2006-C05-65811 FOMIX CONACYT, Mexico.
+
+Referencias
+
+[1] Canales, A., Pena, A., Peredo, R., Sossa, H. Gutierrez, A. Towards
+an integral architecture and framework Expert Systems with Applications:
+An International Journal, 2007, 33 (4), p. 1076-1089.
+
+[2] Devedziz, V. Semantic Web and education. (Integrated Series in
+Information Systems). 2006. Springer-Verlag New York, Inc.
+
+[3] IEEE. Draft Standard for Learning Object Metadata (LOM)( IEEE
+P1484.12.1, 2002). IEEE Learning Technology Standards Committee (LTSC).
+Recuperado en Noviembre de 2007. HYPERLINK
+"http://ltsc.ieee.org/wg12/files/LOM_1484_12_1_v1_Final_Draft.pdf"
+http://ltsc.ieee.org/wg12/files/LOM_1484_12_1_v1_Final_Draft.pdf
+
+[4] Gascuena, J. M., Fernandez-Caballero, A. Gonzalez , P. Ontologias
+del modelo del alumno y del dominio en sistema de aprendizaje
+adaptativos y colaborativos. VI Congreso Espanol de Interaccion
+Persona-Ordenador Interaccion, 2005, p. 33-40.
+
+220.
+
+[6] Hernandez, H., Saiz, M. Ontologias mixtas para la representacion
+conceptual de objetos de aprendizaje. Revista Procesamiento del Lenguaje
+Natural, 2007, 38.
+
+[7] K. Belfer. J.C. Nesbit, A. Vargo, J. Learning Object Review
+Intrument (LORI), 2002. Recuperado en octubre 2007.
+http://www.elera.net/eLera/Home/Articles/LORI%201.5.pdf
+
+[8] Lopez-Cobo, J.M, Arroyo, S., Sicilia, M.A., Sanchez-Alonso, S. A
+Semantic Web Service Architecture for Learning Object Repositories.
+Advances in Electronic Business, Theme: Semantic Web and Intelligent Web
+Services, 2005, 2, pp. 141-158.
+
+[9] Marengo, A., Albanese, D., Convertini,N., Marengo,V., Scalera, M.
+Serra, A. Ontological support for the creation of learning objects. 28th
+International Conference on Information Technology Interfaces, 2006, p.
+361-366.
+
+[10] McGreal, R. Learning Objects: A practical Definition. International
+Journal of Instructional Technology and Distance Learning, 2004 (1), p.
+21-32.
+
+[11] Merrill, M. Instructional Transaction Theory: An Instructional
+Design Model based on Knowledge Objects. Educational Technology, 1996,
+36(3) pp 30-37.
+
+[12] Nesbit, J. C., Belfer, K., Leacock, T. Learning Object Review
+Instrument (LORI) User Manual E-Learning Research and Assessment
+Network, 2003. Recuperado en Noviembre de 2007. http://www.elera.net.
+
+[13] Resnick, P., Iacovou, N., Suchak, M., Bergstrom, P., Riedl, J.
+GroupLens: an open architecture for collaborative filtering of netnews.
+ACM Conference on Computer Supported Cooperative Work , 1994, p.
+175-186.
+
+[14] Sanchez-Alonso, S., Vovides, Y. Integration of metacognitive skills
+in the design of learning objects Computers in Human Behavior, 2007,
+23(6), p. 2585-2595.
+
+[15] Santacruz-Valencia, L. P. A., I., Navarro, A. Kloos, C.D. An
+ontology-based mechanism for assembling learning objects. Advanced
+Industrial Conference on Telecommunications/Service Assurance with
+Partial and Intermittent Resources Conference/ E-Learning on
+Telecommunications Workshop. AICT/SAPIR/ELETE 2005, 2005, p. 472 - 477.
+
+[16] Silva, L., Moreira de Oliveira J. Adaptive Web-Based Courseware
+Development Using Metadata Standards and Ontologies. The 16th
+International Conference on Advanced Information Systems Engineering -
+CAISE, June 7-11, Riga, Latvia. 2004.
+
+[17] Vargo, J., Nesbit, J.C., Belfer, K., Archambault, A. Learning
+Object Evaluation: Computer-Mediated Collaboration and Inter-Rater
+Reliability. International Journal of Computers and Application, 2003,
+25, p. 198-205.
+
+[18] Velez -Langs, O., Santos, C. Sistemas Recomendadores: Un enfoque
+desde los algoritmos geneticos, Industrial Data, Peru. 2006, 9(1),
+p.23-31.
+
+[19] Wiley, D. Connecting learning objects to instructional design
+theory: A definition, a metaphor, and a taxonomy. D. A. Wiley(Ed.) 2000.
+The Instructional use of learning objects:Online version.
+
+[20] Zouaq, A., Nkambou, R.,Frasson,C. An Integrated Approach for
+Automatic Aggregation of Learning Knowledge Objects. Interdisciplinary
+Journal of Knowledge and Learning Objects (IJKLO), 2007, 3: p. 135-162.
+

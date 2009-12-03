@@ -1,0 +1,198 @@
+
+
+
+ 
+
+
+
+ 
+
+ 
+
+
+
+ 
+ Aula Virtual de Desarrollo de la UE@D: Entrar al sitio
+ 
+ 
+
+
+
+
+
+
+
+ 
+
+
+//setTimeout('fix_column_widths()', 20);
+//]]>
+
+
+//function openpopup(url,name,options,fullscreen) {
+ fullurl = "http://150.185.75.72/ead" + url;
+ windowobj = window.open(fullurl,name,options);
+ if (fullscreen) {
+ windowobj.moveTo(0,0);
+ windowobj.resizeTo(screen.availWidth,screen.availHeight);
+ }
+ windowobj.focus();
+ return false;
+}
+
+function uncheckall() {
+ void(d=document);
+ void(el=d.getElementsByTagName('INPUT'));
+ for(i=0;i void(el[i].checked=0);
+ }
+}
+
+function checkall() {
+ void(d=document);
+ void(el=d.getElementsByTagName('INPUT'));
+ for(i=0;i void(el[i].checked=1);
+ }
+}
+
+function inserttext(text) {
+ text = ' ' + text + ' ';
+ if ( opener.document.forms['theform'].message.createTextRange && opener.document.forms['theform'].message.caretPos) {
+ var caretPos = opener.document.forms['theform'].message.caretPos;
+ caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+ } else {
+ opener.document.forms['theform'].message.value += text;
+ }
+ opener.document.forms['theform'].message.focus();
+}
+addonload(function() { if(el = document.getElementById('username')) el.focus(); });
+
+function getElementsByClassName(oElm, strTagName, oClassNames){
+	var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+	var arrReturnElements = new Array();
+	var arrRegExpClassNames = new Array();
+	if(typeof oClassNames == "object"){
+		for(var i=0; i			arrRegExpClassNames.push(new RegExp("(^|\\s)" + oClassNames[i].replace(/\-/g, "\\-") + "(\\s|$)"));
+		}
+	}
+	else{
+		arrRegExpClassNames.push(new RegExp("(^|\\s)" + oClassNames.replace(/\-/g, "\\-") + "(\\s|$)"));
+	}
+	var oElement;
+	var bMatchesAll;
+	for(var j=0; j		oElement = arrElements[j];
+		bMatchesAll = true;
+		for(var k=0; k			if(!arrRegExpClassNames[k].test(oElement.className)){
+				bMatchesAll = false;
+				break;
+			}
+		}
+		if(bMatchesAll){
+			arrReturnElements.push(oElement);
+		}
+	}
+	return (arrReturnElements)
+}
+//]]>
+
+
+
+
+
+
+
+  
+ Usted no se ha autentificado. (Entrar)
+  
+ Usted estA¡ aquA­ 
+DesarrolloUE@D /&#x25BA; Entrar al sitio
+ Idioma
+ English (en)
+ EspaA±ol - Internacional (es)
+
+//document.getElementById("noscriptchooselang").style.display = "none";
+//]]>
+
+ 
+ 
+ 
+ 
+ Usuarios registrados
+ 
+ 
+ Entre aquA­ usando su nombre de usuario y contraseA±a
+(Las 'Cookies' deben estar habilitadas en su navegador) 
+ 
+ 
+ Nombre de usuario
+ 
+ 
+ 
+ 
+ ContraseA±a
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ Algunos cursos permiten el acceso de invitados 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ A¿OlvidA³ su nombre de usuario o contraseA±a? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Registrarse como usuario
+ 
+Hola. Para acceder al sistema tA³mese un minuto para
+crear una cuenta.
+Cada curso puede disponer de una "clave de acceso"
+que sA³lo tendrA¡ que usar la primera vez.
+Estos son los pasos:
+
+Rellene el Formulario de Registro con sus datos.
+El sistema le enviarA¡ un correo para verificar que su direcciA³n sea correcta.
+Lea el correo y confirme su matrA­cula.
+Su registro serA¡ confirmado y usted podrA¡ acceder al curso.
+Seleccione el curso en el que desea participar.
+Si algAon curso en particular le solicita una "contraseA±a de acceso"
+utilice la que le facilitaron cuando se matriculA³.
+AsA­ quedarA¡ matriculado.
+A partir de ese momento no necesitarA¡ utilizar mA¡s que su nombre de usuario y contraseA±a
+en el formulario de la pA¡gina
+para entrar a cualquier curso en el que estA© matriculado.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+Usted no se ha autentificado. (Entrar)PA¡gina Principal
+
+
+

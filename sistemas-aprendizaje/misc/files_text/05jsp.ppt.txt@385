@@ -1,0 +1,328 @@
+Java Server Pages
+Introduccion
+El objetivo de la especificacion de JSP es la de simplificar la creacion y administracion del paginas dinamicas mediante la separacion del contenino y su presentacion.
+Son archivos que combinan HTML estandar y etiquetas de script.
+Simplifican la capa de presentacion dinamica en una arquitectura multi-capas.
+Desarrollo de un JSP
+Se edita un archivo de texto con HTML y etiquetas de script.
+Se “despliega” en el servidor de aplicaciones con la extension .jsp en el area de contenido visible por el cliente.
+Al solicitarlo, el contenedor WEB lo compila y lo convierte en un servlet.
+Cuando se realizan modificaciones al archivo original, el contenedor recompila el JSP.
+Ciclo de vida de un JSP
+public void jspInit()
+Similar al metodo init de los servlets.
+public void jspDestroy()
+Similar al metodo destroy de los servlets
+public void _jspService(HttpSerlvetRequest req, HttpServletResponse res) throws ServletException, IOException
+Corresponde al cuerpo de la pagina jsp.
+Nunca debe de ser provista por el desarrollador
+No es indispensable que el programador proporcione los dos primeros metodos
+Proceso de solicitud de un jsp
+Etiquetas en JSP
+Caen dentro de tres categorias:
+Directrices
+Afectan la estructura completa del servlet resultante de la transportacion del jsp.
+Elementos de script
+Permiten insertar codigo en java en la pagina jsp
+Acciones
+Etiquetas especiales disponibles para modificar el comportamiento durante la ejecucion
+Etiquetas creadas por el desarrollador (custom tags)
+Sirven para insertar codigo reutilizable definido por el desarrollador. Funcionan como macros.
+Directrices de JSP
+Sirven como mensajes enviados al contenedor
+Se emplean como valores globales como
+Declaraciones de clases
+Metodos a implementar
+Especificacion del tipo de contenido
+Sentencias import
+Directrices de JSP: tipos
+Existen tres tipos principales de directrices:
+Page
+Include
+Taglib
+Sintaxis
+
+Directrices de JSP: page
+Define atributos del cual depende la totalidad de la pagina jsp y comunica estos atributos al contenedor.
+Puede tener cualquier cantidad de atributos page en cualquier lugar de la pagina y sin importar el orden.
+Solamente puede haber una ocurrencia de cualquier atributo/valor a excepcion de la sentencia import
+
+Directrices de JSP: page (2)
+Languaje
+Especifica el lenguaje. Default “java”
+Extends
+Especifica una superclase
+Import
+Sentencias para importar librerias de clases
+Session (boolean)
+Permite el acceso al objeto session. Default true
+Buffer
+Especifica el buffer para escribir al PrintWriter
+
+
+Directrices de JSP: page (3)
+Autoflush
+Si es “true” el buffer de salida se envia al cliente cuando se llena
+isThreadSafe
+Permite multiples solicitudes del cliente a la pagina al mismo tiempo
+Info
+Informacion acerca de la pagina
+errorPage
+Define el url a otra pagina jsp como la que va a presentar el error en caso de una excepcion
+
+Directrices de JSP: page (4)
+isErrorPage
+Si es “true” especifica que esta pagina jsp se empleara como una pagina de error de otra pagina jsp
+contentType
+Define la codificacion de caracteres de la pagina y el MIME type de la respuesta de la pagina jsp.
+Valor default para la codificacion: ISO-8859-1
+Valor default para el MIME type es: text/html
+Directrices de JSP: page (ejemplo)
+
+Un titulo
+
+Pagina de prueba de directivas
+Algo de texto
+
+
+Directrices de JSP: include
+Se emplea para incluir recursos durante la ejecucion.
+Instruye al contenedor para incluir en linea el contenido de un recurso en la pagina jsp.
+El contenido del recurso es analizado por el jsp en el momento de la trasportacion hacia el servlet.
+El contenedor por lo general recompila el jsp si cambia el recurso a incluir
+
+Directrices de JSP: include (ejemplo)
+
+Un titulo
+
+Pagina de prueba de directivas
+Algo de texto
+
+
+
+Directrices de JSP: include (ejemplo2)
+pie.jsp
+
+Pie de pagina
+El tiempo actual es 
+
+Directrices de JSP: taglib
+Permite que la pagina emplee etiquetas extendidas (custom tags).
+Nombra la libreria de etiquetas que contiene el codigo java compilado definiendo las etiquetas que se pueden emplear.
+
+Permite el uso de etiquetas como
+
+
+Elementos de script
+Permite incluir codigo en java en la jsp.
+Declaracion de variables
+Declaracion de metodos
+Scriptlets (codigo en java arbitrario)
+Expresiones
+Declaraciones
+Una declaracion es un bloque de codigo en Java que es utilizado para definir variables y metodos de ambito global a la clase
+Se definen entre etiquetas 
+No escriben nada hacia el flujo de salida
+Declaraciones (ejemplo)
+
+Int numTimes=3;
+Public String diHola(String name) {
+	return “Hola “ + name + “ manito”;
+}
+%>
+Un titulo
+Pagina de prueba de directivas
+El valor de numTimes es 
+
+Diciendo hola al visitante: 
+
+
+
+
+Scriptlets
+Es un bloque de codigo en java que se ejecuta durante la solicitud-procesamiento y se encierra entre etiquetas 
+En Tomcat, todo el codigo entre estas etiquetas es puesta en el metodo service() tal y como se escribe y en el orden en el que aparece en el jsp.
+Scriptlets ejemplo
+Un titulo
+
+Pagina de prueba de scriptlets
+
+For (int i-=0; i < 10; i++) {
+	out.println(“Hola Mundo ” + i);
+	System.out.println(“Esto va al flujo de salida System.out” + i);
+	}
+%>
+
+
+Expresiones
+La expresion es una notacion para un scriptlet que envia el valor de la expresion en java de vuelta al cliente.
+Se evalua en la solicitud HTTP y el resultado se convierte a String y desplegada.
+La expresion se encierra entre etiquetas 
+Expresiones ejemplo
+
+Un titulo
+
+Pagina de prueba de expresiones
+
+
+Hola Mundo
+
+
+
+Acciones estandar
+Las acciones estandar son etiquetas que afectan el comportamiento durante la ejecucion de las jsp y la respuesta se regresa al cliente.
+Sirven para proveer a los desarrolladores de una funcionalidad basica para explotar tareas comunes.
+Acciones estandar: listado
+
+
+
+
+
+
+
+Acciones estandar: useBean
+
+Se emplea para separar el codigo de la presentacion al encapsular el codigo en un objeto de Java (un javabean), para ser instanciado y ser utilizado dentro del jsp a traves de un ID y un ambito de ejecucion.
+Puede ser utilizado por otro jsp a traves del ID dependiendo del ambito.
+Acciones estandar: useBean (2)
+
+En donde beandetais es:
+class=“classname”
+class=“classname” type=“typeName”
+beanName=“beanName” type=“typeName”
+type=“typeName”
+Acciones estandar: useBean (3)
+Los atributos disponibles son:
+id. El nombre que identifica la instancia del objeto
+scope. El ambito en el cual la referencia esta disponible. Default “page”
+page
+request
+session
+application
+Acciones estandar: useBean (3)
+beanName. El nombre del javabean que se le suple al metodo instantiate() de la clase java.beans.Beans. Se puede especificar el tipo sin la clase.
+type. Especifica el tipo de la variable de script que se va a crear y sigue las reglas de “casting” de Java. El tipo puede ser la superclase del java bean, una interface implementada por el o la clase del bean.
+Acciones estandar: setProperty
+Se utiliza en conjuncion al useBean para definir el valor de propiedades del javabean.
+Pueden ser simples o indexadas.
+Las propiedades de un bean se pueden crear:
+Durante la solicitud a partir de los parametros del objeto “request”
+Durante la solicitud a partir de la evaluacion de una expresion
+De una cadena especifica o codificada en la pagina
+
+Acciones estandar: setProperty (2)
+
+En donde propertydetails puede ser:
+Property=“*”
+Property=“propertyName”
+Property=“propertyName” param=“parameterName”
+Property=“propertyName” value=“propertyValue”
+Acciones estandar: setProperty (3)
+En donde propertyValue es un String o un scriptlet. Sus atributos son:
+Name. El nombre de la instancia del bean que fue definido por la etiqueta useBean.
+Property. El nombre de la propiedad del bean cuyo valor es el que se va a especificar.
+Param. Especifica el atributo a utilizar para definir el nombre del parametro de la solicitud cuyo valor se va a asignar a la propiedad del bean.
+Value. El valor a asignar a la propiedad del bean.
+Una etiqueta no puede tener atributos param ni value al mismo tiempo
+Acciones estandar: getProperty
+Complementaria a setProperty y se utiliza para accesar a las propiedades del bean.
+Accesa el valor de la propiedad, lo convierte a un String y lo imprime al flujo de salida hacia el cliente.
+Acciones estandar: getProperty (2)
+
+Name. El nombre de la instancia del bean cuya propiedad se va a obtener.
+Property. Nombres de la propiedad a obtener. Es la variable de instancia del bean.
+useBean ejemplo bean.html
+
+
+
+Prueba con JavaBeans
+
+
+
+Prueba de uso de useBean
+
+Nombre de usuario:
+
+
+Cual es tu lenguaje de programacion favorito?
+
+Java
+C++
+Perl
+
+
+
+
+
+
+
+
+UseBean ejemplo bean.jsp
+useBean ejemplo LanguageBean.class
+Acciones estandar: param
+Empleado para proveer a otras etiquetas de informacion adicional en la forma de pares de nombre-valor.
+
+Name. La llave asociada con el attributo.
+Value. El valor del atributo.
+Acciones estandar: include
+Permite que un recurso estatico o dinamico sea incluido en la pagina JSP durante el tiempo de la solicitud (no en la compilacion).
+Una pagina incluida solo tiene acceso al objeto JspWriter y no puede escribir a los encabezados ni galletas.
+Si la pagina de salida tiene definido un buffer, este es vaciado antes de la inclusion
+Acciones estandar: include
+Sintaxis
+
+Page. El recurso a ser incluido
+Flush. Si es cierto, el buffer es vaciado antes de e la inclusion sea realilzada.
+
+O con el uso de parametros
+
+
+
+Acciones estandar: includeComparacion entre directivas y acciones
+Directivas
+Sintaxis
+
+Realizado durante
+La compilacion
+Contenido incluido
+Estatico
+Parseo
+Por el contenedor
+Acciones
+Sintaxis
+
+Realizado durante
+La solicitud
+Contenido incluido
+Estatico y dinamico
+Parseo
+No es analizado sino incluido en el lugar en donde se solicita
+Acciones estandar: forward
+Permite que la solicitud sea reenviado a otro JSP, servlet o recurso estatico.
+Particularmente util para separar la aplicacion en diferentes vistas, dependiendo de la solicitud.
+La pagina JSP a la cual se envio la redireccion, debe de estar en el mismo contexto que la pagina JSP que realizo la solicitud de despacho.
+Acciones estandar: forward
+Sintaxis
+
+
+
+Con parametros
+
+
+
+
+
+Acciones estandar: plugin
+Se emplea para generar etiquetas HTML especificas para el navegador.
+Con esta instruccion se generan etiquetas  u , que resultan en la descarga del plugin adecuado.
+Con la aparicion del jdk 1.4, esta etiqueta se vuelve obsoleta.
+Objetos implicitos
+request.			Solicitud
+response		Respuesta
+pageContext		Atributos de la pagina
+session			Objeto sesion
+application		Contexto del servlet
+out				PrintWriter
+config			ServletConfig
+page			this
+Blank Presentation

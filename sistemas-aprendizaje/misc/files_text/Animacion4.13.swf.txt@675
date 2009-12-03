@@ -1,0 +1,42 @@
+
+
+
+
+
+Ejemplo de aplicacion usando diferenciales
+
+Calcular el volumen de la cascara de una naranja que tiene un radio inferior de 5 cms y un radio exterior
+de 5.4 cms. 
+
+Queremos calcular el volumen de la cascara teniendo dos radios.
+
+15.4
+
+15
+
+El primer radio mide 5 cms, el segundo mide 5.4, por lo tanto la cascara
+de la naranja tiene un grosor de 0.4 cms.
+
+O lo que es lo mismo decir que la diferencial de r es 0.4 (dr = 0.4).
+
+dr=0.4
+
+A continuacion calculamos el volumen correspondiente al incremento en
+el radio, o visto de otra manera, el volumen de la cascara; lo cual se
+calcula averiguando la diferencial del Volumen inicial (dV ).
+
+El volumen inicial esta dado por la formula V=4/3pr³
+
+Por lo tanto el incremento en el volumen esta dado por la diferencial de V (dV ).
+
+dV = 4pr² dr
+
+Sustituyendo el valor de r=5 y dr = 0.4, podemos encontrar dV , que es el
+incremento en el volumen y tambien es el grosor de la cascara.
+
+dV = 4 (3.1415) (5)² (0.4) = 125.66 
+
+Por lo tanto, el volumen de la cascara es 125.66 cms³
+
+
+

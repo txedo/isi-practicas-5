@@ -1,0 +1,2745 @@
+
+
+
+	
+
+
+
+
+	
+	YouTube - A Vision of Students Today
+
+		
+
+		
+		
+		
+
+
+
+
+
+
+
+
+
+		
+
+
+
+		
+			var gIsGoogleAnalyticsEnabled = false;
+			
+	var gXSRF_token = '';
+	var gXSRF_field_name = '';
+	var gXSRF_ql_pair = '';
+	var onLoadFunctionList = onLoadFunctionList || [];
+
+		gXSRF_token = 'FUvxYgsEdUW2r5APZffEF9toKW18MTI0MjczNDU3MQ==';
+		gXSRF_field_name = 'session_token';
+		onLoadFunctionList.push(function() { populate_session_token() });
+
+		gXSRF_ql_pair = 'session_token=lnIzhAwprmAUAwS7dtUGg8id2Cx8MA==';
+
+
+		
+
+		
+	
+
+
+
+
+
+
+
+	
+	Sub movie_player_FSCommand(ByVal command, ByVal args)
+		call movie_player_DoFSCommand(command, args)
+	End Sub
+	
+
+
+	
+		var MSG_Hide = 'Ocultar';
+		var MSG_Show = 'Mostrar';
+		var MSG_Login = 'Accede para realizar esta operaciA³n.';
+		var MSG_Loading = 'Cargando...';
+		var MSG_ShowingAll = 'Mostrar todos los vA­deos';
+		var MSG_LoginFavorites = 'Debes haber iniciado sesiA³n para aA±adir este vA­deo a tus favoritos.';
+		var MSG_LoginAddPlaylist = 'Debes haber iniciado sesiA³n para aA±adir este vA­deo a una lista de reproducciA³n.';
+		var MSG_LoginReportConcern = 'Debes haber iniciado sesiA³n para notificar un problema.';
+		var MSG_FlagDefault = 'Seleccionar un motivo';
+
+
+
+			var swfUrl = canPlayV9Swf() ? "http://s.ytimg.com/yt/swf/watch-vfl97134.swf" : "http://s.ytimg.com/yt/swf/watch_v8-vfl97134.swf";
+
+		var swfArgs = {"usef": 0, "fexp": "902303", "fmt_map": "18/512000/9/0/115,34/0/9/0/115,5/0/7/0/0", "video_id": "dGCJ46vyR9o", "l": 284, "sk": "wnCm_aV3XlmctS3fpo7M8CXYe19pF2sZC", "is_doubleclick_tracked": "1", "vq": null, "t": "vjVQa1PpcFO3Pn3NqW6tldYKky6Tj2mTtzj0T7nq7BA=", "hl": "es", "plid": "AARqLpLehO7vb1bn", "keywords": "education%2Cstatistics%2Cmedia%2Cecology%2CKSU%2Cksudigg%2Cdigital%2Cethnography%2CWEC2008", "cr": "ES", "sdetail": "f%3Arelated%2C"};
+		var watchGamUrl = null;
+		var watchDCUrl = null;
+		var expressInstallUrl = null;
+		var ad_eurl = null;
+		var watchIsPlayingAll = false;
+		var isWidescreen = false;
+		var watchSetWmode = false;
+		var isHDAvailable = false;
+		var requestGreyBackgroundOnWidePlayer = false;
+
+		var embedUrl = 'http://www.youtube.com/v/dGCJ46vyR9o&hl=es&fs=1';
+		var fullscreenUrl = '/watch_fullscreen?fs=1&fexp=902303&fmt_map=18%2F512000%2F9%2F0%2F115%2C34%2F0%2F9%2F0%2F115%2C5%2F0%2F7%2F0%2F0&video_id=dGCJ46vyR9o&l=284&sk=wnCm_aV3XlmctS3fpo7M8CXYe19pF2sZC&is_doubleclick_tracked=1&vq=None&t=vjVQa1PpcFO3Pn3NqW6tldYKky6Tj2mTtzj0T7nq7BA%3D&hl=es&plid=AARqLpLehO7vb1bn&keywords=education%252Cstatistics%252Cmedia%252Cecology%252CKSU%252Cksudigg%252Cdigital%252Cethnography%252CWEC2008&cr=ES&sdetail=f%253Arelated%252C&title=A Vision of Students Today';
+		var additionalStatsHonorsUrl = '/watch_ajax?v=dGCJ46vyR9o&action_get_statistics_and_data=1&l=EN';
+
+		var watchUsername = 'mwesch';
+		var pageVideoId = 'dGCJ46vyR9o';
+		var pageVideoSearchQueryStr = ' education statistics media ecology KSU ksudigg digital ethnography WEC2008';
+		var playnextFrom = '';
+		var playnextCount = '0';
+		var qlAutoscrollDestination = 0;
+		var ytLocale = 'es_ES';
+		var isPlaylistCssAndJsLoaded = false;
+		var axc = '';
+		var subscribeaxc = '';
+		var isLoggedIn = false ;
+
+
+			function showCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		var msg = new Object();
+		msg["post"] = "Accede a tu cuenta para publicar un comentario.";
+		showCommentReplyForm_js(form_id, reply_parent_id, is_main_comment_form, msg);
+	}
+
+	function updateCharCount(charCount_id, label_id, textArea) {
+		var msg = new Object();
+		msg["exceeded"] = "NAomero de caracteres que superan el lA­mite:";
+		msg["remaining"] = "NAomero de caracteres restantes:"; 
+		updateCharCount_js(charCount_id, label_id, textArea, 500, msg)
+	}
+
+	function loginMsg(div_id, display_val) {
+		var msg = new Object();
+		msg["login"] = 'Accede a tu cuenta.';
+		loginMsg_js(div_id, display_val, msg);
+	}
+
+	function printCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		var msg = new Object();
+		msg["post"] = "Publicar comentario";
+		msg["remaining"] = "NAomero de caracteres restantes:";
+		msg["discard"] = "Descartar"; 
+		printCommentReplyForm_js(form_id, reply_parent_id, is_main_comment_form, 'V', 'top.goog.i18n.bidi.setDirAttribute(event,this)', 'video_id', 'dGCJ46vyR9o', '', 500, msg);
+	}
+
+	function postThreadedComment(comment_form_id) {
+		var msg = new Object();
+		msg["add"] = "AA±adiendo comentario...";
+		postThreadedComment_js(comment_form_id, msg);
+	}
+
+	function commentApproved(xmlHttpRequest) {
+		alert("El comentario se ha aprobado.")
+	}
+
+	function ThreadedCommentHandler(comment_form, comment_form_id) {
+		var msg = new Object();
+		msg["empty"] = "Debes introducir un comentario.";
+		msg["toolong"] = "Tu comentario no puede tener mA¡s de 500 caracteres.";
+		return ThreadedCommentHandler_js(comment_form, comment_form_id, msg);
+	}
+
+	function commentResponse(xmlHttpRequest) {
+		var msg = new Object();
+		msg["ok"] = "Comentario publicado.";
+		msg["pending"] = "Comentario pendiente de aprobaciA³n.";
+		msg["toolong"] = "El comentario que has introducido es demasiado largo. No puede contener mA¡s de 500 caracteres. Escribe un comentario mA¡s corto e intA©ntalo de nuevo.";
+		msg["tooshort"] = "El comentario que has introducido es demasiado corto. Escribe un comentario mA¡s largo e intA©ntalo de nuevo.";
+		msg["toosoon"] = "Se ha superado el lA­mite de comentarios.";
+		msg["email"] = "Para poder enviar comentarios debes confirmar tu direcciA³n de correo electrA³nico. Haz clic en Aceptar para confirmar tu direcciA³n de correo electrA³nico.";
+		msg["captchFail"] = "La respuesta a las letras de la imagen no ha sido correcta. Vuelve a intentarlo.";
+		msg["koreaFail"] = "ë³¸i¸i™•i¸i œë¡œ i¸i•´ i•œeµ­ eµ­e°€ i„¤i •i‹œ ë™i˜iƒ/ëŒ“e¸€ i—…ë¡œë“œ e¸°ëŠ¥i„ ižë°œi iœ¼ë¡œ ë¹„i™œi„±i™”i•©ë‹ˆë‹¤. We have voluntarily disabled this functionality on kr.youtube.com because of the Korean real-name verification law.";
+		msg["default"] = "Publicar comentario"; 
+		commentResponse_js(xmlHttpRequest, msg);
+	}
+
+
+
+
+
+
+		
+
+		onLoadFunctionList.push(function() { if (_gel('watch-customize-embed-div')) { generateEmbed(); } });
+
+
+		onLoadFunctionList.push(function() { enableVideoQualityDisplay() });
+
+		onLoadFunctionList.push(function(event) {
+			url = document.location.href;
+			if (url.match('#fav')) {
+				document.location.href = url.replace('#fav', '#');
+				addToFaves('addToFavesForm', event);
+			}
+		});
+
+
+
+
+
+
+	
+
+
+
+		
+#flash10-promo-div {
+				display: none;
+				background-color: #ffffcc;
+				font-size: 12px;
+				padding: 5px;
+				text-align: left;
+				border:1px solid #FFCC33;
+				border-top: 0px;
+			}
+		
+
+
+
+
+	
+	
+	
+		
+
+
+
+		
+
+
+		
+
+		
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+		
+				
+			
+				
+						EspaA±a
+	EspaA±ol
+
+			
+			
+					
+
+
+	
+
+		
+			Registrarse
+		
+		Lista rA¡pida (0)
+		Ayuda
+			Acceder
+	
+
+	
+		
+	
+
+
+			
+			Cargando...
+			
+		
+		
+		
+			
+				Inicio
+
+
+				VA­deos
+
+
+				Canales
+
+				Comunidad
+
+				
+					
+
+
+	
+		
+		
+		Buscar
+	
+
+						SubirArchivo de vA­deoCaptura rA¡pida  
+
+				
+				
+				
+			
+
+		
+	 
+
+
+			
+		.errorParagraph {
+			margin-top: 0px;
+			margin-bottom: 10px;
+		}
+	
+	
+		
+			Cerrar
+			
+					A¡Bienvenido/a a YouTube! 
+
+					
+					Sugerencia de idioma (preferencia establecida): EspaA±ol (EspaA±a)
+
+					
+					Sugerencia de filtro de paA­s (preferencia establecida): EspaA±a
+
+					
+					El filtro de paA­s muestra tus vA­deos populares del paA­s seleccionado en los resultados de bAosqueda y en una serie de listas (por ejemplo, MA¡s vistos). Si deseas cambiar cualquiera de estas preferencias, utiliza los enlaces situados en la parte superior de la pA¡gina junto al logotipo de YouTube.
+
+					
+					Haz clic en "Aceptar" para aceptar esta configuraciA³n o en "Cancelar" para establecer "InglA©s (Estados Unidos)" como preferencia de idioma y "Mundial (todos)" como filtro de paA­s.
+
+				
+					
+							Aceptar
+							Cancelar
+					
+				
+			
+			
+				
+
+					Welcome to YouTube! 
+
+					
+					Suggested Language (we have set your preference to this): Spanish
+
+					
+					Suggested Country Filter (we have set your preference to this): Spain
+
+					
+					The country filter shows you popular videos from the selected country on lists like Most Viewed and in search results. If you would like to change either of these preferences, please use the links next to the YouTube logo at the top of the page.
+
+					
+					Click &quot;OK&quot; to accept these settings, or click &quot;Cancel&quot; to set your language preference to &quot;English (US)&quot; and your country filter to &quot;Worldwide (All)&quot;.
+
+				
+					
+							OK
+							Cancel
+						
+				
+			
+				
+					Show message in English
+				
+				
+					Hide message in English
+				
+			
+		
+	
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+		
+	
+
+
+		A Vision of Students Today
+
+
+
+
+
+
+
+
+
+				
+					
+						Hola, tienes JavaScript desactivado o una versiA³n antigua de Adobe Flash Player. Consigue la Aoltima versiA³n de Flash Player.
+						
+							document.write('Hola, tienes JavaScript desactivado o una versiA³n antigua de Adobe Flash Player. Consigue la Aoltima versiA³n de Flash Player.');
+						
+					
+				 				
+					var fo = writeMoviePlayer("watch-player-div", false, null, null, "100%", "100%");
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+			
+		
+
+
+
+
+
+	
+		
+
+
+
+				
+					
+				
+
+				
+
+						
+		Suscribirse
+	
+	
+		Anular suscripciA³n
+	
+
+
+					
+						
+					
+				
+
+				
+					mwesch
+
+					12 de octubre de 2007
+
+					
+						
+							(mA¡s informaciA³n)
+						
+						
+							(menos informaciA³n)
+						
+					
+				
+
+
+
+			
+		 
+
+		
+
+		
+			
+		
+			A¿Quieres suscribirte?
+
+
+			A¡Accede o regA­strate ahora!
+
+
+
+	 
+
+		
+
+
+
+
+
+
+
+
+
+		
+
+
+			
+
+				
+
+					
+						a short video summarizing some of the most important characteristics of students today - how they learn, what they need to learn, their goals, hopes, dreams, what their lives will be like, and what... 
+					
+				
+
+				
+
+					
+						a short video summarizing some of the most important characteristics of students today - how they learn, what they need to learn, their goals, hopes, dreams, what their lives will be like, and what kinds of changes they will experience in their lifetime. Created by Michael Wesch in collaboration with 200 students at Kansas State University.
+
+Music by Try^d: http://tryad.org/listen.html
+
+Download higher quality wmv: 
+http://www.mediafire.com/?ajm0lzxh223
+
+mov version:
+http://www.mediafire.com/?3xbhmdmsfmd
+
+More information: 
+http://mediatedcultures.net/ksudigg/?...
+
+This work is licensed under a Creative Commons
+Attribution-Noncommercial-Share Alike 3.0 License. So you are welcome to download it, share it, even change it, just as long as you give me some credit and you don't sell it or use it to sell anything. 
+					
+
+
+					
+						CategorA­a:
+						EducaciA³n
+
+					
+
+
+					
+						
+							Etiquetas:
+						
+						
+								education
+								statistics
+								media
+								ecology
+								KSU
+								ksudigg
+								digital
+								ethnography
+								WEC2008
+
+						
+						
+					
+
+
+
+				 
+
+
+				
+					
+						URL
+						
+						
+					
+				
+
+
+				
+					
+						Insertar
+						
+							
+							
+								
+								Personalizar
+							
+
+						
+						
+					
+				 
+			 
+				Cargando...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		 	 
+
+
+
+
+
+
+
+			 
+					MA¡s de: mwesch
+					
+		
+					
+				
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/-4CV05HyAbM/default.jpg', 'Information R/evolution')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido5:28
+		
+			Information R/evolution
+			424146 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/NLlGopyXT_g/default.jpg', 'The Machine is Us/ing Us (Final Version)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:33
+		
+			The Machine is Us/ing Us (Final Version)
+			1020501 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/6gmP4nk0EOE/default.jpg', 'Web 2.0 ... The Machine is Us/ing Us')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:31
+		
+			Web 2.0 ... The Machine is Us/ing Us
+			9099336 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/JgbfMY-6giY/default.jpg', 'Twitter and the World Simulation')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:40
+		
+			Twitter and the World Simulation
+			74921 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/tYcS_VpoWJk/default.jpg', 'Introducing our YouTube Ethnography Project')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:04
+		
+			Introducing our YouTube Ethnography Project
+			107943 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/hBmDgMFAZTI/default.jpg', 'U.S. Professor of the Year Award')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido8:06
+		
+			U.S. Professor of the Year Award
+			23377 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/TPAO-lZ4_hU/default.jpg', 'An anthropological introduction to YouTube')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido55:34
+		
+			An anthropological introduction to YouTube
+			1063231 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/J4yApagnr0s/default.jpg', 'A Portal to Media Literacy')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:06:12
+		
+			A Portal to Media Literacy
+			72692 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/SXnWmu6xdpc/default.jpg', 'WorldSim Preview for Spring 2007')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:39
+		
+			WorldSim Preview for Spring 2007
+			33389 reproducciones
+		
+
+		
+	
+
+
+		Cargando...
+			
+				
+Ver los 10 vA­deos
+								
+			
+	
+
+		
+		
+	
+
+
+
+
+
+
+
+
+
+
+ 	
+		
+	
+		
+			
+				Reproducir todos
+			
+			
+				Detener reproducciA³n automA¡tica
+			
+			|
+			
+									>Reproducir siguiente
+									onclick="playnextFrom='QL';gotoNext(false, null, true); return false;">Reproducir siguiente
+			
+		
+
+
+
+		Lista rA¡pida (0)
+
+
+
+
+
+		
+			
+							">
+		
+			
+					1
+			
+			
+				
+			
+			
+					
+						
+					
+					
+						
+					
+			
+		
+		
+			
+				
+			
+				
+		
+	
+
+	
+	
+	
+	
+
+
+			
+		
+
+
+		
+				
+					Borrar |
+					Guardar
+				
+
+		
+
+	 
+ 	
+
+
+
+
+	
+			 
+					VA­deos relacionados
+					
+		
+					
+				
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/sua5tHuUzvk/default.jpg', 'Backstage de fotos - Paparazzi de Mariana.')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido0:55
+		
+			Backstage de fotos - Paparazzi de Mariana.
+			72846 reproducciones
+			emtel91
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/_A-ZVCjfWf8/default.jpg', 'A Vision of K-12 Students Today')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:08
+		
+			A Vision of K-12 Students Today
+			344781 reproducciones
+			bjnesbitt
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/TAPtc5Tr3a0/default.jpg', 'Hot For Teacher')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:35
+		
+			Hot For Teacher
+			3185081 reproducciones
+			abhinav14
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/Fnh9q_cQcUE/default.jpg', 'Education Today and Tomorrow')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:30
+		
+			Education Today and Tomorrow
+			298411 reproducciones
+			shareski
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/-4CV05HyAbM/default.jpg', 'Information R/evolution')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido5:28
+		
+			Information R/evolution
+			424146 reproducciones
+			mwesch
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/NLlGopyXT_g/default.jpg', 'The Machine is Us/ing Us (Final Version)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:33
+		
+			The Machine is Us/ing Us (Final Version)
+			1020501 reproducciones
+			mwesch
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/bbEhsvhgfWk/default.jpg', 'Mariana/Flopy/Eugenia- Backstage Paparazzi - 2')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:15
+		
+			Mariana/Flopy/Eugenia- Backstage Paparazzi - 2
+			75172 reproducciones
+			plo777
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/aEFKfXiCbLw/default.jpg', 'Pay Attention')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido7:42
+		
+			Pay Attention
+			257418 reproducciones
+			jsdt4
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/oOyjwpe14Ko/default.jpg', 'Teacher vs. student')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido0:10
+		
+			Teacher vs. student
+			2612973 reproducciones
+			shoubry11290
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/BfGSeD_fumQ/default.jpg', 'Exorcist Walk')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido0:37
+		
+			Exorcist Walk
+			12122050 reproducciones
+			wufather
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/_0aiFMiIlBE/default.jpg', 'Vision of K12 Teachers Today')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido5:15
+		
+			Vision of K12 Teachers Today
+			5368 reproducciones
+			michelle1759
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/pMcfrLYDm2U/default.jpg', 'Did You Know 2.0')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido8:19
+		
+			Did You Know 2.0
+			3315253 reproducciones
+			xplanevisualthinking
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/6gmP4nk0EOE/default.jpg', 'Web 2.0 ... The Machine is Us/ing Us')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:31
+		
+			Web 2.0 ... The Machine is Us/ing Us
+			9099336 reproducciones
+			mwesch
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/JgbfMY-6giY/default.jpg', 'Twitter and the World Simulation')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:40
+		
+			Twitter and the World Simulation
+			74921 reproducciones
+			mwesch
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/Ln6WUy29fAA/default.jpg', '(Re)Visions of Students Today')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:51
+		
+			(Re)Visions of Students Today
+			14154 reproducciones
+			bunkmag
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/jpEnFwiqdx8/default.jpg', '2008 Latest Edition - Did You Know 3.0 - From Meeting in Rome this Year')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido5:16
+		
+			2008 Latest Edition - Did You Know 3.0 - From M...
+			1597544 reproducciones
+			buencaminos
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/tHaX8etCe18/default.jpg', 'www.You tube.com')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:20
+		
+			www.You tube.com
+			5636135 reproducciones
+			ADANGABRIEL12
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/tYcS_VpoWJk/default.jpg', 'Introducing our YouTube Ethnography Project')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:04
+		
+			Introducing our YouTube Ethnography Project
+			107943 reproducciones
+			mwesch
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/vr3x_RRJdd4/default.jpg', 'Free Hugs Campaign - Official Page (music by Sick Puppies.net )')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:39
+		
+			Free Hugs Campaign - Official Page (music by Si...
+			43090419 reproducciones
+			PeaceOnEarth123
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/XAFtE9ozk_0/default.jpg', 'Ø§U„Ø³Ø¹Ø§Ø± Ø§U„Ø¬U†Ø³UŠ Ø¹U„U‰ Ø§U„Ø¹Ø§Ø´Ø±Ø© U…Ø³Ø§Ø¡')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido7:18
+		
+			Ø§U„Ø³Ø¹Ø§Ø± Ø§U„Ø¬U†Ø³UŠ Ø¹U„U‰ Ø§U„Ø¹Ø§Ø´Ø±Ø© U…Ø³Ø§Ø¡
+			6227438 reproducciones
+			waelabbas
+		
+
+		
+	
+
+
+		Cargando...
+			
+				
+Ver los 60 vA­deos
+								
+			
+	
+
+		
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+		VA­deos destacados
+		
+				
+					
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/6SBv0Fp8vMg/default.jpg', 'A quiA©n corresponda')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido0:48
+		
+			A quiA©n corresponda
+			18938 reproducciones
+			cronopio1979
+		
+
+		
+	
+
+				
+				
+					
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/n-YtPDF_HQA/default.jpg', 'VARIEDAD DE COSMETICOS EN SEPHORA PARA COSMOPOLITANTV')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:55
+		
+			VARIEDAD DE COSMETICOS EN SEPHORA PARA COSMOPOL...
+			5707 reproducciones
+			cosmopolitantv
+		
+
+		
+	
+
+				
+				
+					
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/NtP3e_NSlUY/default.jpg', 'Carta abierta a Nanook el Esquimal')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:31
+		
+			Carta abierta a Nanook el Esquimal
+			7906 reproducciones
+			cronopio1979
+		
+
+		
+	
+
+				
+
+			
+		
+	 
+
+
+ 
+
+
+
+
+
+	
+Actualiza a Flash Player 10 para obtener un rendimiento de reproducciA³n mejorado. Actualiza ahora o consulta mA¡s informaciA³n.
+	
+	
+	onLoadFunctionList.push(function() {
+		if (isFlashVersionSupported(8,0,0)) {
+			if (canPlayH264Videos()) {
+				yt.UserPrefs.set('ftuc', 10);
+			}
+		} else {
+			var showCount = yt.UserPrefs.get('ftuc');
+			if (!showCount) {
+				showCount = 0;
+			}
+			_gel('flash10-promo-div').style.display = 'block';
+			yt.UserPrefs.set('ftuc', parseInt(showCount) + 1);
+			yt.UserPrefs.save();
+		}
+	});	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+			
+
+		
+
+
+		document.getElementById('watch-rating-div').onmouseover = function() { hideDiv('defaultRatingMessage'); showDiv('hoverMessage'); };
+		document.getElementById('watch-rating-div').onmouseout = function() { showDiv('defaultRatingMessage'); hideDiv('hoverMessage'); };
+ 	
+		
+
+
+10160 puntuacionesAccede para puntuar.
+
+		
+		
+		
+				Reproducciones:
+				3179645
+		
+
+
+
+		
+	
+
+
+
+
+	
+		
+			
+				
+					
+						
+						Favoritos
+					
+					
+				
+					
+						
+						Compartir
+					
+					
+				
+					
+						
+						Listas de reproducciA³n
+					
+					
+				
+					
+						
+						Marcar
+					
+					
+				
+			
+
+			
+				
+					
+						
+								mA¡s
+								menos
+						
+
+						
+										
+				
+
+						
+							Tuenti
+						
+
+				
+			
+			
+				
+
+						
+							Facebook
+						
+
+				
+			
+			
+				
+
+						
+							hi5
+						
+
+				
+			
+
+
+							
+						
+						
+								
+		Tuenti
+	
+	
+		Facebook
+	
+	
+		hi5
+	
+	
+		MySpace
+	
+	
+		menA©ame
+	
+	
+		Live Spaces
+	
+	
+		orkut
+	
+	
+		reddit
+	
+
+							
+						
+					 					Este vA­deo aparecerA¡ en breve en tu blog.
+					Cargando...
+					Cargando...
+					Cargando...
+					Cargando...
+					Gracias por compartir este vA­deo.
+				
+				
+					
+						
+							
+							
+							
+							
+						
+					
+					Guardando...
+					
+						
+							
+							
+							
+							
+						
+					
+
+					
+						
+							Cerrar
+							
+							
+Este vA­deo se ha aA±adido a tus favoritos. (Eliminar de Favoritos)
+							
+						
+						
+							Cerrar
+							
+							
+Este vA­deo se ha eliminado de tus favoritos. (AA±adir a Favoritos)
+							
+						
+					
+
+						
+						cerrar
+								A¿Quieres aA±adir vA­deos a favoritos?
+	A¡Accede o regA­strate ahora!
+	
+
+						
+
+				
+				
+					Cargando...
+					El vA­deo se ha aA±adido a tu lista de reproducciA³n.
+						
+						cerrar
+								A¿Quieres aA±adir a listas de reproducciA³n?
+	A¡Accede o regA­strate ahora!
+	
+
+						
+
+				
+				
+					Cargando...
+					
+						
+						cerrar
+								A¿Quieres marcar un vA­deo?
+	A¡Accede o regA­strate ahora!
+	
+
+						
+
+				
+				
+				
+
+
+
+				
+			 			
+		 
+	 	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		EstadA­sticas y datos
+		Cargando...
+	
+
+
+
+
+	
+			
+					Acceder para publicar una respuesta en vA­deo
+			
+
+		Respuestas en vA­deo (62)
+		
+			
+	
+		
+	
+
+	
+		
+					
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/rwNTSy9u8nE/default.jpg', 'Super Student Saves Babson College!!!')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:27
+
+			
+				AK7234
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/GO3d4HcSP3Q/default.jpg', 'A Vision Of Italian Students Today (Our Thoughts.)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido7:22
+
+			
+				ScienzeS...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/_M-cnpV2uI8/default.jpg', 'Mrs Grumblebutt1')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:50
+
+			
+				donniegoo
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/Ni6TDPpKqw4/default.jpg', 'Sketchup Cars Animation [New Version]')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:46
+
+			
+				GuzmanTi...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/OBFcZVTagWs/default.jpg', 'Web 2.0 Digital Learner VS. Traditional Learner')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:06
+
+			
+				ddigiamm...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/Cs4zhrmINUQ/default.jpg', 'Student life')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:55
+
+			
+				VHQ
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/-5BK6lHn7_o/default.jpg', 'Citoplasmas en medio A¡cido')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:57
+
+			
+				citoplas...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/lbxWhGg0DLQ/default.jpg', 'Digital Ethnography: Central Washington University')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:11
+
+			
+				demonick...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/qrNTWzkjFuo/default.jpg', 'What We Need')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:16
+
+			
+				AndySchi...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/kGqYMxoGkEo/default.jpg', 'School Sucks')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:01
+
+			
+				beeldred...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/dCfmezJ0yBM/default.jpg', 'Education 2.0 - Digital Notebook')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:17
+
+			
+				Wiznotes
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/wuRURJ9E3iQ/default.jpg', 'If I Could Change the World...')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido6:12
+
+			
+				UofPEI
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/ud-cTNPbEKU/default.jpg', 'Why We Should Teach \'Personal Financial Education\' ( Financial Literacy ) In Schools')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido9:10
+
+			
+				andyamy11
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/wM8VKXSp4w0/default.jpg', 'Who R U?')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:18
+
+			
+				StandUPP...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/BklGJelrOjw/default.jpg', 'Become a Medical Assistant')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido0:56
+
+			
+				universi...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/ALzbB79LIdM/default.jpg', 'Art &amp; Design School')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:28
+
+			
+				universi...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/v-_tQCHaOxY/default.jpg', 'Project 3.0 Trailer - Web 2.0 green real estate project')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:44
+
+			
+				thecampu...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/-hPCFI1-LWY/default.jpg', 'Gatekeepers of Knowledge')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido4:21
+
+			
+				ChangSch...
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/OedgeJ0f61w/default.jpg', 'planteaza un copac pentru eternitate')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido10:00
+
+			
+				alextinc
+
+			
+		
+		
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/gTAPEsz5Aho/default.jpg', '(3) The Pope\'s personal security')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido7:28
+
+			
+				glaucobe...
+
+			
+		
+
+			
+		
+	
+
+	
+		
+	
+
+	
+
+	
+		var videoBarScroller = videoBarScroller || {};
+		videoBarScroller['watch-video-responses-children'] = new MooFx.BasicEffect('video-bar-long-box-watch-video-responses-children', 'marginLeft', {duration: 333});
+	
+
+
+
+		
+		
+			Ver todos
+			-
+			Reproducir todos
+		
+
+		
+		
+
+
+
+	
+		
+				Accede para publicar un comentario.
+
+		
+
+		Comentarios escritos (8340)Opciones
+
+		
+
+		
+			
+				Cargando...
+			
+
+			
+
+			
+								
+
+
+
+
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				xmabep
+				 (hace 19 horas) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						Mature prnstar assfcked by black rod - _AHOTTUBE(.)COM_
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				watsthatsmell
+				 (hace 1 dA­a) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	+1
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						&lt;3 this, so true!
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				pink35orange
+				 (hace 1 dA­a) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						I live in Japan and we watched this video in class. I've heard that college students in US study harder than those in Japan cause we usually get lazy after passing entrance exam. Seems which college we get accepted to is most important for evaluating people rather than what we learn in it. But pretty similar things are going on in this video that is not what I expected.
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				dillonator42
+				 (hace 2 dA­as) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						Bluesbreaks I kinda disagree. Usually classes for your majors are 200s, 300s, 400s, while Gen-eds you can just take 'Intro to' classes and other 100s. And if we didn't take them, college would be even more of just a 'degree factory' than it already is. But then again, just my opinion, not tryin to be snippy ^_^
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+				
+Comentarios marcados como spam Mostrar
+				
+				
+Comentarios marcados como spam Ocultar
+				
+				
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				qjehup
+				 (hace 2 dA­as) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	-1
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+Marcado como spam
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						Tight slut sucks three black cocks -not brunette but interracial - __FREEXANGELS(.)COM__
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				iqdupp
+				 (hace 3 dA­as) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	-1
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+Marcado como spam
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						One of our h0ttest teen prnstars - _AHOTTUBE(.)COM_
+					
+				
+				
+			
+
+
+
+
+
+	 
+				
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				arbeitslos123456
+				 (hace 3 dA­as) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	-2
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						what is this video about? i don't get it
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+				
+Comentarios marcados como spam Mostrar
+				
+				
+Comentarios marcados como spam Ocultar
+				
+				
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				matmicmj
+				 (hace 3 dA­as) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	-4
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+Marcado como spam
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						book free download 50 pgs , How God Created the Universe , see video for info .,...,peace.,..,
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+		
+
+
+
+		
+
+			
+				SuperxDenx1
+				 (hace 2 dA­as) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	+1
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						god created my ass
+					
+				
+				
+			
+
+
+
+		
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+		
+
+
+
+		
+
+			
+				Zimmiez
+				 (hace 2 dA­as) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	+2
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						yes, yes he did lol
+					
+				
+				
+			
+
+
+
+		
+
+
+	 
+
+
+		
+
+
+		
+
+
+
+Siguiente
+
+
+
+
+	PA¡ginas:
+
+
+
+			1
+
+			2
+
+			3
+
+
+		&#160;...&#160;
+
+		
+
+
+
+
+
+
+
+
+			
+
+			Ver los 8340 comentarios
+
+				
+					A¿Quieres enviar algAon comentario?
+					
+Ašnete a YouTube para obtener una cuenta gratuita o accede si ya eres miembro.
+					
+
+				 
+				
+
+		 	 
+
+ 
+
+		
+	
+	
+		
+			
+				
+
+
+	
+		
+		
+		Buscar
+	
+
+			
+		
+		
+			
+				
+					YouTube
+					
+					Ayuda
+					
+					Descubrir
+				
+				
+					>Ponte en contacto con nosotros
+					>Publicidad
+					>Recursos de ayuda
+					>PolA­tica de privacidad
+					>YouTube en tu mA³vil
+				
+				
+					>Sobre la empresa
+							>API para desarrolladores
+					>Manual de YouTube
+						>TA©rminos de uso
+					>YouTube en tu sitio
+				
+				
+					>Prensa
+					>Asociaciones
+					>Foros de ayuda de la comunidad
+					>Avisos de copyright
+					>Suscripciones
+				
+				
+					>Blog
+					>Sistema de gestiA³n de contenido
+					>Centro de seguridad
+					>Normas de la comunidad
+					>TestTube
+				
+			
+		
+		
+				AA±adir a iGoogle
+		
+	
+	
+		&copy; 2009 YouTube, LLC
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+ 
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+		window.setTimeout(
+			"window.google.ac.install(document.searchForm,document.searchForm.search_query,'yt','es','cerrar', \
+			'Sugerencias', \
+			'BAosqueda en la Web', \
+			-1, \
+			false)", 100);
+	
+
+
+

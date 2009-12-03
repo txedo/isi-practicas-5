@@ -1,0 +1,133 @@
+
+
+
+
+
+
+
+
+Revisa bien la condiciA³n
+
+x
+
+x
+
+x
+
+Verificar
+
+Verificar
+
+Verificar
+
+
+
+
+x = 100;
+y = 100;
+
+x = y &lt; x ? 100 : 100;
+
+
+
+
+
+
+
+
+
+
+
+
+
+var1 = 25.12;
+var2 = 15.00;
+var3 = 3.0;
+var4 = 16.0;
+
+if(var1 &lt;= var2 &amp;&amp; var4 &lt;= var3)
+printf(&quot;Opcion 1&quot;);
+else
+prinf(&quot;Opcion 2);
+
+
+
+
+
+if (100 &lt; 100)
+prinft(a€œOpcion 1a€);
+else
+prinft(a€œOpcion 2a€);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

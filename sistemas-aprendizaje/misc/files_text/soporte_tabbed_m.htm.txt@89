@@ -1,0 +1,135 @@
+ 
+
+
+
+plantilla tabbed
+table {
+ color:#FFCC66; 
+ font-family : verdana, arial, helvetica;
+ font-size : 10pt;
+ font-weight : normal;
+	} 
+A:link	{
+color:#FFFFFF;
+font-size:10.5pt;
+font-family:verdana, arial, helvetica;
+font-style:normal;
+font-weight:normal;
+text-decoration:none;
+	}
+A:visited	{
+color:#FFFFFF;
+font-size:10.5pt;
+font-family:verdana, arial, helvetica;
+font-style:normal;
+font-weight:normal;
+text-decoration:none;
+	} 
+A:hover	{
+color:#cc0000;
+font-size:10.5pt;
+font-family:verdana, arial, helvetica;
+font-style:normal;
+font-weight:normal;
+text-decoration:none;
+	} 
+div.celdamenu a:link { color: #cc0000; font-family:verdana, arial, helvetica ; font-size:10pt; text-decoration:none;}
+div.celdamenu a:visited { color: #cc0000; font-family:verdana, arial, helvetica ; font-size:10pt; text-decoration:none;}
+div.celdamenu a:hover { color: #cc0000; font-family:verdana, arial, helvetica ; font-size:10pt; text-decoration:none;}
+div.celdamenu a { color: #cc0000; font-family : verdana, arial, helvetica ; font-size: 10pt; }
+div.phpwebquest { font-size : 7.5pt;}
+div.phpwebquest a:link { font-size : 7.5pt;} 
+div.phpwebquest a:hover { font-size : 7.5pt;} 
+div.phpwebquest a { font-size : 7.5pt;};
+
+//-->
+
+
+
+
+ 
+ 
+ 
+  
+ 
+ ESCENARIO
+ 
+ TAREA
+ 
+ PRODUCTO
+ 
+ 
+  
+  
+ 
+  
+ Comics, historietas, monitos o chistes
+ 
+  
+  
+ 
+  
+								 
+ 
+ ESCENARIO
+ 
+ 
+ 
+
+Se llama historieta o comic (del ingl&eacute;s comic) a una serie de dibujos que constituyen un relato, con texto o sin &eacute;l, as&iacute; como al libro o revista que la contiene.
+
+
+
+Las historietas pueden estar dibujadas en papel, o estar en forma digital (e-comic, webcomics y similares).
+
+
+
+En ingl&eacute;s, adem&aacute;s de comics, se usa funnies (para las tiras de prensa) y cartoon (para la caricatura). En M&eacute;xico y Chile se denomina monitos, en el Per&uacute; y Yucat&aacute;n chistes.
+
+
+
+Fuente:Wikipedia and Garfield His 9 Lives by Jim Davis a 1984 book. 
+
+
+
+
+
+
+
+
+
+
+
+ 
+						
+ 
+							
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+								Webquest elaborada por Mildred Cruz Diaz con 
+								PHPWebquest(Alojado en Fenixer)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
