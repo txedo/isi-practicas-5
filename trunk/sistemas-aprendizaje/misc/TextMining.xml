@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<process version="4.6">
+
+  <operator name="Root" class="Process" expanded="yes">
+      <parameter key="logverbosity"	value="init"/>
+      <parameter key="random_seed"	value="2001"/>
+      <parameter key="send_mail"	value="never"/>
+      <parameter key="process_duration_for_mail"	value="30"/>
+      <parameter key="encoding"	value="SYSTEM"/>
+      <operator name="TextInput" class="TextInput" expanded="yes">
+          <list key="texts">
+          </list>
+          <parameter key="default_content_type"	value=""/>
+          <parameter key="default_content_encoding"	value=""/>
+          <parameter key="default_content_language"	value=""/>
+          <parameter key="prune_below"	value="-1"/>
+          <parameter key="prune_above"	value="-1"/>
+          <parameter key="vector_creation"	value="TFIDF"/>
+          <parameter key="use_content_attributes"	value="false"/>
+          <parameter key="use_given_word_list"	value="false"/>
+          <parameter key="return_word_list"	value="false"/>
+          <parameter key="id_attribute_type"	value="number"/>
+          <list key="namespaces">
+          </list>
+          <parameter key="create_text_visualizer"	value="true"/>
+          <parameter key="on_the_fly_pruning"	value="-1"/>
+          <parameter key="extend_exampleset"	value="false"/>
+          <operator name="StringTokenizer" class="StringTokenizer">
+          </operator>
+          <operator name="EnglishStopwordFilter" class="EnglishStopwordFilter">
+          </operator>
+          <operator name="TokenLengthFilter" class="TokenLengthFilter">
+              <parameter key="min_chars"	value="3"/>
+              <parameter key="max_chars"	value="2147483647"/>
+          </operator>
+          <operator name="LovinsStemmer" class="LovinsStemmer">
+          </operator>
+      </operator>
+  </operator>
+
+</process>
