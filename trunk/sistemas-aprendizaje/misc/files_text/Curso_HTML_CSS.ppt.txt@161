@@ -1,0 +1,219 @@
+Curso HTML + CSS
+Conceptos basicos
+World Wide Web (WWW): Sistema de informacion.
+Navegador: Es el programa que nos ofrece acceso a Internet.
+Servidor: Se encarga de proporcionar al navegador los documentos y medios que este solicita.
+HTTP: Es el protocolo de transferencia de hipertexto, o sea, el protocolo que los servidores de World Wide Web utilizan para mandar documentos HTML a traves de Internet.
+URL: Es el Localizador Uniforme de Recursos.
+HTML: "Lenguaje para marcado de hipertexto".
+El lenguaje HTML
+Lenguaje que estructura el documento.
+Proporciona el contenido (utilizaremos CSS para el formato...)
+Compatibilidad.
+Etiquetas:
+ texto afectado 
+Estructura basica de un doc. HTML: Cabecera y cuerpo del documento
+: Limitan el documento e indica que se encuentra escrito en este lenguaje.
+: Especifica el prologo del resto del archivo. Son pocas las tags que van dentro de ella, destacando la del titulo .
+: Encierra el resto del documento, el contenido.
+Primer ejemplo HTML
+Primeros pasos:   
+, , ...: Titulares. Sirven para dividir el texto en secciones. Se pueden definir seis niveles de titulares.
+: Parrafos.
+: Saltos de linea.
+: Comentarios.
+Ejemplo
+Creacion de enlaces 
+Lo caracteristico del lenguaje HTML es el poder generar vinculos de hipertexto para enlazar con ellos todos sus documentos en web:
+.....: Sirve para saltar entre diferentes URLs.
+Primera parte: Utilizamos el atributo name para dar nombre a una seccion de nuestro documento.
+Ejemplo enlaces
+URL: Localizador Universal de Recursos
+Los URL son las direcciones de las informaciones que buscamos en Internet.
+Constan de:
+Protocolo: Programa que utilizara el navegador para obtener el archivo elegido. (HTTP, FTP...)
+Nombre del host: Se trata del sistema donde se encuentra almacenada la informacion que buscamos.
+Ruta del fichero: Se trata de la ubicacion del archivo dentro del host.
+Ej:
+http://www.bienvenidos.es/publico/saludos.html
+Tipos de URL
+HTTP: Los utilizados por los servidores de WWW.
+FTP: Apuntar archivos que esten en servidores que usan el protocolo FTP (File Transfer Protocol). Utilizado para enviar y recibir ficheros.
+File: Apuntan hacia archivos contenidos en el mismo disco que se encuentra el navegador
+Mailto: Se usa para mandar correos electronicos. (webmaster@bienvenidos.es)
+News: Son URL de grupos de noticias.
+Listas   
+Estilos de caracter   
+Saltos y lineas  
+Caracteres especiales
+Insertar un caracter que no sea ASCII en nuestro documento HTML.
+Estas entidades pueden ser:
+Nombradas: Se suelen construir con el signo &, la abreviatura del caracter y acabado con el signo punto y coma. El simbolo de registrado se construiria: &reg;
+Numeradas: Se construyen con los signos &#, el numero correspondiente a la posicion del caracter en el conjunto ISO-Latin-1 (ISO-8859-1). El mismo simbolo de registrado, seria ahora: &#174;
+Existen unas entidades reservadas:
+signo 
+signo >, entidad &gt;
+signo &, entidad &amp;
+signo ", entidad &quot;
+
+Tablas
+Tablas avanzadas
+Titulo
+Cuando queramos titular una tabla usamos los tags ...... El tag de apertura puede llevar el atributo align que indicara si el titulo va encima o debajo de la tabla. align="top" indicaria encima de la tabla y align="bottom" indicaria en la parte de abajo.
+Alineacion de celdas
+Atributo align= define horizontalmente los datos al margen izquierdo (left), al derecho (right) o centrado (center).
+Atributo valign= define verticalmente los datos en la parte superior (top), en la parte inferior (bottom) o centrado (middle).
+Celdas extendidas
+Para crear una celda que abarque varias filas o columnas, debemos colocar en las tags  o  los atributos:
+rowspan= mas un valor para indicar el numero de filas que se quiere abarcar.
+colspan= mas un valor para indicar el numero de columnas que se quiere abarcar.
+Ejemplo tabla avanzada
+Tablas (espaciado)
+Podemos modificar el aspecto de la tabla cambiando el ancho de los bordes, el espaciado entre celdas y el ancho de las mismas.
+width= Acompana a  y especifica el ancho de la tabla, tanto en numero de pixeles como en porcentaje respecto al ancho de la pantalla. Tambien puede acompanar a las tags  o  para especificar el ancho de las columnas.
+cellspacing= Suele acompanar a la tag . Indica el numero de pixeles que separan cada celda. El valor predeterminado suele ser 2.
+cellpadding= Tambien acompana a la tag . Indica el espacio en pixeles entre el borde de la celda y su contenido. El valor predeterminado suele ser 1.
+Ejemplo tabla avanzada (espaciado)
+Imagenes 
+Incluir imagenes en una presentacion web es muy sencillo, solo debe de tener en cuenta que las imagenes tienen que tener los formatos GIF, JPEG o PNG. Las imagenes en linea, se especifican a partir de la tag  que no tiene una tag correspondiente de cierre pero que puede acompanarse de los siguientes atributos:
+src= Este atributo es obligatorio e indica el nombre del archivo de imagen (entre comillas) o la URL que se va a representar.
+align= Permite controlar la alineacion de una imagen con respecto a una linea de texto adyacente o a otras imagenes en esa linea. Los tres valores posibles son los ya conocidos left, right, top, middle y bottom.
+alt= Es la alternativa que se establecio cuando todavia existian visualizadores de solo texto. Entre comillas podremos escribir un texto que suplantara a esta imagen si no se carga o mientras se carga o cuando, visualizando ya la imagen, pasamos el raton por encima.
+width= Este atributo es opcional pero es recomendable ponerlo para ayudar al navegador a representar la imagen, significa el ancho de la imagen que vamos a representar.
+height=Al igual que el atributo WIDTH, es opcional y recomendable ponerlo, este significa el alto de la imagen.
+border= Con BORDER especificamos el ancho de un borde que rodea la imagen.
+Ejemplo imagen
+Formularios
+Los formularios permiten solicitar informacion al visitante.
+Tags ..... y dentro de ellas se recogeran todas las variables de entrada.
+action="" Indica el programa que va a tratar las variables enviadas con el formulario.
+method="" Indica el metodo de transferencia de las variables. Post, si se envia a traves del STDIO. Get, si se envia a traves de la URL.
+Ejemplo formulario
+Campos de entrada 
+Atributos:
+type="" tipo de variable a introducir.
+text Campo texto. Sus atributos:
+maxlenght="" Numero maximo de caracteres a introducir.
+size="" Limitara el numero de caracteres a mostrar en pantalla.
+value="" Valor inicial del campo.
+password Indica que el campo a introducir sera una palabra de paso. Mostrara asteriscos. Atributos igual que para text.
+checkbox Opcion casilla cuadrada.
+value="" Valor de la casilla.
+checked Marcada por defecto.
+radio Varias opciones en casilla circular.
+value="" Valor de la casilla.
+image El campo contendra el valor en coordenadas del punto de la imagen que haya pinchado. Atributo obligatorio:
+src="" Nombre del archivo de imagen.
+hidden Invisible. Se debe anadir el atributo value=""
+name="" Nombre del campo.
+Ejemplo INPUT
+Campos de seleccion 
+Las tags ..... encierran los valores que podremos elegir a partir de una lista.
+Atributos:
+name="" Nombre del campo.
+size="" Numero de opciones visibles. 1, menu desplegable. Valor mayor, lista con barra de desplazamiento.
+multiple Si se pueden realizar multiples selecciones.
+Las diferentes opciones de la lista se indicaran mediante la tag  que puede acompanarse del atributo selected.
+Ejemplo 
+Areas de texto  y botones 
+Capas 
+Las capas se pueden definir como paginas que se pueden incrustar dentro de otras.
+Propiedades de estilo:
+left y top: Situan la esquina superior izquierda de la capa respecto a la esquina superior izquierda de la capa donde este.
+width y height: Determinan la anchura y altura de la capa.
+clip: area que se podra ver dentro de la capa
+ej: clip:rect(20px 30px 40px 10px); recortara la capa creando un cuadro visible cuya esquina superior izquierda esta a 10 pixels por la izquierda y 20 por arriba de la de la capa y cuyo tamano seria de 30-10 de ancho y 40-20 de alto. rect(top right bottom left)
+z-index: Las capas con un mayor z-index se colocaran mas arriba
+visibility: visible, hidden (oculta) o inherit (hereda la visibilidad de la capa padre)
+background-image: Grafico de fondo de la capa
+
+CSS
+Separar el formato visual de la pagina del contenido.
+CSS son las siglas de "Cascade StyleSheet". Se trata de una especificacion sobre los estilos fisicos aplicables a un documento HTML, y trata de dar la separacion definitiva de la logica (estructura) y el fisico (presentacion) del documento.
+Introduccion
+Objetivos
+ Dar formato paginas web
+ Separar diseno – contenido
+ Centralizar propiedades aspecto
+ Facilitar mantenimiento diseno
+Caracteristicas
+Fichero de texto
+Formato de paginas HTML, PHP, ...
+Herencia de propiedades entre elementos (jerarquia)
+Clases definibles por el usuario
+Propiedades
+Longitud (por ej., margenes):
+[-]NNtipo
+NN:
+em (el alto de la M mayuscula)
+ex (la mitad de la altura de la M mayuscula)
+px (pixel)
+pt (puntos)
+pc (picas)
+in (inches)
+mm (milimetros)
+cm (centimetros).
+Color:
+Notacion #RRGGBB, siendo RR, GG, BB los valores en hexadecimal de las componentes roja, verde y azul del color.
+Nombre predefinido (white, yellow...).
+Usando la funcion rgb(R,G,B), donde R, G, B son los valores en decimal.
+Propiedades – Fuente y Texto
+Propiedades – Fondo y Clasificacion
+Propiedades - Marco
+Propiedades - Marco
+Referencia: http://www.w3.org/TR/REC-CSS1
+margin, margin-left, border, background, font-family...
+Pagina de estilos
+Aplicacion
+Aplicacion directa en etiquetas.
+Redefinicion de etiqueta.
+Separar HTML de CSS.
+Aplicacion directa en etiquetas
+Redefinicion de etiqueta
+Separar HTML de CSS
+Herencia de estilos
+Existe una jerarquia de etiquetas que contienen a otras, para darnos una relacion de herencia:
+Ejemplo herencia
+Estilo en funcion del contexto
+Si queremos que el texto en negrita sea de color verde cuando se encuentre en una celda de una tabla, o que sea de color purpura cuando forme parte de una lista.
+Esto lo definiriamos como sigue:
+Clases
+Una clase es una definicion de estilo que no esta asociado a ninguna etiqueta HTML, pero que podemos asociar, en el documento, a etiquetas concretas.
+Definimos la clase:
+.Nombre_de_la_Clase {propiedad1:valor;...;propiedadN:valor}
+Utilizaremos el parametro CLASS como sigue:
+ ... 
+Ejemplo clases
+Etiquetas
+Cualquier etiqueta HTML puede tener como parametro la etiqueta ID seguida de un nombre:
+ ... 
+Este "NombreReferencia" debe ser unico en el documento HTML.
+Para definir un estilo mediante un ID:
+#Nombre_del_ID {propiedad1:valor;...;propiedadN:valor}
+Pseudoclases
+Hay ocasiones en las que HTML da a algunas etiquetas un estilo propio: por ejemplo, los enlaces aparecen por defecto de otro color y subrayados. Estos elementos son las pseudoclases. Por ahora, solo estan definidas para la etiqueta .
+Definicion:
+etiqueta:pseudoclase {propiedad1:valor;...;propiedadN:valor}
+y las pseudoclases de que disponemos son:
+link 	Nos dice el estilo de un enlace que no ha sido visitado.
+visited 	Nos dice el estilo de un enlace que ha sido visitado.
+active 	Nos dice el estilo de un enlace que esta siendo pulsado.
+hover 	Nos dice el estilo de un enlace sobre el que esta pasando el raton.
+Ejemplo pseudoclases
+Por ejemplo, si deseasemos que apareciesen todos los enlaces sin subrayar, definiriamos los siguientes estilos:
+A:link,A:visited,A:active {text-decoration:none}
+Las pseudoclases pueden usarse de forma conjunta con las clases:
+A.NombreClase:pseudoclase
+y tambien se pueden usar en funcion del contexto.
+Enlaces
+Referencia HTML 4: http://www.w3.org/TR/REC-html40/
+Referencia CSS1: http://www.w3.org/TR/REC-CSS1
+Cursos:
+HTML:
+http://www.programacion.com/html/tutorial/curso/
+http://www.webestilo.com/html/
+CSS:
+http://www.programacion.com/html/tutorial/css1/
+http://www.webestilo.com/css/
+Ejemplos: http://www.domedia.org/oveklykken/articles.php
+Validadores: http://validator.w3.org/

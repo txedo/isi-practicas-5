@@ -1,0 +1,261 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for(m = n; m &gt; 1; m--){
+ fact *= m;
+
+for(m = n; m &gt; 1; m++){
+ fact *= m;
+
+for(m = n; m &gt;= 0; m--){
+ fact *= m;
+
+for(m = n; m &lt; 1; m--){
+ fact *= m;
+
+Incorrecto
+
+Siguiente
+
+Incorrecto
+
+Incorrecto
+
+Siguiente
+
+Siguiente
+
+Siguiente
+
+for(m = n; m &gt; 1; m--){
+ fact *= m;
+
+
+
+
+
+
+
+
+
+
+
+Instrucciones
+
+for(m = n; m &gt; 1; m--){
+ fact *= m;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for(n = 1; n &lt; 10; n += 2)
+ suma += 2*n;
+
+for(n = 1; n &lt;= 10; n += 2)
+ suma += n;
+
+for(n = 0; &gt;= 10; n++)
+ suma += 2*n;
+
+for(n = 0; n &lt;= 10; n++)
+ suma += 2*n;
+
+for(n = 0; n &lt;= 10; n++)
+ suma += 2*n;
+
+Instrucciones
+
+
+
+
+
+
+
+
+
+
+
+
+
+for(contador = 1; contador &lt;= 11; contador++){
+ if(contador &gt; 10)
+ continue;
+}
+
+for(flag = 1; flag &lt; 2; flag++){
+ if(contador &gt; 10)
+ break;
+}
+
+for(flag = 1; flag &lt; 2; contador++){
+ if(contador &gt; 10)
+ break;
+}
+
+for(flag = 1; flag &lt; 2; contador++){
+ if(contador &gt; 10)
+ continue;
+}
+
+for(flag = 1; flag &lt; 2; contador++){
+ if(contador &gt; 10)
+ break;
+}
+
+Instrucciones
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for(; contador &lt;= 5;){
+ contador++;
+ printf(&quot;contador = %d\n&quot;,contador);
+}
+
+for(; contador &lt; 5;){
+ contador++;
+ printf(&quot;contador = %d\n&quot;,contador);
+}
+
+for(; contador &gt; 5;){
+ contador++;
+ printf(&quot;contador = %d\n&quot;,contador);
+}
+
+for(; contador &gt;= 5;){
+ contador++;
+ printf(&quot;contador = %d\n&quot;,contador);
+}
+
+for(; contador &lt; 5;){
+ contador++;
+ printf(&quot;contador = %d\n&quot;,contador);
+}
+
+Instrucciones
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for(;;){
+ if(contador &lt; max){
+ printf(&quot;Hola\n&quot;);
+ contador++;
+ }
+ else
+ break;
+}
+
+for(;;){
+ if(contador &lt; max){
+ printf(&quot;Hola\n&quot;);
+ contador+=2;
+ }
+ else
+ break;
+}
+
+for(;;){
+ if(contador &lt; max){
+ printf(&quot;Hola\n&quot;);
+ contador++;
+ break;
+ }
+}
+
+for(;;){
+ if(contador &lt;= max){
+ printf(&quot;Hola\n&quot;);
+ contador++;
+ }
+}
+
+for(;;){
+ if(contador &lt; max){
+ printf(&quot;Hola\n&quot;);
+ contador++;
+ }
+ else
+ break;
+}
+
+Instrucciones
+
+
+
+
+
+
+
+

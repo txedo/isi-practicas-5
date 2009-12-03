@@ -1,0 +1,138 @@
+“ Conceptos generales del
+ Lenguaje Ensamblador ”
+Evolucion de los lenguajes de programacion
+
+Lenguaje maquina
+
+Lenguaje de bajo nivel
+
+Lenguaje de alto nivel
+
+
+Lenguaje Maquina
+Lenguajes de primera generacion
+
+Programacion a nivel basico
+
+Codigo binario
+
+Complejidad para el programador
+Lenguaje Ensamblador
+Lenguajes de segunda generacion
+Simbolos Nemotecnicos y un conjunto de reglas de programacion
+En funcion del tipo de procesador
+Menor dificultad para el programador
+Menor tiempo de ejecucion con respecto a los de alto nivel
+Tipos de Ensambladores
+Clasificacion de acuerdo a caracteristicas:Ensambladores Cruzados (Cross-Assembler). Se denominan asi los ensambladores que se utilizan en una computadora que posee un procesador diferente al que tendran las computadoras donde va a ejecutarse el programa objeto producido
+Ensambladores Residentes
+Son aquellos que permanecen en la memoria principal de la computadora y cargan, para su ejecucion, al programa objeto producido. Este tipo de ensamblador tiene la ventaja de que se puede comprobar inmediatamente el programa sin necesidad de transportarlo de un lugar a otro, como se hacia en cross-assembler, y sin necesidad de programas simuladores; la ventaja de estos ensambladores es que permiten ejecutar inmediatamente el programa; la desventaja es que deben mantenerse en la memoria principal tanto el ensamblador como el programa fuente y el programa objeto
+
+Macroensambladores
+Son ensambladores que permiten el uso de macroinstrucciones (macros). Debido a su potencia, normalmente son programas robustos que no permanecen en memoria una vez generado el programa objeto. Puede variar la complejidad de los mismos, dependiendo de las posibilidades de definicion y manipulacion de las macroinstrucciones, pero normalmente son programas bastantes complejos, por lo que suelen ser ensambladores residentes
+Microensambladores
+Generalmente, los procesadores utilizados en las computadoras tienen un repertorio fijo de instrucciones, es decir, que el interprete de las mismas interpretaba de igual forma un determinado codigo de operacion El programa que indica al interprete de instrucciones de la UCP como debe actuar se denomina microprograma. El programa que ayuda a realizar este microprograma se llama microensamblador. Existen procesadores que permiten la modificacion de sus microprogramas, para lo cual se utilizan microensambladores
+Ensambladores de una fase
+Estos ensambladores leen una linea del programa fuente y la traducen directamente para producir una instruccion en lenguaje maquina ; tambien va construyendo la tabla de simbolos a medida que van apareciendo las definiciones de variables , etiquetas , etc;debido a su forma de traduccion, estos ensambladores obligan a definir los simbolos antes de ser empleados para que, cuando aparezca una referencia a un determinado simbolo en una instruccion, se conozca la direccion de dicho simbolo y se pueda traducir de forma correcta. Estos ensambladores son sencillos, baratos y ocupan poco espacio
+Ensambladores de dos fases
+Los ensambladores de dos fases se denominan asi debido a que realizan la traduccion en dos etapas. En la primera fase, leen el programa fuente y construyen una tabla de simbolos; de esta manera, en la segunda fase, vuelven a leer el programa fuente y pueden ir traduciendo totalmente, puesto que conocen la totalidad de los simbolos utilizados y las posiciones que se les ha asignado. Estos ensambladores son los mas utilizados en la actualidad
+Compilador
+Es un programa que traduce los programas fuentes escritos en lenguaje de alto nivel a lenguaje de maquina. El programa objeto obtenido de la compilacion no ha sido traducido normalmente a codigo maquina sino a ensamblador. Para obtener el programa maquina real se utiliza un programa llamado enlazador (linker). El proceso de enlazamiento conduce a un programa en lenguaje maquina directamente ejecutable.
+
+Corrida del Linker
+Busca los archivos de entrada para encontrar los tamanos de los  segmentos y para coleccionar las definiciones y referencias de todos los simbolosCrea una tabla de segmentos listando todos los segmentos definidos en los archivos de entrada y una tabla de  simbolos importados o exportadosUtilizando los datos de la primera pasada , el linker asigna localizaciones numericas a los simbolos , determina el tamano  y la localizacion de los segmentos en el espacio de direcciones de salida
+Segunda pasada del Linker
+·         Utiliza la informacion coleccionada en la primera pasada para controlar el proceso actual de encadenamiento.
+·         Lee el objeto y sustituye las referencias simbolicas por las direcciones numericas
+·         Ajusta direcciones de memoria  en el codigo y en los datos para reflejar direcciones relocalizadas en el segmento.
+Escribe el codigo relocalizado en el archivo de salida.
+Set de Instrucciones
+Conjunto de nemonicos propios de un tipo especifico de ordenador
+
+Operaciones logicas, aritmeticas y de control
+ ·        Instrucciones. Estas sentencias representan ordenes al procesador y tras el proceso de compilacion generan codigo ejecutable.
+
+Tipo de set : RISC, CISC
+
+Tipos de Set de Instrucciones
+RISC.- Reduced Instruction Set Computer
+
+
+CISC.- Complex Instruction Set Computer
+Directivas
+  Estas sentencias dirigen el proceso de compilacion o construccion del programa ejecutable. No generan codigo ejecutable. Normalmente se utilizan para aumentar la legibilidad del codigo fuente
+
+Sintaxis de linea
+
+ [nombre] mnemonico [operandos] [;comentarios]
+
+Operandos.-Los operandos representan valores, registros o localidades de memoria a ser accedidas de alguna manera. Las expresiones combinan operandos y operadores aritmeticos y logicos para calcular en valor o la direccion a acceder
+
+
+Tips de programacion en Lenguaje Ensamblador
+Set del procesador
+Arquitectura
+ Registros
+ Mapa de memoria
+ Registro de banderas
+ Puertos
+ Tipos de senales de I/O
+Estructura logica del
+ Planteamiento del problema
+
+Set de Instrucciones
+Tipos de direccionamiento
+ Inmediato
+ Directo
+ Indirecto
+ Registros de proposito general y especifico
+Operaciones de salto
+ ( Condicionales)
+Manipulacion de registros de control
+Fabricantes de Microprocesadores
+Motorola
+Intel
+Texas Instruments
+ZILOG
+Microchip
+Siemmens
+National
+Aspectos importantes de la Arquitectura propia del Procesador
+Longitud de palabra
+Configuracion
+Memoria interna
+Capacidad de los Ports
+Tipo de transmision de la comunicacion
+Arquitectura fisica
+Microcontroladores
+Procesador
+I / O
+Temporizadores
+Memorias
+Contadores
+ADC / DAC
+Gestiones de interrupciones
+
+Ejemplo Programa en Ensamblador
+AVMAC51 ( Compilador )
+AVSIM ( Simulador )
+AVLINK ( Ligador )
+Defseg Nombre, Class=code,start=0000h
+Seg Nombre
+Inic:MOV DPTR,#3000h
+ MOVX A,@DPTR
+ MOV R0,A
+ INC DPTR
+ MOVX A,@DPTR
+ ADD A,R0
+ INC DPTR
+ END
+Internet
+Paginas de principales fabricantes
+Manuales
+Hojas de especificaciones
+Actualizaciones de manuales
+Software
+
+Conceptos Generales del Lenguaje Ensamblador
+Vuelo sin motor

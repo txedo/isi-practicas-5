@@ -1,0 +1,206 @@
+Calidad en Objetos de Aprendizaje
+Christian L. Vidal, Alejandra A. Segura, y Manuel E. Prieto
+SPEDECE 08
+
+Indice
+Introduccion Los OA sus atributos fundamentales Necesidad de considerar la calidad en OA La evaluacion de la calidad en los OA Resultados y Discusion de la revision de modelos Propuesta de caracteristicas y rasgos Conclusiones y trabajo futuro
+
+Calidad en Objetos de Aprendizaje
+
+Page 2
+
+1. Introduccion
+El uso de OA ha permitido organizar los contenidos digitales en unidades independientes [Paulsson, 2006]. La evaluacion de los OA es un elemento importante y son diversos los factores a considerar. Este trabajo revisa modelos y enfoques de calidad para luego proponer atributos o rasgos a medir al basado en la norma ISO/IEC 9126 (parte 1).
+
+Calidad en Objetos de Aprendizaje
+
+Page 3
+
+2. Objetos de Aprendizaje y sus atributos fundamentales
+Entenderemos por objeto de aprendizaje a todo recurso digital, independiente y reutilizable, creado con la expresa intencion de apoyar el aprendizaje.
+
+La creacion de recursos implica el ensamblaje de piezas simples que se localizan local o remotamente y puedan ser construidas para sistemas heterogeneos [Sarasa, 2004].
+Calidad en Objetos de Aprendizaje Page 4
+
+2. Los Objetos de Aprendizaje y sus atributos fundamentales
+En [Wiley, 2000] se plantea la falta de catalogacion de OA lo que dificulta la eficiencia del reuso. Los OA requieren un "certificado" que acredite su nivel de calidad para aumentar la reutilizacion y los beneficios en tiempo y costo de desarrollo.
+
+Calidad en Objetos de Aprendizaje
+
+Page 5
+
+3 Necesidad de considerar la calidad en Objetos de Aprendizaje
+Baja calidad podria provocar desconfianza a la hora de reutilizar OA. Razon para preocuparse por la calidad: se trata de recursos de apoyo al aprendizaje. La carencia de calidad al proceso de aprendizaje y sus resultados en los aprendices.
+
+Calidad en Objetos de Aprendizaje
+
+Page 6
+
+3 Necesidad de considerar la calidad en Objetos de Aprendizaje
+La calidad puede medirse segun si nos centramos en el producto o en el proceso [Sarasa,2004].
+ATENCION Producto Proceso ASPECTOS DE LA CALIDAD Calidad en contenido y estructura interna y uso del OA Calidad en potencial pedagogico Calidad en Metadatos Calidad en cuanto a los procedimientos, metodos o tecnicas utilizadas en el desarrollo Calidad en los productos de trabajo intermedio, y el OA como producto final de la ultima etapa de desarrollo
+
+Calidad en Objetos de Aprendizaje
+
+Page 7
+
+4. La evaluacion de la calidad en los Objetos de Aprendizaje
+Los estandares de meta-datos como IMS, Dublin Core y LOM no proporcionan informacion suficiente acerca de la calidad y eficiencia de los OA [DaSilva,2006]. La norma ISO/IEC 9126 es aplicable a OA si se consideran artefactos de software en un sentido amplio.
+
+Calidad en Objetos de Aprendizaje
+
+Page 8
+
+4. Modelos revisados
+
+Modelo LORI [Nesbit,2003]
+
+MERLOT [Vargo,2003] [Reeves, 1997]
+
+Caracteristicas/dimensiones calidad de contenido, alineamiento de objetivos de aprendizaje, retroalimentacion y adaptacion, motivacion, diseno de presentacion, usabilidad en interaccion, accesibilidad, reusabilidad, cumplimiento de estandares. calidad de contenido, efectividad potencial y facilidad de uso.
+
+epistemologica, filosofia pedagogica, sustento psicologico, orientacion a objetivos, validez experimental, rol del instructor, flexibilidad de programa, valor del error, motivacion, adaptacion a diferencia a individuales, control de aprendizaje, actividades de usuario, aprendizaje cooperativo y sensibilidad cultural. [Morales,2004] psicopedagogicas, didactico-curriculares, tecnicos-esteticos y funcionales. [Paulsson,2006] arquitectura, contextualizacion pedagogica, uso de estandares y nivel de agregacion [Velasquez,2007] tecnologicos, pedagogicos, de contenido y esteticos y ergonomicos [Cuadrado,2004] separacion entre contenidos y presentacion, registro de metadatos, y diseno de instrucciones
+Calidad en Objetos de Aprendizaje Page 9
+
+5. Resultados y Discusion de la revision
+Falta de un modelo de calidad estandarizado para OA. Los modelos no hacen referencia directamente al Modelo de Calidad 9126 Las dimensiones pedagogicas parecen ser la mas dificil de evaluar En [Harper,2005] se propone el uso de IMS-Learning Design para el apoyar la obtencion de calidad en el aspecto pedagogico-instruccional.
+
+Calidad en Objetos de Aprendizaje
+
+Page 10
+
+6. Propuesta de Indicadores y Rasgos a evaluar en una OA
+Se trata de un producto informatico y educacional simultaneamente La calidad es vista desde el punto de vista del profesor Evaluacion del profesor al momento de elegir un OA para utilizarlo en la construccion de un recurso. Un OA de calidad es aquel que, en sus aspectos tecnicos e instruccionales propician su uso, reuso y adaptacion para la satisfaccion de ciertas necesidades particulares de aprendizaje
+
+Calidad en Objetos de Aprendizaje
+
+Page 11
+
+6. Propuesta de Indicadores y Rasgos a evaluar en una OA
+Se uso metodologia de [Franch,2003] que considero los siguientes pasos:
+1. Comprender el dominio 2. Determinar / Adaptar Nuevas caracteristicas de calidad 3. Determinar / Adaptar Nuevas sub-caracteristicas de calidad 4. Definir Jerarquia de sub-caracteristicas 5. Determinar atributos o rasgos (basicos y derivados) 6. Proponer Medidas
+
+Establece caracteristicas, sub-caracteristicas y rasgos que pueden facilitar la medicion basada en la ISO 9126. Las siguientes tablas muestran la propuesta desarrollada hasta el paso 5 de la metodologia.
+
+Calidad en Objetos de Aprendizaje
+
+Page 12
+
+Propuesta de Indicadores y Rasgos a evaluar en un OA
+
+Caracteristica: Funcionalidad Rasgo SubCarat. Correccion con Objetivo de Aprendizaje
+
+Descripcion
+
+Permite lograr el objetivo de aprendizaje establecido. Debe existir coherencia entre lo especificado en el metadato Consistencia pedagogica "audiencia" y "rango de edad tipico" y el contexto en el que realmente podria usarse el OA. del OA con el contexto El Contenido del OA es suficiente para lograr su objetivo de Autocontenido aprendizaje. Granularidad y El nivel de detalle y complejidad con el que se presenta el Adecuacion complejidad del contenido contenido es apropiado para alcanzar el objetivo de aprendizaje El Contenido debe estar vigente, ya sea que se encuentre Vigencia del contenido actualizado o no ha caducado con el tiempo. Nivel de confianza en los creadores o fuentes de los Contenidos debido a su reconocimiento, prestigio o experiencia en el area de Confiabilidad de las fuentes conocimiento. Los medios y recursos visuales, textuales, audible, etc. son Pertinencia de medios pertinentes al objetivo de aprendizaje. El contenido se ajusta a la(s) disciplina(s) que comprenden al Exactitud Precision del contenido objetivo de aprendizaje. Las restricciones tecnicas de los objetos respecto al software Interoperabili deben ser minimizados de manera que se facilite su uso en dad Dependencia Software cualquier LMS. Metadato Estandarizado Completitud en el Estandar Correccion en el contenido de los Metadatos Claridad metadato Coherencia en metadatos Se encuentra definido en base a un estandar de metadato Los campos principales del metadatos deben estar descritos, es decir no vacios o con la mayor cantidad de campos completos. Los valores del campo del metadato deben pertenecer a dominios validos. Ya sea segun lo especifica el estandar como "espacio de valores" o segun un tesauro o diccionario El contenido del metadato es descrito claramente. Coherencia entre los valores de los medados que describen el objeto. Frente a una falla, el OA puede recuperarse al mismo punto del recorrido en el que se encontraba el usuario antes de la Falla
+
+Conformidad
+
+Restablece Calidad en Objetos de Aprendizaje estado
+
+Recuperabili dad
+
+Page 13
+
+Propuesta de Indicadores y Rasgos a evaluar en un OA
+
+Caracteristica: Usabilidad SubCarat. Rasgo Claridad del contenido
+Comprensibil idad
+
+Correccion en cuanto a ortografia y gramatica. Aporte de Medios Organizacion del contenido Tiempo de aprendizaje Densidad Semantica
+
+Facilidad de aprendizaje
+
+Diseno Uniforme Interaccion Creatividad Motivacion Diseno Atractivo
+
+Descripcion La representacion del contenido debe facilitar su correcta comprension. Los contenidos deben ser presentados respetando las reglas de ortografia y gramatica. Aplicable a Subtitulos de Videos e informacion textual incorporada en imagenes. Los recursos y medios utilizados aportan a la comprension del estudiante El Contenido o las ideas debe ser presentado de forma ordenada y organizada desde lo menos a lo mas complejo. Tamano del objeto en terminos de "tiempo de aprendizaje", por ejemplo en video, audio o sesion de aprendizaje del OA. Complejidad del contendido del OA en terminos de la cantidad de ideas Se utiliza un diseno uniforme en interfases y presentacion del contenido del OA Grado en que OA ofrece mecanismos o funcionalidades que permitan interaccion con el alumno. Grado en que OA ofrece mecanismos o funcionalidades que fomentan la creatividad en el aprendiz. Grado en que OA ofrece mecanismos o funcionalidades que fomentan la motivacion en el aprendiz. El OA posee elementos de diseno estetico y ergonomicos que hacen atractivo su uso. El Objeto de Aprendizaje debe ser flexible para permitir su uso en diferentes contextos instruccionales. El contenido, segun el tipo de recurso cumple con los estandares de usabilidad.
+
+Operabilidad Conformidad
+
+Adaptabilidad a contexto de uso Conformidad con estandar de usabilidad
+
+Calidad en Objetos de Aprendizaje
+
+Page 14
+
+Propuesta de Indicadores y Rasgos a evaluar en un OA
+
+Caracteristica: Eficiencia SubCarat. Rasgo
+
+Tiempo de respuesta
+
+Carga de servidor y cliente
+
+Utilizacion de recursos
+
+Eficiencia en almacenamiento
+
+Descripcion El Objeto de aprendizaje debe minimizar los requerimientos de recursos hardware y software, de manera tal que permita optimizar el uso de recursos del servidor para descarga y/o despliegue del OA. El Tamano en Kilo Bytes, de acuerdo al tipo fisico del OA, debe estar en un rango que permita su uso eficiente. Se pueden establecer estandares maximos puesto que los OA deben ser reutilizables en distintas plataformas y sistemas, por lo tanto si el tamano es menor se facilita su incorporacion en aplicaciones Web.
+
+Calidad en Objetos de Aprendizaje
+
+Page 15
+
+Propuesta de Indicadores y Rasgos a evaluar en un OA
+
+Caracteristica: Reutilizacion SubCarat. Rasgo Precision de Objetivo de aprendizaje Generico Metodo pedagogico Independencia social, legal, institucional y cultural Accesibilidad de contenidos Portabilidad de contexto instruccional Cohesion semantica
+Diseno Reutilizable
+
+Descripcion El OA de aprendizaje debe tener un solo objetivo de aprendizaje. Grado en que el OA puede ser usado en distintas disciplinas. Grado en que el objeto esta ligado a un metodo o fundamento pedagogico para su uso. El contenido del OA no contiene restricciones sociales, legales, institucionales ni culturales. Disponibilidad de contenidos en otros idiomas y para usuarios con limitaciones fisicas. Grado en que el objeto puede ser usado en distintas audiencias con niveles educacionales y rangos de edad Grado en que el OA es autocontenido y posee una nivel de Densidad Semantica que permite la reutilizacion. Grado de de dependencia con otros OA visto desde el punto de vista de sus relaciones.
+
+Reutilizacion de contenido
+
+Acoplamiento
+
+Tamano Nivel de granularidad del objeto segun LOM. Separacion de contenido y La separacion del contenido de la presentacion facilita la presentacion reutilizacion del OA.
+
+Calidad en Objetos de Aprendizaje
+
+Page 16
+
+Propuesta de Indicadores y Rasgos a evaluar en un OA
+
+Caracteristica: Portabilidad SubCarat. Rasgo
+Facilidad de Instalacion Facilidad de Adaptacion
+
+Descripcion El OA debe contener las especificaciones, asistencia y funcionalidad que faciliten su instalacion en la plataforma de uso. Las restricciones tecnicas de los objetos respecto al hardware deben ser minimizados de manera que se facilite su uso y portabilidad en cualquier plataforma. Las Restricciones tecnicas de los OA respecto al hardware deben ser minimizados de manera que se facilite su uso con cualquier dispositivo.
+
+Soporte para la instalacion
+
+Movilidad de plataforma Dependencia con dispositivo
+
+Coexistencia
+
+Calidad en Objetos de Aprendizaje
+
+Page 17
+
+7. Lineas de Trabajo futuro
+Actualmente se trabaja en
+- Refinar caracteristicas y sub-caracteristicas - Clarificar rasgos a medir - Definir metricas asociadas a los rasgos
+
+Se espera asociar algunas metricas al estandar LOM que permitan establecer sistemas de evaluacion automaticos.
+Calidad en Objetos de Aprendizaje Page 18
+
+7. Lineas de Trabajo futuro
+
+Calidad en Objetos de Aprendizaje
+
+Page 19
+
+8. Conclusiones
+Es importante que los OA tengan un nivel de calidad conocido No existe un modelo estandar para evaluar la calidad de los OA. La mayoria consideran solo algunas caracteristicas de los OA, lo que no permite una evaluacion integral. Se presento un marco para la evaluacion de la calidad de los OA de mas bajo nivel basado en el estandar ISO 9126.
+
+Calidad en Objetos de Aprendizaje
+
+Page 20
+
+8. Conclusiones
+Este modelo esta concebido para la evaluacion de un OA al momento de su seleccion previo a su uso o adaptacion.
+
+Un modelo de calidad para OA debe explicitar el nivel de agregacion de los objetos que evalua. Si OA de bajo nivel son evaluados, la evaluacion de OA de mayor nivel de agregacion deberia centrarse principalmente en las relaciones de estos componentes mas caracteristicas propias del nivel.
+
+Calidad en Objetos de Aprendizaje
+
+Page 21
+

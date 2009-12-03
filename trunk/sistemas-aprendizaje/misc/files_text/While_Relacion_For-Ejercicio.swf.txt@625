@@ -1,0 +1,308 @@
+
+
+
+
+
+
+
+
+int a;
+for(a = 1; a &lt; 10; ++a){
+ printf(&quot;\na = %d&quot;, a);
+}
+
+Incorrecto
+
+Incorrecto
+
+Incorrecto
+
+Siguiente
+
+Siguiente
+
+Siguiente
+
+Instrucciones
+
+
+
+
+int a = 0;
+while(a &lt; 10){
+ ++a;
+ printf(&quot;\na = %d&quot;, a);
+}
+
+int a;
+for(a = 0; a &lt; 10; a++){
+ printf(&quot;\na = %d&quot;, a);
+}
+
+int a;
+for(a = 0; a &lt; 10; ++a){
+ printf(&quot;\na = %d&quot;, a);
+}
+
+int a;
+for(a = 1; a &lt;= 10; a++){
+ printf(&quot;\na = %d&quot;, a);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int a;
+for(a = 1; a &lt; 10; ++a){
+ printf(&quot;\na = %d&quot;, a);
+}
+
+int a = 0;
+while(a &lt; 10){
+ ++a;
+ printf(&quot;\na = %d&quot;, a);
+}
+
+int a;
+for(a = 0; a &lt; 10; a++){
+ printf(&quot;\na = %d&quot;, a);
+}
+
+int a;
+for(a = 0; a &lt; 10; ++a){
+ printf(&quot;\na = %d&quot;, a);
+}
+
+int a;
+for(a = 1; a &lt;= 10; a++){
+ printf(&quot;\na = %d&quot;, a);
+}
+
+
+
+
+
+int a;
+for(a = 0; a &lt; 10; a++){
+ printf(&quot;\n a = %d&quot;, a);
+ lsdfjl alskjflkja;
+asdljalkdjf;
+asldjkj asldkj;
+}
+AKsldfkja;
+
+int a;
+for(a = 0; a &lt; 10; a++){
+ printf(&quot;\n a = %d&quot;, a);
+ lsdfjl alskjflkja;
+asdljalkdjf;
+asldjkj asldkj;
+}
+AKsldfkja;
+
+int a;
+for(a = 0; a &lt; 10; a++){
+ printf(&quot;\n a = %d&quot;, a);
+ lsdfjl alskjflkja;
+asdljalkdjf;
+asldjkj asldkj;
+}
+AKsldfkja;
+
+int a;
+for(a = 0; a &lt; 10; a++){
+ printf(&quot;\n a = %d&quot;, a);
+ lsdfjl alskjflkja;
+asdljalkdjf;
+asldjkj asldkj;
+}
+AKsldfkja;
+
+int a;
+for(a = 0; a &lt; 10; a++){
+ printf(&quot;\n a = %d&quot;, a);
+ lsdfjl alskjflkja;
+asdljalkdjf;
+asldjkj asldkj;
+}
+AKsldfkja;
+
+int a;
+for(a = 0; a &lt; 10; a++){
+ printf(&quot;\n a = %d&quot;, a);
+ lsdfjl alskjflkja;
+asdljalkdjf;
+asldjkj asldkj;
+}
+AKsldfkja;
+
+int a;
+for(a = 0; a &lt; 10; a++){
+ printf(&quot;\n a = %d&quot;, a);
+ lsdfjl alskjflkja;
+asdljalkdjf;
+asldjkj asldkj;
+}
+AKsldfkja;
+
+int a;
+for(a = 0; a &lt; 10; a++){
+ printf(&quot;\n a = %d&quot;, a);
+ lsdfjl alskjflkja;
+asdljalkdjf;
+asldjkj asldkj;
+}
+AKsldfkja;
+
+int a = 0, b;
+for(b = 0; a&gt;=0; b++){
+ printf(&quot;\nb = %d&quot;, b);
+ if(b==15)
+ a=1;
+ b+=2;
+}
+
+int a = 0, b=0;
+while(a==0){
+ printf(&quot;\nb = %d&quot;, b);
+ if(b==15){
+ a=1;
+ }
+ b+=3;
+}
+
+int a = 0, b;
+for(b = 0; a==0; b++){
+ printf(&quot;\nb = %d&quot;, b);
+ if(b==15)
+ a=1;
+ b+=3;
+}
+
+int a = 0, b;
+for(b = 0; a==0; ++b){
+ printf(&quot;\nb = %d&quot;, b);
+ if(b==15)
+ a=1;
+ b++;
+}
+
+int a = 0, b;
+for(b = 0; a&lt;=0; b++){
+ printf(&quot;\nb = %d&quot;, b);
+ if(b==15)
+ a=1;
+ b+=2;
+}
+
+int a, b;
+for(a = 0; a &lt; 10; a = a*a){
+ b = a;
+ for(b = 0; b&lt;100; b=b*b){
+ printf(&quot;\na = %d&quot;, a);
+ b++;
+ }
+}
+
+int a = 0, b;
+while(a * a &lt; 10){
+ b = a;
+ while(b * b &lt; 100){
+ printf(&quot;\na = %d&quot;, a + b);
+ b *= 2;
+ }
+ a++;
+}
+
+int a, b;
+for(a = 0; a &lt; 5; a++){
+ a = a*a;
+ b = a;
+ for(b = 0; b &lt; 50; b*=2){
+ printf(&quot;\na = %d&quot;, a + b);
+ b++;
+ }
+}
+
+int a, b;
+for(a = 0; a &lt; 10; ++a){
+ b = a;
+ for(b = 1; b &lt; 100; b*=2){
+ a++;
+ printf(&quot;\na = %d&quot;, a + b);
+ }
+}
+
+int a, b;
+for(a = 1; a &lt;= 10; a++){
+ a--; 
+b = a;
+ for(b = 0; b &lt; 60; b *= 2){
+ printf(&quot;\na = %d&quot;, a + b);
+ }
+}
+
+int a, b;
+for(a = 0; a &lt; 10; a = a*a){
+ b = a;
+ for(b = 0; b&lt;100; b=b*b){
+ printf(&quot;\na = %d&quot;, a);
+ b++;
+ }
+}
+
+int a = 0, b;
+while(a * a &lt; 10){
+ b = a;
+ while(b * b &lt; 100){
+ printf(&quot;\na = %d&quot;, a + b);
+ b *= 2;
+ }
+ a++;
+}
+
+int a, b;
+for(a = 0; a &lt; 5; a++){
+ a = a*a;
+ b = a;
+ for(b = 0; b &lt; 50; b*=2){
+ printf(&quot;\na = %d&quot;, a + b);
+ b++;
+ }
+}
+
+int a, b;
+for(a = 0; a &lt; 10; ++a){
+ b = a;
+ for(b = 1; b &lt; 100; b*=2){
+ a++;
+ printf(&quot;\na = %d&quot;, a + b);
+ }
+}
+
+int a, b;
+for(a = 1; a &lt;= 10; a++){
+ a--; 
+b = a;
+ for(b = 0; b &lt; 60; b *= 2){
+ printf(&quot;\na = %d&quot;, a + b);
+ }
+}
+
+
+
+
+
+
+
+

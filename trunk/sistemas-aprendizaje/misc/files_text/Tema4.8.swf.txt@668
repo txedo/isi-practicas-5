@@ -1,0 +1,97 @@
+
+
+
+
+
+Derivadas de Orden Superior
+
+Ejemplo 1
+
+Ejemplo 2
+
+Funcion: 8x
+4
+ + 5x
+3
+ - x
+2
+ + 7
+
+Derivar
+
+Derivar
+
+Atras
+
+Atras
+
+Atras
+
+Usa los botones con flechas para ver la siguiente derivada o la anterior.
+
+f'(x) = 32x
+3
+ + 15x
+2
+ - 2x
+
+f''(x) = 96x
+2
+ + 30x - 2
+
+f'''(x) = 192x + 30
+
+f
+(4)
+(x) = 192
+
+f
+(5)
+(x) = 0
+
+f
+(n)
+(x) = 0 n > 5
+
+Funcion: 2sen x + 3cos x - x
+3
+
+Primera Derivada
+
+Primera Derivada
+
+Segunda Derivada
+
+Segunda Derivada
+
+Tercera Derivada
+
+Tercera Derivada
+
+Presiona los botones para ver la correspondiente derivada de la funcion.
+
+ d (2sen x + 3cos x - x
+3
+) = 2cos x - 3sen x - 3x
+2
+ 
+dx
+
+ d
+2
+ (2sen x + 3cos x - x
+3
+) = - 2sen x - 3cos x - 6x 
+dx
+2
+
+ d
+3
+ (2sen x + 3cos x - x
+3
+) = - 2cos x + 3sen x - 6 
+dx
+3
+
+
+

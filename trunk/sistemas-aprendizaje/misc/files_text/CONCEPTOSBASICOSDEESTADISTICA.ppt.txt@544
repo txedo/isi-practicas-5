@@ -1,0 +1,437 @@
+LEA ATENTAMENTE LA SIGUIENTE INFORMACION
+
+ESTADISTICA DESCRIPTIVA
+CONCEPTOS BASICOS
+INTRODUCCION
+La investigacion cuya finalidad es: el analisis o experimentacion de situaciones para el descubrimiento de nuevos hechos, la revision o establecimiento de teorias y las aplicaciones practicas de las mismas, se basa en los principios de Observacion y Razonamiento y necesita en su caracter cientifico el analisis tecnico de Datos para obtener de ellos informacion confiable y oportuna. Este analisis de Datos requiere de la Estadistica como una de sus principales herramientas, por lo que los investigadores de profesion y las personas que de una y otra forma la realizan requieren ademas de los conocimientos especializados en su campo de actividades, del manejo eficiente de los conceptos, tecnicas y procedimientos estadisticos.
+ESTADISTICA
+Es el conjunto de procedimientos y tecnicas empleadas para recolectar, organizar y analizar datos, los cuales sirven de base para tomar decisiones en las situaciones de incertidumbre que plantean las ciencias sociales o naturales.
+ESTADISTICA INDUCTIVA Y DEDUCTIVA
+Uno de los problemas fundamentales de la Estadistica es el estudio de la relacion existente entre una poblacion y sus muestras. Segun la direccion de tal relacion la Estadistica puede ser:
+Deductiva, cuando a partir del conocimiento de la poblacion se trata de caracterizar cada muestra posible.
+Inductiva, cuando a partir del conocimiento derivado de una muestra se pretende caracterizar la poblacion.
+ESTADISTICA DESCRIPTIVA E INFERENCIAL
+Estadistica Descriptiva se refiere a la recoleccion, presentacion, descripcion, analisis e interpretacion de una coleccion de datos, esencialmente consiste en resumir estos con uno o dos elementos de informacion (medidas descriptivas) que caracterizan la totalidad de los mismos. La estadistica Descriptiva es el metodo de obtener de un conjunto de datos conclusiones sobre si mismos y no sobrepasan el conocimiento proporcionado por estos. Puede utilizarse para resumir o describir cualquier conjunto ya sea que se trate de una poblacion o de una muestra, cuando en la etapa preliminar de la Inferencia Estadistica se conocen los elementos de una muestra.
+Estadistica Inferencial se refiere al proceso de lograr generalizaciones acerca de las propiedades del todo, poblacion, partiendo de lo especifico, muestra. las cuales llevan implicitos una serie de riesgos. Para que estas generalizaciones sean validas la muestra deben ser representativa de la poblacion y la calidad de la informacion debe ser controlada, ademas puesto que las conclusiones asi extraidas estan sujetas a errores, se tendra que especificar el riesgo o probabilidad que con que se pueden cometer esos errores. La estadistica inferencial es el conjunto de tecnicas que se utiliza para obtener conclusiones que sobrepasan los limites del conocimiento aportado por los datos, busca obtener informacion de un colectivo mediante un metodico procedimiento del manejo de datos de la muestra.
+
+En sus particularidades la Inferencia distingue la Estimacion y la Contrastacion de Hipotesis. Es estimacion cuando se usan las caracteristicas de la muestra para hacer inferencias sobre las caracteristicas de la poblacion. Es contrastacion de hipotesis cuando se usa la informacion de la muestra para responder a interrogantes sobre la poblacion.
+
+ANALISIS ESTADISTICO
+El analisis estadistico es todo el proceso de organizacion, procesamiento, reduccion e interpretacion de datos para realizar inferencias.
+
+DATOS Y VARIABLES
+Cuando se consideran los metodos de organizacion, reduccion y analisis de datos estadisticos, se hace necesario aclarar los siguientes conceptos.
+
+Variables: es toda caracteristica que varia de un elemento a otro de la poblacion.
+Datos: son medidas o valores de las caracteristicas susceptibles de observar y contar, se originan por la observacion de una o mas variables de un grupo de elementos o unidades
+CLASIFICACION DE VARIABLES
+
+Las variables pueden clasificarse en: categoricas o cualitativas (atributos), no tienen ningun grado de comparacion numerica, ejemplo: sexo, estado civil; y numericas o cuantitativas, son caracteristicas factibles de expresar por medio de numeros, estas pueden ser Discretas, que solo pueden tomar ciertos valores aislados en un intervalo, y Continuas, que pueden tomar cualquier valor en un intervalo.
+
+REPRESENTACION DE DATOS
+Los datos son colecciones de un numero cualquiera de observaciones relacionadas entre si, para que sean utiles se deben organizar de manera que faciliten su analisis, se puedan seleccionar tendencias, describir relaciones, determinar causas y efectos y permitan llegar a conclusiones logicas y tomar decisiones bien fundamentadas; por esa razon es necesario conocer lo metodos de Organizacion y Representacion, la finalidad de estos metodos es permitir ver rapidamente todas las caracteristicas posibles de los datos que se han recolectado.
+Representacion Tabular:
+Presenta las variable y las frecuencias con que los valores de estas se encuentran presentes en el estudio.
+Representacion Grafica :
+Se llaman graficas a las diferentes formas de expresar los datos utilizando los medios de representacion que proporciona la geometria.
+METODOS DE REPRESENTACION DE DATOS CUANTITATIVOS
+Arreglo de Datos. Es una forma de presentar los datos en un arreglo ascendente o descendente. Ofrece las ventajas siguientes: describe los valores minimos y maximos, en el se pueden dividir los datos facilmente en secciones, permite darse cuenta de los valores que aparecen mas de una vez, se puede observar la distancia entre valores consecutivos.
+
+Diagrama de Puntos. Muestra la frecuencia con que aparece cada uno de los valores
+Diagrama de Tallo y Hoja. Es util para realizar una exploracion preliminar del conjunto, genera una imagen adecuada de ellos sin perder informacion.
+Distribucion de Frecuencias. Es una forma de sintetizar los datos y consiste en valerse de una tabla para clasificar los datos segun su magnitud, en ella se senala el numero de veces que aparece cada uno de los valores. Cuando se dispone de un gran numero de valores discretos o cuando las variables son continuas, tiene sentido formar una tabla que presente la distribucion de frecuencias de los datos agrupados en intervalos o clases, de igual tamano si es posible, sin embargo una tabla de este tipo supone una concentracion de datos que produce perdida de informacion.
+
+DISTRIBUCION DE FRECUENCIAS
+Organizacion de datos agrupados
+Definiciones
+Clases o intervalos de clase: Grupo de valores que describen una caracteristica. Deben incluir todas las observaciones y ser excluyentes. Los intervalos contienen los limites de clase que son los puntos extremos del intervalo. Se denominan intervalos cerrados, cuando contienen ambos limites e intervalos abiertos si incluyen solo un limite.
+Limites Reales: Sirven para mantener la continuidad de las clases
+Anchura o tamano del intervalo: es la diferencia entre los limites reales de una clase
+Numero de clases: es el numero total de grupos en que se clasifica la informacion, se recomienda que no sea menor que 5 ni mayor que 15
+Marca de Clase: Es el punto medio del intervalo de clase, se recomienda observar que los puntos medios coincidan con los datos observados para minimizar el error.
+Frecuencia: es el numero de veces que aparece un valor
+Frecuencia Acumulada: Indica cuantos casos hay por debajo o arriba de un determinado valor o limite de clase.
+Frecuencia Relativa: Indica la proporcion que representa la frecuencia de cada intervalo de clase en relacion al total, es util para comparar varias distribuciones con parametros de referencia uniformes.
+Frecuencia Acumulada Relativa: Indica la proporcion de datos que se encuentra por arriba o debajo de cierto valor o limite de clase.
+
+Fragmento tomado de: http://sitios.ingenieria-usac.edu.gt/estadistica/estadistica2/estadisticadescriptiva.html
+
+
+
+ LEA EL SIGUIENTE TEMAMEDIDAS DESCRIPTIVAS
+
+MEDIDAS DESCRIPTIVAS
+Con estas medidas se persigue reducir en pocas cifras significativas el conjunto de observaciones de una variable y describir con ellas ciertas caracteristicas de los conjuntos, logrando una comparacion mas precisa de los datos que la que se puede conseguir con tablas y graficas.
+
+MEDIDAS DE TENDENCIA CENTRAL: PROMEDIOS
+Los promedios son una medida de posicion que dan una descripcion compacta de como estan centrados los datos y una visualizacion mas clara del nivel que alcanza la variable, pueden servir de base para medir o evaluar valores extremos o raros y brinda mayor facilidad para efectuar comparaciones.
+Es importante poner en relieve que la notacion de promedio lleva implicita la idea de variacion y que este numero promedio debe cumplir con la condicion de ser representativo de conjunto de datos.
+El promedio como punto tipico de los datos es el valor al rededor del cual se agrupan los demas valores de la variable.
+
+MEDIA ARITMETICA
+Es una medida matematica, un numero individual que representa razonablemente el comportamiento de todos los datos.
+Para datos no agrupados X = S xi / n
+Para datos agrupados X = S fi Xi / S fi
+donde Xi es la marca de clase para cada intervalo y fi es la frecuencia de clase
+Caracteristicas de la Media:
+1. En su calculo estan todos los valores del conjunto de datos por lo que cada uno afecta la media.
+2. La suma algebraica de las desviaciones de los valores individuales respecto a la media es cero.
+3. La suma del cuadrado de las desviaciones de una serie de datos a cualquier numero A es minimo si A = X
+4. Aunque es confiable porque refleja todos los valores del conjunto de datos puede ser afectada por los valores extremos, y de esa forma llegar a ser una medida menos representativa, por lo que si la distribucion es asimetrica, la media aritmetica no constituye un valor tipico.
+MEDIDAS DESCRIPTIVAS
+LA MODA
+Es el valor de un conjunto de datos que ocurre mas frecuentemente, se considera como el valor mas tipico de una serie de datos.
+Para datos agrupados se define como Clase Modal el intervalo que tiene mas frecuencia.
+La moda puede no existir o no ser unica, las distribuciones que presentan dos o mas maximos relativos se designan de modo general como bimodales o multimodales.
+
+LA MEDIANA
+Es el valor de la observacion que ocupa la posicion central de un conjunto de datos ordenados segun su magnitud. Es el valor medio o la media aritmetica de los valores medios. La mediana es un valor de la variable que deja por debajo de el un numero de casos igual al que deja por arriba.
+Geometricamente la mediana es el valor de la variable que corresponde a la vertical que divide al histograma en dos areas iguales.
+Cuando determinados valores de un conjunto de observaciones son muy grandes o pequenos con respecto a los demas, entonces la media aritmetica se puede distorsionar y perder su caracter representativo, en esos casos es conveniente utilizar la mediana como medida de tendencia central.
+
+MEDIA ARITMETICA PONDERADA
+En esta, para cada uno de los valores de xi se asigna un factor wi de peso, que depende de la importancia que el investigador desee darle.
+Xp = S ( xi wi) / S wi
+MEDIDAS DESCRIPTIVAS
+MEDIA GEOMETRICA
+Util cuando la variable cambia a lo largo del tiempo, esto es, en el calculo del promedio de tasas, razones, proporciones geometricas y relaciones de variables. Se utiliza en Matematicas Financieras y Finanzas para promediar numeros indices, tasas de cambio, etc.
+La media Geometrica de una serie de numeros es la raiz n-esima del producto de esos numeros
+M = n e (x 1 * x 2 * x 3 *.....*x n )
+Se ve afectada por todos los numeros y valores extremos pero en menor grado que la Media Aritmetica, su valor siempre es menor que el de esta.
+
+MEDIA ARMONICA
+Se utiliza para el promedio de rendimientos y velocidades. La Media Armonica de una serie de numeros es el reciproco de la media aritmetica del reciproco de esos numeros.
+1 / MH = [ S 1 / xi ] / n
+
+MEDIA CUADRATICA
+Es la raiz cuadrada de la media aritmetica de los cuadrados de los numeros, se usa eficientemente para promediar los errores o desviaciones porque es mas susceptible a los mismos.
+MC = 2 e S [ xi 2 ] / n
+
+LOS CUANTILES
+Son valores que dividen a la distribucion en n partes iguales
+Cuartiles, cuatro partes iguales: Q1, Q2, Q3
+Deciles, diez pares iguales : D1, D2..........D9
+Percentiles o centiles, cien partes iguales: P1, P2.....P99
+Los cuantiles permiten hacer un analisis minucioso de la distribucion, se utilizan generalmente cuando se quiere ubicar un dato dentro del conjunto. Por ejemplo. Pertenece el dato x al 50% superior ?, al 10% inferior? , al 50 % central?, etc.
+MEDIDAS DESCRIPTIVAS
+MEDIDAS DE DISPERSION
+Un rasgo principal de los datos es su dispersion o amplitud, que se refiere a su variabilidad, a la evaluacion de cuan separados o extendidos estan estos datos o bien cuanto difieren unos de otros.
+Variacion: es el grado en que los datos numericos tienden a extenderse al rededor de un valor, generalmente el valor medio.
+
+ RANGO
+Mide la dispersion de la totalidad de los datos. Es la mas obvia de las mediadas ya que es la distancia entre los valores maximo y minimo.
+El rango o recorrido da alguna idea del grado de variacion que ocurre en la poblacion, pero con frecuencia los resultados pueden ser enganosos, pues este depende de los valores extremos e ignora la variacion de las demas observaciones. Esta afectado por ocurrencias raras o extraordinarias.
+INTERVALO INTERDECIL
+Mide la dispersion del 80% de los datos centrales y se obtiene de la diferencia entre el decil 9 y el decil 1, evitando asi los puntos extremos.
+INTERVALO INTERCUARTIL :
+Cuando aumenta la dispersion de una distribucion de frecuencias, se amplia la distancia entre los cuartiles, por lo que esta distancia puede usarse como base de una medida de variabilidad
+El intervalo intercuartil, es el recorrido entre el cuartil 3 y el cuartil 1. Es el intervalo en el cual esta comprendido el 50% de los datos centrales.
+DESVIACION CUARTILICA
+Mide el intervalo promedio de un cuarto de los datos [Q3-Q1)/2]
+Si la distribucion es perfectamente simetrica, los dos cuartiles Q1 y Q3 equidistan de la mediana y la mitad de la distancia entre los cuartiles representa la distancia promedio entre ellos y la mediana.
+Si en una distribucion simetrica se mide una distancia igual a la desviacion cuartilica a ambos lados de un punto ubicado en el centro de los cuartiles, el 50% de los valores estaran incluidos dentro de esos limites y el valor del punto medio coincide con la mediana.
+La ventaja de la desviacion cuartilica es que evita los valores extremos utilizando unicamente la mitad intermedia de los datos.
+MEDIDAS DESCRIPTIVAS
+
+DESVIACION MEDIA
+La desviacion Media o Desviacion absoluta promedio, es la media aritmetica de las desviaciones absolutas de cada una de las observaciones con respecto a su valor central, la media aritmetica, o la mediana
+Cuanto mayor es su valor, mayor es la dispersion de los datos
+DM =[ S | xi . X | ] / n
+DM = [ S fi | xi - X | ] / S fi
+Las caracteristicas de esta media de dispersion son:
+1. Su valor depende del valor de cada observacion.
+2. Se puede calcular al rededor de la media o de la mediana.
+3. La desviacion promedio respecto a la mediana es un minimo
+4. Mide la desviacion de una observacion sin notar si esta por encima o por debajo del promedio.
+VARIANZA
+Otro tratamiento para evadir la suma cero de las desviaciones de las observaciones respecto a su Media Aritmetica, consiste en recurrir al proceso de elevar al cuadrado estas desviaciones y sumar los cuadrados, dividiendo la suma por el numero de casos, a esta cantidad se le denomina varianza, y es la mas importante de las medidas de variacion porque tiene la ventaja de no prescindir de los signos de las desviaciones, pero al igual que la desviacion media los valores extremos pueden distorsionarla
+s 2 = S ( xi - X ) 2 / n
+s 2 = S fi (xi-X ) 2 / S fi
+S 2 = S (xi-X) 2 / ( n)
+S 2 = S fi ( xi-X ) 2 / ( S fi )
+S 2 * = S (xi-X) 2 / ( n-1)
+S 2 *= S fi ( xi-X ) 2 / ( S fi -1)
+En inferencia, con una muestra tomada de una poblacion grande se pretende descubrir cuanto varian los datos al rededor de la media poblacional, si embargo cuando no se conoce la media de la poblacion se estima a partir de la media aritmetica de la muestra y esto hace que parezca menos variable de o que es en realidad, al dividir por n-1 se esta compensando por la variabilidad mas pequena que se observa en la muestra, por lo que S 2 * , la suma de cuadrados dividida por n-1 es considerado un estimador mas eficiente para la varianza poblacional.
+MEDIDAS DESCRIPTIVAS
+
+DESVIACION ESTANDAR
+Cuando se utiliza la varianza como medida de dispersion, para salvar el problema de trabajar con distintas dimensiones en la media y en la medida de variabilidad es necesario definir la Desviacion estandar como la raiz cuadrada de l varianza.
+La Desviacion Estandar es util para describir cuanto se apartan de la media de la distribucion los elementos individuales. Una medida de ello se denomina puntuacion estandar numero de desviaciones a las que determinada observacion se encuentra con respecto a la media.
+Puntuacion estandar de xi = (xi - X) / s
+Al comparar distribuciones tambien hacemos uso de la calificacion estandar.
+
+MEDIADAS DE DISPERSION RELATIVAS
+Cuando se necesita comparar dos o mas series de datos a veces no es posible hacerlo con las medidas absolutas, ya sea porque las unidades son diferentes o porque tienen diferente media, en estos casos deben utilizarse cantidades relativas definida generalmente como:
+Dispersion relativa = Dispersion absoluta / media
+COEFICIENTE DE VARIACION
+Es la medida de dispersion relativa mas usada y se define como el cociente de la desviacion estandar entre el promedio aritmetico, expresado en porcentaje y es adimensional
+V = S / X
+MEDIDAS DE ASIMETRIA Y CURTOSIS
+MEDIDAS DE SESGO O ASIMETRIA
+En las distribuciones que no toman la forma de una curva acampanada Normal, interesa muchas veces obtener dos medias adicionales, las de asimetria y curtosis. Las medidas de asimetria muestran si en la distribucion hay concentracion de datos en un extremo, superior o inferior, y se denomina Sesgo positivo o a la derecha si la concentracion es en el extremo inferior y Sesgo Negativo o a la izquierda si la concentracion es en el superior.
+MEDIDAS DESCRIPTIVAS
+COEFICIENTE DE PEARSON
+En las distribuciones simetricas, la media , la mediana y la moda coinciden y conforme la distribucion se separa de la simetria estos valores se separan, por lo que la mas corriente de las medidas de asimetria es la diferencia entre la moda y la media que se la mas sensible a los valores extremos
+Sk = ( X -Mo) / S
+Para cuando la moda no se encuentra bien definida se puede sustituir por la mediana
+Sk= 3 ( X -Me) / S
+Estas medidas se conocen como el primero y segundo coeficiente de Pearson y varian entre el intervalo + 3, es cero para la distribucion normal.
+MEDIDA CUARTIL DE ASIMETRIA
+En una distribucion simetrica los cuartiles quedan simetricamente colocados respecto a la mediana, pero si es asimetrica un cuartil se separa mas que otro. La medida cuartil de asimetria marca esta relacion
+Sk =[ ( Q3-Me) -( Me-Q1) ]/ ( Q3-Q1)
+Si la asimetria es a la derecha Q3 esta mas lejos de la mediana que Q1, si la asimetria es a la izquierda Q1 esta mas alejada de la mediana que Q3.Esta medida varia siempre entre + 1, si es cero la distribuciones normal.
+MEDIDAS DESCRIPTIVAS
+COEFICIENTE DE SESGO PERCENTILICO
+Se aplica con el mismo criterio de la medida Cuartil de Asimetria
+Sk = [( P90-P50) -(P50-P10) ]/ ( P90-P10)
+
+MEDIDAS DE CURTOSIS
+Al comparar cuan aguda es una distribucion en relacion con la Distribucion Normal, se pueden presentar diferentes grados de apuntalamiento.
+1. Mesocurtica, Normal
+2. PlarticurtiCa, Menor apuntalamiento
+3. Leptocurtica, Mayor apuntalamiento
+
+COEFICIENTE DE CURTOSIS PERCENTILICO
+Una medida del apuntalamiento o curtosis de la distribucion esta basada en los cuartiles y percentiles, y esta dada por el coeficiente de Curtosis Percentilico
+K= ( 0.5 ( Q3- Q1) ) / ( P90-P10)
+Para la distribucion normal K toma un valor de 0.263 y las distribuciones se definen como:
+Leptocurtica si k es mayor que 0.263
+Platicurtica si k es menor que 0.263
+
+
+LEE EL SIGUIENTE TEXTO Y RESPONDA LA PREGUNTA DE LA PAGINA SIGUIENTE
+
+Graficos de una Distribucion de Frecuencias
+Los graficos son utiles porque ponen en relieve y aclaran las tendencias que no se captan facilmente en la tabla, ayudan a estimar valores con una simple ojeada y brinda una verificacion grafica de la veracidad de las soluciones.
+
+Histograma:
+Esta formado por rectangulos cuya base es la amplitud del intervalo y tiene la caracteristica que la superficie que corresponde a las barras es representativa de la cantidad de casos o frecuencia de cada tramo de valores, puede construirse con clases que tienen el mismo tamano o diferente ( intervalo variable). La utilizacion de los intervalos de amplitud variable se recomienda cuando en alguno de los intervalos , de amplitud constante, se presente la frecuencia cero o la frecuencia de alguno o algunos de los intervalos sea mucho mayor que la de los demas, logrando asi que las observaciones se hallen mejor repartidas dentro del intervalo.
+
+Poligono de Frecuencias
+Se puede obtener uniendo cada punto medio (marca de clase) de los rectangulos del histograma con lineas rectas, teniendo cuidado de agregar al inicio y al final marcas de clase adicionales, con el objeto de asegurar la igualdad del areas.
+
+Curvas de frecuencia
+No es mas que la curva suavizada que se traza sobre el poligono y representa la asimetria y la curtosis que tiene la distribucion, permite visualizar un esquema mas claro del patron de datos. Existen varios tipos de curva de frecuencia: Curvas J, Simetricas o Asimetricas (sesgada a la derecha o a la izquierda), Unimodales, Bimodales y Multimodales.
+
+Ojivas: Cuando se trata de relacionar observaciones en un mismo aspecto para dos colectivos diferentes no es posible ejecutar comparaciones sobre la base de la frecuencia, es necesario tener una base estandar, la frecuencia relativa. La ojiva representa graficamente la forma en que se acumulan los datos y permiten ver cuantas observaciones se hallan por arriba o debajo de ciertos valores. Es util para obtener una medida de los cuartiles, deciles , percentiles.
+
+Fragmento tomado de: http://sitios.ingenieria-usac.edu.gt/estadistica/estadistica2/estadisticadescriptiva.html
+Office Theme
+LEA ATENTAMENTE LA SIGUIENTE INFORMACION
+
+ESTADISTICA DESCRIPTIVA
+CONCEPTOS BASICOS
+INTRODUCCION
+La investigacion cuya finalidad es: el analisis o experimentacion de situaciones para el descubrimiento de nuevos hechos, la revision o establecimiento de teorias y las aplicaciones practicas de las mismas, se basa en los principios de Observacion y Razonamiento y necesita en su caracter cientifico el analisis tecnico de Datos para obtener de ellos informacion confiable y oportuna. Este analisis de Datos requiere de la Estadistica como una de sus principales herramientas, por lo que los investigadores de profesion y las personas que de una y otra forma la realizan requieren ademas de los conocimientos especializados en su campo de actividades, del manejo eficiente de los conceptos, tecnicas y procedimientos estadisticos.
+ESTADISTICA
+Es el conjunto de procedimientos y tecnicas empleadas para recolectar, organizar y analizar datos, los cuales sirven de base para tomar decisiones en las situaciones de incertidumbre que plantean las ciencias sociales o naturales.
+ESTADISTICA INDUCTIVA Y DEDUCTIVA
+Uno de los problemas fundamentales de la Estadistica es el estudio de la relacion existente entre una poblacion y sus muestras. Segun la direccion de tal relacion la Estadistica puede ser:
+Deductiva, cuando a partir del conocimiento de la poblacion se trata de caracterizar cada muestra posible.
+Inductiva, cuando a partir del conocimiento derivado de una muestra se pretende caracterizar la poblacion.
+ESTADISTICA DESCRIPTIVA E INFERENCIAL
+Estadistica Descriptiva se refiere a la recoleccion, presentacion, descripcion, analisis e interpretacion de una coleccion de datos, esencialmente consiste en resumir estos con uno o dos elementos de informacion (medidas descriptivas) que caracterizan la totalidad de los mismos. La estadistica Descriptiva es el metodo de obtener de un conjunto de datos conclusiones sobre si mismos y no sobrepasan el conocimiento proporcionado por estos. Puede utilizarse para resumir o describir cualquier conjunto ya sea que se trate de una poblacion o de una muestra, cuando en la etapa preliminar de la Inferencia Estadistica se conocen los elementos de una muestra.
+Estadistica Inferencial se refiere al proceso de lograr generalizaciones acerca de las propiedades del todo, poblacion, partiendo de lo especifico, muestra. las cuales llevan implicitos una serie de riesgos. Para que estas generalizaciones sean validas la muestra deben ser representativa de la poblacion y la calidad de la informacion debe ser controlada, ademas puesto que las conclusiones asi extraidas estan sujetas a errores, se tendra que especificar el riesgo o probabilidad que con que se pueden cometer esos errores. La estadistica inferencial es el conjunto de tecnicas que se utiliza para obtener conclusiones que sobrepasan los limites del conocimiento aportado por los datos, busca obtener informacion de un colectivo mediante un metodico procedimiento del manejo de datos de la muestra.
+
+En sus particularidades la Inferencia distingue la Estimacion y la Contrastacion de Hipotesis. Es estimacion cuando se usan las caracteristicas de la muestra para hacer inferencias sobre las caracteristicas de la poblacion. Es contrastacion de hipotesis cuando se usa la informacion de la muestra para responder a interrogantes sobre la poblacion.
+
+ANALISIS ESTADISTICO
+El analisis estadistico es todo el proceso de organizacion, procesamiento, reduccion e interpretacion de datos para realizar inferencias.
+
+DATOS Y VARIABLES
+Cuando se consideran los metodos de organizacion, reduccion y analisis de datos estadisticos, se hace necesario aclarar los siguientes conceptos.
+
+Variables: es toda caracteristica que varia de un elemento a otro de la poblacion.
+Datos: son medidas o valores de las caracteristicas susceptibles de observar y contar, se originan por la observacion de una o mas variables de un grupo de elementos o unidades
+CLASIFICACION DE VARIABLES
+
+Las variables pueden clasificarse en: categoricas o cualitativas (atributos), no tienen ningun grado de comparacion numerica, ejemplo: sexo, estado civil; y numericas o cuantitativas, son caracteristicas factibles de expresar por medio de numeros, estas pueden ser Discretas, que solo pueden tomar ciertos valores aislados en un intervalo, y Continuas, que pueden tomar cualquier valor en un intervalo.
+
+REPRESENTACION DE DATOS
+Los datos son colecciones de un numero cualquiera de observaciones relacionadas entre si, para que sean utiles se deben organizar de manera que faciliten su analisis, se puedan seleccionar tendencias, describir relaciones, determinar causas y efectos y permitan llegar a conclusiones logicas y tomar decisiones bien fundamentadas; por esa razon es necesario conocer lo metodos de Organizacion y Representacion, la finalidad de estos metodos es permitir ver rapidamente todas las caracteristicas posibles de los datos que se han recolectado.
+Representacion Tabular:
+Presenta las variable y las frecuencias con que los valores de estas se encuentran presentes en el estudio.
+Representacion Grafica :
+Se llaman graficas a las diferentes formas de expresar los datos utilizando los medios de representacion que proporciona la geometria.
+METODOS DE REPRESENTACION DE DATOS CUANTITATIVOS
+Arreglo de Datos. Es una forma de presentar los datos en un arreglo ascendente o descendente. Ofrece las ventajas siguientes: describe los valores minimos y maximos, en el se pueden dividir los datos facilmente en secciones, permite darse cuenta de los valores que aparecen mas de una vez, se puede observar la distancia entre valores consecutivos.
+
+Diagrama de Puntos. Muestra la frecuencia con que aparece cada uno de los valores
+Diagrama de Tallo y Hoja. Es util para realizar una exploracion preliminar del conjunto, genera una imagen adecuada de ellos sin perder informacion.
+Distribucion de Frecuencias. Es una forma de sintetizar los datos y consiste en valerse de una tabla para clasificar los datos segun su magnitud, en ella se senala el numero de veces que aparece cada uno de los valores. Cuando se dispone de un gran numero de valores discretos o cuando las variables son continuas, tiene sentido formar una tabla que presente la distribucion de frecuencias de los datos agrupados en intervalos o clases, de igual tamano si es posible, sin embargo una tabla de este tipo supone una concentracion de datos que produce perdida de informacion.
+
+DISTRIBUCION DE FRECUENCIAS
+Organizacion de datos agrupados
+Definiciones
+Clases o intervalos de clase: Grupo de valores que describen una caracteristica. Deben incluir todas las observaciones y ser excluyentes. Los intervalos contienen los limites de clase que son los puntos extremos del intervalo. Se denominan intervalos cerrados, cuando contienen ambos limites e intervalos abiertos si incluyen solo un limite.
+Limites Reales: Sirven para mantener la continuidad de las clases
+Anchura o tamano del intervalo: es la diferencia entre los limites reales de una clase
+Numero de clases: es el numero total de grupos en que se clasifica la informacion, se recomienda que no sea menor que 5 ni mayor que 15
+Marca de Clase: Es el punto medio del intervalo de clase, se recomienda observar que los puntos medios coincidan con los datos observados para minimizar el error.
+Frecuencia: es el numero de veces que aparece un valor
+Frecuencia Acumulada: Indica cuantos casos hay por debajo o arriba de un determinado valor o limite de clase.
+Frecuencia Relativa: Indica la proporcion que representa la frecuencia de cada intervalo de clase en relacion al total, es util para comparar varias distribuciones con parametros de referencia uniformes.
+Frecuencia Acumulada Relativa: Indica la proporcion de datos que se encuentra por arriba o debajo de cierto valor o limite de clase.
+
+Fragmento tomado de: http://sitios.ingenieria-usac.edu.gt/estadistica/estadistica2/estadisticadescriptiva.html
+
+
+
+ LEA EL SIGUIENTE TEMAMEDIDAS DESCRIPTIVAS
+
+MEDIDAS DESCRIPTIVAS
+Con estas medidas se persigue reducir en pocas cifras significativas el conjunto de observaciones de una variable y describir con ellas ciertas caracteristicas de los conjuntos, logrando una comparacion mas precisa de los datos que la que se puede conseguir con tablas y graficas.
+
+MEDIDAS DE TENDENCIA CENTRAL: PROMEDIOS
+Los promedios son una medida de posicion que dan una descripcion compacta de como estan centrados los datos y una visualizacion mas clara del nivel que alcanza la variable, pueden servir de base para medir o evaluar valores extremos o raros y brinda mayor facilidad para efectuar comparaciones.
+Es importante poner en relieve que la notacion de promedio lleva implicita la idea de variacion y que este numero promedio debe cumplir con la condicion de ser representativo de conjunto de datos.
+El promedio como punto tipico de los datos es el valor al rededor del cual se agrupan los demas valores de la variable.
+
+MEDIA ARITMETICA
+Es una medida matematica, un numero individual que representa razonablemente el comportamiento de todos los datos.
+Para datos no agrupados X = S xi / n
+Para datos agrupados X = S fi Xi / S fi
+donde Xi es la marca de clase para cada intervalo y fi es la frecuencia de clase
+Caracteristicas de la Media:
+1. En su calculo estan todos los valores del conjunto de datos por lo que cada uno afecta la media.
+2. La suma algebraica de las desviaciones de los valores individuales respecto a la media es cero.
+3. La suma del cuadrado de las desviaciones de una serie de datos a cualquier numero A es minimo si A = X
+4. Aunque es confiable porque refleja todos los valores del conjunto de datos puede ser afectada por los valores extremos, y de esa forma llegar a ser una medida menos representativa, por lo que si la distribucion es asimetrica, la media aritmetica no constituye un valor tipico.
+MEDIDAS DESCRIPTIVAS
+LA MODA
+Es el valor de un conjunto de datos que ocurre mas frecuentemente, se considera como el valor mas tipico de una serie de datos.
+Para datos agrupados se define como Clase Modal el intervalo que tiene mas frecuencia.
+La moda puede no existir o no ser unica, las distribuciones que presentan dos o mas maximos relativos se designan de modo general como bimodales o multimodales.
+
+LA MEDIANA
+Es el valor de la observacion que ocupa la posicion central de un conjunto de datos ordenados segun su magnitud. Es el valor medio o la media aritmetica de los valores medios. La mediana es un valor de la variable que deja por debajo de el un numero de casos igual al que deja por arriba.
+Geometricamente la mediana es el valor de la variable que corresponde a la vertical que divide al histograma en dos areas iguales.
+Cuando determinados valores de un conjunto de observaciones son muy grandes o pequenos con respecto a los demas, entonces la media aritmetica se puede distorsionar y perder su caracter representativo, en esos casos es conveniente utilizar la mediana como medida de tendencia central.
+
+MEDIA ARITMETICA PONDERADA
+En esta, para cada uno de los valores de xi se asigna un factor wi de peso, que depende de la importancia que el investigador desee darle.
+Xp = S ( xi wi) / S wi
+MEDIDAS DESCRIPTIVAS
+MEDIA GEOMETRICA
+Util cuando la variable cambia a lo largo del tiempo, esto es, en el calculo del promedio de tasas, razones, proporciones geometricas y relaciones de variables. Se utiliza en Matematicas Financieras y Finanzas para promediar numeros indices, tasas de cambio, etc.
+La media Geometrica de una serie de numeros es la raiz n-esima del producto de esos numeros
+M = n e (x 1 * x 2 * x 3 *.....*x n )
+Se ve afectada por todos los numeros y valores extremos pero en menor grado que la Media Aritmetica, su valor siempre es menor que el de esta.
+
+MEDIA ARMONICA
+Se utiliza para el promedio de rendimientos y velocidades. La Media Armonica de una serie de numeros es el reciproco de la media aritmetica del reciproco de esos numeros.
+1 / MH = [ S 1 / xi ] / n
+
+MEDIA CUADRATICA
+Es la raiz cuadrada de la media aritmetica de los cuadrados de los numeros, se usa eficientemente para promediar los errores o desviaciones porque es mas susceptible a los mismos.
+MC = 2 e S [ xi 2 ] / n
+
+LOS CUANTILES
+Son valores que dividen a la distribucion en n partes iguales
+Cuartiles, cuatro partes iguales: Q1, Q2, Q3
+Deciles, diez pares iguales : D1, D2..........D9
+Percentiles o centiles, cien partes iguales: P1, P2.....P99
+Los cuantiles permiten hacer un analisis minucioso de la distribucion, se utilizan generalmente cuando se quiere ubicar un dato dentro del conjunto. Por ejemplo. Pertenece el dato x al 50% superior ?, al 10% inferior? , al 50 % central?, etc.
+MEDIDAS DESCRIPTIVAS
+MEDIDAS DE DISPERSION
+Un rasgo principal de los datos es su dispersion o amplitud, que se refiere a su variabilidad, a la evaluacion de cuan separados o extendidos estan estos datos o bien cuanto difieren unos de otros.
+Variacion: es el grado en que los datos numericos tienden a extenderse al rededor de un valor, generalmente el valor medio.
+
+ RANGO
+Mide la dispersion de la totalidad de los datos. Es la mas obvia de las mediadas ya que es la distancia entre los valores maximo y minimo.
+El rango o recorrido da alguna idea del grado de variacion que ocurre en la poblacion, pero con frecuencia los resultados pueden ser enganosos, pues este depende de los valores extremos e ignora la variacion de las demas observaciones. Esta afectado por ocurrencias raras o extraordinarias.
+INTERVALO INTERDECIL
+Mide la dispersion del 80% de los datos centrales y se obtiene de la diferencia entre el decil 9 y el decil 1, evitando asi los puntos extremos.
+INTERVALO INTERCUARTIL :
+Cuando aumenta la dispersion de una distribucion de frecuencias, se amplia la distancia entre los cuartiles, por lo que esta distancia puede usarse como base de una medida de variabilidad
+El intervalo intercuartil, es el recorrido entre el cuartil 3 y el cuartil 1. Es el intervalo en el cual esta comprendido el 50% de los datos centrales.
+DESVIACION CUARTILICA
+Mide el intervalo promedio de un cuarto de los datos [Q3-Q1)/2]
+Si la distribucion es perfectamente simetrica, los dos cuartiles Q1 y Q3 equidistan de la mediana y la mitad de la distancia entre los cuartiles representa la distancia promedio entre ellos y la mediana.
+Si en una distribucion simetrica se mide una distancia igual a la desviacion cuartilica a ambos lados de un punto ubicado en el centro de los cuartiles, el 50% de los valores estaran incluidos dentro de esos limites y el valor del punto medio coincide con la mediana.
+La ventaja de la desviacion cuartilica es que evita los valores extremos utilizando unicamente la mitad intermedia de los datos.
+MEDIDAS DESCRIPTIVAS
+
+DESVIACION MEDIA
+La desviacion Media o Desviacion absoluta promedio, es la media aritmetica de las desviaciones absolutas de cada una de las observaciones con respecto a su valor central, la media aritmetica, o la mediana
+Cuanto mayor es su valor, mayor es la dispersion de los datos
+DM =[ S | xi . X | ] / n
+DM = [ S fi | xi - X | ] / S fi
+Las caracteristicas de esta media de dispersion son:
+1. Su valor depende del valor de cada observacion.
+2. Se puede calcular al rededor de la media o de la mediana.
+3. La desviacion promedio respecto a la mediana es un minimo
+4. Mide la desviacion de una observacion sin notar si esta por encima o por debajo del promedio.
+VARIANZA
+Otro tratamiento para evadir la suma cero de las desviaciones de las observaciones respecto a su Media Aritmetica, consiste en recurrir al proceso de elevar al cuadrado estas desviaciones y sumar los cuadrados, dividiendo la suma por el numero de casos, a esta cantidad se le denomina varianza, y es la mas importante de las medidas de variacion porque tiene la ventaja de no prescindir de los signos de las desviaciones, pero al igual que la desviacion media los valores extremos pueden distorsionarla
+s 2 = S ( xi - X ) 2 / n
+s 2 = S fi (xi-X ) 2 / S fi
+S 2 = S (xi-X) 2 / ( n)
+S 2 = S fi ( xi-X ) 2 / ( S fi )
+S 2 * = S (xi-X) 2 / ( n-1)
+S 2 *= S fi ( xi-X ) 2 / ( S fi -1)
+En inferencia, con una muestra tomada de una poblacion grande se pretende descubrir cuanto varian los datos al rededor de la media poblacional, si embargo cuando no se conoce la media de la poblacion se estima a partir de la media aritmetica de la muestra y esto hace que parezca menos variable de o que es en realidad, al dividir por n-1 se esta compensando por la variabilidad mas pequena que se observa en la muestra, por lo que S 2 * , la suma de cuadrados dividida por n-1 es considerado un estimador mas eficiente para la varianza poblacional.
+MEDIDAS DESCRIPTIVAS
+
+DESVIACION ESTANDAR
+Cuando se utiliza la varianza como medida de dispersion, para salvar el problema de trabajar con distintas dimensiones en la media y en la medida de variabilidad es necesario definir la Desviacion estandar como la raiz cuadrada de l varianza.
+La Desviacion Estandar es util para describir cuanto se apartan de la media de la distribucion los elementos individuales. Una medida de ello se denomina puntuacion estandar numero de desviaciones a las que determinada observacion se encuentra con respecto a la media.
+Puntuacion estandar de xi = (xi - X) / s
+Al comparar distribuciones tambien hacemos uso de la calificacion estandar.
+
+MEDIADAS DE DISPERSION RELATIVAS
+Cuando se necesita comparar dos o mas series de datos a veces no es posible hacerlo con las medidas absolutas, ya sea porque las unidades son diferentes o porque tienen diferente media, en estos casos deben utilizarse cantidades relativas definida generalmente como:
+Dispersion relativa = Dispersion absoluta / media
+COEFICIENTE DE VARIACION
+Es la medida de dispersion relativa mas usada y se define como el cociente de la desviacion estandar entre el promedio aritmetico, expresado en porcentaje y es adimensional
+V = S / X
+MEDIDAS DE ASIMETRIA Y CURTOSIS
+MEDIDAS DE SESGO O ASIMETRIA
+En las distribuciones que no toman la forma de una curva acampanada Normal, interesa muchas veces obtener dos medias adicionales, las de asimetria y curtosis. Las medidas de asimetria muestran si en la distribucion hay concentracion de datos en un extremo, superior o inferior, y se denomina Sesgo positivo o a la derecha si la concentracion es en el extremo inferior y Sesgo Negativo o a la izquierda si la concentracion es en el superior.
+MEDIDAS DESCRIPTIVAS
+COEFICIENTE DE PEARSON
+En las distribuciones simetricas, la media , la mediana y la moda coinciden y conforme la distribucion se separa de la simetria estos valores se separan, por lo que la mas corriente de las medidas de asimetria es la diferencia entre la moda y la media que se la mas sensible a los valores extremos
+Sk = ( X -Mo) / S
+Para cuando la moda no se encuentra bien definida se puede sustituir por la mediana
+Sk= 3 ( X -Me) / S
+Estas medidas se conocen como el primero y segundo coeficiente de Pearson y varian entre el intervalo + 3, es cero para la distribucion normal.
+MEDIDA CUARTIL DE ASIMETRIA
+En una distribucion simetrica los cuartiles quedan simetricamente colocados respecto a la mediana, pero si es asimetrica un cuartil se separa mas que otro. La medida cuartil de asimetria marca esta relacion
+Sk =[ ( Q3-Me) -( Me-Q1) ]/ ( Q3-Q1)
+Si la asimetria es a la derecha Q3 esta mas lejos de la mediana que Q1, si la asimetria es a la izquierda Q1 esta mas alejada de la mediana que Q3.Esta medida varia siempre entre + 1, si es cero la distribuciones normal.
+MEDIDAS DESCRIPTIVAS
+COEFICIENTE DE SESGO PERCENTILICO
+Se aplica con el mismo criterio de la medida Cuartil de Asimetria
+Sk = [( P90-P50) -(P50-P10) ]/ ( P90-P10)
+
+MEDIDAS DE CURTOSIS
+Al comparar cuan aguda es una distribucion en relacion con la Distribucion Normal, se pueden presentar diferentes grados de apuntalamiento.
+1. Mesocurtica, Normal
+2. PlarticurtiCa, Menor apuntalamiento
+3. Leptocurtica, Mayor apuntalamiento
+
+COEFICIENTE DE CURTOSIS PERCENTILICO
+Una medida del apuntalamiento o curtosis de la distribucion esta basada en los cuartiles y percentiles, y esta dada por el coeficiente de Curtosis Percentilico
+K= ( 0.5 ( Q3- Q1) ) / ( P90-P10)
+Para la distribucion normal K toma un valor de 0.263 y las distribuciones se definen como:
+Leptocurtica si k es mayor que 0.263
+Platicurtica si k es menor que 0.263
+
+
+LEE EL SIGUIENTE TEXTO Y RESPONDA LA PREGUNTA DE LA PAGINA SIGUIENTE
+
+Graficos de una Distribucion de Frecuencias
+Los graficos son utiles porque ponen en relieve y aclaran las tendencias que no se captan facilmente en la tabla, ayudan a estimar valores con una simple ojeada y brinda una verificacion grafica de la veracidad de las soluciones.
+
+Histograma:
+Esta formado por rectangulos cuya base es la amplitud del intervalo y tiene la caracteristica que la superficie que corresponde a las barras es representativa de la cantidad de casos o frecuencia de cada tramo de valores, puede construirse con clases que tienen el mismo tamano o diferente ( intervalo variable). La utilizacion de los intervalos de amplitud variable se recomienda cuando en alguno de los intervalos , de amplitud constante, se presente la frecuencia cero o la frecuencia de alguno o algunos de los intervalos sea mucho mayor que la de los demas, logrando asi que las observaciones se hallen mejor repartidas dentro del intervalo.
+
+Poligono de Frecuencias
+Se puede obtener uniendo cada punto medio (marca de clase) de los rectangulos del histograma con lineas rectas, teniendo cuidado de agregar al inicio y al final marcas de clase adicionales, con el objeto de asegurar la igualdad del areas.
+
+Curvas de frecuencia
+No es mas que la curva suavizada que se traza sobre el poligono y representa la asimetria y la curtosis que tiene la distribucion, permite visualizar un esquema mas claro del patron de datos. Existen varios tipos de curva de frecuencia: Curvas J, Simetricas o Asimetricas (sesgada a la derecha o a la izquierda), Unimodales, Bimodales y Multimodales.
+
+Ojivas: Cuando se trata de relacionar observaciones en un mismo aspecto para dos colectivos diferentes no es posible ejecutar comparaciones sobre la base de la frecuencia, es necesario tener una base estandar, la frecuencia relativa. La ojiva representa graficamente la forma en que se acumulan los datos y permiten ver cuantas observaciones se hallan por arriba o debajo de ciertos valores. Es util para obtener una medida de los cuartiles, deciles , percentiles.
+
+Fragmento tomado de: http://sitios.ingenieria-usac.edu.gt/estadistica/estadistica2/estadisticadescriptiva.html

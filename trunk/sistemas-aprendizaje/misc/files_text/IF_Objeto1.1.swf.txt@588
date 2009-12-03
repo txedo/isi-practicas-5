@@ -1,0 +1,68 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int numero=100 ;
+int Divisor= 100;
+while(numero){
+if (numero&gt;20)
+break;
+if((numero%Divisor)&gt;=3)
+break;
+if((numero++)==divisor)
+break;
+
+break;
+
+}
+
+
+Verificar
+
+Verificar
+
+Verificar
+
+A¡ Incorrecto !
+
+A¡ Correcto !
+
+
+
+if (100 &lt; 100)
+prinft(a€œOpcion 1a€);
+else
+prinft(a€œOpcion 2a€);
+
+
+
+

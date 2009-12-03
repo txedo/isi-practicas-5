@@ -1,0 +1,280 @@
+
+
+
+
+
+
+1
+
+MMUG - Chile
+
+Siguiente
+
+Siguiente
+
+Anterior
+
+Anterior
+
+En este tutorial se asume que el usuario sabe que son las extensiones y como funcionan. 
+IntoducciA³n
+Hay varios tipos de extensiones, objetos, comandos, barras de herramientas, reportes, 
+inspectores de propiedades, paneles flotantes, comportamientos, y otros.
+La mayorA­a de las extensiones de Dreamweaver estA¡n escristas en HTML y Javascript. Hay 
+que tener en claro algunas cosas que son fundamentales a la hora de crear una extensiA³n 
+como, el tipo de extensiA³n que queremos crear, es decir, lo que queremos que haga en o 
+para nuestros documentos.
+Los tipos de extensiones que voy a explicar son: Objetos, Comandos y Comportamientos. 
+Comencemos por los Objetos.
+
+CREANDO EXTENSIONES DE DREAMWEAVER
+
+El folio se pone automA¡tico 
+en base al numero de 
+frame
+
+las flechas de avance se 
+colocan automA¡ticamente y 
+ya estan programadas
+
+Los objetos son pedazos de cA³digo que se insertan en el documento. Estos tienen tres 
+componentes que son fundamentales para su funcionamiento. El archivo objeto (HTML), una 
+imagen de 18x18 y el archivo insertbar.xml. Nosotros usaremos los dos primeros solamente.
+CA³mo trabajan los Objetos
+Hay dos maneras de insertar los objetos, una mediante el menAo Insertar y otra mediante la 
+selecciA³n de un A­tem del panel de Objetos (Ctrl+F2). Cuando esto ocurre, Dreamweaver 
+ejecuta los siguientes eventos:
+1. Dreamweaver llama a la funciA³n canInsertObject() para determinar si puede o no 
+insertar el objeto.
+2. Dreamweaver se fija si existe la etiqueta &lt;FORM&gt; (Formulario). Si existe un formulario y 
+si la opciA³n &quot;Mostrar diA¡logo al insertar objetos&quot; en las preferencias generales estA¡ ativa, 
+Dreamweaver llama a la funciA³n windowDimensions(). Si estA¡ definida, determina el 
+tamaA±o de la ventana de la extensiA³n. Si no existe la etiqueta &lt;FORM&gt;, Dreamweaver no 
+muestra ninguna ventana y se salta el paso 2.
+3. Si Dreamweaver muestra la ventana, el usuario ingresa los parA¡metros del objeto (como 
+el nAomero de filas y columnas de una tabla) en la cajita de diA¡logo y depuA©s presiona OK 
+para insertar el objeto.
+
+OBJETOS
+
+4. La funciA³n objectTag() es llamada, e inserta el valor retornado por la funciA³n en el 
+documento despuA©s de la selecciA³n actual (no reemplaza la selecciA³n actual).
+5. Si Dreamweaver no encuentra la funciA³n objectTag(), busca y llama a la funciA³n 
+insertObject().
+Algunas de estas funciones deben estar obligatoriamente en el archivo objeto o en un 
+archivo &quot;.js&quot; externo. Si las funciones estA¡n el el archivo objeto deben ir entre los tags 
+&lt;head&gt; y &lt;/head&gt;.
+
+ContinuaciA³n de CA³mo trabajan los Objetos
+
+canInsertObject()
+Disponibilidad
+Dreamweaver MX
+DescripciA³n
+Determina si puede desplegar la caja de diA¡logo del objeto. 
+Argumentos
+Ninguno. 
+Retorna
+Un valor Booleano.
+
+FUNCIONES DE OBJETOS
+
+Ejemplo:
+function canInsertObject()
+{
+ var documento = dw.getDocumentDOM().documentElement.outerHTML;
+ var texto = /pelota/;
+ var encontrado = ( documento.search(texto) != -1 );
+ var sePuede = true; 
+ 
+ if (!encontrado)
+ {
+ sePuede = false;
+ alert(&quot;El documento debe contener la palabra 'pelota' para usar este objeto.&quot;);
+ }
+ return sePuede;
+}
+
+dw.getDocumentDOM().documentElement.outerHTML nos devuelve todo lo que aparece en el 
+documento incluso los tags. Investiga acerca del &quot;Modelo de Objetos de Documento&quot; (DOM) 
+de Dreamweaver.
+Para el ejemplo es necesario que en el documento exista la palabra &quot;pelota&quot; para poder 
+insertar el objeto. Si no se necesitan restricciones para agregar el objeto al documento, la 
+funciA³n puede ser escrita de la siguiente manera (opcional):
+function canInsertObject()
+{
+ return true;
+}
+Si no se inserta la funciA³n en el documento objeto, Dreamweaver asume que puede insertar 
+el objeto en el documento.
+
+ContinuaciA³n de Ejemplo
+
+displayHelp()
+DescripciA³n
+Si esta funciA³n estA¡ definida, despliega un botA³n de Ayuda despues de los botones Aceptar y 
+Cancelar. Esta funciA³n es llamada cuando el usuario hace click en el botA³n Ayuda.
+Argumentos
+Ninguno.
+Retorna
+Dreamweaver no espera ningAon retorno. Ejecuta las operaciones que estA¡n dentro de la 
+funciA³n.
+
+Ejemplo:
+// la siguiente instancia de displayHelp() abre en el navegador 
+// el archivo de ayuda que explica como usar nuestra extensiA³n.
+function displayHelp(){
+ var miAyuda = dw.getConfigurationPath() + '/AyudaExtensiones/miArchivoAyuda.htm';
+ dw.browseDocument(miAyuda);
+}
+En el ejemplo dw.getConfigurationPath() es la ruta donde estA¡n todas las extensiones de 
+Dreamweaver.
+dw.browseDocument() abre en el navegador el archivo referenciado por miAyuda.
+
+isDomRequired()
+DescripciA³n
+Se determina si el objeto requiere un DOM vA¡lido para funcionar. Si esta funciA³n devuelve 
+verdadero o si la funciA³n no se define, Dreamweaver asume que el comando requiere un 
+DOM vA¡lido y sincroniza las vistas cA³digo y diseA±o en el documento antes de ejecutarse. La 
+sincronizaciA³n actualiza la vista diseA±o a partir de los cambios realizados en la vista cA³digo. 
+Argumentos 
+None. 
+Retorna
+Dreamweaver espera un valor verdadero si un comando requiere un DOM vA¡lido para 
+funcionar; falso de lo contrario.
+
+Ejemplo:
+function isDomRequired()
+{
+ return false;
+}
+En el ejemplo, el objeto que queremos inertar no necesita un DOM vA¡lido para ser insertado.
+
+insertObject()
+Disponibilidad 
+Dreamweaver MX
+DescripciA³n
+Requerido si objectTag() no se define. Esta funciA³n es llamada cuando el usuario hace click 
+en Aceptar; inserta cA³digo en el documento y quita la caja de diA¡logo, o muestra un mensaje 
+de error y deja la caja de diA¡logo abierta. Esto trabaja como funciA³n alterna para utilizar en 
+objetos en vez de objectTag(). No se asume que el usuario estA¡ insertando el objeto en el 
+punto de inserciA³n actual y tiene en cuenta la validaciA³n de datos cuando el usuario hace 
+click en OK. Se debe utilizar insertObject() si existe una de las siguientes condiciones:
+A· Necesita insertar cA³digo en mA¡s de un lugar.
+A· Necesita insertar cA³digo en alguna parte con excepciA³n del punto de inserciA³n.
+A· Necesita validar la entrada antes de insertar cA³digo.
+Si no necesita ninguna de estas condiciones, use objectTag().
+
+Argumentos
+Ninguno.
+Retorna
+El objeto que se quiere insertar o, Dreamweaver espera una cadena que contenga un 
+mensaje de error o una secuencia vacA­a. Si devuelve una secuencia vacA­a, la caja de diA¡logo 
+del objeto se cierra cuando el usuario hace click en Aceptar y no muestra ningAon mensaje. Si 
+no es vacA­a, Dreamweaver exhibe el mensaje de error y retorna a la caja de diA¡logo.
+
+ContinuaciA³n de insertObject
+
+Ejemplo:
+function insertObject()
+{
+ var theForm = document.forms[0];
+ var nUsuario = theForm.firstField.value;
+ var Contrasena = theForm.secondField.value;
+ var errMsg = &quot;&quot;;
+ var esValido = true;
+// asegurarse de que los valores introducidos son vA¡lidos 
+ if (nUsuario == &quot;&quot; || Contrasena == &quot;&quot;){
+ errMsg = &quot;Completa todos los datos o presiona Cancelar.&quot;
+ } else if (nUsuario.length &lt; 4 || Contrasena.length &lt; 6) {
+ errMsg = &quot;Tu nombre de usuario debe tener al menos 4 caracteres y tu contraseA±a al 
+menos 6&quot;;
+ }
+ if (!errMsg){ 
+ //Manipula el documento aqui.
+ }
+ return errMsg;
+}
+
+objectTag()
+DescripciA³n
+Las funciones objectTag() e insertObject() son mutuamente exclusivas; si ambos se definen 
+en un documento, entonces el objectTag() se utiliza.
+Inserta una cadena de cA³digo en el documento. En Dreamweaver 4, si la selecciA³n era un 
+rango (significa que no era un punto de inserciA³n), el rango era substituido por la secuencia 
+que el objectTag() devolvA­a. Esto se producA­a, incluso si el objectTag() devolvA­a una 
+secuencia vacA­a. En Dreamweaver MX, devolviendo una secuencia vacA­a, o retornando 
+&quot;return;&quot;, es una seA±al para que Dreamweaver de no haga nada, a menos que se modifique 
+el documento.
+Argumentos
+Ninguno.
+Retorna
+Dreamweaver espera la cadena a ser insertada en el documento.
+
+Ejemplo:
+function objectTag()
+{
+ return '&lt;object classid=&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot; 
+codebase=&quot;http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#versio
+n=6,0,29,0&quot; width=&quot;'+ancho+'&quot; height=&quot;'+alto+'&quot;&gt;\n&lt;param name=&quot;movie&quot; 
+value=&quot;'+pelicula+'&quot;&gt;\n&lt;param name=&quot;quality&quot; value=&quot;high&quot;&gt;\n&lt;embed src=&quot;'+pelicula+'&quot; 
+width=&quot;'+ancho+'&quot; height=&quot;'+alto+'&quot; quality=&quot;high&quot; 
+pluginspage=&quot;http://www.macromedia.com/go/getflashplayer&quot; type=&quot;application/x-
+shockwave-flash&quot; menu=&quot;false&quot;&gt;&lt;/embed&gt;\n&lt;/object&gt;';
+}
+En el ejemplo se inserta una pelicula flash.
+Veamos ahora un ejemplo completo.
+
+Utilizaremos las funciones en el mismo archivo objeto, las cuales podrA­an perfectamente ir en 
+un archivo &quot;.js&quot;.
+Primero veamos lo que queremos hacer en nuestro documento.
+Pues bien, he decidido insertar un email en la pA¡gina, que por supuesto serA¡ un link a A©ste. 
+Llamaremos a esta extensiA³n, sA³lo por esta vez, &quot;Mi primera ExtensiA³n&quot;. Para posteriores 
+creaciones de extensiones se ruega utilizar nombres que identifiquen claramente lo que 
+realiza la extensiA³n.
+Creamos un nuevo documento y lo guardamos en 
+&quot;Ruta_de_Dreamweaver\Configuration\Objects\Common\Mi Primera Extension.htm&quot;.
+Ahora Creamos una imagen de 18x18 y la guardamos en la misma ruta y con el mismo 
+nombre, pero distinta extensiA³n de archivo (Ej: Mi Primera Extension.gif).
+Insertamos el siguiente cA³digo:
+
+EJEMPLO COMPLETO
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Mi primera extensi&amp;oacute;n&lt;/title&gt;
+&lt;script language=&quot;javascript&quot;&gt;
+function objectTag()
+{
+var email;
+email=document.form1.email.value;
+if(email!=&quot;&quot;)
+{
+return &quot;&lt;a href=\&quot;mailto:&quot;+email+&quot;\&quot;&gt;&quot;+email+&quot;&lt;/a&gt;&quot;;
+}
+else
+{
+return;
+}
+}
+&lt;/script&gt;
+&lt;/head&gt;
+
+ContinuaciA³n de Ejemplo Completo
+
+&lt;body&gt;
+&lt;form name=&quot;form1&quot;&gt;
+ &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;3&quot;&gt;
+ &lt;tr&gt; 
+ &lt;td&gt;Email:&lt;/td&gt;
+ &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;email&quot;&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+AsA­ se ve el diseA±o de nuestra extensiA³n
+
+Cerramos Dreamweaver, lo volvemos a abrir, vamos al menAo insertar, presionamos sobre Mi Primera Extension y asA­ se ve nuestra extensiA³n en funcionamientoAl presionar Aceptar se insertarA¡ en el documento el email ingresado, si no se ingresa nada, no se escribe nada en el documento.Bien, aquA­ termina esta primera parte de &quot;Creando Extensiones de Dreamweaver&quot;, la segunda, contempla los Comportamientos. TratarA© de tenerlo lo mA¡s pronto posible, pero ya podemos comenzar a investigar un poquito mA¡s.
+
+

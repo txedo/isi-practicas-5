@@ -1,0 +1,750 @@
+Linux Para Novatos ­ 1
+
+www.odisss.org
+
+1
+
+3 4
+5
+
+1) Introduccion
+El objetivo de este manual es ayudar a los que no han escuchado de GNU/Linux o se hayan decidido hace poco a probarlo, y asi conseguir que pierdan el miedo a sumergirse en este mundo. Por lo tanto, esta principalmente dirigido a los acostumbrados a Windows, por lo que intentare despejar todas las dudas que podais tener, y demostrar que en GNU/Linux se puede hacer lo mismo que en Windows y mucho mas Es por eso que en este articulo voy a explicar como instalar una distribucion GNU/Linux, y ensenare a poder empezar a realizar ciertas tareas comunes, como instalar programas, quemar cds, escuchar musica, utilizar Internet o el messenger. Todo con software libre y gratuito Empecemos....
+
+6 7 8
+9
+
+10 11
+12
+
+13
+14 15
+
+1.1) ¿Que es GNU/Linux?
+GNU/Linux es el Sistema Operativo que utiliza el kernel (nucleo) Linux en conjunto con las aplicaciones de sistema creadas por el proyecto GNU. Ya sea por desconocimiento o por comodidad, se denomina comunmente a este Sistema Operativo simplemente Linux. Esto NO es la denominacion correcta del sistema operativo "Linux", pero como he dicho, se suele decir Linux "asecas" por comodidad. Para entender bien esto, primero debemos saber que es GNU, y que es Linux
+
+16 17 18 19
+20 21 22 23 24
+
+1.1.1) En el Principio Solo Habia GNU.... El proyecto GNU (acronimo recursivo de GNU Not Unix--GNU No es Unix) fue fundado por Richard Stallman alla por el ano 1983. El objetivo de este proyecto era crear un Sistema Operativo formado completamente de software libre parecido a Unix (pero recordad que GNU No es Unix ;-) ), el cual seria el Sistema GNU. Unix no era un sistema libre, pero era un sistema que habia demostrado su gran eficacia, y es por esto que el proyecto GNU fue disenado para ser completamente compatible con Unix. Para garantizar que el proyecto GNU fuera libre, se creo la licencia "General Public License" (GPL), mediante la cual se aseguraba que los usuarios pudieran "ejecutarlo, copiarlo, modificarlo y distribuirlo". Bajo Licencia GFDL Por kurin(kurin@odiss.org)
+
+25 26 27 28 29 30
+
+Linux Para Novatos ­ 1
+31
+
+www.odisss.org
+
+Para el ano 1990 el proyecto GNU ya contaba con un editor de texto (Emacs) un compilador (GCC) y multiples librerias y utilidades que componen un sistema Unix tipico. Ahora solo faltaba un corazon para hacer funcionar el cuerpo... 1.1.2) Enter Linux En 1991 un estudiante de la Universidad de Helsinki llamado Linus Torvalds manda a la comunidad Usenet de Minix (un clon de Unix) un mensaje explicando un proyecto que tiene en mente: quiere crear un sistema operativo libre a partir de un nucleo que ha portado con exito. Poco sabia el que a partir de ese momento se le unirian programadores de todo el mundo para mejorar ese nucleo, el cual se acabo llamando Linux. Linus decidio distribuir su nucleo bajo la licencia GPL. Un ano despues, el proyecto GNU seguia sin tener un nucleo para su Sistema Operativo, y dado que el nucleo Linux fue distribuido bajo la licencia GPL y carecia de herramientas como las de GNU, se decidio (por comodidad) que ambos se unirian para crear el Sistema Operativo libre GNU/Linux, el cual por fin estaba completamente funcional. GNU mientras tanto estaba desarrollando un nucleo propio llamado HURD, pero a dia de hoy todavia no esta completamente funcional, ya que al tener ya un nucleo, se le dio menos prioridad a un sistema completamente GNU. Por lo tanto, podemos ver que lo que comunmente se llama "Linux" es en realidad (y lo mismo que) el conjunto de las herramientas GNU con el nucleo Linux, resultando en un Sistema Operativo llamado GNU/Linux
+
+32 33
+34 35 36
+
+37 38 39 40
+41 42
+
+43 44 45
+46
+
+47 48
+49 50
+
+51 52
+53
+
+54
+55
+
+1.2)¿Por que Cambiar?
+Como he dicho antes, GNU/Linux esta distribuido bajo la licencia GPL. ¿Que quiere decir esto? Pues que puedes copiarlo, modificarlo, distribuirlo.... Es decir, puedes hacer lo que te de la real gana con el, siempre y cuando tu le pases esos derechos al que se lo distribuyas/copies/dejes... Hay mucha gente de todo el mundo que ha trabajado muy duro para que tu disfrutes de este "producto", y una gran ventaja que tienes es que seguiran haciendolo, ya que al poder ser modificado, se puede seguir desarrollando por lo que siempre esta todo en constante mejora (no hay una empresa que saca actualizaciones 1 ano despues de que se encuentra un fallo GRAVE en su producto) por la comunidad de usuarios. Se sale del objetivo del articulo el explicar detalladamente que es el software libre o la GPL, por lo que os recomiendo que visiteis http://www.es.gnu.org/licencias/gples.html y http://www.hackxcrack.com/phpBB2/viewtopic.php?t=9520 . Si seguis teniendo mas preguntas, hacednoslo saber en el foro (www.odiss.org)
+
+56 57 58 59 60 61 62 63 64
+65
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+66
+
+www.odisss.org
+
+Podemos ver entonces, que una gran ventaja es que ya no tienes que ir mendigando cracks, ni warez, ni serials, porque (casi) todo se te da ya listo para que te lo bajes, copies y distribuyas a quien quieras (amigos, familia...), y por una vez, no tendras el miedo de lo que te puede pasar por ir copiando programas (aunque la verdad no se si lo teniais de todos modos ). Ademas, y gracias a esto, existen MUY pocos virus para este S.O, y los que hay, son practicamente inofensivos. Si, todo cambio es dificil, pero si es para bien, vale el esfuerzo.
+
+67 68 69 70
+71 72 73
+
+74
+75 76
+
+1.3) Bueno me has Convencido, ¿Como lo Consigo?
+GNU/Linux se puede obtener de diversas maneras. Se podria decir que GNU/Linux esta dividido en "sabores", y tu tienes que elegir el sabor que mas se adecue a tus necesidades. Hay algunos sabores que estan hechos para personas con pocos conocimientos informaticos, otros para programadores, otros especializados en la deteccion de hardware, e incluso hay sabores que se utilizan directamente desde el CD sin tener que instalar nada, y al apagar es como si nada hubiera pasado. ), y las Distros que se ejecutan desde el CD se llaman "Live-Cds". Al estar distribuidas bajo la licencia GPL (la mayoria), puedes copiar y regalar las distribuciones Linux a la cantidad de gente que quieras, las veces que quieras. Pero esto no quiere decir que en un principio no hayas tenido que pagar por ellas, ya que hay algunas distribuciones que NO son gratis, como es el caso de SUSE o Red Hat. Esta ultima esta especializada en empresas e incluye servicio de mantenimiento y diversas otras cosas, que es lo que se paga, no se paga el S.O. En este articulo me voy a centrar en la distribucion Ubuntu (gratuita) ya que creo que es una de las mejores para los que empiezan en Linux por su sencillez y funcionalidad. No obstante, te invito a que visites la web http://www.zegeniestudios.net/ldc/index.php (en perfecto ingles eso si) que mediante un test te ayudara a elegir la distribucion adecuada a ti. Y es este el "punto" o "fin" de las distribuciones, adecuarse a el usuario como un guante, ya que a todos nos gusta tener las cosas hechas "a medida". Al poderse modificar el propio S.O, surgieron SS.OO (Sistemas Operativos) adaptados o "tuneados" que acabaron evolucionando en las distros actuales al unirse mas personas a esos proyectos, y algunos decidieron comercializarlas, y otros no. Por lo tanto, quedamos en que la manera de hacerse con un Sistema GNU/Linux es conseguir una Distribucion ¿no? Bien
+
+77 78 79 80
+
+81 Esto que yo llamo sabores se conocen como "Distribuciones Linux" o "Distros" (como siempre, haciendolo
+
+82 comodo
+83
+
+84 85 86 87 88 89 90 91
+92
+
+93 94 95
+96 97
+
+98
+99 100
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+101 102 103 104 105
+
+www.odisss.org
+
+1.3.1) Vale, pero ¿Donde lo Consigo? Tienes varias posibilidades: A) Puedes bajarte una distribucion de internet, normalmente de la pagina de la propia Distribucion. Tambien existen paginas especializadas donde hay diversas distros para elegir, como http://www.linuxiso.org/
+
+106
+107 108
+
+B) Cada mes en las revistas especializadas en Linux viene de regalo un CD/DVD con una o mas distribuciones.
+
+109
+110 111 112 113
+
+C) Pidesela a algun conocido que tenga Linux, estoy seguro que te querra ayudar Bueno, ya estamos listos para empezar la instalacion. Mi objetivo es que perdais el miedo a instalar GNU/Linux, ya que hay muchos "mitos" sobre cosas que no funcionan y ordenadores que se rompen, los cuales son completamente FALSOS (bueno, casi completamente, hay mucho tontito suelto CD (se ejecuta directamente desde el CD-ROM) como Knoppix(http://www.knoppix.org/). ¿Ya? ¡Genial!, ¡Vamos alla! ). Recordad que si quereis hacer una prueba antes de poneros a instalar cosas podeis utilizar una Live-
+
+114 115
+116
+
+117
+118 119 120 121
+
+122
+123 124 125 126
+
+2) Instalacion
+2.1) Pasos Previos Bueno despues de un poco de historia y esa parrafada (imprescindible), vamos directos al tema. Os voy a ensenar a instalar una distribucion llamada Ubuntu (si te has leido la parrafada sabras de lo que estoy hablando ). Podeis visitar su web en http://www.ubuntulinux.org/ y descargarla directamente de http://se.releases.ubuntu.com/5.10/ubuntu-5.10-install-i386.iso. Con una conexion ADSL normal (la de telefonica tambien cuenta), tardara unas 2 horas. Voy a ir paso a paso por todo el proceso tipico de instalacion, asi que perdon si parece que insulto vuestra inteligencia
+
+127 128
+129
+
+130 131
+132
+
+133
+134 135
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+136
+
+www.odisss.org
+
+Una nota importante, si no tenemos espacio libre, podemos utilizar un programa como "partition magic" o GNU parted para "reparticionar" nuestro disco duro. Por espacio libre, me refiero a espacio "no asignado". Esto es, que no tiene formato. No son los MB/GB que tengas libre en "C:\" o "D:\". Seguramente si tienes Windows tendras que "reparticionar" tu disco duro. El proceso de reparticionar consiste en cambiar de tamano una particion existente reduciendo el tamano del mismo. De esta manera dispondremos de espacio libre en el disco no asignado a ninguna particion. Si no tienes el Partition Magic, me imagino que sabras donde conseguirlo El Partition Magic es muy facil de utilizar asi que no creo que tengais problemas con eso. No obstante os voy a decir como hacerlo en un caso tipico. En caso de que si tengamos espacio libre, pasad directamente a la seccion 2.2. Teniendo el cd con el "Partition Magic" metido adentro del lector de CDs, lo primero que debemos hacer es reiniciar el ordenador, y en el menu que nos sale al principio, buscamos normalmente por abajo, algo que se parezca a "Boot menu" o "Menu de arranque"(ver Imagen 1)
+
+137 138 139 140 141
+142
+
+143 144
+145 146
+
+147 148
+149 150
+151 152 153 154 155 156 157 158 159 160 161 162 163 164 165
+
+Imagen 1
+
+166 167
+
+Normalmente sera una tecla como "F8" o "F12". Una vez hecho esto, seleccionamos "arrancar desde CD-ROM" o algo parecido. Cuando hagamos eso, nos encontraremos con esta pantalla(ver Imagen 2):
+
+168
+169
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+170 171 172 173 174 175 176 177 178 179 180 181
+182
+
+www.odisss.org
+
+Imagen 2
+
+183 184
+
+Aqui presionaremos "1." para iniciar en el programa y luego elegiremos nuestro idioma (en mi caso el "3"). Despues de que cargue nos encontraremos con esto(ver Imagen 3):
+
+185
+186 187 188
+
+189
+190 191 192 193 194 195 196 197 198 199 200 201 202 203 204
+Imagen 3
+
+Teniendo seleccionada la particion de Windows, es decir, la NTFS, le damos a lo que he marcado antes. Nos saldra esto(ver Imagen 4)
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+205 206 207 208 209 210 211
+212 213 214
+
+www.odisss.org
+
+Imagen 4 Imagen 4
+
+215
+
+Lo que esta sombreado es el espacio que Windows nos ocupa ahora. Para hacer un poco de espacio para Linux tendremos que mover lo que he senalado en azul hacia la izquierda, para que quede de 5-10 GB libres (vosotros podreis calcularlo ¿no? vaya mal algo, asi que tranquilos. Bien pues cuando lo hallamos hecho le damos a "Aceptar", y vamos a "General"--> "Aplicar Cambios" --> "Si". Ahora dependiendo de como de grande hayais hecho la particion, tardara un ratito, mas o menos unos 15mins. Una vez haya acabado, le damos a salir y reiniciamos. Ya estamos listos para el proceso de instalacion. Si tienes un disco de 80GB y esta todo con Windows, pues lo mueves hasta que en "nuevo tamano" ponga 75000). Existe MUY poco riesgo, por no decir ninguno, de que
+
+216 217 218 219
+220 221
+
+222 223 224
+225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+
+www.odisss.org
+
+241
+242 243
+
+2.2) Proceso de Instalacion
+Para los que no se hayan leido lo de arriba, para empezar debemos de tener el CD de la distro "Ubuntu" metido adentro del lector de Cds. Luego debemos reiniciar el ordenador, y en el menu que nos sale al principio, buscamos normalmente por abajo, algo que se parezca a "Boot menu" o "Menu de arranque" (si hay dudas mira un poco mas arriba). Normalmente sera una tecla como "F8" o "F12". Al hacer esto, nos saldra una pantalla de bienvenida (ver Imagen 5):
+
+244 245 246 247
+248 249 250 251 252 253 254 255 256 257 258 259
+260
+
+Imagen 5
+
+261 262 263
+
+y como bien indica, debemos presionar intro. Al hacer esto, el programa de instalacion detectara automaticamente tu hardware e iniciara la interfaz grafica para seguir con la instalacion. Ahora nos pide el idioma, yo en mi caso elegire el espanol, pero si quieres elegir farsi alla tu... A continuacion debes elegir tu localizacion, en mi caso Espana. Con el teclado haremos lo mismo, yo elijo espanol. Ahora lo que hara es detectar tu hardware. Despues, mirando en el cd, cargara los modulos para la instalacion, entre los que se incluye la configuracion de red (Internet vamos). Aqui pueden pasar 2 cosas, si tienes un router, es decir, una de esas cosas que son bastante grandes que se parecen a esto(ver Imagen 6): (puede ser de otro color, de otra forma, pero se parece mas o menos) la "instalacion" de Internet se hara automaticamente.
+
+264 265
+266
+
+267 268
+269
+
+270
+271 272
+
+273
+274 275
+276
+
+Imagen 6
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+277
+
+www.odisss.org
+
+Pero si por el contrario tienes un modem usb, como puede ser el que viene con el "kit adsl de terra" o similar, o te conectas mediante una conexion de modem normal (56kbps) pues aparecera esta pantalla(ver Imagen 7):
+
+278 279
+280
+281
+
+282
+
+Aunque este en rojo no significa que vaya a estallar, por ahora le damos a continuar, y mas adelante explicare como configurar tu modem usb o modem normal. Imagen 7 A continuacion, nos pide el nombre que le queremos poner a la maquina, puedes ponerle el nombre que quieras, pero por ahora llamemoslo Ubuntu, para mantener todo "generico". Al darle a continuar, detectara algo mas de hardware, y seguido nos saldra esto(ver Imagen 8) : Esta es la parte mas "peligrosa" del proceso de instalacion. Al menos que queramos tener Linux para TODO el ordenador NO debemos elegir "borrar el disco completo".
+
+283 284 285 286
+287 288 289 290
+
+291
+292 293 294 295
+
+296
+297
+
+298 299
+300 301 302
+303 304 305 306 307 308 309 310 311 312
+
+Imagen 8
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329
+Imagen 9
+
+www.odisss.org
+
+Pulsemos en "Editar manualmente", lo cual nos llevara al menu de particionado de discos(ver Imagen 9):
+
+Bien. Esto es un caso tipico si tienes instalado Windows en tu ordenador (excepto por el espacio, que sera bastante mayor). Debemos seleccionar donde diga "ESPACIO LIBRE". No debemos de tocar donde diga "ntfs" (NT File System). Este espacio pertenece a Windows, y al menos que quieras borrarlo, NO debes tocarlo. Voy a hacer un pequeno inciso en lo que estamos haciendo. Estamos particionando el disco duro. Esto es como si lo cortaramos, una parte pertenece a Linux, y la otra a Windows. Al encender el ordenador, se nos preguntara cual de los dos queremos empezar. Ahora pinchamos en "ESPACIO LIBRE" y le damos a "crear una particion nueva". En la pantalla que nos sale ahora, debemos elegir cuanto espacio queremos asignar a la particion. Lo que vamos a hacer primero es un "area de intercambio" o "SWAP". Esta particion lo que hace es habilitar un espacio que funciona como una extension de la memoria RAM, es una memoria Virtual. Esta memoria virtual permite que pueda ser utilizada por el S.O para agilizar algunas tareas cambiando espacio entre la memoria RAM y la virtual. El tamano de esta debe de ser mas o menos el doble de tu RAM. Si no tienes ni idea de cuanto es tu RAM, crea una particion que sea a ser posible de 1gb (para que sobre ), y si vas justo de espacio, de 512mb. Una vez hayamos elegido cuanto espacio le vamos a asignar, presionamos intro y en la siguiente pantalla elegimos logica. Si nos pregunta la "ubicacion de la nueva particion" diremos que al "principio", sino nos lo dice, no os preocupeis por esto
+
+330 331 332
+333
+
+334 335
+336 337
+
+338 339 340 341 342 343 344 345 346
+347
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+348 349 350 351 352 353 354 355 356 357 358 359 360
+361 362
+
+www.odisss.org
+
+Ahora nos saldra una pantalla como esta(ver Imagen 10) :
+
+Imagen 10
+
+363 364
+
+Lo que debemos hacer aqui, es, primero, seleccionar "Utilizar Como:". Al hacerlo nos saldra una pantalla en la que debemos elegir "area de intercambio" (casi abajo del todo). Nos tiene que quedar una pantalla como esta(ver Imagen 11):
+
+365
+366 367 368 369
+
+Ahora le damos a "Se ha terminado de Definir la particion" A continuacion estaremos en la misma pantalla que arriba (ver Imagen 9), y deberemos pinchar en donde diga "ESPACIO LIBRE" (recordad que ahora habra menos espacio libre porque hemos creado una particion de SWAP ).
+Imagen 11
+
+370
+371
+
+372 373 374 375
+376
+377
+
+378
+
+Repetimos el mismo proceso de antes, dandole a "crear una particion nueva" y eligiendo el espacio que le queremos dar a Ubuntu. Yo recomiendo que le asignes de 5 a 10 GB, aunque si no tienes mucho espacio con 2 GB basta. Elegimos "Primaria" esta vez, y si nos pregunta la "ubicacion de la nueva particion" diremos que al "principio", si no nos lo dice, pues seguiremos sin preocuparnos . Nos encontraremos con la misma pantalla que antes (ver Imagen 10): Bajo Licencia GFDL Por kurin(kurin@odiss.org)
+
+379 380
+381
+
+382 383
+
+Linux Para Novatos ­ 1
+384
+
+www.odisss.org
+
+Esta vez debemos seleccionar en "Utilizar Como:" ->> "Sistema de ficheros transaccional ReiserFS". Ahora deberemos seleccionar "Marca de arranque" de manera que quede como "activada". Nos tiene que quedar algo como esto(ver Imagen 12):
+
+385
+386 387 388 389 390 391 392 393 394 395 396 397 398
+399
+
+Imagen 12
+
+400 401
+
+Nos cercioramos de que esta todo como en la imagen(a excepcion del tamano claro "Se ha terminado de definir la particion". Veamos como ha quedado todo lo que hemos hecho hasta ahora (ver Imagen 13):
+
+), y le damos a
+
+402
+403 404 405 406 407 408 409 410 411 412 413 414 415 416 417 418 419
+
+Imagen 13
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+420
+
+www.odisss.org
+
+Una vez visto que quede mas o menos igual que arriba (siempre recordad que el espacio asignado sera diferente), sobre todo mirando que el ntfs siga ahi, pues nos armamos de valor, y le damos a "Finalizar el particionado y escribir los cambios en el disco". Cuando nos diga si estamos seguros pues le decimos que si. Al hacer esto, empezara a instalar el sistema base de Ubuntu. A partir de ahi nosotros instalaremos las cosas que nos gusten/hagan falta. Una vez haya terminado de copiar las cosas, nos dira que si queremos descargar el soporte para nuestro idioma, ya que no lo incluye en el CD de instalacion. Si tenemos un router le decimos que si, en caso contrario lo haremos luego cuando configuremos nuestra conexion, y por lo tanto le diremos que no. Ahora nos preguntara si la hora esta en GMT o no. Si la hora que nos ensena es correcta le decimos que si. debemos decirle en que zona horaria estamos (en la peninsula, Ceuta/Melilla, o las Canarias) Seguidamente, debemos decirle en que zona horaria estamos (en la peninsula, Ceuta/Melilla, o las Canarias). En la siguiente pantalla, debemos elegir un nombre de usuario. Yo elegire ubuntu. En la pantalla que le sigue, podemos poner el nombre que se nos de la gana, no tiene mucha importancia. Al hacer esto nos pedira una contrasena para el usuario, y luego nos pedira que confirmemos. Ahora nos preguntara si queremos instalar "el Cargador de Arranque GRUB". A esto le decimos que si. GRUB es el gestor de arranque, es decir, el programa que nos pregunta cuando encendemos el ordenador con cual de los dos queremos empezar, Windows o GNU/Linux. En breves instantes nos encontraremos con una pantalla diciendonos que ya hemos llegado al final de la instalacion. Quita el cd y dale a continuar. Una vez haya reiniciado, metelo de nuevo(en el caso de que no reinicie, es decir, que se quede en "Restarting System", hazlo manualmente).
+
+421 422 423 424
+425
+
+426 427
+428 429
+
+430 431 432
+433
+
+434 435 436 437 438
+439 440
+
+441 442
+443 444 445 446 447 448 449 450 451 452 453 454
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+
+www.odisss.org
+
+455
+456 457 458 459 460 461 462 463 464 465 466 467 468 469 470 471 472
+473 474
+
+2.3) Puesta a Punto
+Os presento a GRUB(ver Imagen 14) :
+
+Imagen 14
+
+475
+
+No es muy bonito, pero cumple su funcion bonito
+
+. Mas adelante ya os ensenare como instalar uno mas
+
+476 477 478 479 480 481 482 483
+484 485 486 487 488 489 490
+
+Fijaos en como nos presenta a Ubuntu y a Windows para que elijamos cual queremos. Vamos a
+
+elegir Ubuntu ¿no? El sistema hara una serie de procedimientos (que no detallare, mas que nada porque no tengo 1 mes de tiempo libre ) y seguidamente, se pondra a configurar una serie de paquetes (programas). ¿Esto que quiere decir? Pues quiere decir que al ser un "sabor" de GNU/Linux "casero", incluye programas para el dia a dia de los usuarios, como puede ser el OpenOffice (equivalente de Microsoft Office) o el Mozilla Firefox (equivalente del Internet Explorer). Es decir, que al ser todo programas libres, se incluyen directamente en el CD de instalacion, y no tienes que comprartelos ya que son gratuitos y de libre distribucion (lo cual no significa ni muchisimo menos que sean peores que los de pago).
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+491 492 493 494 495 496 497 498 499 500 501 502 503 504 505 506
+507
+
+www.odisss.org
+
+Despues de un rato configurando paquetes, nos toparemos con esta pantalla(ver Imagen 15) :
+
+Imagen 15
+
+508 509
+
+Aqui elegiremos nuestras resoluciones de pantalla. Si tenemos una pantalla normal(es decir, no gigantesca) elegiremos (con la barra espaciadora, de manera que quede al lado de la opcion un asterisco "*") "800x600", "1024x768" y "1152x864". Mas tarde elegiremos cual de esos es el que se ajusta mejor a nuestro caso. Si crees que tienes una pantalla bastante grande, puedes elegir modos mas altos. Cuando termine de configurar todos los paquetes nos aparecera la pantalla de bienvenida de Ubuntu. Y ya por fin hemos llegado al final del proceso de instalacion. Pero todavia queda mucho por delante. A lo largo de estos articulos intentare iniciaros en lo que es el sistema de archivos de Linux, en como instalar programas, y que programas utilizar para determinadas tareas. Vamos alla....
+
+510 511 512
+513 514
+
+515 516
+517 518 519 520 521 522 523 524 525 526
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+
+www.odisss.org
+
+527
+528
+
+3) Teoria
+3.1) Libera tu Mente, Neo
+Bueno ya tenemos instalado nuestro sistema GNU/LINUX. Antes de empezar a disfrutar de el (si, disfrutar ) tengo que explicar un par de cosas "de teoria" antes de ponernos de lleno con la practica. ¡No, . Por cierto, lo que aqui explico no es TOTALMENTE necesario para no cierres el navegador! Que os conozco, y se que no os mola tanto eso de leer estas parrafadas, pero venga, ¡haced un esfuercillo! manejaros en Linux, pero creedme que si se os pega un poco de lo que digo os sera todo mucho mas facil. Si solo utilizais el ordenador para hacer cosas en "Word" o para el "messenger", no es muy necesario, pero como he dicho, un poco de teoria nunca viene mal. Lo primero es pediros un pequeno favor, se que cuesta un poco, pero es necesario: Cambiad de Mentalidad. Olvidaos de hacer doble clic en todo. No es que no se pueda hacer, pero Linux te da la oportunidad de hacer mas que eso. No es que Linux sea mas dificil, es que estais cambiando de algo a lo que estabais muy acostumbrados a utilizar. Puede que al principio cueste un poco, pero despues de uno o dos dias ya le cogeis el tranquillo. Los programas ahora seran diferentes a los que conoceis, pero hay otros que son similares en apariencia, que te ofrecen mucho mas. Esto es lo que no te da WS, una comunidad de usuarios que esta constantemente mejorando los programas para que tu te beneficies de ello. Por ejemplo, para el "messenger" existen varios clientes, pero el que mas me gusta a mi es el Mercury. Es practicamente lo mismo, e incluso con ciertos anadidos que no tiene el messenger de MSN. Otro ejemplo es OpenOffice. Es compatible con los formatos de Microsoft Office (.doc), y te ofrece muchas ventajas, como puede ser exportar tus documentos a ".pdf" o un wordart mas bonito si queremos ser simples :). Y lo mas importante de todo, es gratis, y esta en constante desarrollo. Una cosa importante a tener en cuenta es que siempre tendremos ayuda. Lo que caracteriza a todos los programas libres es que siempre vienen con su correspondiente documentacion, en la que viene explicado todo lo explicable (sobre el programa claro ). Y si quieres meterte mas en un tema, en Google casi siempre encontraras lo que quieres, asi que ¡aprende a utilizarlo! Tambien encontraras muchisimas comunidades de usuarios dispuestos a ayudarte con tus problemas, por lo que nunca te encontraras solo ante el peligro. Una ventaja(o inconveniente) de los sistemas Linux es la seguridad. Los usuarios normales tienen solo el "derecho" a ejecutar aplicaciones y poco mas. Para instalar o manejar cosas del sistema debemos ser administrador (root). Ubuntu te lo pone un poco mas facil, ya que no hay un usuario administrador(al contrario que en la mayoria de distribuciones), sino que para obtener esos derechos, debemos poner "sudo" (que viene de Super User) antes del comando que seria de root. La ventaja de esto es que ningun programa Bajo Licencia GFDL Por kurin(kurin@odiss.org)
+
+529
+530 531
+
+532 533 534 535 536 537
+538
+
+539 540 541 542
+543
+
+544 545
+546
+
+547 548 549 550
+551
+
+552 553 554 555 556
+557
+
+558 559 560 561
+
+Linux Para Novatos ­ 1
+562
+
+www.odisss.org
+
+puede fastidiar nada importante del ordenador al no poder acceder a los ficheros esenciales para el S.O, lo cual es algo que suelen hacer los Malware (Spyware, Adware) y muchos Virus y Troyanos. Espero no estar mareandoos un poco con estas cosas. Debeis perderle el miedo a utilizar una shell (o interprete de comandos), ¡os aseguro que es sencillisimo! A traves de ella podeis hacer muchas cosas que de otra manera no podriais tan facilmente. Supongo que para que os deis cuenta tendreis que verlo con vuestros propios ojos, asi que os animo a seguir leyendo. Pensad en la linea de comandos como si mantuvieseis una conversacion con el ordenador, en el que simplemente tienes que decirle "haz esto y luego esto, a traves de esto" Tambien olvidaos de los archivos ".exe", esos ya con un doble clic no funcionaran (pero si de otra manera). Por otro lado, ahora para instalar un programa, normalmente te bastara con poner en una shell "apt-get install [programa]" y ya esta. ¿Como? ¿Que de que estoy hablando? Seguid leyendo...
+
+563 564
+565
+
+566 567 568 569
+570
+
+571 572
+573 574 575
+
+576
+577 578
+
+3.2) El Sistema de Archivos
+El sistema de archivos de GNU/Linux es distinto al de Windows. Este es un pequeno resumen de los mas importantes directorios (desde ahora no dire carpetas, sino directorios): / : esto es como el "C:" de Windows. De aqui "salen" o "cuelgan" todos los demas directorios.
+
+579
+580 581 582 583
+
+/bin : Donde se encuentran la mayoria de ejecutables del sistema. Es decir, la mayoria de los programas. Semejante a "Archivos de Programa"
+
+584
+586
+
+/boot : Archivos de arranque del sistema.
+
+588
+
+/dev : Donde estan los dispositivos (device drivers). Se utilizan para acceder a ellos. Al contrario que en otros S.O, Linux (como en Unix) accede al hardware como si de un archivo se tratase. Estos archivos representan al hardware de la maquina (discos duros, memoria, tarjetas de sonido, etc.). Por ejemplo, los discos duros se encontrarian en "/dev/hd X Y/", es decir, disco duro 1, /dev/hda, disco duro2, /dev/hdb/, etc... Luego dentro de los discos duros hay particiones (como ya sabemos ¿no?), por lo que primer disco duro, primera particion seria: "/dev/hda1/", segunda particion "/dev/hda2", y asi consecutivamente. /etc : Suele contener ficheros y directorios de configuracion del sistema. Aqui se guardan tambien los
+
+589 590 591
+592
+
+593
+595
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+596 597 598
+
+www.odisss.org
+
+directorios de inicializacion del sistema.
+
+/sbin : Programas ejecutables de sistema, normalmente usados por el administrador (root)
+
+600
+
+/home : Directorio de homes (casas) de los usuarios. Cada usuario tendra su directorio "casa" si asi lo especificamos al crearlo, y lo tendra aqui. Por ejemplo, si tenemos los usuarios "juan" y "pedro", pues su home sera "/home/juan/" y "/home/pedro/" /mnt : Directorio donde se suelen crear directorios para el montaje
+
+601 602
+604
+
+606
+
+/opt : Directorio donde se suelen instalar programas de terceros.
+
+608
+
+/lib : Contiene las librerias compartidas. Librerias que son utilizadas por muchos programas.
+
+610
+
+/proc : Es un sistema de ficheros virtual. Los ficheros que aqui se encuentran, realmente estan en memoria y no en disco. Se refieren a procesos y programas que estan ejecutandose en un momento dado, por lo cual, de aqui se puede obtener mucha informacion.
+
+611 612
+614
+
+/tmp : Almacena ficheros temporales.
+
+616
+
+/usr : Contiene directorios que contienen a su vez programas y ficheros de configuracion usados para el sistema. Estan aqui porque la mayoria son opcionales, pero muy utiles (las X por ejemplo). En /usr/bin se guardan programas Linux importantes. En /usr/include estan los ficheros de cabeceras para C. En /usr/etc hay ficheros de configuracion opcionales. En /usr/src/linux se almacenan (si se instalan) los fuentes del kernel.
+
+617 618
+619
+
+620
+622
+
+/var : Contiene ficheros historicos del sistema. Logs de errores o de problemas, sesiones, intentos fallidos, etc.... Mas de una vez nos sacaran de dudas. Mas informacion sobre esto en "man hier". No, no estoy hablando en aleman :-P, esto se mete en la shell y te sale la "jerarquia" en mas detalle, ya hablaremos sobre los "man" (manuales) mas adelante.
+
+623
+624 625
+
+626 628
+
+3.3) El Interprete de Comandos(o Shell)
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+629 630 631 632
+
+www.odisss.org
+
+Segun la Wikipedia (La Enciclopedia Libre: ww.wikipedia.org) una shell es: "Parte fundamental de un sistema operativo encargada de ejecutar las ordenes basicas para el manejo del sistema. Tambien se denomina shell. Suelen incorporan caracteristicas tales como control de procesos, redireccion de entrada/salida y un lenguaje de ordenes para escribir programas por lotes o (scripts)". Vaalee...... Pues en cristiano, es un sitio donde tu pones unas instrucciones, que son luego interpretadas por el interprete de comandos (ya va encajando todo ) y que te permiten realizar determinadas tareas, ya sea por ejemplo borrar un archivo o instalar un programa. Esta claro ¿no? Para ver una shell cuando estamos en un escritorio, debemos utilizar una de las diferentes terminales que tenemos. A mi personalmente me gusta mas el "GNOME-Terminal". Esto lo digo porque, por ejemplo, para copiar y pegar algo, simplemente tienes que seleccionar con el raton, presionar cntrl+shift (la flechita) +C, y luego para pegar cntrl+shift+v. Otras terminales, como la de KDE para copiar y pegar tienen un sistema en mi opinion mas incomodo, y para una persona que viene de WS le sera mas facil pulsar una tecla mas (shift) para hacer lo mismo que hacia antes(es decir, cntrl+C y cntrl+V). Una cosa muy importante a tener en cuenta es que los sistemas Linux son "Case-Sensitive", es decir, que diferencian entre mayusculas y minusculas. Por lo tanto, no es lo mismo un archivo llamado "hola.txt" que "Hola.txt" que "HoLa.TxT". Recordad bien esto, porque el olvidarlo os puede provocar muchos dolores de cabeza, creedme.
+
+633 634
+635 636
+
+637 638
+639
+
+640 641 642 643 644
+645
+
+646 647 648
+649
+
+650
+651
+
+Esto es un "shell prompt" es decir, una "solicitud de comandos". Vamos, el sitio donde nos esta pidiendo que le demos ordenes (instrucciones). El prompt esta compuesto por "nombre de usuario", @ "nombre de la maquina", ":" y en caso de ser un usuario normal "$", pero si eres root pues "#". La "~" significa que estas en el directorio "home" de tu usuario. Antes dije que utilizar la linea de comandos es como mantener una conversacion, pues bien, aqui es donde el ordenador te esta diciendo "Dime, que te escucho". Otra cosa a tener en cuenta es que a los comandos que se ponen en la shell, se les pueden anadir opciones. La manera de hacer esto es mediante un guion ("-") y una letra. La letra representara la opcion. Podemos saber las opciones que tiene un comando ya sea bien consultando la documentacion ("man comando") o escribiendo el comando y "-h" o "--help), con lo que casi siempre se nos ensenara un resumen del man. Por supuesto, lo que hacemos en una shell lo podemos hacer en el entorno grafico (escritorio), pero a mi Bajo Licencia GFDL Por kurin(kurin@odiss.org)
+
+652 653 654
+655
+
+656
+657 658
+
+659 660 661 662
+663
+
+Linux Para Novatos ­ 1
+664
+
+www.odisss.org
+
+por lo menos algunas tareas me resultan mas faciles utilizando la shell, y seguro que a ti tambien una vez te acostumbres, ya que creo que a todos nos es mas facil decir "Ordenador, instalame el messenger" que tener que abrir 4 ventanas para instalarlo y darle a "Siguiente, Siguiente, Siguiente".
+
+665 666
+667 668
+
+669
+670 671 672
+
+3.3.1) Comandos Comunes en una Shell
+A continuacion os voy a poner los comandos mas comunes y una explicacion breve: cd: Nos permite cambiar directorio (Change Directory). Asi por ejemplo si estamos en "/" y queremos movernos a la carpeta "home", ponemos "cd home". Imaginemos que en "home" tenemos las carpetas "pedro", "juan" y "pepe". Si estuvieramos en "/" para movernos hasta "juan" deberiamos hacer "cd home" y luego "cd juan". Para ahorrarnos esto, podemos utilizar nombres absolutos, es decir, la ruta completa desde "/". Por lo tanto, si estamos en "/" y queremos ir a "juan", pues hacemos "cd /home/juan". Para movernos hacia atras, se utiliza "cd ..". Si estamos en "/home/juan" y queremos volver a "/home", pues escribiremos "cd ..", asi de facil. ls: Lista los contenidos del directorio en el que estas (LiSt). Si estuvieras en "/home" y haces un "ls", el resultado seria "juan pedro pepe", es decir, lo que hay adentro de "/home". Si en juan hubiera un directorio llamado "documentos" y un video llamado "hola.mpg", si hacemos un "ls" en "juan" obtendriamos este resultado: "Documentos hola.mpg". Con esto quiero decir que nos ensena todo lo que hay, no solo los directorios (excepto los ocultos claro :-) ). Si somos un usuario normal, nos diferenciara entre directorios y otros ficheros mediante diferentes colores. Para ver los ocultos le pasamos el comando "-a". Asi, si tenemos un directorio oculto en "/home" llamado ".algo", al hacer "ls" sin mas no lo vemos, pero si hacemos "ls -a" nos muestra ".algo juan pedro pepe". cp: Copia archivos de un origen a un destino (CoPy). Se utiliza mediante la sintaxis "cp" + "opcion" + "origen" + "destino" ("+" significa espacio"). Por ejemplo, para copiar el archivo "hola.mpg" a "/home/pedro" haremos "cp hola.mpg /home/pedro". Como vemos, hemos utilizado un nombre absoluto. Si hubieramos estado en "/home", podriamos haber dicho "cp juan/hola.mpg pedro", o desde el root ("/ ") "cp /home/juan/hola.mpg /home/pedro/". En el proceso de copiar, podemos cambiarle el nombre al archivo destino. Asi pues, si queremos cambiar "hola.mpg" a "hello.mpg" cuando este en pedro, hariamos "cp /home/juan/hola.mpg /home/pedro/hello.mpg".
+
+673 674 675
+676
+
+677
+678
+
+679
+680 681
+
+682 683 684 685
+686
+
+687
+688
+
+689
+690 691
+
+692
+693
+
+694 695
+696
+
+697
+698
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+699
+
+www.odisss.org
+
+Para copiar un directorio, debemos poner la opcion "-R" (notense las mayusculas, no es lo miso que "-r"). Por ejemplo, "cp -R /home/juan /home/pedro", lo cual copiaria la carpeta "juan" adentro de "pedro" y todo lo que hubiera adentro de "juan". mv: Renombra o mueve un archivo (MoVe). Es como el "cp" solo que no solo hace una copia, sino que tambien borra el origen. La segunda cosa que se puede hacer con este comando es renombrar un archivo (no me pregunteis por que, porque me parece una ida de pinza de los programadores). Asi, si queremos renombrar el archivo "hola.mpg" a "hello.mpg" hariamos "mv hola.mpg hello.mpg". rm: Borra archivos o directorios (ReMove). Para borrar el archivo "hola.mpg" hariamos "rm hola.mpg" o podemos utilizar el nombre absoluto juan" o "rm -r /home/juan. mkdir: Crea un directorio (MaKe DIRectory). Para crear el directorio "fotos" hariamos "mkdir fotos" o "mkdir /home/juan/fotos". "rm /home/juan/hola.mpg". Para borrar un directorio le anadimos la opcion "-r". Asi, para borrar el directorio "juan" hariamos "rm -r
+
+700 701
+702 703
+
+704 705
+706 707 708
+
+709
+710
+
+711
+712 713
+
+714
+715 716
+
+more: Este comando lista el contenido de un archivo pagina por pagina. Asi por ejemplo si tuvieramos un archivo ".txt" (de texto) pues nos ensenaria pagina por pagina los contenidos, y nosotros presionando espacio iriamos pasando de forma que pudieramos ver todo.
+
+717 718
+719 720
+
+whereis: Este comando se utiliza para ensenar el path (camino, sitio) donde se encuentra un programa. Por ejemplo, que hemos instalado el amsn y ¿no sabemos donde esta? No problem, "whereis amsn" y nos sale "amsn: /usr/bin/amsn", por tanto, se encuentra en "/usr/bin/amsn". Recordemos que algunos solo los podemos hacer si somos "root", por lo que en Ubuntu deberemos de poner "sudo" antes del comando, como por ejemplo con "rm".
+
+721 722
+723 724
+
+725
+726 727 728 729 730 731 732
+
+733
+
+3.3.2) Las Pipes (tuberias)
+Bajo Licencia GFDL Por kurin(kurin@odiss.org)
+
+Linux Para Novatos ­ 1
+734 735
+
+www.odisss.org
+
+Como su propio nombre indica, las pipes son tuberias que sirven para enlazar un lado con otro (una entrada, y una salida). Es decir, que mediante las tuberias podemos enlazar, por ejemplo, la salida de un comando con la entrada de otro. De esta manera lo que salga del comando 1 se utilizaria como la entrada del otro comando:
+
+736 737 738
+739 740 741 742 743 744
+
+ENTRADA COMANDO 1 --> SALIDA -->TUBERIA--> ENTRADA COMANDO 2--> SALIDA
+
+Espero que quede claro que la salida de un programa es la entrada del otro. Pues bien, diversos sistemas operativos entre los que se encuentra Linux proporcionan una herramienta para hacer esto: Las pipes (tuberias) cuyo simbolo es "|" (barra vertical, alt gr + 1 en un teclado espanol) Por ejemplo: El comando "ls" nos lista todos los archivos de un directorio, y el comando "more" nos muestra pagina a pagina el contenido de un archivo. Por lo que si queremos unir los dos, es decir, que nos muestre la lista de todos los archivos de un directorio pagina a pagina, pues tecleariamos "ls | more". Bueno, hasta aqui llega este manual. Espero que os haya sido ameno y que no hallais encontrado la teoria excesiva o aburrida. CUALQUIER duda que tengais, podeis exponerla en http://www.odiss.org/phpbb2/index.php Tambien tengo la intencion de que en siguientes articulos de esta serie nos metamos de lleno en la practica y en adaptar nuestro ordenador a nosotros, convertirlo en un ordenador unico, un ordenador para dominarlos a todos Hasta Otra, Se despide,
+
+745 746
+747 748
+
+749 750
+751 752
+
+753 754
+755 756
+
+757 758
+759 760 761
+
+762 763 764 765 766 767
+
+kurin (kurin@odiss.org) Adminstrador en www.odiss.org Version PDF: http://www.odiss.org/manuales/lpn/lpn-1/lpn-1.pdf
+
+Distribuido bajo la licencia GFDL (http://gugs.sindominio.net/licencias/gfdl-1.2-es.html)
+
+Bajo Licencia GFDL
+
+Por kurin(kurin@odiss.org)
+

@@ -1,0 +1,218 @@
+
+
+
+
+
+
+ i j k
+D x E = 2 1 -3 
+ 3 -1 4
+ [ (1)(4) a€“ (-1)(-3) ] i a€“ [ (2)(4) a€“ (3)(-3) ] j + [ (2)(-1) a€“ (3)(1) ] k 
+= (4-3) i a€“ (8+9) j + (-2-3) k
+= (1) i a€“ (17) j + (-5) k
+ D x E = 1i-17j-5 k
+F a€¢ D X E =
+ 
+ F = 2i -2j+k
+D x E = i-17j-5k
+F a€¢ D X E = [(2) (1) + (-2) (-17) + (1) (-5)] = 2 +34 a€“ 5 = 31
+
+ i j k
+B x C = 3 4 -2 
+ -5 1 -4
+[ (4)(-4) a€“ (1)(-2) ] i a€“ [ (3)(-4) a€“ (-5)(-2) ] j + [ (3)(1) a€“ (-5)(4) ] k 
+= (-16+2) i a€“ (-12-10) j + (3+20) k
+= (-14) i a€“ (-22) j + (23) k
+ B x C = -14i+22 j+23 k
+A a€¢ B X C = 
+ A = i- j+2 k
+ B x C = -14i+22j+23k
+ 
+=[(1) (-14) + (-1) (22) + (2) (23] = -14 -22 +46= 10
+
+http://www.ean.edu.co
+Bienvenidos
+
+Bienvenidos
+
+Objetivo
+
+DefiniciA³n
+
+Ejemplos
+
+IntroducciA³n
+
+EvaluaciA³n
+
+Vectores
+
+Matematicas III
+
+Triple Producto Escalar
+
+X
+
+Salir
+
+Salir
+
+A continuaciA³n se define matemA¡ticamente al producto mixto o triple 
+producto escalar.
+Es factible plantear el producto escalar entre un vector U x V y un tercer 
+vector W:
+U x V a€¢ W esta operaciA³n se denomina producto mixto
+U x V a€¢ W = w1(u2v3-u3v2) +w2 (u3v1-u1v3) + w3(u1v2-u2v1)
+Formula
+a= a
+1
+i+ a
+2
+j+a
+3
+k bxc=(b2c3-b3c2)i+(b3c1-b3c1)j+(b1c2-b2c1)k
+b= b
+1
+i+ b
+2
+j+b
+3
+k aA·(bxc)a1(b2c3-b3c2)+a2(b3c1-b3c1)+a3(b1c2-b2c1)
+c= c
+1
+i+ c
+2
+j+c
+3
+k
+ i + j + k
+ a
+1
+ a
+2
+ a
+3
+ 
+ b
+1
+ b
+2
+ b
+3
+ c
+1
+ c
+2
+ c
+3
+
+Menu
+
+Menu
+
+atras
+
+siguiente
+
+DefiniciA³n
+
+DefiniciA³n
+
+IntroducciA³n
+
+EvaluaciA³n
+
+Portada
+
+Portada
+
+Salir
+
+Salir
+
+X
+
+X
+
+Portada
+
+Portada
+
+En matemA¡ticas el producto escalar, tambiA©n conocido como producto 
+interno o producto punto, es una funciA³n definida sobre un espacio vectorial 
+cuyo resultado es una magnitud escalar. 
+El nombre espacio escalar se utiliza para denominar un espacio vectorial 
+real sobre el que se ha definido una operaciA³n de producto interior que tiene 
+como resultado un nAomero real.
+
+IntroducciA³n
+
+IntroducciA³n
+
+Ejemplo
+1.- Sea A = &lt;1, -1, 2&gt;, B = &lt;3, 4, -2&gt; y C = &lt;-5, 1, -4&gt;. Hallar A a€¢ B x C
+ i j k
+B x C = 3 4 -2 Desarrollamos el producto cruz B x C
+ -5 1 -4
+ = (-16 + 2) i a€“ (-12 a€“ 10) j + (3 + 20) k
+= -14 i + 22 j + 23 k Obtenemos las componentes de B x C
+B x C = &lt;-14, 22, 23&gt;
+A a€¢ B x C = [ (1)(-14) + (-1)(22) + (2)(23) ] Desarrollamos el producto punto
+= -14 + (-22) + 46 = -14 a€“22 + 46 = 10 Obtenemos el valor escalar
+ resultado 
+
+Ejemplo
+
+Ejemplo
+
+DefiniciA³n
+
+Ejemplos
+
+Hallar el producto escalar
+Ejericicio 1 A a€¢ ( B X C )
+A = i- j+2k
+B = 3i+4j-2k
+C =-5i+ j-4k 
+Ejericicio 2 F a€¢ ( D X E )
+F = 2i-2j+ k
+D = 2i+ j-3k
+E = 3i- j+4k 
+
+respuesta1
+
+respuesta2
+
+AutoevaluaciA³n
+
+AutoevaluaciA³n
+
+Objetivo
+
+Objetivo
+
+En esta secciA³n estudiaremos un nuevo producto escalar donde todas las propiedades 
+expresadas en RA² son extensivas a RA³, en el espacio o RA³ ; este producto se llama triple 
+producto escalar.
+
+IntroducciA³n
+
+EvaluaciA³n
+
+Salir
+
+Salir
+
+Portada
+
+Portada
+
+INSTITUTO TECNOLOGICO DE MINATITLAN
+EFREN PALACIOS RODRIGUEZ 
+I S C NAo CONTROL : 05230242 
+
+Salir
+
+http://ontare.org
+
+
