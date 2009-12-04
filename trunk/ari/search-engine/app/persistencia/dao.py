@@ -56,64 +56,6 @@ class Dao:
         return result
 
 
-    """def select (self, question):
-        timestamp = str(datetime.datetime.now().microsecond)
-        view_name = "view_relevant_docs_"+timestamp
-        result = None
-
-        try:
-            #d1 = datetime.datetime.now()
-            sql_view = "CREATE VIEW " + view_name + " AS SELECT DISTINCT p1.id_doc FROM posting_file p1 WHERE p1.term IN ("
-            for i in question:
-                sql_view += "'" + i + "',"
-            sql_view = sql_view[:len(sql_view)-1] + ")"
-            self.execute(sql_view)
-            #print datetime.datetime.now()-d1
-            #d1 = datetime.datetime.now()
-            sql_select = "SELECT HIGH_PRIORITY p.term, p.id_doc, p.frequency, d.num_docs FROM posting_file p, dic d WHERE p.id_doc IN (SELECT * FROM " + view_name + ") and d.term=p.term"
-            result = self.query(sql_select)
-            #print datetime.datetime.now()-d1
-            sql_drop_view = "DROP VIEW " + view_name
-            self.execute(sql_drop_view)
-            #input()
-        except:
-            raise
-        
-        #(term, id_doc, frequency, num_docs)
-        return result"""
-
-
-    """def select (self, question):
-        timestamp = str(datetime.datetime.now().microsecond)
-        view_name = "view_relevant_docs_"+timestamp
-        result = None
-
-        try:
-            #d1 = datetime.datetime.now()
-            sql_view = "CREATE VIEW " + view_name + " AS SELECT DISTINCT p1.id_doc FROM posting_file p1 USE INDEX (id_doc) WHERE p1.term IN ("
-            for i in question:
-                sql_view += "'" + i + "',"
-            sql_view = sql_view[:len(sql_view)-1] + ")"
-            self.execute(sql_view)
-            #print datetime.datetime.now()-d1
-            #d1 = datetime.datetime.now()
-            timestamp = str(datetime.datetime.now().microsecond)
-            view_res = "view_post_"+timestamp
-            sql_view = "CREATE VIEW " + view_res + " AS SELECT term,posting_file.id_doc,frequency FROM posting_file USE INDEX (id_doc) JOIN " +view_name +" v ON posting_file.id_doc=v.id_doc"
-            self.execute(sql_view)
-            sql_select = "SELECT HIGH_PRIORITY vRes.*, dic.num_docs FROM " +view_res+" vRes JOIN dic ON vRes.term=dic.term"
-            result = self.query(sql_select)
-            #print datetime.datetime.now()-d1
-            sql_drop_view = "DROP VIEW " + view_name
-            self.execute(sql_drop_view)
-            sql_drop_view = "DROP VIEW " + view_res
-            self.execute(sql_drop_view)
-            #input()
-        except:
-            raise
-
-        return result"""
-
     def select (self, question):
         timestamp = str(datetime.datetime.now().microsecond)
         view_name = "view_relevant_docs_"+timestamp

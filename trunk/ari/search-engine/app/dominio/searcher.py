@@ -29,12 +29,14 @@ import datetime
 from exception import *
 from vector import *
 from operator import itemgetter
+from fileDao import *
 
 class Searcher:
 
     def __init__(self):
         self.__dao = dao.Dao()
         self.__total_num_docs = 0
+        self.__fileDao = FileDao()
         self.__document_vectors = {}
 
     # question es un diccionario (termino-peso)
@@ -73,11 +75,18 @@ class Searcher:
                             self.__document_vectors[row[1]] = Vector()
                             self.__document_vectors[row[1]].set_title(str(row[4]))
                             self.__document_vectors[row[1]].add(row[0], row[2]*(math.log(float(total_num_docs)/float(row[3]))))
-                    # Una vez creados los vectores documentos, se calcula la semejanza de cada uno de ellos y se ordenan de mayor a menor semejanza
-                    # Se devuelve el id_documento, su semejanza y el titulo de ese documento
+                    # Una vez creados los vectores documentos, se calcula la semejanza de cada uno de ellos y se ordenan de mayor a menor relevancia (devuelve una lista)
+                    # Se devuelve el id_documento, su relevancia y el titulo de ese documento
                     for v in self.__document_vectors:
                         similarity_set[v] = (self.__document_vectors[v].get_similarity(question, module_question), self.__document_vectors[v].get_title())
                     sorted_similarity_set = sorted(similarity_set.items(), key=itemgetter(1), reverse=True)
+
+                    # Escribir el fichero xml con los resultados de la busqueda
+                    self.__fileDao.open_file()
+                    self.__fileDao.write_head()
+                    self.__fileDao.write_question(question.keys())
+                    self.__fileDao.write_results(sorted_similarity_set)
+                    self.__fileDao.close_file()
                 else:
                     raise TermNotFound()
             else:
