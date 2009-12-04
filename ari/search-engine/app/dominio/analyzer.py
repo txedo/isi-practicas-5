@@ -25,6 +25,7 @@ sys.path.append(os.getcwd() + "/../persistencia")
 
 import shutil
 import dao
+import string
 from parse import *
 from exception import *
 from config import *
@@ -67,7 +68,7 @@ class Analyzer:
                     self.__current_file = self.__current_file + 1
 
                 self.working=True
-                file_name = (path.split("/"))[-1] # Tomamos el nombre del archivo
+                file_name = string.join(((path.split("/"))[-1]).split('.')[:-1],'.') # Tomamos el nombre del archivo, sin extension
                 self.__current_working_file = file_name
                 (system_path, last_id) = self.dao.insert_doc(file_name) # Recuperamos la ruta del repositorio y el id de ese documento
                 # Copiamos el documento al repositorio
