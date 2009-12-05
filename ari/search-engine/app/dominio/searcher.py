@@ -56,7 +56,7 @@ class Searcher:
                 if len(result) > 0:
                     # Calculamos el modulo de la pregunta
                     for term in question:
-                        module_question += question[term]
+                        module_question += math.pow(question[term], 2)
                     module_question = float(math.sqrt(module_question))
                     # Recorremos las filas que devuelve la base de datos y vamos calculando los pesos de cada termino en cada documento
                     for row in result:
@@ -82,11 +82,7 @@ class Searcher:
                     sorted_similarity_set = sorted(similarity_set.items(), key=itemgetter(1), reverse=True)
 
                     # Escribir el fichero xml con los resultados de la busqueda
-                    self.__fileDao.open_file()
-                    self.__fileDao.write_head()
-                    self.__fileDao.write_question(question.keys())
-                    self.__fileDao.write_results(sorted_similarity_set)
-                    self.__fileDao.close_file()
+                    self.save_results(question, sorted_similarity_set)
                 else:
                     raise TermNotFound()
             else:
@@ -95,4 +91,14 @@ class Searcher:
             return sorted_similarity_set
         except:
             raise
+
+    def save_results(self, question, sorted_similarity_set):
+        self.__fileDao.open_file()
+        self.__fileDao.write_head()
+        self.__fileDao.write_question(question.keys())
+        self.__fileDao.write_results(sorted_similarity_set)
+        self.__fileDao.close_file()
+
+    def get_vector(self, id_doc):
+        return self.__document_vectors[id_doc]
 

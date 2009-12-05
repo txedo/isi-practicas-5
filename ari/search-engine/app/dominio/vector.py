@@ -16,6 +16,8 @@ class Vector:
     def set_title (self, title):
         self.__title = title
 
+    # Metodo para obtener la semejanza. 
+    # Se devuelve en %, con dos decimales
     def get_similarity (self, question, module_question):
         similarity = 0
         product = 0
@@ -26,13 +28,16 @@ class Vector:
             except:
                 pass
             module_vector += math.pow(self.__components[term], 2)
-        module_vector = math.sqrt(module_vector)
+        module_vector = float(math.sqrt(module_vector))
 
         try:
-            similarity = (product / (module_vector * module_question))
+            similarity = round(float(float(product) / float(module_vector * module_question))*100, 2)
             return similarity
         except ZeroDivisionError:
             raise ZeroDivisionError
 
     def get_title(self):
         return self.__title
+
+    def get_components(self):
+        return self.__components
