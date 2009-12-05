@@ -21,9 +21,11 @@ psyco.full()
 
 import os
 
+# Ruta de la base documental del sistem
 REPOSITORY_PATH = os.getcwd() + "/../persistencia/repository/"
-
-NOT_CACHE = -1
-NEW_CACHE = 0
-OLD_CACHE = 1
+# Tamaño maximo de la cache
 MAX_CACHE_SIZE = 4000
+# Ruta donde se almacena el fichero "Resultados.xml"
+RESULTS_PATH = os.getcwd() + "/resultados/"
+# Ruta donde se almacenan los ficheros que se indexan
+TEXTS_PATH = os.getcwd() + "/../misc/documents/"
