@@ -1,0 +1,21 @@
+\section{Estadísticas de funcionamiento} \label{estadisticas}
+
+Las pruebas se han realizado en un sistema Debian GNU/Linux 4.0
+Etch sobre un ordenador Intel Centrino@2.0GHz FSB800MHz 2.0GB RAM
+DRR2@800MHz.
+
+El conjunto de ficheros de muestra se compone de un total de 239.
+
+Ya sea utilizando una memoria caché de tamaño 1 (caso base, comportamiento
+similar al de un sistema sin caché) como de tamaño 1000, el tiempo
+que se ha obtenido en la indexación es similar: entorno a los 27
+minutos. La diferencia radica en que en el primer caso el acceso a
+disco y el uso del procesador se mantiene constante, mientras que en
+el segundo caso, ambos usos de recursos vienen dados por intevalos,
+coincidiendo éstos con la sincronización de la caché con la base de
+datos.
+
+No obstante, estos resultados nos hacen meditar en que el uso de la
+memoria caché no ha mejorado la eficiencia del sistema tanto como se
+esperaba, por lo que en próximas versiones se harán las revisiones
+pertinentes.

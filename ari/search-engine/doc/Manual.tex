@@ -1,0 +1,79 @@
+\section{Manual de usuario} \label{manual}
+
+\subsection{Instalación}
+La aplicación se ha desarrollado en Python y su interfaz gráfica de
+usuario en GTK. Además, ésta requiere de los servicios de un servidor
+MySQL. Dicho esto, el sistema en el cual se ejecutará la aplicación
+debe tener instalado el siguiente software:
+\begin{milista}
+\item Python v2.5 o superior (\cite{Python})
+\item GTK (\cite{GTK})
+\item Psyco (\cite{psyco})
+\item PyGTK (\cite{PyGTK})
+\item MySQL (\cite{MySQL})
+\item MySQLdb module for Python (\cite{python-mysqldb})
+\end{milista}
+
+Ahora se debe crear la base de datos que utilizará el sistema
+documental. En la distribución del software se ofrece un fichero
+``install'' bajo el directorio ``persistencia'', que contiene las
+sentencias necesarias para crear la base de datos y sus tablas
+mediante el intérprete de MySQL. Si no sabe acceder al intérprete de
+su servidor MySQL escriba la siguiente sentencia en un terminal:
+
+\begin{center} \texttt{mysql -u root -p} \end{center}
+
+Introduzca la contraseña que estableció al instalar el servidor de MySQL y cree las tablas con el fichero comentado anteriormente. Llegados a este punto, ya tiene su sistema listo para ser utilizado. 
+
+A continuación se hablará de cada una de las interfaces disponibles en
+el sistema para el usuario.
+
+\subsection{Interfaz gráfica de usuario}
+Al ejecutar la interfaz gráfica (sitúese en el directorio
+``presentación'' y ejecute la sentencia
+\texttt{./index-engine-gui.py}) se mostrará la ventana principal, tal
+y como aparece en la Figura \ref{fig:index-engine-gui}. Las opciones de dicha
+ventana son:
+\begin{milista}
+	\item \textbf{Choose a file}: esta opción sirve para indexar
+          un único fichero. Al pulsar el botón, se abrirá un cuadro de
+          diálogo que permitirá al usuario seleccionar el fichero deseado. 
+	\item \textbf{Choose a directory}: esta opción sirve para
+          indexar todos los ficheros contenidos en el directorio
+          dado. Al pulsar el botón correspondiente, se abrirá un nuevo
+          diálogo que permitirá al usuario elegir un directorio. 
+\end{milista}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.75]{./images/gui}
+	\caption{Interfaz de usuario gráfica}
+	\label{fig:index-engine-gui}
+\end{figure} 
+
+Una vez elegido un fichero o un directorio, basta con hacer clic en el
+botón llamado ''Start'' para que comienze la indexación, mostrando una
+barra de progreso para informar al usuario del avance de la indexación de los
+ficheros. 
+
+\subsection{Interfaz de usuario por línea de comandos}
+
+La aplicación además cuenta con una interfaz basada en texto que puede
+invocarse desde un terminal. Una vez más, esta interfaz está contenida
+en la capa de presentación del sistema. Para lanzarla, es necesario
+proporcionarle dos parámetros, en función de la operación que queramos
+realizar.
+\begin{milista}
+\item \texttt{[-f | --file] <ruta$\_$a$\_$un$\_$fichero>}. Para indexar un único fichero.
+\item \texttt{[-d | --directory] <ruta$\_$a$\_$un$\_$directorio>}. Para indexar todos
+  los ficheros alojados en un directorio
+\end{milista}
+Si es necesario, se puede consultar la ayuda con el parámetro ``-h'' o
+``--help'' (ver Figura \ref{fig:menu-ayuda})
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.55]{./images/menu-ayuda}
+	\caption{Interfaz de usuario gráfica}
+	\label{fig:menu-ayuda}
+\end{figure} 
