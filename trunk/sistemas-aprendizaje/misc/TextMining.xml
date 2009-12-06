@@ -7,15 +7,16 @@
       <parameter key="send_mail"	value="never"/>
       <parameter key="process_duration_for_mail"	value="30"/>
       <parameter key="encoding"	value="SYSTEM"/>
-      <operator name="TextInput" class="TextInput" expanded="yes">
+      <operator name="TextInput" class="TextInput" expanded="no">
           <list key="texts">
+            <parameter key="Textos"	value="D:\UCLM\5ºCurso\PracticasParejas\sistemas-aprendizaje\misc\files_text"/>
           </list>
           <parameter key="default_content_type"	value=""/>
           <parameter key="default_content_encoding"	value=""/>
           <parameter key="default_content_language"	value=""/>
           <parameter key="prune_below"	value="-1"/>
           <parameter key="prune_above"	value="-1"/>
-          <parameter key="vector_creation"	value="TFIDF"/>
+          <parameter key="vector_creation"	value="TermFrequency"/>
           <parameter key="use_content_attributes"	value="false"/>
           <parameter key="use_given_word_list"	value="false"/>
           <parameter key="return_word_list"	value="false"/>
@@ -27,14 +28,24 @@
           <parameter key="extend_exampleset"	value="false"/>
           <operator name="StringTokenizer" class="StringTokenizer">
           </operator>
+          <operator name="ToLowerCaseConverter" class="ToLowerCaseConverter">
+          </operator>
           <operator name="EnglishStopwordFilter" class="EnglishStopwordFilter">
+          </operator>
+          <operator name="StopwordFilterFile" class="StopwordFilterFile">
+              <parameter key="file"	value="D:\UCLM\5ºCurso\PracticasParejas\sistemas-aprendizaje\misc\stopwordsSpanish.txt"/>
+              <parameter key="case_sensitive"	value="false"/>
           </operator>
           <operator name="TokenLengthFilter" class="TokenLengthFilter">
               <parameter key="min_chars"	value="3"/>
               <parameter key="max_chars"	value="2147483647"/>
           </operator>
-          <operator name="LovinsStemmer" class="LovinsStemmer">
-          </operator>
+      </operator>
+      <operator name="CSVExampleSetWriter" class="CSVExampleSetWriter">
+          <parameter key="csv_file"	value="C:\Users\Juan\Documents\rm_workspace\datosTextMining.csv"/>
+          <parameter key="column_separator"	value=";"/>
+          <parameter key="write_attribute_names"	value="true"/>
+          <parameter key="quote_nominal_values"	value="true"/>
       </operator>
   </operator>
 
