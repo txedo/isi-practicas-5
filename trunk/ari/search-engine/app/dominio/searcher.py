@@ -38,14 +38,17 @@ class Searcher:
         self.__total_num_docs = 0
         self.__fileDao = FileDao()
         self.__document_vectors = {}
+        self.working = False
+        self.result = None
 
     # question es un diccionario (termino-peso)
     def search(self, question):
-        d1 = datetime.datetime.now()
+        #d1 = datetime.datetime.now()
         module_question = 0.00
         similarity_set = {}
-        result=None
+        self.result = None
         self.__document_vectors = {}
+        self.working = True
         try:
             total_num_docs = self.__dao.get_num_docs()
             # Si se ha indexado algun documento, se procesa la pregunta
@@ -87,8 +90,10 @@ class Searcher:
                     raise TermNotFound()
             else:
                 raise NoFilesIndexed()
-            print datetime.datetime.now()-d1
-            return sorted_similarity_set
+            #print datetime.datetime.now()-d1
+            self.result = sorted_similarity_set
+            self.working = False
+            #return sorted_similarity_set
         except:
             raise
 
