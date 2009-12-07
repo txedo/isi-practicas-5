@@ -34,6 +34,7 @@ import indexEngineGUI
 import parse, searcher
 
 from exception import * 
+from config import *
 
 #ICON = gtk.gdk.pixbuf_new_from_file("terminal_icon.jpg")
 TITLE = "Search Engine"
@@ -59,8 +60,6 @@ class Aplicacion:
         self.selected_row = -1
         # Resultados de la busqueda
         self.res = {}
-        # El searcher debe ser atributo de clase, para no perder los vectores de terminos entre la busqueda normal y la de similares
-        self.s = searcher.Searcher()
 
         # Diccionario de senales y callbacks
         self.dic = {
@@ -79,8 +78,8 @@ class Aplicacion:
         #self.gui['indexer_window'].hide()
         # Creo esta conexion para que sea destruida al cerrar
         self.window.connect('destroy', self.destroy)
-        # Para los dialogos conectar "delete-event" y "close"
-        # Inicializaciones de la interfaz en codigo
+        # Tomamos el dialogo definido en el fichero glade
+        self.dialog = self.gui['textDialog']
 
         # Tomamos el TreeView definido en la interfaz
         self.resultView = self.gui['resultView']
@@ -109,6 +108,12 @@ class Aplicacion:
 
         self.__guiInit()
 
+        try:
+            # El searcher debe ser atributo de clase, para no perder los vectores de terminos entre la busqueda normal y la de similares
+            self.s = searcher.Searcher()
+        except Exception, e:
+           self.__showErrorDialog("Exception", str(e))
+        
 
     def __guiInit(self):
         # La ventana inicial no muestra la lista de resultados
@@ -168,7 +173,15 @@ class Aplicacion:
 
     def open_document(self, widget, x, y):
         model, rows = self.resultView.get_selection().get_selected_rows()
-        # TODO: Mostrar el dialogo con el texto de ese documento
+        self.dialog.set_title("Document: "+str(self.res[self.selected_row][1][1]))
+        # Tomamos el TextView definido dentro del ScrollBar de ese dialogo
+        textArea = self.dialog.get_content_area().get_children()[0].get_children()[0]
+        textArea.set_editable(False)
+        textArea.set_overwrite(True)
+        # Rellenamos el TextView con el texto del fichero
+        textArea.get_buffer().set_text(self.__readTextFile(REPOSITORY_PATH+"/"+str(self.res[self.selected_row][0])+".txt"))
+        response = self.dialog.run()
+        self.dialog.hide()
 
     def select_row (self, widget):
         model, rows = self.resultView.get_selection().get_selected_rows()
@@ -186,17 +199,20 @@ class Aplicacion:
                 self.res = self.s.search(self.s.get_vector(int(self.res[self.selected_row][0])).get_components())
                 self.show_results()
             except MySQLdb.Error, e:
+                self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", "SQL Exception: "+e.args[1])
             except TermNotFound, e:
+                self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", str(e))
             except NoFilesIndexed, e:
+                self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", str(e))
             except Exception, e:
+                self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", "Exception: "+str(e))
             widget.set_sensitive(True)
 
     def searchButton_clicked_cb(self, widget):
-        self.window.set_size_request(486, 427)
         self.gui['lb_status'].set_text('')
         terms = self.gui['textEntry'].get_text()
         question_dic = {}
@@ -227,23 +243,31 @@ class Aplicacion:
                         search=False
                 # Si hay algun peso distinto de 0 y algun termino que no este en la stop_list, se busca
                 if search:
-                    if len(question_parts)>0:                
+                    if len(question_parts)>0:   
+                        # Aumentamos el tamaño de la ventana
+                        self.window.set_size_request(486, 427)             
                         self.res = self.s.search(question_dic)
                         self.show_results()
                     else:
                         raise TermNotFound()
                 else:
+                    self.window.set_size_request(390, 130)
                     self.__showErrorDialog("Error", "At least one term must have a weight greater than 0")
             else:
+                self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", "Enter any term")
 
         except MySQLdb.Error, e:
+            self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", "SQL Exception: "+e.args[1])
         except TermNotFound, e:
+            self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", str(e))
         except NoFilesIndexed, e:
+            self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", str(e))
         except Exception, e:
+            self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", "Exception: "+str(e))
         widget.set_sensitive(True)
         

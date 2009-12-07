@@ -104,10 +104,7 @@ class Aplicacion:
         try:
             self.analyzer = analyzer.Analyzer()
         except Exception, e:
-            message = self.handle_exception_gui("Exception", str(e))
-            resp = message.run()
-            if resp==gtk.RESPONSE_OK:
-                message.destroy()
+           self.__showErrorDialog("Exception", str(e))
 
 
     def callback (self, widget, data=None):
