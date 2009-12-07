@@ -52,15 +52,23 @@ class GUI:
 class Aplicacion:
     global ICON
     global TITLE
+
     
     def __init__(self, glade_file):
         self.working=False
+        self.selected_row = -1
+        # Resultados de la busqueda
+        self.res = {}
+        # El searcher debe ser atributo de clase, para no perder los vectores de terminos entre la busqueda normal y la de similares
+        self.s = searcher.Searcher()
+
         # Diccionario de senales y callbacks
         self.dic = {
             "on_searchButton_clicked" : self.searchButton_clicked_cb,
             "on_aboutMenuItem_activate" : self.aboutMenuItem_activate_cb,
             "on_quitMenuItem_activate" : self.quitMenuItem_activate_cb,
-            "on_indexEngineMenuItem_activate" : self.indexEngineMenuItem_activate_cb
+            "on_indexEngineMenuItem_activate" : self.indexEngineMenuItem_activate_cb,
+            "on_similarButton_clicked" : self.similarButton_clicked_cb
             }
         # Creo la instancia de la GUI
         self.gui = GUI(glade_file)
@@ -73,11 +81,38 @@ class Aplicacion:
         self.window.connect('destroy', self.destroy)
         # Para los dialogos conectar "delete-event" y "close"
         # Inicializaciones de la interfaz en codigo
+
+        # Tomamos el TreeView definido en la interfaz
+        self.resultView = self.gui['resultView']
+        # Conectamos los callback del Tree View
+        # Este sirve para abrir el documento cuando haces doble click en una fila
+        self.resultView.connect("row_activated", self.open_document)
+        # Este sirve para saber la fila seleccionada, cuando haces clic simple
+        self.resultView.connect("cursor_changed", self.select_row)
+
+        # Ponemos el modo de seleccion a una sola fila
+        self.resultView.get_selection().set_mode(gtk.SELECTION_SINGLE)
+    
+        # Añadimos las columnas a mostrar en el ListStore
+        self.addResultColumn("Id Document", 1)
+        self.addResultColumn("Document Title", 2)
+        self.addResultColumn("Similarity", 3)
+
+		# Se crea el ListStore
+        self.resultList = gtk.ListStore(gobject.TYPE_PYOBJECT
+                                    , gobject.TYPE_STRING
+									, gobject.TYPE_STRING
+									, gobject.TYPE_STRING)
+
+        # Se asocia el ListStore al TreeView
+        self.resultView.set_model(self.resultList)
+
         self.__guiInit()
 
 
     def __guiInit(self):
-        #self.window.resize(325,250)
+        # La ventana inicial no muestra la lista de resultados
+        self.window.set_size_request(390, 130)
         self.window.set_title(TITLE)
         #self.window.set_icon(ICON)
         self.gui['progressbar'].set_text("")
@@ -91,7 +126,6 @@ class Aplicacion:
         #print "Delete was called but I won't die!"
         widget.hide()
         return True
-
 
     def destroy(self, widget):
         gtk.main_quit()
@@ -122,11 +156,48 @@ class Aplicacion:
         errordialog.destroy()
         return response
 
-         
+    # Funcion para añadir una columna al ListStore del TreeView
+    def addResultColumn(self, title, columnId):
+		column = gtk.TreeViewColumn(title, gtk.CellRendererText(), text=columnId)
+		column.set_resizable(True)
+		column.set_sort_column_id(columnId)
+		self.resultView.append_column(column)
+
     def init_pb(self, init):
         pass
 
+    def open_document(self, widget, x, y):
+        model, rows = self.resultView.get_selection().get_selected_rows()
+        # TODO: Mostrar el dialogo con el texto de ese documento
+
+    def select_row (self, widget):
+        model, rows = self.resultView.get_selection().get_selected_rows()
+        # Solo habra una fila por el modo de seleccion simple
+        self.selected_row = int(rows[0][0])
+        self.gui['lb_status'].set_text("Row " + str(self.selected_row+1) + "/" + str(len(self.res)) + " selected")
+
+    def similarButton_clicked_cb (self, widget):
+        if self.selected_row == -1:
+            self.__showErrorDialog("Error", "A document must be selected")
+        else:
+            try:
+                self.gui['textEntry'].set_text('')
+                # Se buscan los documentos similares al seleccionado (usando su id_doc)
+                self.res = self.s.search(self.s.get_vector(int(self.res[self.selected_row][0])).get_components())
+                self.show_results()
+            except MySQLdb.Error, e:
+                self.__showErrorDialog("Error", "SQL Exception: "+e.args[1])
+            except TermNotFound, e:
+                self.__showErrorDialog("Error", str(e))
+            except NoFilesIndexed, e:
+                self.__showErrorDialog("Error", str(e))
+            except Exception, e:
+                self.__showErrorDialog("Error", "Exception: "+str(e))
+            widget.set_sensitive(True)
+
     def searchButton_clicked_cb(self, widget):
+        self.window.set_size_request(486, 427)
+        self.gui['lb_status'].set_text('')
         terms = self.gui['textEntry'].get_text()
         question_dic = {}
         question_parts = []
@@ -135,7 +206,6 @@ class Aplicacion:
         try:
             if terms <> '':                
                 question = self.gui['textEntry'].get_text()
-                s = searcher.Searcher()
                 p = parse.Parser()
                 print "Procesar la pregunta ", question
                 question_parts_aux = p.parse(question)
@@ -158,8 +228,8 @@ class Aplicacion:
                 # Si hay algun peso distinto de 0 y algun termino que no este en la stop_list, se busca
                 if search:
                     if len(question_parts)>0:                
-                        res = s.search(question_dic)
-                        print res
+                        self.res = self.s.search(question_dic)
+                        self.show_results()
                     else:
                         raise TermNotFound()
                 else:
@@ -177,6 +247,14 @@ class Aplicacion:
             self.__showErrorDialog("Error", "Exception: "+str(e))
         widget.set_sensitive(True)
         
+
+    def show_results(self):
+        # Limpiamos la lista de resultados y mostramos los documentos encontrados en el ListStore
+        self.resultList.clear()
+        print self.res
+        for d in self.res:
+            self.resultList.append([self, str(int(d[0])), str(d[1][1]), str(d[1][0])+' %']) 
+        self.gui['lb_status'].set_text(str(len(self.res))+" documents found")
 
     def create_weight_window(self, question_parts):
         slider_list = []
