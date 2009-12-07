@@ -117,7 +117,8 @@ class Aplicacion:
 
     def __guiInit(self):
         # La ventana inicial no muestra la lista de resultados
-        self.window.set_size_request(390, 130)
+        #self.window.set_size_request(390, 130)
+        self.window.set_size_request(486, 427)             
         self.window.set_title(TITLE)
         #self.window.set_icon(ICON)
         self.gui['progressbar'].set_text("")
@@ -161,18 +162,28 @@ class Aplicacion:
         errordialog.destroy()
         return response
 
-    # Funcion para añadir una columna al ListStore del TreeView
+    # Metodo para añadir una columna al ListStore del TreeView
     def addResultColumn(self, title, columnId):
 		column = gtk.TreeViewColumn(title, gtk.CellRendererText(), text=columnId)
 		column.set_resizable(True)
 		column.set_sort_column_id(columnId)
 		self.resultView.append_column(column)
 
+    # Metodo para actualizar la barra de progreso
     def init_pb(self, init):
-        pass
+        time.sleep(0.2)
+        while self.s.working:
+            self.gui['progressbar'].set_text("Searching ...")
+            self.gui['progressbar'].pulse()
+            while gtk.events_pending():
+                gtk.main_iteration()
+                time.sleep(0.15)
+        self.gui['progressbar'].set_fraction(1.0)
+        finish = datetime.datetime.now()
+        self.gui['progressbar'].set_text("Search finished in " + str(finish-init))
 
+    # Metodo para abrir un documento cuando se hace doble clic en la fila del ListStore
     def open_document(self, widget, x, y):
-        model, rows = self.resultView.get_selection().get_selected_rows()
         self.dialog.set_title("Document: "+str(self.res[self.selected_row][1][1]))
         # Tomamos el TextView definido dentro del ScrollBar de ese dialogo
         textArea = self.dialog.get_content_area().get_children()[0].get_children()[0]
@@ -183,12 +194,14 @@ class Aplicacion:
         response = self.dialog.run()
         self.dialog.hide()
 
+    # Metodo para almacenar la fila seleccionada en el ListStore
     def select_row (self, widget):
         model, rows = self.resultView.get_selection().get_selected_rows()
         # Solo habra una fila por el modo de seleccion simple
         self.selected_row = int(rows[0][0])
         self.gui['lb_status'].set_text("Row " + str(self.selected_row+1) + "/" + str(len(self.res)) + " selected")
 
+    # Callback del boton para lanzar la busqueda de documentos similares
     def similarButton_clicked_cb (self, widget):
         if self.selected_row == -1:
             self.__showErrorDialog("Error", "A document must be selected")
@@ -196,7 +209,12 @@ class Aplicacion:
             try:
                 self.gui['textEntry'].set_text('')
                 # Se buscan los documentos similares al seleccionado (usando su id_doc)
-                self.res = self.s.search(self.s.get_vector(int(self.res[self.selected_row][0])).get_components())
+                init = datetime.datetime.now()
+                t = threading.Thread(target=self.s.search, args=(self.s.get_vector(int(self.res[self.selected_row][0])).get_components(),))
+                t.start()
+                self.init_pb(init)
+                t.join()
+                self.res = self.s.result
                 self.show_results()
             except MySQLdb.Error, e:
                 self.window.set_size_request(390, 130)
@@ -223,13 +241,13 @@ class Aplicacion:
             if terms <> '':                
                 question = self.gui['textEntry'].get_text()
                 p = parse.Parser()
-                print "Procesar la pregunta ", question
+                # print "Procesar la pregunta ", question
                 question_parts_aux = p.parse(question)
                 # Se eliminan terminos repetidos en la busqueda
                 for q in question_parts_aux: 
                     if q not in question_parts:
                         question_parts.append(q)
-                print question_parts
+                #print question_parts
                 if self.gui['defaultWeightRadioButton'].get_active():
                     # Pesos por defecto
                     for q in question_parts:
@@ -243,10 +261,15 @@ class Aplicacion:
                         search=False
                 # Si hay algun peso distinto de 0 y algun termino que no este en la stop_list, se busca
                 if search:
-                    if len(question_parts)>0:   
+                    if len(question_parts)>0: 
+                        init = datetime.datetime.now()  
                         # Aumentamos el tamaño de la ventana
-                        self.window.set_size_request(486, 427)             
-                        self.res = self.s.search(question_dic)
+                        #self.window.set_size_request(486, 427)             
+                        t = threading.Thread(target=self.s.search, args=(question_dic,))
+                        t.start()
+                        self.init_pb(init)
+                        t.join()
+                        self.res = self.s.result
                         self.show_results()
                     else:
                         raise TermNotFound()
@@ -275,7 +298,7 @@ class Aplicacion:
     def show_results(self):
         # Limpiamos la lista de resultados y mostramos los documentos encontrados en el ListStore
         self.resultList.clear()
-        print self.res
+        #print self.res
         for d in self.res:
             self.resultList.append([self, str(int(d[0])), str(d[1][1]), str(d[1][0])+' %']) 
         self.gui['lb_status'].set_text(str(len(self.res))+" documents found")
