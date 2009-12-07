@@ -3,15 +3,15 @@
   <!-- interface-requires gtk+ 2.8 -->
   <!-- interface-naming-policy project-wide -->
   <widget class="GtkWindow" id="searcher_window">
-    <property name="width_request">480</property>
-    <property name="height_request">378</property>
+    <property name="width_request">486</property>
+    <property name="height_request">427</property>
     <property name="visible">True</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
     <child>
       <widget class="GtkVBox" id="vbox1">
-        <property name="width_request">485</property>
-        <property name="height_request">378</property>
+        <property name="width_request">486</property>
+        <property name="height_request">427</property>
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <child>
@@ -118,7 +118,12 @@
                 <property name="hscrollbar_policy">automatic</property>
                 <property name="vscrollbar_policy">automatic</property>
                 <child>
-                  <placeholder/>
+                  <widget class="GtkTreeView" id="resultView">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <signal name="cursor_changed" handler="on_resultView_cursor_changed"/>
+                    <signal name="row_activated" handler="on_resultView_row_activated"/>
+                  </widget>
                 </child>
               </widget>
               <packing>
@@ -201,7 +206,34 @@
                 <property name="visible">True</property>
               </widget>
               <packing>
-                <property name="y">327</property>
+                <property name="y">376</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkButton" id="similarButton">
+                <property name="label" translatable="yes">Find similars</property>
+                <property name="width_request">110</property>
+                <property name="height_request">29</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_similarButton_clicked"/>
+              </widget>
+              <packing>
+                <property name="x">358</property>
+                <property name="y">332</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="lb_status">
+                <property name="width_request">144</property>
+                <property name="height_request">21</property>
+                <property name="visible">True</property>
+                <property name="single_line_mode">True</property>
+              </widget>
+              <packing>
+                <property name="x">17</property>
+                <property name="y">316</property>
               </packing>
             </child>
           </widget>
