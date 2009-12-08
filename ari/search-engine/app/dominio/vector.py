@@ -31,7 +31,7 @@ class Vector:
         module_vector = float(math.sqrt(module_vector))
 
         try:
-            similarity = round(float(float(product) / float(module_vector * module_question))*100, 2)
+            similarity = float(float(product) / float(module_vector * module_question))
             return similarity
         except ZeroDivisionError:
             raise ZeroDivisionError
