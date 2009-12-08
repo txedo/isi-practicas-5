@@ -40,6 +40,7 @@ class Searcher:
         self.__document_vectors = {}
         self.working = False
         self.result = None
+        self.exception = None
 
     # question es un diccionario (termino-peso)
     def search(self, question):
@@ -87,15 +88,15 @@ class Searcher:
                     # Escribir el fichero xml con los resultados de la busqueda
                     self.save_results(question, sorted_similarity_set)
                 else:
-                    raise TermNotFound()
+                    self.exception = TermNotFound()
             else:
-                raise NoFilesIndexed()
+                self.exception = NoFilesIndexed()
             #print datetime.datetime.now()-d1
             self.result = sorted_similarity_set
             self.working = False
             #return sorted_similarity_set
-        except:
-            raise
+        except Exception, e:
+            self.exception = e
 
     def save_results(self, question, sorted_similarity_set):
         self.__fileDao.open_file()

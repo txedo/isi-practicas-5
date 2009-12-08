@@ -51,7 +51,7 @@ class FileDao:
         for d in documents: 
             write_list.append("\t<Documento ID=\""+str(int(d[0]))+"\">\n")
             write_list.append("\t\t<Titulo>"+str(d[1][1])+"</Titulo>\n")
-            write_list.append("\t\t<Relevancia>"+str(d[1][0])+"%</Relevancia>\n")
+            write_list.append("\t\t<Relevancia>"+str(round(d[1][0]*100.0,2))+"%</Relevancia>\n")
             write_list.append("\t\t<Texto>"+TEXTS_PATH+str(d[1][1])+".txt</Texto>\n")
             write_list.append("\t</Documento>\n")                
         self.__file.writelines(write_list)

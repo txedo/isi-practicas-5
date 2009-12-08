@@ -93,14 +93,13 @@ class Aplicacion:
         self.resultView.get_selection().set_mode(gtk.SELECTION_SINGLE)
     
         # Añadimos las columnas a mostrar en el ListStore
-        self.addResultColumn("Id Document", 1)
-        self.addResultColumn("Document Title", 2)
-        self.addResultColumn("Similarity", 3)
+        #self.addResultColumn("Id Document", 1)
+        self.addResultColumn("Document Title", 1)
+        self.addResultColumn("Relevance", 2)
 
 		# Se crea el ListStore
         self.resultList = gtk.ListStore(gobject.TYPE_PYOBJECT
                                     , gobject.TYPE_STRING
-									, gobject.TYPE_STRING
 									, gobject.TYPE_STRING)
 
         # Se asocia el ListStore al TreeView
@@ -127,6 +126,7 @@ class Aplicacion:
         defaultWeightRB.set_active(True)
         customWeightRB = self.gui['customWeightRadioButton']
         customWeightRB.set_active(False)
+        self.gui['similarButton'].set_sensitive(False)
 
     def on_delete_event(self, widget, event):
         #print "Delete was called but I won't die!"
@@ -217,16 +217,16 @@ class Aplicacion:
                 self.res = self.s.result
                 self.show_results()
             except MySQLdb.Error, e:
-                self.window.set_size_request(390, 130)
+                #self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", "SQL Exception: "+e.args[1])
             except TermNotFound, e:
-                self.window.set_size_request(390, 130)
+                #self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", str(e))
             except NoFilesIndexed, e:
-                self.window.set_size_request(390, 130)
+                #self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", str(e))
             except Exception, e:
-                self.window.set_size_request(390, 130)
+                #self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", "Exception: "+str(e))
             widget.set_sensitive(True)
 
@@ -269,38 +269,44 @@ class Aplicacion:
                         t.start()
                         self.init_pb(init)
                         t.join()
-                        self.res = self.s.result
-                        self.show_results()
+                        if self.s.exception <> None:
+                            self.gui['progressbar'].set_text("An error has ocurred")
+                            self.gui['progressbar'].set_fraction(0.0)
+                            raise self.s.exception
+                        else:
+                            self.res = self.s.result
+                            self.show_results()
+                            self.gui['similarButton'].set_sensitive(True)
                     else:
                         raise TermNotFound()
                 else:
-                    self.window.set_size_request(390, 130)
+                    #self.window.set_size_request(390, 130)
                     self.__showErrorDialog("Error", "At least one term must have a weight greater than 0")
             else:
-                self.window.set_size_request(390, 130)
+                #self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", "Enter any term")
 
         except MySQLdb.Error, e:
-            self.window.set_size_request(390, 130)
+            #self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", "SQL Exception: "+e.args[1])
         except TermNotFound, e:
-            self.window.set_size_request(390, 130)
+            #self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", str(e))
         except NoFilesIndexed, e:
-            self.window.set_size_request(390, 130)
+            #self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", str(e))
         except Exception, e:
-            self.window.set_size_request(390, 130)
+            #self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", "Exception: "+str(e))
         widget.set_sensitive(True)
         
-
+    # Metodo para mostrar los resultados de la busqueda en el ListStore
     def show_results(self):
-        # Limpiamos la lista de resultados y mostramos los documentos encontrados en el ListStore
+        # Limpiamos la lista de resultados
         self.resultList.clear()
         #print self.res
         for d in self.res:
-            self.resultList.append([self, str(int(d[0])), str(d[1][1]), str(d[1][0])+' %']) 
+            self.resultList.append([self, str(d[1][1]), str(round(d[1][0]*100, 2))+' %']) 
         self.gui['lb_status'].set_text(str(len(self.res))+" documents found")
 
     def create_weight_window(self, question_parts):
