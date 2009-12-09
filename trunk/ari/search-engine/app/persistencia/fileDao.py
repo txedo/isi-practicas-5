@@ -53,7 +53,7 @@ class FileDao:
             write_list.append("\t\t<Relevancia>"+str(round(d[1][0]*100.0,2))+"%</Relevancia>\n")
             write_list.append("\t\t<Texto>"+REPOSITORY_PATH+str(int(d[0]))+".txt</Texto>\n")
             write_list.append("\t</Documento>\n")              
-        write_list.append("<Resultado>")
+        write_list.append("</Resultado>")
         return write_list
 
     def create_xml_file (self, question_list, documents):

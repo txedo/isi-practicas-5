@@ -26,4 +26,4 @@ REPOSITORY_PATH = os.getcwd() + "/../persistencia/repository/"
 # Tamaño maximo de la cache
 MAX_CACHE_SIZE = 4000
 # Ruta donde se almacena el fichero "Resultados.xml"
-RESULT_PATH = os.getcwd() + "/../dominio/resultados/"
+RESULT_PATH = os.getcwd() + "/../persistencia/resultados/"
