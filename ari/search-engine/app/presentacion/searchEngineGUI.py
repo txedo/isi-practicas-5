@@ -31,7 +31,8 @@ import MySQLdb
 import threading, time, datetime
 
 import indexEngineGUI
-import parse, searcher
+import parse, searcher, utilities
+import webbrowser
 
 from exception import * 
 from config import *
@@ -67,7 +68,9 @@ class Aplicacion:
             "on_aboutMenuItem_activate" : self.aboutMenuItem_activate_cb,
             "on_quitMenuItem_activate" : self.quitMenuItem_activate_cb,
             "on_indexEngineMenuItem_activate" : self.indexEngineMenuItem_activate_cb,
-            "on_similarButton_clicked" : self.similarButton_clicked_cb
+            "on_similarButton_clicked" : self.similarButton_clicked_cb,
+            "on_closeButton_clicked" : self.closeButton_clicked_cb,
+            "on_xmlButton_clicked" : self.xmlButton_clicked_cb
             }
         # Creo la instancia de la GUI
         self.gui = GUI(glade_file)
@@ -98,9 +101,7 @@ class Aplicacion:
         self.addResultColumn("Relevance", 2)
 
 		# Se crea el ListStore
-        self.resultList = gtk.ListStore(gobject.TYPE_PYOBJECT
-                                    , gobject.TYPE_STRING
-									, gobject.TYPE_STRING)
+        self.resultList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING)
 
         # Se asocia el ListStore al TreeView
         self.resultView.set_model(self.resultList)
@@ -117,7 +118,7 @@ class Aplicacion:
     def __guiInit(self):
         # La ventana inicial no muestra la lista de resultados
         #self.window.set_size_request(390, 130)
-        self.window.set_size_request(486, 427)             
+        self.window.set_size_request(486, 450)             
         self.window.set_title(TITLE)
         #self.window.set_icon(ICON)
         self.gui['progressbar'].set_text("")
@@ -127,6 +128,7 @@ class Aplicacion:
         customWeightRB = self.gui['customWeightRadioButton']
         customWeightRB.set_active(False)
         self.gui['similarButton'].set_sensitive(False)
+        self.gui['xmlButton'].set_sensitive(False)
 
     def on_delete_event(self, widget, event):
         #print "Delete was called but I won't die!"
@@ -135,14 +137,6 @@ class Aplicacion:
 
     def destroy(self, widget):
         gtk.main_quit()
-       
-    def __readTextFile (self, filename):
-        text = ""
-        file = open (filename, "r")
-        for line in file.xreadlines():
-            text = text + line
-        file.close()
-        return text
 
     def __showInfoDialog (self, title, secondary_text):
         infodialog = gtk.MessageDialog (parent=self.window, flags=gtk.DIALOG_MODAL, type=gtk.MESSAGE_QUESTION, buttons=gtk.BUTTONS_OK_CANCEL)
@@ -164,10 +158,19 @@ class Aplicacion:
 
     # Metodo para añadir una columna al ListStore del TreeView
     def addResultColumn(self, title, columnId):
-		column = gtk.TreeViewColumn(title, gtk.CellRendererText(), text=columnId)
-		column.set_resizable(True)
-		column.set_sort_column_id(columnId)
-		self.resultView.append_column(column)
+        column = gtk.TreeViewColumn(title, gtk.CellRendererText(), text=columnId)
+        column.set_resizable(True)
+        column.set_sort_column_id(columnId)
+        self.resultView.append_column(column)
+
+    def __resetGUI(self, full=True):
+        if full:
+            self.gui['textEntry'].set_text("")
+        self.gui['xmlButton'].set_sensitive(False)
+        self.gui['similarButton'].set_sensitive(False)
+        self.gui['progressbar'].set_text("")
+        self.gui['progressbar'].set_fraction(0.0)
+        self.resultList.clear()
 
     # Metodo para actualizar la barra de progreso
     def init_pb(self, init):
@@ -184,15 +187,20 @@ class Aplicacion:
 
     # Metodo para abrir un documento cuando se hace doble clic en la fila del ListStore
     def open_document(self, widget, x, y):
-        self.dialog.set_title("Document: "+str(self.res[self.selected_row][1][1]))
-        # Tomamos el TextView definido dentro del ScrollBar de ese dialogo
-        textArea = self.dialog.get_content_area().get_children()[0].get_children()[0]
-        textArea.set_editable(False)
-        textArea.set_overwrite(True)
-        # Rellenamos el TextView con el texto del fichero
-        textArea.get_buffer().set_text(self.__readTextFile(REPOSITORY_PATH+"/"+str(self.res[self.selected_row][0])+".txt"))
-        response = self.dialog.run()
-        self.dialog.hide()
+        try:
+            u = utilities.Utilities()
+            self.dialog.set_title("Document: "+str(self.res[self.selected_row][1][1]))
+            # Tomamos el TextView definido dentro del ScrollBar de ese dialogo
+            textArea = self.dialog.get_content_area().get_children()[0].get_children()[0]
+            textArea.set_editable(False)
+            textArea.set_overwrite(True)
+            # Rellenamos el TextView con el texto del fichero
+            textArea.get_buffer().set_text(u.read_text_file(REPOSITORY_PATH+"/"+
+                                                            str(self.res[self.selected_row][0])+".txt"))
+            response = self.dialog.run()
+            self.dialog.hide()
+        except Exception, e:
+            self.__showErrorDialog("Error", "Exception: "+str(e))
 
     # Metodo para almacenar la fila seleccionada en el ListStore
     def select_row (self, widget):
@@ -200,6 +208,12 @@ class Aplicacion:
         # Solo habra una fila por el modo de seleccion simple
         self.selected_row = int(rows[0][0])
         self.gui['lb_status'].set_text("Row " + str(self.selected_row+1) + "/" + str(len(self.res)) + " selected")
+
+    def closeButton_clicked_cb (self, widget):
+        self.destroy(widget)
+
+    def xmlButton_clicked_cb (self, widget):
+        webbrowser.open(RESULT_PATH+"resultados.xml")
 
     # Callback del boton para lanzar la busqueda de documentos similares
     def similarButton_clicked_cb (self, widget):
@@ -237,12 +251,15 @@ class Aplicacion:
         question_parts = []
         search=True
         weights_sum = 0
+        response = None
         try:
             if terms <> '':                
                 question = self.gui['textEntry'].get_text()
                 p = parse.Parser()
                 # print "Procesar la pregunta ", question
                 question_parts_aux = p.parse(question)
+                if len(question_parts_aux) == 0:
+                    raise TermNotFound()
                 # Se eliminan terminos repetidos en la busqueda
                 for q in question_parts_aux: 
                     if q not in question_parts:
@@ -256,12 +273,12 @@ class Aplicacion:
                     # Pesos personalizados
                     #for q in question_parts:
                     #    question_dic[q] = 1
-                    (question_dic, weights_sum)= self.create_weight_window(question_parts)
+                    (response, question_dic, weights_sum) = self.create_weight_window(question_parts)
                     if weights_sum == 0:
                         search=False
-                # Si hay algun peso distinto de 0 y algun termino que no este en la stop_list, se busca
-                if search:
-                    if len(question_parts)>0: 
+                if (response == gtk.RESPONSE_OK and self.gui['customWeightRadioButton'].get_active()) or self.gui['defaultWeightRadioButton'].get_active():
+                    # Si hay algun peso distinto de 0 y algun termino que no este en la stop_list, se busca
+                    if search:
                         init = datetime.datetime.now()  
                         # Aumentamos el tamaño de la ventana
                         #self.window.set_size_request(486, 427)             
@@ -277,26 +294,22 @@ class Aplicacion:
                             self.res = self.s.result
                             self.show_results()
                             self.gui['similarButton'].set_sensitive(True)
+                            self.gui['xmlButton'].set_sensitive(True)
                     else:
-                        raise TermNotFound()
-                else:
-                    #self.window.set_size_request(390, 130)
-                    self.__showErrorDialog("Error", "At least one term must have a weight greater than 0")
+                        self.__resetGUI(False)
+                        self.__showErrorDialog("Error", "At least one term must have a weight greater than 0")
             else:
-                #self.window.set_size_request(390, 130)
+                self.__resetGUI()
                 self.__showErrorDialog("Error", "Enter any term")
 
         except MySQLdb.Error, e:
-            #self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", "SQL Exception: "+e.args[1])
         except TermNotFound, e:
-            #self.window.set_size_request(390, 130)
+            self.__resetGUI(False)
             self.__showErrorDialog("Error", str(e))
         except NoFilesIndexed, e:
-            #self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", str(e))
         except Exception, e:
-            #self.window.set_size_request(390, 130)
             self.__showErrorDialog("Error", "Exception: "+str(e))
         widget.set_sensitive(True)
         
@@ -337,13 +350,14 @@ class Aplicacion:
             question_dic[question_parts[i]] = float(slider_list[i].get_value())
             weights_sum += slider_list[i].get_value()
         dialog.destroy()
-        return (question_dic, weights_sum)
+        return (response, question_dic, weights_sum)
 
     def aboutMenuItem_activate_cb(self, widget):
+        u = utilities.Utilities()
         authors = ["Jose Domingo Lopez Lopez\nJuan Andrada Romero"]
-        license = self.__readTextFile ("../license.txt")
+        license = u.read_text_file("../license.txt")
         dialog = gtk.AboutDialog()
-        dialog.set_name("Program name")
+        dialog.set_name("Search Engine")
         dialog.set_version("v1.0")
         dialog.set_authors(authors)
         dialog.set_license(license)
