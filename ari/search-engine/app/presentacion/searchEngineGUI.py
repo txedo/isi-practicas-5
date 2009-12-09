@@ -129,6 +129,7 @@ class Aplicacion:
         customWeightRB.set_active(False)
         self.gui['similarButton'].set_sensitive(False)
         self.gui['xmlButton'].set_sensitive(False)
+        self.resultView.set_sensitive(False)
 
     def on_delete_event(self, widget, event):
         #print "Delete was called but I won't die!"
@@ -168,6 +169,7 @@ class Aplicacion:
             self.gui['textEntry'].set_text("")
         self.gui['xmlButton'].set_sensitive(False)
         self.gui['similarButton'].set_sensitive(False)
+        self.resultView.set_sensitive(False)
         self.gui['progressbar'].set_text("")
         self.gui['progressbar'].set_fraction(0.0)
         self.resultList.clear()
@@ -221,13 +223,16 @@ class Aplicacion:
             self.__showErrorDialog("Error", "A document must be selected")
         else:
             try:
-                self.gui['textEntry'].set_text('')
+                self.__resetGUI()
                 # Se buscan los documentos similares al seleccionado (usando su id_doc)
                 init = datetime.datetime.now()
                 t = threading.Thread(target=self.s.search, args=(self.s.get_vector(int(self.res[self.selected_row][0])).get_components(),))
                 t.start()
                 self.init_pb(init)
                 t.join()
+                self.gui['similarButton'].set_sensitive(True)
+                self.gui['xmlButton'].set_sensitive(True)
+                self.resultView.set_sensitive(True)
                 self.res = self.s.result
                 self.show_results()
             except MySQLdb.Error, e:
@@ -245,7 +250,7 @@ class Aplicacion:
             widget.set_sensitive(True)
 
     def searchButton_clicked_cb(self, widget):
-        self.gui['lb_status'].set_text('')
+        self.__resetGUI(False)
         terms = self.gui['textEntry'].get_text()
         question_dic = {}
         question_parts = []
@@ -295,6 +300,7 @@ class Aplicacion:
                             self.show_results()
                             self.gui['similarButton'].set_sensitive(True)
                             self.gui['xmlButton'].set_sensitive(True)
+                            self.resultView.set_sensitive(True)
                     else:
                         self.__resetGUI(False)
                         self.__showErrorDialog("Error", "At least one term must have a weight greater than 0")
