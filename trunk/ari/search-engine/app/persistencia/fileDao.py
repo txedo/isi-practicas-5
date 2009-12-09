@@ -23,39 +23,45 @@ psyco.full()
 import sys, os
 sys.path.append(os.getcwd() + "/../dominio")
 
+import file_handler
+
 from config import *
 
 
 class FileDao:
 
     def __init__(self):
-        self.__file = None
+        self.__file_handler = file_handler.File_Handler()
 
-    def open_file (self):
-        self.__file = open(RESULTS_PATH+"resultados.xml", "w")
-
-    def write_head(self):
+    def xml_head(self):
         head_list = ["<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "<!DOCTYPE Resultado SYSTEM \"Resultados.dtd\">\n", "<?xml-stylesheet type=\"text/xsl\" href=\"Resultados.xsl\"?>\n", "<Resultado>\n"]
-        self.__file.writelines(head_list)
+        return head_list
         
-    def write_question (self, question_list):
+    def xml_question (self, question_list):
         write_list = []
         write_list.append("\t<Pregunta>\n")
         for q in question_list:
             write_list.append("\t\t<Item>"+str(q)+"</Item>\n")
         write_list.append("\t</Pregunta>\n")
-        self.__file.writelines(write_list)    
+        return write_list
 
-    def write_results (self, documents):
+    def xml_results (self, documents):
         write_list = []
         for d in documents: 
             write_list.append("\t<Documento ID=\""+str(int(d[0]))+"\">\n")
             write_list.append("\t\t<Titulo>"+str(d[1][1])+"</Titulo>\n")
             write_list.append("\t\t<Relevancia>"+str(round(d[1][0]*100.0,2))+"%</Relevancia>\n")
-            write_list.append("\t\t<Texto>"+TEXTS_PATH+str(d[1][1])+".txt</Texto>\n")
-            write_list.append("\t</Documento>\n")                
-        self.__file.writelines(write_list)
+            write_list.append("\t\t<Texto>"+REPOSITORY_PATH+str(int(d[0]))+".txt</Texto>\n")
+            write_list.append("\t</Documento>\n")              
+        write_list.append("<Resultado>")
+        return write_list
 
-    def close_file (self):
-        self.__file.write("</Resultado>")
-        self.__file.close()
+    def create_xml_file (self, question_list, documents):
+        head = self.xml_head()
+        question = self.xml_question(question_list)
+        results = self.xml_results(documents)
+        xml_file=[]
+        xml_file.extend(head)
+        xml_file.extend(question)
+        xml_file.extend(results)
+        self.__file_handler.write_text_file(RESULT_PATH+"resultados.xml", xml_file)
