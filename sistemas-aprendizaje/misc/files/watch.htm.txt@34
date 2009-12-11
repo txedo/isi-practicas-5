@@ -1,0 +1,4317 @@
+
+
+
+	
+
+
+
+
+	
+	YouTube - Microsoft Surface Demo @ CES 2008
+
+	
+
+	
+
+	
+	
+
+
+	
+	
+	
+
+
+	
+
+	
+			window.google={kHL:"es"};
+	
+
+	
+
+	
+
+			function _hbLink (a,b) { return false; }
+			function urchinTracker (a) { }
+			function urchinTrackerDefer(a) { }
+
+		
+	var gXSRF_token = '';
+	var gXSRF_field_name = '';
+	var gXSRF_ql_pair = '';
+	var onLoadFunctionList = onLoadFunctionList || [];
+
+		gXSRF_token = 'D_uFDMPhJgjcKm0pHoWXT74RWAd8MTIyODU4ODE5MQ==';
+		gXSRF_field_name = 'session_token';
+		onLoadFunctionList.push(function() { populate_session_token() });
+
+		gXSRF_ql_pair = 'session_token=RM8_Tyj9_6THMPVoBlgVpS7rq-l8MA==';
+
+
+		var gGoogleSuggest = true;
+		var gPixelGif = 'http://s.ytimg.com/yt/img/pixel-vfl73.gif'; 
+
+		var gIsResultsPage = false;
+
+		var gGeoTooltipText = 'Mueve este marcador a una nueva ubicaciA³n y, a continuaciA³n, haz clic en \"Buscar\" para encontrar vA­deos grabados en esa zona.';
+		var gGeoTooltipMoreText= 'Acerca o aleja la imagen para cambiar el radio de la bAosqueda.';
+		var gGeoTooltipButton = "" + 'Buscar' + "";
+		var gGeoTooltipMore = "" + 'mA¡s' + "&raquo;";
+		var gGeoTooltip = "" + gGeoTooltipText + gGeoTooltipMore + gGeoTooltipButton + "";
+		var gGeoTooltipMore = "" + gGeoTooltipText + gGeoTooltipMoreText + gGeoTooltipButton + "";
+		var gGeoSelectedLocationText = 'UbicaciA³n seleccionada';
+	
+
+
+
+
+	
+	Sub movie_player_FSCommand(ByVal command, ByVal args)
+		call movie_player_DoFSCommand(command, args)
+	End Sub
+	
+
+	
+		initWatchQueue(true);
+
+		var MSG_Hide = 'Ocultar';
+		var MSG_Show = 'Mostrar';
+		var MSG_Login = 'Accede para realizar esta operaciA³n.';
+		var MSG_Loading = 'Cargando...';
+		var MSG_ShowingAll = 'Mostrar todos los vA­deos';
+		var MSG_LoginFavorites = 'Debes haber iniciado sesiA³n para aA±adir este vA­deo a tus favoritos.';
+		var MSG_LoginAddPlaylist = 'Debes haber iniciado sesiA³n para aA±adir este vA­deo a una lista de reproducciA³n.';
+		var MSG_LoginReportConcern = 'Debes haber iniciado sesiA³n para notificar un problema.';
+		var MSG_FlagDefault = 'Selecciona un motivo.';
+
+		var isLoggedIn = false ;
+		
+
+		var swfUrl = canPlayV9Swf() ? 'http://s.ytimg.com/yt/swf/watch-vfl67812.swf' : 'http://s.ytimg.com/yt/swf/watch_v8-vfl67812.swf';
+		var swfArgs = {"usef": 0, "cust_p": "Nt93HC1XrexdBGXoAUrlgw", "ad_module": "http://s.ytimg.com/yt/swf/ad-vfl64727.swf", "ad_channel_code": "invideo_overlay_480x70_cat28,afv_overlay", "video_id": "Zxk_WywMTzc", "l": 597, "fmt_map": "34/0/9/0/115", "ad_host_tier": "11805", "sk": "W2rozxTT7H6M-MNYVLq2hWjtDACUvPXxC", "invideo": true, "t": "OEgsToPDskLNe1LGQj4SInVzkRBBwxb_", "hl": "es", "plid": "AARdUNzhRLB8dpigAAAA8QD4AAA", "vq": null, "afv": true, "ad_host": "ca-host-pub-3181511581206417", "tk": "Eh7GsHoCw38ip_Or011PhUKaeHByndy1A8txs8X4xs_MBfL9urEJCQ==", "ad_video_pub_id": "ca-pub-6219811747049371", "sdetail": "n%3A1%2C"};
+
+		var additionalStatsHonorsUrl = '/watch_ajax?v=Zxk_WywMTzc&action_get_statistics_and_data=1&l=EN';
+		var additionalAudioInfoUrl = '/watch_ajax?v=Zxk_WywMTzc&action_get_audio_info=1&l=EN';
+		var watchMapUrl = '/watch_ajax?v=Zxk_WywMTzc&action_get_map=1';
+		var fullscreenUrl = '/watch_fullscreen?fs=1&cust_p=Nt93HC1XrexdBGXoAUrlgw&ad_module=http%3A%2F%2Fs.ytimg.com%2Fyt%2Fswf%2Fad-vfl64727.swf&ad_channel_code=invideo_overlay_480x70_cat28%2Cafv_overlay&video_id=Zxk_WywMTzc&l=597&fmt_map=34%2F0%2F9%2F0%2F115&ad_host_tier=11805&sk=W2rozxTT7H6M-MNYVLq2hWjtDACUvPXxC&invideo=True&t=OEgsToPDskLNe1LGQj4SInVzkRBBwxb_&hl=es&plid=AARdUNzhRLB8dpigAAAA8QD4AAA&vq=None&afv=True&ad_host=ca-host-pub-3181511581206417&tk=Eh7GsHoCw38ip_Or011PhUKaeHByndy1A8txs8X4xs_MBfL9urEJCQ%3D%3D&ad_video_pub_id=ca-pub-6219811747049371&sdetail=n%253A1%252C&title=Microsoft Surface Demo @ CES 2008';
+		var watchGamUrl = null;
+		var watchDCUrl = null;
+		var watchTrackWithHitbox = false;
+		var watchIsPlayingAll = false;
+		var isWidescreen = false;
+		var watchUsername = 'GerbilGod7';
+		var pageVideoId = 'Zxk_WywMTzc';
+		var pageVideoSearchQueryStr = ' OhGizmo CES microsoft surface demo';
+		var pageFillRelatedVideoStartIndex = 20;
+		var pageFillRelatedVideoEndIndex = 40;
+		var relatedVideoGridUrl = '/related_ajax?action_get_related&video_id=Zxk_WywMTzc&view_type=G&watch3=1&search=%20OhGizmo%20CES%20microsoft%20surface%20demo';
+		var relatedVideoListUrl = '/related_ajax?action_get_related&video_id=Zxk_WywMTzc&view_type=L&watch3=1&search=%20OhGizmo%20CES%20microsoft%20surface%20demo';
+		var playnextFrom = '';
+		var playnextCount = 'None';
+		var qlAutoscrollDestination = 0;
+		var watchSetWmode = false;
+		var embedUrl = 'http://www.youtube.com/v/Zxk_WywMTzc&hl=es&fs=1';
+		var ytLocale = 'es_ES';
+	
+		var ad_eurl = null;
+			ad_eurl = escape(document.location);
+
+		var axc = '';
+		var subscribeaxc = '';
+		
+			watchDCUrl = "http://n4061ad.fr.doubleclick.net/pfadx/com.ytpwatch.scitech/main_2098;sz=480x70;kl=N;!c=2098;klg=es;kvid=Zxk_WywMTzc;kpu=GerbilGod7;ko=y;kt=K;dcdupd=1;kpid=2098;kga=-1;kr=F;u=Zxk_WywMTzc|2098;kgg=-1;kcr=us;custp=Nt93HC1XrexdBGXoAUrlgw;";
+
+					onLoadFunctionList.push(function() { imagesInit_video_responses();} );
+
+		function imagesInit_video_responses() {
+			imageBrowsers['video_responses'] = new ImageBrowser(1, 1, "video_responses");
+				
+				
+				
+				
+				
+				
+				imageBrowsers['video_responses'].addImage(new customYtImage("http://i3.ytimg.com/vi/ZxzBTVSXBk0/default.jpg", 
+					"/watch?v=ZxzBTVSXBk0&watch_response",
+					"\n\t04:27
+\n\tanalnatrah\n\t", 
+					"",
+					"",
+					"Immersive Display Bottin Technology",
+					false,
+					"ZxzBTVSXBk0") );
+			imageBrowsers['video_responses'].initDisplay();
+			imageBrowsers['video_responses'].showImages();
+			images_loaded = true;
+		}
+
+
+			function showCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		var msg = new Object();
+		msg["post"] = "Accede a tu cuenta para publicar un comentario.";
+		showCommentReplyForm_js(form_id, reply_parent_id, is_main_comment_form, msg);
+	}
+
+	function updateCharCount(charCount_id, label_id, textArea) {
+		var msg = new Object();
+		msg["exceeded"] = "NAomero de caracteres que superan el lA­mite:";
+		msg["remaining"] = "NAomero de caracteres restantes:"; 
+		updateCharCount_js(charCount_id, label_id, textArea, 500, msg)
+	}
+
+	function loginMsg(div_id, display_val) {
+		var msg = new Object();
+		msg["login"] = 'Accede a tu cuenta.';
+		loginMsg_js(div_id, display_val, msg);
+	}
+
+	function printCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		var msg = new Object();
+		msg["post"] = "Publicar comentario";
+		msg["remaining"] = "NAomero de caracteres restantes:";
+		msg["discard"] = "Descartar"; 
+		printCommentReplyForm_js(form_id, reply_parent_id, is_main_comment_form, 'V', 'top.goog.i18n.bidi.setDirAttribute(event,this)', 'video_id', 'Zxk_WywMTzc', '', 500, msg);
+	}
+
+	function postThreadedComment(comment_form_id) {
+		var msg = new Object();
+		msg["add"] = "AA±adiendo comentario...";
+		postThreadedComment_js(comment_form_id, msg);
+	}
+
+	function commentApproved(xmlHttpRequest) {
+		alert("El comentario se ha aprobado.")
+	}
+
+	function ThreadedCommentHandler(comment_form, comment_form_id) {
+		var msg = new Object();
+		msg["empty"] = "Debes introducir un comentario.";
+		msg["toolong"] = "Tu comentario no puede tener mA¡s de 500 caracteres.";
+		return ThreadedCommentHandler_js(comment_form, comment_form_id, msg);
+	}
+
+	function commentResponse(xmlHttpRequest) {
+		var msg = new Object();
+		msg["ok"] = "Comentario publicado.";
+		msg["pending"] = "Comentario pendiente de aprobaciA³n.";
+		msg["toolong"] = "El comentario que has introducido es demasiado largo. No puede contener mA¡s de 500 caracteres. Escribe un comentario mA¡s corto e intA©ntalo de nuevo.";
+		msg["tooshort"] = "El comentario que has introducido es demasiado corto. Escribe un comentario mA¡s largo e intA©ntalo de nuevo.";
+		msg["toosoon"] = "Se ha superado el lA­mite de comentarios.";
+		msg["email"] = "Para poder enviar comentarios debes confirmar tu direcciA³n de correo electrA³nico. Haz clic en Aceptar para confirmar tu direcciA³n de correo electrA³nico.";
+		msg["captchFail"] = "La respuesta a las letras de la imagen no ha sido correcta. Vuelve a intentarlo.";
+		msg["default"] = "Publicar comentario"; 
+		commentResponse_js(xmlHttpRequest, msg);
+	}
+
+	function load_all_comments(video_id, is_watch2) {
+		var msg = new Object();
+		msg["remove"] = "Cargando comentarios...";
+		load_all_comments_js(video_id, is_watch2, msg);
+	}
+
+
+
+
+	
+		onLoadFunctionList.push(function() { applyUserPrefs() });
+
+
+
+
+		onLoadFunctionList.push(function() { enableVideoQualityDisplay()});
+	
+		// single favorite action, forwarded from /login
+		onLoadFunctionList.push(function(event) {
+			url = document.location.href;
+			if (url.match('#fav')) {
+				document.location.href = url.replace('#fav', '#');
+				addToFaves('addToFavesForm', event);
+			}
+		});
+	
+
+
+
+
+" onunload="performOnUnloadFunctions();">
+
+
+
+	
+
+		
+		
+		
+			
+				
+					
+		Mundial
+		EspaA±ol
+
+				
+
+				
+					
+
+
+
+
+	
+
+		" onclick="_hbLink('SignUp','UtilityLinks');" onmousedown="urchinTracker('/Events/Header/UtilLinks/SignUp');">Registrarse
+		Lista rA¡pida (0)
+		Ayuda
+			" onmousedown="urchinTracker('/Events/Header/UtilLinks/SignIn');">Acceder
+	
+
+	
+		
+	
+
+
+				
+
+			
+
+				
+		
+			Cerrar
+			Establece la preferencia de contenido de tu paA­s (A¿QuA© es esto?)
+				Elige el contenido del paA­s (vA­deos y canales) que quieras ver. Al hacerlo no cambiarA¡ el idioma del sitio. 
+			
+		
+	
+			
+				var gContentRegions = [
+				[
+				['en_US','US','Mundial (todos)']				
+				]
+									,				[
+				['es_ES','ES','EspaA±a']									,				['es_MX','MX','MA©xico']				
+				]
+									,				[
+				['en_AU','AU','Australia']									,				['pt_BR','BR','Brasil']									,				['en_CA','CA','CanadA¡']									,				['cs_CZ','CZ','RepAoblica Checa']									,				['de_DE','DE','Alemania']									,				['fr_FR','FR','Francia']									,				['en_GB','GB','Reino Unido']									,				['zh_HK','HK','Hong Kong']									,				['en_IE','IE','Irlanda']									,				['en_IL','IL','Israel']									,				['en_IN','IN','La India']									,				['it_IT','IT','Italia']									,				['ja_JP','JP','JapA³n']									,				['ko_KR','KR','Corea del Sur']									,				['nl_NL','NL','PaA­ses Bajos']									,				['en_NZ','NZ','Nueva Zelanda']									,				['pl_PL','PL','Polonia']									,				['ru_RU','RU','Rusia']									,				['sv_SE','SE','Suecia']									,				['zh_TW','TW','TaiwA¡n']				
+				]
+				
+				];
+			
+			
+			
+	
+	
+
+				
+		
+			Cerrar
+			Establecer preferencia de idioma (A¿QuA© es esto?)
+			Elige el idioma en el que quieres ver YouTube. SA³lo se cambiarA¡ la interfaz, no el texto introducido por otros usuarios.
+			
+		
+	
+			
+				var gUILanguages = [
+				['de','Deutsch']									,				['en-GB','English (UK)']									,				['en','English (US)']									,				['es','EspaA±ol (EspaA±a)']									,				['es-MX','EspaA±ol (LatinoamA©rica)']									,				['fr','FranA§ais']									,				['it','Italiano']									,				['nl','Nederlands']									,				['pl','Polski']									,				['pt','PortuguAas (Brasil)']									,				['ru','PyccÄ¸Ð¸Ð¹']									,				['sv','Svenska']									,				['cs','ÄŒeskA½']									,				['zh-CN','ä¸­æ–‡ (c®€ä½“)']									,				['zh-TW','ä¸­æ–‡ (c¹e«”)']									,				['ja','æ—¥æœ¬eaž']									,				['ko','i•œeµ­i–´']				
+				];
+			
+			
+			
+	
+	
+
+		
+
+		
+							
+		
+			
+				
+				Subir
+				
+			
+		
+	
+
+
+				
+		
+			
+			
+			
+				
+					
+					Buscar
+					
+				
+			
+		
+	
+
+
+			Inicio
+			VA­deos
+			
+			Canales
+			Comunidad
+		
+
+		
+	 
+
+	
+			
+		
+			Cerrar
+			
+					A¡Bienvenido/a a YouTube! 
+
+					
+					Sugerencia de idioma (preferencia establecida): EspaA±ol (EspaA±a)
+
+					
+					Para cambiar la preferencia de idioma, utiliza los enlaces situados en la parte superior de la pA¡gina junto al logotipo de YouTube.
+
+					
+					Click &quot;OK&quot; to accept this setting, or click &quot;Cancel&quot; to view the site in English.
+
+				
+					
+						
+							
+							Aceptar
+							
+						
+							
+							
+							Cancelar
+							
+						 
+						
+					
+				
+			
+			
+				
+
+					Welcome to YouTube! 
+
+					
+					Suggested Language (we have set your preference to this): Spanish
+
+					
+					To change your language preference, please use the links next to the YouTube logo at the top of the page.
+
+					
+					Click &quot;OK&quot; to accept this setting, or click &quot;Cancel&quot; to view the site in English (US).
+
+				
+					
+						
+							
+							OK
+							
+						
+							
+							
+							Cancel
+							
+						 
+						
+					
+				
+			
+				
+					Show message in English
+				
+				
+					Hide message in English
+				
+			
+		
+	
+
+
+	
+	
+	
+
+
+
+
+
+
+	Microsoft Surface Demo @ CES 2008
+
+
+
+
+	
+		
+			Hola, tienes JavaScript desactivado o una versiA³n antigua de Adobe Flash Player. Consigue la Aoltima versiA³n de Flash Player.
+			
+				document.write('Hola, tienes JavaScript desactivado o una versiA³n antigua de Adobe Flash Player. Consigue la Aoltima versiA³n de Flash Player.');
+			
+		
+	 
+	
+		var fo = writeMoviePlayer("watch-player-div");
+	
+
+
+		
+			ver con calidad normal
+			ver con alta calidad
+		
+
+
+
+	
+		
+			">
+				PuntuaciA³n:
+				
+
+		
+
+
+		document.getElementById('watch-rating-div').onmouseover = function() { hideDiv('defaultRatingMessage'); showDiv('hoverMessage'); };
+		document.getElementById('watch-rating-div').onmouseout = function() { showDiv('defaultRatingMessage'); hideDiv('hoverMessage'); };
+ 	
+		
+
+
+
+1010 puntuaciones">Accede para puntuar.
+
+			
+
+			
+				
+					Reproducciones:
+					514674
+				
+
+				
+			
+
+			
+		
+
+		
+			
+				
+					
+						
+							
+							Compartir
+						
+						
+					
+						
+							
+							Favoritos
+						
+						
+					
+						
+							
+							Listas de reproducciA³n
+						
+						
+					
+						
+							
+							Marcar
+						
+						
+				
+			
+			
+			
+				
+					
+									
+				
+						
+							
+							MySpace
+						
+				
+			
+			
+				
+						
+							
+							Facebook
+						
+				
+			
+			
+				
+						
+							
+							Digg
+						
+				
+			
+	
+		mA¡s
+		menos
+	
+
+
+
+
+						
+					 
+					Este vA­deo aparecerA¡ en breve en tu blog.
+					Cargando...
+					Cargando...
+					Cargando...
+					Cargando...
+					Gracias por compartir este vA­deo.
+				
+				
+					
+						
+							
+							
+							
+							
+						
+					
+					Guardando...
+					
+						
+							
+							
+							
+							
+						
+					
+					
+						cerrar
+						
+						
+							Este vA­deo se ha aA±adido a tus favoritos.
+						
+						
+							Este vA­deo se ha eliminado de tus favoritos.
+						
+					
+					
+						
+							
+							Eliminar de Favoritos
+							
+						
+						
+							
+							AA±adir a Favoritos
+							
+						
+						
+					
+						
+						cerrar
+						
+						
+			
+	
+			A¿Quieres aA±adir vA­deos a favoritos?
+
+			">Sign in to YouTube now!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 		 
+
+						
+				
+				
+					Cargando...
+					El vA­deo se ha aA±adido a tu lista de reproducciA³n.
+						
+						cerrar
+						
+						
+			
+	
+			A¿Quieres aA±adir a listas de reproducciA³n?
+
+			">Sign in to YouTube now!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 		 
+
+						
+				
+				
+					Cargando...
+					
+						
+						cerrar
+						
+						
+			
+	
+			A¿Quieres marcar un vA­deo?
+
+			">Sign in to YouTube now!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 		 
+
+						
+				
+			 
+			
+		 
+
+	 
+
+
+	
+
+
+
+	
+		
+			
+				
+					Comentario
+				
+				
+					EstadA­sticas y datos
+				
+			
+		
+		
+			
+					
+		Respuestas en vA­deo: 1
+		Comentarios escritos: 1044
+	
+
+	
+			
+					" onclick="urchinTracker('/Events/VideoWatch/PostVideoResponseSignIn');">Acceder para publicar una respuesta en vA­deo
+			
+		Respuestas en vA­deo (1)
+		
+					
+	
+		
+	
+
+	
+			
+	
+		
+			
+		
+	
+	cargando...
+	
+
+
+	
+		
+			
+		
+	
+	
+	
+
+
+	
+
+	
+		
+	
+
+	
+
+			
+
+		
+		
+			Ver todos
+			-
+			Reproducir todos
+		
+	
+
+	
+		
+			Accede para publicar un comentario.
+		
+		Comentarios escritos (1044)
+
+		
+		
+				
+						
+		
+			Mostrar:
+			
+				todos los comentarios
+				excelente (+10 o mejor)
+				muy bueno (+5 o mejor)
+				bueno (0 o mejor)
+				intermedio (-5 o mejor)
+				malo (-10 o mejor)
+			 
+			
+				Ayuda
+				
+				CA¡mbialo para ver sA³lo los comentarios por encima de cierto valor.
+Para cambiar el valor de un comentario, haz clic en una miniatura.
+				
+			
+		
+	
+
+				
+
+			
+
+				
+									
+
+
+
+
+
+
+			
+
+
+		
+			
+				digimaton
+				 (hace 1 hora) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						what a sad bastard corporate cunt. 
+&quot;gee, new technology, how can we use this to help people buy more useless shit?&quot;.
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				LordEsel88
+				 (hace 6 horas) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						This is fantastic!
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				bloodredskater
+				 (hace 13 horas) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						steve jobs sucked bill gates cock why do u think he hates him so much
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				mychemicalromanceJC
+				 (hace 15 horas) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						nice but there isent gonna be tags on everything like they think
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				SMWhit3out
+				 (hace 18 horas) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						Holy. Fucking. God. Amazing strides in technology.
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				Razor8589
+				 (hace 1 dA­a) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						i'm still waiting for the bluescreen xD
+
+no seriously .... this table is kinda mindless ...
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				LukeMadSkillz1984
+				 (hace 1 dA­a) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						that's anti virus mate ;) been done for a while.
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				CLAYON19
+				 (hace 1 dA­a) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						That device is really a breakthrough... or is it?
+
+
+If it can be infected by a virus, its not worth it...
+i hate viruses! will someone create a virus that will delete other viruses?
+
+Technology is crazy!
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				Draider4u
+				 (hace 1 dA­a) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						The reason it is not used for facebook or myspace is pretty obvious, Microsoft works for an optimal amount of money....which would result from the expanded use of their Windows Live not the current &quot;popular&quot; forms of mass communication.
+					
+				
+				
+			
+
+
+	 
+
+
+
+			
+
+
+		
+			
+				TinglerProductions
+				 (hace 1 dA­a) 
+				Mostrar
+				Ocultar
+			
+					
+	 
+		 0
+
+		
+		
+		
+	
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+	
+
+			
+		
+			
+				
+					
+						Lol aw....*hug*
+					
+				
+				
+			
+
+
+	 
+
+
+
+		
+
+
+Siguiente
+
+
+
+	PA¡ginas:
+			1
+			2
+			3
+		&#160;...&#160;
+		
+
+
+
+
+
+				 
+
+					Ver los 1044 comentarios
+
+				
+					A¿Quieres enviar algAon comentario?
+					
+						Ašnete a YouTube para obtener una cuenta gratuita o accede si ya eres miembro.
+					
+				 
+
+				
+		 
+	 
+
+
+			
+			
+					
+		
+			AA±adido: 08 de enero de 2008
+			Reproducciones: 514674
+			Puntuaciones: 1010
+		
+		
+			Respuestas: 1
+			Comentarios: 1044
+			
+				Favorito: 2648 veces
+			
+		
+	
+
+
+
+
+	
+
+	
+		
+			Galardones de este vA­deo
+			
+				
+					Cargando...
+				
+			
+		
+		
+			Sitios con enlaces a este vA­deo
+			
+				
+					Cargando...
+				
+			
+		
+	
+
+
+
+			
+		
+	
+
+ 
+
+
+	
+	
+		
+						
+		Anuncio
+	
+
+
+	
+		
+			
+				
+			
+			
+				
+					
+						
+						Suscribir
+						
+					
+				
+				
+					
+						
+						Anular suscripciA³n
+						
+					
+				
+				
+							
+		
+			
+			VA­deo de partner
+		
+		
+
+				
+			
+			
+				GerbilGod7
+
+
+				08 de enero de 2008
+
+
+				
+					
+						(mA¡s informaciA³n)
+					
+					
+						(menos informaciA³n)
+					
+				
+			
+			
+		 
+		
+
+		
+			
+		
+			A¿Quieres suscribirte?
+
+			">Sign in to YouTube now!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 
+
+		 
+
+			
+		
+
+			
+				
+					Read more at http://www.ohgizmo.com/ and http://www.microsoft.com/su... 
+				
+			
+
+			
+				
+					Read more at http://www.ohgizmo.com/ and http://www.microsoft.com/su... 
+				
+
+				
+					CategorA­a:
+					Ciencia y tecnologA­a
+
+				
+
+				
+					
+						Etiquetas:
+					
+					
+							OhGizmo
+							CES
+							microsoft
+							surface
+							demo
+					
+					
+				
+
+
+			 
+
+							
+				
+					URL
+					
+					
+				
+			
+
+
+			
+				
+					Insertar
+					
+						
+						
+							
+							Personalizar
+						
+					
+					
+				
+			 
+
+		 
+
+			Cargando...
+
+		
+	
+
+	
+		 
+
+
+
+	 
+
+
+
+	 
+
+
+
+
+
+		
+			
+				MA¡s de: GerbilGod7
+			
+			
+				
+							
+		
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/vHjVV7AWaGM/default.jpg', 'MIT Leg Lab Robots')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido11:43
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					MIT Leg Lab Robots
+				
+				
+					MIT Leg Lab Robots
+				
+				
+						[TRADUCIDO]
+					MIT Leg Lab Robots
+				
+			
+
+
+
+			
+
+
+						hace 1 semana
+
+					11253 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/BYLtXhCcNWc/default.jpg', 'SpaceX Falcon 9 Full Test Firing')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido03:29
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					SpaceX Falcon 9 Full Test Firing
+				
+				
+					SpaceX Falcon 9 Full Test Firing
+				
+				
+						[TRADUCIDO]
+					SpaceX Falcon 9 Full Test Firing
+				
+			
+
+
+
+			
+
+
+						hace 1 semana
+
+					5360 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/bwWDBRQ5rPc/default.jpg', 'Rubik\'s Cube Solving Robot')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:30
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Rubik's Cube Solving Robot
+				
+				
+					Rubik's Cube Solving Robot
+				
+				
+						[TRADUCIDO]
+					Rubik's Cube Solving Robot
+				
+			
+
+
+
+			
+
+
+						hace 1 semana
+
+					16912 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/czmSRzVJNRo/default.jpg', 'RoACH Autonomous Rapidly Prototyped Hexapod Robots')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido05:58
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					RoACH Autonomous Rapidly Prototy...
+				
+				
+					RoACH Autonomous Rapidly Prototyped Hexapod Robots
+				
+				
+						[TRADUCIDO]
+					RoACH Autonomous Rapidly Prototyped Hexapod Robots
+				
+			
+
+
+
+			
+
+
+						hace 3 semanas
+
+					8476 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/oIMqxRRvVOw/default.jpg', 'Biomechanical Speech Synthesis')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido00:08
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Biomechanical Speech Synthesis
+				
+				
+					Biomechanical Speech Synthesis
+				
+				
+						[TRADUCIDO]
+					Biomechanical Speech Synthesis
+				
+			
+
+
+
+			
+
+
+						hace 3 semanas
+
+					46104 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i2.ytimg.com/vi/IoWMMgGFX_w/default.jpg')" qlicon="IoWMMgGFX_w" alt="Macroswiss Tankbots">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/IoWMMgGFX_w/default.jpg', 'Macroswiss Tankbots')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido03:09
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Macroswiss Tankbots
+				
+				
+					Macroswiss Tankbots
+				
+				
+						[TRADUCIDO]
+					Macroswiss Tankbots
+				
+			
+
+
+
+			
+
+
+						hace 4 semanas
+
+					17511 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i2.ytimg.com/vi/M2c-XrsQw9E/default.jpg')" qlicon="M2c-XrsQw9E" alt="Macroswiss Surveillance Robots">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/M2c-XrsQw9E/default.jpg', 'Macroswiss Surveillance Robots')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:40
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Macroswiss Surveillance Robots
+				
+				
+					Macroswiss Surveillance Robots
+				
+				
+						[TRADUCIDO]
+					Macroswiss Surveillance Robots
+				
+			
+
+
+
+			
+
+
+						hace 1 mes
+
+					9792 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i3.ytimg.com/vi/jx8U1FgILCE/default.jpg')" qlicon="jx8U1FgILCE" alt="Waseda Flutist Robot">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/jx8U1FgILCE/default.jpg', 'Waseda Flutist Robot')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:37
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Waseda Flutist Robot
+				
+				
+					Waseda Flutist Robot
+				
+				
+						[TRADUCIDO]
+					Waseda Flutist Robot
+				
+			
+
+
+
+			
+
+
+						hace 1 mes
+
+					92580 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i2.ytimg.com/vi/Y3exsvQiH6Q/default.jpg')" qlicon="Y3exsvQiH6Q" alt="Recon Scout">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/Y3exsvQiH6Q/default.jpg', 'Recon Scout')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido03:37
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Recon Scout
+				
+				
+					Recon Scout
+				
+				
+						[TRADUCIDO]
+					Recon Scout
+				
+			
+
+
+
+			
+
+
+						hace 1 mes
+
+					16889 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i3.ytimg.com/vi/rSKRgasUEko/default.jpg')" qlicon="rSKRgasUEko" alt="Aldebaran Robotics' Nao">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/rSKRgasUEko/default.jpg', 'Aldebaran Robotics\' Nao')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:53
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Aldebaran Robotics' Nao
+				
+				
+					Aldebaran Robotics' Nao
+				
+				
+						[TRADUCIDO]
+					Aldebaran Robotics' Nao
+				
+			
+
+
+
+			
+
+
+						hace 1 mes
+
+					48488 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i2.ytimg.com/vi/UfRVfikJWLM/default.jpg')" qlicon="UfRVfikJWLM" alt="Hover-Q Mini R/C Hovercraft">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/UfRVfikJWLM/default.jpg', 'Hover-Q Mini R/C Hovercraft')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:01
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Hover-Q Mini R/C Hovercraft
+				
+				
+					Hover-Q Mini R/C Hovercraft
+				
+				
+						[TRADUCIDO]
+					Hover-Q Mini R/C Hovercraft
+				
+			
+
+
+
+			
+
+
+						hace 1 mes
+
+					51083 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i1.ytimg.com/vi/8os3Q0hZLfE/default.jpg')" qlicon="8os3Q0hZLfE" alt="ESA Jules Verne ATV Re-entry Breakup">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/8os3Q0hZLfE/default.jpg', 'ESA Jules Verne ATV Re-entry Breakup')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:38
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					ESA Jules Verne ATV Re-entry Bre...
+				
+				
+					ESA Jules Verne ATV Re-entry Breakup
+				
+				
+						[TRADUCIDO]
+					ESA Jules Verne ATV Re-entry Breakup
+				
+			
+
+
+
+			
+
+
+						hace 1 mes
+
+					39232 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i1.ytimg.com/vi/PXmccs4GIqI/default.jpg')" qlicon="PXmccs4GIqI" alt="Vocal Joystick">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/PXmccs4GIqI/default.jpg', 'Vocal Joystick')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:43
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Vocal Joystick
+				
+				
+					Vocal Joystick
+				
+				
+						[TRADUCIDO]
+					Vocal Joystick
+				
+			
+
+
+
+			
+
+
+						hace 1 mes
+
+					16390 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i2.ytimg.com/vi/U_cpb4fQB2k/default.jpg')" qlicon="U_cpb4fQB2k" alt="VoiceBot Vocally Controlled Robot Arm">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/U_cpb4fQB2k/default.jpg', 'VoiceBot Vocally Controlled Robot Arm')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:38
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					VoiceBot Vocally Controlled Robo...
+				
+				
+					VoiceBot Vocally Controlled Robot Arm
+				
+				
+						[TRADUCIDO]
+					VoiceBot Vocally Controlled Robot Arm
+				
+			
+
+
+
+			
+
+
+						hace 1 mes
+
+					18471 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i2.ytimg.com/vi/10RTgbPlgqU/default.jpg')" qlicon="10RTgbPlgqU" alt="Hasbro Kota Robot Triceratops">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/10RTgbPlgqU/default.jpg', 'Hasbro Kota Robot Triceratops')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido00:31
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Hasbro Kota Robot Triceratops
+				
+				
+					Hasbro Kota Robot Triceratops
+				
+				
+						[TRADUCIDO]
+					Hasbro Kota Robot Triceratops
+				
+			
+
+
+
+			
+
+
+						hace 1 mes
+
+					116784 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i3.ytimg.com/vi/z12lUXNN86w/default.jpg')" qlicon="z12lUXNN86w" alt="Raytheon KillerBee UAV">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/z12lUXNN86w/default.jpg', 'Raytheon KillerBee UAV')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido13:29
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Raytheon KillerBee UAV
+				
+				
+					Raytheon KillerBee UAV
+				
+				
+						[TRADUCIDO]
+					Raytheon KillerBee UAV
+				
+			
+
+
+
+			
+
+
+						hace 2 meses
+
+					11644 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i1.ytimg.com/vi/4kFpG_xfymg/default.jpg')" qlicon="4kFpG_xfymg" alt="Anna Konda Firefighting Robot">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/4kFpG_xfymg/default.jpg', 'Anna Konda Firefighting Robot')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:28
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Anna Konda Firefighting Robot
+				
+				
+					Anna Konda Firefighting Robot
+				
+				
+						[TRADUCIDO]
+					Anna Konda Firefighting Robot
+				
+			
+
+
+
+			
+
+
+						hace 2 meses
+
+					67252 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i4.ytimg.com/vi/kL2x87jfn_I/default.jpg')" qlicon="kL2x87jfn_I" alt="ASU Catchbot">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/kL2x87jfn_I/default.jpg', 'ASU Catchbot')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido00:06
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					ASU Catchbot
+				
+				
+					ASU Catchbot
+				
+				
+						[TRADUCIDO]
+					ASU Catchbot
+				
+			
+
+
+
+			
+
+
+						hace 2 meses
+
+					8908 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i2.ytimg.com/vi/QBS7JVIZzHY/default.jpg')" qlicon="QBS7JVIZzHY" alt="Lely Astronaut Robotic Cow Milker">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/QBS7JVIZzHY/default.jpg', 'Lely Astronaut Robotic Cow Milker')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:41
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Lely Astronaut Robotic Cow Milker
+				
+				
+					Lely Astronaut Robotic Cow Milker
+				
+				
+						[TRADUCIDO]
+					Lely Astronaut Robotic Cow Milker
+				
+			
+
+
+
+			
+
+
+						hace 2 meses
+
+					7128 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('channel', this, 'http://i1.ytimg.com/vi/TyOgDlUWfFE/default.jpg')" qlicon="TyOgDlUWfFE" alt="Concrete-Jet Robot">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/TyOgDlUWfFE/default.jpg', 'Concrete-Jet Robot')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido11:29
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Concrete-Jet Robot
+				
+				
+					Concrete-Jet Robot
+				
+				
+						[TRADUCIDO]
+					Concrete-Jet Robot
+				
+			
+
+
+
+			
+
+
+						hace 3 meses
+
+					76041 reproducciones
+
+					GerbilGod7
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+		Cargando...
+			
+				
+					Ver los 215 vA­deos
+				
+			
+	
+
+				 
+			
+			
+		 
+
+	
+ 	
+ 	
+			
+		
+			
+				Reproducir todos
+			
+			
+				Detener reproducciA³n automA¡tica
+			
+			|
+			
+				Reproducir siguiente
+			
+		
+
+
+		 Lista rA¡pida (0)
+
+
+		
+			
+							
+
+
+	
+		
+			
+					 1
+			
+			
+				
+			
+			
+				
+					
+				
+				
+					
+				
+			
+		
+		
+			
+				
+						
+			
+	
+
+	
+
+
+	
+
+			
+		
+
+		
+				
+					Borrar |
+					Guardar
+				
+		
+
+	 
+
+ 	
+	
+			
+			
+				VA­deos relacionados
+			
+			
+				
+							
+		
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/PbqS9x7sBZA/default.jpg', 'Microsoft Surface The Magic The Power The Possibilities :)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido05:02
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft Surface The Magic The...
+				
+				
+					Microsoft Surface The Magic The Power The Poss...
+				
+				
+						[TRADUCIDO]
+					Microsoft Surface The Magic The Power The Possibilities :)
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					285098 reproducciones
+
+					Spasticgrampa
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/JFapI4PxL9Q/default.jpg', 'Firefly: The first game for Microsoft Surface')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido03:19
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Firefly: The first game for Micr...
+				
+				
+					Firefly: The first game for Microsoft Surface
+				
+				
+						[TRADUCIDO]
+					Firefly: The first game for Microsoft Surface
+				
+			
+
+
+
+			
+
+
+						hace 9 meses
+
+					314930 reproducciones
+
+					sarcasticgamer
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/6xZnyC09QbA/default.jpg', 'Inside Microsoft\'s Top Secret Computer')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:39
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Inside Microsoft's Top Secret Co...
+				
+				
+					Inside Microsoft's Top Secret Computer
+				
+				
+						[TRADUCIDO]
+					Inside Microsoft's Top Secret Computer
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					92649 reproducciones
+
+					forbes
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/6VfpVYYQzHs/default.jpg', 'Microsoft &quot;Surface&quot; - The Possibilities')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:22
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft "Surface" - The Possib...
+				
+				
+					Microsoft "Surface" - The Possibilities
+				
+				
+						[TRADUCIDO]
+					Microsoft "Surface" - The Possibilities
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					175743 reproducciones
+
+					rluecke3
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/kr1O917o4jI/default.jpg', 'Microsoft Surface: Hands-on First Look')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido04:16
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft Surface: Hands-on Firs...
+				
+				
+					Microsoft Surface: Hands-on First Look
+				
+				
+						[TRADUCIDO]
+					Microsoft Surface: Hands-on First Look
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					110246 reproducciones
+
+					popmechshow
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/mCH8fARcJ2M/default.jpg')" qlicon="mCH8fARcJ2M" alt="Wired CES 2008: Walking The Floor">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/mCH8fARcJ2M/default.jpg', 'Wired CES 2008: Walking The Floor')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:24
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Wired CES 2008: Walking The Floor
+				
+				
+					Wired CES 2008: Walking The Floor
+				
+				
+						[TRADUCIDO]
+					Wired CES 2008: Walking The Floor
+				
+			
+
+
+
+			
+
+
+						hace 11 meses
+
+					20245 reproducciones
+
+					wired
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/eFhxV3rvW0k/default.jpg')" qlicon="eFhxV3rvW0k" alt="Microsoft's surface computer">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/eFhxV3rvW0k/default.jpg', 'Microsoft\'s surface computer')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:51
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft's surface computer
+				
+				
+					Microsoft's surface computer
+				
+				
+						[TRADUCIDO]
+					Microsoft's surface computer
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					77182 reproducciones
+
+					ReutersVideo
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i3.ytimg.com/vi/FlZxuqjJDgk/default.jpg')" qlicon="FlZxuqjJDgk" alt="Microsoft Surface: Business 2.0 Demo">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/FlZxuqjJDgk/default.jpg', 'Microsoft Surface: Business 2.0 Demo')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido06:57
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft Surface: Business 2.0 ...
+				
+				
+					Microsoft Surface: Business 2.0 Demo
+				
+				
+						[TRADUCIDO]
+					Microsoft Surface: Business 2.0 Demo
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					687357 reproducciones
+
+					klikslydir
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i3.ytimg.com/vi/zlfKdbWwruY/default.jpg')" qlicon="zlfKdbWwruY" alt="Where the Hell is Matt? (2008)">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/zlfKdbWwruY/default.jpg', 'Where the Hell is Matt? (2008)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido04:29
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Where the Hell is Matt? (2008)
+				
+				
+					Where the Hell is Matt? (2008)
+				
+				
+						[TRADUCIDO]
+					Where the Hell is Matt? (2008)
+				
+			
+
+
+
+			
+
+
+						hace 5 meses
+
+					13425155 reproducciones
+
+					mattharding2718
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/-8F4YF_pH-4/default.jpg')" qlicon="-8F4YF_pH-4" alt="Microsoft Windows Start-Up Sounds">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/-8F4YF_pH-4/default.jpg', 'Microsoft Windows Start-Up Sounds')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:30
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft Windows Start-Up Sounds
+				
+				
+					Microsoft Windows Start-Up Sounds
+				
+				
+						[TRADUCIDO]
+					Microsoft Windows Start-Up Sounds
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					464037 reproducciones
+
+					vbognot626
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/3HA4lSUhlbw/default.jpg')" qlicon="3HA4lSUhlbw" alt="Bill Gates' Last Day at Microsoft - CES 2008">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/3HA4lSUhlbw/default.jpg', 'Bill Gates\' Last Day at Microsoft - CES 2008')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido07:00
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Bill Gates' Last Day at Microsof...
+				
+				
+					Bill Gates' Last Day at Microsoft - CES 2008
+				
+				
+						[TRADUCIDO]
+					Bill Gates' Last Day at Microsoft - CES 2008
+				
+			
+
+
+
+			
+
+
+						hace 11 meses
+
+					412508 reproducciones
+
+					hewvideo
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/xBZi1Riq1lw/default.jpg')" qlicon="xBZi1Riq1lw" alt="Wired CES 2008: Samsung's 3-D Ready Flat Panel HDTV">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/xBZi1Riq1lw/default.jpg', 'Wired CES 2008: Samsung\'s 3-D Ready Flat Panel HDTV')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:49
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Wired CES 2008: Samsung's 3-D Re...
+				
+				
+					Wired CES 2008: Samsung's 3-D Ready Flat Panel ...
+				
+				
+						[TRADUCIDO]
+					Wired CES 2008: Samsung's 3-D Ready Flat Panel HDTV
+				
+			
+
+
+
+			
+
+
+						hace 10 meses
+
+					13317 reproducciones
+
+					wired
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i3.ytimg.com/vi/6zNzvbqHs0A/default.jpg')" qlicon="6zNzvbqHs0A" alt="Microsoft Surface Demo">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/6zNzvbqHs0A/default.jpg', 'Microsoft Surface Demo')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:57
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft Surface Demo
+				
+				
+					Microsoft Surface Demo
+				
+				
+						[TRADUCIDO]
+					Microsoft Surface Demo
+				
+			
+
+
+
+			
+
+
+						hace 11 meses
+
+					25757 reproducciones
+
+					gearlogvideo
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/Xr5w3X4R8b4/default.jpg')" qlicon="Xr5w3X4R8b4" alt="Bill Gates' Last Days - 1:36 you can see a mac screensaver!!! (thanks friedrichsacher!)">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/Xr5w3X4R8b4/default.jpg', 'Bill Gates\' Last Days - 1:36 you can see a mac screensaver!!! (thanks friedrichsacher!)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido06:55
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Bill Gates' Last Days - 1:36 you...
+				
+				
+					Bill Gates' Last Days - 1:36 you can see a mac ...
+				
+				
+						[TRADUCIDO]
+					Bill Gates' Last Days - 1:36 you can see a mac screensaver!!! (than...
+				
+			
+
+
+
+			
+
+
+						hace 11 meses
+
+					830256 reproducciones
+
+					PenaltyKillah
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/YLPnbaG6Ahw/default.jpg')" qlicon="YLPnbaG6Ahw" alt="Suzuki Hayabusa 2008">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/YLPnbaG6Ahw/default.jpg', 'Suzuki Hayabusa 2008')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido04:38
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Suzuki Hayabusa 2008
+				
+				
+					Suzuki Hayabusa 2008
+				
+				
+						[TRADUCIDO]
+					Suzuki Hayabusa 2008
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					1219858 reproducciones
+
+					dailymotos
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i3.ytimg.com/vi/bZuGClKRDtc/default.jpg')" qlicon="bZuGClKRDtc" alt="Microsoft &quot;Surface&quot; - The Magic">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/bZuGClKRDtc/default.jpg', 'Microsoft &quot;Surface&quot; - The Magic')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido00:55
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft "Surface" - The Magic
+				
+				
+					Microsoft "Surface" - The Magic
+				
+				
+						[TRADUCIDO]
+					Microsoft "Surface" - The Magic
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					111307 reproducciones
+
+					rluecke3
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/kefTLicuxb4/default.jpg')" qlicon="kefTLicuxb4" alt="SandFantasy &quot;Love 2008&quot;">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/kefTLicuxb4/default.jpg', 'SandFantasy &quot;Love 2008&quot;')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido03:26
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					SandFantasy "Love 2008"
+				
+				
+					SandFantasy "Love 2008"
+				
+				
+						[TRADUCIDO]
+					SandFantasy "Love 2008"
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					750133 reproducciones
+
+					sandfantasy2008
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/4yVQJ6jJPak/default.jpg')" qlicon="4yVQJ6jJPak" alt="WWDC 2008 News: iPhone 3G makes its debut">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/4yVQJ6jJPak/default.jpg', 'WWDC 2008 News: iPhone 3G makes its debut')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido05:02
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					WWDC 2008 News: iPhone 3G makes ...
+				
+				
+					WWDC 2008 News: iPhone 3G makes its debut
+				
+				
+						[TRADUCIDO]
+					WWDC 2008 News: iPhone 3G makes its debut
+				
+			
+
+
+
+			
+
+
+						hace 5 meses
+
+					899170 reproducciones
+
+					CNETTV
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/aeXAcwriid0/default.jpg')" qlicon="aeXAcwriid0" alt="Microsoft iPod">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/aeXAcwriid0/default.jpg', 'Microsoft iPod')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:55
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft iPod
+				
+				
+					Microsoft iPod
+				
+				
+						[TRADUCIDO]
+					Microsoft iPod
+				
+			
+
+
+
+			
+
+
+						hace 2 aA±os
+
+					1721822 reproducciones
+
+					romph
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/-9j_tYP-kzc/default.jpg')" qlicon="-9j_tYP-kzc" alt="Microsoft Surface - Exclusive Review">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/-9j_tYP-kzc/default.jpg', 'Microsoft Surface - Exclusive Review')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido04:16
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft Surface - Exclusive Re...
+				
+				
+					Microsoft Surface - Exclusive Review
+				
+				
+						[TRADUCIDO]
+					Microsoft Surface - Exclusive Review
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					566061 reproducciones
+
+					che2guevara
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+		Cargando...
+			
+				
+					Ver los 40 vA­deos
+				
+			
+	
+
+				 
+			
+			
+		 
+
+	
+	
+		VA­deos promocionados
+		
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			La Lola - El aviso
+		
+
+		02:06
+
+		
+			antena3
+
+		
+	
+
+				
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			La Lola - Vuelta al tra...
+		
+
+		02:32
+
+		
+			antena3
+
+		
+	
+
+				
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			Beijing 2008, en &quot;La no...
+		
+
+		01:38
+
+		
+			canalsur
+
+		
+	
+
+				
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			Ainhoa Arteta &quot;La Vida&quo t;
+		
+
+		04:19
+
+		
+			valemusic
+
+		
+	
+
+				
+			
+		
+	 
+
+ 
+
+
+
+
+		
+	
+	
+		
+			
+				
+					
+						
+							AA±adir a iGoogle
+						
+					
+
+					
+							
+		
+			
+			
+			
+				
+					
+					Buscar
+					
+				
+			
+		
+	
+
+					
+
+					
+						
+							
+
+						
+					
+
+				
+			
+
+		
+		
+			
+				
+					Tu cuenta
+					Ayuda e informaciA³n
+					YouTube
+				
+				
+					VA­deos
+					Bandeja de entrada
+					Recursos de ayuda
+					Foros de ayuda de la comunidad
+					Sobre la empresa
+					Prensa
+				
+				
+					Favoritos
+					Suscripciones
+					Consejos de seguridad
+					Avisos de copyright
+					TestTube
+					Contacto
+				
+				
+					Listas de reproducciA³n
+					mA¡s...
+					API para desarrolladores
+					Instrucciones de la comunidad
+					TA©rminos de uso
+					Blog
+				
+				
+					
+					Publicidad
+					YouTube en tu sitio
+					PolA­tica de privacidad
+					
+					
+				
+
+				
+					
+					Manual de YouTube
+					
+				
+			
+		
+	
+	
+		&copy; 2008 YouTube, LLC
+	
+
+
+setCompanionAndOrd('http://n4061ad.fr.doubleclick.net/adi/com.ytpwatch.scitech/main_2098;sz=300x250;kl=N;!c=2098;klg=es;kvid=Zxk_WywMTzc;kpu=GerbilGod7;ko=y;kt=K;dcdupd=1;kpid=2098;kga=-1;kr=F;u=Zxk_WywMTzc|2098;kgg=-1;kcr=us;custp=Nt93HC1XrexdBGXoAUrlgw;ptile=1;dcopt=ist;', 'true');
+
+		
+			
+			var google_language = "es";
+		
+
+	
+	
+		var google_ad_type = "image";
+		var google_ad_format="300x250_as";
+		var google_ad_width = "300";
+		var google_ad_height = "250";
+		var google_ad_client = "ca-pub-6219811747049371";
+		var google_ad_host = "ca-host-pub-3181511581206417";
+		var google_ad_host_tier_id = "11805";
+		var google_ad_channel = "1961111246+0618682152+0854550288";
+		var google_container_id = "google_companion_ad_div";
+		var google_video_doc_id = "yt_Zxk_WywMTzc";
+		var google_color_border = "FFFFFF";
+		var google_color_bg = "FFFFFF";
+		var google_color_link = "0033CC";
+		var google_color_text = "444444";
+		var google_color_url = "0033CC";
+		var google_alternate_ad_url = "http://www.youtube.com/adsense_script.html?divId=watch-channel-brand-div&depth=2";
+	
+
+	
+
+
+
+ 
+
+
+
+
+
+
+
+	window.setTimeout('window.google.ac.install(document.searchForm,document.searchForm.search_query,"yt",true,"cerrar",true,"Sugerencias")', 100);
+
+
+
+

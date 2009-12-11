@@ -1,0 +1,142 @@
+
+
+
+
+
+
+Cliente - Servidor
+
+PHP-Apache-Mysql / Dreamweaver
+
+Es una infraestructura de comunicacion de 
+computadores, la cual es la base de internet; esta 
+estructura utiliza un servidor para centralizar 
+operaciones de procesamiento y almacenamiento, 
+permitiendo crear aplicaciones de una forma 
+economica y practica, lo usuarios que utilizan las 
+aplicaciones solo necesitan un software 
+cliente(navegador) para poder enviar un 
+requerimiento al servidor.
+
+A¿QuA© es un servidor?
+Un Computador dedicado a gestionar el uso de la 
+red por otras coputadores remotos que son 
+llamados clientes.
+Un servidor (host) puede contener archivos y 
+recursos a los que puede accederse desde los 
+clientes.
+
+A¿CA³mo se accede a un servidor?
+Mediante protocolos por ejemplo, uno llamado HTTP que requiere que el 
+cliente disponga de una aplicaciA³n-cliente -un navegador- capaz de 
+acceder a los recursos que contiene otro computador llamado servidor, y 
+al que le confiere esa condiciA³n el hecho de estar conectado a Internet 
+(o a una red de A¡rea local) y dotado de un software especA­fico -software 
+de servidor HTTP- que habilita la posibilidad de acceso a los recursos 
+que contiene.
+Por tanto, parece que instalar un servidor no es otra cosa que instalar y 
+configurar un software de servidor HTTP en un una unidad o directorio de 
+un computador cualquiera.
+
+Servidor (software)
+Unix/Linux Windows
+- Servidor HTTP.
+Apache IIS
+- Servidor de aplicacones.
+PHP, JSP, CFM ASP
+-Bases de Datos.
+Mysql, Postgres Sql server, acces
+
+Cliente
+-Navegador.
+Internet Explorer, Firefox,opera.
+- Gestor de Correos.
+Outlook.
+-FTP.
+html, Java script,swf, jpg, gif
+
+Para ejecutar aplicaciones Web, necesitarA¡ un servidor Web. 
+Un servidor Web es una aplicaciA³n de software que 
+suministra archivos en respuesta a las peticiones de los 
+navegadores Web. En ocasiones, tambiA©n se hace referencia 
+a un servidor Web como servidor HTTP. Entre los servidores 
+Web mA¡s utilizados se incluyen Microsoft Internet 
+Information Server (IIS), Netscape Enterprise Server, Sun 
+ONE Web Server y Apache HTTP.
+
+Los clientes por medio del navegador 
+pueden enviar requerimientos al servidor y 
+esperar respuesta despues de ser 
+procesado un requerimiento.
+
+Conclusion
+
+El cliente hace un requerimiento a un 
+servidor , un requerimiento puede ser 
+una solicitud de una pagina desde el 
+navegador, o un clic en un enlace o 
+enviar un formulario. 
+
+El servidor recibe el 
+requerimiento, lo procesa y 
+devuelve al cliente el resultado de 
+esa solicitud.
+
+&lt;?php $var=e;
+$css=23;
+echo&quot;dwe.....
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;....
+&lt;/head&gt;
+
+H
+
+T
+
+P
+
+:
+
+/
+
+w
+
+.
+
+f
+
+a
+
+c
+
+i
+
+l
+
+n
+
+e
+
+t
+
+Lo que necesita para crear aplicaciones Web
+
+Para crear aplicaciones Web , necesitarA¡ el siguiente software:
+ a€¢Un servidor Web( APACHE )
+a€¢Un servidor de aplicaciones que se ejecute en el servidor Web (PHP)
+
+Nota: en el contexto de las aplicaciones Web, los tA©rminos servidor Web y servidor de aplicaciones se refieren a software y no a hardware. 
+
+Si desea utilizar una base de datos con la aplicaciA³n, necesitarA¡ ademA¡s el siguiente software:
+
+a€¢Un sistema de bases de datos (Mysql)
+a€¢Un controlador de base de datos compatible con la base de datos.(PHPmyadmin)
+http://appservnetwork.com
+EDITORES
+a€¢Un editor sencillo tipo bloc de notas(crimson).
+a€¢Dreamweaver.
+
+
+

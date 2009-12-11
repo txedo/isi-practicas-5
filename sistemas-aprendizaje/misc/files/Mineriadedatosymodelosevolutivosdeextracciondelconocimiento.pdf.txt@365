@@ -1,0 +1,1243 @@
+MASTER OFICIAL DE LA UNIVERSIDAD DE GRANADA "SOFT COMPUTING Y SISTEMAS INTELIGENTES"
+http://docto-si.ugr.es/master/
+
+Curso: M4: Mineria de Datos y Modelos Evolutivos de Extraccion de Conocimiento Modulo: Mineria de Datos Maria Jose Del Jesus
+Dpto. Informatica Universidad de Jaen 23071 ­ ESPANA
+
+Rafael Alcala
+Dpto. Ciencias de la Computacion e I.A. Universidad de Granada 18071 ­ ESPANA
+
+PROPUESTA DE HORARIO
+
+Martes, 22 de Marzo de 2007 ­ 17:00 ­ 21:00 Martes, 29 de Marzo de 2007 ­ 17:00 ­ 21:00 En el aula 1.1 de la ETSI de Informatica y Telecomunicaciones (Granada)
+
+2
+
+Mineria de Datos y AEs
+
+3
+
+Extraccion Evolutiva de Conocimiento (ejemplo)
+Algoritmos Evolutivos
+
+Base de Conocimiento Funciones de escalado Reglas Difusas Entrada escalada Motor de inferencia Base de Datos
+
+Fuzzificacion
+
+Defuzzificacion
+
+Salida escalada
+
+Procesamiento Difuso
+4
+
+Diseno Evolutivo
+
+Contenido del Curso
+
+Maria Jose Del Jesus Universidad de Jaen mjjesus@ujaen.es
+
+· ¿Por que aplicar los Algoritmos Evolutivos en Mineria de Datos? · Preprocesamiento y Algoritmos Evolutivos · Extraccion Evolutiva de Reglas · Programacion Genetica para la Extraccion de Reglas
+Jueves, 22 Marzo 2006 Sesion 1.a. 17:00 ­ 18:45 Sesion 1.b. 19:00 ­ 20:30 Curso: Aula 1.1. ETSIIT
+5
+
+Contenido del Curso
+
+Rafael Alcala Universidad de Granada alcala@decsai.ugr.es
+
+· Sistemas Difusos Evolutivos: Modelos Avanzados · Aprendizaje Evolutivo Multiobjetivo · Nuevos Retos en el uso de los Algoritmos Evolutivos para la Extraccion de Conocimiento
+Jueves, 29 Marzo 2006 Sesion 2.a. 17:00 ­ 18:45 Sesion 2.b. 19:00 ­ 20:30 Curso: Aula 1.1. ETSIIT
+6
+
+Contenido del Curso
+Evaluacion
+
+Entregar un trabajo a uno de los profesores del curso.
+
+7
+
+M4: Mineria de datos y modelos evolutivos de extraccion del conocimiento
+Indice 1. ¿Por que aplicar algoritmos evolutivos en mineria de datos? 2. Preprocesamiento y algoritmos evolutivos 3. Extraccion evolutiva de reglas 4. Programacion genetica para la extraccion de reglas 5. KEEL: A data mining software tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+8
+
+1. ¿Por que aplicar algoritmos evolutivos en mineria de datos?
+Los Algoritmos Evolutivos
+son algoritmos de optimizacion busqueda y aprendizaje inspirados en los procesos de
+
+Evolucion natural y evolucion genetica
+9
+
+1. ¿Por que aplicar algoritmos evolutivos en mineria de datos?
+Problemas de preprocesamiento como problemas de busqueda
+
+Reduccion de datos
+1. 2. Seleccion de caracteristicas Seleccion de instancias
+10
+
+1. ¿Por que aplicar algoritmos evolutivos en mineria de datos?
+Reduccion de datos: Seleccion de caracteristicas/atributos Ponderado de atributos Construccion de atributos Modelos hibridos Seleccion de instancias
+
+11
+
+1. ¿Por que aplicar algoritmos evolutivos en mineria de datos?
+Extraccion de reglas Agrupamiento Hibridacion de modelos Postprocesamiento
+(simplificacion, ajuste)
+
+Aprendizaje/ extraccion de conocimiento como problemas de optimizacion y busqueda
+12
+
+1. ¿Por que aplicar algoritmos evolutivos en mineria de datos?
+Redes neuronales evolutivas
+Evolucion de los pesos de la red Evolucion de la arquitectura Evolucion de los parametros de los algoritmos de entrenamiento
+
+Ejemplo de modelo hibrido
+
+0.7
+
+Infarto de miocardio
+Pesos de salida
+
+Pesos de entrada
+
+Entrada
+
+-1
+Sexo
+
+65
+Edad
+
+1
+
+5
+
+3
+
+1
+ECG: ST
+
+Fumar Intensidad Duracion dolor dolor
+
+elevacion
+13
+
+Red neuronal para diagnosis del infarto de miocardio Red neuronal para diagnosis del infarto de miocardio
+
+1. ¿Por que aplicar algoritmos evolutivos en mineria de datos?
+Bibliografia
+A.A. Freitas, Data Mining and Knowledge Discovery with Evolutionary Springer-Verlag, 2002.
+
+A. Ghosh, L.C. Jain (Eds.), Evolutionary Computation in Data Mining. SpringerVerlag, 2005.
+
+14
+
+M4: Mineria de datos y modelos evolutivos de extraccion del conocimiento
+Indice 1. ¿Por que aplicar algoritmos evolutivos en mineria de datos? 2. Preprocesamiento y algoritmos evolutivos
+2.1. Seleccion de caracteristicas 2.2. Algoritmos evolutivos y seleccion de caracteristicas
+
+3. Extraccion evolutiva de reglas 4. Programacion genetica para la extraccion de reglas 5. KEEL: A data mining software tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+
+15
+
+2. Preprocesamiento y algoritmos evolutivos
+La calidad del conocimiento extraido depende en gran medida de la calidad de los datos de los cuales se obtiene.
+"In reality, the boundary between pre-processor and classifier is arbitrary. If the pre-processor generated the predicted class label as a feature [attribute], then the classifier would be trivial. Similarly, the pre-processor could be trivial and the classifier do all the work"
+J.R. Sherrah, R.E. Bogner, A. Bouzerdoum The evolutionary pre-processor: automatic feature extraction for supervised classification using genetic programing. Proc. Of the 2nd Annual Conference on Genetic Programming (1997) 304-312.
+
+16
+
+2. Preprocesamiento y algoritmos evolutivos
+D. Pyle, 1999, pp. 90:
+
+"El proposito fundamental de la preparacion de los
+
+datos es la manipulacion y transformacion de los datos sin refinar para que la informacion contenida en el conjunto de datos pueda ser descubierta o estar accesible de forma mas facil."
+Dorian Pyle Data Preparation for Data Mining Morgan Kaufmann Publishers, 1999
+
+17
+
+2. Preprocesamiento y algoritmos evolutivos
+El preprocesamiento o preparacion de datos consume una parte muy importante del tiempo total de un proceso de mineria de datos.
+
+18
+
+2. Preprocesamiento y algoritmos evolutivos
+Reduccion de Datos
+Selecciona/extrae datos relevantes para la tarea de la mineria de datos.
+
+Datos originales
+
+Datos Reducidos
+19
+
+2. Preprocesamiento y algoritmos evolutivos
+Reduccion de Datos
+
+Seleccion de Caracteristicas Seleccion de Instancias
+
+Discretizacion Agrupamiento Compactacion
+
+20
+
+2.1. Seleccion de caracteristicas
+El problema de la seleccion de caracteristicas (SC) o variables (Feature Subset Selection) consiste en encontrar un subconjunto de las variables del problema que optimice la probabilidad de clasificar correctamente ¿Por que es necesaria la seleccion de variables? Mas atributos no significa mas exito en la clasificacion Trabajar con menos variables reduce la complejidad del problema y disminuye el tiempo de ejecucion Con menos variables la capacidad de generalizacion aumenta Los valores para ciertos atributos pueden ser costosos de obtener
+21
+
+2.1. Seleccion de caracteristicas Seleccion de Caracteristicas Reduccion de Datos
+Var. 1.
+1 0 0 0 0 0 1 2 0 0 0 1 1 1 3 0 0 1 0 0 1 4 0 0 1 1 0 0 5 0 1 0 0 0 1
+
+Var. 5
+6 0 1 0 1 1 1 7 0 1 1 0 1 0 8 0 1 1 1 0 0 9 10 11 1 1 1 0 0 0 0 0 1 0 1 0 1 1 0 1 0 1 12 1 0 1 1 0 0
+
+Var. 13
+13 1 1 0 0 0 0 14 1 1 0 1 0 1 15 1 1 1 0 1 0 16 1 1 1 1 0 0
+22
+
+A B C D E F
+
+2.1. Seleccion de caracteristicas
+En un algoritmo de seleccion de caracteristicas se distinguen dos componentes principales
+Una estrategia de busqueda para seleccionar subconjuntos candidatos Una funcion objetivo que evalue esos subconjuntos
+
+Estrategia de busqueda
+Dadas N variables, explorar todos los subconjuntos posibles supone 2N (p.e. 220=1048576) Si queremos exactamente subconjuntos de M variables (M
+Funcion objetivo: evaluar la bondad del subconjunto seleccionado
+23
+
+2.1. Seleccion de caracteristicas
+Proceso
+Generacion subconjuntos
+Subconjunto atributos
+
+Datos originales
+
+Criterio evaluacion
+
+no
+
+Criterio Parada
+
+si
+
+Subconjunto seleccionado
+
+24
+
+2.1. Seleccion de caracteristicas
+Ejemplo: Espacio de atributos para el problema weather
+
+25
+
+2.1. Seleccion de caracteristicas
+Conjunto completo de caracteristicas
+
+No Generacion de subconjuntos de caracteristicas
+Subconjunto de caracteristicas
+
+Proceso de evaluacion
+
+Medida de evaluacion
+
+Criterio de parada
+
+Si
+Datos de entrenamiento
+
+S E L E D C C E I O N
+
+C A R A C T E R I S T I C A S
+
+Exactitud
+
+Prueba
+
+Sistema de Clasificacion
+
+Algoritmo de aprendizaje
+
+Mejor subconjunto
+
+Datos de prueba
+
+Datos de entrenamiento
+
+V A L I D A C I O N
+
+26
+
+2.1. Seleccion de caracteristicas
+Dependiento de la medida de evaluacion se distinguen dos enfoques distintos dentro de los algoritmos de seleccion de caracteristicas: Filtro (filter). La funcion objetivo evalua los subconjuntos basandose en la informacion que contienen. Se utiliza como funcion objetivo medidas de separabilidad de clases, de dependencias estadisticas, basadas en teoria de la informacion,...) Envolvente (wrapper). La funcion objetivo consiste en aplicar la tecnica de aprendizaje que se utilizara finalmente sobre la proyeccion de los datos al conjunto de variables candidato. El valor devuelto suele ser el porcentaje de acierto del clasificador construido
+27
+
+2.1. Seleccion de caracteristicas
+C A R A C T E R I S T I C A S
+
+Conjunto completo de caracteristicas
+
+Generacion de subconjuntos de caracteristicas
+
+Subconjunto de caracteristicas
+
+Calculo de medida de separabilidad
+
+Medida de evaluacion
+
+No Criterio de parada Si
+
+Datos de entrenamiento
+
+S E L E C C I O N
+
+D E
+
+Sistema de Clasificacion Exactitud
+
+Prueba
+
+Algoritmo de aprendizaje
+
+Mejor subconjunto
+
+Datos de prueba
+
+Datos de entrenamiento
+
+V A L I D A C I O N
+
+28
+
+2.1. Seleccion de caracteristicas
+C A R A C T E R I S T I C A S
+
+Conjunto completo de caracteristicas
+
+Generacion de subconjuntos de caracteristicas
+
+Subconjunto de caracteristicas
+
+Algoritmo de aprendizaje
+
+No
+Exactitud
+
+Criterio de parada Si
+
+Datos de entrenamiento
+
+S E L E C C I O N
+
+D E
+
+Sistema de Clasificacion Exactitud
+
+Prueba
+
+Algoritmo de aprendizaje
+
+Mejor subconjunto
+
+Datos de prueba
+
+Datos de entrenamiento
+
+V A L I D A C I O N
+
+29
+
+2.1. Seleccion de caracteristicas
+Medidas filtro
+Medidas de separabilidad. Miden la separabilidad entre clases: euclideas, Mahalanobis,...
+P.e. Para un problema con 2 clases, un proceso de SC basado en medidas de este tipo determina que X es mejor que Y si X induce una diferencia mayor que Y entre las dos probabilidades condicionales de las clases
+
+Correlaciones. Seran buenos subconjuntos los que esten muy correlacionados con la clase
+
+f ( X 1 ,..., X M ) =
+
+
+i =1 M M
+
+M
+
+ic
+
+ 
+i =1 j = i +1
+
+ij
+
+donde ic es el coeficiente de correlacion entre la variable Xi y la etiqueta c de la clase (C) y ij es el coeficiente de correlacion entre Xi y Xj
+30
+
+2.1. Seleccion de caracteristicas
+Medidas basadas en teoria de informacion
+La correlacion solo puede medir dependencias lineales. Un metodo bastante mas potente es la informacion mutua I(X1,...,M; C)
+
+f ( X 1,..., M ) = I ( X 1,..., M ; C ) = H (C ) - H (C X 1,..., M ) =
+
+ 
+
+C
+
+c =1 X 1,..., M
+
+P ( X 1... M , c ) log
+
+P ( X 1... M , c ) dx P ( X 1... M ) P ( c )
+
+donde H representa la entropia y c la c-esima etiqueta de la clase C La informacion mutua mide la cantidad de incertidumbre que disminuye en la clase C cuando se conocen los valores del vector X1...M Por la complejidad de calculo de I se suelen utilizar reglas heuristicas
+
+f ( X 1... M ) = I ( X i ; C ) - 
+i =1
+
+M
+
+M
+
+i =1 j = i +1
+
+ I(X ; X
+i
+
+M
+
+j
+
+)
+
+por ejemplo con =0.5
+31
+
+2.1. Seleccion de caracteristicas
+Medidas de consistencia
+Los tres grupos de medidas anteriores intentan encontrar las caracteristicas que puedan, de forma maximal, predecir una clase frente al resto
+· Este enfoque no puede distinguir entre dos variables igualmente adecuadas, no detecta variables redundantes
+
+Las medidas de consistencia tratan de encontrar el minimo numero de caracteristicas que puedan separar las clases de la misma forma que lo hace el conjunto completo de variables
+
+32
+
+2.1. Seleccion de caracteristicas
+Outlook 0 0 1 2 2 2 1 0 0 2 0 1 1 2 Temp. 1 1 1 0 0 0 0 1 0 1 1 1 1 0 Hum. 1 1 1 1 0 0 0 1 0 0 0 1 0 1 Windy 0 1 0 0 0 1 1 0 0 0 1 1 0 1 Class 0 0 1 1 1 0 1 0 1 1 1 1 1 0 Outlook Temp. Hum. Windy Inf. Mutua 0.074 4.03E-4 0.045 0.014 Dist. euclidea 0.357 0.143 0.463 0.450 Correlacion 0.176 -0.043 -0.447 -0.258
+
+Outlook: sunny(0),overcast(1),windy(2) Temperature:=72(1) Humidity:=85(1) Windy: false(0), true(1) Class: no(0), yes(1)
+
+33
+
+2.1. Seleccion de caracteristicas
+Enfoque filtro Vs. Envolvente Ventajas: Envolventes:
+Exactitud: generalmente son mas exactos que los filtro, debido a la interaccion entre el clasificador y el conjunto de datos de entrenamiento Capacidad para generalizar: poseen capacidad para evitar el sobreajuste debido a las tecnicas de validacion utilizadas
+
+Filtro:
+
+Rapidos. Suelen limitarse a calculos de frecuencias, mucho mas rapido que entrenar un clasificador Generalidad. Al evaluar propiedades intrinsecas de los datos y no su interaccion con un clasificador, sus resultados pueden ser utilizados por cualquier clasificador
+34
+
+2.1. Seleccion de caracteristicas
+Enfoque filtro Vs. Envolvente Inconvenientes: Envolventes:
+Muy costosos: para cada evaluacion hay que aprender un modelo y validarlo. No es factible para clasificadores costosos Perdida de generalidad: La solucion esta sesgada hacia el clasificador utilizado
+
+Filtros:
+Tendencia a incluir muchas variables. Normalmente se debe a las caracteristicas monotonas de la funcion objetivo utilizada
+· El usuario debera seleccionar un umbral
+
+35
+
+2.1. Seleccion de caracteristicas
+En funcion de las estrategias de busqueda los algoritmos de SC se pueden clasificar en : Algoritmos secuenciales. Anaden o eliminan variables al subconjunto candidato de forma secuencial. Suelen quedarse en optimos locales
+Seleccion hacia delante, seleccion hacia atras, seleccion masmenos-r, busqueda bidireccional, seleccion secuencial flotante
+
+Algoritmos exponenciales. El numero de subconjuntos evaluados aumenta exponencialmente con la dimensionalidad del espacio de busqueda
+Branch and bound, beam search
+
+Algoritmos estocasticos. Utilizan aleatoriedad para escapar de optimos locales
+Ascension de colinas con reinicios, enfriamiento estocastico, algoritmos geneticos, enfriamiento simulado
+36
+
+2.1. Seleccion de caracteristicas
+En funcion de la disponibilidad o no de la clase se distingue entre metodos de SC:
+supervisados no supervisados
+
+En funcion de la salida del algoritmo se distingue entre:
+ranking subconjunto de atributos
+
+37
+
+2.1. Seleccion de caracteristicas
+Algunos algoritmos de seleccion de caracteristicas 1. Seleccion ingenua La idea mas simple es evaluar cada atributo por separado y seleccionar los M que tengan mejor valor para la funcion objetivo Esta estrategia ingenua casi nunca funciona Ejemplo:
+Un problema con 4 variables predictoras y una variable de clasificacion Se obtiene la representacion 2D (scatter) considerando distintos puntos de vista Se evalua cada atributo por separado y se eligen los mejores
+38
+
+2.1. Seleccion de caracteristicas
+¿Que subconjunto de 2 variables seleccionamos?
+
+39
+
+2.1. Seleccion de caracteristicas
+
+X1: [1,2,3,{4,5}] X2: [{1,2},3,{4,5}] X3: [1,{2,3},{4,5}] X4: [{1,2,3},4,5]
+
+Es razonable que la funcion objetivo ofrezca un resultado como f(X1) >f(X2)f(X3)>f(X4) Elegir {X1,X2} o {X1,X3}
+
+Parece razonable que se elija {X1,X4}
+40
+
+2.1. Seleccion de caracteristicas
+2. Seleccion hacia delante La seleccion forward comienza con el conjunto vacio y de forma secuencial anade al subconjunto actual S el atributo Xi que maximiza f(S,Xi)
+1. 2.
+
+Comenzar con S= Seleccionar la variable
+
+X + = arg max f ( S X )
+X U - S
+
+3. 4.
+
+S=S U {X+} Ir al paso 2
+41
+
+2.1. Seleccion de caracteristicas
+3. Seleccion hacia atras La seleccion backward comienza con el conjunto completo U y de forma secuencial elimina del subconjunto actual S el atributo X que decrementa menos f(S-X)
+1. 2.
+
+Comenzar con S=U Seleccionar la variable X-
+
+X - = arg max f ( S - X )
+X S
+3. 4.
+
+S=S-{X-} Ir al paso 2
+42
+
+2.1. Seleccion de caracteristicas
+Seleccion hacia delante:
+Funciona mejor cuando el subconjunto optimo tiene pocas variables Es incapaz de eliminar variables
+
+Seleccion hacia atras:
+Funciona mejor cuando el subconjunto optimo tiene muchas variables El principal inconveniente es el de reevaluar la utilidad de algunos atributos previamente descartados
+
+Especialmente con el enfoque envolvente, ¿cual seria computacionalmente mas eficiente?
+
+43
+
+2.1. Seleccion de caracteristicas
+4. Seleccion l-mas r-menos Es una generalizacion de forward y backward 1. Si l>r entonces S= si no, S=U e ir al paso 3 2. Repetir l veces X + = arg max f ( S X )
+X U - S
+
+S = S {X +}
+
+3. Repetir r veces
+X - = arg max f ( S - X )
+X S
+
+S = S - {X -}
+
+4. Ir al paso 2
+44
+
+2.1. Seleccion de caracteristicas
+5. Seleccion bidireccional Es una implementacion paralela de forward y backward Hay que asegurar que los atributos eliminados por backward no son introducidos por forward (y viceversa)
+1. 2. 3.
+
+Comenzar forward con SF= Comenzar backward con SB=U Seleccionar X + = arg max f ( S F X )
+X S B - S F
+
+4.
+
+SF = SF {X +} Seleccionar
+X - = arg max f ( S B - X )
+X S B - S F
+
+SB = SB - {X -}
+5.
+
+Ir al paso 3
+45
+
+2.1. Seleccion de caracteristicas
+6. Seleccion flotante Extension de l-mas r-menos para evitar fijar el l y r a priori Hay dos metodos: uno comienza por el conjunto vacio y otro por el total
+1. 2.
+
+Comenzar con S= Seleccionar
+X + = arg max f ( S X )
+X U - S
+
+S = S {X +}
+3.
+
+Seleccionar
+X - = arg max f ( S - X )
+X S
+
+4.
+
+Si f(S-X-)>f(S) entonces S=S-{X-} e ir al paso 3 si no ir al paso 2
+46
+
+2.1. Seleccion de caracteristicas
+7. Seleccion de caracteristicas con arboles de decision Conjunto inicial de atributos: {A1, A2, A3, A4, A5, A6}
+
+A4 ? A1? A6?
+
+Class 1
+
+Class 2
+
+Class 1
+
+Class 2
+
+Caracteristicas seleccionadas: {A1,A4,A6}
+47
+
+2.1. Seleccion de caracteristicas
+Feature Selection for Knowledge Discovery and Data Mining
+Huan Liu, Hiroshi Motoda Publisher Kluwer Academic Publishers Norwell, MA, USA
+
+48
+
+2. 2. Algoritmos evolutivos y seleccion de caracteristicas
+2.2.1. Algoritmos geneticos basicos para seleccion de caracteristicas
+a) b)
+
+Esquema de codificacion y operadores geneticos Funcion fitness
+
+2.2.2. Algoritmos geneticos con nichos para la seleccion de caracteristicas 2.2.3. Resumen
+
+49
+
+2.2.1. Algoritmos geneticos basicos para seleccion de caracteristicas
+La mayor parte de las propuestas de algoritmos evolutivos para seleccion de caracteristicas corresponden a algoritmos geneticos Tanto el modelo de algoritmo genetico como los operadores implicados suelen ser estandar Al igual que el resto de algoritmos evolutivos para otras tareas, las propuestas se diferencian por la definicion de sus componentes:
+Modelo de algoritmo genetico: generacional o de estado estacionario Esquema de codificacion Operadores geneticos Funcion fitness
+
+50
+
+2.2.1. Algoritmos geneticos basicos para seleccion de caracteristicas
+a) Esquema de codificacion y operadores geneticos 1. Binario. Para un problema de clasificacion con n=9 variables
+0 0 1 1 0 1 0 1 0
+
+{V3, V4, V6, V8}
+
+Se pueden utilizar operadores geneticos estandar Se pueden plantear alternativas
+Subrayar la importancia de que en ambos padres una variable aparezca. Se seleccionan atributos con esta caracteristica A partir de estas variables se genera una solucion parcial que se completa mediante un metodo de busqueda probabilistico Plantear operadores geneticos que propicien la eliminacion de variables en problemas de alta dimensionalidad
+51
+
+2.2.1. Algoritmos geneticos basicos para seleccion de caracteristicas
+2. Entera
+V1 V3 V5 V18
+
+{V1, V3, V5, V18}
+
+La longitud del individuo es independiente del numero original de atributos
+0 V3 V5 V5
+
+{V3, V5}
+
+El hecho de que un atributo pueda aparecer mas de una vez puede actuar como un mecanismo que incrementa la robustez y evita la perdida de diversidad genetica Operadores especiales como el de borrado de una variable
+
+Ambos esquemas de codificacion son mas escalables para datos con muchas variables
+52
+
+2.2.1. Algoritmos geneticos basicos para seleccion de caracteristicas
+b) Funcion fitness Algoritmos de SC filtro, implican el calculo de una medida de separabilidad de clases
+Reducen el tiempo de procesamiento del AG
+
+Algoritmos de SC envolventes, implican ejecutar un algoritmo de aprendizaje del clasificador para determinar una medida de rendimiento Algoritmos mixtos, por ejemplo:
+
+fitness (C ) = Info(C ) - Cardinalidad(C ) + Precision(C )
+Info(C) es una medida de la teoria de la informacion que estima el poder discriminatorio de los atributos de C
+
+53
+
+2.2.1. Algoritmos geneticos basicos para seleccion de caracteristicas
+Referencia [Bala et al. 1995] [Bala et al. 1996] [Chen et al. 1999] [Guerra-Salcedo, Whitley 1998,1999] [Cherkauer, Shavlik 1996] [Terano, Ishino 1998] [Vafaie, DeJong 1998] [Yang, Honavar 1997,1998] [Moser, Murty 2000] [Ishibuchi, Nakashima 2000] [Emma-nouilidis et al. 2000] Algoritmo de clasificacion Arbol de decision Arbol de decision Tabla de decision Tabla de decision Arbol de decision Arbol de decision Arbol de decision Red neuronal Vecino mas cercano Vecino mas cercano Red neuronal Criterio utilizado en fitness Precision, no atributos Precision, contenido de informacion, no atributos 1o) precision 2o)no atributos Precision Precision, no atributos, tamano medio del arbol Evaluacion subjetiva, prediccion, no de reglas Prediccion Prediccion, costo de los atributos Prediccion, no atributos Prediccion, no atributos, no de instancias Prediccion, no atributos (MOGA)
+
+54
+
+2.2.2. Algoritmos geneticos con nichos para la seleccion de caracteristicas
+Las distintas propuestas pueden combinar esquemas de codificacion, operadores geneticos y funciones de evaluacion con distintas medidas. La SC es un problema con caracter multimodal (pueden existir distintos optimos locales o globales La obtencion de distintos conjuntos de variables puede permitir
+
+Que el experto elija entre distintos subconjuntos con igual valor de las medidas de calidad La construccion de un sistema de multi-clasificacion que combine los clasificadores construidos a partir de cada subconjunto de variables
+
+Es conveniente el diseno de un AG con nichos que favorezca la evolucion hacia un conjunto de soluciones distintas
+55
+
+2.2.2. Algoritmos geneticos con nichos para la seleccion de caracteristicas
+Ejemplos de algoritmos de SC basados en AG con nichos. Caracteristicas de las propuestas: Codificacion binaria Funcion fitness
+
+fitness (C ) = precision(C ) - (1 - ) 
+
+n _ atributos n
+
+La precision se calcula a partir de un sistema de clasificacion basado en reglas difusas obtenido a partir de las variables seleccionadas Cruce en un punto, mutacion aleatoria simple Propuesta 1: AG multimodal basado en fitness sharing Propuesta 2: AG multimodal basado en clearing Propuesta 3: AG multimodal basado en crowding
+56
+
+Modelo generacional (torneo binario) Modelo generacional (torneo binario)
+
+2.2.2. Algoritmos geneticos con nichos para la seleccion de caracteristicas
+
+57
+
+2.2.2. Algoritmos geneticos con nichos para la seleccion de caracteristicas
+
+58
+
+2.2.2. Algoritmos geneticos con nichos para la seleccion de caracteristicas
+
+59
+
+2.2.2. Algoritmos geneticos con nichos para la seleccion de caracteristicas
+AG para determinar los pesos que determinan el multiclasificador
+
+multiclasi ficador = 1 clasif 1 + 2 clasif 2 + K + k clasif k
+Basado en CHC Codificacion real Funcion fitness basada en la precision obtenida con el multiclasificador
+
+60
+
+2.2.2. Algoritmos geneticos con nichos para la seleccion de caracteristicas
+
+61
+
+M4: Mineria de datos y modelos evolutivos de extraccion del conocimiento
+Indice 1. ¿Por que aplicar algoritmos evolutivos en mineria de datos? 2. Preprocesamiento y algoritmos evolutivos 3. Extraccion evolutiva de reglas 4. Programacion genetica para la extraccion de reglas 5. KEEL: A data mining software tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+62
+
+3. Extraccion evolutiva de reglas Los cromosomas codifican una regla o un conjunto de reglas
+Cada gen codifica una regla o parte de una regla Si cond1 ... condn entonces conocimiento
+Conocimiento puede ser: Clasificacion: Variable de clase Asociacion: Cualquier variable Si condicion entonces Ci Si panales entonces cerveza
+63
+
+3. Extraccion evolutiva de reglas
+Algunos tipos de reglas para clasificacion
+Reglas intervalares Si x1 [a1,b1] ... xn [an,bn] Entonces Clase = Ci Reglas difusas Si x1 es M ... xn es G Entonces Clase = Ci con grado certeza ri
+
+(M, ..., G son etiquetas linguisticas con funciones de pertenencia asociadas)
+
+R1: Si X1 es Alto y X2 es Bajo -> Y es Medio R2: Si X1 es Bajo y X2 es Medio -> Y es Alto Funciones de pertenencia
+GM G M P PM
+
+64
+
+3. Extraccion evolutiva de reglas
+Componentes de los algoritmos evolutivos que hay que definir: 1. Codificacion de la Base de Reglas, Base de Conocimiento (puede ser una sola regla) 2. Evaluacion de los Cromosomas 3. Operadores Geneticos 4. Modelos de Evolucion
+65
+
+3.1. Esquema de codificacion
+Existen dos modelos generales que estan fundamentados en el uso de los AEs para aprender Sistemas Basados en Reglas:
+
+· Cromosoma = Base de Reglas
+Modelo Pittsburgh
+
+· Cromosoma = Regla
+Modelos · Michigan · IRL: Iterativo · Cooperativo ­ Competitivo (Base de Reglas = Poblacion)
+66
+
+3.1. Esquema de codificacion
+El enfoque cromosoma=regla y el cromosoma=base de reglas tratan el problema de la interaccion entre atributos de distinta forma
+Las mejores reglas no son necesariamente el mejor conjunto de reglas
+
+R2
+
+R3
+
+Calidad (R1)>Calidad(R2) > Calidad (R3) > Calidad (R4)
+R4
+
+R1
+
+Se puede relajar la restriccion de encontrar reglas con el 100% de covertura anadiendo una regla por defecto que prediga la clase mayoritaria
+67
+
+3.1. Esquema de codificacion
+Con el enfoque Pitts (cromosoma = base de reglas) se trata el problema de la interaccion de reglas de forma natural
+Funcion fitness evalua el rendimiento del conjunto de reglas al completo
+
+Con el enfoque cromosoma = base de reglas es mas complejo
+Michigan aprendizaje por refuerzo que mida el rendimiento en un entorno IRL Multiples ejecuciones + mecanismos para potenciar diversidad (a nivel fenotipico o genotipico) Cooperativo-competitivo
+
+Los operadores geneticos suelen ser mas simples con el enfoque cromosoma = regla
+
+68
+
+3.1. Esquema de codificacion
+Se puede codificar (en cualquiera de los modelos)
+el antecedente y el consecuente
+· Hay que tener cuidado al aplicar los operadores geneticos para controlar operaciones validas entre reglas con distinto consecuente
+
+solo el antecedente
+· El consecuente es fijo (y por tanto se ejecuta el AG tantas veces como clases en las que se tenga interes en extraer conocimiento)
+· Cada ejecucion es independiente y considera todos los ejemplos Inconveniente: no ayuda a controlar la redundancia ni el solapamiento entre reglas · Cuando se obtienen las reglas para una clase se eliminan los ejemplos cubiertos
+
+· Se elige el consecuente que, para el antecedente representado, maximiza la funcion fitness
+
++
+
+Clase +
+
++ + + + + + +
+
+-
+
++ + - + 69
+
+3.1. Esquema de codificacion
+Ejemplos de codificacion con variables discretas (o discretizadas)
+1. Codificacion binaria. Para un problema con 18 variables en el que no se codifica el consecuente (se mantiene fijo para cada ejecucion del AG) y se desean obtener reglas tipo DNF
+0 1 2 3 4 5 6 7 8 9 0 1 0 0 0 1 0 0 0 10 11 12 0 0 0 0 0 0 0 0 1 1 0 0 0 0 13 14 15 16 17
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+
+SI (Zona geografica = Zona centro) Y (Utilidad de las ferias = Poca) Y (Importancia operaciones = Poca o Media) Y (Cercania escaleras = Si) ENTONCES Eficacia del expositor = ALTA Si todos los bits correspondientes a una variable estan a cero, la variable no interviene en la regla
+
+70
+
+3.1. Esquema de codificacion
+Ejemplos de codificacion con variables discretas (o discretizadas) 2. Codificacion entera. Para el mismo problema, pero con reglas no DNF
+2 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1
+
+SI (Zona geografica = Zona centro) Y (Utilidad de las ferias = Poca) Y (Importancia operaciones = Poca) Y (Cercania escaleras = Si) ENTONCES Eficacia del expositor = ALTA Si el gen correspondiente a una variable tiene el valor cero (y ese valor no corresponde a ninguno de los posibles para la variable), la variable no interviene en la regla
+71
+
+3.1. Esquema de codificacion
+Ejemplos de codificacion con variables continuas Posibilidades: Discretizar las variables continuas Tratarlas como variables linguisticas o difusas, generando reglas linguisticas o difusas aproximativas Considerar que toman como valores intervalos, generando reglas intervalares Codificar un umbral para la variable y un operador
+72
+
+3.1. Esquema de codificacion
+Aprendizaje de una Base de Reglas Linguistica
+Ejemplo: Problema de control con dos variables de entrada y una de
+salida. Existe una base de datos definida a traves de conocimiento experto, que determina las funciones de pertenencia para las siguientes etiquetas:
+
+1 2 3 Error {N, C, P} Error
+
+4 5 6 {N, C, P}
+(2)
+
+Potencia
+
+7 8 9 {B, M, A}
+(6)
+
+2 6 9
+
+R1: Si el Error es Cero y la Variacion_Error es Positiva entonces la Potencia es Alta
+(9)
+
+2
+
+6
+
+9
+
+1
+
+6
+
+8 1 ...
+
+R1
+
+R2
+73
+
+3.1. Esquema de codificacion Modelo Pitt con reglas intervalares Representacion
+Cada regla esta compuesta por un conjunto de n atributos y una clase. Cada atributo se codifica con dos variables reales que indican el minimo y el maximo del rango de valores validos para el atributo en esa regla. Si x1 [a1,b1] ... xn [an,bn] Entonces Clase = Ci (2·n+1) variables Se utilizan cromosomas de longitud fija. La longitud del cromosoma es: L = m·(2·n+1) (m indica el numero de reglas) Cuando el valor de la segunda variable es menor que la de la primera: ai (minimo) > bi (maximo) se considera que ese atributo no interviene en la regla.
+74
+
+3.1. Esquema de codificacion
+Codificacion de un antecedente con operadores y longitud fija
+Condicion 1
+Variable1 Operador1 Valor1 Activo ...
+
+Condicion m
+Variablem Operadorm Valorm Activo
+
+Genero
+
+= mujer 0
+
+Sueldo
+
+=
+
+Alto 0
+
+Edad
+
+>
+
+55
+
+1
+
+Si es hombre y tiene edad>55 entonces clase 1
+
+Codificacion con longitud variable
+Genero = hombre Edad > 55
+75
+
+3.2. Operadores especificos
+Cruce de generalizacion / especificacion Mutacion de generalizacion / especificacion Operador de insercion / eliminacion de una condicion Operador de insercion / eliminacion de una condicion
+
+R1 + + + + + + + + + R2 +
+
+R1 + + + + + + + +
+
+- - +
+
+- - +
+
+R2
+
+Especializacion de R1 y generalizacion de R2
+76
+
+3.2. Operadores especificos
+Ejemplos de aplicacion del cruce de generalizacion / especializacion
+Padres 0 0 1 1 0 0 1 1 0 1 0 1 0 0 Hijos generalizacion 0 0 1 1 1 0 1 1 0 1 1 1 0 0 Hijos especializacion 0 0 1 0 0 0 1 1 0 1 0 0 0 0
+
+Padres
+Genero = hombre Genero = mujer Empleo = no Empleo = si Salario < 40.000 Salario > 30.000
+
+Hijos producidos por el cruce de generalizacion
+Genero = hombre Genero = mujer Empleo = cualquiera Empleo = cualquier Salario = cualquiera Salario = cualquiera
+
+Hijos producidos por el cruce de especializacion
+Genero = hombre Genero = mujer Empleo = si Empleo = no 30.000
+M4: Mineria de datos y modelos evolutivos de extraccion del conocimiento
+Indice 1. ¿Por que aplicar algoritmos evolutivos en mineria de datos? 2. Preprocesamiento y algoritmos evolutivos 3. Extraccion evolutiva de reglas 4. Programacion genetica para la extraccion de reglas 5. KEEL: A data mining software tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+78
+
+4. Programacion genetica para la extraccion de reglas
+La programacion genetica data de 1985 John Koza, a principios de la decada de los 90, se convirtio en su gran difusor Se ha aplicado en el area de aprendizaje automatico (machine learning), en problemas de prediccion o clasificacion Caracteristicas generales:
+Tiene capacidad para competir con redes neuronales Necesita poblaciones muy grandes Menos eficiente que otros paradigmas evolutivos
+
+Caracteristicas especiales:
+Utiliza estructuras no lineales como cromosomas: arboles, grafos La mutacion no es estrictamente necesaria (es un tema en discusion)
+79
+
+4. Programacion genetica para la extraccion de reglas
+Ejemplo: credit scoring Un banco necesita distinguir entre candidatos buenos y malos para la asignacion de un credito bancario Necesita un modelo que se genere a partir de datos historicos
+Identif. ID-1 ID-2 ID-3 ...
+80
+
+No de hijos 2 0 1
+
+Salario 45000 30000 40000
+
+Estado civil Casado Soltero Divorciado
+
+OK? 0 1 1
+
+4. Programacion genetica para la extraccion de reglas
+Un modelo posible: SI (Nohijos = 2) Y (Salario > 80000) ENTONCES bueno SI_NO malo En general: SI formula ENTONCES bueno SI_NO malo Solo se desconoce el antecedente de la regla por lo que el espacio de busqueda (espacio fenotipico) es el conjunto de formulas (antecedentes) Fitness de una formula: porcentaje de ejemplos bien clasificados por el modelo Representacion de formulas (fenotipos): arboles (genotipos)
+81
+
+4. Programacion genetica para la extraccion de reglas
+SI (Nohijos = 2) Y (Salario > 80000) ENTONCES bueno SI_NO malo se puede representar con el siguiente arbol
+
+Y = >
+
+No hijos
+
+2
+
+S
+
+80000
+82
+
+4. Programacion genetica para la extraccion de reglas
+En otros paradigmas evolutivos como algoritmos geneticos, estrategias de evolucion, o programacion evolutiva, los cromosomas son estructuras lineales (cadenas de bits, cadenas de enteros, vectores de reales, o permutaciones, entre otros) Los cromosomas con forma de arbol son estructuras no lineales En otros paradigmas evolutivos, el tamano de los cromosomas puede ser fijo Los arboles en programacion genetica pueden variar tanto en profundidad como en ancho La representacion de programas en forma de arboles de expresion se basa en la existencia de una gramatica libre de contexto que define las sentencias validas del lenguaje
+83
+
+4. Programacion genetica para la extraccion de reglas
+Ejemplo: Sistema de aprendizaje de sistemas de clasificacion basados en reglas difusas mediante programacion genetica Extrae reglas difusas tipo DNF (con disyuncion en el antecedente) y con un grado de certeza asociado a la clasificacion en la clase (reglas tipo 1)
+si X 1 es Alto o Medio y X 2 es Bajo entonces Clase 1 con certeza = 0 . 75
+
+Para la codificacion de cada individuo utiliza el esquema evolutivo cooperativo-competitivo Es un modelo de PG basado en gramaticas libres de contexto En cada generacion, se aplican cuatro operadores geneticos para generar un numero de descendientes igual a la poblacion de la que proviene A la union de ambas poblaciones (padres y descendientes) se aplica un mecanismo de competicion de tokens para potenciar la diversidad Tras aplicar el mecanismo de competicion de tokens, se generan nuevas reglas (tipo 2) si quedan ejemplos sin cubrir. En cada generacion comprueba si la solucion actual (toda la poblacion con reglas tipo 1 y 2) es mejor que la obtenida en otras generaciones para almacenarla La solucion final es el conjunto de reglas mejor a lo largo de la evolucion
+84
+
+4. Programacion genetica para la extraccion de reglas
+Uso de una gramatica libre de contexto para aprender reglas difusas DNF (varias etiquetas por variable). Esta gramatica tambien permite la ausencia de alguna de las variables de entrada
+
+comienzo antec
+
+[Si] antec [entonces] consec.
+
+descriptor1 [y] descriptor2. [nada]. [X1 es] etiqueta. [nada]. [X2 es] etiqueta. {member (?a, [B, M, A, B o M, B o A, M o A, B o M o A])}, [?a]. [Clase es] descriptorClase. {member (?a, [C1, C2, C3])}, [?a].
+
+descriptor1 descriptor1 descriptor2 descriptor2 etiqueta consec
+
+descriptorClase
+
+85
+
+4. Programacion genetica para la extraccion de reglas
+Enfoque de representacion cooperativo-competitivo necesidad de introducir un mecanismo para mantener la diversidad en la poblacion Competicion de tokens: En la naturaleza, si un individuo encuentra un buen lugar para vivir (un nicho), intentara explotarlo y prevenir la llegada a este de otros nuevos individuos y tener asi que compartir sus recursos, a menos que esos nuevos individuos sean mas fuertes que el. Si no es el caso, esos nuevos individuos estaran forzados a explorar y encontrar sus propios nichos. De esta forma se incrementa la diversidad de la poblacion.
+
+86
+
+4. Programacion genetica para la extraccion de reglas
+Ejemplo de la Competicion de Tokens E1 E2 E12 E6 E7 E3
+
+R1 R2
+
+E1
+
+E3
+
+E10
+
+E5 E8 E11 E10 E4
+
+E1
+
+E6
+
+E8
+
+R3
+E9
+
+E3
+
+E6
+
+R4 R5
+
+E7
+
+E12
+
+E9
+
+Fitness_modificado = F ×
+
+contador ideal
+
+E2
+87
+
+4. Programacion genetica para la extraccion de reglas
+Fitness de cada regla:
+F = ( * confianza) + ((1 - ) * soporte)
+con = 0.7
+
+Confianza: Mide la precision de una regla, es decir, como se verifica el consecuente cuando se verifica el antecedente confianza = tp / (tp + fp) Soporte: Mide como el individuo cubre la clase representada en su consecuente soporte = tp / num_ejem_clase
+donde tp y fp son la suma de los grados de emparejamiento para los ejemplos positivos verdaderos y positivos falsos, respectivamente
+
+88
+
+4. Programacion genetica para la extraccion de reglas
+Fitness global de la poblacion:
+Debido a la forma de actuar de la competicion de tokens la ultima poblacion no tiene porque ser necesariamente la mejor En cada iteracion se calcula una medida que indica la bondad de la poblacion (su fitness global) La solucion sera la mejor poblacion obtenida a lo largo de todo el proceso evolutivo F_global = (W1 * %Tra) + (W2 * (1 - #V)) + (W3 * (1 - #C)) + (W4 * (1- #R)) con W = 1
+i
+
+#V: numero de variables por regla, normalizado #C: numero de condiciones por regla, normalizado #R: numero de reglas, normalizado
+89
+
+4. Programacion genetica para la extraccion de reglas
+Operadores geneticos:
+1.
+
+Cruce: Obtiene un par de puntos de corte en 2 individuos e intercambia ambos trozos. Genera solo 1 descendiente Mutacion: Actua a nivel de conjuntos de etiquetas
+· · · Anadir una etiqueta a un conjunto Quitar una etiqueta a un conjunto Cambiar una etiqueta presente en el conjunto por otra no presente
+
+2.
+
+3.
+
+Insercion: Anade una variable que no este siendo usada a una regla Dropping Condition: Elimina una de las variables que esta siendo usada en la regla
+
+4.
+
+90
+
+4. Programacion genetica para la extraccion de reglas
+Pseudocodigo:
+Paso 1. Crear la poblacion inicial, de acuerdo a las reglas de produccion de la gramatica y evaluar cada una de las reglas en dicha poblacion Paso 2. Calcular el fitness global de la poblacion inicial y guardarla como la mejor Paso 3. Mientras no se verifique la condicion de parada repetir los pasos 4-7 Paso 4. Generar un numero de hijos igual a la longitud de la poblacion actual Seleccion de un padre por Torneo (tamano 2) y se aplica solo uno de los 4 operadores geneticos (elegido segun sus probabilidades) Paso 5. Union de los padres y de los hijos (ya evaluados) en una unica poblacion, ordenacion de todos estos segun su valor de fitness y aplicacion de la competicion de tokens Paso 6. Eliminar aquellos individuos cuyo fitness haya sido modificado a cero por la competicion de tokens. Generar nuevas reglas (Tipo 2) para cubrir aquellos ejemplos de entrenamiento cuyos tokens hayan quedado libres tras la competicion de tokens (si es que estos existen) Paso 7. Calcular el fitness global de la poblacion actual y actualizar la mejor poblacion si procede Paso 8. Devolver la mejor poblacion como solucion final
+91
+
+4. Programacion genetica para la extraccion de reglas
+Estudio Experimental:
+10 conjuntos de entrenamiento (90%) y prueba (10%) creados mediante el procedimiento 10-fold cross-validation 5 etiquetas linguisticas por varible (con conjuntos difusos triangulares) 2 metodos usados en la comparativa: Ravi y otros (PCA) y 2SLAVE (Version 2)
+
+Base de datos Iris Wisconsin Thyroid Sonar
+
+No de variables 4 9 21 60
+
+No de ejemplos 150 683 7200 208
+
+No de clases 3 2 3
+(50/50/50) (444/239)
+
+(6666/348/186)
+
+2
+
+(111/97)
+
+92
+
+4. Programacion genetica para la extraccion de reglas
+Resultados Iris
+Metodo Ravi1 Ravi2 2SLAVE1 2SLAVE2 SCBRD_PG1 SCBRD_PG2 #R
+4.4 4.4 4 4 3.47 3.43
+
+#Var
+1 1 2.75 2.75 1.17 1.17
+
+#Cond
+1 1 7.08 7.08 1.72 1.73
+
+%Tra
+95.63 94.2 95.9 94.32 97.01 97.04
+
+%Pru
+87.33 86.44 95.33 94.44 96.67 96.89
+
+· #R: No medio de reglas · #Var: No medio de variables por regla · #Cond: No medio de condiciones por regla · %Tra: Porcentaje de acierto en entrenamiento · %Pru: Porcentaje de acierto en prueba
+
+Subindices: Relacionados con el metodo de razonamiento difuso (FRM) empleado: · 1: Clasico (max-min) · 2: Suma normalizada
+
+93
+
+4. Programacion genetica para la extraccion de reglas
+Resultados Wisconsin
+Metodo Ravi1 Ravi2 2SLAVE1 2SLAVE2 SCBRD_PG1 SCBRD_PG2 #R
+8.17 8.17 5.97 5.97 6.83 7.07
+
+#Var
+2 2 6.1 6.1 1.09 1.09
+
+#Cond
+2 2 16.41 16.41 2.07 2.11
+
+%Tra
+97.23 97.19 91.36 93.48 94.61 95.04
+
+%Pru
+96.59 96.59 89.59 91.66 93.42 94.14
+
+· #R: No medio de reglas · #Var: No medio de variables por regla · #Cond: No medio de condiciones por regla · %Tra: Porcentaje de acierto en entrenamiento · %Pru: Porcentaje de acierto en prueba
+
+Subindices: Relacionados con el metodo de razonamiento difuso (FRM) empleado: · 1: Clasico (max-min) · 2: Suma normalizada
+
+94
+
+4. Programacion genetica para la extraccion de reglas
+Resultados Thyroid
+Metodo Ravi1 Ravi2 2SLAVE1 2SLAVE2 SCBRD_PG1 SCBRD_PG2 #R
+40.17 40.17 3.7 3.7 5.33 5.37
+
+#Var
+6 6 9.23 9.23 1.29 1.3
+
+#Cond
+6 6 20.52 20.52 2.08 2.04
+
+%Tra
+92.62 92.62 92.81 92.85 92.76 92.75
+
+%Pru
+92.19 92.19 92.87 92.88 92.71 92.7
+
+· #R: No medio de reglas · #Var: No medio de variables por regla · #Cond: No medio de condiciones por regla · %Tra: Porcentaje de acierto en entrenamiento · %Pru: Porcentaje de acierto en prueba
+
+Subindices: Relacionados con el metodo de razonamiento difuso (FRM) empleado: · 1: Clasico (max-min) · 2: Suma normalizada
+
+95
+
+4. Programacion genetica para la extraccion de reglas
+Resultados Sonar
+Metodo Ravi1 Ravi2 2SLAVE1 2SLAVE2 SCBRD_PG1 SCBRD_PG2 #R
+73.57 73.57 8.1 8.1 11 11.13
+
+#Var
+6 6 17.4 17.4 2.61 2.69
+
+#Cond
+6 6 32.33 32.33 5.92 5.89
+
+%Tra
+97.26 96.97 72.94 75.29 76.16 78.17
+
+%Pru
+57.32 57.32 68.83 69.79 69.87 71.9
+
+· #R: No medio de reglas · #Var: No medio de variables por regla · #Cond: No medio de condiciones por regla · %Tra: Porcentaje de acierto en entrenamiento · %Pru: Porcentaje de acierto en prueba
+
+Subindices: Relacionados con el metodo de razonamiento difuso (FRM) empleado: · 1: Clasico (max-min) · 2: Suma normalizada
+
+96
+
+3. Extraccion evolutiva de reglas 4. Programacion genetica para la extraccion de reglas
+
+Bibliografia
+O. Cordon, F. Herrera, F. Hoffmann, L. Magdalena GENETIC FUZZY SYSTEMS. Evolutionary Tuning and Learning of Fuzzy Knowledge Bases. World Scientific, Julio 2001.
+
+M.L. Wong, K.S. Leung, Data Mining using Grammar Based Genetic Programming and Applications. Kluwer Academics Publishers, 2000.
+
+97
+
+3. Extraccion evolutiva de reglas 4. Programacion genetica para la extraccion de reglas
+
+Bibliografia
+Y. Jin (Ed.) Multi-Objective Machine Learning Springer-Verlag, 2006.
+
+98
+
+M4: Mineria de datos y modelos evolutivos de extraccion del conocimiento
+Indice 1. ¿Por que aplicar algoritmos evolutivos en mineria de datos? 2. Preprocesamiento y algoritmos evolutivos 3. Extraccion evolutiva de reglas 4. Programacion genetica para la extraccion de reglas 5. KEEL: A data mining software tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+99
+
+performance of knowledge extraction-based on evolutionary algorithms KEEL (Knowledge Extraction based on Evolutionary Learning) http://www.keel.es/ Es una plataforma no comercial desarrollada en Java que permite analizar el comportamiento del aprendizaje evolutivo en diferentes tipos de problemas:
+Clasificacion Regresion Aprendizaje no supervisado, etc.
+100
+
+KEEL: A data mining tool for assessing the
+
+KEEL: A data mining tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+
+101
+
+KEEL: A data mining tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+KEEL se estructura en tres componentes:
+Manejo de datos: Para construir, editar, visualizar, aplicar transformaciones y particionar datos. Tambien permite importar y exportar datos en formatos diferentes al de KEEL Diseno de experimentos: Permite disenar un experimento de mineria de datos con los datos seleccionados Experimentos para docencia: Tiene estructura similar al anterior pero ademas permite realizar el proceso paso a para mostrar el proceso de aprendizaje de un modelo con fines docentes
+102
+
+KEEL: A data mining tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+
+103
+
+KEEL: A data mining tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+Principales caracteristicas de KEEL: Los algoritmos de DM que incorpora se estructuran en preprocesamiento, extraccion de modelos y postprocesamiento. Preprocesamiento. Incluye algoritmos de transformacion de datos, discretizacion, seleccion de instancias y variables. Incorpora una libreria de metodos de analisis estadistico para analizar los resultados de los distintos algoritmos. Proporciona una interfaz amigable, orientada al analisis de algoritmos El software esta orientado a crear experimentos con multiples conjuntos de datos y algoritmos conectados entre si. Los experimentos generan un script que se ejecuta fuera de linea. Desde la parte docente los experimentos pueden ejecutarse en linea.
+104
+
+KEEL: A data mining tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+KEEL contiene una libreria de algoritmos de extraccion de conocimiento con enfoque evolutivo, junto con propuestas clasicas
+Modelos evolutivos de aprendizaje de reglas Modelos de aprendizaje de reglas difusas Redes neuronales evolutivas Programacion genetica Descubrimiento de subgrupos Reduccion de datos
+
+105
+
+KEEL: A data mining tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+
+106
+
+KEEL: A data mining tool for assessing the performance of knowledge extraction-based on evolutionary algorithms
+
+107
+
+Comentarios finales
+Los algoritmos evolutivos son metodos de busqueda robustos que realizan una busqueda global en el espacio de soluciones candidatas. Gran parte de los procesos involucrados en Mineria de Datos pueden enfocarse como problemas de optimizacion y busqueda y pueden resolverse mediante algoritmos evolutivos
+Seleccion de caracteristicas Seleccion de instancias Extraccion de reglas Modelos hibridos
+
+108
+
+Comentarios finales
+Los algoritmos evolutivos Permiten reflejar multiples medidas de calidad
+Precision Comprensibilidad del conocimiento extraido
+
+Permiten paralelizar el proceso de extraccion de conocimiento En procesos de extraccion de reglas permiten reflejar mejor la interaccion entre atributos que otros enfoques. Lineas futuras Algoritmos evolutivos en preparacion de datos, especialmente en construccion de atributos (programacion genetica) Algoritmos evolutivos multiobjetivo para extraccion de conocimiento
+109
+

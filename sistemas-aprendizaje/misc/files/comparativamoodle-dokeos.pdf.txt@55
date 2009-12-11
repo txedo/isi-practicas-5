@@ -1,0 +1,217 @@
+Comparativa de sistemas de E-learning (LMS): Moodle 1.9.2+ vs. Dokeos 1.8.5 Autor
+Agustin Gonzalez-Quel. agustin@gonzalez-quel.net
+
+Licencia
+Los contenidos de este documento son propiedad de Agustin Gonzalez-Quel, acogidos a licencia Creative Commons Reconocimiento-Compartir bajo la misma licencia 2.5 Espana. 2008
+
+Renuncia de responsabilidad
+El presente documento se ofrece tal como esta. El autor no se responsabiliza de posibles errores encontrados en el mismo ni de cualquier problema, error, perdida de datos informacion, tiempo u otro tipo de recurso derivada del uso del mismo.
+
+Introduccion
+El presente documento es una comparativa que hace tiempo deseaba hacer entre dos sistemas de gestion de elearning: Moodle y Dokeos. Moodle es un sistema ampliamente extendido en la comunidad educativa de Espana desde hace algo de tiempo, mientras que Dokeos ha tenido un escaso predicamento y es poco conocido. Hace un par de anos use Moodle para instalar unos cursos desarrollados en formato SCORM y el entorno no me gusto. Era necesario crear unas actividades ficticias y meter el paquete SCORM dentro de ellas. Hace algo menos de tiempo necesitaba una plataforma en la que correr un curso que habiamos desarrollado en formato SCORM antes de montarlo en el entorno de produccion y me instale Dokeos. Este LMS me permitio ponerlo en marcha inmediatamente y quede bastante satisfecho del funcionamiento. En distintos momentos he buscado comparativas por la red, pero algunas se centraban en cosas que a mi me interesan menos. El caso es que finalmente he decidido dedicarle algo de tiempo a este asunto. Fruto de esa dedicacion es este documento. Cuando inicie el proceso tenia una opinion sesgada, mas proclive a Dokeos; seguramente, por mis experiencias previas referidas antes. Sin embargo, el ejercicio ha cambiado bastante mi opinion de uno y otro como vereis. Ninguno de los dos soporta IMS-LD como estandar de empaquetado de cursos, lo que limita la capacidad de definir secuenciamiento de contenidos mas avanzados. Si se necesita esta funcionalidad hay que acudir a .LRN, pero la evaluacion de esta herramienta por ahora tendra que esperar.
+
+Impresiones generales
+Moodle 1.9.2
+Llevaba tiempo sin usar Moodle y encuentro que, o ha mejorado mucho en los ultimos tiempos o yo no habia llegado a una profundidad como he hecho ahora. Dispone de muchas facilidades para gestion de usuarios, gestion de preguntas asociadas a uno o varios cursos ­ lo que es muy interesante ­ importacion y exportacion de contenidos y de cursos, infinidad de modulos con funcionalidad adicional y, en definitiva, la mayoria de los servicios que se necesitan en un LMS. La integracion de cursos SCORM ha mejorado porque antes eran actividades dentro de un curso y ahora es un curso completo en este formato. Sin embargo, da problemas si el paquete no se genera para SCORM 1.2. En esto Dokeos es superior. Destacan los mecanismos para definicion de usuarios y perfiles que son muy ricos y permiten mas flexibilidad que Dokeos. En la parte negativa, la falta de mecanismos para definicion de itinerarios limita los mecanismos que se
+
+Comparativa LMSs: Moodle vs Dokeos.
+
+Septiembre 2008
+
+ofrecen al autor de cursos. Habra que esperar a la version 2, que va a salir pronto, a ver si esta limitacion se resuelve.
+
+Dokeos 1.8.
+Desde hace tiempo era un fan de Dokeos, pero hay que decir que su evolucion me deja un poco frio. Incorpora herramientas adicionales muy interesantes pero el modelo de desarrollo se esta centrando mas en esas herramientas que en el producto en si. Este hecho esta haciendo que la comunidad de desarrolladores de Dokeos sea practicamente inexistente, convirtiendose en un producto comercial con una version que se ofrece libre. Dokeos va mas rapido usado en el mismo entorno que Moodle (hardware + S.O. + BD). Lo que mas me ha gustado es la herramienta para definir itinerarios y lo que menos lo poco que podemos definir de los usuarios. Los iconos y espacios lo hacen muy agradable de apariencia.
+
+Aplicable a ambos
+Una cosa que los LMS no suelen ofrecer y a mi me parece muy interesante es la posibilidad de introducir datos de la formacion presencial de los usuarios. Si esto se pudiese hacer tendrias con una sola herramienta la gestion integrada de la formacion del colectivo. Evidentemente, como todo va en php sobre BD relacional es facil acceder a las tablas y preparar una aplicacion para esta gestion que incorpore datos del LMS y externos, pero se agradeceria que esto viniese hecho.
+
+2
+
+Agustin Gonzalez-Quel
+
+Comparativa LMSs: Moodle vs Dokeos.
+
+Septiembre 2008
+
+La comparativa
+Me he centrado en unos cuantos temas solamente, sin profundizar en otros elementos que pueden ser mas diferenciales, pero que son muy personales a la hora de elegir un LMS. Los temas que he seleccionado son: · · · · Instalacion y personalizacion del entorno. Gestion de usuarios Gestion de cursos, preguntas y calificaciones. Datos sobre evaluacion de los usuarios de forma individual y colectiva.
+
+Hay que decir que no he leido manual alguno de ninguno de ellos y solamente he acudido a documentacion para solventar el tema de la importacion de SCORM en Moodle. En la tabla, ademas de como soluciona cada uno de los criterios seleccionados, situo un icono de +,- o = para describir cuando uno queda ganador, perdedor o empatados. Como conclusion, yo daria a Moodle un 6,5 ­ perdiendo puntos por el soporte a SCORM y la falta de itinerarios ­ y a Dokeos un 7. Funcionalidad Instalacion y personalizacion del entorno Instalacion Facil. Asistente. Facil. Asistente. Presenta una particularidad: Dokeos necesita 4 BD diferentes y algunos proveedores de hosting no ofrecen 4 BD diferentes con el mismo usuario y contrasena (el nombre de usuario es el mismo que el de la BD) salvo en opciones de mas coste. Hay que modificar el codigo interno del sistema para que use tablas en una unica BD. Moodle version 1.9.2 + Dokeos version 1.8.5
+
+Personalizacion apariencia
+
+Tiene muchas plantillas de diferentes estilos algunas de ellas incorporadas en la instalacion (se administran desde Appearance Entornos Theme selector) Las plantillas estan en $MOODLE/theme con un directorio por plantilla. Ademas puede cambiarse desde la plataforma el tipo de letra, color de fondo y otros parametros de HTML basico.
+
+La instalacion incorpora 10 hojas de estilo que pueden cambiarse (Administracion de la Plataforma Parametros de configuracion de Dokeos) facilmente. Pueden descargarse del sitio de Dokeos otras 6 plantillas y 6 conjuntos de iconos. No encuentro plantillas, por Internet La apariencia del sitio se define en $DOKEOS/main/templates con 3 ficheros html/php, pero sobre todo en $DOKEOS/css donde cada estilo tiene un directorio.
+
+3
+Agustin Gonzalez-Quel
+
+Comparativa LMSs: Moodle vs Dokeos.
+
+Septiembre 2008
+
+Funcionalidad Idiomas
+
+Moodle version 1.9.2 + La instalacion incorpora Ingles, pero permite bajarse durante la misma los archivos para Espanol y otros idiomas. En la parte de administracion salen algunos titulos en Ingles y otros en Espanol (teniendo seleccionada la opcion Espanol). Para corregir esto el mismo sistema te permite editar las cadenas en los ficheros, lo que es bastante tedioso pero necesario para un entorno de produccion.
+
+Dokeos version 1.8.5 La instalacion incorpora mas de 20 lenguajes para personalizar el entorno de forma sencilla.
+
+Gestion de usuarios, grupos y perfiles Carga de usuarios (individual / masiva) Usuarios externos Individual y carga masiva con una lista CSV Individual y carga masiva con una lista CSV y XML
+
+LDAP, base de datos, ... Numerosas posibilidades de incorporar usuarios externos.
+
+No
+
+Informacion del usuario
+
+Muy rica, contiene fotos y mas informacion. El administrador puede definir campos adicionales para los usuarios.
+
+Muy rica, contiene fotos y mas informacion. El administrador puede definir campos adicionales para los usuarios.
+
+Definicion de Grupos
+
+7 niveles de roles, (Administrador, Autores, Profesor, Non-editing teacher, Estudiante, Guest, Authenticated user). Permite definir que roles pueden crear otros roles. Permite anadir roles adicionales. Los roles se definen tanto para toda la plataforma como para cursos concretos.
+
+4 niveles de roles (estatus): Profesor, Alumno, Responsable de RRHH y Administrador. No permite definir las caracteristicas y permisos de cada role. Ademas se pueden crear grupos por curso con escasa flexibilidad para permisos
+
+4
+Pertenencia a grupos Los usuarios se asignan a roles por un tiempo determinado o Simple, los usuarios pertenecen a un estatus.Dentro de un curso, Agustin Gonzalez-Quel
+
+Comparativa LMSs: Moodle vs Dokeos.
+
+Septiembre 2008
+
+Funcionalidad
+
+Moodle version 1.9.2 + indefinidamente y es de aplicacion para todo el sistema. Permite renombrar los roles de forma especifica para cada curso. Una vez creado un curso se asignan usuarios-roles especificos para ese curso.
+
+Dokeos version 1.8.5 pueden pertenecer a un grupo como tutores o alumnos
+
+Permisos, niveles de detalle
+
+Los roles son totalmente configurables, se permite definir que pueden hacer o no de una lista de mas de 90 acciones sobre el LMS.
+
+La definicion de estatus de cada usuario es fija. Puede modificarse algo la definicion de grupos dentro de un curso.
+
+Funcionalidades Web 2.0 Foros Blogs News Mensajes Otros Si Si Si No Calendario, Glosario, Chat Si Si Si Si Buzon de tareas, Videochat, videoconferencia con producto anadido.
+
+Tutorias / Videoconferencia
+
+No
+
+Si en producto aparte.
+
+Gestion y Autoriade cursos Categorias de cursos Definible por el usuario en forma de arbol (subcategorias). Permite disponer de bases de preguntas por categoria de cursos. Definible por el usuario todas las categorias al mismo nivel. No subcategorias.
+
+5
+Agustin Gonzalez-Quel
+
+Comparativa LMSs: Moodle vs Dokeos.
+
+Septiembre 2008
+
+Funcionalidad Formato de cursos
+
+Moodle version 1.9.2 + 5 formatos: LAMS, SCORM, Semanal, Temas, Social. SCORM: El curso se forma de uno o varios archivos en formato SCORM mas otros recursos. Esta funcionalidad me dio problemas. Inicialmente cargue un paquete SCORM hecho con ReLOAD y dio errores. Tuve que irme al editor de nuevo y generar el paquete como SCORM 1.2. Aqui si lo subio sin problemas. LAMS (Learning Activity Management System). La integracion de cursos tipo LAMS da error inicialmente. Hay que instalar el LAMS Module y configurar adecuadamente la integracion. Semanal: Formato muy tipico de Moodle y muy extendido, el curso se estructura por semanas y en cada una de ellas se introduce material, tareas, preguntas, etc. Social: El curso se estructura mediante temas de debate que el profesor/autor va introduciendo en el curso. Los temas llegan a los alumnos que deben incluir sus opiniones. Temas: Es similar al semanal, pero cada apartado responde a un tema y no a una division temporal. DEPENDE DE LAS NECESIDADES DEL AUTOR
+
+Dokeos version 1.8.5 Formato propio que incopora objetos, material formativo e itinerarios de aprendizaje. Esto es muy interesante. Varios formatos: SCORM. A la hora de importar un paquete nos permite seleccionar con que herramienta se ha generado. No dispone de integracion con LAMS, esta prevista.
+
+DEPENDE DE LAS NECESIDADES DEL AUTOR No como tal. Formato SCORM. Tiene una herramienta hermana que convierte presentaciones powerpoint a formato SCORM.
+
+Herramienta de Autoria Importacion de diferentes formatos cursos en
+
+No como tal. Paquetes SCORM, preguntas en diversos formatos. Cursos completos en formato de Moodle.
+
+Exportacion de cursos
+
+Permite hacer backup de cursos pero en un formato propio. No encuentro la posibilidad de exportar a otros formatos.
+
+No.
+
+Preguntas / tests
+
+Se puede hacer una base de preguntas para un curso o para una categoria de cursos.
+
+Se pueden incluir ejercicios para un curso. Los ejercicios se pueden usar dentro de los itinerarios, lo que les da mucha potencia para definir el secuenciado de contenidos.
+
+6
+
+Agustin Gonzalez-Quel
+
+Comparativa LMSs: Moodle vs Dokeos.
+
+Septiembre 2008
+
+Funcionalidad
+
+Moodle version 1.9.2 +
+
+Dokeos version 1.8.5
+
+Importacion de preguntas
+
+Se pueden importar ficheros en diferentes formatos: Aiken format, Blackboard V6+, Course Test Manager format. Examview, formato de palabra perdido, Formato WebCT, GIFT format, Hot Potatoes format, Learnwise format, Moodle XML format, Pizarra, Respuestas incrustadas (Cloze).
+
+En formato Hot Potatoes.
+
+Exportacion de preguntas
+
+En diferentes formatos: GIFT format, IMS QTI 2.0 format, Moodle XML format, XHTML Format. Curiosamente permite exportar en IMS QTI pero no importa en dicho formato.
+
+En formato IMS QTI
+
+Tareas de aprendizaje Objetos de aprendizaje
+
+Si Material dentro de las Semanas (en el formato semanal) o Temas (en el formato temas). Este formato es lo mas parecido a un objeto de aprendizaje.
+
+Si Material en el curso o dentro de los itinerarios.
+
+Caminos/Itinerarios de aprendizaje
+
+Solamente lo que hayas definido dentro de un archivo SCORM.
+
+Muy ricos, con una herramienta para crearlos
+
+Seguimiento de cursos Calificaciones Dispone de un conjunto amplio de calificaciones y permite exportar a Excel. Permite definir que roles van a disponer de calificaciones. Permite definir diferentes niveles. Permite definir con que numero o letra caracterizamos cada Agustin Gonzalez-Quel No dispone de calificaciones como tal. Permite ver los resultados de los ejercicios que hacen los alumnos y exportarlos a Excel y CSV
+
+7
+
+Comparativa LMSs: Moodle vs Dokeos.
+
+Septiembre 2008
+
+Funcionalidad
+
+Moodle version 1.9.2 + calificacion (A, B, C, ... / 10, 9, ...)
+
+Dokeos version 1.8.5
+
+Grado de avance
+
+Permite ver el grado de avance por usuarios en cada curso que estan involucrados, asi como la participacion en foros y en otros elementos del sistema
+
+Permite ver el grado de avance por usuarios, las notas de los ejercicios, el tiempo empleado por cada usuario en el sistema y mas informacion.
+
+Tiempo del usuario en cada curso y en cada unidad Nivel de detalle
+
+No
+
+Si
+
+Aceptable.
+
+Mayor
+
+Informes
+
+Por defecto tiene el modulo de estadisticas sin habilitar para ahorrar recursos. Cuando se habilitan toma bastantes datos del desempeno de los alumnos DEPENDE DE LAS NECESIDADES DEL AUTOR
+
+Si. Predeterminadas. Toma menos datos, pero toma datos de tiempos que siempre es interesante.
+
+DEPENDE DE LAS NECESIDADES DEL AUTOR
+
+8
+Agustin Gonzalez-Quel
+

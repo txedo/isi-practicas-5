@@ -1,0 +1,419 @@
+The Composition of Learning Objects. An Approach of the Process
+
+Victor H. Menendez
+
+Universidad Autonoma de Yucatan, Facultad de Matematicas
+
+Periferico Norte Tablaje 13615, Cordemex, CP 97110, Merida, Yucatan,
+Mexico
+
+mdoming@uady.mx
+
+Manuel E. Prieto
+
+Universidad de Castilla-La Mancha, Escuela Superior de Informatica,
+
+Paseo de la Universidad 4, CP 13071, Ciudad Real, Espana
+
+manuel.prieto@inf-cr.uclm.es
+
+Resumen
+
+Muchos Sistemas de Gestion del Aprendizaje ahora incluyen la posibilidad
+de integrar Objetos de Aprendizaje como parte de sus funcionalidades. La
+Construccion de Objetos de Aprendizaje implica bien la creacion de
+nuevos elementos a partir de cero o mejor aun componerlos. La
+Composicion de Objetos de Aprendizaje es el proceso requerido para
+construir un nuevo Objeto de Aprendizaje a partir de otros. En la
+moderna disciplina del e-Learning, la composicion de Objetos de
+Aprendizaje es un proceso que realizar el profesor de manera frecuente.
+Existen muchas investigaciones intentando automatizar este proceso, pero
+es importante definirlo. En este articulo se presenta una vision de este
+proceso. Para nosotros la Composicion de Objetos de Aprendizaje esta
+basada en el proceso de composicion utilizado en la Ingenieria de
+Software basada en Componentes. El proceso ha sido implementado en una
+arquitectura que utiliza ademas un esquema de recomendacion para asistir
+al usuario.
+
+Palabras Claves: Composicion, Integracion, Objeto de Aprendizaje,
+process.
+
+Abstract
+
+Many popular LMS now include the possibility of integrating the Learning
+Objects into its functionalities. The Learning Objects are used in the
+LMS to build learning experiences for the students. The construction of
+Learning Objects implies the creation of new ones or even better, to
+compose them. The composition of a Learning Object is the required
+process to build a new Learning Object from other ones. In the modern
+e-Learning discipline, the composition of Learning Objects is a process
+which a teacher does frequently. There are many researchers trying to
+automate this process, but it is important to define first. In this
+document, an approach of this process is presented. For us, the
+composition of Learning Object is based on the composition process used
+in Component-based Software Engineering. The approach has been
+implemented in an architecture which a recommendation system uses too
+for help to the user.
+
+Keywords: Composition, Assembly, Learning Object, process.
+
+1. Introduction
+
+The Learning Objects are a strong trend into the e-learning research
+activities. Its multiples advantages, like reusability,
+interoperability, auto content, etc. [1] are weight factors for the
+development of many researches and improvements to the e-learning
+software.
+
+, the teacher can take a digital resource included into the LMS, like a
+multimedia file and convert it to a Learning Object.
+
+The facilities for the management of Learning Objects into the
+e-learning software differ from the process of building it. Generally,
+the construction of a Learning Object must be done in an external tool
+and then import it into a LMS. In many cases the imported Learning
+Object lose some of its characteristics [2].
+
+The construction of a helpful Learning Object is not an easy process,
+and implies many factors to take care of, like aims, learning styles,
+target LMS, etc., and many resources are invested: time, effort, people
+[3].
+
+There are some options to build a Learning Object: a teacher can build
+one starting from crash or, a best option, to compose it. Many research
+projects works over this way, they try to automate all or some part of
+those processes [4]. For this, it is important to define those
+processes, specially the composition.
+
+In this document, an approach of the composition process for the
+Learning Objects is presented. If a Learning Object is modelled like a
+component, then the advances in this Software Engineering area can be
+extended to the Learning Objects and the e-learning.
+
+In the next sections, a description of the composition process and its
+adaptation for using it in Learning Objects are presented.
+
+2. Composition
+
+The composition is associated to the construction of component-based
+software. For Component-based Software Engineering, the composition
+means to assemble qualified, adapted and designed components to be
+integrated to specific software architecture [5].
+
+A component is a small modular part of a system. It is easily adaptable,
+reusable, includes data and function in an integrated form [6].
+
+In a component-based approach, the main aim is to reuse available
+components instead of creating new ones [7]. The building of systems
+consists on the assembly of a set of existing components. To do so, the
+components should have already been developed, located and tested. The
+emphasis will be on finding the right component and attaching it into
+the solution.
+
+In a component-based development, the composition focuses rather on
+selection of right components and their adaptation to specifications
+[7]. The effort spent in the achievement of functionalities is
+reallocated to others activities like the searching of the components or
+their coupling.
+
+The composition process includes the following activities (figure 1):
+
+Define requirements. To describe the required characteristics for the
+components that will be employed or the system that will be attached.
+
+Find components. To search and select, from a collection of possible
+components, those most suitable for given requirements and
+specifications.
+
+Modify components. Some components may require making an adjustment to
+get the needed behavior.
+
+Assemble components. To integrate the selected components into the
+architecture.
+
+Figure 1. The process of composition in the component-based development.
+
+s not needed to do these activities for the composition process in the
+presented order. In some cases an activity is more important than
+others, and in some other cases it may be even not necessary.
+
+3. Learning Object Composition
+
+By its characteristics, the Learning Object has been compared with
+objects [8] and components [4].
+
+If the Learning Object is analogous to the component, then their
+processes are similar. That means, the developments done in the
+component-based area can be applied to the Learning Objects.
+
+In order to integrate content and specially a Learning Object into a
+LMS, a set of activities, like authoring, sequencing and adding, is
+required [9]. This is similar to the composition process for components.
+But the results are differents.
+
+The composition of Learning Object is the required process for to build
+a new Learning Object from others ones [10]. The new compound Learning
+Object must be suit with learning aims for a specific learning context
+[9].
+
+In our approach, the activities for the composition of component
+presented in a previous section has been taken as base for to adapt and
+define a serie of phases to make up the composition of Learning Objects
+(Figure 2).
+
+The composition of Learning Object is shaped by searching,
+identification, transform, organization and deployment phases.
+
+3.1. Searching
+
+A learning need is the origin for the search of resources that can
+fulfill them. These resources can be digital documents or Learning
+Objects. Generally this search is done in repositories of objects of
+learning, but can be done into directories, web sites, etc.
+
+ Figure 2. The process of composition for a Learning Object.
+
+As a result of the search, the resources that are compliant to the
+learning need are selected. The selection considers factors like
+content, interface, instructional design, technical characteristics,
+source, etc.
+
+The result of this phase is a set of proper digital resources for a
+learning need.
+
+3.2. Identification
+
+Once the digital resources are selected, it is necessary to check its
+describers, in other words its metadata. If the resources are Learning
+Objects, this review focuses on just the verification of the validity
+and the adequacy of its metadata. If the resource lacks of describers,
+like a multimedia resource, it is necessary to generate them according
+to its content, context and additional information.
+
+The result of this phase is a set of valid and complete metadata for
+each of the digital selected resources.
+
+3.3. Transformation
+
+All the resources are transformed to Learning Objects based on the
+generated describers. According to the characteristics of the
+technological platform, these objects will turn to an e-Learning
+standard (generally LOM).
+
+The output of this phase will be a set of standardized Learning Objects.
+These Learning Objects are simple units. They can be used individually
+or combined.
+
+3.4. Organization
+
+The Learning Objects are arranged in an identical structure to an
+already defined instructional design. It considers styles of learning,
+characteristics of the student, context, environment, etc. In some cases
+it is required to make an adjustment of the Learning Object interface.
+
+The product of this phase will be the set of Learning Objects organized
+in an instructional structure.
+
+3.5. Deployment
+
+Once all the resources are organized into a sequence, all of them are
+packed according to a standard (generally SCORM). This package is
+distributed for its utilization in some learning management system or
+for its storage into a Learning Object repository.
+
+The result of this phase will be the compound Learning Object.
+
+4. A model of the process
+
+We developed a model [11] for the described process. In the figure 3 the
+basic structure of the model for the composition process is shown. It
+uses a multilayer architecture. The consumers of the Learning Objects
+are at the top of the graphic, and can be LMS, Learning Object editors,
+Repository and any application compatible with an e-Learning standard
+like SCORM.
+
+The services that together do the composition of Learning Objects are in
+the middle, and there are interrelated.
+
+Fig. 3. Model of composition for Learning Object.
+
+The Composition Service is the main service of the model and executes
+other services for do specific functionality:
+
+Searching Service: it does a search and recovery of Learning Objects in
+a series of repositories, which can be file servers, Learning Objects
+Repositories or Learning Management Systems.
+
+Identification Service: It generates metadata in an automatic form for a
+basic multimedia resource. What allows turning any multimedia file into
+a Learning Object.
+
+Transformation Service: For each Learning Object it does a conversion
+into a standard, by default into LOM. It uses a standards specification.
+
+Organization Service: Sequencing the Learning Object into an
+instructional structure.
+
+Deployment Service: It integrates a collection of LOM objects in a
+package SCORM/IMS-LD.
+
+The information layer is at the bottom. There are any databases and
+repositories required for the composition process, like rules,
+descriptions of e-Learning standars and supporting for recommendation.
+
+This model is the main component of the AGORA project [12], a system
+which main aim is to attend the teacher-designer in the construction
+process of Learning Objects conforming to an instructional need,
+starting from digital learning resources, using a recommender system
+(Figure 4).
+
+In the model, the services are treated as distributed components making
+a flexible architecture (like Web Services). It is possible to
+incorporate new services that can use the existing services to increase
+the architecture functionality.
+
+Fig. 4. AGORA, project for recommended composition of Learning Object.
+
+We developed a prototype which implements the first steps of the
+process. The model has been implemented as a wizard (figure 5) that
+guide in the process of generation and incorporation of Learning Objects
+(Assets) generated from digital resources like (Office or Acrobat
+documents).
+
+Fig. 5. Screen of the Wizard for Learning Object Generation.
+
+5. Conclusion
+
+The Learning Objects will be a main component for the e-Learning. The
+idea of to can create a Learning Object in somewhere and to use it in
+other is attractive .The vision of a collection of reusable and
+interoperable Learning Object is the cause of many projects. Today, many
+instructional applications integrate Learning Object into theirs
+functions.
+
+But, the construction process of Learning Object is not a clear and
+simple process. There are many elements to take care for create a useful
+Learning Object. A Learning Object can be built starting from crash or
+compose it from other ones.
+
+We present an approach of the composition process for to build Learning
+Objects. Starting from to consider a Learning Object like a component,
+the composition process used in Software Engineering has been adapted
+for to shape the composition process of Learning Object.
+
+Our approach includes searching an selection of resources, generating of
+metadata, transforming Learning Objects to specific requirements,
+sequencing and packaging for deploy them to e-learning systems.
+
+We are working in a model and a Web Service-based architecture, which
+implement the process described.
+
+6. Acknowledgements
+
+This work is partially supported by PAC06-0059 SCAIWEB project, JCCM,
+Spain; TIN2007-67494 F-META project, MEC-FEDER, Spain and YUC
+2006-C05-65811 project FOMIX CONACYT, Mexico.
+
+7. References
+
+, International Review of Open and Distance Learning, 4(2), 2005.
+
+, Fourth IEEE International Conference on Advanced Learning
+Technologies, 2004, pp. 390-394.
+
+, Proceedings of the IEEE international Conference on Advanced Learning
+Technologies, 2004.
+
+, Proceedings of the Fifth IEEE international Conference on Advanced
+Learning Technologies, 2005, pp. 492-494.
+
+Pressman R. Ingenieria del software, un enfoque practico. McGraw Hill,
+2006.
+
+Sommerville I. Ingenieria de software. Adisson Wesley. 2002.
+
+, International Conference on Software Engineering Advances, 2006, pp.
+44.
+
+, Sixth IEEE International Conference on Advanced Learning Technologies,
+2006, pp. 1025-1027.
+
+, Proceedings of the 7th international Conference on Electronic
+Commerce, 113, 2005, pp. 765-770.
+
+, Advances in Electronic Business, 2, 2005, pp. 141-158.
+
+, Information Systems and e-Business Technologies, 2008, 469-474.
+
+, International Technology, Education And Development Conference,
+INTED2008, March 3-5, Valencia, Espana, 2008.
+
+ PAGE
+
+ Proceedings Latin American Conference on Learning Objects, pp-pp, (Mes,
+200x), ISBN: XXXXXXX.
+
+Deployment
+
+Pack
+
+instructional structure
+
+for distribute it
+
+Organization
+
+Sequence
+
+learning objects
+
+into instructional
+
+structure
+
+Transformation
+
+Convert resources
+
+to right
+
+learning objects
+
+Identification
+
+Generate
+
+metadata for
+
+Some resources
+
+Location
+
+Search resources
+
+or learning objects
+
+Compound
+
+Learning
+
+Objects
+
+Instructional
+
+Structure
+
+Learning
+
+Objects
+
+Metadata
+
+Selected
+
+reources
+
+Teacher
+
+Repositories
+

@@ -1,0 +1,302 @@
+Composicion de Objetos de Aprendizaje en
+
+Ambientes Distribuidos Heterogeneos
+
+Victor Hugo Menendez Dominguez 1 y Manuel Emilio Prieto Mendez 2
+
+ Facultad de Matematicas, Periferico Norte Tablaje 13615, Merida,
+Yucatan, 97110. Mexico
+
+mdoming@uady.mx
+
+ Escuela Superior de Informatica, Edificio Fermin Caballero, Paseo de la
+Universidad 4, Ciudad Real, 13071. Espana
+
+manuel.prieto@inf-cr.uclm.es
+
+Abstract. La composicion de un Objeto de Aprendizaje implica combinar un
+conjunto de Objetos de Aprendizaje mas sencillos dentro de una secuencia
+instruccional tal que asegure la obtencion de un aprendizaje por parte
+del estudiante segun un objetivo previsto. Esta actividad se torna dif
+cil y compleja cuando los recursos de aprendizaje se encuentran
+distribuidos en repositorios diferentes. Para el profesor, este proceso
+implica una busqueda y seleccion de los mejores recursos de aprendizaje,
+adaptarlos a un estandar, secuenciarlos y empaquetarlos para su
+distribucion. En este articulo se presenta un modelo que automatiza este
+proceso por medio de una arquitectura basada en servicios. Al utilizar
+Servicios Web como su componente principal, permite la
+interoperabilidad, reusabilidad y explotacion de recursos educativos sin
+importar su ubicacion y el repositorio utilizado para su almacenaje.
+
+Keywords: Composicion, Objeto de Aprendizaje, Distribuido, Arquitectura.
+
+1 Introduccion
+
+La integracion de contenido a sistemas de Teleaprendizaje (e-Learning)
+incluye actividades de autoria, secuenciacion y agregacion que permiten
+que el contenido sea estructurado en una forma instruccional que
+facilite los procesos de aprendizaje. En este sentido existe un
+creciente interes sobre emplear a los objetos de aprendizaje como
+componentes reusables que puedan ser organizados y distribuidos al
+momento [1].
+
+Los objetos de aprendizaje promueven la portabilidad y la
+interoperabilidad de los recursos de aprendizaje entre los sistemas para
+el Teleaprendizaje.
+
+La composicion de un objeto de aprendizaje es el proceso de combinar
+varios objetos de aprendizaje en una unidad instruccional de alto nivel
+y que cumple con objetivos especificos de aprendizaje bajo
+circunstancias contextuales concretas [2]. Otros nombres que recibe son
+composicion de cursos, composicion de contenido, agregacion, ensamble
+[3].
+
+El ensamble de dichos objetos de aprendizaje implica la busqueda y
+eleccion de componentes, su posible adaptacion, donde se realiza un
+encubrimiento para hacerlos compatibles y por ultimo una composicion
+[2]. Este proceso lleva una serie de problematicas para los disenadores
+instruccionales: crear objetos de aprendizaje a partir de recursos
+basicos, objetos de aprendizaje no estandarizados, busqueda en distintos
+repositorios, adaptacion de objetos de aprendizaje a un diseno
+instruccional, etc.
+
+Esta problematica se contrapone a una necesidad desde el punto de vista
+del profesorado de e-Learning, que es desarrollar contenidos educativos
+de forma sencilla y agil, ademas de utilizarlos sin importar la
+plataforma donde estos contenidos hayan sido generados inicialmente [4].
+
+2 Estado del Arte
+
+Existe un gran numero de proyectos en desarrollo que tienen como
+finalidad facilitar la reutilizacion, distribucion y personalizacion de
+contenidos educativos en Internet.
+
+Las propuestas van en dos sentidos. Por un lado, plantear soluciones
+basadas en los descriptores del objeto de aprendizaje (metadatos), y por
+otro en los mecanismo de integracion e intercambio que dan soporte a la
+interaccion con el objeto de aprendizaje.
+
+Muchos trabajos plantean la necesidad de extender el estandar LOM para
+incorporar nuevos metadatos [5], utilizar estructuras de datos
+adicionales [3], o bien crear nuevos estandares de intercambio [6].
+
+Otros plantean implementaciones y marcos de trabajo (frameworks), que
+resuelven soluciones particulares y no pueden ser generalizadas por la
+tecnologia empleada [3], o bien arquitecturas y modelos de referencia
+que al ser implementadas se integran al sistema, lo que origina
+problemas de mantenimiento, evaluacion y sobrecarga [7].
+
+Existen trabajos sobre como las arquitecturas basadas en servicios
+pueden ser usadas como un marco para el proceso de composicion de
+objetos de aprendizaje [2] [8].
+
+El proporcionar contenido de aprendizaje a traves del paradigma de
+Servicios Web (Web Services) ofrece numerosas ventajas:
+interoperabilidad entre sistemas de teleaprendizaje, posibilidad de
+integrar servicios existentes, fomentar la distribucion del contenido,
+simplicidad en su uso, menor acoplamiento y fomentar la granularidad [9]
+
+Nuestra arquitectura plantea una interfaz de componentes distribuidos
+basados en Servicios Web que permite extraer, segun ciertos parametros,
+elementos de contenido almacenados en repositorios distribuidos y
+heterogeneos para generar objetos de aprendizaje segun cierto estandar
+de aprendizaje.
+
+Al emplear un enfoque de componentes se potencia la reutilizacion y la
+adaptabilidad de los objetos de aprendizaje, sobre todo a los efectos de
+su generacion automatica atendiendo a necesidades especificas de los
+aprendices o de los dispositivos en los que residan los clientes.
+
+3 Descripcion
+
+En esta seccion se detallan las caracteristicas de nuestra solucion, su
+estructura y funcionamiento.
+
+3.1 Caracteristicas
+
+Las principales caracteristicas de la arquitectura propuesta son
+
+Facilita la composicion de objetos de aprendizaje al ofrecer un entorno
+integrado y flexible.
+
+Implementa el proceso de composicion de objetos de aprendizaje: la
+busqueda, adaptacion, secuenciacion y empaquetado.
+
+Es independiente de la plataforma o repositorio de recursos de
+aprendizaje utilizado para la explotacion.
+
+La busqueda de objetos de aprendizaje se clasifica utilizando un puntaje
+de relevancia.
+
+Genera metadatos de recursos multimedia en forma automatica.
+
+Adapta objetos de aprendizaje a distintos formatos (LOM, DublinCore,
+propios, etc.).
+
+Construye objetos de aprendizaje compatibles con SCORM.
+
+Fomenta la reutilizacion de los recursos almacenados, esten o no
+estandarizados.
+
+Utiliza un conjunto de especificaciones, haciendolo flexible y adaptable
+a los cambios.
+
+Define una interfaz basada en componentes, lo que permite su integracion
+de una forma sencilla a sistemas existentes o futuros.
+
+Esta basada en Servicios Web, lo que garantiza la interoperabilidad.
+
+3.2 Estructura
+
+En la figura 1 se presenta la estructura basica del modelo. Emplea una
+arquitectura multicapa. En la parte superior se encuentran los
+consumidores de los Objetos de Aprendizaje, en la parte media se
+localizan los servicios que, juntos, realizan la composicion de Objetos
+de Aprendizaje. La parte inferior corresponde a la capa de datos.
+
+Fig. 1. Modelo de composicion.
+
+La figura 2 presenta las clases principales y sus relaciones. Un
+consumidor de Objetos de Aprendizaje puede ser una aplicacion (un LMS,
+un RLO, o un editor) o bien un servicio.
+
+Fig. 2. Diagrama de clases.
+
+Un consumidor utiliza uno o mas servicios, los cuales pueden generar uno
+o mas Objetos de Aprendizaje conformados por otros de Objetos de
+Aprendizaje.
+
+Los servicios pueden ser varios tipos: Identificacion que genera
+metadatos de forma automatica, Localizacion para buscar y devolver
+Objetos de Aprendizaje, Adaptacion para convertir Objetos de Aprendizaje
+a un estandar comun de intercambio, Composicion para realizar la
+secuenciacion y el empaquetado segun un estandar de distribucion. Los
+servicios pueden emplear depositos tanto de recursos que pueden ser
+Objetos de Aprendizaje o archivos multimedia asi como plantillas o
+especificaciones.
+
+3.3 Servicios
+
+La arquitectura que soporta el modelo descrito previamente esta
+conformada por una coleccion de Servicios Web interrelacionados (figura
+3) que ofrecen una funcionalidad especifica:
+
+Servicio de Localizacion: realiza una busqueda y recuperacion de Objetos
+de Aprendizaje en una serie de repositorios, los cuales pueden ser
+servidores de archivos, Bibliotecas de Objetos de Aprendizaje o bien en
+Sistemas Gestores del Aprendizaje.
+
+Servicio de identificacion: Genera de forma automatica metadatos para un
+recurso multimedia basico. Lo que permite convertir cualquier archivo
+multimedia en un objeto de aprendizaje.
+
+Servicio de adaptacion: Dado un Objeto de Aprendizaje, realiza una
+conversion a un estandar, por defecto a LOM. Emplea una especificacion
+de estandares.
+
+Servicios de composicion. Integra una coleccion de objetos LOM en un
+paquete SCORM, incluye la posibilidad de secuenciarlos.
+
+Los Servicios Web son tratados como componentes distribuidos
+flexibilizando la arquitectura para incorporar nuevos servicios que
+utilicen a los existentes y asi incrementar la funcionalidad de la
+arquitectura.
+
+Fig. 3. Arquitectura de Composicion.
+
+4 Resultados
+
+La arquitectura esta basada en tecnologias y protocolos estandares y de
+libre distribucion. Esto nos asegura, por un lado, una completa
+interoperabilidad entre aplicaciones existentes que soporten los
+estandares comunes y por otro, que el esfuerzo invertido se mantenga a
+pesar de los cambios que se produzcan en los estandares.
+
+Las especificaciones de formatos, estandares, metadatos, etc., que se
+han definido garantizan una flexibilidad de la arquitectura para
+incorporar nuevas descripciones y caracteristicas utilizadas en la
+generacion de objetos de aprendizaje.
+
+La capacidad de utilizar cualquier deposito de recursos como un origen
+de objetos de aprendizaje es fundamental para aprovechar las inversiones
+hechas por las instituciones.
+
+La compatibilidad con los estandares SCORM y LOM permite que nuestra
+solucion pueda ser aplicada en los sistemas de Teleaprendizaje
+existentes.
+
+Al emplear Servicios Web como elementos base de la arquitectura, es
+posible ensamblarlos con otros Servicios Web como si fuesen componentes
+distribuidos, eso sin importa la plataforma o lenguaje en el que fueron
+desarrollados.
+
+5 Conclusiones y trabajos futuros
+
+Los sistemas de Teleaprendizaje deben evolucionar hacia la integracion
+de objetos de aprendizaje distribuidos en ambientes heterogeneos. Debe
+ser posible componer objetos de aprendizaje altamente especializados
+desde distintos entornos, asi como reusarlos con gran facilidad.
+
+Los objetos de aprendizaje son la estructura basica para construir
+experiencias de aprendizaje que puedan ser reutilizables y adaptables.
+Su implementacion utilizando SCORM garantiza que se logren dichos
+objetivos.
+
+En la composicion de objetos de aprendizaje toma parte la seleccion, la
+identificacion, la adaptacion, la secuenciacion y el empaquetado. Los
+objetos de aprendizaje pueden ser modelados como componentes que son
+ensamblados segun una necesidad particular. Para esto es necesario
+contar con especificaciones que determinen la generacion de estos
+elementos.
+
+La arquitectura presentada en este articulo propone el uso de una
+coleccion de servicios que automaticen este proceso, al estar basados en
+Servicios Web garantiza la interoperabilidad, reusabilidad y
+adaptabilidad con otros sistemas.
+
+Este conjunto de servicios pueden ser extendidos para incorporar nuevas
+funcionalidades servicios de asistencia y soporte de comunicaciones,
+gestion del conocimiento asi como el desarrollo de editores, visores,
+asistentes y tutores inteligentes.
+
+Referencias
+
+[1] Tortora, G., Sebillo, M., Vitiello, G., and D'Ambrosio, P. 2002. A
+multilevel learning management system. Proceedings of the 14th
+international Conference on Software Engineering and Knowledge
+Engineering, vol. 27. ACM Press, New York, NY, 541-547.
+
+[2] Lopez-Cobo, J.M, Arroyo, S., Sicilia, M.A., Sanchez-Alonso, S. 2005.
+A Semantic Web Service Architecture for Learning Object Repositories.
+Advances in Electronic Business, vol. 2, Theme: Semantic Web and
+Intelligent Web Services, 141-158.
+
+[3] Farrell, R. G., Liburd, S. D., & Thomas, J. C. 2004. Dynamic
+assembly of learning objects. Proceedings of the 13th international
+World Wide Web Conference on Alternate Track Papers & Posters. ACM
+Press, New York, NY, 162-169.
+
+[4] El Saddik A.,Fischer S., Steinmetz R. 2001. Reusability and
+Adaptability of Interactive Resources In Web-Based Educational Systems,
+ACM Journal of Educational Resources in Computing, 1,1 (2001), 2.
+
+[5] Saddik, A., Fischer, S., & Steinmetz, R. 2001. Reusable Multimedia
+Content in Web-Based Learning Systems. IEEE MultiMedia 8, 3, 30-38.
+
+[6] Cisco Systems. Reusable Learning Object Strategy, Version 4.0.
+
+http://www.cisco.com/warp/public/779/ibs/solutions/learning/whitepapers/
+el_cisco_rio.pdf
+
+[7] Costagliola, G., Ferrucci, F., and Fuccella, V. 2006. Scorm run-time
+environment as a service. Proceedings of the 6th international
+Conference on Web Engineering. ACM Press, New York, NY, 103-110.
+
+[8] Vossen, G., Westerkamp, P. 2005. Mediators for Integrating Content
+into Service-Based e-Learning Environments. Fifth IEEE International
+Conference on Advanced Learning Technologies, 580-584.
+
+[9] W3C Working Group. 2004. Web Services Architecture Requirements.
+
+http://www.w3.org/TR/wsa-reqs/
+
