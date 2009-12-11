@@ -359,14 +359,17 @@ class Aplicacion:
         return (response, question_dic, weights_sum)
 
     def aboutMenuItem_activate_cb(self, widget):
-        u = utilities.Utilities()
-        authors = ["Jose Domingo Lopez Lopez\nJuan Andrada Romero"]
-        license = u.read_text_file("../license.txt")
-        dialog = gtk.AboutDialog()
-        dialog.set_name("Search Engine")
-        dialog.set_version("v1.0")
-        dialog.set_authors(authors)
-        dialog.set_license(license)
+        try:
+            u = utilities.Utilities()
+            authors = ["Jose Domingo Lopez Lopez\nJuan Andrada Romero"]
+            license = u.read_text_file("../license.txt")
+            dialog = gtk.AboutDialog()
+            dialog.set_name("Search Engine")
+            dialog.set_version("v1.0")
+            dialog.set_authors(authors)
+            dialog.set_license(license)
+        except Exception, e:
+            self.__showErrorDialog("Error", "Exception: "+str(e))
         #dialog.set_logo(ICON)
 
         dialog.run()
