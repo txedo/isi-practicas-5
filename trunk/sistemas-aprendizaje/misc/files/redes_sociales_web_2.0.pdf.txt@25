@@ -1,0 +1,333 @@
+Redes Sociales y la Web 2.0
+Una vision simplificada sobre la revolucion informatica que nos rodea
+
+¿Que es la World Wide Web?
+La World Wide Web, la Web o WWW, es un sistema de navegador web para extraer elementos de informacion llamados "documentos" o "paginas web". Puede referirse a "una web" como una pagina, sitio o conjunto de sitios que proveen informacion por los medios descritos, no ha de confundirse con Internet, la WWW es solo uno de los tantos servicios que provee la Internet.
+
+ 
+
+Redes Sociales y Web 2.0
+
+¿Que es la World Wide Web?
+
+ 
+
+
+
+URL: Consiste en millones de documentos (x)HTML mezclados bajo una jerarquia de nombres de dominio.
+ Los Documentos pueden ser estaticos, o generados via datos de servidores remotos (aplicaciones web). Fue Creada por Tim Berners Lee en 1989 como una manera de compartir informacion en el CERN Se accede a ella via los Navegadores Web, haciendola universal como plataforma de aplicaciones Sus estandares son mantenidos libres y en constante evolucion por el Consorcio de la WWW (W3C) Es uno de los pilares de la evolucion tecnologica actual 
+Redes Sociales y Web 2.0
+
+
+
+
+
+
+
+
+
+
+
+¿Y la web 2.0?
+
+
+ 
+
+Basada exclusivamente en la Web: los sitios Web 2.0 con mas exito pueden ser utilizados enteramente desde un navegador. Son los Usuarios los duenos de la informacion y quienes deberian controlarla (Wiki, Blogs, Flickr) Ha creado una verdadera "contracultura" en las comunidades tecnologicas Dependiende de muchas tecnicas como WSDL, Ajax, RSS/Atom, Sindicalizacion, Folksonomia, REST, XML, etc Una Aplicacion Web 2.0 no es un jardin amurallado, es mas bien un parque abierto al publico Se espera que la Web 2.0 sustituya a las aplicaciones de escritorio en muchisimos casos Es una frase acunada por Tim O'Reilly de O'Reilly Media 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Web 2.0 es un concepto filosofico, no una tecnologia o una aplicacion
+
+Redes Sociales y Web 2.0
+
+Tim O'Reilly y Richard Stallman
+El modelo de negocios bajo Software Libre y la libertad no estan renidos
+
+Evolucion de la WWW
+
+Tecnologias involucradas
+
+Vision General de la web 2.0
+
+Filosofia detras de la web 2.0
+
+Conceptos
+Software Social
+Software Social, El software social engloba a un conjunto de herramientas de comunicacion que facilitan la interaccion y colaboracion por medio de convenciones sociales.
+
+ 
+
+Engloba Wikis, Blogs, Correo electronico, listas de correo, foros, mensajeria instantanea, social bookmarks, Folksonomia y otros tipos de aplicaciones sociales.
+
+El 70% de la Web actual se basa en algun tipo de software social o colaborativo
+
+Redes Sociales y Web 2.0
+
+Conceptos
+Folcsonomia
+
+ 
+
+Es la clasificacion profesional por medio de etiquetas otorgadas por la gente, de ciertos grupos de informacion u objetos. En un software social, indexamos la informacion presente mediante palabras (espacio de etiquetas), llano, simple, sin jerarquias y ademas, compartimos esa informacion con el mundo.
+
+Flickr, del.ici.ous, Tagzania son ejemplos de sitios con organizacion semantica folcsonomica.
+
+Redes Sociales y Web 2.0
+
+Conceptos
+Espacio de tags
+
+ 
+
+Espacios de Tags (TagSpaces), Es una lista de etiquetas para describir un objeto. cuando ordenas en forma grafica y/o de prioridade un TagSpace, este se convierte en un TagCloud Nubes de Tags (TagClouds), Muestra, de manera grafica, las etiquetas de grupos relacionadas con determinado tema (TagSpace), cada etiqueta se representa en orden de prioridad con un tamano de fuente mas grande que el resto, mientras mas grande, mas importante.
+Flickr, del.ici.ous, Tagzania son ejemplos de sitios con organizacion semantica folcsonomica.
+
+Redes Sociales y Web 2.0
+
+Conceptos
+Mashup
+
+ 
+
+Mezcla hibrida o remezcla de aplicaciones web; donde se crea una aplicacion a partir del consumo directo de los servicios de otras aplicaciones. El uso de mashups es gracias a la posibilidad de API publica y por lo general se hace a traves de servicios web o HTTP
+
+Facebook, google maps, son ejemplos de mashups
+
+Redes Sociales y Web 2.0
+
+Conceptos
+SOA
+
+ 
+
+SOA (Services Oriented Architecture); define la posibilidad de crear aplicaciones basadas en servicios y no en paginas web. Las aplicaciones se convierten en emisoras de informacion en bruto basadas en ciertos protocolos (WSDL, XMLRPC, SOAP)
+
+Twitter, Facebook, gMail son ejemplos de arquitecturas SOA
+
+Redes Sociales y Web 2.0
+
+Conceptos
+Blogging
+
+ 
+
+Blog BlogRoll, es una pagina personal, organizada en forma de diario, tendiendo por lo general, a la libre compartir de la informacion, incluye herramientas de facil administracion y permalinks para acceso permantente al contenido, un conjunto de blogs organizados se le conoce como "blogroll" Blogosfera (Blogosphere), La base principal del compromiso con las redes sociales y culturales no es solamente que los sujetos creen blogs y los compartan,sino que sujetos y autores pueden comentar otros blogs, citarlos, copiar su contenido o enlazarse entre ellos, eso compromente enormemente el lazo social de la red Tambien existe el concepto de microblogging, implementado por twitter
+Redes Sociales y Web 2.0
+
+Conceptos
+Beta perpetua
+
+ 
+
+Describe de manera generica una aplicacion que siempre esta en estado de pruebas (beta testing); es usado en la web 2.0 para indicar que un servicio (mas que una aplicacion cerrada) siempre estara en constante cambio y desarrollo.
+ * Aplicaciones con estandares abiertos, codigo distribuido entre distintos desarrolladores * Desarrollar el concepto de "larga cola" a traves el autoservicio y auto descubrimiento de los usuarios * Estamos otorgando servicios, no software empaquetado en una caja. * Confiar siempre en los usuarios como codesarrolladores y betatesters * Mejoramiento continuo tras la inteligencia colectiva
+Redes Sociales y Web 2.0
+
+Conceptos
+Red Social, Computacion Social
+
+ 
+
+Una red social esta formado por una malla de puntos y lineas de conexion, donde los puntos representan personas y las lineas representan relaciones de conocimiento y colaboracion
+ * En una red social diatica, solo existe una relacion de afinidad no comun, como el caso de redes de P2P; en las redes sociales valoradas, el nivel de participacion e interaccion se define en cantidad de conexiones o enlaces entre individuos. * En en mundo social, las redes sociales suponen una relacion libre de escala; donde nodos "bien conectados" interrelacionan a nodos poco conectados. * Una red social de Internet cumple el principio de los 6 grados de separacion (todo alcance entre nodos esta a menos de 6 pasos de distancia). * El continuo intercambio de los sujetos alimenta y aumenta su inteligencia colectiva
+Redes Sociales y Web 2.0
+
+Conceptos
+RIA e Interfaz 2.0
+
+ 
+
+Podemos explorar las interfaces de algunas aplicaciones importantes, descubriremos la importancia de una interfaz rica y de facil uso. RIA Rich Internet Application: Es toda aquella aplicacion que combina diversas tecnicas (AJAX, Flash, contenido dinamico, widgets de usuario, etc) para crear la sensacion de una aplicacion de escritorio. 
+
+Terminos como AJAX, RIA, Web 2.0 patterns y ajax patterns son muy manejados aca
+
+Redes Sociales y Web 2.0
+
+La web 2.0 no es una tecnica
+
+Y ¿A donde nos lleva todo esto?
+
+Microblogging: twitter
+URL: http://www.twitter.com/
+
+ 
+
+Sitio web dedicado al microblogging; una experiencia en la cual las personas comentan cosas interesantes, en segmentos muy cortos de informacion como para ocupar el espacio de un articulo de blog
+
+Redes Sociales y Web 2.0
+
+Compartir: last.fm
+URL: http://www.last.fm/
+
+ 
+
+Dedicado a compartir lo que escuchas, gustos musicales, playlists, generacion de perfiles sobre gustos musicales y mas.
+
+Redes Sociales y Web 2.0
+
+Algo interesante de last.fm
+
+Informacion: Wikipedia
+URL: http://www.wikipedia.org/
+
+ 
+
+Famosa por su sistema de creacion de contenido colaborativo y su esquema de revisores y redactores; mantiene su contenido exclusivamente a partir de los usuarios.
+
+Redes Sociales y Web 2.0
+
+Imagenes: Flickr
+URL: http://www.flickr.org/
+
+ 
+
+Usando tecnicas colaborativas y de folcsonomia; permite a los usuarios comoda y facilmente compartir imagenes
+
+Redes Sociales y Web 2.0
+
+Una anecdota de flickr
+
+
+¿Que pasa si unimos tu foto y una transnacional?
+
+Dump your pen friend!
+
+Videos: Youtube
+URL: http://www.youtube.com/
+
+ 
+
+Permite compartir videos de cualquier origen y tipo, clasificados por los mismos usuarios
+
+Redes Sociales y Web 2.0
+
+Comunidad: Facebook
+URL: http://www.facebook.com/
+
+ 
+
+Creacion de perfiles de usuarios y aplicaciones para construccion de perfiles
+
+Redes Sociales y Web 2.0
+
+Y muchas mas!
+
+Paradigmas de la web 2.0
+La Cultura Libre, El Software Libre y las Redes Sociales, La conjuncion de factores de colaboracion, posibilidades de interconectividad, ampliacion de nuevos horizontes de accion, mutualismo.
+
+
+ 
+
+ * FOAF (Friend Of A Friend) * Arquitectura de la participacion * Sistemas Operativos Web * Culture Jamming * CSCW: Computer Supported Cooperative Network * Crowdsourcing * Free Culture movement * Digital Revolution
+Redes Sociales y Web 2.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lo malo
+United States Patent 5,443,036
+Amiss , et al. August 22, 1995
+
+ 
+
+Method of exercising a cat
+Abstract: A method for inducing cats to exercise consists of directing a beam of invisible light produced by a handheld laser apparatus onto the floor or wall or other opaque surface in the vicinity of the cat, then moving the laser so as to cause the bright pattern of light to move in an irregular way fascinating to cats, and to any other animal with a chase instinct. Inventors: Amiss; Kevin T. (Alexandria, VA), Abbott; Martin H. (Fairfax, VA)
+
+Redes Sociales y Web 2.0
+
+Lo extrano
+Las redes sociales pueden convertirse en un agente "demasiado real" o conectado a la realidad. Second Life es un simulador social 3D con chat y red social
+
+
+ 
+
+ * Aplicacion de un "VirtualWorld", En la actualidad funciona como una aplicacion bajo licencia GPL * Posee mas de 5 millones de habitantes, con mas de 30 mil concurrentes (online) * Tiene una robusta economia basada en el Linden Dolar (moneda virtual) que cotiza a 270L$ por US Dolar * Tiene movimientos culturales, partidos politicos y facciones del crimen organizado * Hay protestas y movimientos por las libertades civiles virtuales, para ello SL cuenta ya con 5 grupos de movimientos por los derechos civiles * y un grupo terrorista! Redes Sociales y Web 2.0
+
+
+
+
+
+
+
+
+
+
+
+Lo bueno
+Innocentive es un programa para encontrar a traves de redes Innocentive sociales y colaborativas, la solucion a problemas en areas de la industria.
+
+
+ 
+
+El proyecto fomenta la participacion y colaboracion de investigadores de todas partes del mundo El Uso de esta tecnica le genera avances increibles y ganancias a la empresa, que son distribuidas como dividendos a los investigadores Los proyectos tienen diversas indoles y campos en la industria como: Apoyar a un equipo que busca una cinta adhesiva para curas medicas que soporte cambios de temperatura de hasta 85 grados: beneficio de participacion: 50 mil US$ Un proceso quimico eficiente para producir privaldehido de forma sintetica; Beneficio de participacion: 40 mil US$ Trabajo conjunto de varias empresas para lograr un biomarcador para el descubrimiento temprano de la esclerosis lateral amiotrofica; beneficio de participacion: 1 millon de dolares Redes Sociales y Web 2.0
+
+
+
+
+
+
+
+
+
+
+
+¿Que nos depara el futuro?
+Que hay mas alla?
+
+
+ 
+
+La Web como plataforma de aplicaciones, abierta y distribuida Widgets en la web y en el escritorio Aplicaciones Ajax /XUL/Interactividad asincrona Cliente Navegador Servidor Servicios Triunfo del modelo de suscripcion a servicios vs. la compra de paquetes Grandes companias (google, amazon, yahoo) invierten siempre en nuevo talento
+
+
+
+
+
+
+
+
+
+Pero, Que nos detiene?
+
+
+La programacion se ha vuelto complicada; mas tecnologias para conocer que antes (css, xhtml, dom, wsdl, ajax, etc) Pensar que cada problema tenga una solucion tecnologica a medida Creando soluciones donde no hay problemas! Aplicaciones muy "cool", pero sin un modelo de negocios Ya no se puede hacer "de todo" (la muerte del webmaster?) 
+
+
+
+
+
+
+
+
+
+Redes Sociales y Web 2.0
+
+Redes Sociales y Web 2.0 ¡Gracias por su atencion!
+Jesus Ignacio Lara 
+celular: 0424 7332593 celular: correo: jesuslara@covetel.com.ve correo: jesuslarag@gmail.com
+blog:
+
+http://www.jesuslara.com.ve/blog/
+

@@ -1,0 +1,186 @@
+Introduccion a los Estandares y Especificaciones para Ambientes e-learning
+Adriana J. Berlanga Flores1, Francisco J. Garcia Penalvo1
+Universidad de Salamanca 37008 Salamanca, Espana {solis13,fgarcia}@usal.es
+1
+
+Resumen. En la actualidad hay un interes creciente en asegurar que los componentes instruccionales y los datos de los ambientes de e-learning sean accesibles, adaptables, durables, y reutilizables. Ello ha propiciado que diferentes organismos desarrollen propuestas para establecer como describir tecnicas, metodos y recursos educativos. Estas propuestas, conocidas como especificaciones, pueden eventualmente ser reconocidas por un organismo oficial de estandarizacion y convertirse, gracias a ello, en estandares para etiquetar los atributos de los elementos educativos, o lo que se conoce como estandares para el marcado de metadatos educativos. Asi, existen especificaciones y estandares para anotar y estructurar aspectos como recursos de aprendizaje, informacion relativa al estudiante, o el propio diseno instructivo. Para promover su uso, investigacion y adopcion se llevan a cabo iniciativas que abarcan la creacion de repositorios de recursos educativos, el establecimiento de centros de tecnologia educativa, financiacion para promocionar comunidades de practica y desarrollos de herramientas de autor. No obstante, existen opiniones criticas que apuntan importantes vaguedades en la definicion y nocion de los diferentes estandares y especificaciones. Sin embargo, hay un consenso, mas o menos generalizado, en que a largo plazo los ambientes de e-learning deben permitir a profesores y alumnos intercambiar y reutilizar elementos de aprendizaje entre diferentes cursos y contextos de aprendizaje.
+
+1 Introduccion
+El uso de la web como medio y plataforma para la instruccion puede ayudar a soportar el proceso didactico tanto en ambitos presenciales como a distancia [31], o lo que se conoce como e-learning. Asi, por ejemplo, existen servicios y aplicaciones para que profesores y alumnos intercambien ideas, tengan acceso --desde diversos lugares y en diferentes momentos-- a contenidos y actividades de aprendizaje, consulten recursos de aprendizaje provenientes de diferentes fuentes, o interactuen para realizar proyectos colaborativos. Gracias a esta gama de posibilidades, los ambientes de e-learning se perfilan como una importante opcion para la Educacion. Entre las diferentes comunidades vinculadas con los ambientes e-learning existe una especial atencion en anotar tecnicas, metodos y recursos educativos de manera estandarizada para facilitar su intercambio, distribucion y reutilizacion. Asi, surgen
+F. J. Garcia Penalvo & Ma N. Moreno Garcia (Eds.): Tendencias en el Desarrollo de Aplicaciones Web
+
+26
+
+A. J. Berlanga Flores y F. J. Garcia Penalvo
+
+iniciativas encaminadas a proponer estandares que indican como marcar elementos educativos por medio de la definicion de sus atributos, o los llamados metadatos educativos. Esta nueva tendencia, que cuenta con adeptos y retractores, se ha convertido en un campo de investigacion en donde los cambios y modificaciones son casi una constante, y la diversidad de iniciativas, enfoques y opciones tienden a confundir a usuarios potenciales. Este capitulo pretende dar una vision general de los alcances y limitaciones de los estandares y especificaciones para el marcado de metadatos educativos. Para ello inicia definiendo los conceptos de estandar y especificacion, estableciendo sus diferencias y similitudes. Despues presenta el ciclo de desarrollo de un estandar, describe los diferentes organismos involucrados en el proceso, y presenta algunos ejemplos. A continuacion introduce las nociones de objetos de aprendizaje y metadatos educativos, fundamentales para entender los conceptos con los que trabajan los estandares. Seguidamente, menciona algunas de las iniciativas relacionadas con los estandares educativos en lo relativo a repositorios, proyectos de investigacion y productos comerciales. Luego, el articulo resena algunas de las criticas que diferentes investigadores han hecho tanto a los objetos de aprendizaje como a los estandares y especificaciones para anotar metadatos educativos, y senala posibles orientaciones futuras del campo. Para finalizar, esboza conclusiones sobre este tema.
+
+2
+
+Estandares y Especificaciones
+
+Frecuentemente los terminos estandar y especificacion se utilizan indistintamente, no obstante, es importante puntualizar su diferencia. Si una tecnologia, formato o metodo ha sido ratificado por algun organismo oficial de estandarizacion, se trata de un estandar. Pero si una tecnologia, formato o metodo propuesto no ha sido aprobado por algun organismo oficial de estandarizacion, se trata de una especificacion. Aunque, en algunos casos, una especificacion puede considerarse un estandar de facto si su uso es extendido y entretanto se ratifica como estandar [29]. El objetivo de establecer un estandar para la definicion de metadatos educativos es alcanzar un acuerdo en las caracteristicas que un elemento de aprendizaje (i.e. recurso didactico, metodo, tecnica) --independientemente del sistema informatico y el hardware que se utilice-- debe tener para permitir que los ambientes de e-learning cuenten con las siguientes "habilidades" [9][34]: · Accesibilidad para localizar y accesar materiales instruccionales independientemente de su localizacion. · Adaptabilidad para ajustar la instruccion a las necesidades individuales de los estudiantes. · Asequibilidad para aumentar la eficiencia y productividad diminuyendo el tiempo y costos del proceso. · Durabilidad para resistir los cambios tecnologicos sin la necesidad de redisenar, recodificar o reconfigurar.
+
+Introduccion a los Estandares y Especificaciones para Ambientes e-learning
+
+27
+
+· ·
+
+Gestionabilidad para monitorear informacion sobre el estudiante y los contenidos de aprendizaje. Reusabilidad para integrar los componentes instruccionales en una variedad de aplicaciones, sistemas y contextos.
+
+2.1 Principales organismos involucrados En la definicion de un estandar participan diferentes organizaciones integradas por universidades, centros de investigacion, y companias que intentan considerar y conciliar diferentes criterios, intereses y perspectivas. Cuando se dieron los primeros pasos en el desarrollo de estandares, muchas organizaciones que ahora trabajan juntas, lo hacian por separado. Con el tiempo se han formado consorcios y organizaciones con un frente comun. No obstante, aun existe cierta ambiguedad en como los diversos organismos involucrados actuan en el proceso o como colaboran entre ellos.
+
+ISO Investigacion y Desarrollo Consorcios que desarrollan especificaciones Necesidades de usuario Pruebas, Prototipos Organismos de estandarizacion Estandares Aprobados
+
+Especificaciones Borradores tecnicos
+
+Perfiles de Aplicacion Modelos de referencia Estandares Acreditados
+
+Fig. 1. Proceso de desarrollo de un estandar [1]
+
+En teoria, el proceso de desarrollo de un estandar (vease Fig. 1) inicia gracias a una contribucion de la comunidad investigadora o a la identificacion de necesidades de usuario. Los consorcios dedicados a generar especificaciones utilizan esta informacion para generar una especificacion, que es evaluada y probada por usuarios y laboratorios. En el siguiente paso, un organismo de estandarizacion acreditado revisa las pruebas y produce un borrador de trabajo (working draft) que se somete a votacion. Si es aprobado, la especificacion recibe una certificacion oficial de dicha organizacion [9] convirtiendose asi en estandar. Siguiendo el proceso descrito, hemos clasificado a las instituciones, consorcios y organizaciones involucradas en: · Investigadores y desarrolladores, como la Universidad Abierta de los Paises Bajos (Open University of the Netherlands), que creo la especificacion Educational Modelling Language (EML eml.ou.nl), o el
+
+28
+
+A. J. Berlanga Flores y F. J. Garcia Penalvo
+
+proyecto PROmoting Multimedia in Education and Training in EUropean Society (PROMETEUS www.prometeus.org). · Consorcios internacionales que definen especificaciones, como IMS (www.imsproject.org), o el Aviation Industry CBT (Computer-Based Training) Committee (AICC www.aicc.org), y consorcios nacionales, como la iniciativa estadounidense para escuelas de educacion basica Schools Interoperability Framework (SIF, www.sifinfo.org)1. · Organizaciones que realizan pruebas y prototipos de especificaciones y las adecuan a sus necesidades, utilizando perfiles de aplicacion como el Advanced Distributed Learning (ADL www.adlnet.org), la Alliance of Remote Instructional Authoring and Distribution Networks for Europe (ARIADNE www.ariadne-eu.org), o el Canadian Core Learning Resource Metadata Protocol (CanCore www.cancore.ca). · Organizaciones de estandarizacion, que incluyen el IEEE Learning Technology Standard Committee (LTSC ltsc.ieee.org), el Learning Technology Workshop of the European Committee for Standardization (CEN/ISSS LTS www.cenorm.be/isss/workshop/lt), o el British Standards Institute (BSI www.bsi-global.com). Adicionalmente, la International Standard Organization (ISO) se encarga de asegurar, una vez que el estandar ha sido aceptado mundialmente, su permanencia. El Subcomite 36 (SC36 jtc1sc36.org) de esta organizacion es responsable del capitulo de los estandares para metadatos educativos. Hasta el momento, no existe ningun estandar relacionado con e-learning aprobado por este organismo. Cabe senalar que las organizaciones involucradas en el proceso de desarrollo de estandares y especificaciones operan en diferentes fases [4], y se enfocan en areas similares. Ademas, el proceso no es lineal, y las aportaciones de los usuarios y de las comunidades de investigacion se consideran en todas las fases, y no solo al principio del proceso [14]. 2.2 La importancia de los perfiles de aplicacion Tanto en la practica como en escenarios empiricos, la implementacion de estandares o especificaciones en contextos educativos especificos no es evidente. Cada comunidad, region o pais tiene sus propias particularidades, por lo que para el marcado de elementos educativos es necesario considerar diferentes cuestiones. Por ello, una parte importante del proceso en el perfeccionamiento y aplicacion de un estandar es el desarrollo de perfiles de aplicacion (application profiles), que crean nuevos esquemas dirigidos a situaciones especificas combinando y utilizando uno o mas estandares o especificaciones, sin agregar nuevos elementos y manteniendo la interoperabilidad con los estandares (o especificaciones) originales [7]. Algunos ejemplos son el perfil de aplicacion canadiense CanCore [11], el europeo ARIADNE,
+1
+
+En esta categoria tambien podemos ubicar la iniciativa Dublin Core Metadata [5] (DCMI, dublincore.org) que, aunque no esta relacionada directamente con metadatos educativos, es ampliamente empleada. Esta iniciativa define una especificacion basada en un conjunto de metadatos generico, pequeno y manejable.
+
+Introduccion a los Estandares y Especificaciones para Ambientes e-learning
+
+29
+
+el britanico UK Learning Object Metadata Core (UK LOM) [36], o el australiano Learning Federation Metadata Application Profile [35]. 2.3 Breve Resena de Estandares, Especificaciones y Perfiles de Aplicacion La definicion de estandares para el marcado de elementos educativos abarca diferentes aspectos relacionados con de los ambientes de e-learning. La Tabla 1 muestra algunos ejemplos.
+Tabla 1. Ejemplos de estandares y especificaciones para elementos educativos2
+
+Aspecto Descripcion de recursos de aprendizaje (Learning Objects)
+
+Estandar/Especificacion/Perfil Aplicacion IEEE Learning Object Metadata Standard* [19] IMS Learning Object Metadata [24] Canadian Core Learning Resource Metadata Protocol+ [11] UK Learning Object Metadata Core+ [36] Learning Federation Metadata Application Profile+ [35]
+
+Siglas IEEE LOM IMS LOM CanCore UK LOM n/a
+
+Informacion del estudiante
+
+IEEE Public And Private Information for IEEE PAPI learners [20] IMS Learner Information Package [23] IMS LIP IMS Question and Test Interoperability [25] IMS QTI IMS CP
+
+Evaluaciones
+
+Empaquetamiento de IMS Content Packaging [21] informacion Diseno instruccional
+
+Sharable Content Reference Model+ [34] SCORM IMS LD IMS Learning Design [22] IMS Simple Sequencing [26] IMS SS A continuacion comentamos algunos de estos ejemplos: · IEEE LOM. Su objetivo es guiar en el marcado de recursos educativos para con ello potenciar su busqueda, evaluacion, obtencion y utilizacion. Define un esquema de nueve categorias para anotar los atributos de un recurso de aprendizaje, entre los que se encuentran aspectos tecnicos, educativos, de derechos de autor, clasificacion, o de ciclo de vida. Dentro de cada categoria otras sub-categorias se definen. Ademas, con este estandar es posible desarrollar catalogos que consideren diferencias culturales y linguisticas. En la actualidad el IEEE LOM es el unico estandar para el marcado de metadatos educativos.
+
+2
+
+(*) Indica que se trata de un estandar; () de un borrador de estandar (o Draft Standard), () de una especificacion, o (+) de un perfil de aplicacion.
+
+30
+
+A. J. Berlanga Flores y F. J. Garcia Penalvo
+
+SCORM. Propone un perfil de aplicacion para definir ambientes de elearning basado en diferentes estandares y especificaciones como IEEE LOM, IMS CP, IMS SS (ver columna de siglas de la Tabla 1). Incluye definicion de componentes, empaquetamiento, secuencia, navegacion y comunicacion en tiempo de ejecucion. · IMS LD. Define una notacion pedagogicamente neutral que permite crear disenos educativos reutilizables en diferentes cursos o contextos de aprendizaje. Esta especificacion describe procesos que, con el fin de alcanzar un objetivo de aprendizaje, definen que actividades realizaran alumnos y profesores, en que momento, con que recursos didacticos o servicios, y bajo que condiciones. · CanCore. Su objetivo es asegurar la interoperabilidad de metadatos y recursos entre los diferentes usuarios canadienses. Su foco principal es la localizacion de recursos, por lo que recomienda la utilizacion de los elementos del estandar IEEE LOM relacionados con el intercambio e interoperabilidad de recursos [12]. Ademas, proporciona informacion de los elementos de dicho estandar y posibles vocabularios. La forma y estructura de cada estandar o especificacion varia. No obstante, todas incluyen un modelo de datos que especifica que elementos son necesarios, sus etiquetas, si es un elemento opcional, y sus atributos, multiplicidad, y tipo. La mayoria utiliza XML (eXtensible Markup Language) [3] como lenguaje de marcado y con ello asegura la independencia del medio y la interoperabilidad de los elementos definidos.
+
+·
+
+3
+
+Objetos de Aprendizaje y Metadatos
+
+Dos conceptos importantes dentro de los estandares y especificaciones para e-learning son los Objetos de Aprendizaje (OA) y los metadatos. El termino OA, en ingles learning object, se ha definido de diferentes maneras. Algunos ejemplos son: 1. Cualquier entidad, digital o no digital, que puede utilizarse para aprender, educar o formar [19]. 2. Cualquier recurso digital que puede reutilizarse para soportar el aprendizaje [38]. 3. Una entidad digital que puede utilizarse, re-utilizarse y referenciarse durante el aprendizaje soportado por tecnologia [33]. 4. Cualquier recurso digital, reproducible, y susceptible de referenciarse, empleado para llevar a cabo actividades de aprendizaje o de soporte, y disponible para utilizarse por otros [18]. Contrastando estas definiciones, se encuentra que 1 y 2 (i.e. [19] [38]) son muy amplias, mientras que 3 y 4 (i.e. [33] [18]) presentan definiciones muy similares. Desde nuestro punto de vista, esta ultima definicion es mas adecuada ya que precisa que un OA debe ser un recurso digital, no solo para el aprendizaje sino tambien para soportar la ejecucion de actividades de aprendizaje, lo que incluye aquellas que
+
+Introduccion a los Estandares y Especificaciones para Ambientes e-learning
+
+31
+
+realiza el profesor dentro del proceso. Ademas, remarca que el recurso debe estar disponible para que otros lo utilicen, es decir, es necesario que se pueda compartir. Un OA se puede referenciar y compartir gracias a sus metadatos (i.e. datos sobre datos), los cuales etiquetan informacion sobre el OA para conocer sus caracteristicas y con ello facilitar su reutilizacion e intercambio. Un ejemplo representativo de metadatos es la ficha de referencia de un libro en una biblioteca, que indica su titulo, autor (es), ano, editorial, etc. Todos estos campos son los metadatos del libro. Trasladando ese ejemplo a un OA, podemos hablar de un video sobre la evolucion de los ordenadores. El video es el OA y sus metadatos indicarian su titulo, palabras clave, descripcion, especificaciones tecnicas, caracteristicas didacticas, etc. La Figura 2 muestra un extracto de como el video se anotaria siguiendo el estandar IEEE LOM.
+   Evolucion de los ordenadores  es  El video muestra la evolucion de los ordenadores   historia ordenadores  ...  application/macromedia 5200000 http://www.usal.es/dsc/videos/hist_ord.flv ....   LOMv1.0 expositive   LOMv1.0 narrative text   LOMv1.0 higher education   LOMv1.0 easy  ...  
+
+Fig. 2. Extracto de un ejemplo de un OA anotado segun el estandar IEEE LOM
+
+Otros ejemplos de OA son paginas web, simulaciones realizadas en ordenador, documentos, figuras o graficas digitales, e-books, o cursos completos en la web. Es probable que en el futuro los OA sean una moneda de cambio. Se almacenaran en repositorios desde los cuales podran accederse y reutilizarse en diferentes cursos que, idealmente, se adaptaran a diferentes modelos educativos, temas, y niveles de estudio [30]. Es importante remarcar, que los metadatos para elementos educativos no son exclusivos de los OA. El concepto se aplica tambien para anotar atributos de elementos, metodos o tecnicas relacionados con el proceso de aprendizaje, como las
+
+32
+
+A. J. Berlanga Flores y F. J. Garcia Penalvo
+
+caracteristicas de alumnos, actividades de aprendizaje, evaluaciones, equipo informatico que se utiliza, prerrequisitos, etc.
+
+4
+
+Iniciativas en torno a estandares, especificaciones y perfiles de aplicacion
+
+Actualmente se llevan a cabo iniciativas vinculadas al uso, investigacion, y divulgacion de los diferentes estandares, especificaciones, y perfiles de aplicacion. El foco principal se centra en el marcado de recursos educativos, via metadatos, para su posterior explotacion en repositorios de OA. Algunos ejemplos son3: · MIT OCW (MIT OpenCourseware, ocw.mit.edu) del Massachusetts Institute of Technology (MIT) que, para el ano 2007, tiene como objetivo publicar en la web todos los contenidos ofrecidos por esa universidad, de tal modo que cualquier persona pueda utilizarlos sin costo alguno. Emplea IEEE LOM para capturar metadatos descriptivos, tecnicos y de derechos de autor, y utiliza una especificacion compatible con SCORM que se desarrollo dentro del proyecto. Cuando es posible, los metadatos se generan automaticamente teniendo en cuenta informacion disponible de diferentes fuentes (estructura del curso, pruebas, configuracion de parametros, etc.). Ademas, se intenta simplificar la captura heredando metadatos de cursos a secciones y a recursos dentro de las secciones. · MERLOT (Multimedia Educational Resource for Learning and Online Teaching, www.merlot.org) es una coleccion de recursos digitalizados dirigidos a educacion universitaria evaluados por expertos. Para marcar los OA utiliza un conjunto de elementos derivados de IMS LOM. · HEAL (Health Education Assets Library, www.healcentral.org) provee material educativo gratuito para la educacion en ciencias de la salud. Emplea IMS LOM con una extension de desarrollo propio para anotar aspectos relativos a la educacion en ciencias de la salud. · EducaNext (The EducaNext Portal for Learning Resources www.educanext.org) soporta el intercambio de recursos educativos, gracias a la integracion de diferentes sistemas de contenido y de servicios, actuando como broker y proveyendo acceso a una coleccion de recursos educativos en diferentes formatos e idiomas. Para los metadatos generales utiliza Dublin Core y el estandar IEEE LOM para anotar caracteristicas educativas. · GEM (The Gateway to Educational Materials, www.thegateway.org) es un catalogo estadounidense que contiene descripciones de materiales educativos de diferentes paginas web (federales, universidades, comerciales, etc.). Permite realizar busquedas por caracteristicas y en base a ello utilizar filtros. Emplea un perfil de aplicacion basado en Dublin Core.
+
+3
+
+Un listado muy completo de repositorios y sus caracteristicas se encuentra en http://projects.aadlcolab.org/repository-directory.
+
+Introduccion a los Estandares y Especificaciones para Ambientes e-learning
+
+33
+
+CAREO (Campus of Alberta Repository of Educational Objects, www.careo.org) es un repositorio prototipo que utiliza CanCore para anotar recursos educativos de diferentes disciplinas. Otros proyectos en areas diferentes a los repositorios de OA, se encargan de difundir la adopcion de una especificacion o estandar. Es el caso de proyecto europeo UNFOLD (Understanding New Frameworks On Learning Desing, www.unfold-project.net) que mediante comunidades de practica busca promocionar y fomentar el desarrollo de sistemas e-learning que utilicen la especificacion IMS LD. Asimismo, ADL promueve la investigacion, adopcion, y evaluacion de SCORM mediante una red de laboratorios (ADL Co-Laboratories Network) dirigidos a diferentes publicos como el academico y la fuerza productiva, o situados en diferentes paises como el Reino Unido o Canada. El proyecto RELOAD (www.reload.ac.uk) desarrolla herramientas para facilitar el uso de especificaciones, como el RELOAD Editor que permite organizar y crear paquetes de OA anotados con IMS LOM, IMS CP, o SCORM. Actualmente dentro de este proyecto se desarrolla un editor para crear disenos instructivos anotados con IMS LD. En la misma linea, HyCo [16] permite crear libros electronicos y anotarlos con la especificacion EML [27] o convertirlos en OA y anotarlos conforme a la especificacion IMS LOM. Ademas, se pretende utilizar HyCo como herramienta de autor para crear disenos instruccionales, por lo que se esta desarrollando de un editor de IMS LD. Tambien existen centros de tecnologia educativa vinculados directamente con el desarrollo y promocion de estandares, como el britanico CETIS (Centre for Educational Technology Interoperability Standards, www.cetis.ac.uk) o el holandes SURF SiX Expert Group (e-learning.surf.nl/six/). En el plano comercial [4] la plataforma para e-learning WebCT (www.webct.com) mantiene que es compatible con especificaciones como IMS LOM, IMS CP, e IMS QTI, mientras que Blackboard (www.blackboard.com) lo es para IMS LOM e IMS CP, y Learn eXact (www.giuntilabs.com) para IMS LOM, IMS CP, IMS QTI, y SCORM. Por su parte, la herramienta de autor IMS Assets Designer (www.xdlsoft.com/ad) permite generar, importar o exportar pruebas anotadas conforme a IMS QTI.
+
+·
+
+5
+
+Criticas que han suscitado
+
+Dar por hecho la utilidad de los estandares para el marcado de metadatos educativos para los ambientes de e-learning es arriesgado. Existen investigadores vinculados estrechamente con este campo que precisan cuestiones sobre las que conviene reflexionar. La critica mas recurrente es la confusion sobre el significado del termino OA, su alcance y grado de granularidad. Las diferencias entre las definiciones propuestas, como en [19] [38] [18], causan desorientacion entre los usuarios potenciales [15] que encuentran dificil entender cual es la cooperacion que existe entre las diferentes organizaciones involucradas, si un estandar o especificacion puede volverse obsoleto o cual es el mejor para una situacion particular [27].
+
+34
+
+A. J. Berlanga Flores y F. J. Garcia Penalvo
+
+Por otro lado, la perspectiva pedagogica del estandar IEEE LOM parece debil. Farance [10] argumenta que existen problemas al codificar los valores y al realizar busquedas utilizando metadatos. Friesen y Nirhamo [13] sostienen que los usuarios utilizan muy poco las etiquetas relacionadas con cuestiones educativas, lo que no deja de llamar la atencion tratandose de un estandar para OA. Estos autores indican, tambien, que muchos de los elementos de IEEE LOM se convierten en elementos menos complejos (i.e. mas pequenos, sin tantos sub-elementos) en otras especificaciones, como Dublin Core. Entre las criticas con respecto a cuestiones didacticas, Friesen [15] sostiene que una especificacion "pedagogicamente neutral", como se definen IEEE LOM, SCORM o IMS LD, no puede ser al mismo tiempo pedagogicamente relevante. Por su parte, Downs [6] argumenta que existe incompatibilidad con los principios de diseno de la instruccion, ya que un diseno instruccional no puede reutilizarse en otros contextos porque su definicion inicial esta dirigida a una experiencia de aprendizaje concreta que utiliza objetos de aprendizaje especificos para contextos precisos. Ello se contrapone frontalmente con lo objetivos de reutilizacion de especificaciones como IMS LD o SCORM. Otra critica importante, que afecta directamente el grado de adopcion de un estandar o especificacion, es la falta de herramientas de autor para definir elementos educativos que cumplan con los estandares, que sean faciles de utilizar [28] [32] y oculten los metadatos a los usuarios [8].
+
+6
+
+El futuro de los estandares
+
+Hasta el momento, la utilizacion de especificaciones o estandares no esta difundida entre los posibles usuarios potenciales (i.e. profesores, disenadores instruccionales, vendedores, instituciones educativas, etc.). Su exito a largo plazo depende de su calidad, utilidad practica y valor en el "mundo real" [37]; cuestiones que, en la mayoria de casos, estan por comprobarse ya que muchas especificaciones se han aprobado recientemente y se encuentran en la fase inicial de aplicacion, como en el caso de IMS LD, IMS LIP o la ultima version de SCORM. Para lograr que los usuarios potenciales adopten un estandar o especificacion es necesario crear herramientas de autor faciles de utilizar. Para ello, Rehak [32] sugiere desarrollar herramientas que permitan realizar busquedas, recomendar, clasificar, y automatizar entregas de OA similares a las disenadas con propositos comerciales como, por ejemplo, Google, Amazon o eBay. La investigacion en el campo de los estandares es una pieza fundamental para su desarrollo y madurez. Son necesarias investigaciones encaminadas a definir mecanismos automaticos que generen metadatos para OA y que los gestionen inteligentemente mediante tecnicas de filtrado, filtrado colaborativo, mineria de datos, reconocimiento de patrones o recomendadores sociales [17]. Igualmente, son necesarios estudios empiricos sobre la aplicacion, uso y reutilizacion de especificaciones de OA, disenos instructivos y perfiles de usuario. Obviamente, se espera que el uso y adopcion de estandares y especificaciones en diferentes situaciones y contextos genere propuestas para mejorarlos. Por ejemplo,
+
+Introduccion a los Estandares y Especificaciones para Ambientes e-learning
+
+35
+
+para mejorar IEEE LOM se ha propuesto definir un conjunto de elementos mas pequeno y manejable [13], modularizar cada una de sus categorias, utilizar otros tipos de metadatos (estructurales, relacionales, subjetivos, etc.), y definir mas de un registro de metadatos por elemento [17]. Tambien parece evidente que las organizaciones y consorcios involucrados en el desarrollo de estandares y especificaciones deben organizar y financiar programas de difusion y entrenamiento para usuarios actuales y potenciales.
+
+7
+
+Conclusiones
+
+Este articulo aborda los estandares y especificaciones para ambientes e-learning con el fin de destacar su importancia e impacto en las tendencias actuales en el desarrollo de aplicaciones web vinculadas con la Educacion. Estas tendencias, sin lugar a duda, amplian las posibilidades del e-learning para conseguir, entre otras cosas, aprendizajes personalizados, automatizacion de tareas, y el aprovechamiento de recursos educativos procedentes de diversas fuentes y en diversos formatos. Estas nuevas posibilidades pueden potenciarse perfectamente con el uso de la web, pero no la web en su condicion actual. Es necesario acercar el e-learning a la Web Semantica [2] y describir los elementos educativos empleando metadatos que puedan procesarse y reconocerse automaticamente por maquinas y estructuras de datos estandarizadas; ademas de considerar diferentes elementos del proceso educativo (caracteristicas del alumno, objetivos de aprendizaje, actividades de soporte, etc.), no utilizar la web unicamente para la distribucion de contenidos. Aunque la adopcion e investigacion de los estandares y especificaciones para el marcado de elementos educativos en ambientes e-learning se encuentra aun en sus primeras fases de desarrollo, y pretender que exista un unico estandar para anotar todos los elementos y condiciones que se pueden dar en cada contexto educativo es una quimera, tambien es cierto que importantes beneficios se obtendran si en vez de anotar los metadatos con etiquetas creadas por cada desarrollador, se opta por utilizar alguna especificacion, estandar o perfil de aplicacion existente. No hay que perder de vista que, en lineas generales, la siguiente generacion de sistemas e-learning debe sustentarse, de una u otra manera, en mecanismos para el intercambio, reutilizacion y personalizacion de elementos educativos. Ello dara un valor agregado a dichos sistemas y redituara en beneficios para los alumnos, profesores, instituciones e inversores.
+
+Agradecimientos
+Adriana Berlanga agradece el apoyo del Consejo Mexicano de Ciencia y Tecnologia (CONACyT). Estudio financiado por la Junta de Castilla y Leon (ref. SA017/02).
+
+36
+
+A. J. Berlanga Flores y F. J. Garcia Penalvo
+
+Referencias
+1. 2. 3. ADL: Advanced Distributed Learning http://www.adlnet.org Berners-Lee, T., Hendler, J., Lassila, O.: The Semantic Web. Scientific American 284 (2001) 35-43. Bray, T., Paoli, J., Sperberg-MacQueen, C. M., Maler, E., Yergeau, F.: Extensible Markup Language (XML) (3rd Ed.) v1.0. World Wide Web Consortium Recommendation. http://www.w3.org/TR/2004/REC-xml-20040204 (2004). CETIS: Centre for Educational Technology Interoperability Standards http://www.cetis.ac.uk DCMI Metadata Terms: Dublin Core Metadata Initiative http://dublincore.org/documents/dcmi-terms (2004). Downs, S.: Design, Standards and Reusability. http://www.downes.ca (2003). Duval, E., Hodgins, W., Sutton, S., Weibel, S.: Metadata Principles and Practicalities. DLib Magazine 8 (2002). http://www.dlib.org/dlib/april02/weibel/04weibel.html. Duval, E., Hodgins, W.: Metadata Matters http://rubens.cs.kuleuven.ac.be:8989/mt/blogs/ErikLog (2004). Elearning Consortium.: Making sense of learning specifications and standards' Masie Center. http://www.masie.com/standards/S3_Guide.pdf (2002). Farance, F.: IEEE LOM Standard Not Yet Ready for Prime Time. Learning Technology Newsletter 5 (2003). Friesen, N., Fisher, S., Roberts, A.: CanCore Guidelines for the Implementation of Learning Object Metadata (IEEE 1484.12.1-2002) v.2 http://www.cancore.ca (2004) Friesen, N., Mason, J.: Building Educational Metadata Application Profiles. International Conference DC-2002: Metadata for e-Communities: Supporting Diversity and Convergence. 2002. Biblioteca Nazionale Centrale http://www.bncf.net/dc2002/program/ft/paper7.pdf. Friesen, N., Nirhamo, L.: Survey of LOM Implementations: Preliminary Report, ISO JTC1 SC36 WG4 http://mdlet.jtc1sc36.org/doc/SC36_WG4_N0057.doc (2003). Friesen, N.: E-learning Standardization: An Overview. http://www.cancore.ca (2002). Friesen, N.: Three Objections to Learning Objects. In: R. McGreal, (ed.): Learning Objects and Metadata. Online Education using Learning Objects. Taylor & Francis Books Ltd, London (2003). Garcia, F. J., Berlanga, A. J., Moreno, M. N., Garcia, J., Carabias, J.: HyCo ­ An Authoring Tool to Create Semantic Learning Objects for Web-Based E-learning Systems. In N. Koch, P. Fraternali, M. Wirsing (eds.): Web Engineering. 4th International Conference, LNCS 3140. Springer Verlag (2004) 344-348. Hodgins, W.: Into the Future of Learning Objects. In Workshop on e-learning Objects & Systems http://grove.ufl.edu/~pgl/events/Hodgins/future_lo.pdf (2004). Hummel, H., Manderveld, J., Tattersall, C., Koper, R.: Educational modelling language and learning design: new opportunities for instructional reusability and personalised learning. Int. J. Learning Technology 1 (2004) 111-126. IEEE LOM: IEEE 1484.12.1-2002. Standard for Learning Object Metadata http://ltsc.ieee.org/wg12 (2002). IEEE PAPI: IEEE P1484.2.1/D8, 2001-11-25 Draft Standard for Learning Technology Public and Private Information (PAPI) for Learners (PAPI Learner). http://jtc1sc36.org/doc/36N0175.pdf (2001). IMS CP: Content Packaging specification v1.1.3. http://www.imsglobal.org/content/packaging (2003). IMS LD: Learning Design specification v1. http://www.imsglobal.org/learningdesign (2003).
+
+4. 5. 6. 7. 8. 9. 10. 11. 12.
+
+13. 14. 15.
+
+16.
+
+17. 18.
+
+19. 20.
+
+21. 22.
+
+Introduccion a los Estandares y Especificaciones para Ambientes e-learning
+
+37
+
+23. IMS LIP: Learner Information Package specification v1. http://www.imsglobal.org/profiles (2003). 24. IMS LOM: Learning Resource Metadata specification v1.1.2. http://www.imsglobal.org/metadata (2001). 25. IMS QTI: Questions and Test Interoperability Specification. v1.2.1 http://www.imsglobal.org/question (2002). 26. IMS SS: Simple Sequencing v1.0 http://www.imsglobal.org/simplesequencing (2003) 27. Koper, R.: Modelling units of study from a pedagogical perspective. The peda-gogical metamodel behind EML. http://eml.ou.nl/introduction/docs/ped-metamodel.pdf (2001). 28. Koper, R.: Use of the Semantic Web to Solve Some Basic Problems in Education: Increase Flexible, Distributed Lifelong Learning, Decrease Teachers' Workload. Journal of Interactive Media in Education, Special Issue on the Educational Semantic Web 1 (2004) http://www-jime.open.ac.uk/2004/6 29. Liber, O., Corley, L.: Learning Technology Standards - Where's The Pedagogy?. In A. Mendez-Vilas et al. (eds.): Proceedings 2nd International Conference on Multimedia and Information & Communication Technologies in Education, Consejeria de Educacion, Ciencia y Tecnologia de la Junta de Extremadura (2003) 855-859. 30. Littlejohn, A.: Issues in Reusing Online Resources. In Littlejohn, A. (ed.): Journal of Interactive Media in Education, Special Issue on Reusing Online Resources 1 (2003). 31. Marques, P.: Usos educativos en Internet. La revolucion de la ensenanza http:// www.ull.es/departamentos/didinv/tecnologiaeducativa/doc-marques.htm (1998) 32. Rehak, D.: Good & Plenty, Googlezon, Your Grandmother and Nike: challenges for ubiquitous learning & learning technology. In Workshop on e-learning Objects & Systems http://grove.ufl.edu/~pgl/events/Rehak/googlezon.pdf (2004). 33. Rehak., D., Mason, R.: Keeping the Learning in Learning Objects'. In Littlejohn, A. (ed.): Journal of Interactive Media in Education, Special Issue on Reusing Online Resources 1 (2003). 34. SCORM: Sharable Content Object Reference Model v1.3 http://www.adlnet.org (2004). 35. The Learning Federation: Metadata Application Profile v1.3. http://www.thelearningfederation.edu.au/repo/cms2/tlf/published/8519/Metadata_Applicat ion_Profile_1_3.pdf (2003). 36. UK LOM: UK Learning Object Metadata Core. Draft 0.2. http://www.cetis.ac.uk/profiles/uklomcore/uklomcore_v0p2_may04.doc (2004). 37. Walker, E.: Session introduction. In e-Learning Results2003 http://www.elearningresults.com (2003). 38. Wiley, D.: Connecting learning objects to instructional design theory: A definition, a metaphor, and a taxonomy. In D. Wiley (ed.): The Instructional Use of Learning Objects. http://reusability.org/read/chapters/wiley.doc. (2000).
+

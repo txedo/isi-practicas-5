@@ -1,0 +1,170 @@
+Objetos de Aprendizaje ­ Factores que potencian su reusabilidad
+Alicia Beatriz Paur1 , Zulema Beatriz Rosanigo2
+Facultad de Ingenieria ­ Sede Trelew ­ U.N.P.S.J.B. ­ Te-Fax (02965) 428402
+
+1 RESUMEN
+Esta articulo surge de la investigacion realizada para el desarrollo de la Tesina de Master, presentada al Programa ERASMUS MUNDUS, EUROMIME ­Master en Ingenieria en Medios para la Educacion­ consorcio integrado por la Universidad Tecnica de Lisboa (Portugal), Universidad Nacional de Educacion a Distancia (Espana) y Universidad de Poitiers (Francia), en el area de Tecnologia Educativa, que fue aprobada por unanimidad el 1 de julio de 2008. Como tema de interes para el proyecto de investigacion "Hacia un Repositorio de Objeto de Aprendizaje" No 628 de la Secretaria de Ciencia y Tecnica de la Universidad Nacional de la Patagonia San Juan Bosco. Estudia los objetos de aprendizaje y algunos factores que potencian sus posibilidades de reutilizacion, la importancia que tiene esta investigacion, radica en que los objetos de aprendizaje son un tema de estudio muy actual dentro del area de las tecnologias de la informacion y la comunicacion (TIC) y la posibilidad de su reutilizabilidad es fundamental, sin esta capacidad el objeto de aprendizaje no tiene razon de ser. Los resultados de esta investigacion nos permitiran aportar lineas para el diseno y creacion de objetos de aprendizaje que contemplen estos factores de reutilizabilidad y presten atencion a su correcto cumplimiento. Palabras claves: Objetos de Aprendizaje ­ Repositorios de Objetos de Aprendizaje ­ reutilizabilidad ­ Metadato estandar ­ Granularidad ­ Educacion a Distancia.
+
+2 PROBLEMA DE INVESTIGACION
+Este trabajo de investigacion tiene por problema de estudio saber: "En que grado los Objetos de Aprendizaje cumplen con algunos factores de reusabilidad que optimizan sus posibilidades de reutilizacion". Para lograr desarrollar y resolver el problema de estudio propuesto, la investigacion contempla como entorno del problema la conceptualizacion de elementos tales como: objetos de aprendizaje, sus metadatos, los repositorios que los almacenan y distintos factores de reutilizabilidad de los objetos de aprendizaje (OA) que posibiliten su reuso. Durante nuestra investigacion bibliografica detectamos un estudio anterior (Reusabilidad de los Objetos de Aprendizaje almacenados en Repositorios de Libre Acceso, Lopez & otros, 2007), que es de gran importancia para esta investigacion porque nos dio el punto de partida para plantear la
+
+1
+
+Licenciada en Informatica ­ Magister en Ingenieria en Medios para la Educacion ­ Investigador Cat. IV ­ Profesor Adjunto Dedicacion Exclusiva - abpaur@gmail.com
+
+Ingeniera Civil ­ Analista Programador Universitario ­ Magister en Ingenieria de Software - Investigador Cat. III Profesor Asociado Dedicacion Exclusiva ­ brosanigo@infovia.com.ar
+
+2
+
+necesidad de verificar la existencia de ciertos factores que deben presentar los OA para optimizar su reutilizacion. Los resultados de esta investigacion, ademas de corroborar o refutar los resultados de la investigacion anterior realizada, nos permitiran aportar lineas o directrices para un buen diseno y creacion de objetos de aprendizaje que contengan estos factores de reusabilidad y presten atencion a su correcto cumplimiento. Los objetivos y las preguntas de investigacion se detallaran en el momento de ir respondiendola.
+
+3 PRINCIPALES DEFINICIONES
+3.1 Objetos de aprendizaje En la revision bibliografica que realizamos para el presente trabajo de investigacion pudimos constatar que el concepto de OA es ambiguo aun en la actualidad, expusimos las definiciones que consideramos mas representativas y concluimos que la siguiente es la definicion que consideramos mas acertada y la adoptamos para el resto de nuestro trabajo: Un objeto de aprendizaje es: un conjunto de recursos, autocontenible, disenado y creado en pequenas unidades digitales con un proposito educativo para maximizar el numero de situaciones educativas en las que se puede utilizar (reutilizable). El objeto de aprendizaje debe tener una estructura de informacion externa (metadatos) que facilite su almacenamiento, identificacion y recuperacion. 3.2 Metadatos Especificamente pensando en OA, Metadato es: informacion estructurada que se crea especialmente para describir caracteristicas relevantes que le son propias, y que se pueden agrupar en diferentes categorias para proveer informacion basica tal como: titulo, autor, localizacion, editorial, fecha de creacion y tema principal del elemento descripto. El metadato entonces, es comparable al catalogo de una biblioteca que facilita la clasificacion, organizacion y almacenamiento de libros (OA en nuestro caso), permite realizar busquedas para su localizacion, maximizando las oportunidades de recuperacion de la mayor cantidad posible de ellos que sean relevantes y pertinentes, con el fin de poder reutilizarlos y organizarlos en multiples modos (programas, cursos, etc.). Si ademas se utilizan metadatos estandar, se agrega la ventaja de poder compartir e interoperar con otros OA que usen el mismo estandar. 3.3 Repositorios de OA Un repositorio de OA (ROA): se corresponde con la idea de "depositos o bibliotecas" y se diferencia de los sitios Web clasicos en el hecho de que provee a docentes, alumnos y otros interesados herramientas que permiten la busqueda, intercambio y reutilizacion de OA. Los ROA surgen de la necesidad de agrupar y compartir OA que proceden de distintas fuentes, permitiendo almacenar, buscar, recuperar, consultar y bajar OA de todas las areas del conocimiento, por esta razon es que los OA y los ROA sean elementos complementarios. Para que un ROA cumpla su objetivo, debe contar con OA debidamente etiquetados y estar estructurado y organizado para poder identificarlos, tal como se hace en una biblioteca comun, esto se logra gracias a los metadatos de los OA.
+
+3.4 Reutilizabilidad Dentro del contexto que tratamos ­las TIC­: La reutilizabilidad se refiere a la propiedad que tiene un OA de poder secuenciarse con otro OA diferente formando parte de un nuevo contenido educativo de naturaleza distinta a la original o anterior y dentro de un variado numero de aplicaciones y plataformas. La caracteristica de que un OA sea reutilizable en distintos contextos de aprendizaje requiere de un diseno cuidadoso, tanto de sus contenidos como de sus metadatos asociados, de forma tal que estos sean lo suficientemente consistentes y completos como para permitir distintos tipos de procesos de busqueda y seleccion (Cuadrado­Gallego, 2005). Con lo que queda claro que la reutilizabilidad depende tanto de los metadatos como del contenido.
+
+4 METODOLOGIA DE LA INVESTIGACION
+Esta es una investigacion descriptiva porque muestra caracteristicas de los OA y los repositorios de objetos de aprendizaje (ROA) que son relevantes para su desarrollo en forma integral, en especial en la etapa de centrarnos en algunos factores que caracterizan y potencian la posibilidad de reusabilidad de los OA. Es una investigacion cualitativa porque recolectamos datos de forma exploratoria y descriptiva tanto de los OA y los ROA como de los factores de reusabilidad de los OA. Es tambien una investigacion cuantitativa porque requiere de tratamiento estadistico para contestar las preguntas planteadas. Consideramos que al utilizar estos dos ultimos tipos de procedimientos, cuantitativos y cualitativos, obtenemos el beneficio de corregir los sesgos propios de cada uno de ellos. Se realizo un estudio exploratorio sobre gran cantidad de ROA con la finalidad de hallar el mas conveniente que cumpliera con caracteristicas que permitieran la correcta evaluacion de cumplimiento de factores de reusabilidad. Para la eleccion de las variables a estudiar con el fin de evaluar la potencial reusabilidad de los OA, tuvimos en cuenta especialmente el articulo anteriormente mencionado de (Lopez & otros, 2007), del que utilizamos la plantilla de evaluacion alli propuesta para evaluar factores que potencian la reutilizacion de los OA y ademas a las principales instituciones que tratan el tema y autores reconocidos como son, en orden alfabetico: 4.1 Plantilla de evaluacion de factores de reusabilidad de objetos de aprendizaje La plantilla utilizada en nuestra investigacion (Lopez & otros, 2007), que mostramos a continuacion, ha sido construida seleccionando siete factores que se consideran potencian las posibilidades de reutilizabilidad de los OA, asignandole a cada uno de ellos una ponderacion relativa a su grado de relevancia. La ponderacion utilizada por los autores de la plantilla, no fue puesta en tela de juicio ni modificada porque eso haria imposible la comparacion de los resultados obtenidos, que era uno de nuestros objetivos de investigacion.
+
+Factor Grado de integridad de los metadatos
+
+Forma de evaluacion Se refiere al numero de metadatos del estandar LOM que se encuentran cargados en el OA (son 86 en total, lo que da la siguiente formula: no de metadatos cargados x 40) / 86 Segun la escala de medicion del estandar LOM, para la granularidad hay cuatro niveles: · Nivel 4: Incorporan mas de dos niveles de agregacion (por ejemplo, un conjunto de cursos que conducen a la obtencion de un grado. Se corresponde con el concepto de programa) (0 puntos) · Nivel 3: Una coleccion de dos o mas materiales de nivel 2 (por ejemplo, una Web formada por multiples documentos HTML). Comprenden los recursos que pueden ser descompuestos en dos o mas OA. Se corresponden con el concepto de curso (5 puntos) · Nivel 2: Coleccion de materiales atomicos, incluye archivos ZIP y otros paquetes que pueden ser accedidos como archivos individuales pero que a su vez forman un unico recurso agregado, por ejemplo, un archivo HTML junto con las imagenes referidas desde el mismo. (12,5 puntos) · Nivel 1: No puede ser descompuesto en OA menores. Es el nivel mas pequeno de agregacion (el aplicable a material aparentemente indivisible, una imagen, archivo PDF, archivo JAR,.) (20 puntos) Facilidad de separar la presentacion del contenido para reutilizar uno u otro, en otro OA. · Los OA en formato HTML y con hojas de estilo CSS (Cluster Support Services) (7,5 a 10 puntos) · Los OA con solo HTML o formato Word, PDF, applets de java, entre otros (5 a 7,5 puntos) · Los OA en formatos Flash, AVI, MPEG, entre otros (0 a 5 puntos) Coherencia de la presentacion (existencia de fondo, coherencia interna entre los elementos de la interfaz) (0 a 5 puntos) Balance en el ofrecimiento de recursos para la accesibilidad de los contenidos: tipo de organizacion; existencia de titulos. Tipo de organizacion · Acceso directo (2 a 4 puntos) · Acceso secuencial (0 a 2 puntos) Existencia de titulos · Nivel de remarcacion y correspondencia o pertinencia con el contenido (0 a 1 punto)
+
+Ponderacion maxima 40 puntos
+
+20 puntos
+
+Granularidad
+
+10 puntos
+
+Independencia de la presentacion y el contenido
+
+Uniformidad de la presentacion
+
+5 puntos 5 puntos
+
+Organizacion de los contenidos
+
+Factor
+
+Forma de evaluacion Medida en la que el OA es lo suficientemente agil como para poder intercambiar informacion con el usuario de forma que la experiencia didactica resulte beneficiosa para el alumno. Evalua: visibilidad, comprension intuitiva, carga cognitiva. · Visibilidad claridad de la presentacion y la facilidad para identificar los elementos de la interfaz. (2,5 puntos) · Comprension intuitiva evalua: (5 puntos) o la utilizacion de estandares conocidos en la presentacion. o la estructura de navegacion del OA, buscando que el funcionamiento del OA sea intuitivo. · Carga cognitiva: o alta no proponen ejemplos practicos ni ejercicios interactivos para respaldar la teoria. (0 a 1 punto) o media tienen ejemplos practicos para respaldar los conceptos teoricos. (1 a 2 puntos) o baja tienen ejemplos practicos y ademas ejercicios interactivos para respaldar los conceptos teoricos. (2 a 2,5 puntos) GENERALIDAD DEL LENGUAJE: Idiomas, registros linguisticos. Maximo 5 puntos · Si estan en ingles e incluyen traducciones a otros idiomas (3 puntos) · Solo en ingles (2 puntos) · En otros idiomas (dependiendo de su nivel de utilizacion mundial) (2 puntos) A los OA que tengan un registro formal (diferente de tecnico, informal, argot, etc.), se le sumaran 2 puntos a la puntuacion de la generalidad del lenguaje. ELEMENTOS DE LA INTERFAZ: presentacion, comportamiento y tecnicas de interaccion. Entorno/interfaz sencillo, amigable e intuitivo. Maximo 5 puntos · El objeto de interes es de facil identificacion. (1 punto) · Diseno ergonomico, mediante el establecimiento de menus, barras de acciones e iconos de facil acceso. (1 punto) · Interacciones basadas en acciones fisicas sobre elementos de codigo y en selecciones de tipo menu con sintaxis y ordenes (shortcuts o atajos, ej.: F4,F5..). (1 punto) · Operaciones rapidas, incrementales y reversibles, con efectos inmediatos. (1 punto) · Adecuada tipografia y tratamiento del color. (1 punto) Planilla de evaluacion de factores de reusabilidad Fuente: Lopez & otros, 2007
+
+Ponderacion maxima 10 puntos
+
+Interaccion persona ­ OA
+
+10 puntos
+
+Generalidad del lenguaje y elementos de la interfaz
+
+4.2 Poblacion y Muestra El conjunto de elementos sujetos a estudio y de los cuales queremos obtener un resultado, respecto a si cumplen con los factores que potencian su reutilizabilidad, (poblacion) es todos los OA del area de matematica del ROA MERLOT que cuenta con una cantidad de 1105 OA (al momento de realizar el calculo en enero de 2008). Sobre la poblacion se realizo un muestreo aleatorio sistematico, se tomo finalmente una muestra de 65 OA (con la finalidad de manejar numeros enteros), con un intervalo de 17 elementos entre cada OA seleccionado.
+
+5 RESULTADOS OBTENIDOS
+5.1 Corroboracion de la plantilla entre la investigacion original y la actual En esta etapa realizaremos un analisis descriptivo de los resultados logrados con los 65 OA de nuestra muestra, comparandolos con los mismos estadisticos obtenidos en los 70 OA evaluados en la investigacion anterior.
+Relacion de estadisticos entre las dos investigaciones
+25,00
+Minima Invest. Actual Minima Invest. Anter. Maxima Invest. Actual
+
+20,00
+
+Maxima Invest. Anter. Media Invest. Actual Media Invest. Anter. Moda Invest. Actual
+
+15,00
+
+Moda Invest. Anter. Desviacion estandar Invest. Actual Desviacion estandar Invest. Anter.
+
+10,00
+
+5,00
+
+0,00
+Metadatos Granularidad Independencia de la presentacion y el contenido Interaccion persona - OA Generalidad del Organizacion de Uniformidad de lenguaje y contenidos la presentacion elementos de la interfaz
+
+Figura 1 ­ Relacion de Estadisticos entre las dos investigaciones Fuente: Sobre datos propios y datos de la investigacion anterior
+
+Como podemos ver en la figura 1, las dos investigaciones arrojan datos estadisticos similares en los valores de minima, maxima, media, moda y desvio tipico, estos datos nos permiten confirmar que: Es posible aplicar la escala de evaluacion de reusabilidad de OA, propuesta en el trabajo original, a muestras de OA de otras areas del conocimiento (como es el caso de nuestra investigacion) y obtener resultados consistentes con los originales.
+
+5.2 Frecuencias 5.2.1 Valores totales obtenidos por los OA
+Porcentaje por rango del total obtenido
+44,70
+45 40 35 30 25
+
+27,60
+
+18,40
+20 15 10 5 0 25 ­ 32 32 ­ 39 39 ­ 43 43 ­ 50 50 ­ 57
+
+6,20 3,10
+
+Figura 2 ­ Porcentajes individuales de valores totales (en rangos) Fuente: Sobre datos propios aplicando el programa Excel3
+
+Los datos observados en la figura 2, de las frecuencias en los valores totales obtenidos por los OA, nos ayudaran a contestar la primera pregunta de esta investigacion: ¿En que medida cuentan los OA con factores que optimicen su reutilizabilidad? Basandonos en el analisis estadistico realizado, se constata que la mayoria de los OA estudiados carecen de mecanismos apropiados para lograr una reutilizacion satisfactoria ya que el 93,8% de nuestra muestra no supera los 50 de los 100 puntos posibles de obtener y un 44,70% se encuentra entre los 39 y los 43 puntos, lo que senala la necesidad de poner mas atencion a la hora del diseno y creacion de los OA de los factores de reusabilidad aqui evaluados. 5.2.2 Grado de integridad de los metadatos
+Porcentaje de frecuencias grado de integridad de metadatos
+
+6,51 30,77%
+
+6,97 40,00%
+
+6,04 15,38% 5,58 7,9 1,54% 1,54%
+
+7,44 10,77%
+
+Figura 3 ­ Porcentajes de frecuencias grado de integridad de metadatos Fuente: Sobre datos propios aplicando el programa Excel
+
+La figura 3 nos ayuda a contestar la segunda pregunta de este trabajo de investigacion: ¿En que grado o medida se verifica la integridad de los elementos del esquema de metadatos de un OA, para permitir la posterior busqueda y recuperacion por parte del usuario?
+3
+
+Microsoft ® Excel 2002 Copyright © Microsoft Corporation 1985­2001
+
+En el 87% de los casos, no se detectaron mas de 15 metadatos cargados (6,97 puntos), y en el total de la muestra el maximo valor alcanzado fue de 17 metadatos (7,90 puntos) de los 86 posibles que ofrece LOM, lo que apenas representa un 19,76% de los datos a completar en el esquema de metadatos LOM; la media obtenida (6,73 puntos) representa el 16,82% y la moda (6,97 puntos) solo el 17,42% de los datos a completar y por consiguiente de la valoracion maxima posible en esta variable. Se observa una medida muy baja en el grado de integridad de los esquemas de metadatos usado. Ademas, es de destacar que especialmente de los metadatos de la categoria Educacional de LOM, que cuenta con 11 elementos, solo se utilizan los siguientes 4 (que representan el 36,36% del total de la categoria): tipo de recurso, lenguaje, usuario final esperado y descripcion del recurso, no completando los elementos restantes: tipo de interactividad, nivel de interactividad, densidad semantica, contexto, rango de edad tipico, dificultad, tiempo de aprendizaje tipico. Esto empobrece la capacidad de busqueda y recuperacion del OA por parte de potenciales usuarios y por consiguiente reduce las posibilidades de su uso en el aula y aun mas: la comprobacion en futuras investigaciones de su correcta aplicacion en diferentes escenarios. Por lo que es recomendable poner mucho enfasis en mejorar esta situacion que redundara en un potencial crecimiento de reusabilidad de los OA. 5.2.3 Independencia de la presentacion y el contenido
+Porcentaje de Frecuencia Independencia de la presentacion y el contenido
+
+7,5 52,31%
+
+10 30,76% 7 4,62% 0 1,54%
+
+6 3,08%
+
+5 7,69%
+
+Figura 4 ­ Frecuencias de Independencia de la presentacion y el contenido Fuente: Sobre datos propios aplicando el programa Excel
+
+A partir de la figura 4 podemos contestar la tercera pregunta planteada: ¿Los OA presentan la autonomia necesaria para poder ser usados en diferentes plataformas e­ learning? La media para estos valores es de 7,89 lo que representa el 78,9% del valor maximo y la moda es de 7,5, con una frecuencia del 82% en el rango de 7,5 a 10 puntos como puede verse en la figura 4, lo que permite concluir que: Los OA evaluados presentan la autonomia necesaria para poder ser usados en diferentes plataformas e­learning. Esta es una caracteristica importante a tener en cuenta cuando se disena y crea un OA para dotarlo de interoperabilidad en diferentes plataformas e­learning que deseen hacer uso de el.
+
+5.3 Correlacion de variables El estudio de la correlacion entre variables nos permite contestar la cuarta y ultima pregunta planteada en esta investigacion: ¿El cuidado o esmero en la correcta utilizacion de algunos factores aumenta las posibilidades de interaccion del OA con el usuario? Podemos afirmar que existe relacion estadisticamente significativa entre Interaccion persona ­ OA y Uniformidad de la presentacion para un nivel de confianza del 99%. Ademas el estadistico R-cuadrado indica que el modelo explica un 41,86% de la variabilidad en Interaccion persona ­ OA. El coeficiente de correlacion es igual a 0,647008, indicando una relacion moderadamente fuerte entre las variables. Tambien existe relacion estadisticamente significativa entre Interaccion persona ­ OA y Organizacion de los contenidos para un nivel de confianza del 99%. Ademas el estadistico Rcuadrado indica que el modelo explica un 29,15% de la variabilidad en Interaccion persona ­ OA. El coeficiente de correlacion es igual a 0,539948, indicando una relacion moderadamente fuerte entre las variables. Estos datos nos permiten afirmar que si existe correlacion entre estas variables y que si se disenan los OA poniendo enfasis en estos dos factores: Organizacion de los contenidos y Uniformidad de la presentacion, entonces se obtiene un aumento en la interaccion del usuario con el OA, lo que redundara muy posiblemente en un mejor proceso de aprendizaje. 5.4 Analisis de otros datos obtenidos de los OA en MERLOT Al momento de aplicar la plantilla de evaluacion a los OA de la muestra, se aprovecho para recolectar ademas los datos correspondientes a: valoracion de pares, participa en colecciones y usado en clase, entre otros. Del analisis estadistico de estos datos, se obtuvo la siguiente informacion: 5.4.1 Valoracion de pares en MERLOT
+Porcentaje frecuencia valoracion de pares en MERLOT
+
+70,00 60,00 50,00 40,00 30,00 20,00 10,00 0,00 100 80 valores obtenidos s/v
+
+Figura 5 ­ Frecuencias de valoracion de pares en MERLOT Fuente: Sobre datos propios aplicando el programa Excel
+
+En la figura 5 vemos que casi el 70% de los OA evaluados en la muestra no han sido valorizados por pares en MERLOT, lo que le quita la posibilidad al usuario de saber que opinan los evaluadores de los conceptos de calidad que se evaluan en este repositorio.
+
+5.4.2 Participa en colecciones
+Porcentaje frecuencia participa en colecciones
+60,00 50,00 40,00 30,00 20,00 10,00 0,00 0 1 2 3 4 5 11 13 19 79 246 valores obtenidos
+
+Figura 6 ­ Frecuencias de la participacion en colecciones Fuente: Sobre datos propios aplicando el programa Excel
+
+La figura 6 muestra que solo el 41,54% de los OA de la muestra participan en colecciones, aun asi, este porcentaje es mayor que el porcentaje de OA valorizados por pares, lo que indicaria que los usuarios aplican sus propios juicios para hacer participar algun OA en su coleccion. Llama la atencion un OA en particular, el No 16, que participa en 246 colecciones, cuando el 58,46% de los OA no participa en ninguna coleccion y el 21,54% solo lo hace en 1 o 2 colecciones. Si bien ese OA ha sido valorizado con 5/5 en MERLOT y con 50,47 puntos en la plantilla de evaluacion utilizada en esta investigacion, esto no explica la cantidad de colecciones en las que participa. El hecho de que la gran mayoria de los OA no participen en ninguna coleccion podria estar indicando el desinteres que aun se puede apreciar en los docentes de utilizar este tipo de herramientas en sus clases. 5.4.5 Usado en clase
+Porcentaje frecuencia usado en clase
+90,00 80,00 70,00 60,00 50,00 40,00 30,00 20,00 10,00 0,00 0 1 2 3 4 12 valores obtenidos
+
+Figura 7 ­ Frecuencias de usado en clase Fuente: Sobre datos propios aplicando el programa Excel
+
+Solo el 12% de los OA de la muestra reportan haber sido utilizados en clase, con este dato y el porcentaje de comentarios positivos, podemos realizar la cuenta que hubo un 8% de OA que recibieron comentarios positivos pero que no reportan uso en clase, lo que nuevamente pareceria un
+
+desinteres de los docentes en aplicar los OA en sus clases como una nueva metodologia de impartir ensenanza.
+
+6 CONCLUSIONES DE LA INVESTIGACION
+Como conclusion podemos expresar que es fundamental que se manejen definiciones estandares para poder asegurar que todos los actores que tienen interes en los OA puedan trabajar sin ambiguedades en los conceptos principales que se manejan en este tema de estudio. Si bien hay estandares, como es el caso de IEEE LOM, no es comun ver en la practica, producto del analisis investigativo realizado en diferentes ROA, un alto grado de integridad de los elementos ofrecidos por el estandar, por el contrario, solo se completan entre 13 y 19 elementos de los 86 que ofrece IEEE LOM. Se necesita por consiguiente una revision en los ROA con el objetivo de elevar el grado de integridad de los elementos del esquema de metadatos utilizado, para asi potenciar su reuso, al posibilitar busquedas mas ricas y variadas al contar con mas elementos a invocar en ellas. Consideramos que los factores elegidos para evaluar la reutilizabilidad representan caracteristicas fundamentales que deben estar presentes en los OA desde su diseno para potenciar su reutilizabilidad. Concluimos entonces que estos aspectos y otros (como el detectado en generalidad del lenguaje, que no contempla casi nunca otro idioma que no sea el de origen del creador del OA), son los que se deben tener muy en cuenta en el futuro a la hora de disenar e implementar los OA y de completar sus metadatos aun cuando todo esto lleve mas tiempo, no debe olvidarse que la caracteristica de reutilizacion es una de las principales razones de ser del OA. Si bien no todos los metadatos son obligatorios, la plantilla utilizada pondera todos por igual, posiblemente para tener una mejor medida de la reutilizacion, debieran ponderarse ciertos metadatos mas que otros, como por ejemplo los metadatos educativos son muy pocos utilizados y debieran ser mas considerados. Pretendemos, con los resultados obtenidos, aportar a mejorar el uso las TIC, a mejorar la "alfabetizacion digital" tanto de los docentes como de los alumnos (Oliveira, 2004). Deseamos dejar expresado como conclusion final, que superada la etapa de la concepcion del OA y todo lo que ella conlleva, la reutilizacion del OA acabara por rentabilizar el tiempo que fue invertido en su concepcion. Esto se podra apreciar una vez que otro profesor, alumno o usuario en general pueda reutilizar en diferentes situaciones de aprendizaje y en diferentes momentos el OA almacenado en un ROA, esto significara hacer cada vez mas real la posibilidad de acceder al aprendizaje en cualquier momento y lugar, en cualquier etapa de la vida.
+
+7 BIBLIOGRAFIA
+GLIKMAN, V. (2002). Des cours par correspondance au "e-learning". Edit. Presses Universitaires de France. Paris, Francia. GOMES, J. (2004). Educacao a Distancia ­ Um estudo de caso sobre a Formacao continua de Professores Via Internet. Edit. Universidad de Minho. Braga, Portugal. HERNANDEZ SAMPIERI, R., FERNANDEZ­COLLADO, C. & BAPTISTA, L. P. (2006). Metodologia de la investigacion. Edit.Mc Graw Hill. Mexico, Mexico.
+
+OLIVEIRA, L. (2004). A comunicacao educativa em ambientes virtuais, Um modelo de design de dispositivos para o ensino-aprendizagem na universidade. Edit. Centro de Investigacao em Educacao. Braga, Portugal. RODRIGUEZ ARTACHO, M. (2000). Una arquitectura cognitiva para el diseno de entornos telematicos de ensenanza y aprendizaje. Tesis doctoral Universidad Nacional de Educacion a Distancia. Escuela Tecnica Superior de Ingenieros Industriales. Madrid, Espana. VAN DER MAREN, J. M. (1996). Methodes de recherche pour l'education. Edit. Presses de l'Universite de Montreal. Montreal, Canada. ZUNIGA ZARATE, A. (2000). Uso de Internet en el Entorno Educativo: Modelos, Rendimiento y Evolucion. Tesis Doctoral de la Universitat Politecnica de Catalunya. Catalunia, Espana.
+
+8 WEBGRAFIA
+BERLANGA FLORES, A. J., LOPEZ, C., MORALES, E. & GARCIA, F. J. (2005). Consideraciones para Reforzar el Valor de los Metadatos en los Objetos de Aprendizaje Departamento de Informatica y Automatica. Universidad de Salamanca. Salamanca, Espana. http://www.uoc.edu/symposia/spdece05/pdf/ID03.pdf Fecha de acceso : Mayo/2007. BERLANGA FLORES, A. J. & GARCIA, F. J. (2006). Introduccion a los Estandares y Especificaciones para Ambientes e-learning. Universidad de Salamanca. Salamanca, Espana. http://zarza.usal.es/~fgarcia/doctorado/iuce/Estandares.pdf Fecha de acceso: Noviembre/2007. CUADRADO-GALLEGO, J. J. (2005). Adaptacion de las metricas de reusabilidad de la Ingenieria del Software a los learning objects. RED. Revista de Educacion a Distancia, Ano IV. No monografico II. http://www.um.es/ead/red/M4/ Fecha de acceso: Noviembre/2007. LOPEZ, M,G., MAESTRE ESCALANTE, A.J. & SANCHEZ-ALONSO, S (2007). Reusabilidad de los Objetos de Aprendizaje almacenados en Repositorios de Libre Acceso. En actas de SPDECE 2007, IV Simposio Pluridisciplinar sobre Diseno, Evaluacion y Desarrollo de Contenidos Educativos Reutilizables. Bilbao, Espana. http://spdece07.ehu.es/actas/Lopez.pdf Fecha de acceso: Septiembre/2007. SICILIA, M.A. & GARCIA­BARRIOCANAL, E. (2003). On the Concepts of Usability and Reusability of Learning Objects . International Review of Research in Open and Distance Learning Vol. 4 No 2. ISSN: 1492-3831. http://www.irrodl.org/content/v4.2/sicilia-garcia.html Fecha de acceso: Diciembre/2007. SICILIA, M.A. (2005). Reusabilidad y reutilizacion de objetos didacticos: mitos, realidades y posibilidades. RED: Revista de Educacion a Distancia, ISSN 1578-7680. Ano IV. No monografico II. Murcia, Espana. http://dialnet.unirioja.es/servlet/oaiart?codigo=1098791 o http://www.um.es/ead/red/M2/ Fecha de acceso: Septiembre/2007.
+

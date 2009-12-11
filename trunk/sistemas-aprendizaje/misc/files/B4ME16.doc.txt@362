@@ -1,0 +1,274 @@
+Diseno de documentos Web
+
+Adolfina Perez i Garcia
+
+ HYPERLINK "mailto:fina.perez@uib.es" fina.perez@uib.es
+
+Universidad de las Islas Baleares
+
+www.uib.es/es
+
+1. INTRODUCCION
+
+La WWW es un sistema de distribucion de informacion con una estructura
+hipertextual que combina las posibilidades de los multimedia y las de
+las redes de comunicacion. Se trata de un conjunto de documentos
+interconectados entre si mediante enlaces que posibilitan al usuario
+desplazarse a traves de la informacion, leyendo, curioseando, buscando,
+"navegando"÷ entre imagenes estaticas, textos, sonidos, entornos
+virtuales y documentos en video. La Web se convierte en esa gran telara
+a mundial, en ese nuevo espacio -ciberespacio- creado a partir de las
+relaciones personales y la informacion compartida entre aquellos que se
+estan conectados a la red.
+
+Desde 1988 cada ano se ha venido se ha duplicado el numero de usuarios
+de Internet. Los 16 millones de ordenadores que actualmente se
+encuentran conectados a Internet parece que en cinco anos llegaran a los
+100 millones. En Espana a finales de enero de 1996 los usuarios
+individuales sumaban 250.000. Paralelamente a este crecimiento en numero
+de usuarios de Internet parece que la tendencia actual se dirige hacia
+una concentracion en la produccion de informacion y a que esta sea de
+pago (Soler, 1997).
+
+Todo ello trae importantes repercusiones en la educacion. La emergente
+sociedad de la informacion exigira a los estudiantes de hoy nuevas
+estrategias de busqueda, obtencion, conceptualizacion y organizacion de
+la informacion. Por otra parte, las redes empiezan a configurar una
+concepcion de educacion diferente a la tradicional, abriendo el espacio
+escolar a multiples interacciones entre alumnos, profesores,
+profesionales, empresas, instituciones÷y a entornos mas ricos desde el
+punto de vista semantico donde los alumnos pueden interactuar con la
+informacion, en diferentes sistemas simbolicos.
+
+Este universo de documentos, imagenes, textos, sonidos ofrece tanto a
+profesores como a alumnos una fuente de recursos para el aprendizaje,
+pero ademas supone una via para el desarrollo y transmision de
+documentos elaborados desde el ambito educativo (Misanchuk y Schwier,
+1996). Lo cual se traduce a la posibilidad de crear espacios para el
+intercambio de materiales, difusion de experiencias, ÷ evitando con ello
+la duplicidad de esfuerzos y la posibilidad de concentrar la tarea en la
+creacion de recursos no existentes. De aqui podemos diferenciar b
+sicamente dos tipos de usos de la Web en la educacion que van desde la
+simple navegacion por la informacion, de forma mas o menos localizada y
+consciente hasta la participacion en la creacion de informacion tanto a
+partir de la organizacion de documentos ya localizados en la red como la
+completa elaboracion de nuevas paginas.
+
+2. CARACTERISTICAS DE LA WEB
+
+Algunas de las principales caracteristicas que definen la WWW suponen
+ventajas considerables para su utilizacion y para el desarrollo de
+documentos Web desde el ambito educativo, son las siguientes:
+
+ Estructura hipertextual de la informacion. La Web esta especialmente
+disenada para distribuir informacion con una estructura no lineal. La
+informacion se presenta dividida en pequenos nodos o nucleos e
+interconectada a traves de enlaces o puntos de union. Se trata de
+conexion entre bloques informativos formando una gran red de documentos
+que permiten al usuario "navegar" a traves de ellos construyendo su
+propio itinerario de lectura. El "lector" avanza en la lectura de una
+forma intuitiva, asociando ideas en base a sus intereses, conocimientos
+y la disponibilidad de la informacion (Landow, 1995). Este tipo de
+lectura facilita la estructuracion e interconexion del conocimiento y
+ofrecen al usuario la posibilidad de convertirse en procesador activo de
+la informacion y en la construccion de su propio conocimiento (Duarte,
+Cabero y Romero, 1995).
+
+ Caracter multimedia. Los documentos Web permiten la presentacion de
+informacion en diferentes codigos (texto, graficos, audio, video,
+entornos virtuales÷) o la combinacion entre ellos de forma coordinada en
+un mismo documento. Al hablar de estructura hipertextual i caracter
+multimedia seria mas propio identificarlos como documentos hipermedia
+(Tolhurst, 1995; Salinas, 1994;).
+
+ Integracion de las herramientas de comunicacion de Internet. Otra de
+las principales caracteristicas de estos documentos refiere a la
+posibilidad de activar diferentes herramientas de Internet como el
+correo electronico, telnet, buscadores de informacion÷ lo cual supone la
+posibilidad de enviar un mensaje electronico con el responsable de la
+pagina en cuestion sin necesidad de salir de la pantalla; la posibilidad
+de acceder al servidor donde se encuentra la informacion o transferir
+directamente la informacion a nuestro ordenador o la posibilidad de
+realizar busquedas individualizadas entre el espacio Internet. En este
+caso, los buscadores de informacion, a partir de unos descriptores, el
+servidor nos devuelve una pagina con una lista de documentos que
+responden a nuestra busqueda.
+
+ Diferentes niveles de acceso a la informacion. Los documentos Web son
+accesibles a traves de Internet, en principio por cualquier persona que
+se encuentre conectada. Existen sin embargo materiales con acceso
+restringido, que requieren al usuario una subscripcion o clave de acceso
+para visualizar la informacion. Por otra parte tambien es posible
+consultar documentos sin salir a Internet, accediendo a ficheros que f
+sicamente residen en disco duro del propio ordenador o en otro conectado
+en red local.
+
+ Actualizacion de la informacion. La Web es un espacio de informacion en
+constante movimiento, cada dia aparecen paginas nuevas, se actualizan p
+ginas existentes con nuevos datos o nuevos enlaces a otros documentos.
+La velocidad en la transmision posibilita una gran actualidad de los
+documentos que contiene, tanto es asi que por otra parte nos podemos
+encontrar con punteros que rapidamente han desaparecido o cambiado su
+ubicacion.
+
+ Compatibilidad entre plataformas. Los documentos Web, tal como veremos
+mas adelante utilizan el HTML como lenguaje de programacion. Este es
+compatible en plataformas Windows como Macintosh. Lo cual hace posible
+la visualizacion de los la informacion desde diferentes plataformas sin
+necesidad de convertir o duplicar de los documentos.
+
+ Posibilidad de cierto control por parte del usuario sobre la
+presentacion de la informacion. El usuario puede modificar algunos
+elementos de presentacion de la informacion, como la fuente de texto,
+color tamano, color del fondo; tamano de la ventana; o diferenciar el de
+los enlaces por donde el usuario ya ha pasado.
+
+La WWW se configura en torno a los siguientes elementos (Adell, 1996):
+
+ Un protocolo de comunicacion, el HTTP (Hipertext Trasnfer Protocol) que
+permite la recuperacion automatica de informacion a traves de conexiones
+entre documentos de diferentes formatos y ubicados en diferentes
+ordenadores.
+
+ Un lenguaje de programacion hipermedia para la WWW: HTML (hypertext
+markup language), el cual permite disenar la estructura de la
+informacion y la organizacion de los elementos: crear enlaces a
+diferentes partes del documento o a otros documentos, y presentar
+elementos graficos, sonoros o textuales.
+
+ El URL (Uniform Resource Locator). Es una direccion electronica que
+permite al ordenador identificar y localizar los objetos. El URL indica
+al ordenador el protocolo de comunicacion a seguir y la direccion fisica
+donde reside el documento en cuestion.
+
+ Los servidores, o lugares donde fisicamente reside la informacion
+
+ Los clientes, que se comunican con el servidor a traves de un software
+especifico que le permite comunicarse y navegar entre los documentos
+Web.
+
+3. CONSIDERACIONES PARA EL DISENO DE DOCUMENTOS WEB
+
+Como senala A. Bartolome (1996) disenar documentos Web es algo mas que
+la de tags. A la hora de disenar un documento Web es importante
+considerar, en primer lugar, que vamos a disenar un documento
+hipermedia, lo cual supone un cambio de mentalidad. Supone concebir un
+documento que no unicamente vaya a leerse de principio a fin (lectura
+propia del texto escrito) sino que presentara diferentes niveles de
+lecturas, diferentes rutas÷ se trata en definitiva de concebir un
+espacio de lectura tridimensional donde el usuario puede elegir su
+propio camino a traves de la informacion.
+
+A partir de aqui siguiendo a (Adell, 1996; Misanchuk y Schwier, 1996) y
+en funcion de nuestra propia experiencia, senalamos algunos aspectos a
+considerar para el diseno de documentos Web:, las cuales agrupamos en
+torno a criterios de navegacion y criterios de diseno:
+
+ Elementos de navegacion: considerar pequenas unidades de informacion y
+las interrelaciones entre ellas, tratando de prever las posibles rutas
+de lectura y la posibilidad que tiene un usuario de acceder a una pagina
+de nuestro documento desde otro punto fuera del mismo; considerar la
+inclusion de organizadores de la navegacion tales como "volver al punto
+anterior de nuestro documento", "ir a la pagina principal", incluir un
+mapa de navegacion (estructura de los contenidos, objetivos del
+documento÷) que permitan al usuario orientarse en la globlalidad de la
+informacion.
+
+ Considerar aspectos de diseno de los elementos que el documento
+integrara tales como legibilidad de la informacion (tamano, contraste de
+colores), funcion de cada uno de los elementos (imagenes, sonidos,
+texto, graficos÷) en el conjunto (Burgess, 1996; Orr, Golas y Yao,
+1994). Al respecto puede ser interesante la consulta de algunas de las
+listas de estilo entre las que destacamos:
+
+http://www.w3.org/pub/WWW/Provider/Style/Overview.html
+
+http://www.cs.cmu.edu/~tilt/cgh/
+
+Como apuntabamos mas arriba, los documentos Web utilizan el HTML como
+lenguaje de programacion, el cual funciona en base a tags. No es nuestro
+proposito aqui describir los elementos del HTML (los cuales se trabajar
+n en el taller) aunque si queremos indicar algunos documentos accesibles
+en la red:
+
+http://www.uib.es/documents/
+
+http://www.ncsa.uiuc.edu/General/Internet/WWW/HTMLPrimer.html
+
+http://www.utoronto.ca/webdocs/HTMLdocs/NewHTML/htmlindex.html
+
+http://werbach.com/barebones/
+
+Actualmente existen bastantes herramientas que facilitan la creacion de
+documentos Web. Por una parte existen diferentes editores de HTML, unos
+facilitan la edicion directamente sobre el lenguaje HTML; y otros, los
+editores de paginas Web, gestionan la edicion en un interface mas
+amigable per ejemplo el Adobe PageMill o el Frontpage para Windows o el
+Claris HomePage para Macintosh.
+
+Tambien existen conversores a HTML. Estos son programas que convierten
+un documento normal de texto, Power Paint, PageMaker, QuarkXpress, etc.
+a documentos HTML.
+
+Algunas de las referencias donde encontrar informacion sobre editores y
+conversores son:
+
+http://web.canlink.com/helpdesk/editors.html
+
+http://www.w3.org/pub/www/tools/Filters.html
+
+http://union.ncsa.uiuc.edu/hyperNews/get/www/html/editors.html
+
+
+
+REFERENCIAS BIBLIOGRAFICAS
+
+ADELL, J. (1996): "La navegacion hipertextual en el World Wide Web:
+implicaciones para el diseno de materiales educativos", en Edutec 95.
+Redes de comunicacion, redes de aprendizaje, UIB, Palma.
+
+BARTOLOME, A. (1996): "Construir documentos para el Web: algo mas que a
+adir tags", en Edutec 95. Redes de comunicacion, redes de aprendizaje,
+UIB, Palma.
+
+BURGESS, G. (1996): "The Design Of Adult Learning Around Multimedia
+Delivery", en Journal of Interactive Instruction Development, Vol. 9, No
+1, pp. 3-9.
+
+DUARTE, A.; CABERO, J. Y ROMERO, R. (1995): "Instruccion informatizada y
+simulada: los hipertextos e hipermedia", en VILLAR, L. M. Y CABERO, J.
+(Coords.): Aspectos criticos de una Reforma Educativa, Sevilla,
+Universidad de Sevilla, pp. 41-59.
+
+LANDON, G. P. (1995): Hipertexto. La convergencia de la teoria critica
+contemporanea y la tecnologia, Paidos, Barcelona.
+
+MISANCHUK, E., SCHWIER, R. (1996): "Benefits and pitfalls of using HTML
+as a CD-ROM development tool", en Journal of Interactive Instruction
+Development. Vol. 8, No 4, pp. 3-14.
+
+ORR, K.; GOLAS, K. Y YAO, K. (1994): "Storyboard Development for
+Interactive Multimedia Training", en Journal of Interactive Instruction
+Development. Vol. 6, No 3, pp. 18-31.
+
+SALINAS, J. (1994): "Hipertexto e Hipermedia en la ensenanza
+universitaria", en Pixel Bit, 1.
+
+SOLER, J. (1997): "Internet. El espanol y los cimientos de un cambio
+global", en Boletin de RedIRIS, No 39.
+http://www.rediris.es/rediris/boletin/39/enfoque4.html
+
+TOLHURST, D. (1995): "Hipertext, hypermedia, multimedia defined", en
+Educatinal Technology, vol. 35, No 2, pp. 21-26.
+
+© 1995-1998 HYPERLINK "http://www.ieev.uma.es/" Instituto de Ciencias
+de la Educacion Universidad de Malaga
+
+††Creac.: 17 feb 98; 13:16:59
+
+††Modif.: 17 feb 98; 13:17:01
+
+††Revis.: 26 feb 98; 11:05:01
+
+
+

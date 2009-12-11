@@ -1,0 +1,835 @@
+1998 Copywrite BICSI Version 1
+Agenda
+Requerimientos para el Recableado
+Cronograma del Proyecto
+Construccion Nueva
+Objetivos
+Determinar los requerimientos adicionales cuando se planea una instalacion de re-cableado
+Requerimientos del Re-cableado
+Un re-cableado es el reemplazo o aumento de una instalacion existente
+Se re-cablea en un espacio ocupado
+Los temas de seguridad deben considerarse y hacerse de primera importancia
+Un re-cableado puede requerir que todo el trabajo se haga “despues de las horas habiles”
+Requerimientos del Re-cableado
+Una re-cableado puede paralizar al
+Personal trabajando
+El personal instalador se encuentra dentro y fuera del area
+El plafon es removido
+Existen escaleras por doquier
+Cables estan por doquier
+Equipo de trabajo
+Cables son movidos o re-arreglados
+Problemas en el equipo pueden ocurrir
+Requerimientos del Re-cableado
+Un re-cableado requiere
+Planeacion
+Documentacion
+Pruebas
+Remover el cable y el “hardware” de terminacion viejos
+Requerimientos del Re-cableado
+El re-cableado requiere
+Documentacion disponible y actual del sistema existente
+Planos de los sistemas existentes y futuros
+Especificaciones de Materiales para todos los nuevos componentes
+Alcances del trabajo de instalacion
+Cronograma del proyecto
+Requerimientos del Re-cableado
+Sistema de Documentacion requerido para un re-cableado
+La documentacion existente del sistema debera ser examinada y comparada con el sistema instalado
+La documentacion existente podria incluir
+Planos
+Como - se - Construyo
+Memoria de circuitos/numeros telefonicos
+Memoria de cables
+Memoria de los Cross-connect
+Requerimientos del Re-cableado
+Sistema de Documentacion requerido para un re-cableado
+El sistema instalado debera ser verificado haciendo una visita completa
+Cada aspecto del sistema debera ser revisado visualmente y la documentacion verificada
+Cuando NO exista documentacion, un Sistema de Documentacion debera ser realizado en base a una inspeccion detallada de la instalacion
+Toda la documentacion se realizara en base a las guias de la norma ANSI/TIA/EIA- 606A
+Requerimientos del Re-cableado
+Los componentes del sistema deberan ser verificados y documentados
+Equipamiento
+Ubicaciones
+Cables
+Canalizaciones y Espacios de Telecomunicacion
+Requerimientos del Recableado
+Sistema de verificacion y documentacion
+Una vez que el sistema instalado ha sido verificado y documentado, se haran las decisiones de que partes seran re-usadas y cuales reemplazadas
+Los planos deberan ser entonces preparados al detalle
+Configuracion actual del sistema
+Configuracion temporal del sistema durante el re-cableado
+Configuracion final del sistema
+Requerimientos del Recableado
+Especificaciones de Materiales
+Todos los materiales a utilizarse en el re-cableado deberan especificarse en un documento de bases
+Las especificaciones de los materiales deberan incluir
+Espacios y canalizaciones adicionales
+Racks, tableros y administracion de cableado
+Cable y conectores
+Tierras y Aterrizamiento
+Contencion de fuego (firestopping)
+Requerimientos electricos nuevos
+Requerimientos del Re-cableado
+Alcance del trabajo de Instalacion (plan)
+El alcance del trabajo de instalacion es un plan detallado de cuando y como todo el trabajo debe ser realizado
+El alcance del trabajo es usado para eliminar los problemas que pueden ser encontrados cuando se hacen cambios a los sistemas existentes
+Requerimientos del Re-cableado
+Alcance del trabajo de instalacion (plan)
+Debera contener la informacion encontrada en el documento de bases de la nueva construccion
+Debera contener informacion adicional sobre
+Los sistemas actuales en uso
+Personal requerido durante el re-cableado
+Requerimientos de Equipo durante el cableado
+Medidas temporales a realizarse durante el re-cableado
+Resolucion de problemas
+Requerimientos del Re-cableado
+Pruebas al cable existente
+Todos los cables existentes deberan probarse ANTES de la instalacion del nuevo sistema
+Los cables deberan probarse para asegurar
+Ubicacion
+Uso del circuito
+Conexiones del equipo
+Capacidad del cable Dorsal (backbone)
+Cumplimiento de las Normas
+Requerimientos del Re-cableado
+Probando un cable nuevo
+Al termino de una nueva instalacion de cableado, TODOS los cables deberan probarse para
+Cumplir con la especificacion de pruebas de ANSI/TIA/EIA
+Verificacion de ubicacion
+Cumplimiento de las Normas
+Cronograma del Proyecto
+Cronograma del proyecto puede tomarse de dos formas
+Fases “Phase-in” del nuevo sistema
+Corte “Flash cut”
+Cronograma del Proyecto
+Fases “phase-in” del nuevo sistema
+En el cambio por fase de un sistema, porciones del viejo sistema son transferidas al nuevo por partes
+En cuanto oficinas, pisos o edificios son terminados estos son incluidos en el nuevo sistema
+El viejo y nuevo sistema estaran trabajando en paralelo hasta que la transferencia se complete
+Puede involucrar re-arreglos de personal
+Cronograma del Proyecto
+Corte
+Un corte “flash cut” transfiere todo el equipo del viejo sistema al nuevo sistema de cableado instalado en de sola vez
+Un corte “flash cut” requiere que los sistemas que son movidos al nuevo sistema sean desconectados temporalmente
+Dependiendo del tamano de la instalacion la desconexion temporal puede tomar varios dias
+Cronograma del Proyecto
+Corte “flash cut”
+Si un equipo nuevo esta siendo instalado en el sistema de cableado nuevo, el viejo sistema se mantendra funcionando en tanto todos los cables y equipo esten instalados y probados
+El equipo viejo es desconectado y los circuitos son movidos al nuevo equipo
+Cronograma del Proyecto
+Los planes de cambio deben ser hechos y mantenidos de forma sistematica
+La mayoria de los planes de cambio toman un formato de listas de revision “check list”
+La listas se mantienen para mostrar los sistemas viejo y nuevo
+Las listas se actualizan en base a los cambios requeridos
+Una “Lista Maestra debera mantenerse con copias para todo el personal involucrado
+Cronograma del Proyecto
+Despues del Cambio
+Establezca un “Help Desk” para manejar los problemas de los usuarios
+Los usuarios deberan ser entrenados en el uso y nuevas caracteristicas del nuevo equipamiento
+Recapitule TODOS los cambios hechos al plan original
+La cosas que pudieron olvidarse o soslayarse emergeran ahora y se necesitara resolverlas
+Cronograma del Proyecto
+Remocion del cable y hardware de conexionado viejo
+Una vez que el nuevo sistema este trabajando TODOS los cables y hardware de conexionado que ya no se utilicen , debera removerse
+Se debe verificar que los cables viejos no esten activos ANTES de removerlos
+Cronograma del Proyecto
+Remocion del cable y hardware de conexionado viejo
+Los cables viejos no deberan removerse hasta que el cambio este completo y el sistema haya sido aceptado
+Todo el herraje que no sea utilizado debera removerse
+Toda la basura y desperdicios deberan ser removidos y dispuestos en recipientes apropiados
+Cronograma del Proyecto
+Remocion del cable y hardware de conexionado viejo
+Los cables de cobre pueden ser reciclados
+La mayoria de los proveedores cargaran una cantidad por remover los cables viejos de cobre
+Construccion Nueva
+Construccion Nueva
+Construccion Nueva
+La construccion nueva requiere menos planeacion que los re-cableados
+Los usuarios NO seran interrumpidos
+Los sistemas viejos no tendran que mantenerse funcionando durante la instalacion
+El inmueble esta vacio y es posible programar el acceso al mismo
+Comparativo
+Re-cableado vs. construccion nueva
+Las instalaciones nuevas son menos costosas que los re-cableados
+Las instalaciones nuevas requieren menos planeacion que los re-cableados
+Las instalaciones nuevas consumen menos tiempo que los re-cableados
+Las instalaciones nuevas estan sujetas a menos cambios en las ordenes
+Revision
+Revision
+Nombre tres requisitos cuando se planea un re-cableado.
+Revision
+Nombre dos diferencias entre un re-cableado y una construccion nueva
+Revision
+Nombre tres componentes de un sistema que deben ser verificados y documentados cuando se planea un re-cableado
+Blank Presentation
+1998 Copywrite BICSI Version 1
+Agenda
+Requerimientos para el Re-cableado
+Cronograma del Proyecto
+Construccion Nueva
+Objetivos
+Determinar los requerimientos adicionales cuando se planea una instalacion de re-cableado
+Requerimientos del Re-cableado
+Un re-cableado es el reemplazo o aumento de una instalacion existente
+Se re-cablea en un espacio ocupado
+Los temas de seguridad deben considerarse y hacerse de primera importancia
+Un re-cableado puede requerir que todo el trabajo se haga “despues de las horas habiles”
+Requerimientos del Re-cableado
+Una re-cableado puede paralizar al
+Personal trabajando
+El personal instalador se encuentra dentro y fuera del area
+El plafon es removido
+Existen escaleras por doquier
+Cables estan por doquier
+Equipo de trabajo
+Cables son movidos o re-arreglados
+Problemas en el equipo pueden ocurrir
+Requerimientos del Re-cableado
+Un re-cableado requiere
+Planeacion
+Documentacion
+Pruebas
+Remover el cable y el “hardware” de terminacion viejos
+Requerimientos del Re-cableado
+El re-cableado requiere
+Documentacion disponible y actual del sistema existente
+Planos de los sistemas existentes y futuros
+Especificaciones de materiales para todos los nuevos componentes
+Alcances del trabajo de instalacion
+Cronograma del proyecto
+Requerimientos del Re-cableado
+Sistema de Documentacion requerido para un re-cableado
+La documentacion existente del sistema debera ser examinada y comparada con el sistema instalado
+La documentacion existente podria incluir
+Planos
+Memoria Tecnica
+Memoria de circuitos/numeros telefonicos
+Memoria de cables
+Memoria de las conexiones cruzadas
+Requerimientos del Re-cableado
+Sistema de Documentacion requerido para un re-cableado
+El sistema instalado debera ser verificado haciendo una visita completa
+Cada aspecto del sistema debera ser revisado visualmente y la documentacion verificada
+Cuando NO exista documentacion, un Sistema de Documentacion debera ser realizado en base a una inspeccion detallada de la instalacion
+Toda la documentacion se realizara en base a las guias de la norma ANSI/TIA/EIA- 606-A
+Requerimientos del Re-cableado
+Los componentes del sistema deberan ser verificados y documentados
+Equipamiento
+Ubicaciones
+Cables
+Canalizaciones y Espacios de Telecomunicacion
+Requerimientos del Recableado
+Sistema de verificacion y documentacion
+Una vez que el sistema instalado ha sido verificado y documentado, se haran las decisiones de que partes seran re-usadas y cuales reemplazadas
+Los planos deberan ser entonces preparados al detalle
+Configuracion actual del sistema
+Configuracion temporal del sistema durante el re-cableado
+Configuracion final del sistema
+Requerimientos del Recableado
+Especificaciones de Materiales
+Todos los materiales a utilizarse en el re-cableado deberan especificarse en un documento de bases
+Las especificaciones de los materiales deberan incluir
+Espacios y canalizaciones adicionales
+Racks, tableros y administracion de cableado
+Cables y conectores
+Tierras y Aterrizamiento
+Contencion de fuego (firestopping)
+Requerimientos electricos nuevos
+Requerimientos del Re-cableado
+Alcance del trabajo de Instalacion (plan)
+El alcance del trabajo de instalacion es un plan detallado de cuando y como todo el trabajo debe ser realizado
+El alcance del trabajo es usado para eliminar los problemas que pueden ser encontrados cuando se hacen cambios a los sistemas existentes
+Requerimientos del Re-cableado
+Alcance del trabajo de instalacion (plan)
+Debera contener la informacion encontrada en el documento de bases de la nueva construccion
+Debera contener informacion adicional sobre
+Los sistemas actuales en uso
+Personal requerido durante el re-cableado
+Requerimientos de Equipo durante el cableado
+Medidas temporales a realizarse durante el re-cableado
+Resolucion de problemas
+Requerimientos del Re-cableado
+Pruebas al cable existente
+Todos los cables existentes deberan probarse ANTES de la instalacion del nuevo sistema
+Los cables deberan probarse para asegurar
+Ubicacion
+Uso del circuito
+Conexiones del equipo
+Capacidad del cable vertical (backbone)
+Cumplimiento con las Normas
+Requerimientos del Re-cableado
+Probando un cable nuevo
+Al termino de una nueva instalacion de cableado, TODOS los cables deberan probarse para
+Cumplir con la especificacion de pruebas de ANSI/TIA/EIA
+Verificacion de ubicacion
+Cumplimiento con las Normas
+Cronograma del Proyecto
+Cronograma del proyecto puede tomarse de dos formas
+Fases “Phase-in” del nuevo sistema
+Corte “Flash cut”
+Cronograma del Proyecto
+Fases “phase-in” del nuevo sistema
+En el cambio por fase de un sistema, porciones del viejo sistema son transferidas al nuevo por partes
+En cuanto oficinas, pisos o edificios son terminados estos son incluidos en el nuevo sistema
+El viejo y nuevo sistema estaran trabajando en paralelo hasta que la transferencia se complete
+Puede involucrar re-arreglos de personal
+Cronograma del Proyecto
+Corte
+Un corte “flash cut” transfiere todo el equipo del viejo sistema al nuevo sistema de cableado instalado de sola vez
+Un corte “flash cut” requiere que los sistemas que son movidos al nuevo sistema sean desconectados temporalmente
+Dependiendo del tamano de la instalacion la desconexion temporal puede tomar varios dias
+Cronograma del Proyecto
+Corte “flash cut”
+Si un equipo nuevo esta siendo instalado en el sistema de cableado nuevo, el viejo sistema se mantendra funcionando en tanto todos los cables y equipo esten instalados y probados
+El equipo viejo es desconectado y los circuitos son movidos al nuevo equipo
+Cronograma del Proyecto
+Los planes de cambio deben ser hechos y mantenidos de forma sistematica
+La mayoria de los planes de cambio toman un formato de listas de revision “check list”
+Las listas se mantienen para mostrar los sistemas viejos y nuevos
+Las listas se actualizan en base a los cambios requeridos
+Una “Lista Maestra” debera mantenerse con copias para todo el personal involucrado
+Cronograma del Proyecto
+Despues del Cambio
+Establezca un “Help Desk” para manejar los problemas de los usuarios
+Los usuarios deberan ser entrenados en el uso y nuevas caracteristicas del nuevo equipamiento
+Recapitule TODOS los cambios hechos al plan original
+Las cosas que pudieron olvidarse o soslayarse emergeran ahora y se necesitara resolverlas
+Cronograma del Proyecto
+Remocion del cable y hardware de conexionado viejo
+Una vez que el nuevo sistema este trabajando TODOS los cables y hardware de conexionado que ya no se utilicen , debera removerse
+Se debe verificar que los cables viejos no esten activos ANTES de removerlos
+Cronograma del Proyecto
+Remocion del cable y hardware de conexionado viejo
+Los cables viejos no deberan removerse hasta que el cambio este completo y el sistema haya sido aceptado
+Todo el herraje que no sea utilizado debera removerse
+Toda la basura y desperdicios deberan ser removidos y dispuestos en recipientes apropiados
+Cronograma del Proyecto
+Remocion del cable y hardware de conexionado viejo
+Los cables de cobre pueden ser reciclados
+La mayoria de los proveedores cargaran una cantidad por remover los cables viejos de cobre
+Construccion Nueva
+Construccion Nueva
+Construccion Nueva
+La construccion nueva requiere menos planeacion que los re-cableados
+Los usuarios NO seran interrumpidos
+Los sistemas viejos no tendran que mantenerse funcionando durante la instalacion
+El inmueble esta vacio y es posible programar el acceso al mismo
+Comparativo
+Re-cableado vs. construccion nueva
+Las instalaciones nuevas son menos costosas que los re-cableados
+Las instalaciones nuevas requieren menos planeacion que los re-cableados
+Las instalaciones nuevas consumen menos tiempo que los re-cableados
+Las instalaciones nuevas estan sujetas a menos cambios en las ordenes
+Revision
+Revision
+Nombre tres requisitos cuando se planea un re-cableado.
+Revision
+Nombre dos diferencias entre un re-cableado y una construccion nueva
+Revision
+Nombre tres componentes de un sistema que deben ser verificados y documentados cuando se planea un re-cableado
+1998 Copywrite BICSI Version 1
+Perspectiva General
+Requerimientos para el Re-cableado
+Cronograma del Proyecto
+Construccion Nueva
+Objetivos
+Determinar los requerimientos adicionales cuando se planea una instalacion de re-cableado
+Requerimientos del Re-cableado
+Un re-cableado es el reemplazo o aumento de una instalacion existente
+Se re-cablea en un espacio ocupado
+Los temas de seguridad deben considerarse y hacerse de primera importancia
+Un re-cableado puede requerir que todo el trabajo se haga “despues de las horas habiles”
+Requerimientos del Re-cableado
+Una re-cableado puede interrumpir al
+Personal trabajando
+El personal instalador se encuentra dentro y fuera del area
+El plafon es removido
+Existen escaleras por doquier
+Cables estan por doquier
+Equipo de trabajo
+Cables son movidos o re-arreglados
+Problemas en el equipo pueden ocurrir
+Requerimientos del Re-cableado
+Un re-cableado requiere
+Planeacion
+Documentacion
+Pruebas
+Remover el cable y el “hardware” de terminacion viejos
+Requerimientos del Re-cableado
+Planear el re-cableado requiere
+Documentacion disponible y actual del sistema existente
+Planos de los sistemas existentes y futuros
+Especificaciones de materiales para todos los nuevos componentes
+Alcances del trabajo de instalacion
+Cronograma del proyecto
+Requerimientos del Re-cableado
+Sistema de Documentacion requerido para un re-cableado
+La documentacion existente del sistema debera ser examinada y comparada con el sistema instalado
+La documentacion existente podria incluir
+Planos
+Memoria Tecnica
+Memoria de circuitos/numeros telefonicos
+Memoria de cables
+Memoria de las conexiones cruzadas
+Requerimientos del Re-cableado
+Sistema de Documentacion requerido para un re-cableado
+El sistema instalado debera ser verificado haciendo una revision completa
+Cada aspecto del sistema debera ser revisado visualmente y la documentacion verificada
+Cuando NO exista documentacion, un sistema de documentacion debera ser realizado en base a una inspeccion detallada de la instalacion
+Toda la documentacion se realizara en base a las guias del estandar ANSI/TIA/EIA- 606-A
+Requerimientos del Re-cableado
+Los componentes del sistema deberan ser verificados y documentados
+Circuitos
+Equipamiento
+Ubicaciones
+Cables
+Canalizaciones
+Requerimientos del Re-cableado
+Sistema de verificacion y documentacion
+Una vez que el sistema instalado ha sido verificado y documentado, se haran las decisiones de cuales partes seran re-usadas y cuales reemplazadas
+Los planos deberan ser entonces preparados al detalle
+Configuracion actual del sistema
+Configuracion temporal del sistema durante el re-cableado
+Configuracion final del sistema
+Requerimientos del Recableado
+Especificaciones de Materiales
+Todos los materiales a utilizarse en el re-cableado deberan especificarse en un documento de bases
+Las especificaciones de los materiales deberan incluir
+Espacios y canalizaciones adicionales
+Racks, tableros y organizacion de cableado
+Cables y conectores
+Tierras y uniones
+Contencion de fuego (firestopping)
+Requerimientos electricos nuevos
+Requerimientos del Re-cableado
+Alcance del trabajo de Instalacion (plan)
+El alcance del trabajo de instalacion es un plan detallado de cuando y como todo el trabajo debe ser realizado
+El alcance del trabajo es usado para eliminar los problemas que pueden ser encontrados cuando se hacen cambios a los sistemas existentes
+Requerimientos del Re-cableado
+Alcance del trabajo de Instalacion (plan)
+Debera contener la misma informacion encontrada en documentos de bases tecnicas de construccion nueva
+Debera contener informacion adicional sobre
+Los sistemas actuales en uso
+Personal requerido durante el re-cableado
+Requerimientos de equipo durante el re-cableado
+Medidas temporales a realizarse durante el re-cableado
+Resolucion de problemas
+Requerimientos del Re-cableado
+Pruebas al cable existente
+Todos los cables existentes deberan probarse ANTES de la instalacion del nuevo sistema
+Los cables deberan probarse para asegurar
+Ubicacion
+Uso del circuito
+Conexiones del equipo
+Capacidad disponible del cable vertical (backbone)
+Cumplimiento con los codigos
+Requerimientos del Re-cableado
+Probando cables nuevos
+Al termino de una instalacion de cableado, TODOS los cables deberan probarse para
+Cumplir con la especificacion de pruebas de ANSI/TIA/EIA
+Verificacion de ubicacion
+Cumplimiento con los codigos
+Cronograma del Proyecto
+Cronograma del proyecto puede tomarse de dos formas
+Fases “Phase-in” del nuevo sistema
+Corte “Flash cut”
+Cronograma del Proyecto
+Fases “phase-in” del nuevo sistema
+En el cambio por fase de un sistema, porciones del viejo sistema son transferidas al nuevo por partes
+En cuanto oficinas, pisos o edificios son terminados estos son incluidos en el nuevo sistema
+El viejo y nuevo sistema estaran trabajando en paralelo hasta que la transferencia se complete
+Puede involucrar re-arreglos de personal
+Cronograma del Proyecto
+Corte “flash cut”
+Un corte “flash cut” transfiere todo el equipo del viejo sistema al nuevo sistema de cableado instalado de sola vez
+Un corte “flash cut” requiere que los sistemas que son movidos al nuevo sistema sean desconectados temporalmente
+Dependiendo del tamano de la instalacion la desconexion temporal puede tomar varios dias
+Cronograma del Proyecto
+Corte “flash cut”
+Si un equipo nuevo esta siendo instalado en el sistema de cableado nuevo, el viejo sistema se mantendra funcionando en tanto todos los cables y equipo esten instalados y probados
+El equipo viejo es desconectado y los circuitos son movidos al nuevo equipo
+Cronograma del Proyecto
+Los planes de cambio deben ser hechos y mantenidos de forma sistematica
+La mayoria de los planes de cambio toman un formato de listas de revision “check list”
+Las listas se mantienen para mostrar los sistemas viejos y nuevos
+Las listas se actualizan en base a los cambios requeridos
+Una “Lista Maestra” debera mantenerse con copias para todo el personal involucrado
+Cronograma del Proyecto
+Despues del Cambio
+Establezca un “Help Desk” para manejar los problemas de los usuarios
+Los usuarios deberan ser entrenados en el uso y nuevas caracteristicas del nuevo equipamiento
+Actualiza TODOS los cambios hechos al plan original
+Las cosas que pudieron olvidarse o pasar por alto emergeran ahora y se necesitara resolverlas
+Cronograma del Proyecto
+Remocion del cable y hardware de conexion viejo
+Una vez que el nuevo sistema este trabajando TODOS los cables y hardware de conexion que ya no se utilicen, debera removerse
+Se debe verificar que los cables viejos no esten activos ANTES de removerlos
+Cronograma del Proyecto
+Remocion del cable y hardware de conexion viejo
+Los cables viejos no deberan removerse hasta que el cambio este completo y el sistema haya sido aceptado
+Todo el hardware que no sea utilizado debera removerse
+Toda la basura y desperdicios deberan ser removidos y dispuestos en recipientes apropiados
+Cronograma del Proyecto
+Remocion del cable y hardware de conexion viejo
+Los cables de cobre pueden ser reciclados
+La mayoria de los proveedores cobran una cantidad por remover los cables viejos de cobre
+Construccion Nueva
+Construccion Nueva
+Construccion Nueva
+La construccion nueva requiere menos planeacion que los re-cableados
+Los usuarios NO seran interrumpidos
+Los sistemas viejos no tendran que mantenerse funcionando durante la instalacion
+El inmueble esta vacio y es posible programar el acceso al mismo
+Comparativo
+Re-cableado vs. construccion nueva
+Las instalaciones nuevas son menos costosas que los re-cableados
+Las instalaciones nuevas requieren menos planeacion que los re-cableados
+Las instalaciones nuevas consumen menos tiempo que los re-cableados
+Las instalaciones nuevas estan sujetas a menos ordenes de cambio
+Revision
+Revision
+Nombre tres requisitos cuando se planea un re-cableado.
+Revision
+Nombre dos diferencias entre un re-cableado y una construccion nueva
+Revision
+Nombre tres componentes de un sistema que deben ser verificados y documentados cuando se planea un re-cableado
+1998 Copywrite BICSI Version 1
+Perspectiva General
+Requerimientos para el Re-cableado
+Cronograma del Proyecto
+Construccion Nueva
+Objetivos
+Determinar los requerimientos adicionales cuando se planea una instalacion de re-cableado
+Requerimientos del Re-cableado
+Un re-cableado es el reemplazo o aumento de una instalacion existente
+Se re-cablea en un espacio ocupado
+Los temas de seguridad deben considerarse y hacerse de primera importancia
+Un re-cableado puede requerir que todo el trabajo se haga “despues de las horas habiles”
+Requerimientos del Re-cableado
+Una re-cableado puede interrumpir al
+Personal trabajando
+El personal instalador se encuentra dentro y fuera del area
+El plafon es removido
+Existen escaleras por doquier
+Cables estan por doquier
+Equipo de trabajo
+Cables son movidos o re-arreglados
+Problemas en el equipo pueden ocurrir
+Requerimientos del Re-cableado
+Un re-cableado requiere
+Planeacion
+Documentacion
+Pruebas
+Remover el cable y el “hardware” de terminacion viejos
+Requerimientos del Re-cableado
+Planear el re-cableado requiere
+Documentacion disponible y actual del sistema existente
+Planos de los sistemas existentes y futuros
+Especificaciones de materiales para todos los nuevos componentes
+Alcances del trabajo de instalacion
+Cronograma del proyecto
+Requerimientos del Re-cableado
+Sistema de Documentacion requerido para un re-cableado
+La documentacion existente del sistema debera ser examinada y comparada con el sistema instalado
+La documentacion existente podria incluir
+Planos
+Memoria Tecnica
+Memoria de circuitos/numeros telefonicos
+Memoria de cables
+Memoria de las conexiones cruzadas
+Requerimientos del Re-cableado
+Sistema de Documentacion requerido para un re-cableado
+El sistema instalado debera ser verificado haciendo una revision completa
+Cada aspecto del sistema debera ser revisado visualmente y la documentacion verificada
+Cuando NO exista documentacion, un sistema de documentacion debera ser realizado en base a una inspeccion detallada de la instalacion
+Toda la documentacion se realizara en base a las guias del estandar ANSI/TIA/EIA- 606-A
+Requerimientos del Re-cableado
+Los componentes del sistema deberan ser verificados y documentados
+Circuitos
+Equipos
+Ubicaciones
+Cables
+Canalizaciones
+Requerimientos del Re-cableado
+Sistema de verificacion y documentacion
+Una vez que el sistema instalado ha sido verificado y documentado, se haran las decisiones de cuales partes seran re-usadas y cuales reemplazadas
+Los planos deberan ser entonces preparados al detalle
+Configuracion actual del sistema
+Configuracion temporal del sistema durante el re-cableado
+Configuracion final del sistema
+Requerimientos del Recableado
+Especificaciones de Materiales
+Todos los materiales a utilizarse en el re-cableado deberan especificarse en un documento de bases
+Las especificaciones de los materiales deberan incluir
+Espacios y canalizaciones adicionales
+Racks, tableros y organizacion de cableado
+Cables y conectores
+Tierras y uniones
+Contencion de fuego (firestopping)
+Requerimientos electricos nuevos
+Requerimientos del Re-cableado
+Alcance del trabajo de Instalacion (plan)
+El alcance del trabajo de instalacion es un plan detallado de cuando y como todo el trabajo debe ser realizado
+El alcance del trabajo es usado para eliminar los problemas que pueden ser encontrados cuando se hacen cambios a los sistemas existentes
+Requerimientos del Re-cableado
+Alcance del trabajo de Instalacion (plan)
+Debera contener la misma informacion encontrada en documentos de bases tecnicas de construccion nueva
+Debera contener informacion adicional sobre
+Los sistemas actuales en uso
+Personal requerido durante el re-cableado
+Requerimientos de equipo durante el re-cableado
+Medidas temporales a realizarse durante el re-cableado
+Resolucion de problemas
+Requerimientos del Re-cableado
+Pruebas al cable existente
+Todos los cables existentes deberan probarse ANTES de la instalacion del nuevo sistema
+Los cables deberan probarse para asegurar
+Ubicacion
+Uso del circuito
+Conexiones del equipo
+Capacidad disponible del cable vertical (backbone)
+Cumplimiento con los codigos
+Requerimientos del Re-cableado
+Probando cables nuevos
+Al termino de una instalacion de cableado, TODOS los cables deberan probarse para
+Cumplir con la especificacion de pruebas de ANSI/TIA/EIA
+Verificacion de ubicacion
+Cumplimiento con los codigos
+Cronograma del Proyecto
+Cronograma del proyecto puede tomarse de dos formas
+Fases “Phase-in” del nuevo sistema
+Corte “Flash cut”
+Cronograma del Proyecto
+Fases “phase-in” del nuevo sistema
+
+En el cambio por fase de un sistema, porciones del viejo sistema son transferidas al nuevo por partes
+En cuanto oficinas, pisos o edificios son terminados estos son incluidos en el nuevo sistema
+El viejo y nuevo sistema estaran trabajando en paralelo hasta que la transferencia se complete
+Puede involucrar re-arreglos de personal
+Cronograma del Proyecto
+Corte “flash cut”
+
+Un corte “flash cut” transfiere todo el equipo del viejo sistema al nuevo sistema de cableado instalado de sola vez
+Un corte “flash cut” requiere que los sistemas que son movidos al nuevo sistema sean desconectados temporalmente
+Dependiendo del tamano de la instalacion la desconexion temporal puede tomar varios dias
+Cronograma del Proyecto
+Corte “flash cut”
+
+Si un equipo nuevo esta siendo instalado en el sistema de cableado nuevo, el viejo sistema se mantendra funcionando en tanto todos los cables y equipo esten instalados y probados
+El equipo viejo es desconectado y los circuitos son movidos al nuevo equipo
+Cronograma del Proyecto
+Los planes de cambio deben ser hechos y mantenidos de forma sistematica
+La mayoria de los planes de cambio toman un formato de listas de revision “check list”
+Las listas se mantienen para mostrar los sistemas viejos y nuevos
+Las listas se actualizan en base a los cambios requeridos
+Una “Lista Maestra” debera mantenerse con copias para todo el personal involucrado
+Cronograma del Proyecto
+Despues del Cambio
+Establezca un “Help Desk” para manejar los problemas de los usuarios
+Los usuarios deberan ser entrenados en el uso y nuevas caracteristicas del nuevo equipamiento
+Actualiza TODOS los cambios hechos al plan original
+Las cosas que pudieron olvidarse o pasar por alto emergeran ahora y se necesitara resolverlas
+Cronograma del Proyecto
+Remocion del cable y hardware de conexion viejo
+Una vez que el nuevo sistema este trabajando TODOS los cables y hardware de conexion que ya no se utilicen, debera removerse
+Se debe verificar que los cables viejos no esten activos ANTES de removerlos
+Cronograma del Proyecto
+Remocion del cable y hardware de conexion viejo
+Los cables viejos no deberan removerse hasta que el cambio este completo y el sistema haya sido aceptado
+Todo el hardware que no sea utilizado debera removerse
+Toda la basura y desperdicios deberan ser removidos y dispuestos en recipientes apropiados
+Cronograma del Proyecto
+Remocion del cable y hardware de conexion viejo
+Los cables de cobre pueden ser reciclados
+La mayoria de los proveedores cobran una cantidad por remover los cables viejos de cobre
+Construccion Nueva
+Construccion Nueva
+Construccion Nueva
+La construccion nueva requiere menos planeacion que los re-cableados
+Los usuarios NO seran interrumpidos
+Los sistemas viejos no tendran que mantenerse funcionando durante la instalacion
+El inmueble esta vacio y es posible programar el acceso al mismo
+Comparativo
+Re-cableado vs. construccion nueva
+Las instalaciones nuevas son menos costosas que los re-cableados
+Las instalaciones nuevas requieren menos planeacion que los re-cableados
+Las instalaciones nuevas consumen menos tiempo que los re-cableados
+Las instalaciones nuevas estan sujetas a menos ordenes de cambio
+Revision
+Revision
+Nombre tres requisitos cuando se planea un re-cableado.
+Revision
+Nombre dos diferencias entre un re-cableado y una construccion nueva
+Revision
+Nombre tres componentes de un sistema que deben ser verificados y documentados cuando se planea un re-cableado
+1998 Copywrite BICSI Version 1
+Perspectiva General
+Requerimientos para el Re-cableado
+Cronograma del Proyecto
+Construccion Nueva
+Objetivos
+Determinar los requerimientos adicionales cuando se planea una instalacion de re-cableado
+Requerimientos del Re-cableado
+Un re-cableado es el reemplazo o aumento de una instalacion existente
+Se re-cablea en un espacio ocupado
+Los temas de seguridad deben considerarse y hacerse de primera importancia
+Un re-cableado puede requerir que todo el trabajo se haga “despues de las horas habiles”
+Requerimientos del Re-cableado
+Una re-cableado puede interrumpir al
+Personal trabajando
+El personal instalador se encuentra dentro y fuera del area
+El plafon es removido
+Existen escaleras por doquier
+Cables estan por doquier
+Equipo de trabajo
+Cables son movidos o re-arreglados
+Problemas en el equipo pueden ocurrir
+Requerimientos del Re-cableado
+Un re-cableado requiere
+Planeacion
+Documentacion
+Pruebas
+Remover el cable y el “hardware” de terminacion viejos
+Requerimientos del Re-cableado
+Planear el re-cableado requiere
+Documentacion disponible y actual del sistema existente
+Planos de los sistemas existentes y futuros
+Especificaciones de materiales para todos los nuevos componentes
+Alcances del trabajo de instalacion
+Cronograma del proyecto
+Requerimientos del Re-cableado
+Sistema de Documentacion requerido para un re-cableado
+La documentacion existente del sistema debera ser examinada y comparada con el sistema instalado
+La documentacion existente podria incluir
+Planos
+Memoria Tecnica
+Memoria de circuitos/numeros telefonicos
+Memoria de cables
+Memoria de las conexiones cruzadas
+Requerimientos del Re-cableado
+Sistema de Documentacion requerido para un re-cableado
+El sistema instalado debera ser verificado haciendo una revision completa
+Cada aspecto del sistema debera ser revisado visualmente y la documentacion verificada
+Cuando NO exista documentacion, un sistema de documentacion debera ser realizado en base a una inspeccion detallada de la instalacion
+Toda la documentacion se realizara en base a las guias del estandar ANSI/TIA/EIA- 606-A
+Requerimientos del Re-cableado
+Los componentes del sistema deberan ser verificados y documentados
+Circuitos
+Equipos
+Ubicaciones
+Cables
+Canalizaciones
+Requerimientos del Re-cableado
+Sistema de verificacion y documentacion
+Una vez que el sistema instalado ha sido verificado y documentado, se haran las decisiones de cuales partes seran re-usadas y cuales reemplazadas
+Los planos deberan ser entonces preparados al detalle
+Configuracion actual del sistema
+Configuracion temporal del sistema durante el re-cableado
+Configuracion final del sistema
+Requerimientos del Recableado
+Especificaciones de Materiales
+Todos los materiales a utilizarse en el re-cableado deberan especificarse en un documento de bases
+Las especificaciones de los materiales deberan incluir
+Espacios y canalizaciones adicionales
+Racks, tableros y organizacion de cableado
+Cables y conectores
+Tierras y uniones
+Contencion de fuego (firestopping)
+Requerimientos electricos nuevos
+Requerimientos del Re-cableado
+Alcance del trabajo de Instalacion (plan)
+El alcance del trabajo de instalacion es un plan detallado de cuando y como todo el trabajo debe ser realizado
+El alcance del trabajo es usado para eliminar los problemas que pueden ser encontrados cuando se hacen cambios a los sistemas existentes
+Requerimientos del Re-cableado
+Alcance del trabajo de Instalacion (plan)
+Debera contener la misma informacion encontrada en documentos de bases tecnicas de construccion nueva
+Debera contener informacion adicional sobre
+Los sistemas actuales en uso
+Personal requerido durante el re-cableado
+Requerimientos de equipo durante el re-cableado
+Medidas temporales a realizarse durante el re-cableado
+Resolucion de problemas
+Requerimientos del Re-cableado
+Pruebas al cable existente
+Todos los cables existentes deberan probarse ANTES de la instalacion del nuevo sistema
+Los cables deberan probarse para asegurar
+Ubicacion
+Uso del circuito
+Conexiones del equipo
+Capacidad disponible del cable vertical (backbone)
+Cumplimiento con los codigos
+Requerimientos del Re-cableado
+Probando cables nuevos
+Al termino de una instalacion de cableado, TODOS los cables deberan probarse para
+Cumplir con la especificacion de pruebas de ANSI/TIA/EIA
+Verificacion de ubicacion
+Cumplimiento con los codigos
+Cronograma del Proyecto
+Cronograma del proyecto puede tomarse de dos formas
+Fases “Phase-in” del nuevo sistema
+Corte “Flash cut”
+Cronograma del Proyecto
+Fases “phase-in” del nuevo sistema
+
+En el cambio por fase de un sistema, porciones del viejo sistema son transferidas al nuevo por partes
+En cuanto oficinas, pisos o edificios son terminados estos son incluidos en el nuevo sistema
+El viejo y nuevo sistema estaran trabajando en paralelo hasta que la transferencia se complete
+Puede involucrar re-arreglos de personal
+Cronograma del Proyecto
+Corte “flash cut”
+
+Un corte “flash cut” transfiere todo el equipo del viejo sistema al nuevo sistema de cableado instalado de sola vez
+Un corte “flash cut” requiere que los sistemas que son movidos al nuevo sistema sean desconectados temporalmente
+Dependiendo del tamano de la instalacion la desconexion temporal puede tomar varios dias
+Cronograma del Proyecto
+Corte “flash cut”
+
+Si un equipo nuevo esta siendo instalado en el sistema de cableado nuevo, el viejo sistema se mantendra funcionando en tanto todos los cables y equipo esten instalados y probados
+El equipo viejo es desconectado y los circuitos son movidos al nuevo equipo
+Cronograma del Proyecto
+Los planes de cambio deben ser hechos y mantenidos de forma sistematica
+La mayoria de los planes de cambio toman un formato de listas de revision “check list”
+Las listas se mantienen para mostrar los sistemas viejos y nuevos
+Las listas se actualizan en base a los cambios requeridos
+Una “Lista Maestra” debera mantenerse con copias para todo el personal involucrado
+Cronograma del Proyecto
+Despues del Cambio
+Establezca un “Help Desk” para manejar los problemas de los usuarios
+Los usuarios deberan ser entrenados en el uso y nuevas caracteristicas del nuevo equipamiento
+Actualiza TODOS los cambios hechos al plan original
+Las cosas que pudieron olvidarse o pasar por alto emergeran ahora y se necesitara resolverlas
+Cronograma del Proyecto
+Remocion del cable y hardware de conexion viejo
+Una vez que el nuevo sistema este trabajando TODOS los cables y hardware de conexion que ya no se utilicen, debera removerse
+Se debe verificar que los cables viejos no esten activos ANTES de removerlos
+Cronograma del Proyecto
+Remocion del cable y hardware de conexion viejo
+Los cables viejos no deberan removerse hasta que el cambio este completo y el sistema haya sido aceptado
+Todo el hardware que no sea utilizado debera removerse
+Toda la basura y desperdicios deberan ser removidos y dispuestos en recipientes apropiados
+Cronograma del Proyecto
+Remocion del cable y hardware de conexion viejo
+Los cables de cobre pueden ser reciclados
+La mayoria de los proveedores cobran una cantidad por remover los cables viejos de cobre
+Construccion Nueva
+Construccion Nueva
+Construccion Nueva
+La construccion nueva requiere menos planeacion que los re-cableados
+Los usuarios NO seran interrumpidos
+Los sistemas viejos no tendran que mantenerse funcionando durante la instalacion
+El inmueble esta vacio y es posible programar el acceso al mismo
+Comparativo
+Re-cableado vs. construccion nueva
+Las instalaciones nuevas son menos costosas que los re-cableados
+Las instalaciones nuevas requieren menos planeacion que los re-cableados
+Las instalaciones nuevas consumen menos tiempo que los re-cableados
+Las instalaciones nuevas estan sujetas a menos ordenes de cambio
+Revision
+Revision
+Nombre tres requisitos cuando se planea un re-cableado.
+Revision
+Nombre dos diferencias entre un re-cableado y una construccion nueva
+Revision
+Nombre tres componentes de un sistema que deben ser verificados y documentados cuando se planea un re-cableado
