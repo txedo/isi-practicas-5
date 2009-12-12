@@ -106,8 +106,9 @@ class Aplicacion:
         self.__add_result_column(self.resultView, "Relevance", 4)
         self.__add_result_column(self.docsView, "Id Doc", 1)
         self.__add_result_column(self.docsView, "Title" ,2)
-
-	# Se crea el ListStore
+        
+        
+	    # Se crea el ListStore
         self.resultList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.docsList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING)
 
@@ -127,7 +128,7 @@ class Aplicacion:
     def __guiInit(self):
         # La ventana inicial no muestra la lista de resultados
         #self.window.set_size_request(390, 130)
-        self.window.set_size_request(486, 450)             
+        #self.window.set_size_request(486, 450)             
         self.window.set_title(TITLE)
         #self.window.set_icon(ICON)
         self.gui['progressbar'].set_text("")
@@ -212,8 +213,7 @@ class Aplicacion:
             textArea.set_editable(False)
             textArea.set_overwrite(True)
             # Rellenamos el TextView con el texto del fichero
-            textArea.get_buffer().set_text(u.read_text_file(REPOSITORY_PATH+"/"+
-                                                            str(result[self.selected_row][0])+".txt"))
+            textArea.get_buffer().set_text(u.read_text_file(REPOSITORY_PATH+"/"+str(result[self.selected_row][0])+".txt"))
             response = self.dialog.run()
             self.dialog.hide()
         except Exception, e:

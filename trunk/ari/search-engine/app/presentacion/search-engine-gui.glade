@@ -3,14 +3,14 @@
   <!-- interface-requires gtk+ 2.8 -->
   <!-- interface-naming-policy project-wide -->
   <widget class="GtkWindow" id="searcher_window">
-    <property name="width_request">486</property>
+    <property name="width_request">578</property>
     <property name="height_request">450</property>
     <property name="visible">True</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
     <child>
       <widget class="GtkVBox" id="vbox1">
-        <property name="width_request">486</property>
+        <property name="width_request">578</property>
         <property name="height_request">450</property>
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
@@ -127,7 +127,7 @@
             <property name="height">0</property>
             <child>
               <widget class="GtkScrolledWindow" id="scrolledwindow1">
-                <property name="width_request">446</property>
+                <property name="width_request">542</property>
                 <property name="height_request">200</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -137,6 +137,7 @@
                   <widget class="GtkTreeView" id="resultView">
                     <property name="visible">True</property>
                     <property name="tooltip" translatable="yes">Double-click or press ENTER to open a document</property>
+                    <property name="headers_clickable">False</property>
                     <signal name="cursor_changed" handler="on_resultView_cursor_changed"/>
                     <signal name="row_activated" handler="on_resultView_row_activated"/>
                   </widget>
@@ -149,7 +150,7 @@
             </child>
             <child>
               <widget class="GtkEntry" id="textEntry">
-                <property name="width_request">235</property>
+                <property name="width_request">417</property>
                 <property name="height_request">30</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -178,7 +179,7 @@
                 <signal name="clicked" handler="on_searchButton_clicked"/>
               </widget>
               <packing>
-                <property name="x">280</property>
+                <property name="x">447</property>
                 <property name="y">50</property>
               </packing>
             </child>
@@ -219,7 +220,7 @@
             </child>
             <child>
               <widget class="GtkProgressBar" id="progressbar">
-                <property name="width_request">485</property>
+                <property name="width_request">578</property>
                 <property name="height_request">25</property>
                 <property name="visible">True</property>
               </widget>
@@ -239,7 +240,7 @@
                 <signal name="clicked" handler="on_similarButton_clicked"/>
               </widget>
               <packing>
-                <property name="x">233</property>
+                <property name="x">328</property>
                 <property name="y">357</property>
               </packing>
             </child>
@@ -268,7 +269,7 @@
                 <signal name="clicked" handler="on_xmlButton_clicked"/>
               </widget>
               <packing>
-                <property name="x">356</property>
+                <property name="x">452</property>
                 <property name="y">357</property>
               </packing>
             </child>
