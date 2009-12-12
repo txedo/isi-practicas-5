@@ -12,7 +12,7 @@
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
+#    GNU General Public License for more details
 #
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -107,7 +107,6 @@ class Aplicacion:
         self.__add_result_column(self.docsView, "Id Doc", 1)
         self.__add_result_column(self.docsView, "Title" ,2)
         
-        
 	    # Se crea el ListStore
         self.resultList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.docsList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING)
@@ -115,6 +114,9 @@ class Aplicacion:
         # Se asocia el ListStore al TreeView
         self.resultView.set_model(self.resultList)
         self.docsView.set_model(self.docsList)
+
+        self.resultView.set_headers_clickable(False)
+        self.docsView.set_headers_clickable(False)
 
         self.__guiInit()
 
@@ -222,10 +224,9 @@ class Aplicacion:
     # Metodo para almacenar la fila seleccionada en el ListStore
     def select_row (self, widget):
         model, rows = widget.get_selection().get_selected_rows()
-        # Solo habra una fila por el modo de seleccion simple
-        self.selected_row = int(rows[0][0])
-        if widget == self.resultView:
-            self.gui['lb_status'].set_text("Row " + str(self.selected_row+1) + "/" + str(len(self.res)) + " selected")
+        if len(rows)>0:
+            # Solo habra una fila por el modo de seleccion simple
+            self.selected_row = int(rows[0][0])
 
     def closeButton_clicked_cb (self, widget):
         self.destroy(widget)
@@ -240,6 +241,8 @@ class Aplicacion:
         else:
             try:
                 self.__resetGUI()
+                self.gui['textEntry'].set_text("related:"+self.res[self.selected_row][1][1])
+                time.sleep(0.5)
                 # Se buscan los documentos similares al seleccionado (usando su id_doc)
                 init = datetime.datetime.now()
                 t = threading.Thread(target=self.s.search, args=(self.s.get_vector(int(self.res[self.selected_row][0])).get_components(),))
@@ -396,10 +399,10 @@ class Aplicacion:
         try:
             u = utilities.Utilities()
             self.resIndexedDocs = u.get_indexed_documents()
-            label = self.gui['indexedDocsDialog'].get_content_area().get_children()[1]
+            label = self.gui['indexedDocsDialog'].get_content_area().get_children()[1].get_children()[0]
             for r in self.resIndexedDocs:
                 self.docsList.append([self, str(r[0]), str(r[1])])
-            label.set_text(str(len(self.resIndexedDocs)) + " indexed documents.")
+            label.set_text(str(len(self.resIndexedDocs)) + " indexed documents")
             self.gui['indexedDocsDialog'].run()
             self.gui['indexedDocsDialog'].hide()
         except Exception, e:
