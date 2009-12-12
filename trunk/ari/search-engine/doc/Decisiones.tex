@@ -1,5 +1,5 @@
 \section{Decisiones de diseño} \label{decisiones}
-En las siguientes subsecciones se van a detallar las decisiones de diseño que se han tenido en cuanta a la hora de desarrollar e implementar este sistema. Algunas de estas decisiones de diseño son las mismas que se tomaron cuando se desarrolló el módulo de indexación de documentos. 
+En las siguientes subsecciones se van a detallar las decisiones de diseño que se han tenido en cuanta a la hora de desarrollar e implementar este sistema. Algunas de estas decisiones de diseño son las mismas que se tomaron cuando se desarrolló el módulo de indexación de documentos, aunque se han realizado algunos cambios. 
 
 \subsection{Lenguaje de programación y sistema operativo elegido}
 
@@ -28,21 +28,34 @@ clases de dominio, pero no al revés, por
 lo que podría cambiarse la interfaz de usuario sin tener que cambiar
 las clases de dominio. 
 
-Por otra parte, el dominio es totalmente independiente de la persistencia, pues se implementan el patrón DAO o Fabricación Pura, encargados de gestionar la persistencia, tanto en la base de datos como en un fichero XML. Además, el DAO que se usa para almacenar la información en la base de datos, utiliza a su vez un patrón Agente Singleton, encargado de inicializar la conexión de la base de datos si no existe ya una
-instancia del agente, cerrar la conexión y ejecutar las sentencias sql que recibe del patrón DAO. 
+Por otra parte, el dominio es totalmente independiente de la persistencia, pues se implementan el patrón DAO (también llamado Fabricación Pura), encargados de gestionar la persistencia, tanto en la base de datos como en un fichero. Además, el DAO que se usa para almacenar la información en la base de datos, utiliza a su vez un patrón Agente Singleton, encargado de inicializar la conexión de la base de datos si no existe ya una
+instancia del agente, cerrar la conexión y ejecutar las sentencias SQL que recibe del patrón DAO. 
 
 De este modo, el patrón DAO se ha utilizado para
 desacoplar el dominio de la persistencia, evitando así que las propias
-clases del dominio creen las secuencias sql necesarias para gestionar
+clases del dominio creen las secuencias SQL necesarias para gestionar
 la base de datos, pasando ésto a ser responsabilidad del patrón
 DAO. Por tanto, si en algún momento se cambia el sistema gestor de
 base de datos, las clases de dominio no se verían afectadas, ya que
 sólo habría que cambiar el agente y el DAO.
 
-Esta división en capa y las diferentes clases diseñadas e implementadas se detallan en el apartado siguiente.
+Esta división en capas y las diferentes clases diseñadas e implementadas se detallan en el apartado siguiente.
 
 \subsubsection{Diagrama de clases}
-En la Figura \ref{fig:clases} se muestran las clases que conforman el sistema
+En la Figura \ref{fig:clases} se muestran las clases que conforman el sistema. Como puede observarse en la figura, y como se mencionó en el apartado anterior, se han diseñado tres capas (representadas por paquetes) que permiten desacoplar unas clases de otras, ya que sólo se utilizan dependencias de uso entre clases.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.3]{./images/SearchEngine}
+	\caption{Diagrama de clases del sistema desarrollado}
+	\label{fig:clases}
+\end{figure} 
+
+A continuación, se explica brevemente la responsabilidad de cada una de las clases y el funcionamiento de sus métodos más importantes.
+
+\begin{milista}
+	\item a
+\end{milista}
 
 \subsection{Diseño de la base de datos}
 
@@ -59,7 +72,7 @@ Por otra parte, como ya se comentó en la documentación del módulo de indexación,
 	\label{fig:BD}
 \end{figure} 
 
-Sin embargo, ha sido necesario modificar ligeramente este diseño, para optimizar las búsquedas y consumir menos tiempo. El cambio que se ha introducido es simplemente un cambio de la clave primaria de la tabla \textit{posting$\_$file}, pasando a tener una clave autonumérica. Con esto, se ha reducido tanto el tiempo de búsqueda, como el de indexación.
+Sin embargo, ha sido necesario modificar ligeramente este diseño, para optimizar las búsquedas y consumir menos tiempo. El cambio que se ha introducido es simplemente un cambio de la clave primaria de la tabla \textit{posting$\_$file}, pasando a tener una clave autonumérica. Con esto (y optimizando las sentencias SQL, como se detallará posteriormente), se ha reducido tanto el tiempo de búsqueda, como el de indexación.
 
 Así, el nuevo diagrama de tablas se muestra en la Figura \ref{fig:newDB}, mientras que las tablas que existen en el sistema son: 
 
@@ -89,6 +102,42 @@ Así, el nuevo diagrama de tablas se muestra en la Figura \ref{fig:newDB}, mientr
 	\caption{Diagrama de la nueva base de datos}
 	\label{fig:newBD}
 \end{figure} 
+
+\paragraph{Optimización de las sentencias SQL en el indexador de documentos} En la primera versión que se desarrolló del módulo encargado de indexar los documentos, los términos que se iban encontrando en un documento, se iban insertando uno a uno en la tabla \textit{posting$\_$file} y en el diccionario, además de ir actualizando la frecuencia de aparición del diccionario, con una sentencia \textbf{update}. Esto hacía que el acceso a la base de datos ocupase gran parte del tiempo, ya que se realizaban numerosas sentencias \textbf{insert} y \textbf{update}, para actualizar la tabla \textit{posting$\_$file} y la tabla \textit{dic} con los términos que se iban parseando.
+
+Estudiando la sintaxis completa de la sentencia \textbf{insert}, se decidió hacer una inserción de múltiples filas en la tabla \textit{posting$\_$file}, donde cada fila corresponde a cada uno de los términos encontrados en un documento (junto con el identificador del documento y su frecuencia). Así, la sentencia \textbf{insert} que se utiliza es similar a la siguiente, que aparece en el manual de MySQL:
+
+\makebox{\textbf{INSERT INTO tbl$\_$name [(col$\_$name,...)] VALUES (expr),(expr), ...}}
+
+Del mismo modo, la sentencia \textbf{insert} permite hacer cambios en una columna cuando se intenta insertar una fila con clave primaria duplicada. Por tanto, esto puede utilizarse para realizar inserciones múltiples y, a la vez, actualizaciones en el diccionario, ya que si el término no se encontraba en el diccionario, se insertará, y si ya se encontraba, ocurrirá un fallo de clave duplicada (porque la clave primaria de la tabla \textit{dic} es el término) y se actualizará con la frecuencia correspondiente. La sentencia utilizada para insertar y actualizar términos en el diccionario es el siguiente:
+
+\makebox{\textbf{INSERT INTO tbl$\_$name [(col$\_$name,...)] VALUES (expr),(expr), ...}} \\ 
+\indent \makebox{\textbf{ON DUPLICATE KEY UPDATE num$\_$docs=num$\_$docs+VALUES(num$\_$docs)}}
+
+Con estas cambios, el tiempo de indexación se ha reducido unos 22 minutos con respecto al módulo de indexación de la primera versión. En la sección \ref{estadisticas} se muestran algunas estadísticas de uso, tanto del módulo antiguo como del nuevo sistema.
+
+\paragraph{Optimización de las sentencias SQL en la búsqueda de documentos} En un primer momento, para obtener todos los datos (frecuencias, identificador del documento, titulo, etc.) de los documentos que tenían términos en común con la pregunta, se pensó en hacer varias sentencias \textbf{select} por separado, pero esto consumía demasiado tiempo para una búsqueda.
+
+Por tanto, se optó por hacer una única consulta componiendo las tres tablas y obteniendo así todos los datos necesarios para calcular los pesos y la relevancia. Esta consulta es la que se muestra a continuación: 
+
+\makebox{\textbf{SELECT posting$\_$file.term,posting$\_$file.id$\_$doc,frequency,num$\_$docs,title}} \\
+\indent \makebox{\textbf{FROM posting$\_$file JOIN dic JOIN doc}} \\
+\indent \makebox{\textbf{ON dic.term=posting$\_$file.term AND posting$\_$file.id$\_$doc IN}} \\
+\indent \makebox{\textbf{(SELECT DISTINCT p1.id$\_$doc FROM posting$\_$file p1 WHERE}} \\
+\indent \makebox{\textbf{p1.term IN (\textit{lista de términos de la pregunta}))}}
+
+Con esa sentencia, la consulta tardaba más de 40 segundos (para el término ''linux'') en procesarse, por lo que era necesario realizar unos cambios. Estudiando el manual de la sentencia \textbf{select} de MySQL, se observó que se puede elegir el índice (clave ajena) con el cuál combinar las tablas, lo que puede acelerar la búsqueda. Además, se puede indicar que esa sentencia tenga alta prioridad, ejecutando la sentencia en la base de datos antes que cualquier otra. Por otro lado, se optó también por crear una vista temporal con los resultados de la subconsulta anterior, para luego combinar con esa vista, en vez de tener una consulta con una subconsulta. Así, obtenemos estas sentencias:
+
+\makebox{\textbf{CREATE VIEW view$\_$name AS SELECT DISTINCT p1.id$\_$doc}}\\
+\indent \makebox{\textbf{FROM posting$\_$file p1 USE INDEX (term) WHERE}} \\
+\indent \makebox{\textbf{p1.term IN (\textit{lista de términos de la pregunta}))}}
+
+\makebox{\textbf{SELECT HIGH$\_$PRIORITY posting$\_$file.term, posting$\_$file.id$\_$doc, frequency,}}\\
+\indent \makebox{\textbf{num$\_$docs, title}} \\
+\indent \makebox{\textbf{FROM posting$\_$file USE INDEX (term,id$\_$doc) JOIN view$\_$name v JOIN dic}}\\
+\indent \makebox{\textbf{JOIN doc }} \\
+\indent \makebox{\textbf{ON posting$\_$file.id$\_$doc=v.id$\_$doc AND dic.term=posting$\_$file.term}}\\
+\indent \makebox{\textbf{AND posting$\_$file.id$\_$doc=doc.id$\_$doc}}
 
 \subsection{Desarrollo del sistema}
 Para terminar, en esta subsección se comentan las diferentes
