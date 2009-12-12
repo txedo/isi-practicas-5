@@ -17,7 +17,6 @@ class Vector:
         self.__title = title
 
     # Metodo para obtener la semejanza. 
-    # Se devuelve en %, con dos decimales
     def get_similarity (self, question, module_question):
         similarity = 0
         product = 0
