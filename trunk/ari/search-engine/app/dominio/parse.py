@@ -31,6 +31,7 @@ class Parser:
         result = []
         word_list = []
         # Evitamos errores de SQLInjection
+        line = line.lower()
         line = line.replace("\\","\\\\")
         line = line.replace("'","\\'")
         separadores=string.punctuation+string.whitespace+"·"
