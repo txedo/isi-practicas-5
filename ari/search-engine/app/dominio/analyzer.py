@@ -24,7 +24,7 @@ import sys, os
 sys.path.append(os.getcwd() + "/../persistencia")
 
 import shutil
-import dao
+import bdDao
 import string
 from parse import *
 from exception import *
@@ -61,7 +61,7 @@ class Analyzer:
             # Controlamos si indexamos un directorio o un fichero
             try: 
                 if self.dao == None:
-                    self.dao = dao.Dao()
+                    self.dao = bdDao.Dao()
                 if not self.__analyzing_directory:
                     self.__current_file = 1
                 else:
@@ -111,7 +111,7 @@ class Analyzer:
                 list_files = os.listdir(path)
                 self.__total_files = len(list_files)
                 self.__current_file = 0
-                self.dao = dao.Dao()
+                self.dao = bdDao.Dao()
                 for f in list_files:
                     full_path = path+"/"+f
                     if os.path.isdir(full_path):

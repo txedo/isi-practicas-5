@@ -23,7 +23,7 @@ psyco.full()
 import sys, os
 sys.path.append(os.getcwd() + "/../persistencia")
 
-import dao
+import bdDao
 import math
 import datetime
 from exception import *
@@ -34,7 +34,7 @@ from fileDao import *
 class Searcher:
 
     def __init__(self):
-        self.__dao = dao.Dao()
+        self.__dao = bdDao.Dao()
         self.__total_num_docs = 0
         self.__fileDao = FileDao()
         self.__document_vectors = {}
