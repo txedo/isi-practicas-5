@@ -1,11 +1,11 @@
 import sys, os
 sys.path.append(os.getcwd() + "/../persistencia")
 
-import file_handler
+import fileHandler
 
 class Utilities:
     def __init__(self):
-        self.fh = file_handler.File_Handler()
+        self.fh = fileHandler.File_Handler()
 
     def read_text_file (self, path):
         try:

@@ -132,7 +132,6 @@ class Aplicacion:
         self.resultView.set_sensitive(False)
 
     def on_delete_event(self, widget, event):
-        #print "Delete was called but I won't die!"
         widget.hide()
         return True
 
@@ -167,6 +166,7 @@ class Aplicacion:
     def __resetGUI(self, full=True):
         if full:
             self.gui['textEntry'].set_text("")
+        self.gui['lb_status'].set_text("")
         self.gui['xmlButton'].set_sensitive(False)
         self.gui['similarButton'].set_sensitive(False)
         self.resultView.set_sensitive(False)
@@ -276,17 +276,15 @@ class Aplicacion:
                         question_dic[q] = 1
                 else:
                     # Pesos personalizados
-                    #for q in question_parts:
-                    #    question_dic[q] = 1
                     (response, question_dic, weights_sum) = self.create_weight_window(question_parts)
                     if weights_sum == 0:
                         search=False
                 if (response == gtk.RESPONSE_OK and self.gui['customWeightRadioButton'].get_active()) or self.gui['defaultWeightRadioButton'].get_active():
                     # Si hay algun peso distinto de 0 y algun termino que no este en la stop_list, se busca
                     if search:
+                        time.sleep(0.5)
                         init = datetime.datetime.now()  
                         # Aumentamos el tamaño de la ventana
-                        #self.window.set_size_request(486, 427)             
                         t = threading.Thread(target=self.s.search, args=(question_dic,))
                         t.start()
                         self.init_pb(init)

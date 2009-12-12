@@ -19,9 +19,8 @@
 
 import psyco
 psyco.full()
-import re
-import string
 
+import re, string
 
 class Parser:
 
