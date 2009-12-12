@@ -77,7 +77,7 @@ class Analyzer:
                 fd = open(path, "r")
                 document = fd.readlines()
                 for line in document:
-                    word_list = self.__parser.parse(line.lower())
+                    word_list = self.__parser.parse(line)
                     # Si el parser ha procesado alguna palabra, se actualiza la base de datos
                     if len(word_list) > 0:
                         # Para cada una de las palabras procesadas y devueltas por el parser, actualizamos su frecuencia
