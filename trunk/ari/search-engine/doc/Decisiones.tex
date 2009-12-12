@@ -1,5 +1,5 @@
 \section{Decisiones de diseño} \label{decisiones}
-En las siguientes subsecciones se van a detallar las decisiones de diseño que se han tenido en cuanta a la hora de desarrollar e implementar este sistema. Algunas de estas decisiones de diseño son las mismas que se tomaron cuando se desarrolló el módulo de indexación de documentos, aunque se han realizado algunos cambios. 
+En las siguientes subsecciones se van a detallar las decisiones de diseño que se han tenido en cuenta a la hora de desarrollar e implementar este sistema. Algunas de estas decisiones de diseño son las mismas que se tomaron cuando se desarrolló el módulo de indexación de documentos, aunque se han realizado algunos cambios. 
 
 \subsection{Lenguaje de programación y sistema operativo elegido}
 
@@ -51,10 +51,16 @@ En la Figura \ref{fig:clases} se muestran las clases que conforman el sistema. C
 	\label{fig:clases}
 \end{figure} 
 
-A continuación, se explica brevemente la responsabilidad de cada una de las clases y el funcionamiento de sus métodos más importantes.
+A continuación, se explica brevemente la responsabilidad de algunas de las clases más importantes.
 
 \begin{milista}
-	\item a
+	\item \textbf{analyzer}: se encarga de leer el fichero o los ficheros del directorio indicado. Para cada fichero, llama al módulo parser, hace una copia del documento en su repositorio local e inserta su título y ruta en la base de datos.
+        \item \textbf{vector}: se utiliza para crear los vectores de cada documento indicando el título del documento y el peso de cada término en dicho documento. La función \texttt{get_similarity} calcula la semenjanza entre la pregunta y el vector documento (ver Ecuación \eqref{eq:formula}).
+        \item \textbf{utilities}: es una clase intermedia que se encuentra en la capa de dominio. Su función se limita a establecer una conexión entre las capas de presentación y persistencia.
+        \item \textbf{bdDao}: construye las sentencias SQL y delega su ejecución en el Agente. El objetivo de esta clase es separar las capas de dominio y persistencia.
+        \item \textbf{fileDao}: se encarga de construir la estructura del fichero XML que se genera después de cada búsqueda. Delega la escritura de éste a la clase fileHandler que es la encargada de leer y escribir ficheros en disco.
+        \item \textbf{exception}: es un módulo que contiene excepciones personalizadas.
+        \item \textbf{config}: contiene la definición de constantes que, de algún modo, configuran ciertos aspectos del sistema (p.e. rutas de directorios y tamaño de la caché).
 \end{milista}
 
 \subsection{Diseño de la base de datos} \label{basedatos}
@@ -142,7 +148,7 @@ Con esa sentencia, la consulta tardaba más de 40 segundos (para el término ''lin
 \subsection{Desarrollo del sistema}
 Para terminar, en esta subsección se detallan el módulo indexador de documentos y el de búsqueda, comentando las decisiones tomadas.
 
-Cabe destacar que en la aplicación se utiliza el módulo \textit{Psyco}, que es un módulo externo que realiza una
+Cabe destacar que en la aplicación se utiliza el módulo \textit{psyco}, que es un módulo externo que realiza una
 compilación \textit{just-in-time} y que incrementa la
 velocidad de ejecución del código Python (ya que éste no se
 interpretará). Gracias a este módulo el tiempo de ejecución de la
@@ -220,9 +226,7 @@ Otra de las razones para hacer esto es para poder aprovechar la sentencia \textb
 
 \subsubsection{Motor de búsqueda}
 
-\paragraph{Searcher} Este módulo es el encargado de realizar la búsqueda de los documentos relevantes a una pregunta dada, siguiendo el modelo vectorial. 
-
-Se ha elegido este modelo ................................................
+\paragraph{Searcher} Este módulo es el encargado de realizar la búsqueda de los documentos relevantes a una pregunta dada, siguiendo el modelo vectorial. Se ha implementado este modelo ya que no está sujeto a las limitaciones del modelo booleano y da unos resultados similares al modelo probabilístico siendo más sencilla su implementación. En cuanto a la aproximación implementada, se ha elegido la que calcula la semejanza de dos vectores en función del ángulo que forman, ya que es más precisa que la que calcula la distancia entre dos vectores. Esta segunda aproximación es más ineficiente debido a que los usuarios suelen buscar entre 3 y 5 términos de media y los documentos con pocos términos serían muy próximos a la pregunta.
 
 Por tanto, la fórmula que se sigue en este modelo para calcular la relevancia entre un documento y la pregunta es la mostrada en la ecuación \eqref{eq:formula}.
 
@@ -247,11 +251,3 @@ De este modo, al mismo tiempo que se van recorriendo las filas que devuelve la s
 w_{ij} = ft_{ij} f_{i}d_{j} = ft_{ij} log(d/fd_{j})
 \label{eq:pesos}
 \end{equation}
-
-
-
-
-
-
-
-
