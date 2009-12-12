@@ -60,13 +60,15 @@ class Aplicacion:
         self.working=False
         self.selected_row = -1
         # Resultados de la busqueda
-        self.res = {}
+        self.res = []
+        self.resIndexedDocs = []
 
         # Diccionario de senales y callbacks
         self.dic = {
             "on_searchButton_clicked" : self.searchButton_clicked_cb,
             "on_aboutMenuItem_activate" : self.aboutMenuItem_activate_cb,
             "on_quitMenuItem_activate" : self.quitMenuItem_activate_cb,
+            "on_indexedDocsMenuItem_activate" : self.indexedDocsMenuItem_activate_cb,
             "on_indexEngineMenuItem_activate" : self.indexEngineMenuItem_activate_cb,
             "on_similarButton_clicked" : self.similarButton_clicked_cb,
             "on_closeButton_clicked" : self.closeButton_clicked_cb,
@@ -83,28 +85,35 @@ class Aplicacion:
         self.window.connect('destroy', self.destroy)
         # Tomamos el dialogo definido en el fichero glade
         self.dialog = self.gui['textDialog']
-
+        self.indexedDocsDialog = self.gui['indexedDocsDialog']
         # Tomamos el TreeView definido en la interfaz
         self.resultView = self.gui['resultView']
+        self.docsView = self.gui['indexedDocsDialog'].get_content_area().get_children()[0].get_children()[0]
         # Conectamos los callback del Tree View
         # Este sirve para abrir el documento cuando haces doble click en una fila
         self.resultView.connect("row_activated", self.open_document)
+        self.docsView.connect("row_activated", self.open_document)
         # Este sirve para saber la fila seleccionada, cuando haces clic simple
         self.resultView.connect("cursor_changed", self.select_row)
-
+        self.docsView.connect("cursor_changed", self.select_row)
         # Ponemos el modo de seleccion a una sola fila
         self.resultView.get_selection().set_mode(gtk.SELECTION_SINGLE)
-    
+        self.docsView.get_selection().set_mode(gtk.SELECTION_SINGLE)
         # Añadimos las columnas a mostrar en el ListStore
-        #self.addResultColumn("Id Document", 1)
-        self.addResultColumn("Document Title", 1)
-        self.addResultColumn("Relevance", 2)
+        self.__add_result_column(self.resultView, "Number", 1)
+        self.__add_result_column(self.resultView, "Id Doc", 2)
+        self.__add_result_column(self.resultView, "Document Title", 3)
+        self.__add_result_column(self.resultView, "Relevance", 4)
+        self.__add_result_column(self.docsView, "Id Doc", 1)
+        self.__add_result_column(self.docsView, "Title" ,2)
 
-		# Se crea el ListStore
-        self.resultList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING)
+	# Se crea el ListStore
+        self.resultList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
+        self.docsList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING)
 
         # Se asocia el ListStore al TreeView
         self.resultView.set_model(self.resultList)
+        self.docsView.set_model(self.docsList)
 
         self.__guiInit()
 
@@ -157,11 +166,11 @@ class Aplicacion:
         return response
 
     # Metodo para añadir una columna al ListStore del TreeView
-    def addResultColumn(self, title, columnId):
+    def __add_result_column(self, treeView, title, columnId):
         column = gtk.TreeViewColumn(title, gtk.CellRendererText(), text=columnId)
         column.set_resizable(True)
         column.set_sort_column_id(columnId)
-        self.resultView.append_column(column)
+        treeView.append_column(column)
 
     def __resetGUI(self, full=True):
         if full:
@@ -190,15 +199,21 @@ class Aplicacion:
     # Metodo para abrir un documento cuando se hace doble clic en la fila del ListStore
     def open_document(self, widget, x, y):
         try:
+            result = []
             u = utilities.Utilities()
-            self.dialog.set_title("Document: "+str(self.res[self.selected_row][1][1]))
+            if widget == self.resultView:
+                result = self.res
+                self.dialog.set_title("Document: "+str(result[self.selected_row][1][1]))
+            elif widget == self.docsView:
+                result = self.resIndexedDocs
+                self.dialog.set_title("Document: "+str(result[self.selected_row][1]))
             # Tomamos el TextView definido dentro del ScrollBar de ese dialogo
             textArea = self.dialog.get_content_area().get_children()[0].get_children()[0]
             textArea.set_editable(False)
             textArea.set_overwrite(True)
             # Rellenamos el TextView con el texto del fichero
             textArea.get_buffer().set_text(u.read_text_file(REPOSITORY_PATH+"/"+
-                                                            str(self.res[self.selected_row][0])+".txt"))
+                                                            str(result[self.selected_row][0])+".txt"))
             response = self.dialog.run()
             self.dialog.hide()
         except Exception, e:
@@ -206,10 +221,11 @@ class Aplicacion:
 
     # Metodo para almacenar la fila seleccionada en el ListStore
     def select_row (self, widget):
-        model, rows = self.resultView.get_selection().get_selected_rows()
+        model, rows = widget.get_selection().get_selected_rows()
         # Solo habra una fila por el modo de seleccion simple
         self.selected_row = int(rows[0][0])
-        self.gui['lb_status'].set_text("Row " + str(self.selected_row+1) + "/" + str(len(self.res)) + " selected")
+        if widget == self.resultView:
+            self.gui['lb_status'].set_text("Row " + str(self.selected_row+1) + "/" + str(len(self.res)) + " selected")
 
     def closeButton_clicked_cb (self, widget):
         self.destroy(widget)
@@ -321,9 +337,10 @@ class Aplicacion:
     def show_results(self):
         # Limpiamos la lista de resultados
         self.resultList.clear()
-        #print self.res
+        counter = 1
         for d in self.res:
-            self.resultList.append([self, str(d[1][1]), str(round(d[1][0]*100, 2))+' %']) 
+            self.resultList.append([self, str(counter), str(int(d[0])), str(d[1][1]), str(round(d[1][0]*100, 2))+' %']) 
+            counter += 1
         self.gui['lb_status'].set_text(str(len(self.res))+" documents found")
 
     def create_weight_window(self, question_parts):
@@ -372,6 +389,21 @@ class Aplicacion:
 
         dialog.run()
         dialog.destroy()
+
+    def indexedDocsMenuItem_activate_cb(self, widget):
+        self.docsList.clear()
+        result = []
+        try:
+            u = utilities.Utilities()
+            self.resIndexedDocs = u.get_indexed_documents()
+            label = self.gui['indexedDocsDialog'].get_content_area().get_children()[1]
+            for r in self.resIndexedDocs:
+                self.docsList.append([self, str(r[0]), str(r[1])])
+            label.set_text(str(len(self.resIndexedDocs)) + " indexed documents.")
+            self.gui['indexedDocsDialog'].run()
+            self.gui['indexedDocsDialog'].hide()
+        except Exception, e:
+            self.__showErrorDialog("Error", "Exception: "+str(e))
 
     def indexEngineMenuItem_activate_cb(self, widget):
         indexer = indexEngineGUI.Aplicacion('index-engine-gui.glade')

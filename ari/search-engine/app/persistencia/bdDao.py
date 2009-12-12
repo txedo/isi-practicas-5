@@ -45,6 +45,16 @@ class Dao:
         except:
             raise
 
+    def get_indexed_documents (self):
+        result = []
+        sql = "SELECT id_doc, title FROM doc"
+        try:
+            res = self.query(sql)
+            for r in res:
+                result.append((int(r[0]),str(r[1])))
+        except:
+            raise
+        return result
 
     def get_num_docs(self):
         result = 0
