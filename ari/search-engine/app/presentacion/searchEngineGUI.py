@@ -242,7 +242,8 @@ class Aplicacion:
             try:
                 self.__resetGUI()
                 self.gui['textEntry'].set_text("related:"+self.res[self.selected_row][1][1])
-                time.sleep(0.5)
+                gtk.main_iteration()
+                #time.sleep(0.35)
                 # Se buscan los documentos similares al seleccionado (usando su id_doc)
                 init = datetime.datetime.now()
                 t = threading.Thread(target=self.s.search, args=(self.s.get_vector(int(self.res[self.selected_row][0])).get_components(),))
@@ -301,7 +302,8 @@ class Aplicacion:
                 if (response == gtk.RESPONSE_OK and self.gui['customWeightRadioButton'].get_active()) or self.gui['defaultWeightRadioButton'].get_active():
                     # Si hay algun peso distinto de 0 y algun termino que no este en la stop_list, se busca
                     if search:
-                        time.sleep(0.5)
+                        if self.gui['customWeightRadioButton'].get_active():
+                            time.sleep(0.35)
                         init = datetime.datetime.now()  
                         # Aumentamos el tamaño de la ventana
                         t = threading.Thread(target=self.s.search, args=(question_dic,))
