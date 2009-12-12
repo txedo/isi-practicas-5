@@ -23,7 +23,7 @@ psyco.full()
 import sys, os
 sys.path.append(os.getcwd() + "/../dominio")
 
-import file_handler
+import FileHandler
 
 from config import *
 
@@ -31,7 +31,7 @@ from config import *
 class FileDao:
 
     def __init__(self):
-        self.__file_handler = file_handler.File_Handler()
+        self.__file_handler = FileHandler.File_Handler()
 
     def xml_head(self):
         head_list = ["<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "<!DOCTYPE Resultado SYSTEM \"Resultados.dtd\">\n", "<?xml-stylesheet type=\"text/xsl\" href=\"Resultados.xsl\"?>\n", "<Resultado>\n"]
