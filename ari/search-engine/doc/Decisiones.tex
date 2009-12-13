@@ -54,13 +54,13 @@ En la Figura \ref{fig:clases} se muestran las clases que conforman el sistema. C
 A continuación, se explica brevemente la responsabilidad de algunas de las clases más importantes.
 
 \begin{milista}
-	\item \textbf{analyzer}: se encarga de leer el fichero o los ficheros del directorio indicado. Para cada fichero, llama al módulo parser, hace una copia del documento en su repositorio local e inserta su título y ruta en la base de datos.
-        \item \textbf{vector}: se utiliza para crear los vectores de cada documento indicando el título del documento y el peso de cada término en dicho documento. La función \texttt{get_similarity} calcula la semenjanza entre la pregunta y el vector documento (ver Ecuación \eqref{eq:formula}).
-        \item \textbf{utilities}: es una clase intermedia que se encuentra en la capa de dominio. Su función se limita a establecer una conexión entre las capas de presentación y persistencia.
-        \item \textbf{bdDao}: construye las sentencias SQL y delega su ejecución en el Agente. El objetivo de esta clase es separar las capas de dominio y persistencia.
-        \item \textbf{fileDao}: se encarga de construir la estructura del fichero XML que se genera después de cada búsqueda. Delega la escritura de éste a la clase fileHandler que es la encargada de leer y escribir ficheros en disco.
+	\item \textbf{Analyzer}: se encarga de leer el fichero o los ficheros del directorio indicado. Para cada fichero, llama al módulo \textit{parser}, hace una copia del documento en el repositorio del sistema e inserta su título y ruta en la base de datos.
+        \item \textbf{Vector}: se utiliza para crear los vectores de cada documento indicando el título del documento, los términos del documento y sus pesos. La función \texttt{get$\_$similarity} calcula la semenjanza entre la pregunta y el vector documento (ver Ecuación \eqref{eq:formula}).
+        \item \textbf{Utilities}: es una clase intermedia que se encuentra en la capa de dominio. Su función se limita a establecer una conexión entre las capas de presentación y persistencia.
+        \item \textbf{BdDao}: construye las sentencias SQL y delega su ejecución en el Agente. El objetivo de esta clase es separar las capas de dominio y persistencia.
+        \item \textbf{FileDao}: se encarga de construir la estructura del fichero XML que se genera después de cada búsqueda. Delega la escritura de éste a la clase \textit{fileHandler} que es la encargada de leer y escribir ficheros en disco.
         \item \textbf{exception}: es un módulo que contiene excepciones personalizadas.
-        \item \textbf{config}: contiene la definición de constantes que, de algún modo, configuran ciertos aspectos del sistema (p.e. rutas de directorios y tamaño de la caché).
+        \item \textbf{Config}: contiene la definición de constantes que, de algún modo, configuran ciertos aspectos del sistema (p.e. rutas de directorios y tamaño de la caché).
 \end{milista}
 
 \subsection{Diseño de la base de datos} \label{basedatos}
