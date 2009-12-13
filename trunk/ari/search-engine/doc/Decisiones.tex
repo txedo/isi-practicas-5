@@ -28,21 +28,21 @@ clases de dominio, pero no al revés, por
 lo que podría cambiarse la interfaz de usuario sin tener que cambiar
 las clases de dominio. 
 
-Por otra parte, el dominio es totalmente independiente de la persistencia, pues se implementan el patrón DAO (también llamado Fabricación Pura), encargados de gestionar la persistencia, tanto en la base de datos como en un fichero. Además, el DAO que se usa para almacenar la información en la base de datos, utiliza a su vez un patrón Agente Singleton, encargado de inicializar la conexión de la base de datos si no existe ya una
+Por otra parte, el dominio es totalmente independiente de la persistencia, pues se implementa el patrón DAO (también llamado Fabricación Pura), encargado de gestionar la persistencia, tanto en la base de datos como en un fichero. Además, el DAO que se usa para almacenar la información en la base de datos, utiliza a su vez un patrón Agente Singleton, encargado de inicializar la conexión de la base de datos si no existe ya una
 instancia del agente, cerrar la conexión y ejecutar las sentencias SQL que recibe del patrón DAO. 
 
 De este modo, el patrón DAO se ha utilizado para
 desacoplar el dominio de la persistencia, evitando así que las propias
-clases del dominio creen las secuencias SQL necesarias para gestionar
+clases del dominio creen las sentencias SQL necesarias para gestionar
 la base de datos, pasando ésto a ser responsabilidad del patrón
 DAO. Por tanto, si en algún momento se cambia el sistema gestor de
 base de datos, las clases de dominio no se verían afectadas, ya que
-sólo habría que cambiar el agente y el DAO.
+sólo habría que cambiar el Agente y el DAO.
 
 Esta división en capas y las diferentes clases diseñadas e implementadas se detallan en el apartado siguiente.
 
 \subsubsection{Diagrama de clases}
-En la Figura \ref{fig:clases} se muestran las clases que conforman el sistema. Como puede observarse en la figura, y como se mencionó en el apartado anterior, se han diseñado tres capas (representadas por paquetes) que permiten desacoplar unas clases de otras, ya que sólo se utilizan dependencias de uso entre clases.
+En la Figura \ref{fig:clases} se muestran las clases que conforman el sistema. Como puede observarse en la Figura \ref{fig:clases}, y como se mencionó en el apartado anterior, se han diseñado tres capas (representadas por paquetes) que permiten desacoplar unas clases de otras, ya que sólo se utilizan dependencias de uso entre clases.
 
 \begin{figure}[h]
 	\centering
@@ -53,15 +53,22 @@ En la Figura \ref{fig:clases} se muestran las clases que conforman el sistema. C
 
 A continuación, se explica brevemente la responsabilidad de algunas de las clases más importantes.
 
+\paragraph{Capa de dominio} En esta capa se encuentran las clases que son necesarias para soportar las funcionalidades que el sistema requiere.
 \begin{milista}
-	\item \textbf{Analyzer}: se encarga de leer el fichero o los ficheros del directorio indicado. Para cada fichero, llama al módulo \textit{parser}, hace una copia del documento en el repositorio del sistema e inserta su título y ruta en la base de datos.
-        \item \textbf{Vector}: se utiliza para crear los vectores de cada documento indicando el título del documento, los términos del documento y sus pesos. La función \texttt{get$\_$similarity} calcula la semenjanza entre la pregunta y el vector documento (ver Ecuación \eqref{eq:formula}).
-        \item \textbf{Utilities}: es una clase intermedia que se encuentra en la capa de dominio. Su función se limita a establecer una conexión entre las capas de presentación y persistencia.
-        \item \textbf{BdDao}: construye las sentencias SQL y delega su ejecución en el Agente. El objetivo de esta clase es separar las capas de dominio y persistencia.
-        \item \textbf{FileDao}: se encarga de construir la estructura del fichero XML que se genera después de cada búsqueda. Delega la escritura de éste a la clase \textit{fileHandler} que es la encargada de leer y escribir ficheros en disco.
-        \item \textbf{exception}: es un módulo que contiene excepciones personalizadas.
-        \item \textbf{Config}: contiene la definición de constantes que, de algún modo, configuran ciertos aspectos del sistema (p.e. rutas de directorios y tamaño de la caché).
+				\item \textbf{Analyzer}: se encarga de leer el fichero o los ficheros del directorio indicado en la ruta introducida en la interfaz gráfica. A continuación, para cada fichero, utiliza al módulo \textit{parser} (que se detallará posteriormente) para obtener los términos de ese documento, hace una copia de dicho documento en el repositorio del sistema e inserta su título y ruta en la base de datos, utilizando al módulo \textit{bdDao}.
+				\item \textbf{Cache}: se utiliza para ir almacenando en memoria términos, intentando disminuir el número de accesos a disco. Se explica más en detalle en un apartado posterior.
+        \item \textbf{Vector}: se utiliza para crear los vectores de cada documento cuando se realiza una búsqueda, indicando el título del documento, los términos del documento y sus pesos. La función \texttt{get$\_$similarity} calcula la semenjanza entre la pregunta introducida y el vector documento (ver ecuación \eqref{eq:formula}). El módulo \textit{searcher} (se detalla posteriormente) es el que va creando estos vectores al buscar documentos que tengan algún término en común con la pregunta dada.
+        \item \textbf{Utilities}: es una clase intermedia que se encuentra en la capa de dominio, que ofrece a la capa de presentación la posiblidad de leer un fichero de texto y consultar los documentos que están indexados en el sistema.
 \end{milista}
+Además de estas clases, se cuenta también con el módulo \textbf{exception}, que contiene excepciones personalizadas que lanzan las clases anteriores, y el módulo \textbf{config}, que contiene la definición de constantes que, de algún modo, configuran ciertos aspectos del sistema (rutas de directorios y tamaño de la caché).
+
+\paragraph{Persistencia} En cuanto a la capa de persistencia, las clases que se encuentran son: 
+\begin{milista}
+        \item \textbf{BdDao}: construye las sentencias SQL con los datos de las clases del dominio y delega su ejecución en el Agente. El objetivo de esta clase es separar las capas de dominio y persistencia.
+        \item \textbf{FileDao}: se encarga de construir la estructura del fichero XML que se genera después de cada búsqueda. Delega la escritura de éste a la clase \textit{fileHandler}, que es la encargada de leer y escribir ficheros en disco.
+\end{milista}
+
+\paragraph{Presentación} En esta capa se encuentran las interfaces gráficas de usuario para el mótor de indexación y de búsqueda, cuyo funcionamiento se detalla en la sección \ref{manual}.
 
 \subsection{Diseño de la base de datos} \label{basedatos}
 
@@ -69,7 +76,7 @@ Como sistema gestor de base de datos se ha optado por utilizar MySQL,
 ya que es ligero, libre, gratuito (ya que no se destina a fines
 comerciales) y compatible con otros sistemas, como Windows. 
 
-Por otra parte, como ya se comentó en la documentación del módulo de indexación, el diseño de la base de datos era el que se muestra en el diagrama de la Figura \ref{fig:BD}. 
+Por otra parte, como ya se comentó en la documentación del motor de indexación, el diseño de la base de datos era el que se muestra en el diagrama de la Figura \ref{fig:BD}. 
 
 \begin{figure}[h]
 	\centering
@@ -111,7 +118,7 @@ Así, el nuevo diagrama de tablas se muestra en la Figura \ref{fig:newDB}, mientr
 
 \paragraph{Optimización de las sentencias SQL en el indexador de documentos} En la primera versión que se desarrolló del módulo encargado de indexar los documentos, los términos que se iban encontrando en un documento, se iban insertando uno a uno en la tabla \textit{posting$\_$file} y en el diccionario, además de ir actualizando la frecuencia de aparición del diccionario, con una sentencia \textbf{update}. Esto hacía que el acceso a la base de datos ocupase gran parte del tiempo, ya que se realizaban numerosas sentencias \textbf{insert} y \textbf{update}, para actualizar la tabla \textit{posting$\_$file} y la tabla \textit{dic} con los términos que se iban parseando.
 
-Estudiando la sintaxis completa de la sentencia \textbf{insert}, se decidió hacer una inserción de múltiples filas en la tabla \textit{posting$\_$file}, donde cada fila corresponde a cada uno de los términos encontrados en un documento (junto con el identificador del documento y su frecuencia). Así, la sentencia \textbf{insert} que se utiliza es similar a la siguiente, que aparece en el manual de MySQL:
+Estudiando la sintaxis completa de la sentencia \textbf{insert} del manual de MySQL, se decidió hacer una inserción de múltiples filas en la tabla \textit{posting$\_$file}, donde cada fila corresponde a cada uno de los términos encontrados en un documento (junto con el identificador del documento y su frecuencia). Así, la sentencia \textbf{insert} que se utiliza es similar a la siguiente, que aparece en el manual de MySQL:
 
 \makebox{\textbf{INSERT INTO tbl$\_$name [(col$\_$name,...)] VALUES (expr),(expr), ...}}
 
@@ -119,8 +126,6 @@ Del mismo modo, la sentencia \textbf{insert} permite hacer cambios en una column
 
 \makebox{\textbf{INSERT INTO tbl$\_$name [(col$\_$name,...)] VALUES (expr),(expr), ...}} \\ 
 \indent \makebox{\textbf{ON DUPLICATE KEY UPDATE num$\_$docs=num$\_$docs+VALUES(num$\_$docs)}}
-
-Con estas cambios, el tiempo de indexación se ha reducido unos 22 minutos con respecto al módulo de indexación de la primera versión. En la sección \ref{estadisticas} se muestran algunas estadísticas de uso, tanto del módulo antiguo como del nuevo sistema.
 
 \paragraph{Optimización de las sentencias SQL en la búsqueda de documentos} En un primer momento, para obtener todos los datos (frecuencias, identificador del documento, titulo, etc.) de los documentos que tenían términos en común con la pregunta, se pensó en hacer varias sentencias \textbf{select} por separado, pero esto consumía demasiado tiempo para una búsqueda.
 
@@ -132,7 +137,7 @@ Por tanto, se optó por hacer una única consulta componiendo las tres tablas y ob
 \indent \makebox{\textbf{(SELECT DISTINCT p1.id$\_$doc FROM posting$\_$file p1 WHERE}} \\
 \indent \makebox{\textbf{p1.term IN (\textit{lista de términos de la pregunta}))}}
 
-Con esa sentencia, la consulta tardaba más de 40 segundos (para el término ''linux'') en procesarse, por lo que era necesario realizar unos cambios. Estudiando el manual de la sentencia \textbf{select} de MySQL, se observó que se puede elegir el índice (clave ajena) con el cuál combinar las tablas, lo que puede acelerar la búsqueda. Además, se puede indicar que esa sentencia tenga alta prioridad, ejecutando la sentencia en la base de datos antes que cualquier otra. Por otro lado, se optó también por crear una vista temporal con los resultados de la subconsulta anterior, para luego combinar con esa vista, en vez de tener una consulta con una subconsulta. Así, obtenemos estas sentencias:
+Esa sentencia aún tardaba demasiado tiempo en procesarse, por lo que era necesario realizar unos cambios. Estudiando el manual de la sentencia \textbf{select} de MySQL, se observó que se puede elegir el índice (clave ajena) con el cuál combinar las tablas, lo que puede acelerar la búsqueda. Además, se puede indicar que esa sentencia tenga alta prioridad, ejecutando la sentencia en la base de datos antes que cualquier otra. Por otro lado, se optó también por crear una vista temporal con los resultados de la subconsulta anterior, para luego combinar con esa vista, en vez de tener una consulta con una subconsulta. Así, obtenemos estas sentencias:
 
 \makebox{\textbf{CREATE VIEW view$\_$name AS SELECT DISTINCT p1.id$\_$doc}}\\
 \indent \makebox{\textbf{FROM posting$\_$file p1 USE INDEX (term) WHERE}} \\
@@ -145,8 +150,10 @@ Con esa sentencia, la consulta tardaba más de 40 segundos (para el término ''lin
 \indent \makebox{\textbf{ON posting$\_$file.id$\_$doc=v.id$\_$doc AND dic.term=posting$\_$file.term}}\\
 \indent \makebox{\textbf{AND posting$\_$file.id$\_$doc=doc.id$\_$doc}}
 
+De este modo, se han conseguido tiempos mucho más pequeños que en el caso anterior, como se muestra en la sección \ref{estadisticas}.
+
 \subsection{Desarrollo del sistema}
-Para terminar, en esta subsección se detallan el módulo indexador de documentos y el de búsqueda, comentando las decisiones tomadas.
+Para terminar, en esta subsección se detallan el motor indexador de documentos y el de búsqueda, comentando las decisiones tomadas.
 
 Cabe destacar que en la aplicación se utiliza el módulo \textit{psyco}, que es un módulo externo que realiza una
 compilación \textit{just-in-time} y que incrementa la
@@ -176,7 +183,7 @@ completo sea instantánea.
 prepararlos para su indexación, se ha implementado el módulo
 \textit{parser}. Dicho módulo recibe una línea y devuelve una lista con todos los términos contenidos en esa línea. Para ello, realiza las siguientes acciones:  
 \begin{milista}
-	\item En primer lugar, se escapan los caracteres
+	\item En primer lugar, las palabras de la línea se convierten a minúsculas y se escapan los caracteres
           ''$\backslash$'' y '' ' '' de las palabras que los
           contengan, ya que si se intenta insertar un término con esos
           caracteres en la base de datos, la sentencia sql no se forma de manera correcta
@@ -186,7 +193,7 @@ prepararlos para su indexación, se ha implementado el módulo
           signos de puntuación, como los espacios en blanco
           (incluyendo saltos de línea, tabuladores, etc). Se define
           también un patrón para detectar direcciones IP y números.
-	\item Todos los símbolos separadores que estén contenidos en la línea (menos el punto y el guión)se reemplazan por un espacio
+	\item Todos los símbolos separadores que estén contenidos en la línea (menos el punto y el guión) se reemplazan por un espacio
           en blanco y se divide la línea en palabras, separando por espacios, obteniendo así una lista de palabras, que recibe
           el siguiente tratamiento: 
 	\begin{enumerate}
@@ -194,8 +201,8 @@ prepararlos para su indexación, se ha implementado el módulo
 	\item Si una palabra se corresponde con el patrón IP, se almacena esa palabra en la lista de palabras que va a devolver el parser. 
 	\item Si una palabra se corresponde con el patrón de un número, también se almacena ese número.
 	\item Se reemplazan las vocales acentuadas de las palabras por vocales sin acentuar.
-	\item Se reemplazan los puntos contenidos en la palabra por espacios en blanco. Se hace ahora y no antes, para no perder los puntos que contiene una dirección IP.
-	\item Si una palabra tiene un guión, esa palabra se almacena con el guión y por separado, siempre y cuando las palabras por separado no estén en la stop$\_$list. Por ejemplo, si aparece \textit{cd-rom}, se almacenarían las palabras ''cd-rom'', ''cd'' y ''rom''.
+	\item Se reemplazan los puntos contenidos en la palabra por espacios en blanco. Se hace ahora y no antes para no perder los puntos que contiene una dirección IP.
+	\item Si una palabra tiene un guión, esa palabra se almacena con el guión y por separado, siempre y cuando las palabras por separado no estén en la \textit{stop$\_$list}. Por ejemplo, si aparece \textit{cd-rom}, se almacenarían las palabras ''cd-rom'', ''cd'' y ''rom''.
 	\item Una palabra que no comience con un caracter alfanumérico, se ignora.
 	\end{enumerate}
 \end{milista}
@@ -218,11 +225,11 @@ posting$\_$file de cada documento en memoria en forma de diccionario
 (tabla hash), para conseguir que los accesos sean más rápidos. Se han
 realizado pruebas y para un documento de unas 25.000 líneas, el tamaño
 del posting$\_$file no excede de los 13MB en memoria. Por tanto, esta
-opción es más eficiente en cuanto a tiempo, ya que sólo se vuelca el diccionario a la base de datos cuando se termina de procesar cada documento, en lugar de ir accediendo a la base de datos por cada uno de los términos que se deben almacenar.
+opción es más eficiente en cuanto a tiempo, ya que sólo se vuelca el \textit{posting$\_$file} a la base de datos cuando se termina de procesar cada documento, en lugar de ir accediendo a la base de datos por cada uno de los términos que se deben almacenar.
 
 Otra de las razones para hacer esto es para poder aprovechar la sentencia \textbf{insert} múltiple que se comentó en el apartado \ref{basedatos}.
 
-\paragraph{Memoria caché} Para disminuir el número de inserciones/actualizaciones en el diccionario, se ha decidido implementar una caché (en forma de tabla hash), donde se van almacenando términos, junto con el número de documentos en los que aparece dicho término. Así, cuando la caché está llena, se vacía a la base de datos, con la sentencia \textit{insert} que se detalló en el apartado \ref{basedatos}. También se vacía antes de insertar los términos de un documento en la tabla \textit{posting$\_$file}, para mantener la integridad de clave ajena que dicha tabla tiene. 
+\paragraph{Memoria caché} Para disminuir el número de inserciones/actualizaciones en la tabla diccionario, se ha decidido implementar una caché (en forma de tabla hash), donde se van almacenando términos, junto con el número de documentos en los que aparece dicho término. Así, cuando la caché está llena, se vacía a la base de datos, con la sentencia \textbf{insert} que se detalló en el apartado \ref{basedatos}. También se vacía antes de insertar los términos de un documento en la tabla \textit{posting$\_$file}, para mantener la integridad de clave ajena que dicha tabla tiene hacia el diccionario.
 
 \subsubsection{Motor de búsqueda}
 
@@ -245,7 +252,7 @@ El funcionamiento de este módulo es el siguiente:
 	\item Finalmente, se devuelve una lista con la información de los documentos ordenados de mayor a menor semejanza, además de escribir la información en el fichero XML.
 \end{enumerate}
 
-De este modo, al mismo tiempo que se van recorriendo las filas que devuelve la sentencia \textbf{select}, se van calculando los pesos y creando los vectores de lod documentos, ahorrando bucles y tiempo.
+De este modo, al mismo tiempo que se van recorriendo las filas que devuelve la sentencia \textbf{select}, se van calculando los pesos y creando los vectores de los documentos, ahorrando bucles y tiempo.
 
 \begin{equation}
 w_{ij} = ft_{ij} f_{i}d_{j} = ft_{ij} log(d/fd_{j})
