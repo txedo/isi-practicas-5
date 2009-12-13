@@ -9,14 +9,16 @@ El conjunto de ficheros de muestra se compone de un total de 239 documentos.
 
 En el primer motor de indexación que se desarrolló, el tiempo que se obtuvo para indexar los 239 documentos fue de \textbf{27 minutos y 39 segundos}.
 
-Con el cambio en el diseño de la base de datos (ver sección \ref{basedatos}) y la optimización de las sentencias \textbf{insert} en la tabla \textit{dic} y en la tabla \textit{positng$\_$file}, el tiempo que se ha obtenido es de \textbf{4 minutos y 143141341 segundos}. Como se puede observar, la disminución en el tiempo es bastante considerable.
+Con el cambio en el diseño de la base de datos (ver sección \ref{basedatos}) y la optimización de las sentencias \textbf{insert} en la tabla \textit{dic} y en la tabla \textit{positng$\_$file}, el tiempo que se ha obtenido es de \textbf{4 minutos y 27 segundos}. Como se puede observar, la disminución en el tiempo es bastante considerable.
 
 Por otra parte, al igual que ocurría en la primera versión de este motor, la memoria caché no disminuye el número de acceso a disco. Esto es debido a que la caché (configurada por defecto a 3000 líneas) no llega a su máxima capacidad, ya que debe vaciarse tras analizar cada documento, para mantener la integridad de clave ajena entre la tabla \textit{positng$\_$file} y la tabla \textit{dic}. Si los documentos tuviesen más términos, la caché llegaría a ser efectiva. 
 
 
 \subsection{Motor de búsqueda}
 
-En la búsqueda, como se comentó en la sección \ref{basedatos}
+En la búsqueda, como se comentó en la sección \ref{basedatos}, se ha optado por utilizar la última sentencia \textbf{select}, apoyándose en la creación de la vista temporal. Se ha elegido esta opción, porque, de media, tarda unos 5 segundos en buscar el término ''linux'' (que aparece en la mayoría de los documentos), mientras que con la sentencia \textbf{select} que incluía una subconsulta, buscar el mismo término tardaba más de 40 segundos.
+
+En la tabla \ref{tb:res} se muestra un resumen de búsquedas que se han realizado en el sistema (los tiempos son una media, ya que el tiempo de búsqueda puede variar según la carga del procesador y la asignación de éste a los hilos). Como se puede observar, el tiempo varía según la cantidad de términos introducidos y el número de documentos en los que aparece ese término. 
 
 \begin{table}[!ht]
 	\renewcommand{\arraystretch}{1.35}
@@ -24,8 +26,30 @@ En la búsqueda, como se comentó en la sección \ref{basedatos}
 	\begin{tabular}{| p{3.8cm} | p{4.5cm} | p{5.5cm} | }
 	\hline
 	\textbf{Pregunta} & \textbf{Tiempo empleado} & \textbf{Documentos encontrados} \\
+    \hline
+    linux & 4.8 segundos & 237 documentos \\
+    \hline
+    LoopBack & 2.5 segundos & 33 documentos \\
+    \hline
+    0.0.0.25 & 20 milisegundos & 1 documento \\
+    \hline
+    127.0.0.1 & 2.1 segundos & 29 documentos \\
+    \hline
+    ETHERNET 127.0.0.1 NETWORK & 3.6 segundos & 177 documentos \\
+    \hline
+    cd-rom & 4.9 segundos & 167 documentos \\
+    \hline
+     & &
 	\hline
+    Similar a ''Installation-HOWTO'' & 5.5 segundos & 239 documentos \\
+    \hline
+    Similar a ''CDROM-HOWTO'' & 5.7 segundos & 239 documentos \\
+    \hline
+    Similar a ''Assembly-HOWTO'' & 6.1 segundos & 239 documentos \\
+    \hline
 	\end{tabular}
 	\caption{Tabla resumen de los resultados de búsquedas}
 	\label{tb:res}
 \end{table}
+
+
