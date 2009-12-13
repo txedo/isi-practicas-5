@@ -89,6 +89,12 @@ En cuanto a las características de esta aplicación cabe destacar las siguientes 
 \begin{milista}
 \item Se puede invocar el motor de búsqueda a partir del menú ''Tools''.
 \item En el menú ''Tools'' se pueden consultar los documentos indexados en el sistema (ver Figura \ref{fig:indexedDocuments}) y ver su contenido, haciendo doble clic en uno de ellos, o pulsando ENTER al seleccionarlo.
+\begin{figure}[h]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.55]{./images/indexedDocuments}
+	\caption{Diálogo que muestra los documentos indexados en el sistema}
+	\label{fig:indexedDocuments}
+\end{figure}
 \item A la hora de realizar una búsqueda podemos configurar los pesos que deseamos dar a cada término. Por defecto, cada término tendrá peso 1, que es el máximo que puede tener, de modo que si queremos quitarle importancia a un término debemos indicarle un peso entre 0 y 1 mediante su barra deslizante correspondiente. Otra característica importante del sistema es que nos permitirá configurar los pesos sobre los térmios que realmente formarán parte de la pregunta, ignorando \textit{stopwords} y parseando el texto (ver Figura \ref{fig:custom-weights}).
 \begin{figure}[h]
 	\centering
@@ -97,6 +103,19 @@ En cuanto a las características de esta aplicación cabe destacar las siguientes 
 	\label{fig:custom-weights}
 \end{figure}
 \item Una vez que hemos realizado una búsqueda, se muestran los documentos encontrados ordenados de mayor a mener relevancia con respecto a la pregunta introducida. Además, si hacemos doble clic sobre un documento o lo seleccionamos y presionamos la tecla ENTER, emergerá una ventana mostrándonos su contenido (ver Figura \ref{fig:dialogoTexto}).
+\begin{figure}[h]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.55]{./images/dialogoTexto}
+	\caption{Diálogo que muestra el texto del documento seleccionado}
+	\label{fig:dialogoTexto}
+\end{figure}
 \item También podemos buscar documentos similares al documento que tengamos seleccionado. Para ello haremos uso del botón ''Find similars''.
 \item Por último, los resultados tambien pueden ser visualizados en el navegador configurado por defecto en el sistema (ver Figura \ref{fig:firefox}). Para ello haremos uso del boton ''Show XML''.
+\begin{figure}[h]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.55]{./images/firefox}
+	\caption{Resultado de la búsqueda mostrado en el navegador Web}
+	\label{fig:firefox}
+\end{figure}
+
 \end{milista}
