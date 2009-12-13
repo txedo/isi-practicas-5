@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#    This file is part of pyDMS v1.0: yet another document management system
+#    This file is part of pyDMS v1.0: Yet Another Document Management System
 #    Copyright (C) 2009, Jose Domingo Lopez Lopez & Juan Andrada Romero
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -37,8 +37,8 @@ import webbrowser
 from exception import * 
 from config import *
 
-#ICON = gtk.gdk.pixbuf_new_from_file("terminal_icon.jpg")
-TITLE = "Search Engine"
+ICON = gtk.gdk.pixbuf_new_from_file("../misc/pydms.png")
+TITLE = "pyDMS v1.0: Yet Another Document Management System"
 
 
 # Envoltura del fichero de gui generado por Glade
@@ -80,12 +80,13 @@ class Aplicacion:
         self.gui.signal_autoconnect(self.dic)
         # Obtengo una referencia a la ventana principal
         self.window = self.gui['searcher_window']
-        #self.gui['indexer_window'].hide()
         # Creo esta conexion para que sea destruida al cerrar
         self.window.connect('destroy', self.destroy)
         # Tomamos el dialogo definido en el fichero glade
         self.dialog = self.gui['textDialog']
+        self.dialog.set_icon(ICON)
         self.indexedDocsDialog = self.gui['indexedDocsDialog']
+        self.indexedDocsDialog.set_icon(ICON)
         # Tomamos el TreeView definido en la interfaz
         self.resultView = self.gui['resultView']
         self.docsView = self.gui['indexedDocsDialog'].get_content_area().get_children()[0].get_children()[0]
@@ -106,15 +107,12 @@ class Aplicacion:
         self.__add_result_column(self.resultView, "Relevance", 4)
         self.__add_result_column(self.docsView, "Id Doc", 1)
         self.__add_result_column(self.docsView, "Title" ,2)
-        
-	    # Se crea el ListStore
+        # Se crea el ListStore
         self.resultList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.docsList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING)
-
         # Se asocia el ListStore al TreeView
         self.resultView.set_model(self.resultList)
         self.docsView.set_model(self.docsList)
-
         self.resultView.set_headers_clickable(False)
         self.docsView.set_headers_clickable(False)
 
@@ -129,10 +127,8 @@ class Aplicacion:
 
     def __guiInit(self):
         # La ventana inicial no muestra la lista de resultados
-        #self.window.set_size_request(390, 130)
-        #self.window.set_size_request(486, 450)             
         self.window.set_title(TITLE)
-        #self.window.set_icon(ICON)
+        self.window.set_icon(ICON)
         self.gui['progressbar'].set_text("")
         self.gui['progressbar'].set_fraction(0.00)
         defaultWeightRB = self.gui['defaultWeightRadioButton']
@@ -243,7 +239,6 @@ class Aplicacion:
                 self.__resetGUI()
                 self.gui['textEntry'].set_text("related:"+self.res[self.selected_row][1][1])
                 gtk.main_iteration()
-                #time.sleep(0.35)
                 # Se buscan los documentos similares al seleccionado (usando su id_doc)
                 init = datetime.datetime.now()
                 t = threading.Thread(target=self.s.search, args=(self.s.get_vector(int(self.res[self.selected_row][0])).get_components(),))
@@ -256,16 +251,12 @@ class Aplicacion:
                 self.res = self.s.result
                 self.show_results()
             except MySQLdb.Error, e:
-                #self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", "SQL Exception: "+e.args[1])
             except TermNotFound, e:
-                #self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", str(e))
             except NoFilesIndexed, e:
-                #self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", str(e))
             except Exception, e:
-                #self.window.set_size_request(390, 130)
                 self.__showErrorDialog("Error", "Exception: "+str(e))
             widget.set_sensitive(True)
 
@@ -289,7 +280,6 @@ class Aplicacion:
                 for q in question_parts_aux: 
                     if q not in question_parts:
                         question_parts.append(q)
-                #print question_parts
                 if self.gui['defaultWeightRadioButton'].get_active():
                     # Pesos por defecto
                     for q in question_parts:
@@ -359,18 +349,17 @@ class Aplicacion:
             label.set_text(q)
             hbox = gtk.HBox(homogeneous=True, spacing=10)
             hbox.pack_start(label, expand=False, fill=False, padding=10)
-            #dialog.vbox.pack_start(label)
             label.show()
             adj = gtk.Adjustment(value=1, lower=0, upper=1, step_incr=0.01, page_incr=0, page_size=0)
             slider = gtk.HScale(adj)
             slider.set_digits(2)
             slider.set_size_request(90,-1)
             hbox.pack_start(slider, expand=True, fill=True, padding=10)
-            #dialog.vbox.pack_start(slider)
             slider.show()
             slider_list.append(slider)
             dialog.vbox.pack_start(hbox, expand=False, fill=False, padding=0)
             hbox.show()
+        dialog.set_icon(ICON)
         response = dialog.run()
         for i in range(len(slider_list)):
             question_dic[question_parts[i]] = float(slider_list[i].get_value())
@@ -381,19 +370,22 @@ class Aplicacion:
     def aboutMenuItem_activate_cb(self, widget):
         try:
             u = utilities.Utilities()
-            authors = ["Jose Domingo Lopez Lopez\nJuan Andrada Romero"]
+            authors = ["Jose Domingo Lopez Lopez (josed.lopez1@alu.uclm.es)",
+                       "Juan Andrada Romero (juan.andrada@alu.uclm.es)"]
             license = u.read_text_file("../license.txt")
             dialog = gtk.AboutDialog()
-            dialog.set_name("Search Engine")
+            dialog.set_name("pyDMS")
             dialog.set_version("v1.0")
+            dialog.set_comments("Yet Another Document Management System")
+            dialog.set_website("http://www.inf-cr.uclm.es/")
+            dialog.set_website_label("Escuela Superior de Informática @ UCLM")
             dialog.set_authors(authors)
             dialog.set_license(license)
+            dialog.set_logo(ICON)
+            dialog.run()
+            dialog.destroy()
         except Exception, e:
             self.__showErrorDialog("Error", "Exception: "+str(e))
-        #dialog.set_logo(ICON)
-
-        dialog.run()
-        dialog.destroy()
 
     def indexedDocsMenuItem_activate_cb(self, widget):
         self.docsList.clear()

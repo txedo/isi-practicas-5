@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#    This file is part of pyDMS v1.0: yet another document management system
+#    This file is part of pyDMS v1.0: Yet Another Document Management System
 #    Copyright (C) 2009, Jose Domingo Lopez Lopez & Juan Andrada Romero
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -54,7 +54,6 @@ class Parser:
             if (word not in string.whitespace) and (word not in self.stop_list):
                 # Si la palabra es una direccion IP, se toma dicha palabra como termino
                 if ip_pattern.match(word):
-                    #word = re.sub('[%s]' % re.escape(separadores.replace(".","")), "", word)
                     result.append(word)
                 # Se almacenan tambien los numeros 
                 elif number_pattern.match(word):
