@@ -28,7 +28,7 @@ Introduzca la contraseña que configuró al instalar el servidor de MySQL y cree l
 \subsection{Motor de indexación}
 \subsubsection{Interfaz gráfica de usuario}
 Para ejecutar la interfaz gráfica sitúese en el directorio
-``presentación'' y ejecute la sentencia
+''presentación'' y ejecute la sentencia
 \texttt{./indexEngineGUI.py}. A continuación se mostrará la ventana principal, tal
 y como aparece en la Figura \ref{fig:index-engine-gui}. Las opciones de dicha
 ventana son:
@@ -44,20 +44,20 @@ ventana son:
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[keepaspectratio, scale=0.75]{./images/gui}
+		\includegraphics[keepaspectratio, scale=0.75]{./images/index-engine-gui}
 	\caption{Interfaz gráfica de usuario del motor de indexación}
 	\label{fig:index-engine-gui}
 \end{figure} 
 
 Una vez elegido un fichero o un directorio, basta con hacer clic en el
-botón ``Start'' para que comienze la indexación, mostrando una
+botón ''Start'' para que comienze la indexación, mostrando una
 barra de progreso para informar al usuario del avance de la indexación de los
 ficheros. 
 
 \subsubsection{Interfaz de usuario por línea de comandos}
-La aplicación además cuenta con una interfaz basada en texto que puede
+El módulo de indexación además cuenta con una interfaz basada en texto que puede
 invocarse desde un terminal. Una vez más, esta interfaz está contenida
-en la capa de presentación del sistema (\texttt{./indexEngineCMD.py}). Para lanzarla, es necesario
+en la capa de presentación del sistema, por lo que hay que introducir la órden (\texttt{./indexEngineCMD.py}), siendo necesario
 proporcionarle dos parámetros, en función de la operación que queramos
 realizar.
 \begin{milista}
@@ -82,20 +82,20 @@ Debido a las funcionalidades que debe cubrir esta aplicación, se proporciona una
 	\centering
 		\includegraphics[keepaspectratio, scale=0.55]{./images/search-engine-gui}
 	\caption{Interfaz gráfica de usuario del motor de búsqueda}
-	\label{fig:menu-ayuda}
+	\label{fig:search-engine-gui}
 \end{figure}
 
 En cuanto a las características de esta aplicación cabe destacar las siguientes características:
 \begin{milista}
-\item Se puede invocar el motor de búsqueda a partir del menú ``Tools''.
+\item Se puede invocar el motor de búsqueda a partir del menú ''Tools''.
 \item A la hora de realizar una búsqueda podemos configurar los pesos que deseamos dar a cada término. Por defecto, cada término tendrá peso 1, que es el máximo que puede tener, de modo que si queremos quitarle importancia a un término debemos indicarle un peso entre 0 y 1 mediante su barra deslizante correspondiente. Otra característica importante del sistema es que nos permitirá configurar los pesos sobre los térmios que realmente formarán parte de la pregunta, ignorando \textit{stopwords} y parseando el texto (ver Figura \ref{fig:custom-weights}).
 \begin{figure}[h]
 	\centering
 		\includegraphics[keepaspectratio, scale=0.55]{./images/custom-weights}
 	\caption{Configurando los pesos a los términos parseados de una pregunta e ignorando stopwords}
-	\label{fig:menu-ayuda}
+	\label{fig:custom-weights}
 \end{figure}
-\item Una vez que hemos realizado una búsqueda es posible ordenar los documentos por relevancia (orden por defecto) o por nombre. Además, si hacemos doble clic sobre un documento o lo seleccionamos y presionamos la tecla ENTER, emergerá una ventana mostrándonos su contenido.
-\item También podemos buscar documentos similares al documento que tengamos seleccionado. Para ello haremos uso del botón ``Find similars''.
-\item Por último, los resultados tambien pueden ser visualizados en el navegador configurado por defecto en el sistema. Para ello haremos uso del boton ``Show XML''.
+\item Una vez que hemos realizado una búsqueda, se muestran los documentos encontrados ordenados de mayor a mener relevancia con respecto a la pregunta introducida. Además, si hacemos doble clic sobre un documento o lo seleccionamos y presionamos la tecla ENTER, emergerá una ventana mostrándonos su contenido.
+\item También podemos buscar documentos similares al documento que tengamos seleccionado. Para ello haremos uso del botón ''Find similars''.
+\item Por último, los resultados tambien pueden ser visualizados en el navegador configurado por defecto en el sistema. Para ello haremos uso del boton ''Show XML''.
 \end{milista}
