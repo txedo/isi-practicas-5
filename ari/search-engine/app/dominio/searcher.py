@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#    This file is part of pyDMS v1.0: yet another document management system
+#    This file is part of pyDMS v1.0: Yet Another Document Management System
 #    Copyright (C) 2009, Jose Domingo Lopez Lopez & Juan Andrada Romero
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -44,7 +44,6 @@ class Searcher:
     # question es un diccionario (termino-peso)
     def search(self, question):
         self.exception = None
-        #d1 = datetime.datetime.now()
         module_question = 0.00
         similarity_set = {}
         self.result = None
@@ -63,16 +62,16 @@ class Searcher:
                         module_question += math.pow(question[term], 2)
                     module_question = float(math.sqrt(module_question))
                     # Recorremos las filas que devuelve la base de datos y vamos calculando los pesos de cada termino en cada documento
+                    # row[0] -> term
+                    # row[1] -> id_doc
+                    # row[2] -> frequency (ftij)
+                    # row[3] -> num_docs (fdj)
+                    # row[4] -> title
+                    # El try indica que algun termino del documento ha aparecido anteriormente, por lo que ya tiene un vector creado
+                    # El except indica que es la primera vez que aparece un termino de un documento, por lo que se inicializa el vector de dicho documento
+                    # El vector de un documento contiene el termino y su peso
+                    # wij = ftij x fidj = ftij x log(d/fdj)
                     for row in result:
-                        # row[0] -> term
-                        # row[1] -> id_doc
-                        # row[2] -> frequency (ftij)
-                        # row[3] -> num_docs (fdj)
-                        # row[4] -> title
-                        # El try indica que algun termino del documento ha aparecido anteriormente, por lo que ya tiene un vector creado
-                        # El except indica que es la primera vez que aparece un termino de un documento, por lo que se inicializa el vector de dicho documento
-                        # El vector de un documento contiene el termino y su peso
-                        # wij = ftij x fidj = ftij x log(d/fdj)
                         try:
                             self.__document_vectors[row[1]].add(row[0], row[2]*(math.log(float(total_num_docs)/float(row[3]))))
                         except:
@@ -96,9 +95,7 @@ class Searcher:
                     self.exception = TermNotFound()
             else:
                 self.exception = NoFilesIndexed()
-            #print datetime.datetime.now()-d1
             self.working = False
-            #return sorted_similarity_set
         except Exception, e:
             self.exception = e
 

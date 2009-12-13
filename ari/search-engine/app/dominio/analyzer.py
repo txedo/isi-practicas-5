@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#    This file is part of pyDMS v1.0: yet another document management system
+#    This file is part of pyDMS v1.0: Yet Another Document Management System
 #    Copyright (C) 2009, Jose Domingo Lopez Lopez & Juan Andrada Romero
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -67,9 +67,11 @@ class Analyzer:
                     self.__current_file = self.__current_file + 1
 
                 self.working=True
-                file_name = string.join(((path.split("/"))[-1]).split('.')[:-1],'.') # Tomamos el nombre del archivo, sin extension
+                # Tomamos el nombre del archivo, sin extension
+                file_name = string.join(((path.split("/"))[-1]).split('.')[:-1],'.')
                 self.__current_working_file = file_name
-                (system_path, last_id) = self.dao.insert_doc(file_name) # Recuperamos la ruta del repositorio y el id de ese documento
+                # Recuperamos la ruta del repositorio y el id de ese documento
+                (system_path, last_id) = self.dao.insert_doc(file_name)
                 # Copiamos el documento al repositorio
                 shutil.copy2(path, system_path)
                 # Abrimos y leemos el documento linea a linea, pasando cada linea por el parser

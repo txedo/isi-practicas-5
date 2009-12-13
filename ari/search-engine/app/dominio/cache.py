@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#    This file is part of pyDMS v1.0: yet another document management system
+#    This file is part of pyDMS v1.0: Yet Another Document Management System
 #    Copyright (C) 2009, Jose Domingo Lopez Lopez & Juan Andrada Romero
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -29,7 +29,6 @@ class Cache:
     def __init__(self):
         try:
             self.buffer = {}
-            #self.list_postings = {}
             self.dao = bdDao.Dao()
 
         except:

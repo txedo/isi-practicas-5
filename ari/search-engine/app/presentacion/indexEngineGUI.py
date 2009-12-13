@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#    This file is part of pyDMS v1.0: yet another document management system
+#    This file is part of pyDMS v1.0: Yet Another Document Management System
 #    Copyright (C) 2009, Jose Domingo Lopez Lopez & Juan Andrada Romero
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -35,7 +35,7 @@ from exception import *
 
 import threading, time, datetime
 
-#ICON = gtk.gdk.pixbuf_new_from_file("terminal_icon.jpg")
+ICON = gtk.gdk.pixbuf_new_from_file("../misc/pydms.png")
 TITLE = "Index Engine"
 
 
@@ -84,7 +84,8 @@ class Aplicacion:
     def __guiInit(self):
         self.window.resize(440,250)
         self.window.set_title(TITLE)
-        #self.window.set_icon(ICON)
+        self.window.set_icon(ICON)
+        self.window.set_resizable(False)
         self.gui['progressbar'].set_text("Choose an option...")
         self.gui['progressbar'].set_fraction(0.0)
         # Conectamos los radio buttons con un callback para notificar cuando cambia la seleccion
@@ -95,9 +96,7 @@ class Aplicacion:
         rbDirectory.connect("toggled", self.callback, "directory")
         # Inicializamos activada la parte de ficheros y desactivada la parte de directorios
         txtFilePath = self.gui['txtFilePath']
-        #txtFilePath.set_editable(False)
         txtDirectoryPath = self.gui['txtDirectoryPath']
-        #txtDirectoryPath.set_editable(False)
         txtDirectoryPath.set_sensitive(False)
         btnBrowseDirectory = self.gui['btnBrowseDirectory']
         btnBrowseDirectory.set_sensitive(False)
