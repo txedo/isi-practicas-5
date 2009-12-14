@@ -1,0 +1,668 @@
+AMBIENTES DE APRENDIZAJE PARA
+
+LA EDUCACION EN TECNOLOGIA
+
+Edgar Andrade Londono
+
+Profesor Titular- Departamento de Tecnologia
+
+Coordinador Maestria en Pedagogia de la Tecnologia
+
+Universidad Pedagogica Nacional
+
+ 
+
+1.- EL SENTIDO SOCIAL DE LA EDUCACION EN TECNOLOGIA
+
+Una importante funcion social de la educacion ha sido, desde el
+surgimiento de la escuela en terminos modernos, la de preparar a las
+jovenes generaciones para su futura participacion productiva en la
+sociedad en que nacieron. El sistema educativo es un desarrollo
+relativamente reciente en la historia de la humanidad, como un
+componente de la sociedad generada por el modo industrial de produccion
+a partir del siglo XVIII. (Andrade, 1994)
+
+La caracteristica central de la industria, que la diferencia de otros
+modos de produccion, es una mayor division del trabajo, la cual, al
+final, resulto en el surgimiento de una nueva serie de instituciones
+sociales especializadas. Asi, la sociedad se hizo incrementalmente mas
+compleja a medida que los individuos se transformaban en partes de una
+"funcion social de produccion." (Marx, 1867).
+
+Una de tales instituciones es el sistema educativo, necesario como un
+vehiculo de transferencia de cultura de las viejas a las jovenes
+generaciones, tanto por cuanto las instituciones sociales anteriores
+(tales como los clanes, los gremios, la familia patriarcal, etc.)
+estaban siendo borrados por el desarrollo de la nueva sociedad
+industrializada, como por cuanto la cultura misma tambien se hacia mas
+compleja. Evidentemente, un aspecto importante de la transferencia de
+cultura es la posibilidad de participar en la vida economica de la
+sociedad de la cual se hace parte.
+
+Hasta el momento, el enfasis central de la educacion secundaria y
+superior para segmentos importantes de la poblacion ha sido puesto en
+educar para el empleo. Esto es particularmente cierto para paises como
+Colombia, todavia en la necesidad de articular sistemas fuertes de
+Investigacion y Desarrollo (I&D) ligados a sus sistemas productivos. (Al
+respecto, ver los articulos sobre las regiones Suramericana y Africana
+en Layton, 1994).
+
+Bajo las actuales condiciones demograficas y economicas, estos modelos
+educativos centrados en el empleo han comenzado a mostrar sus
+debilidades para proporcionar a las jovenes generaciones un sentido de
+futuro. Primero, el desempleo se ha convertido en unade las mayores
+preocupaciones mundiales, poniendo en evidencia las dificultades de los
+sectores economicos existentes para absorber al menos una porcion
+significativa de jovenes que llegan al mercado laboral. Segunda, como ha
+sido ampliamente reconocido, la tecnologia contemporanea esta cambiando
+dramaticamente la estructura de la demanda laboral, aumentando los
+requerimientos educativos y demandando un trabajor mas reflexivo y
+flexible (Pena,M., 1988; Urrea, F.,1988 ; Ramirez, C., 1994). Esto, b
+sicamente por que los desarrollos de la tecnologia contemporanea tienden
+a hacer mas abstracto el trabajo de los hombres, al reemplazar la mano
+de obra por procesos controlados por microprocesadores.
+
+En tercer lugar, ese sentido de no futuro se siente mas agudamente en el
+mundo en desarrollo, en el cual la poblacion es mas joven. Por ejemplo,
+cerca del 60% de la poblacion colombiana es menor de 30 anos y cerca del
+25% esta en el rango (12-20 anos) aproximadamente correspondiente a la
+poblacion de la educacion secundaria.
+
+Esta situacion demanda, entre otras cosas, que los modelos educativos
+centrados en preparar para el empleo sean reemplazados por modelos
+centrados en el trabajo. Aqui la distincion clave es que el trabajo es
+una actividad creadora, fuente de artefactos e instrumentos, y tambien
+de conocimiento y otros aspectos intelectuales, en fin de cultura. Por
+otra parte, el empleo es una tarea reiterativa, parcial y con frecuencia
+alienante.
+
+Indudablemente, en el transcurso de su insercion en la sociedad muchos
+jovenes, en particular aquellos provenientes de las clases
+economicamente menos pudientes, tendran que aspirar a un empleo. Esto es
+una situacion. Pero restringirlos en su formacion a los limitados
+horizontes del empleo, esa "parte de una funcion social de produccion",
+es condenarlos al subdesarrollo intelectual. Esta es precisamente la
+principal debilidad de los actuales esquemas educativos de la educacion
+tecnica o vocacional. Bajo la cobertura de una supuesta "vocacion"
+innata en el individuo, se acepta la actual diferenciacion de roles
+impuesta en la sociedad por los intereses que tienen el poder de
+hacerlo.
+
+Esa diferenciacion de roles, implicita en la cultura que se transfiere
+por medio de la educacion, implica, en lo hechos, que los desarrollos m
+s logrados de todos los aspectos de la cultura humana serian superfluos
+para quienes han tenido la desventura de nacer en ambientes
+socioeconomicamente deprimidos. La cosmovision de Eisntein, el disfrute
+de las sutilezas de lenguajes matematicos, musicales, literarios,
+pictoricos, etc., en resumen, todos aquellos aspectos en donde se
+encuentra la frontera del conocimiento y la actividad humanos estarian
+de mas para los jovenes condenados, por el "calvinismo social" de
+nuestra epoca, a ser los operarios, administradores y mantenedores de
+los instrumentos y procesos tecnicos.
+
+Esta recortada dimension de educar para el empleo no puede contribuir a
+fortalecer la capacidad de una nacion para desarrollar su potencialidad
+de asimilacion y generacion de ciencia y tecnologia. En particular, el
+conocimiento tecnologico de nuestros dias ha adquirido una sofisticacion
+tal que requiere, como ya se ha dicho, de un individuo mucho mas
+desarrollado intelectualmente.
+
+La vision de educar para el trabajo conlleva, entonces, asumir el reto
+de superar la estrechez de miras de la actual educacion tecnica, de
+ampliar la capacidad de comprension de conjunto, a la vez que cultivar
+las capacidades practicas involucradas en el hacer al tiempo que se
+conoce la razon de los porques, que es la esencia de la tecnologia en
+todas sus variadas definiciones. Este reto permite precisar los grandes
+objetivos de la educacion en tecnologia, dentro de la perspectiva de
+educar para el trabajo. Se trataria de formar:
+
+1.- Un ciudadano alfabetizado tecnologicamente, es decir, un "usuario
+culto" de la tecnologia.
+
+Esta alfabetizacion tiene, por lo menos las siguientes dimensiones:
+
+a) Una caracteristica esencial de la vida contemporanea es la ubicua y
+permanente compania de maquinas de diversos grados de sofisticacion.
+Aunque las maquinas mas sofisticadas han comenzado a desarrollarse
+dentro de la idea de ser "transparentes" o "amigables" al usuario, es
+indispensable la capacidad de "leer" el objeto para poder utilizarlo;
+ademas, maquinas especificas requieren de ciertas destrezas tecnicas de
+uso correcto y seguro. Pero tambien es necesario un ingrediente
+reflexivo para utilizar esos instrumentos en forma adecuada, eficiente y
+eficaz.
+
+b) Ligado a lo anterior, es preciso desarrollar un nivel minimo de
+capacidad de evaluar las distintas alternativas tecnologicas. No siempre
+el equipo mas complejo y costoso es el mejor en todas las
+circunstancias. Ademas, el hecho de que el hombre este en posicion de
+tener el control remoto o la fuente de potencia en la mano no garantiza
+siempre que esta controlando el dispositivo tecnologico. La capacidad de
+decision en ambos casos, esta condicionada a ciertos niveles de
+alfabetizacion tecnologica, que se tornan mas elevados en la medida en
+que los artefactos devienen mas complejos.
+
+c) Ese nivel de alfabetizacion tambien determina la posibilidad de
+participacion democratica en las condiciones contemporaneas. Sin ese
+nivel, por ejemplo, la participacion en una discusion sobre formas
+alternas de suplir un servicio publico (energia, agua potable,
+disposicion de desechos, etc.) no puede ser mas que retorica.
+
+2.- Los innovadores de la tecnologia.
+
+Como se menciono ya, el grado de desarrollo de la tecnologia contempor
+nea implica que la posibilidad de innovacion este relacionada con
+niveles cada vez mas altos de capacidades intelectuales. La formacion de
+innovadores significa que el sector educativo, unica institucion social
+que estaria en condiciones de efectuar esa formacion, deba enfrentar dos
+problemas fundamentales.
+
+El primero, estriba en el alto nivel de las capacidades intelectuales
+involucradas en la innovacion, que solo pueden ser desarrolladas en los
+niveles superiores del sistema educativo, pero que tienen una condicion
+de continuidad desde los niveles mas elementales de la educacion. El
+segundo radica en que la escuela, como sistema, ha estado orientada a la
+socializacion de los jovenes en el mundo cultural de los adultos, lo que
+significa un enfasis en el "pensamiento convergente", mientras que la
+creatividad, la capacidad de innovacion y/o de diseno estan relacionadas
+con el "pensamiento divergente".
+
+ 
+
+2.- MARCO CONCEPTUAL PARA LA PEDAGOGIA DE LA TECNOLOGIA
+
+Un modelo centrado en el trabajo esta siendo desarrollado por un equipo
+de profesores del Departamento de Tecnologia de la Universidad
+Pedagogica Nacional, nucleado en torno a la Maestria en Pedagogia de la
+Tecnologia. Este modelo esta orientado al desarrollo de competencias
+claves en el individuo, que lo posibiliten para su participacion
+productiva en la sociedad contemporanea, y esta basado en la idea de que
+la educacion debe apuntar a formar en los estudiantes una vision
+cientifica del mundo en que viven y de su papel en el. Debe ser
+relevante y, por tanto, intimamente ligada a la vida personal y a la
+produccion, tanto para entenderlas como para transformarlas. Debe
+propiciar el entendimiento y manejo de la logica abstracta de los
+lenguajes, articulado y matematico. Debe alentar la creatividad, el
+desarrollo intelectual y fisico. En fin, debe propender por la formacion
+de un individuo capaz de manejar informacion suficiente y adecuada, asi
+como las fuentes de esa informacion ; idoneo para plantear problemas y
+proponer soluciones a ellos y, finalmente, dueno de una autodisciplina
+que le permita continuar autonomamente su desarrollo personal.
+
+Es importante precisar que el termino "competencia", como se utiliza
+aqui, hace referencia a la capacidad para tomar decisiones adecuadas en
+un ambito definido.
+
+El anterior "perfil del egresado" se puede precisar en un conjunto de
+competencias, definidas como logros de aprendizaje, correspondientes en
+terminos generales a lo que podemos denominar una "capacidad de diseno".
+Estas competencias son:
+
+2.1.- Capacidad para Identificar, Acceder a y Manejar Fuentes de
+Informacion.
+
+Estas fuentes pueden variar desde las bibliotecas convencionales,
+revistas y periodicos, hasta el correo electronico, redes telematicas y
+busquedas en bases de datos computarizadas.
+
+El enfasis en las fuentes de informacion antes que en un determinado
+cuanto de informacion, como es usual en los actuales modelos educativos,
+se justifica por la frecuentemente mencionada "explosion de la
+informacion" y el rapido ritmo de desarrollo de muchas disciplinas.
+Unesco, por ejemplo, ha estimado que un alto porcentaje del cuanto de
+informacion de la mayoria de las disciplinas tecnicas tiene un periodo
+de obsolescencia de cinco anos.
+
+Dos implicaciones principales se derivan de este hecho: Primero, la
+educacion debe enfatizar en ese cuerpo de conocimientos con menor tasa
+de obsolescencia, constituido por los principios fundamentales de las
+ciencias y la tecnologia.
+
+Segundo, es mas importante desarrollar en los estudiantes la capacidad
+de manejo de fuentes de informacion, que incluye por supuesto la
+comprension de los conceptos fundamentales del area disciplinar
+especifica, antes que hacerlos memorizar una cantidad de datos.
+
+2.2- Capacidad para Formular Problemas
+
+En los campos de la investigacion, el diseno y la vida cotidiana, la
+mayoria de los problemas son "debilmente estructurados", percibidos como
+necesidades antes que como problemas propiamente dichos. En contraste,
+los problemas de los libros de textos estan claramente enunciados. Esta
+disparidad puede explicar por que estudiantes capaces para resolver
+problemas de texto, generalmente tienen dificultades para transferir
+esta habilidad a situaciones externas al salon de clase.
+
+La formulacion de problemas involucra la compleja tarea de construir
+modelos mentales de la "realidad", definida como aquel ambito externo a
+la conciencia humana. Las actuales practicas educativas bien ignoran o
+dan por dada la capacidad para confrontar esta tarea compleja de
+construccion de modelos, de modelacion de la realidad, la naturaleza. La
+capacidad de describir la realidad en los lenguajes sofisticados de las
+ciencias y la tecnologia (lenguajes que incluyen la matematica)
+sencillamente no se trabaja adecuadamente durante los anos de
+escolaridad. En terminos generales, la capacidad de describir esa
+realidad con el lenguaje estructurado materno, el espanol, tampoco se
+trabaja adecuadamente.
+
+La educacion en tecnologia debe tomar en cuenta esta distincion entre
+"realidad" y "modelo mental",o, en los terminos desarrollados por Goel &
+Pirolli (1992) para la actividad de diseno, esto es, la actividad de
+solucion de problemas de orden practico, entre "Entorno de Tarea" y
+"Espacio de Problema". El "entorno de tarea" es cualquier situacion
+especifica en la cual se percibe una necesidad; "espacio de problema" es
+el modelo mental de esa situacion, primer paso en la estructuracion de
+una propuesta de solucion para esa necesidad percibida.
+
+2.3- Capacidad para desarrollar y presentar propuestas de solucion
+
+Relacionado con el hecho de que estan fuertemente estructurados, los
+problemas de texto usualmente son del tipo de respuesta verdadero/falso.
+Al contrario, los problemas de la investigacion, el diseno y la vida
+cotidiana son del orden de respuesta "optima dadas ciertas condiciones";
+las soluciones dependen fuertemente del contexto. Este contraste
+refuerza en la mente de los estudiantes la idea de que los problemas de
+texto son buenos unicamente para solucionar problemas escolares, con una
+tangencial relacion con la vida externa al salon de clase.
+
+La naturaleza practica del conocimiento tecnologico (Layton, 1993)
+requiere que el estudiante desarrolle una capacidad para intervenir en
+el mundo en que vive y no unicamente para verbalizar sobre ese mundo.
+Esto podria lograrse trabajando la capacidad del estudiante para
+proponer soluciones a problemas, una vez que estos han sido
+estructurados (ha sido construido el "espacio de problema") dentro de
+unas condiciones especificas. Es decir, ubicando a los estudiantes en
+actividades de diseno, lo cual requiere de habilidades cognitivas y
+metacognitivas.
+
+Definiciones en este sentido requieren de una concepcion de
+"creatividad". Se ha optado por la definicion de Novak de la "conducta
+creativa", basada en la Teoria del Aprendizaje Significativo de Ausubel,
+como una especie de "conocimiento supraordenado" (Novak, 1982). Esto
+significa que la persona creativa posee una estructura cognitiva
+compleja, que incluye asociaciones conceptuales de alto nivel en un
+determinado campo. Esa compleja "malla" conceptual le permitiria a la
+persona creativa establecer relaciones que otros, menos creativos, no
+pueden ver por si mismos.
+
+Esta definicion de "creatividad" es consistente con el papel de la
+experiencia del disenador, tanto en la division del problema de diseno
+en partes componentes para intentar un proceso incremental de solucion,
+como con la calidad de esas propuestas de solucion, reportado por Goel &
+Pirolli. Tambien esta en concordancia con el famoso consejo de Dali a
+sus discipulos: "Primero aprende a pintar como los grandes maestros.
+Luego, haz lo que te plazca".
+
+Adicionalmente, esta definicion implica que es necesario un cierto nivel
+de familiaridad con los conceptos fundamentales de un campo especifico
+para poder ser creativo en ese campo. Esto conduce a la cuestion de cu
+les serian los conceptos fundamentales de la tecnologia contemporanea,
+esto es, cuales serian los requerimientos cognitivos del innovador de la
+tecnologia. Esto sera discutido mas adelante.
+
+Por otra parte, es claro que esos requerimientos cognitivos son
+condicion necesaria, mas no suficiente para la "creatividad". Esta
+capacidad involucra tambien las habilidades para planear, ejecutar y
+evaluar, que pertenecen al plano metacognitivo. (Davidson, Deuser &
+Sternberg; 1994). En otras palabras, el innovador no solo necesita
+conocer, sino que tambien debe desarrollar estrategias "fuertes" de
+solucion de problemas.
+
+Resultados preliminares de investigacion parecen senalar que los
+estudiantes que desarrollan estrategias fuertes de solucion de
+problemas, lo hacen monitoreando y evaluando la efectividad de los
+caminos que ellos mismos han seguido en la busqueda de soluciones; esto
+es, incluyendo una funcion de autoevaluacion en el proceso de solucion
+(Maldonado; Andrade, y Acero; 1995). Este resultado es consistente con
+reportes acerca de la importancia del aprendizaje autodirigido en el
+desarrollo de habilidades cognitivas de alto nivel (Newkirk, 1973;
+Mandinach, 1984).
+
+2.4.- Algunas Destrezas Tecnicas
+
+Estas destrezas tecnicas incluyen tanto destrezas manuales como
+habilidades de comunicacion oral y escrita. Se ha dicho mucho acerca de
+la relacion entre la mano y el cerebro, tanto que no parece necesario
+insistir en la importancia de desarrollar habilidades manuales comenzado
+a edades tempranas. Por otra parte, la naturaleza practica del
+conocimiento tecnologico ya mencionada, impone la necesidad de que el
+estudiante desarrolle la capacidad de manejo de herramientas y maquinas,
+como es tradicional en la educacion tecnica. La distincion clave aqui es
+que el enfasis no debe estar ubicado en el entrenamiento de un operario
+altamente calificado, como ocurre en la actualidad, sino en la
+apreciacion de como los instrumentos de trabajo potencian las
+capacidades de los hombres para transformar los ambientes en que vive.
+Los instrumentos son a la Tecnica, segun lo afirmara Habermas, lo que
+las palabras al Lenguaje. (Habermas, 1967. En esto coincide Durant. W;
+1956)
+
+Finalmente, las habilidades de comunicacion oral y escrita son una
+caracteristica distintiva de la interaccion humana, en dos sentidos
+importantes, que corresponden a las dos funciones principales del
+lenguaje. El lenguaje permite la expresion de lo que esta en las mentes
+de cada uno de nosotros, haciendo mas sutil y compleja la interaccion
+entre los hombres; en esta dimension, el lenguaje cumple una funcion
+comunicativa. Por otra parte, el lenguaje es una herramienta de
+pensamiento, tiene una funcion cognitiva y es, por tanto, una evidencia
+externa de cuan compleja es la estructura cognitiva interna. (Spirkin,
+1961)
+
+2.5.- Tendencia hacia la Autoformacion, como un signo distintivo de la
+madurez personal.
+
+Una de las mayores dificultades de las actuales practicas educativas es
+el ritmo estandarizado que impone sobre individuos que son naturalmente
+diferentes. Ello ha resultado en que los docentes usualmente tienden a
+ajustarse al paso de los estudiantes mas lentos, contribuyendo a la
+desmotivacion de los estudiantes con ritmos de aprendizaje mas rapidos.
+
+Las diferencias naturales entre los estudiantes, particularmente en sus
+ritmos de aprendizaje, deberian ser tenidas en cuenta por un modelo de
+educacion centrado en el trabajo. Tal vez la unica manera viable de
+hacer esto a costos razonables es trabajando el desarrollo de esquemas
+progresivamente mas autonomos, en los cuales el autoaprendizaje gane
+importancia y el papel del docente sea el de guia y tutor antes que el
+de informador unico. Probablemente tambien, este es uno de los pocos
+campos prometedores que le quedan a la aplicacion de la ensenanza
+asistida por computador.
+
+Existe, sin embargo, una razon mas profunda para esta competencia, mas
+alla de simples consideraciones de factibilidad. Es dificil, por no
+decir imposible, formar un individuo reflexivo en un ambiente en el cual
+se le ordene constantemente lo que debe hacer.
+
+El proceso formativo debe permitir el ejercicio individual de la toma
+decisiones en un nivel creciente de autonomia y, al mismo tiempo, de las
+capacidades de interaccion necesarias para la socializacion. Estos dos
+objetivos estan contrapuestos el uno al otro, y estan en el nucleo de lo
+que podriamos denominar la "contradiccion principal" de la educacion. La
+existencia de esta contradiccion esencial implica, entre otras cosas,
+que los problemas educativos deben ser tratados como problemas
+debilmente estructurados, con soluciones optimas dadas ciertas
+condiciones, y no como problemas con soluciones verdaderas/falsas, como
+lo propusieron los modelos conductistas que han imperado en la educacion
+colombiana durante varias decadas.
+
+ 
+
+3.- AMBIENTES DE APRENDIZAJE PARA LA EDUCACION EN TECNOLOGIA
+
+La experiencia parece indicar que el entorno para desarrollar las
+competencias establecidas anteriormente definitivamente no es el actual
+salon de clase. Pensamos que el reto de desarrollar la educacion en
+tecnologia implica la transformacion del aula de clase en un ambiente de
+aprendizaje.
+
+3.1.- Los Componentes y las Condiciones de un Ambiente de Aprendizaje
+
+Con base en la teoria del Aprendizaje Significativo, puede
+caracterizarse un ambiente de aprendizaje por sus componentes y sus
+condiciones. El ambiente de aprendizaje puede ser definido como un
+entorno delimitado en el cual ocurren ciertas relaciones de trabajo
+escolar. Esto tambien es cierto del aula de clase, pero la distincion
+clave estriba en la naturaleza de las relaciones de trabajo. Desde el
+punto de vista de la informacion y el conocimiento, un aula es similar a
+un sistema cerrado; la informacion entra al entorno con el ingreso del
+docente, y, como ha sido documentado ampliamente, los conocimientos
+sirven unicamente para solucionar problemas escolares. En contraste, el
+ambiente de aprendizaje debe permitir que la vida, la naturaleza y el
+trabajo ingresen al entorno, como materias de estudio, reflexion e
+intervencion.
+
+Esto nos conduce a plantear tres condiciones para el ambiente de
+aprendizaje, que son delimitado, estructurado y flexible. Delimitado
+significa la definicion de los contenidos del aprendizaje asi como de la
+complejidad, los indicadores y niveles de aceptabilidad de desarrollo de
+las competencias descritas antes. Estructurado en el sentido de que los
+contenidos deben ser organizados en mapas conceptuales (planeacion
+conceptual) que guien la planeacion de las actividades en procesos
+ciclicos que varien de un nivel de abstraccion a otro. Flexible
+significa el desarrollo de nuevos criterios para la administracion del
+curriculo; estos deben incluir como central la adquisicion por el
+estudiante de las competencias definidas, al menos en los niveles de
+aceptabilidad, y proveer posibilidades para que el estudiante pueda
+controlar, progresivamente, el ritmo de aprendizaje.
+
+3.2- Los Conceptos Fundamentales de la Tecnologia Contemporanea
+
+Uno de los problemas serios en la delimitacion de la educacion en
+tecnologia, particularmente en los niveles de educacion basica, es la
+definicion precisa de los conceptos fundamentales (inclusivos) y
+relacionados que seran materia de aprendizaje. Esta dificultad no existe
+en la educacion en ciencias y otras areas curriculares. De hecho, los
+principios de cada ciencia estan bien establecidos antes de que entren a
+formar parte del plan de estudios. Por el contrario, la tecnologia es un
+asunto ubicuo, un area transversal, como lo propone la Unesco, y en este
+caso no es facil establecer contornos.
+
+Un enfoque util para resolver esta dificultad surge de considerar el
+mbito de la tecnologia como el de los sistemas disenados (y por supuesto
+construidos) por el hombre. Este enfoque permite establecer los
+conceptos claves de Sistema, Diseno, Estructura, Funcion y otros
+relacionados con la tecnologia contemporanea, como se presenta en el
+siguiente mapa conceptual
+
+ 
+
+MAPA CONCEPTUAL DE LA TECNOLOGIA, ENTENDIDA COMO EL CAMPO QUE ESTUDIA
+LOS SISTEMAS DISENADOS POR EL HOMBRE
+
+ 
+
+3.3.- La Planeacion de la Educacion en Tecnologia
+
+Los conceptos definidos en los anteriores mapas conceptuales, pueden
+cruzarse con "entornos de tarea" para conformar una matriz de planeacion
+de la educacion en tecnologia. La consideracion de las necesidades b
+sicas de la humanidad permiten establecer los siguientes entornos de
+tarea "primarios": Habitat, Alimentos, Vestido, Transporte y
+Comunicacion.
+
+ 
+
+ 
+
+ 
+
+ La idea es que los estudiantes exploren una serie de "escenarios" (la
+interseccion de conceptos y entornos de tarea, en la matriz). Estos
+escenarios son un conjunto de actividades disenados de tal manera que
+garanticen que los estudiantes navegaran por el mapa conceptual pasando
+de un nivel de abstraccion a otro, en una manera ciclica. Cada ciclo
+estaria definido por:
+
+a) Las competencias a ser desarrolladas.
+
+Un escenario puede servir para varias competencias, y viceversa, una
+competencia puede ser trabajada en varios escenarios. Lo importante es
+que el docente (o docentes) defina(n) cuidadosa y explicitamente la
+competencia, sus indicadores y el nivel de aceptabilidad.
+
+b) Los Conceptos materia de aprendizaje.
+
+Aqui tambien es necesaria una cuidadosa y explicita definicion por los
+docentes, teniendo en cuenta las caracteristicas particulares de la
+respectiva poblacion estudiantil: su exposicion previa a conceptos, su
+familiaridad con ciertos aspectos de la tecnologia, sus destrezas, etc.
+La preocupacion principal en este respecto es la capacidad de los
+estudiantes para pensar en terminos abstractos, que constituye la piedra
+angular para desarrollar una adecuada planeacion.
+
+c) El Nivel de Complejidad.
+
+El mismo escenario puede ser utilizado repetidas veces en diversos
+niveles de complejidad, dependiendo de los objetivos del aprendizaje y
+las habilidades de los estudiantes. Los objetivos de aprendizaje pueden
+ser ordenados en cuatro etapas, temporalmente sucesivas: Induccion,
+Metodologica, Experimental y Sintesis. Cada una de estas etapas esta
+orientada con enfasis particular, mas no exclusivo, en cada una de las
+diversas competencias definidas arriba, asi:
+
+Induccion => Manejo de Fuentes de Informacion
+
+Metodologica => Construccion de Espacios de Problema (Formulacion de
+Problemas)
+
+Experimental => Argumentacion para la toma de decisiones (Proponer
+soluciones)
+
+Sintesis => Explicacion a otros de los resultados del trabajo propio
+(Destrezas comunicativas, otras destrezas).
+
+d) El Foco de Interes.
+
+Situaciones complejas, como lo son generalmente las de la vida
+cotidiana, pueden ser utilizadas como escenarios si se define un foco de
+interes. En este esquema, el foco de interes puede ser tecnico (p.ej.
+los elementos estructurales de la vivienda del estudiante) o historico
+(p. ej. ¿como eran las viviendas en el barrio, en la ciudad hace 20, 50
+o 100 anos?). Ademas de proveer una conexion entre la educacion en
+tecnologia y otras areas tales como las ciencias sociales, visitar
+escenarios en diferentes periodos de tiempo brinda a los estudiantes un
+sentido de perspectiva: las cosas no han sido siempre como lo son ahora
+y, por tanto, no permaneceran iguales en el futuro; la diferencia,
+dentro de ciertas circunstancias (¿cuales?), estriba en la intervencion
+de los hombres.
+
+El esquema de escenarios presenta varias ventajas que lo hacen util para
+la implementacion de la educacion en tecnologia. En primer lugar,
+aparecen alternativas al proyecto como metodologia unica de la educacion
+en tecnologia, como muy facilmente llega a concluirse. Estudios
+recientes han senalado algunas dificultades importantes del proyecto
+como dispositivo metodologico multi-proposito. Entre ellas, la mas
+importante es que los estudiantes tienden a percibir el proyecto como
+una coleccion parcial de tareas, cuyas conexiones no les son siempre
+claras, perdiendose asi la planeacion del docente, cuando la ha habido.
+(McCormick et al; 1994). Este es otro ejemplo de la dificultad que
+reiteradamente muestran los estudiantes al intentar transferir
+conceptos/ informacion/ conocimientos de un contexto a otro, en nuestra
+opinion una muestra decisiva de que no ha ocurrido aprendizaje
+significativo.
+
+Como lo evidencia la matriz de planeacion propuesta arriba, un proyecto
+es una tarea compleja, que involucra diversos conceptos, incluso teorias
+enteras, y varios entornos de tarea. No es coincidencia, entonces, que
+otra de las grandes dificultades del proyecto es que no siempre esta
+disponible el conocimiento requerido (conceptual o tecnico), y que aun
+en proyectos aparentemente simples pueden encontrarse agazapadas
+dificultades teoricas grandes. Asi por ejemplo, la fisica involucrada en
+la explicacion de por que gira el inocente trompo es todo menos
+sencilla.
+
+En segundo termino, la planeacion conceptual detras del esquema de
+escenarios provee una cierta garantia contra otro problema comun en la
+implementacion de la educacion en tecnologia, que es el riesgo de caer
+en un activismo sin propositos claros, pasando de un proyecto a otro,
+que, en el mejor de los casos, apenas si puede servir para el desarrollo
+de algunas destrezas tecnicas en los estudiantes.
+
+En tercer lugar, los escenarios, como se anoto ya, ofrecen posibilidades
+de exploracion de conceptos y ambientes desde diferentes puntos de vista
+(focos de interes) y no solo desde el punto de vista tecnico. Sistema,
+estructura, funcion, etc., son todos conceptos que tienen connotaciones
+diversas dependiendo del ambito en que se consideren. En las ciencias
+sociales o en las ciencias de la naturaleza, cada uno de ellos tiene un
+significado similar pero diferente, lo cual proporciona oportunidades
+ricas para trabajar con los estudiantes en el establecimiento de
+relaciones conceptuales, la clave del aprendizaje significativo, del
+conocimiento supraordenado y una de las condiciones necesarias para la
+creatividad, segun lo expuesto antes.
+
+4.- LAS COMPETENCIAS DEL DOCENTE DE TECNOLOGIA
+
+Las consideraciones anteriores conducen ineludiblemente a la conclusion,
+nada original, de que la educacion en tecnologia es una labor con altas
+exigencias. El extenso ambito del trabajo, a diferencia del ambito
+limitado del empleo, demanda del docente de tecnologia caracteristicas
+que difieren ampliamente de aquellas del docente de educacion tecnica.
+
+La educacion vocacional y la tecnica han sido, por decadas, el campo
+indisputado de predominio del conductismo. Desde este campo,
+planificadores conductistas intentaron invadir todas las areas del plan
+de estudios con "curriculos a prueba de maestros" en una labor que duro
+varias decenas de anos. Tal vez el unico logro firmemente establecido de
+este esfuerzo es que fracasaron una vez que abandonaron el ambito de la
+formacion de operarios. Incluso hoy, las modificaciones introducidas en
+la estructura laboral por la tecnologia contemporanea, ponen ese magro
+resultado en serias dificultades, segun lo expuesto antes.
+
+Es claro que la calidad del docente, aunque no es el unico ingrediente
+de la calidad de la educacion, si establece su limite maximo. Un buen
+docente no puede ser suplantado por la tecnologia educativa mas
+sofisticada. Un excelente docente, con una dotacion mediocre, libre de
+las ataduras del "sindrome del auditor", es capaz de generar educacion
+de excelente nivel. Lo opuesto es tambien cierto.
+
+La educacion en tecnologia, centrada en el desarrollo de competencias,
+requiere que el docente mismo posea esas competencias en unos
+determinados niveles de aceptabilidad. Esto quiere decir, que entienda
+la pedagogia como una practica cientifica, similar a las ingenierias o a
+la medicina, es decir, como una disciplina enfrentada a resolver
+problemas debilmente estructurados y sin respuesta unica, que requiere
+de conocimientos proporcionados por diversas disciplinas, y de tecnicas
+de analisis y de busqueda de soluciones que le permitan proponer y
+ensayar soluciones para encontrar la optima en una situacion
+determinada, en un contexto especifico.
+
+Lo anterior conlleva que ademas del bagaje de conceptos y competencias
+ya discutidos, el docente de tecnologia debe poseer unos conocimientos
+adecuados sobre:
+
+a) Los procesos sociales del conocimiento, proporcionados por la
+historia de la sociedad y de su profesion, y las leyes generales del
+pensamiento, o sea, la logica;
+
+b) Los procesos individuales del conocimiento, proporcionados por la
+psicologia cognitiva y la neurofisiologia, es decir, por los estudios
+acerca de la estructura, funcion y desarrollo del cerebro y la
+inteligencia humanos; y,
+
+c) Los procesos y procedimientos administrativos y legales que tienen
+que ver con su desempeno profesional.
+
+Aun asi, es probable que ello no sea suficiente para tratar con todas
+las situaciones que puedan surgir en el desarrollo de los ambientes de
+aprendizaje. La educacion en tecnologia debe ser una labor de equipo,
+antes que un trabajo individual, en correspondencia con la naturaleza
+interdisciplinaria de la tecnologia contemporanea.
+
+Desarrollar la capacidad de trabajo en equipo, proveer las condiciones
+para el trabajo en equipo entre los docente, puede ser una de esas
+medidas simples de profundas consecuencias en el mejoramiento de la
+calidad de la educacion en general, mas alla de las fronteras de la
+educacion en tecnologia, pero gracias a ella.
+
+ 
+
+REFERENCIAS
+
+ANDRADE LONDONO, E.;1994. El Papel de la Educacion en Tecnologia en el
+Desarrollo Nacional de los Paises del Tercer Mundo . CIUP, Universidad
+Pedagogica Nacional. Bogota
+
+DAVIDSON, D; DEUSER, R & STERNBERG, R. 1994. The Role of Metacognition
+in Problem Solving. En: Metcalfe, J & Shimamura, A. (Eds).
+Metacognition. Cambridge, MA, MIT Press, 207-226.
+
+DURANT, WILL. 1956. Nuestra Herencia Oriental. Editorial Suramericana,
+Buenos Aires."La humanidad comenzo; cuando algun engendro o chiflado,
+medio animal medio hombre, agazapado en una cueva o un arbol, se devano
+los sesos para inventar el primer nombre comun, el primer signo sonoro
+que significara un grupo de objetos parecidos: casa que indicara todas
+las casas, hombre que denotara todos los hombres, luz que designara
+todas las luces que brillasen en tierra o mar. Desde aquel momento el
+desarrollo mental de la raza emboco en una nueva e interminable ruta.
+Pues las palabras son para el pensamiento lo que los instrumentos son
+para el trabajo; el producto depende en gran parte del perfeccionamiento
+de los instrumentos." (enfasis agregado) p. 116
+
+GOEL, V & PIROLLI; P. 1992. Structure of Design Problem Spaces.
+Cognitive Science 6(3), 395-429.
+
+HABERMAS, J. 1967. Trabajo e Interaccion. Notas sobre la Filosofia
+Hegeliana del Periodo de Jena. En: Ciencia y Tecnica como "Ideologia" .
+Tecnos, Madrid, 1992. 11-51.
+
+s Challenge to Science Education. Open University Press, Buckingham, UK.
+
+ 
+

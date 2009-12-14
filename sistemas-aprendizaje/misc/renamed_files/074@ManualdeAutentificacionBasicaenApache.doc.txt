@@ -1,0 +1,133 @@
+Autentificacion Basica en Apache
+
+Parte I
+
+Crear la lista de usuarios y grupos de usuarios
+
+Entrar al modo de comandos (cmd)
+
+Cambiarse al directorio C:\Archivos de programa\Apache Group\Apache2\bin
+
+c usuarios macastellanos
+
+Nota: el archivo usuarios puede llevar extension (por ejemplo
+usuarios.txt), esto es opcional.
+
+d) Introducir y confirmar la contrasena que desee establecer para ese
+usuario
+
+ macastellanos. Es importante recalcar que como la ruta hacia el archivo
+posee espacios en blanco, fue necesario entrecomillarla.
+
+Anotacion: el archivo usuarios tambien podria llamarse .htpassword
+
+
+
+2. Crear un archivo de texto para administrar grupos de usuarios
+
+Crear el archivo grupos.txt (la extension es opcional)
+
+Anadir las siguientes lineas al archivo (tan solo son ejemplos)
+
+Como puede apreciarse primero se escribe el nombre del grupo y a
+continuacion de los : se introducen los nombres de los usuarios que
+pertenecen a ese grupo. Los nombres de usuarios se separan entre si por
+espacios en blanco.
+
+El archivo grupos.txt fue creado en el directorio C:\Archivos de
+programa\Apache Group\Apache2\bin. No es recomendable crear los archivos
+de contrasenas tanto de grupos como de usuarios dentro de los
+directorios de publicacion (documentroot), a menos de que se le
+antepongan los caracteres .ht al nombre del archivo.
+
+Parte II
+
+Definir las directivas del directorio a proteger
+
+Es posible definir las directivas en cada uno de los directorios que se
+quieren proteger (proceso largo; por lo regular se aplica esta tecnica
+cuando no se tiene acceso al archivo httpd.conf)
+
+Elegir el directorio que se desea proteger. Para fines de este manual
+elegiremos el directorio tutorias que se encuentra en C:\public_html
+
+Crear el archivo .htaccess desde cmd, introduciendo la siguiente linea
+de comando: echo > .htaccess
+
+Verificar que el archivo se haya creado, borrar el contenido del mismo y
+guardarlo. Por lo regular contendra una linea de texto similar a esta:
+ECHO est activado.
+
+Acceder al manual de ayuda que provee el servidor Apache, por lo comun
+disponible en HYPERLINK "http://localhost/manual/"
+http://localhost/manual/
+
+Localizar el tema Autentificacion, Autorizacion y Control de Acceso.
+Leer el contenido del subtema Puesta en funcionamiento.
+
+f) Copiar el siguiente fragmento de texto (que se encuentra marcado) y
+adaptarlo a nuestro caso, ya que se encuentra orientado a entornos UNIX.
+
+g) Abrir el archivo .htaccess (ubicado C:\public_htlm\tutorias).
+
+Copiar y pegar el fragmento de texto de la ayuda (que se muestra en la
+imagen de arriba) y editar dicha informacion como a continuacion se
+indica
+
+La ruta hacia el archivo de usuarios requiere escribirse entre comillas.
+
+h) Reiniciar el servidor Apache. Pudiera no ser necesario.
+
+Edicion del archivo .htaccess para grupos de usuarios
+
+Ahora se editara el archivo .htaccess para administrar el acceso de
+grupos de usuarios.
+
+a) Crear el archivo .htaccess a traves de cmd
+
+Verificar que el archivo se haya creado, borrar el contenido del mismo y
+guardarlo. Por lo regular contendra una linea de texto similar a esta:
+ECHO est activado.
+
+Acceder al manual de ayuda que provee el servidor Apache, por lo comun
+disponible en HYPERLINK "http://localhost/manual/"
+http://localhost/manual/
+
+Localizar el tema Autentificacion, Autorizacion y Control de Acceso.
+Leer el contenido del subtema Permitir el acceso a mas de una persona
+
+Copiar el siguiente fragmento de directivas que se muestra en la
+siguiente figura:
+
+g) Abrir el archivo .htaccess (ubicado C:\public_htlm\tutorias).
+
+Pegar el fragmento de texto de la ayuda (que se muestra en la imagen de
+arriba) y editar dicha informacion como a continuacion se indica
+
+Parte III
+
+Agregar autentificacion en el archivo de configuracion httpd.conf del
+Servidor Apache
+
+Ir al final del archivo y crear una estructura de etiquetas del tipo
+ 
+
+Supongamos que se desea proteger el directorio C:\public_htlm\tutorias
+
+Anadimos lo siguiente
+
+
+
+AuthType Basic
+
+AuthName "Dominio tutorias"
+
+AuthUserFile "C:/Archivos de programa/Apache Group/Apache2/bin/usuarios"
+
+AuthGroupFile "C:/Archivos de programa/Apache
+Group/Apache2/bin/grupos.txt"
+
+Require group tutores
+
+
+

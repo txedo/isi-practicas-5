@@ -1,0 +1,246 @@
+
+
+Picasa es un software para fotos de Google que hace mas facil y practico
+la organizacion y edicion de fotos digitales.
+
+Instalacion Picasa
+
+Debemos bajar a nuestra PC el programa que instalara Picasa, es
+recomendable realizarlo del sitio oficial: HYPERLINK
+"http://picasa.google.com/" http://picasa.google.com/ , las versiones
+de Picasa van cambiando, pero lo que este manual muestra (independiente
+si es Picasa 2 o Picasa 3) aun esta vigente.
+
+Una vez que tenemos el ejecutable en nuestra PC, iniciamos la
+instalacion haciendo doble clic sobre el.
+
+Esta es la pantalla inicial donde tendremos que aceptar el contrato de
+licencia para proseguir con la instalacion de picasa.
+
+
+
+Elegimos el directorio donde queremos que se instale el programa, en la
+foto se muestra la ruta que utiliza por defecto.
+
+
+
+Una finalizada la instalacion, podremos tildar o no algunas
+funcionalidades para el programa, como por ejemplo que aparezca en el
+escritorio de windows como icono, seleccionar a gusto y terminar con
+Aceptar.
+
+
+
+Al iniciar a trabajar con Picasa, nos encontramos con la pantalla
+principal que se ve de la siguiente manera:
+
+
+
+Para empezar a familiarizarnos un poco con la interfase de Picasa,
+haremos una breve explicacion de lo que estamos viendo:
+
+Tomando como referencia la zona de imagenes, podemos notar que en el
+costado izquierdo disponemos de un menu donde acomodados por carpeta nos
+apareceran todas las imagenes que tengamos en la PC, acomodada por ano.
+Al lado de cada nombre de carpeta tendremos entre parentesis la cantidad
+de fotos que existan en dicha carpeta.
+
+Al lado podemos ver en forma de mosaicos las imagenes pertenecientes a
+la carpeta seleccionada.
+
+Una vez que nos ubicamos sobre alguna imagen y hacemos click sobre ella,
+tendremos la informacion visualizada en la franja celeste por debajo de
+las fotos, de ahi podemos obtener datos como su nombre, el formato de
+imagen (jpg, gif, png), la fecha en que fue creada la imagen, la
+resolucion de la imagen y el tamano que ocupa en el disco rigido.
+
+Mas abajo tenemos utilidades varias, algunas de las cuales van a ser
+explicadas con mas profundidad en las paginas siguientes, ahora mismo
+destacamos la posibilidad de hacer un zoom general de todas las imagenes
+que se muestran en la vista previa, con el fin de o bien ver las
+imagenes en mayor dimension o verlas mas pequenas con la finalidad de
+que abarquen mas fotos de un solo pantallazo.
+
+El ajuste se realiza por medio de una barra desplegable que se encuentra
+en el costado derecho inferior de la pantalla:
+
+Zoom al minimo:
+
+
+
+Zoom al maximo:
+
+
+
+Utilidades de Picasa
+
+Exif
+
+Exchangeable Image File format es una especificacion para formatos de
+archivos de imagen usado por las camaras digitales.
+
+Picasa tiene la capacidad de leer estos datos creados por la camara
+digital y leer cierta informacion propia de la foto, como por ejemplo:
+
+Informacion de fecha y hora. Las camaras digitales registran la fecha y
+la hora actual y la almacenan en los metadatos.
+
+Configuracion de la camara. Esta incluye informacion estatica como el
+modelo de camara y el fabricante, e informacion que varia con cada
+imagen como la orientacion, apertura, velocidad del obturador, distancia
+focal, medidor de exposicion, y la velocidad de la pelicula.
+
+Informacion sobre localizacion, la cual podria provenir de un GPS
+conectado a la camara. Hasta el 2004 solo una pocas camaras lo
+soportaban (vease geoetiquetacion).
+
+Descripcion e informacion sobre copyright. Nuevamente esto es algo que
+la mayoria de ellas hicieron cuando posteriormente procesaban la imagen,
+solo las camaras de altas prestaciones permiten al usuario elegir el
+texto para estos campos.
+
+Un ejemplo de como se ve esto en una imagen escogida al azar.
+
+
+
+Grabar Imagenes en Picasa
+
+Otra herramienta util que trae consigo es la posibilidad de poder crear
+copias de seguridad de nuestras imagenes grabandolas a un cd o dvd.
+
+Los pasos a seguir son:
+
+
+
+
+
+En la imagen podemos ver como se seleccionaron las carpetas a copiar por
+medio de un tilde, abajo nos muestra la cantidad de carpetas, archivos y
+el tamano total que necesitaremos para hacer la copia.
+
+Enviar Fotos por correo Electronico en Picasa
+
+Tenemos alguna foto que queremos compartir con alguien? Entonces
+resultara practica la funcion para poder enviar fotos por correo
+electronico.
+
+
+
+Esta opcion nos preguntara si queremos utilizar el servicio de Gmail de
+google para enviar el correo (Claro que necesitaremos tener una cuenta
+en Gmail) o usar nuestro programa de correo que acostumbramos a
+utilizar.
+
+
+
+Administracion de fotos
+
+Albumes
+
+Podemos crear diferentes albumes que dentro pueden contener carpetas o
+directorios que contendran nuestras fotos, de esta manera las
+organizamos mejor.
+
+Correccion automatica: Brillo, contraste y color
+
+:
+
+Para mejorar el brillo, contraste y color, las opciones recomendadas
+son:
+
+Voy a Tener Suerte
+
+Corrige automaticamente el color y la iluminacion de la foto. Esta
+funcion es muy rapida y consigue buenos resultados en gran cantidad de
+casos, pero no en todos.
+
+Es recomendable utilizar esta funcion como primer paso y, si nos
+satisface la mejora, ya hemos acabado.
+
+ Si no ha quedado como esperabamos, podemos mantener los cambios o
+desecharlos con tras lo cual pasariamos a corregir la foto manualmente.
+
+
+
+. El cambio es significativo.
+
+
+
+Contraste Automatico
+
+
+
+Arregla la impresion sin modificar el color, ajusta el contraste de la
+foto de forma automatica, tambien nos permite deshacer Contraste
+automatico si no nos complace el resultado obtenido. Es muy eficaz
+aunque en ocasiones tiende a contrastar en exceso.
+
+Aumentar brillo
+
+
+
+Moviendo de izquierda a derecha aumentamos el brillo de la foto.
+
+No tiene ningun secreto, solo hay que ir aumentando el brillo hasta que
+este a nuestro gusto.
+
+Correccion manual: Brillo y contraste
+
+Si preferimos optimizar la foto a nuestro gusto, o la correccion
+automatica no ha dado el resultado esperado, en Picasa tambien
+encontramos herramientas para ajustar manualmente el brillo y el
+contraste.
+
+).
+
+Empezamos por uno de los problemas mas frecuentes: la foto ha quedado
+oscura.
+
+Para comenzar, debemos seleccionar la segunda pestana de Picasa como se
+ve en siguiente imagen:
+
+Para arreglarlo tenemos las herramientas de Ajustes de iluminacion:
+Aumentar brillo, Realces y Sombras.
+
+Ajustes de iluminacion
+
+Dentro de la pestana Perfeccionar encontramos tres funciones para
+ajustar la iluminacion.
+
+ o hacerlo manualmente.
+
+Si optamos por la segunda opcion, estas son las funciones que
+encontraremos:
+
+Aumentar brillo
+
+Esta funcion aumenta la iluminacion de la foto.
+
+Realces
+
+Aumenta la iluminacion de los puntos mas claros de la foto. Tiende a
+sobre-exponer.
+
+Es recomendable mirar el histograma mientras se toca esta opcion.
+
+Sombras
+
+Esta opcion oscurece las zonas ya de por si mas oscuras de la foto.
+Sirve para hacer mas puros algunos negros y tambien para crear ciertos
+efectos artisticos, por ejemplo para forzar aun mas el contraste de un
+contraluz.
+
+Temperatura del color
+
+ en el extremo derecho donde predomina el rojo.
+
+Conclusiones
+
+El retoque automatico con Picasa es muy facil, rapido y comodo. Suele
+ser eficaz en el 70 u 80% de los casos. Cuando el retoque automatico no
+resulta optimo, tiene opciones para ajustarlo manualmente.
+
+Para el retoque manual no hay ninguna formula unica. Lo mejor es probar
+sin miedo, observar los cambios y probar nuevamente hasta dar con el
+resultado esperados.
+

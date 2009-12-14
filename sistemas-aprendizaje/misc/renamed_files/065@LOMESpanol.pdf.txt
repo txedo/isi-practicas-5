@@ -1,0 +1,777 @@
+GT9 / GT8 - SC 36/AENOR PERFIL DE APLICACION LOM-ES1 V.1.0.
+Editores2: Ministerio de Educacion y Ciencia (Centro Nacional de Informacion y Comunicacion Educativa), Ministerio de Industria, Turismo y Comercio (Entidad Publica Empresarial red.es), Comunidad Autonoma de Andalucia (Consejeria de Educacion), Comunidad Autonoma de Aragon (Consejeria de Educacion y Ciencia), Comunidad Autonoma del Principado de Asturias (Consejeria de Educacion y Ciencia), Comunidad Autonoma de las Illes Balears (Conselleria d´Educacio i Cultura), Comunidad Autonoma de Canarias (Consejeria de Educacion, Cultura y Deportes), Comunidad Autonoma de Cantabria (Consejeria de Educacion), Comunidad Autonoma de Castilla-La Mancha (Consejeria de Educacion y Ciencia), Comunidad de Castilla y Leon (Consejeria de Educacion), Comunidad Autonoma de Cataluna (Departament d'Educacio i Universitats), Comunidad Autonoma de Extremadura (Consejeria de Educacion), Comunidad Autonoma de Euskadi (Hezkuntza, Unibertsitate eta Ikerketa Saila), Comunidad Autonoma de Galicia (Conselleria de Educacion e Ordenacion Universitaria), Comunidad Autonoma de La Rioja (Consejeria de Educacion, Cultura y Deporte), Comunidad de Madrid (Consejeria de Educacion), Comunidad Autonoma de la Region de Murcia (Consejeria de Educacion y Cultura), Comunidad Foral de Navarra (Departamento de Educacion) y Comunidad Valenciana (Conselleria de Cultura Educacio i Sport) Autores3: Juan Jose Blanco Villalobos, Antonio Galisteo del Valle, Almudena Garcia Padilla, Manuel Gertrudix Barrio, Maria Dolores Gonzalo Tomey, Eduardo Larequi Garcia, Jose Adolfo Lopez Navarro, Jesus Penas Cano, Arturo de Porras Guardo, Juan Pablo Pulido Bermejo, Felipe Retortillo Franco, Antonio Sarasa Cabezuelo y Jordi Vivancos Marti Integracion: Antonio Galisteo del Valle Revision y validacion3 y 4: Luis E. Anido Rifon (Universidad de Vigo), Sergio Arias Alvarez (ONCE), Mario Carrio Diaz (ONCE), Jose Enrique Fernandez del Campo Sanchez (ONCE), Antonio Galisteo del Valle (CNICE), Jaime Garcia Alba (Eduinter-Planeta), Julian Garcia Villalobos (ONCE), Elena Gaston Lopez (ONCE), Maria Dolores Gonzalo Tomey ( red.es), Manuela Lara Lara (Santillana), Pablo Lara Navarra (UOC), Francisco Martin Garcia-Maroto (ONCE), Arturo de Porras Guardo (Junta de Extremadura), Felipe Retortillo Franco (Comunidad de Madrid), Miguel Rodriguez Artacho (UNED), Antonio Sarasa Cabezuelo (red.es). Agradecimientos3: Baltasar Fernandez Manjon (Universidad Complutense), Borja Manero Iglesias (Universidad Complutense), Eva Maria Mendez Rodriguez (Universidad Carlos III), Veronica Oliveros Santos (CNICE), Cristina del Rio Fernandez (CNICE).
+
+1
+
+El perfil de aplicacion LOM-ES v.1.0 esta basado en la traduccion del borrador de los Learning Object Metadata aprobado por el Comite Revisor del IEEE el 12 de junio de 2002. Traduccion editada por Luis E. Anido Rifon (Universidad de Vigo) y Miguel Rodriguez Artacho (UNED), Learning Technologies Workshop. CEN/ISSS. Este documento ha sido desarrollado en el seno del Grupo de Trabajo 9 perteneciente al Subcomite 36 de Tecnologias de la Informacion y la Comunicacion para el aprendizaje (SC36) de la Asociacion Espanola de Normalizacion y Certificacion (AENOR) al que pertenecen las Administraciones Publicas y Autonomicas que lo editan. Ordenados por orden alfabetico del primer apellido. La revision y validacion ha sido realizada en el seno del Grupo de Trabajo 8 perteneciente al Subcomite 36 (SC36) de la Asociacion Espanola de Normalizacion y Certificacion (AENOR). 1/62 ­ LOM-ES v.1.0 12/03/2008
+
+2
+
+3
+
+4
+
+0. INDICE
+0. INDICE.......................................................................................................................................................2 1. INTRODUCCION ......................................................................................................................................3 2. UTILIDAD DE LA METAINFORMACION DIDACTICA...........................................................................4 2.1. Etapa 1. Diseno y Desarrollo ..............................................................................................................4 2.2. Etapa 2. Utilizacion..............................................................................................................................4 2.3. Etapa 3. Evaluacion y Rediseno .........................................................................................................4 3. JUSTIFICACION SOBRE LA METAINFORMACION DIDACTICA........................................................5 3.1. Razones documentales.......................................................................................................................5 3.2. Razones educativas ............................................................................................................................5 4. SISTEMAS DE CLASIFICACION. CATALOGACION DISCIPLINAR BASADA EN ETB-LRE MECCCAA V.1.0 ...................................................................................................................................................6 5. ESTRUCTURA BASICA DE LOS METADATOS ...................................................................................7 6. ESQUEMA BASE DE ELEMENTOS DEL PERFIL LOM-ES V .1.0. DEFINICION DE CATEGORIAS Y ELEMENTOS DE DATOS SIMPLES Y AGREGADOS ...........................................................................8 6.1. CATEGORIA 1. GENERAL ...........................................................................................................9 6.2. CATEGORIA 2. CICLO DE VIDA................................................................................................14 6.3. CATEGORIA 3. META-METADATOS ........................................................................................17 6.4. CATEGORIA 4. TECNICA...........................................................................................................21 6.5. CATEGORIA 5. USO EDUCATIVO ............................................................................................26 6.6. CATEGORIA 6. DERECHOS......................................................................................................37 6.7. CATEGORIA 7. RELACION........................................................................................................40 6.8. CATEGORIA 8. ANOTACION.....................................................................................................43 6.9. CATEGORIA 9. CLASIFICACION...............................................................................................45 7. ESTRUCTURA ELEMENTO TIPO LANGSTRING...............................................................................56 8. ESTRUCTURA ELEMENTO TIPO FECHA...........................................................................................57 9. ESTRUCTURA ELEMENTO TIPO DURACION....................................................................................59 10. ESTRUCTURA ELEMENTO TIPO VOCABULARIO...........................................................................61
+
+2/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+1. INTRODUCCION
+El presente perfil de aplicacion ha sido realizado en el marco de los trabajos llevados a cabo por parte del Ministerio de Educacion y Ciencia (CNICE), Ministerio de Industria, Turismo y Comercio (Entidad Publica Empresarial red.es) y todas las Comunidades Autonomas en relacion a los Programas institucionales para el desarrollo de la Sociedad del Conocimiento y especialmente, en el seno de las actuaciones del Programa "Internet en el Aula". Este programa se incluye en el denominado "Plan Avanza", un conjunto de actuaciones dirigidas a conformar un escenario educativo en el que exista un empleo natural, integrado y eficiente de los recursos tecnologicos, servicios y aplicaciones pedagogicas que favorezcan todas aquellas estrategias que permitan una eficaz inclusion digital. El Programa "Internet en el Aula" pretende impulsar la utilizacion de las TIC en el sistema educativo, favoreciendo y potenciando la adquisicion de todas aquellas competencias que permitan obtener el maximo rendimiento, asi como fomentar la creacion, difusion y catalogacion de materiales multimedia de calidad, facilitando la existencia de una amplia oferta de contenidos digitales para todos los niveles de ensenanza educativos no universitarios. En la misma linea que proyectos precedentes como el Proyecto OASIS en el que participaron Administraciones Educativas nacionales (MEC-CNICE) y europeas (Consorcio EUN), los trabajos en el perfil de aplicacion LOM-ES v.1.0 se inician con el objetivo general de disenar y desarrollar un marco de referencia dentro de los Programas Institucionales citados. Este marco podra servir como punto de partida a iniciativas de desarrollo de Bancos/Repositorios de Recursos y Materiales Educativos basados en Objetos Digitales estandar, facilmente reutilizables y transferibles, como sugiere Sanz (2005 ) respecto a las tendencias para el futuro con respecto al uso pedagogico de los recursos y tecnologias. Las primeras fases del proyecto se han centrado en la realizacion de un analisis de necesidades, la definicion de los modelos de arquitectura y tipologia de Objetos Digitales Educativos necesarios para la construccion y gestion de los mismos, asi como un analisis sobre las diferentes iniciativas internacionales de estandarizacion con mayor repercusion en el ambito educativo (Ministerio de Educacion y Ciencia. CNICE. Serie Informes 2008* ). Finalizadas las fases previas, se inicia un proceso de analisis de la informacion y documentacion desarrollada con el objetivo de seleccionar una iniciativa de estandarizacion, aceptada y validada internacionalmente, que se adapte a las necesidades del proyecto en funcion de los modelos de arquitectura desarrollados. Tras este proceso, se llega a la conclusion de que la iniciativa que mejor cumple estos criterios es el estandar Learning Object Metadata (LOM) del Learning Technology Standars Committee (LTSC) creado dentro del Institute of Electrical and Electronics Engineers (IEEE). No obstante, en el seno del Grupo de Trabajo 9 (GT9-Administraciones Educativas) de AENOR, al que pertenecen las instituciones y organizaciones participantes en el proyecto y el Grupo de Trabajo 8 (GT8-Perfiles de aplicacion), se propone y acepta el diseno y elaboracion de un perfil de aplicacion o esquema de metadatos especifico de LOM que contemple y satisfaga las necesidades especificas del proyecto y de la comunidad educativa espanola. De esta forma, el perfil de aplicacion que se presenta describe las diferentes categorias y elementos de datos agregados y simples que comprenden el esquema de base. Este perfil de aplicacion se ha desarrollado tras un analisis pormenorizado del estandar de base original LOM v.1.0 propuesto por IEEE-LTSC y teniendo en cuenta los criterios de representacion, conformidad e interoperabilidad semantica definidos en el, asi como sus categorias y elementos de datos.
+
+
+Sanz, M. (2005). Uso pedagogico de Recursos y Tecnologias . En Actas III Congreso Internacional Educared. Volumen I. Nuevos paradigmas y aplicaciones educativas (pp. 169-207). Madrid: Fundacion Telefonica. Ministerio de Educacion y Ciencia. CNICE. Serie Informes 2008. Informe 16. Uso de estandares aplicados a TIC en Educacion. [en linea]. Madrid. Recuperado el 8 de febrero de 2008 en http://ares.cnice.mec.es/informes/indice.htm 3/62 ­ LOM-ES v.1.0 12/03/2008
+
+2. UTILIDAD DE LA METAINFORMACION DIDACTICA
+Antes de pasar a describir la estructura y el esquema de base de este perfil de metadatos, se recoge una reflexion en torno a algunos de los procesos involucrados en la gestion y administracion de un Objeto Digital Educativo (ODE) y sobre como, la elaboracion, explicitacion y/o disposicion de la informacion didactica de ese ODE puede influir de forma positiva en dichos procesos.
+
+2.1. Etapa 1. Diseno y Desarrollo
+El hecho de que una especificacion de metadatos contemple informacion de caracter educativo en su estructura, genera la necesidad de explicitar dicha informacion, y concretamente, aquellos aspectos didacticos que estan relacionados con el Diseno Instruccional del objeto que se pretende crear y estandarizar. Por lo tanto, se entiende que el diseno de un ODE se inicia necesariamente a partir de la elaboracion y concrecion de los aspectos didacticos de ese objeto. De esta forma, desarrollar y disponer de este tipo de informacion de manera previa, facilitara el proceso de toma de decisiones durante el diseno y desarrollo del ODE porque aporta datos clave y necesarios para la realizacion de los guiones o rutas de aprendizaje, ruta de navegacion, diseno funcional y de accesibilidad, interface, diseno grafico, diseno tecnico, etc.
+
+2.2. Etapa 2. Utilizacion
+En relacion a esta etapa del ODE, hay que argumentar el hecho de que disponer de metainformacion didactica y pedagogica repercute, en cierta medida, sobre la correcta utilizacion del objeto, al aportar conocimiento e informacion fundamental, tanto a los responsables y dinamizadores del proceso de ensenanza-aprendizaje (administraciones, profesores, tutores y padres), como a los implicados finales y responsables ultimos de ese proceso (aprendices, estudiantes o alumnos). Este tipo de metainformacion aporta a las administraciones, profesores, tutores y padres datos suficientes para crear las condiciones optimas de ensenanza que permitan aprovechar al estudiante el mayor potencial posible del ODE que se va a utilizar. De igual forma, en el caso de que ese objeto sea utilizado en condiciones de autoaprendizaje, este tipo de metainformacion aporta al usuario (aprendiz o estudiante) datos que ayudan a mejorar el control sobre el proceso de ensenanza-aprendizaje. Nos referimos al conocimiento, por parte del usuario, de informacion tan relevante como: las condiciones de aprendizaje, conocimiento previo necesario, objetivos generales y especificos de aprendizaje, competencias generales y tipos de conocimiento que se van a formar, procesos cognitivos que se van a activar, metodos de aprendizaje y evaluacion que se utilizan, criterios de evaluacion, etc. Lo cual, como ya indicaban algunas investigaciones (Alonso Tapia, 1999 ), esta relacionado con la motivacion del estudiante y la calidad de su aprendizaje.
+
+2.3. Etapa 3. Evaluacion y Rediseno
+Tambien, es importante destacar la utilidad de este tipo de informacion en el proceso de evaluacion de calidad y rediseno del propio ODE. La metainformacion didactica organizada ayuda en el diseno y
+
+
+Alonso Tapia, J. y Lopez, G. (1999). "Efectos motivacionales de las actividades docentes en funcion de las motivaciones de los alumnos". En El aprendizaje estrategico. (pp. 35-57). J.I. Pozo y C. Monereo (Eds.). Madrid: Santillana (Col. Aula XXI).
+
+4/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+construccion de herramientas validas y fiables para la evaluacion de la calidad del diseno instruccional del aprendizaje, puesto que aporta los datos clave sobre los posibles factores e indicadores en torno a los cuales se agrupan las variaciones con respecto a la calidad didactica del ODE. De esta forma, en el caso de una evaluacion negativa el rediseno de un ODE debe tener en cuenta, para cada factor, los valores criticos correspondientes a sus respectivos indicadores. A partir de estas reflexiones se justifica, en cierta medida, la repercusion que tiene la metainformacion didactica de un ODE sobre sus procesos de desarrollo, gestion, administracion, utilizacion y evaluacion. Por esta razon, en este perfil de aplicacion, se ha prestado especial atencion a aquellos factores y elementos que organizan y recogen este tipo de informacion.
+
+3. JUSTIFICACION SOBRE LA METAINFORMACION DIDACTICA
+A continuacion, se describen las diferentes razones que justifican la relevancia que se ha dado a la metainformacion didactica y en consecuencia, los cambios realizados en el perfil LOM-ES v.1.0 con respecto a la inclusion de nuevos elementos de datos (elementos extendidos), nuevos vocabularios controlados para los mismos, asi como modificaciones de los ya existentes en el estandar original LOM.
+
+3.1. Razones documentales
+La inclusion de informacion relacionada con el diseno instruccional en un Objeto Digital destinado a la educacion y el aprendizaje no solo completa la descripcion del mismo sino que, ademas, permite realizar busquedas avanzadas en funcion de factores tan importantes e interesantes para los profesores como son los objetivos de aprendizaje, el metodo didactico o los tipos de conocimiento (declarativo, procedimental, condicional o metacognitivo), actitudes y competencias sobre los que se trabaja, mejorando asi la precision en la busqueda y recuperacion de la informacion.
+
+3.2. Razones educativas
+En algunos estudios sobre demandas actuales en educacion y analisis sobre educacion en adultos se desprende que lo importante en el aprendizaje no es solo la asimilacion de conocimiento sino su aplicacion y su analisis critico y, sobre todo, la capacidad de reutilizar ese conocimiento para seguir aprendiendo y formandose a lo largo de la vida (Merrian y Caffarella, 1999 y Knowles, 1980 ). Esto justifica el valor que tiene para el proceso de aprendizaje la explicitacion de aquellos factores que forman parte del mismo, tal y como se realiza en el Diseno Didactico o Instruccional, razon por la cual, en LOM-ES v.1.0 se recoge parte de esa informacion didactica. De igual modo, en trabajos sobre diseno didactico instruc tivo algunas conclusiones, como las de la profesora Gloria Yukavetsky en 2003* , indican, que el diseno instruccional permite el control de gran parte de los factores que explicarian la calidad del aprendizaje.
+
+
+Merrian, S.B. & Caffarella, R.S. (1999). "Learning in adulthood. A comprehensive guide." (2a ed.) San Francisco: Jossey-Bass Publishers. Knowles, M. S. (1980). "The modern practice of adult education: from pedagogy to andragogy." (2a ed.) New York: Cambridge Books. Yukavetsky, G. (2003). La elaboracion de un modulo instruccional, [en linea]. Centro de Competencias de la Comunicacion. Universidad de Puerto Rico en Humacao. Recuperado el 20 de febrero de 2008 en http://www.face.uc.edu.ve/~mpina/mdi/Obj%202.2%20%20Elaboracion%20de%20un%20DI%20%20por%20Gloria.pdf 5/62 ­ LOM-ES v.1.0 12/03/2008
+
+Por otro lado, los trabajos de investigacion citados anteriormente sobre motivacion en relacion a las pautas de accion docente con repercusiones motivacionales (Alonso Tapia, 1999), sugieren que el conocimiento de informacion sobre el diseno instruccional por parte del estudiante (condiciones de aprendizaje, conocimiento previo necesario, objetivos de aprendizaje, etc.) guarda una relacion directa y positiva con su motivacion intrinseca, lo que influye, a su vez, sobre la calidad de su aprendizaje. Determinados estudios sobre evaluacion de necesidades en el profesorado indican que algunos de los aspectos mas demandados no estan relacionados con la familiarizacion y utilizacion de las TIC sino, mas bien, con aquellos aspectos relacionados con la innovacion docente y diseno instruccional orientados a la utilizacion de esas TIC (Gallego, 2005 ). De igual forma, existe un extendido acuerdo sobre la importancia de la familiarizacion del docente con los metodos de aprendizaje activo y su consecuente desarrollo didactico. Lo que indica que la metainformacion didactica e instruccional contemplada en este perfil de aplicacion satisface una demandada de la comunidad educativa docente.
+
+4. SISTEMAS DE CLASIFICACION. CATALOGACION DISCIPLINAR BASADA EN ETB-LRE MEC-CCAA V.1.0
+Por ultimo y antes de describir la informacion tecnica, cabe destacar que otro de los objetivos alcanzados con el desarrollo de LOM-ES v.1.0 ha sido incluir, junto a la documentacion basica y necesaria en el desarrollo de cualquier perfil de aplicacion, un conjunto de taxonomias adaptadas a la comunidad educativa espanola, las cuales permiten una sencilla y correcta clasificacion de los Objetos Digitales con respecto a los siguientes criterios o propositos de clasificacion: disciplina de conocimiento, restricciones de accesibilidad, nivel educativo curricular y competencias generales. De esta forma, este documento aparece acompanado de una serie de Anexos donde se incluyen dichas clasificaciones taxonomicas (Anexos 7, 8, 9, 10 y 14). Merecen especial atencion los anexos 10 y 14 relacionados con la clasificacion disciplinar del ODE. Su desarrollo ha supuesto la consecucion de un reto importante: permitir una clasificacion disciplinar basada en una organizacion epistemologica del conocimiento que sea alternativa al curriculo oficial, versatil, flexible a cambios socio-politicos e interoperable (compatible) con el resto de paises de la Union Europea. El desarrollo de este proyecto, llevado a cabo de forma paralela al desarrollo de LOM-ES v.1.0, tambien se ha producido en el seno del Grupo de Trabajo 9 del Subcomite 36 de AENOR. En el han participado las diferentes Administraciones Educativas que lo editan (ver Anexos X y XIV), asi como el Departamento de Biblioteconomia y Documentacion de la Universidad Carlos III de Madrid, quien ha llevado a cabo el seguimiento, revision y validacion del proceso de desarrollo. El proyecto se ha planificado en funcion de dos actuaciones generales, fruto de las cuales han resultado sendos anexos:
+§
+
+Por un lado, la ampliacion conforme a estandares y respetando los requisitos de interoperabilidad del Tesauro European Treasury Browser (ETB) . Sistema de clasificacion y busqueda basado en el Tesauro Europeo de Educacion (TEE) que ha sido desarrollado y esta siendo utilizado por el Consorcio European Schoolnet. Como resultado de esta actuacion se ha obtenido el Tesauro ampliado y adaptado a la comunidad educativa espanola ETB MEC-CCAA v.1.0 (ver Anexo X).
+
+
+
+Gallego, D. (2005). Profesion y docencia: el nuevo perfil de la profesion docente. En Actas III Congreso Internacional Educared. Volumen I. Nuevos paradigmas y aplicaciones educativas (pp. 109-168). Madrid: Fundacion Telefonica. European Treasury Browser (European Schoolnet-ETB), [en linea]. Bruselas. European Commission. Disponible en: http://www.eun.org/eun.org2/eun/en/etb/sub_area.cfm?sa=440 [2007, 20 de marzo]. 6/62 ­ LOM-ES v.1.0 12/03/2008
+
+§
+
+Por otro lado, la asignacion de los identificadores (ID) necesarios, para una correcta clasificacion interoperable, al conjunto de taxones ampliados en este nuevo tesauro (ETB MEC-CCAA v.1.0). Para ello, se ha utilizado como base el sistema de clasificacion digital LRE thesaurus (European Resource Exchange) registrado en el servicio de la Direccion General del Conocimiento de la Comision Europea gestionado desde CEN/ISSS Workshop on Learning Technologies. Como resultado de esta actuacion se ha obtenido la organizacion sistematica de Identificadores LRE MEC-CCAA v.1.0 (ver Anexo XIV).
+
+5. ESTRUCTURA BASICA DE LOS METADATOS
+La estructura y organizacion de metadatos que se propone en esta especificacion se basa integramente en el estandar propuesto por IEEE-LTSC, y concretamente, en la iniciativa Learning Object Metadata (LOM) Version 1.0. A continuacion, se describen las 9 categorias originales en base a las cuales se agrupa y organiza el esquema de metadatos LOM-ES v.1.0: 1. La categoria General () agrupa la informacion general que describe un ODE de manera global. 2. La categoria Ciclo de Vida () agrupa las caracteristicas relacionadas con la historia y el estado actual del ODE, y aquellas que le han afectado durante su evolucion. 3. La categoria Meta-Metadatos () agrupa la informacion sobre la propia instancia de metadatos (quien es el responsable de la documentacion del ODE, cuando, etc.). 4. La categoria Tecnica () agrupa los requerimientos y caracteristicas tecnicas del ODE. 5. La categoria Uso Educativo () agrupa las caracteristicas educativas y pedagogicas del ODE. 6. La categoria Derechos () agrupa los derechos de propiedad intelectual y las condiciones para el uso del ODE. 7. La categoria Relacion () agrupa las caracteristicas que definen la relacion entre este ODE y otros Objetos Digitales relacionados. 8. La categoria Anotacion () permite incluir comentarios sobre el uso educativo del ODE e informacion sobre cuando y por quien fueron creados dichos comentarios. 9. La categoria Clasificacion () describe este ODE en relacion a un determinado sistema de clasificacion.
+
+7/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+6. ESQUEMA BASE DE ELEMENTOS DEL PERFIL LOM-ES V .1.0. DEFINICION DE CATEGORIAS Y ELEMENTOS DE DATOS SIMPLES Y AGREGADOS
+A continuacion, se incluye una tabla descriptiva en la que se incluyen los diferentes elementos de datos agregados y simples que pertenecen a cada categoria junto con su definicion correspondiente, senalando en color gris los elementos extendidos. Para cada elemento se indica:
+§ § § §
+
+El Caracter del elemento, pudiendo ser: obligatorio (ob.), recomendado (re.), optativo (op.) y/o condicionado (co.). El Tipo de Datos, que en el caso de ser Vocabulario, se indica si se propone un vocabulario alternativo controlado LOM-ES. El Espacio de Valores para los Vocabularios controlados LOM y LOM-ES. El Tamano, indicando el menor maximo permitido (m.m.p.) de elementos. Es decir, cualquier aplicacion de catalogacion que utilice este perfil debe incluir como minimo la posibilidad de incluir ese numero de instancias. El Orden, donde se especifica si el orden de la lista de instancias para un elemento determinado es relevante o no (No especificado, Ordenado o No ordenado). Por ejemplo, en una lista de autores de una publicacion, el primer autor normalmente se considera el autor mas importante.
+
+§
+
+Ademas, para cada uno de los elementos de datos simples (originales y extendidos) se incluye el ejemplo de la etiqueta xml correspondiente. Dichos ejemplos, corresponden a la instancia de metadatos de un objeto de nivel de agregacion 3. Esta instancia de metadatos tambien puede ser revisada en formato continuo en el Anexo XI de este perfil de aplicacion.
+
+8/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+6.1. CATEGORIA 1. GENERAL
+No 1 1.1 1.1.1 1.1.2 1.2 1.3 1.4 1.5 1.6 1.7 1.8 Nombre General Identificador Catalogo Entrada Titulo Idioma Descripcion Palabra Clave Ambito Estructura Nivel de Agregacion Caracter (ob.) (ob.) (ob.) (ob.) (ob.) (ob.) (ob.) (re.) (op.) (op.) (ob.) Tamano 1 m.m.p. 10 1 1 1 m.m.p. 10 m.m.p. 10 m.m.p. 10 m.m.p. 10 1 1 Orden No especificado No especificado No especificado No especificado No especificado No ordenado No ordenado No ordenado No ordenado No especificado No especificado atomica, coleccion, en red, jerarquica, lineal 1, 2, 3, 4 Codigo de 2 letras ISO 639-1988 Repertorio del ISO/IEC 10646-1:2000 Repertorio del ISO/IEC 10646-1:2000 CharacterString 1000 CharacterString 1000 LangString 100 CharacterString 100 LangString 2000 LangString 1000 LangString 1000 Vocabulario Vocabulario Espacio de valores Tipo de datos
+
+1. General: Esta categoria agrupa la informacion general que describe este objeto digital educativo en su conjunto. 1.1. Identificador: Una etiqueta, unica que identifica este objeto educativo. 1.1.1. Catalogo: El nombre o denominacion del esquema de identificacion o catalogacion en base al cual se establecera el identificador. § Ejemplo etiqueta en xml:  DOI ATENEX
+9/62 ­ LOM-ES v.1.0 12/03/2008
+
+
+
+1.1.2. Entrada: El valor del identificador dentro del esquema de identificacion o catalogacion que designa o identifica este objeto educativo. § Ejemplo etiqueta en xml:  10.1000/ISBN1-900512-44-0 AT/ET0001 
+
+1.2. Titulo: El nombre asignado a este objeto educativo. § Ejemplo etiqueta en xml:  ¿Que es la Etica? 
+
+1.3. Idioma: El idioma o idiomas humanos predominantes en este objeto educativo para la comunicacion con el usuario. NOTA 1: Una herramienta de indexado o catalogacion podria proporcionar un valor por defecto. NOTA 2: Si el objeto educativo no tuviese contenido escrito en ningun idioma (como en el caso de un cuadro de la Mona Lisa, por ejemplo), entonces el valor apropiado para este elemento seria "ninguno" NOTA 3: Este elemento de datos se refiere al idioma del objeto educativo. El elemento de datos 3.4: Metadatos. Idioma se refiere al idioma de la instancia de metadatos. § Ejemplo etiqueta en xml: es
+
+1.4. Descripcion: Una descripcion textual del contenido de este objeto educativo. Esta descripcion se podra utilizar como texto alternativo en pantalla para caracterizar al objeto de aprendizaje.
+10/62 ­ LOM-ES v.1.0 12/03/2008
+
+§
+
+Ejemplo etiqueta en xml:  Unidad didactica introductoria a la Etica en la que se tratan los conceptos basicos de esta disciplina, especialmente su especificidad humana y su fundamento antropologico 
+
+NOTA 1: se recomienda, que en la medida de lo posible, los aspectos relacionados con las caracteristicas tecnicas y expresivas de objetos con nivel de agregacion=1 y pertenecientes al grupo "Media" (elemento 5.2. Tipo de Recurso Educativo) se recojan directamente en el propio estandar de formato/compresion (jpg, mpeg, etc.). En el caso de que dicho formato no contemple la indexacion de metadatos, se recomienda el cambio a un formato que si los contemple, y en el caso de que dicha transformacion no pueda realizarse, la indexacion directa de esos metadatos en el elemento (1.4) mediante un catalogador. NOTA 2: en el caso de objetos de nivel de agregacion=1 pertenecientes al grupo "Media" (elemento 5.2. Tipo de Recurso Educativo), se recomienda que los metadatos mas relevantes relacionados con las caracteristicas tecnicas y expresivas, y que aparecen indexados en el propio estandar de formato/compresion (jpg, mpeg, etc.) de ese objeto, sean tambien recogidos en este elemento (1.4) mediante mecanismos automaticos para la indexacion de metadatos. § Ejemplo de catalogador para el elemento 1.4. Descripcion referente a la instancia "Caracteristicas" (condicionado. Si 1.8 = 1 y 5.2= cualquier valor del grupo "Media". Solo activo en el catalogador en esas dos condiciones ). La etiqueta que generaria dicho catalogador seria la que aparece el ejemplo posterior: CARACTERISTICAS Resolucion Dimension Modo Color Banda Sonora Formato Tipo de plano Luz Estructura formal Angulacion § Ejemplo de etiqueta correspondiente: OPCIONES DE MENU/VALORES (especificar valor en pixeles por pulgada). Ejemplo: 230 ppp (especificar valor en pixeles ancho y alto) Ejemplo: 800X600 color RGB, INDEXADO, b/n, escala de grises, mono, estereo, muda, locucion, bilingue, trilingue, multilingue, subtitulos Horizontal, vertical, panoramico general, medio, entero, americano, primer plano, detalle dia, noche, flash, artificial figura exenta, composicion, retrato, paisaje, escena picado, contrapicado, aereo, nadir, cenital, aberrante
+
+11/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+-  -   CARACTERISTICAS: resolucion (230ppp), dimension (800x600), modo color (color RGB), banda sonora (mono), formato (vertical), tipo de plano (detalle), luz (dia), estructura formal (retrato), angulacion (picado)  -  - 
+
+1.5. Palabra Clave: Una palabra clave o frase que describe el tema principal del objeto educativo. Este elemento de datos no debiera ser utilizado para aquellas caracteristicas que pueden ser descritas con otros elementos. § Ejemplo etiqueta en xml:  Etica   Moral 
+
+1.6. Ambito: La epoca, cultura, zona geografica o region a la que se refiere el contenido de este objeto educativo (contextualizacion del contenido). El alcance o ambito del contenido del objeto educativo. Concretamente, el ambito puede describirse a traves de la localizacion espacial (el nombre de un lugar o sus coordenadas geograficas), el periodo temporal (el nombre de un periodo, fecha o rango de fechas) o jurisdiccion (por ejemplo el nombre de una entidad administrativa) a la que se refiere el contenido. § Ejemplo etiqueta en xml:  Cultura occidental 
+
+1.7. Estructura: La estructura organizativa subyacente a este objeto educativo: § § § § atomica: un objeto que es indivisible (en este contexto). coleccion: un conjunto de objetos sin ninguna relacion especifica entre ellos. en red: un conjunto de objetos con una relacion entre ellos que no esta especificada. jerarquica: un conjunto de objetos cuya relacion puede ser representada por medio de una estructura en arbol.
+12/62 ­ LOM-ES v.1.0 12/03/2008
+
+§ §
+
+lineal: un conjunto de objetos completamente ordenados. Ejemplo: un conjunto de objetos conectados mediante relaciones del tipo "anterior" y "siguiente". Ejemplo etiqueta en xml:  LOM-ESv1.0 lineal 
+6
+
+1.8.
+
+Nivel de Agregacion :
+
+La granularidad funcional de este objeto educativo tambien relacionada con el tipo de objeto y la cobertura curricular aproximada (elemento 5.2 y categoria 9, proposito "disciplina" y "nivel educativo" respectivamente). § § 1. El nivel de agregacion mas pequeno, por ejemplo, elementos media (fotografia, sonido, etc.), sistemas de representacion de informacion y/o conocimiento (mapa conceptual, tabla, etc.), aplicaciones informaticas y servicios. 2. El siguiente nivel, donde un objeto, estructuralmente, se compone de u coleccion de objetos de nivel 1. Funcionalmente, se caracteriza por ser el nivel mas na pequeno con una funcion didactica explicita (diseno instruccional). Dicho objeto deberia incluir una o varias actividades de aprendizaje y su respectiv evaluacion a asi como y de forma opcional, mapa/s conceptual/es y/o sistemas de evaluacion de conocimiento previo. Un ejemplo para este nivel podria ser una leccion en la que se cubra un bloque/s de conocimiento de un curso o ciclo determinado. 3. Su estructura se compone, principalmente, de una coleccion d objetos digitales de nivel 2 y excepcionalmente de nivel 1 Funcionalmente, deberia incluir las e . actividades de aprendizaje/evaluacion implicitas en los objetos que lo constituyen, asi como mapas conceptuales. De forma opcional, podria incluir un mapa de navegacion, lo que supondria la inclusion de un objeto digital de nivel 1 Un ejemplo para este nivel podria ser un curso en el que se cubra un subarea de . conocimiento de un curso o ciclo determinado. 4: el nivel mayor de granularidad, por ejemplo, un conjunto de cursos para la obtencion de un titulo en el que se cubre un area de conocimiento completa de un ciclo o nivel educativo determinado. Los objetos de nivel 4 se componen principalmente por objetos de nivel 3 y, excepcionalmente, por objetos de nivel 2 y 1. Ejemplo etiqueta en xml:  LOM-ESv1.0 3 
+
+§
+
+§ §
+
+6
+
+Para mas informacion, ver apartados "Definicion y descripcion de los niveles de agregacion y tipos de objetos asociados" y "Metainformacion relacionada" del Anexo I. 13/62 ­ LOM-ES v.1.0 12/03/2008
+
+6.2. CATEGORIA 2. CICLO DE VIDA
+No 2 2.1 2.2 2.3 Nombre Ciclo de Vida Version Estado Contribucion Caracter (re.) (op.) (op.) (re.) Tamano 1 1 1 m.m.p. 30 Orden No especificado No especificado No especificado Ordenado autor, editor de publicacion, iniciador, terminador, revisor, editor de contenido, disenador grafico, desarrollador tecnico, proveedor de contenidos, revisor tecnico, revisor educativo, guionista, disenador educativo, experto en la materia vCard tal y como se define en el IMC vCard 3.0 (RFC 2425, RFC 2426) borrador, final, revisado, no disponible LangString 50 Vocabulario Espacio de valores Tipo de datos
+
+2.3.1
+
+Tipo
+
+(ob.) si 2.3 (+)
+
+1
+
+Ordenado
+
+Vocabulario LOM-ES
+
+2.3.2 2.3.3
+
+Entidad Fecha
+
+(ob.) si 2.3 (+) (ob.) si 2.3 (+)
+
+m.m.p. 40 1
+
+Ordenado No especificado
+
+CharacterString 1000 Fecha
+
+2. Ciclo de Vida: Esta categoria describe la historia y estado actual de este ODE, asi como aquellas entidades que han intervenido en su creacion y evolucion. 2.1. Version: La edicion de este ODE. § Ejemplo etiqueta en xml:  v .1.0 
+
+2.2.
+
+Estado:
+12/03/2008
+
+14/62 ­ LOM-ES v.1.0
+
+El estado de completitud o condicion de este objeto educativo. § Ejemplo etiqueta en xml:  LOM-ESv1.0 final 
+
+2.3. Contribucion: Aquellas entidades (organizaciones o personas) que han contribuido al estado de este objeto educativo a lo largo de su ciclo de vida (por ejemplo, diseno, desarrollo, edicion, produccion, publicacion, etc.). NOTA 1: se prescribe su utilizacion excepto si la contribucion (creditos) es desconocida. NOTA 2: este elemento es diferente de 3.2.Meta-Metadatos. Contribucion. NOTA 3: las contribuciones deben ser consideradas aqui en un sentido amplio, como todas las acciones que afectan el estado del objeto educativo.
+
+2.3.1. Tipo: Tipo de contribucion, rol. Al menos, debe describirse el autor(es) del objeto educativo. En el caso de tener varias contribuciones con diferentes tipos de roles, se seguira el orden establecido en este vocabulario. Asi, por ejemplo, las contribuciones referentes al rol "editor de contenido" no pueden aparecer despues de las referentes al rol "disenador grafico" o "revisor tecnico". NOTA 1: el valor "terminador" es la entidad que hace que el objeto pase a no estar disponible. § Ejemplo etiqueta en xml:   LOM-ESv1.0 autor LOM-ESv1.0 editor  
+
+2.3.2.
+
+Entidad:
+12/03/2008
+
+15/62 ­ LOM-ES v.1.0
+
+La identificacion e informacion de las entidades (organizaciones o personas) que han contribuido a este objeto educativo. Las entidades deben ser ordenadas de forma que aparezcan en primer lugar las mas relevantes (dentro de un mismo tipo de rol). § Ejemplo etiqueta en xml:  BEGIN:VCARD VERSION 3.0 FN:GT8/SC36/CTN71 EMAIL;TYPE=INTERNET:gt8@aenor.es ORG:AENOR END:VCARD BEGIN:VCARD VERSION 3.0 FN:GT9/SC36/CTN71 EMAIL;TYPE=INTERNET:gt9@aenor.es ORG:AENOR END:VCARD 
+
+2.3.3. Fecha: La/s fecha/s de la contribucion o contribuciones. Para mas informacion sobre la estructura de los elementos tipo "Fecha", ver apartado 7. § Ejemplo etiqueta en xml:   2006-03-30  Se anade un esquema conceptual  2006-10-10  Se valida el esquema conceptual   
+
+16/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+6.3. CATEGORIA 3. META-METADATOS
+No 3 3.1 3.1.1 3.1.2 3.2 3.2.1 3.2.2 3.2.3 3.3 Nombre Meta-Metadatos Identificador Catalogo Entrada Contribucion Tipo Entidad Fecha Esquema de Metadatos Caracter (ob.) (op.) (ob.) si 3.1 (+) (ob.) si 3.1 (+) (re.) (ob.) si 3.2 (+) (ob.) si 3.2 (+) (ob.) si 3.2 (+) (ob.) Tamano 1 m.m.p. 10 1 1 m.m.p. 10 1 m.m.p. 10 1 m.m.p. 10 Orden No especificado No especificado No especificado No especificado Ordenado No especificado Ordenado No especificado No ordenado creador, revisor vCard tal y como se define en el IMC vCard 3.0 (RFC 2425, RFC 2426) Vocabulario CharacterString 1000 Fecha Repertorio del ISO/IEC 10646-1:2000. Actualmente CharacterString 30 "LOM-ES v.1.0". Codigo de 2 letras ISO 639-1988. "ninguno" no es un valor aceptable porque la instancia de metadatos debe estar expresada en uno o varios idiomas humanos. Repertorio del ISO/IEC 10646-1:2000 Repertorio del ISO/IEC 10646-1:2000 CharacterString 1000 CharacterString 1000 Espacio de valores Tipo de datos
+
+3.4
+
+Idioma
+
+(ob.)
+
+1
+
+No especificado
+
+CharacterString 100
+
+3. Meta-Metadatos: Esta categoria describe el propio registro de metadatos (en lugar del objeto educativo descrito por el registro de metadatos). Esta categoria describe como puede ser identificada esta instancia de metadatos, quien la creo, como, cuando y con que referencias. Esta no es, por tanto, informacion que describa el objeto educativo. 3.1. Identificador: Una etiqueta unica globalmente que identifica este registro de metadatos.
+
+17/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+3.1.1. Catalogo: El nombre o denominacion del esquema de identificacion o catalogacion para esta entrada. Un esquema de espacio de nombres. § Ejemplo etiqueta en xml:  DOI-META ATENEX-META 
+
+3.1.2. Entrada: El valor del identificador dentro del esquema de identificacion o catalogacion que designa o identifica este registro de metadatos. Una cadena especifica de un espacio de nombres. § Ejemplo etiqueta en xml:  10.1000/ISBN1-900512-44-0-META AT/ET0001-META 
+
+3.2. Contribucion: Aquellas entidades (organizaciones o personas) que han participado en el estado de esta instancia de metadatos a lo largo de su ciclo de vida (por ejemplo, creacion o revision). Este elemento de datos se refiere a contribuciones a los metadatos. El elemento de datos 2.3 Ciclo de Vida / Contribucion se refiere a contribuciones al objeto digital educativo. 3.2.1. Tipo: Tipo de contribucion, rol. Debe especificarse como minimo para este elemento de datos el valor "creador". En el caso de tener varias contribuciones con diferentes tipos de roles, se seguira el orden establecido en este vocabulario. Asi, por ejemplo, las contribuciones referentes al rol "creador" no pueden aparecer despues de las referentes al rol "revisor". § Ejemplo etiqueta en xml:   LOM-ESv1.0 creador LOM-ESv1.0 revisor 
+18/62 ­ LOM-ES v.1.0 12/03/2008
+
+
+
+3.2.2. Entidad: La identificacion e informacion de las entidades (organizaciones o personas) que han contribuido a esta instancia de metadatos. Las entidades deben ser ordenadas de forma que aparezcan en primer lugar las mas relevantes (dentro de un mismo tipo de rol). § Ejemplo etiqueta en xml:  BEGIN:VCARD VERSION 3.0 FN:GT9/SC36/CTN71 EMAIL;TYPE=INTERNET:gt9@aenor.es ORG:AENOR END:VCARD BEGIN:VCARD VERSION 3.0 FN:GT8/SC36/CTN71 EMAIL;TYPE=INTERNET:gt8@aenor.es ORG:AENOR END:VCARD 
+
+3.2.3. Fecha: La/s fecha/s de la contribucion o contribuciones. Para mas informacion sobre la estructura de los elementos tipo "Fecha", ver apartado 7. § Ejemplo etiqueta en xml:   2006-07-30  Se crea la instancia de metadatos  2006-10-30  Se revisa la instancia de metadatos. Ninguna modificacion.   
+
+3.3. Esquema de Metadatos: El nombre y version de la especificacion utilizada para crear esta instancia de metadatos. Este elemento de datos puede ser seleccionado por el usuario o generado automaticamente por el sistema. En caso de que se proporcionen valores multiples, la instancia de metadatos debe ser conforme con multiples esquemas de metadatos. Asi por ejemplo, para esta especificacion sera "LOM-ES v.1.0". § Ejemplo etiqueta en xml: LOM-ES v1.0
+19/62 ­ LOM-ES v.1.0 12/03/2008
+
+3.4. Idioma: El idioma de esta instancia de metadatos. Este es el idioma por defecto para todos los valores de tipo LangString en esta instancia de metadatos. Si no hay un valor para este elemento de datos, entonces no hay un valor por defecto para los elementos cuyo tipo de valor sea LangString. Este elemento se refiere al idioma de la instancia de metadatos. El elemento de datos 1.3 General / Idioma se refiere al idioma utilizado en el propio objeto educativo. "Ninguno" no es un valor aceptable porque la instancia de metadatos debe estar expresada en uno o varios idiomas humanos. § Ejemplo etiqueta en xml: es
+
+20/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+6.4. CATEGORIA 4. TECNICA
+No 4 4.1 4.2 4.3 4.4 4.4.1 4.4.1.1 Nombre Tecnica Formato Tamano Localizacion Requisitos AgregadorOR Tipo Caracter (re.) (re.) (re.) (re.) (op.) (ob.) si 4.4 (+) Tamano 1 m.m.p. 40 1 m.m.p. 10 m.m.p. 40 m.m.p. 40 Orden No especificado No ordenado No especificado Ordenado No ordenado No ordenado No especificado sistema operativo, navegador § (ob.) si 4.4.1 (+) 4.4.1.2 Nombre (co.) 1 No especificado § Si tipo='navegador' entonces: cualquiera, mozilla firefox, netscape communicator, ms internet explorer, opera, amaya CharacterString 30 CharacterString 30 LangString 1000 LangString 1000 Duracion Si Tipo='sistema operativo', entonces: pc-dos, ms-windows, linux, macos, unix, multi-so, ninguno. Vocabulario LOM-ES Vocabulario Tipos MIME basado en el registro IANA (ver RFC2048). "no-digital" no es aceptable en LOM-ES v.1.0. ISO/IEC 646:1991, pero solo los digitos "0"..."9" Repertorio del ISO/IEC 10646-1:2000 CharacterString 500 CharacterString 30 CharacterString 100 Espacio de valores Tipo de datos
+
+(ob.) si 4.4.1 1 (+)
+
+4.4.1.3 4.4.1.4 4.5 4.6 4.7
+
+Version Minima Version Maxima Pautas de Instalacion Otros Requisitos de Plataforma Duracion
+
+(op.) (op.) (op.) (op.) (op.)
+
+1 1 1 1 1
+
+No especificado No especificado No especificado No especificado No especificado
+
+Repertorio del ISO/IEC 10646-1:2000 Repertorio del ISO/IEC 10646-1:2000
+
+21/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+4. Tecnica: Esta categoria describe los requisitos y caracteristicas tecnicas de este objeto educativo. 4.1. Formato: El(los) tipo(s) de datos de todos los componentes de este objeto digital. Este elemento de datos tambien debe ser utilizado para identificar el software necesario para acceder al objeto educativo. NOTA 1: el listado actualizado de los tipos MIME basado en el registro IANA puede ser consultado en: http://www.iana.org/assignments/media-types/ § Ejemplo etiqueta en xml: text/html
+
+4.2. Tamano: El tamano del objeto educativo digital expresado en octetos. El tamano se representa como un valor decimal (base 10). Por lo tanto, solo deben ser utilizados los digitos del '0' al '9'. La unidad es el octeto, no MB, ni GB, etc. Este elemento de datos indicara el tamano real del objeto educativo. Si el objeto educativo se encuentra comprimido, este elemento de datos indicara su tamano sin comprimir. § Ejemplo etiqueta en xml: 3145
+
+4.3. Localizacion: Una cadena utilizada para acceder a este objeto educativo. Puede ser un localizador (por ejemplo, un Localizador Universal de Recursos, URL), o un mecanismo que finalmente permite acceder a una localizacion (por ejemplo, un Identificador Universal de Recursos, URI). El primer elemento de la lista debe ser la localizacion preferente. Se trata de la localizacion fisica del objeto educativo descrito en esta instancia de metadatos. § Ejemplo etiqueta en xml: http://www.educarex.es/atenex http://www.aenor.es/LOMES
+
+4.4. Requisitos: Los requisitos tecnicos para utilizar este objeto digital educativo. Si hay multiples requisitos, todos ellos son obligatorios, es decir, el conector logico es AND. 4.4.1. AgregadorOR: Agrupacion de multiples requisitos. El requisito compuesto se satisface cuando al menos uno de los requisitos agregados se satisface, es decir, el conector logico es OR.
+
+22/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+4.4.1.1. Tipo: La tecnologia requerida para usar este objeto educativo, por ejemplo, sistema operativo, navegador, etc. § Ejemplo etiqueta en xml:    LOM-ESv1.0 sistema operativo LOM-ESv1.0 sistema operativo LOM-ESv1.0 navegador LOM-ESv1.0 navegador   
+
+4.4.1.2. Nombre: El nombre de la tecnologia requerida para utilizar este objeto. El valor de este elemento puede derivarse directamente de 4.1. Tecnica / Formato, por ejemplo, "video/mpeg" implica que el valor de este elemento de datos es "multi-so". Este vocabulario incluye los valores mas comunes en el momento de aprobar este perfil de aplicacion. § Ejemplo etiqueta en xml:    LOM-ESv1.0 linux LOM-ESv1.0 ms-windows LOM-ESv1.0 mozilla firefox LOM-ESv1.0 ms-internet explorer  
+23/62 ­ LOM-ES v.1.0 12/03/2008
+
+
+
+4.4.1.3. Version Minima: La version minima posible de la tecnologia necesaria para utilizar este objeto educativo. § Ejemplo etiqueta en xml:   < minimumVersion>Kermel linux-2.0.40 Windows 98 mozilla firefox 1.5.0.7 Internet Explorer 6.0  
+
+4.4.1.4. Version Maxima: La version maxima posible de la tecnologia necesaria para utilizar este objeto educativo. § Ejemplo etiqueta en xml:   Kermel linux -2.6.20.1 Windows XP mozilla firefox 2.0 Internet Explorer 7.0  
+
+4.5. Pautas de Instalacion: Descripcion de como debe ser instalado este objeto digital educativo. § Ejemplo etiqueta en xml:  No se requiere ningun requisito especial 
+
+24/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+4.6. Otros Requisitos de Plataforma: Informacion sobre otros requisitos software o hardware. Este elemento tiene como objetivo recoger requisitos que no pueden ser expresados con el elemento de datos 4.4. Tecnica / Requisitos. NOTA 1: este elemento tambien puede recoger informacion sobre el estandar de empaquetado utilizado (IMS, SCORM, etc.) asi como, informacion sobre la herramienta o aplicacion utilizada para generar el objeto (Atenex, Jclic, Hotpotatoes, etc.). § Ejemplo etiqueta en xml:  Plugins de Macromedia Flash Player   Compatible con SCORM 2004   Realizado con Atenex 
+
+4.7. Duracion: El tiempo que dura un objeto educativo continuo cuando se reproduce a su velocidad normal. Este elemento de datos es especialmente util para sonidos, peliculas o animaciones. Por esta razon, solo es relevante para determinados tipos de objetos del nivel de agregacion 1. Para mas informacion sobre la estructura de los elementos tipo "Duracion", ver apartado 8.
+
+25/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+6.5. CATEGORIA 5. USO EDUCATIVO
+No 5 5.1 Nombre Uso Educativo Caracter (ob.) Tamano m.m.p. 100 1 Orden No especificado No especificado activo, expositivo, combinado Vocabulario Espacio de valores Tipo de datos
+
+Tipo de Interactividad (op.)
+
+26/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+§
+
+§
+
+§
+
+5.2
+
+Tipo de Recurso Educativo
+
+(ob.)
+
+m.m.p. 10
+
+Ordenado §
+
+§
+
+Media: fotografia, ilustracion, video, animacion, musica, efecto sonoro, locucion, audio compuesto, texto narrativo, hipertexto, grafismo, media integrado Sistema de representacion de informacion y/o conocimiento: base de datos, tabla, grafico, mapa conceptual, mapa de navegacion , presentacion multimedia, tutorial, diccionario digital, enciclopedia digital, publicacion digital periodica, web/portal tematico o corporativo, wiki, weblog Aplicacion informatica: herramienta de creacion/edicion multimedia, herramienta de creacion/edicion web, herramienta de ofimatica, herramienta de programacion, herramienta de analisis/organizacion de informacion/conocimiento, herramienta de apoyo a procesos/procedimientos, herramienta Vocabulario LOM-ES de gestion de aprendizaje/trabajo individual/cooperativo/ colaborativo Servicio: servicio de creacion/edicion multimedia, servicio de creacion/edicion web, servicio de ofimatica, servicio de programacion, servicio de analisis/organizacion de informacion/conocimiento, herramienta de apoyo a procesos/procedimientos, servicio de gestion de aprendizaje/trabajo individual/cooperativo/colaborativo Contenido didactico: lecturas guiadas, leccion magistral, comentario de texto-imagen, actividad de discusion, ejercicio o problema cerrado, caso contextualizado, problema abierto , escenario real o virtual de aprendizaje, juego didactico, webquest, experimento, proyecto real, simulacion, cuestionario, examen, autoevaluacion Vocabulario
+
+5.3
+
+Nivel de Interactividad (op.)
+
+1
+
+No especificado
+
+muy bajo, bajo, medio, alto, muy alto
+
+27/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+5.4
+
+Densidad Semantica
+
+(op.)
+
+1
+
+No especificado
+
+muy baja, baja, media, alta, muy alta §
+
+Vocabulario
+
+5.5
+
+Destinatario
+
+(re.)
+
+m.m.p. 15
+
+Ordenado § § §
+
+Tipo de aprendiz: alumno, alumno con necesidades educativas especiales, alumno con altas capacidades intelectuales, alumno con integracion tardia en sistema educativo, alumno con otras necesidades especificas de apoyo educativo, publico en general Vocabulario LOM-ES Agrupamiento de los alumnos: individual, grupal Educador: docente, tutor, familia Expertos: documentalista, informatico, administrador, experto en educacion, experto en la materia Lugar: aula, laboratorio, entorno real, domicilio, mixto Asistencia: docente, tutor, familia, companero, independiente, mixta Modalidad: presencial, semipresencial, distancia
+
+§ 5.6 Contexto (re.) m.m.p. 15 No ordenado § §
+
+Vocabulario LOM-ES
+
+5.7 5.8 5.9 5.10 5.11
+
+Rango Tipico de Edad (op.) Dificultad Tiempo Tipico de Aprendizaje Descripcion Idioma (op.) (op.) (op.) (ob.)
+
+m.m.p. 5 1 1 m.m.p. 10 m.m.p. 10
+
+No ordenado No especificado No especificado No especificado No ordenado Codigo de 2 letras ISO 639-1988 muy facil, facil, medio, dificil, muy dificil
+
+LangString 1000 Vocabulario Duracion LangString 1000 CharacterString 100
+
+28/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+5.12
+
+Proceso Cognitivo
+
+(op.)
+
+m.m.p. 40
+
+No ordenado
+
+analizar, aplicar, colaborar, comparar, compartir, competir, comprender, comprobar, comunicar, contextualizar, controlar, cooperar, crear, decidir, definir, describir, discutir, disenar, evaluarse, explicar, extrapolar, innovar, investigar, juzgar, motivar, observar, organizar, organizarse, planificar, practicar, producir, reconocer, recordar, redactar, reflexionar, relacionar, representar, resolver, simular, sintetizar, valorar
+
+Vocabulario LOM-ES
+
+5. Uso Educativo: Esta categoria describe las caracteristicas educativas y pedagogicas fundamentales de este objeto educativo. Concretamente, es la informacion didactica esencial para aquellos agentes involucrados en una experiencia educativa de calidad. Algunos de estos agentes son: estudiantes, profesores, tutores y administradores. 5.1. Tipo de Interactividad: El tipo de aprendizaje predominante soportado por este objeto educativo: § Aprendizaje "activo" (por ejemplo, aprendizaje participativo) es el soportado por aquellos contenidos que inducen a la participacion directa por parte de los aprendices. Un objeto de aprendizaje activo solicita del aprendiz que interaccione e introduzca informacion semanticamente significativa, que tome decisiones o realice algun tipo de actividad productiva. Todo ello no necesariamente en el contexto del propio objeto educativo. Entre los objetos activos podemos mencionar los simuladores, cuestionarios y ejercicios. Aprendizaje "expositivo" (por ejemplo, aprendizaje pasivo) es aquel en el que la tarea fundamental del aprendiz consiste en asimilar aquellos conceptos que le son expuestos (generalmente mediante textos, imagenes o sonidos). Un objeto para aprendizaje expositivo muestra informacion al aprendiz sin solicitar de este ningun tipo de accion por su parte semanticamente significativa. Entre los objetos expositivos se encuentran los ensayos, videos, todo tipo de material grafico y los documentos hipertextuales. Cuando un objeto educativo mezcla los tipos activo y expositivo, entonces su nivel de interactividad sera "combinado"
+
+§
+
+§
+
+NOTA 1: la activacion de enlaces para navegar en documentos hipertextuales no es considerada como acciones productivas ni semanticamente significativas. § Ejemplo etiqueta en xml:  LOM-ESv1.0 mixto 
+29/62 ­ LOM-ES v.1.0 12/03/2008
+
+5.2. Tipo de Recurso Educativo : El tipo especifico de recurso educativo u objeto digital (ODE). Con el objetivo de facilitar la identificacion del tipo de recurso, los valores del vocabulario se han organizado en 5 grupos que se diferencian entre si en funcion de la complejidad estructural y la aparicion o no de funcionalidad didactica explicita (diseno instruccional), la cual aparece solo en el grupo "Contenido didactico". El tipo o valor predominante debe aparecer en primer lugar. Algunos terminos del vocabulario proceden del vocabulario original de LOM v.1.0 (definidos a partir del OED: 1989 y de su utilizacion practica en comunidades educativas). Como se ha descrito en la categoria 1, el tipo de objeto estaria relacionado con el nivel de agregacion y la cobertura curricular aproximada (elemento 1.8 y categoria 9, proposito "disciplina" y "nivel educativo" respectivamente). § Ejemplo etiqueta en xml:  LOM-ESv1.0 lectura guiada LOM-ES v1.0 ejercicio o problema cerrado 
+
+7
+
+5.3. Nivel de Interactividad: El grado de interactividad que caracteriza a este objeto educativo. La interactividad en este contexto se refiere al grado en el que el aprendiz puede influir en el aspecto o comportamiento del objeto educativo. NOTA 1: inherentemente, esta escala es significativa en el contexto de una determinada comunidad de practica. § Ejemplo etiqueta en xml:  LOM-ESv1.0 medio 
+
+5.4. Densidad Semantica: El grado de concision de un objeto educativo. La densidad semantica de un objeto educativo puede ser estimada en funcion de su tamano, ambito o ­ en el caso de recursos auto-regulados tales como audio y video ­ duracion. La densidad semantica de un objeto educativo es independiente de su dificultad. Esto se ilustra mejor con ejemplos de material expositivo, aunque tambien puede verse con recursos activos.
+
+7
+
+Para mas informacion, ver apartados "Definicion y descripcion de los niveles de agregacion y tipos de objetos asociados" y "Metainformacion relacionada" del Anexo I y Anexo II. Vocabulario elemento 5.2. 30/62 ­ LOM-ES v.1.0 12/03/2008
+
+NOTA 1: inherentemente esta escala es significativa en el contexto de una determinada comunidad de practica. § Ejemplo etiqueta en xml:  LOM-ESv1.0 media 
+8
+
+5.5. Destinatario : El/los usuario/s principal/es para el/los que ha sido disenado este objeto educativo. Con el objetivo de facilitar la identificacion del destinatario del objeto durante el proceso de etiquetado, el vocabulario se ha organizado en funcion de 4 factores: § § § § Tipo de aprendiz: recoge los valores correspondientes a los diferentes tipos de estudiantes a los que puede ir dirigido un ODE. Agrupamiento de los alumnos: agrupa los valores que proporcionan la informacion sobre como deben estar organizados los destinatarios durante la utilizacion del objeto. Educador: recoge los valores correspondientes a los tipos de agentes educativos a los que tambien puede ir destinado un ODE al participar del proceso de ensenanza-aprendizaje como dinamizadores y co-responsables. Expertos: recoge los valores correspondientes a los tipos de gestores y/o expertos a los que tambien puede ir destinado un objeto digital.
+
+NOTA 1: se prescribe su utilizacion en objetos de nivel de agregacion (1.8) 2 o superior. § Ejemplo etiqueta en xml:  LOM-ESv1.0 alumno LOM-ESv1.0 individual LOM-ESv1.0 docente LOM-ESv1.0 familia 
+
+8
+
+Para mas informacion, ver Anexo III. Vocabulario elemento 5.5. 31/62 ­ LOM-ES v.1.0 12/03/2008
+
+5.6. Contexto: El entorno principal en el que se debe utilizar este objeto digital. Se define a partir de 3 variables. Es conveniente que la definicion del contexto se realice, como minimo, a traves de 3 instancias, asignando asi un valor por variable: § El lugar concreto de utilizacion, donde "laboratorio" implica la utilizacion de otros recursos y/o materiales educativos (no incluidos en el objeto) con los que interacciona el objeto educativo y los agentes implicados en el proceso de ensenanza-aprendizaje como por ejemplo, una biblioteca. "entorno real" implica, ademas de lo anterior, una mayor validez ecologica ya que dicho proceso se desarrolla en el contexto real (menos formal) donde se utilizara el conocimiento que se pretende formar. Por ejemplo, un museo arqueologico, un parque nacional, una factoria, etc. El tipo de asistencia o apoyo que se necesita para la utilizacion correcta del objeto, en el caso que fuera necesaria. La modalidad espacio-temporal mas apropiada en relacion al tipo de asistencia.
+
+§ §
+
+NOTA 1: se prescribe su utilizacion en objetos de nivel de agregacion (1.8) 2 o superior. § Ejemplo etiqueta en xml:  LOM-ESv1.0 aula LOM-ESv1.0 docente LOM-ESv1.0 presencial LOM-ESv1.0 domicilio LOM-ESv1.0 familia 
+
+5.7. Rango Tipico de Edad: Edad del destinatario tipico. Este elemento de datos se refiere a la edad de desarrollo intelectual, en caso de que esta fuese distinta de la edad cronologica. NOTA 1: la edad del aprendiz es importante para encontrar objetos educativos, especialmente para alumnos en edad escolar y para sus profesores. Cuando sea posible, debe especificarse el rango de edades como edad minima ­ edad maxima o edad minima ­ (NOTA:-- Se trata de un compromiso entre utilizar tres elementos (edad minima, edad maxima y descripcion) o tener simplemente un texto libre.).
+
+32/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+NOTA 2: la categoria 9. Clasificacion deberia ser utilizada para representar esquemas alternativos a lo que se pretende cubrir con este elemento (como edades de lectura o esquemas de nivel de lectura, medidas de cociente intelectual, o medidas de edades de desarrollo). § Ejemplo etiqueta en xml:  Edad minima: 14 anos, Edad maxima: 18 anos.  
+
+5.8. Dificultad: Este elemento describe lo dificil que resulta, para los destinatarios tipicos, trabajar con y utilizar este objeto educativo. NOTA 1: los "destinatarios tipicos" pueden caracterizarse con los elementos de datos 5.6. Uso Educativo. Contexto y 5.7. Uso Educativo. Rango Tipico de Edad. § Ejemplo etiqueta en xml:  LOM-ESv1.0 media 
+
+5.9. Tiempo Tipico de Aprendizaje: Tiempo aproximado o tipico que necesitan para asimilar el objeto educativo los destinatarios objetivo tipicos. Para mas informacion sobre la estructura de los elementos tipo "Duracion", ver apartado 8. NOTA 1: los "destinatarios tipicos" pueden caracterizarse con los elementos 5.6. Uso Educativo. Contexto y 5.7. Uso Educativo. Rango Tipico de Edad. § Ejemplo etiqueta en xml:  P7DT  Puede ser necesario mas tiempo  
+
+5.10. Descripcion: Comentarios sobre como debe utilizarse este objeto educativo.
+
+33/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+NOTA 1: este elemento tambien puede recoger informacion sobre aspectos didacticos del diseno instruccional utilizado, como por ejemplo, el conocimiento previo necesario, los objetivos didacticos y el tipo de conocimiento que se pretende formar. Para ello, se recomienda la indexacion directa y automatica de esos metadatos en el elemento (5. 10) mediante un catalogador. § Ejemplo de catalogador para el elemento 5.10. Descripcion referente a las instancias "Conocimiento Previo", "Objetivos Didacticos" y "Tipo de conocimiento": CATEGORIAS DE DESCRIPCION Conocimiento previo* VALORES/OPCIONES DE MENU Concepto de celula, identificacion de elementos y tipos de reproduccion celular. diferenciacion de tejidos a partir de tipos de celulas. Objetivos didacticos* analizar e identificar entre varias opciones del medio, aquellas situaciones adversas y potencialmente productoras de muerte celular. reproducir mediante ilustraciones, fases de construccion de tejido tras muerte celular. Tipo de Conocimiento* Vocabulario: declarativo, procedimental, condicional, metacognitivo
+
+*Conocimiento Previo: El conjunto de conceptos, principios y/o procesos asi como competencias y/o habilidades que el destinatario del Objeto Digital debe conocer o poseer antes de utilizarlo para que el aprovechamiento sea mas eficiente, y por lo tanto, el proceso de aprendizaje se produzca correctamente. *Objetivos Didacticos: Una descripcion semiestructurada sobre el resultado que esperamos que consiga el estudiante como consecuencia del proceso de ensenanza-aprendizaje. Estos objetivos deben recoger los conocimientos, habilidades y actitudes que un aprendiz adquiere al trabajar con este objeto educativo, permitiendo comunicar al estudiante que va a aprender y como. Es conveniente que esten formulados en funcion de conductas directamente observables puesto que admiten una sola interpretacion, concretan el tipo de proceso cognitivo requerido en el alumno y proporcionan pautas para la seleccion de los metodos y actividades de aprendizaje asi como los metodos y herramientas de evaluacion. *Tipo de conocimiento: Los tipos de conocimiento que se van a formar en funcion de los Objetivos didacticos (de aprendizaje): § § Declarativo: conocimiento que se puede expresar verbalmente o a traves de otro codigo. Es decir, "saber que". Procedimental: una forma de actuar para conseguir un objetivo siguiendo unos principios, puede incluir algoritmos, pero no se limita a ellos. Es decir, "saber como" o "saber hacer".
+12/03/2008
+
+34/62 ­ LOM-ES v.1.0
+
+§ §
+
+Condicional: reglas de condicion-accion. Es decir, "saber cuando y/o por que". Metacognitivo: conocimientos sobre procesos cognitivos propios. Planificar, evaluar, revisar, reflexionar, etc. Por ejemplo, "saber si esta bien" (reflexion sobre la calidad del resultado).
+
+§
+
+Etiqueta correspondiente: -  -   CONOCIMIENTO PREVIO: concepto de celula, identificacion de elementos y tipos de reproduccion celular  -  -   OBJETIVOS DIDACTICOS: diferenciacion de tejidos a partir de tipos de celulas; analizar e identificar entre varias opciones del medio, aquellas situaciones adversas y potencialmente productoras de muerte celular; reproducir mediante ilustraciones, fases de construccion de tejido tras muerte celular.  -  -   TIPO DE CONOCIMIENTO: declarativo, procedimental  -  - 
+
+§
+
+Ejemplo etiqueta en xml:  Se puede usar despues de explicar los conceptos claves en clase o se puede dejar que los alumnos realicen la unidad y posteriormente repasar o aclarar los contenidos en clase. El profesor puede decidir si utiliza la parte de evaluacion de la unidad como ejercicio de autoevaluacion o como ejercicio de evaluacion final para el que fue disenado originalmente.   CONOCIMIENTO PREVIO: los conocimientos tipicos al finalizar 3o de ESO, capacidad media en comprension lectora   OBJETIVOS DIDACTICOS: comprender y expresar los rasgos especificos que fundamentan la moralidad humana en su practica individual y social  
+35/62 ­ LOM-ES v.1.0 12/03/2008
+
+TIPO DE CONOCIMIENTO: declarativo, procedimental 
+
+5.11. Idioma: El idioma utilizado por el destinatario tipico de este objeto educativo. § Ejemplo etiqueta en xml: es
+9
+
+5.12. Proceso cognitivo : Actividad provocada en el usuario de destino. Es decir, el/los proceso/s cognitivo/s implicados en el proceso de aprendizaje-evaluacion. § Ejemplo etiqueta en xml:  LOM-ESv1.0 analizar LOM-ESv1.0 aplicar LOM-ES v1.0 evaluarse LOM-ESv1.0 resolver LOM-ESv1.0 recordar 
+
+9
+
+Para mas informacion, ver Anexo IV. Vocabulario elemento 5.12. 36/62 ­ LOM-ES v.1.0 12/03/2008
+
+6.6. CATEGORIA 6. DERECHOS
+No 6 6.1 Nombre Derechos Coste Caracter (ob.) (op.) Tamano 1 1 Orden No especificado No especificado si, no § Si 5.2= a cualquier valor del grupo "Aplicacion informatica" entonces: licencia propietaria, licencia libre EUPL, licencia libre GPL, licencia libre dual GPL y EUPL, otras licencias libres, dominio publico Si 5.2= a cualquier valor del grupo "Servicio" entonces: no corresponde Si 5.2 a cualquier valor de los grupos "Aplicacion informatica' y/o "Servicio" entonces: Vocabulario LOM-ES licencia propietaria, creative commons: reconocimiento, creative commons: reconocimiento - sin obra derivada, creative commons: reconocimiento - sin obra derivada no comercial, creative commons: reconocimiento - no comercial, creative commons: reconocimiento - no comercial compartir igual, creative commons: reconocimiento - compartir igual, licencia GFDL, dominio publico LangString 1000 Vocabulario Espacio de valores Tipo de datos
+
+§ § 1 No especificado
+
+6.2
+
+Derechos de Autor y otras Restricciones
+
+(ob.) (co.)
+
+6.3 6.4 6.4.1 6.4.2
+
+Descripcion Acceso Tipo de acceso Descripcion
+
+(re.) (ob.) (ob.) (ob.)
+
+1 1 1 1
+
+No especificado No especificado No especificado No especificado universal, no universal
+
+Vocabulario LOM-ES LangString 1000
+12/03/2008
+
+37/62 ­ LOM-ES v.1.0
+
+6. Derechos: Esta categoria describe los derechos de propiedad intelectual y las condiciones de uso aplicables a este objeto digital educativo. NOTA 1: la intencion es reutilizar trabajos procedentes de las comunidades del Derecho de la Propiedad Intelectual y el comercio electronico. Esta categoria proporciona actualmente el nivel minimo de detalle. 6.1. Coste: Indicacion de si este objeto educativo requiere pago. § Ejemplo etiqueta en xml:  LOM-ESv1.0 no 
+10
+
+6.2. Derechos de Autor y otras Restricciones : Indicacion de si existen derechos de autor u otras restricciones sobre este objeto educativo. Se indicara el tipo de licencia al que esta sujeto. § Ejemplo etiqueta en xml:  LOM-ESv1.0 creative commons: reconocimiento ­ no comercial ­ compartir igual 
+
+6.3. Descripcion: Comentarios y especificaciones sobre las condiciones concretas de utilizacion del objeto bajo el tipo de licencia a que esta sujeto. § Ejemplo etiqueta en xml:  Esta licencia permite usar, reproducir, distribuir y generar obras derivadas con la unica salvedad de que no tenga fines comerciales y que cualquier obra derivada que se realice a partir de ella debe distribuirse con el mismo tipo de licencia 
+Para mas informacion, ver Anexo V. Vocabulario elemento 6.2.
+
+10
+
+38/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+6.4. Acceso : Indicacion sobre las restricciones existentes con respecto al tipo de acceso al que esta sujeto el objeto digital. 6.4.1. Tipo de acceso: Se diferencia entre: § § § "universal": cuando el acceso al contenido es sin restricciones, y por lo tanto, es abierto a cualquier usuario de la red independientemente de su procedencia o sus caracteristicas. "no universal": cuando el acceso al contenido tiene algun tipo de restriccion, ya sea por la procedencia como por otras caracteristicas. Ejemplo etiqueta en xml:   LOM-ESv1.0 universal  
+
+11
+
+6.4.2. Descripcion: Comentarios y especificaciones sobre el tipo de restricciones al que esta sujeto el ODE. § Ejemplo etiqueta en xml:   Se puede usar de forma concurrente por varios usuarios  
+
+11
+
+Para mas informacion, ver Anexo VI. Vocabulario elemento 6.4. 12/03/2008
+
+39/62 ­ LOM-ES v.1.0
+
+6.7. CATEGORIA 7. RELACION
+No 7 Nombre Relacion Caracter (op.) Tamano m.m.p. 100 Orden No ordenado Basado en Dublin Core: es parte de, tiene parte, es version de, tiene version, es formato de, tiene formato, referencia, es referenciado por, se basa en, es base para, requiere, es requerido por Espacio de valores Tipo de datos
+
+7.1
+
+Tipo
+
+(ob.)
+
+1
+
+No especificado
+
+Vocabulario
+
+7.2 7.2.1 7.2.1.1 7.2.1.2 7.2.2
+
+Recurso Identificador Catalogo Entrada Descripcion
+
+(ob.) (ob.) (ob.) (ob.) (op.)
+
+1 1 1 1 m.m.p. 10
+
+No especificado No especificado No especificado No especificado No especificado Repertorio del ISO/IEC 10646-1:2000 Repertorio del ISO/IEC 10646-1:2000 CharacterString 1000 CharacterString 1000 LangString 1000
+
+7. Relacion: Esta categoria describe las relaciones existentes, si las hubiese, entre este objeto educativo y otros. Para definir relaciones multiples deben utilizarse varias instancias de esta categoria. Si existen varios objetos educativos con los cuales este esta relacionado, cada uno de ellos tendra una instancia propia de esta categoria. 7.1. Tipo: Naturaleza de la relacion entre este objeto y el objeto educativo objetivo identificado por 7.2. Relacion. Recurso § Ejemplo etiqueta en xml:  LOM-ESv1.0 es parte de LOM-ESv1.0 es referenciado por 
+
+40/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+7.2. Recurso : El objeto educativo objetivo al que se refiere esta relacion. 7.2.1. Identificador: Una etiqueta, unica global, que identifica el objeto digital objetivo. 7.2.1.1. Catalogo: El nombre o denominacion del esquema de identificacion o catalogacion para esta entrada. Un esquema de espacio de nombres. § Ejemplo etiqueta en xml:   ATENEX ATENEX  
+
+7.2.1.2. Entrada: El valor del identificador dentro del esquema de identificacion o catalogacion que designa o identifica el objeto objetivo. Una cadena especifica de un espacio de nombres. § Ejemplo etiqueta en xml:   AT/ET0020 AT/FIL00234  
+
+7.2.2. Descripcion: Descripcion del objeto educativo objetivo al que se refiere la relacion. § Ejemplo etiqueta en xml:   Este recurso forma parte de la materia de Etica para 4o de ESO 
+41/62 ­ LOM-ES v.1.0 12/03/2008
+
+ Es la primera parte de la materia de Etica para 4o de ESO   Este recurso es referenciado en la materia de Filosofia para 4o de ESO  
+
+42/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+6.8. CATEGORIA 8. ANOTACION
+No 8 8.1 8.2 8.3 Nombre Anotacion Entidad Fecha Descripcion Caracter (op.) (ob.) (ob.) (ob.) Tamano m.m.p. 30 1 1 1 Orden No ordenado No especificado No especificado No especificado vCard tal y como se define en el IMC vCard 3.0 (RFC 2425, RFC 2426) CharacterString 1000 Fecha LangString 1000 Espacio de valores Tipo de datos
+
+8. Anotacion: Esta categoria proporciona comentarios sobre la utilizacion pedagogica de este objeto educativo, e informacion sobre quien creo el comentario y cuando fue creado. Esta categoria permite a los educadores compartir sus valoraciones sobre el objeto educativo, recomendaciones para su utilizacion, etc. 8.1. Entidad: La entidad (persona u organizacion) que creo esta anotacion. § Ejemplo etiqueta en xml: BEGIN:VCARD VERSION 3.0 FN:GT8/SC36/CTN71 EMAIL;TYPE=INTERNET:gt8@aenor.es ORG:AENOR END:VCARD BEGIN:VCARD VERSION 3.0 FN:GT9/SC36/CTN71 EMAIL;TYPE=INTERNET:gt9@aenor.es ORG:AENOR END:VCARD
+
+8.2. Fecha: La fecha en la que se creo esta anotacion. Para mas informacion sobre la estructura de los elementos tipo "Fecha", ver apartado 7. § Ejemplo etiqueta en xml:  2006-09-13  Se ha usado en el campus virtual  2006-10-12  Se uso en un grupo de integracion
+43/62 ­ LOM-ES v.1.0 12/03/2008
+
+ 
+
+8.3. Descripcion: El contenido de esta anotacion. § Ejemplo etiqueta en xml:  Esta unidad didactica digital resulta util una vez que se han explicado los contenidos fundamentales en clase. Se ha utilizado de esta manera y ha funcionado bien. La parte de evaluacion se ha utilizado como otro ejercicio de autoevaluacion mas y posteriormente se ha realizado un ejercicio de evaluacion por escrito a los alumnos   Participaron activamente los alumnos 
+
+44/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+6.9. CATEGORIA 9. CLASIFICACION
+No 9 9.1 9.2 9.2.1 9.2.2 9.2.2.1 9.2.2.2 9.3 9.4 Nombre Clasificacion Proposito Ruta Taxonomica Fuente Taxon Identificador Entrada Descripcion Palabras clave Caracter (re.) (ob.) (ob.) (ob.) (ob.) (ob.) (ob.) (op.) (re.) Tamano m.m.p. 40 1 m.m.p. 15 1 m.m.p. 15 1 1 1 m.m.p. 40 Orden No ordenado No especificado No ordenado No especificado Ordenado No especificado No especificado No especificado Ordenado Repertorio del ISO/IEC 10646-1:2000 CharacterString 100 LangString 500 LangString 2000 LangString 1000 Repertorio del ISO/IEC 10646-1:2000 LangString 1000 disciplina, idea, prerrequisito, objetivo educativo, restricciones de accesibilidad, nivel educativo, nivel Vocabulario de habilidad, nivel de seguridad, competencia Espacio de valores Tipo de datos
+
+9. Clasificacion: Esta categoria describe donde se situa este objeto digital dentro de un sistema de clasificacion concreto. Para definir multiples clasificaciones, deben utilizarse multiples instancias de esta categoria. 9.1. Proposito : El proposito que se persigue al clasificar este objeto educativo. Por otro lado y como se ha descrito en las categorias 1 y 5, la cobertura curricular aproximada estaria relacionada con el nivel de agregacion y el tipo de objeto (elementos 1.8 y 5.2 respectivamente). De esta forma, para niveles de agregacion 2 o superior es conveniente seguir unos criterios minimos de clasificacion con respecto a los Propositos Disciplina y Nivel Educativo. NOTA 1: se prescribe la clasificacion con respecto a los Propositos Disciplina y Nivel Educativo en objetos de nivel de agregacion (1.8) 2 o superior. NOTA 2: el Proposito Disciplina tambien se podra utilizar para describir la relacion del objeto digital con respecto al contenido del curriculo.
+12 12
+
+Para mas informacion, ver apartado "Metainformacion relacionada" del Anexo I y Anexos VII-X correspondientes a las taxonomias desarrolladas y sugeridas para el perfil LOM-ES v.1.0 con respecto a los siguientes propositos de clasificacion: disciplina, restricciones de accesibilidad, nivel educativo y competencia. 12/03/2008
+
+45/62 ­ LOM-ES v.1.0
+
+NOTA 3: debido a la complejidad de esta categoria, el ejemplo de etiquetas en xml correspondientes a cada uno de los elementos se presenta de forma conjunta al final de la descripcion del ultimo elemento de la misma. 9.2. Ruta Taxonomica: El camino taxonomico dentro de un sistema de clasificacion especifico. Cada nivel sucesivo representa un refinamiento sobre la definicion dada en el nivel precedente. Puede haber diferentes caminos, en la misma o diferente clasificacion, para describir la misma caracteristica. 9.2.1. Fuente : El nombre del sistema de clasificacion. Este elemento de datos puede utilizar cualquier taxonomia "oficial" reconocida o cualquier taxonomia definida por el usuario. 9.2.2. Taxon: Un termino concreto dentro de la taxonomia. Un taxon es un nodo que tiene definida una etiqueta textual (Entrada) o termino. Un taxon puede poseer tambien una identificacion o designacion alfanumerica para ser utilizada como referencia estandarizada (Identificador). Tanto la Entrada como el Identificador, o ambos, pueden ser utilizados para identificar un taxon particular. Una lista ordenada de taxones constituye un camino taxonomico, es decir, una "escalera taxonomica" que es un camino desde una entrada mas general a una mas concreta dentro de una clasificacion. 9.2.2.1. Identificador: El Identificador del taxon, tal como un numero o una combinacion de letras proporcionadas por la fuente de la taxonomia. 9.2.2.2. Entrada: La etiqueta textual del taxon. El termino. 9.3. Descripcion: Descripcion del objeto educativo en relacion con lo definido en 9.1. Clasificacion. Proposito para esta clasificacion especifica, tal como disciplina, idea, nivel de habilidad, objetivos educativos, etc. 9.4. Palabras clave: Palabras clave y frases descriptivas del objeto educativo relacionadas con el elemento 9.1. Clasificacion. Proposito especifico de esta clasificacion concreta, tal como restricciones de accesibilidad, niv de seguridad, etc., las mas relevantes deben aparecer al principio. el § Ejemplo etiquetas en xml para la categoria clasificacion:   LOM-ESv1.0
+13 13
+
+Para mas informacion, ver Anexos VII-X correspondientes a las taxonomias desarrolladas y sugeridas para el perfil LOM-ES v.1.0 con respecto a los siguientes propositos de clasificacion: disciplina, restricciones de accesibilidad, nivel educativo y competencia. 12/03/2008
+
+46/62 ­ LOM-ES v.1.0
+
+nivel educativo    Nivel educativo LOM-ESv1.0   4  Educacion Secundaria Obligatoria      Nivel educativo LOM-ESv1.0   6  Bachillerato     Recurso para ilustrar contenidos de distintos niveles educativos   Multinivelar     LOM-ESv1.0 disciplina    ETB-LRE MEC-CCAA V.1.0
+47/62 ­ LOM-ES v.1.0 12/03/2008
+
+  M70.90  Etica/Religion/Ideologia    441  Etica    3597  Accion Moral    1576  Fundamento antropologico      ETB-LRE MEC-CCAA V.1.0   M70.90  Etica/Religion/Ideologia    441 
+48/62 ­ LOM-ES v.1.0 12/03/2008
+
+Etica    3601  Ambito Moral     Recurso sobre el Ambito, fundamento y especificidad de la Etica como disciplina filosofica   Fundamento de la moral   Especificidad de la moral   Filosofia moral     LOM-ESv1.0 restricciones de accesibilidad    Accesibilidad LOM-ESv1.0   1  Declaracion del modo de acceso al siguiente nivel   
+49/62 ­ LOM-ES v.1.0 12/03/2008
+
+1.1  Modo de presentacion de la informacion en el acceso    1.1.3  textual    1.1.3.1  informativo      Accesibilidad LOM-ESv1.0   1  Declaracion del modo de acceso al siguiente nivel    1.1  Modo de presentacion de la informacion en el acceso    1.1.4   visual 
+50/62 ­ LOM-ES v.1.0 12/03/2008
+
+  1.1.4.1  informativo      Accesibilidad LOM-ESv1.0   2  Declaracion del modo de interaccion en la actividad de aprendizaje    2.1  Modo de presentacion de la informacion dentro del objeto    2.1.3  textual    2.1.3.1  informativo     
+51/62 ­ LOM-ES v.1.0 12/03/2008
+
+Accesibilidad LOM-ESv1.0   2  Declaracion del modo de interaccion en la actividad de aprendizaje    2.1  Modo de presentacion de la informacion dentro del objeto    2.1.4   visual    2.1.4.1  informativo      Accesibilidad LOM-ESv1.0   2  Declaracion del modo de interaccion en la actividad de aprendizaje    2.2
+52/62 ­ LOM-ES v.1.0 12/03/2008
+
+ Permite control flexible    2.2.1  si      Accesibilidad LOM-ESv1.0   2  Declaracion del modo de interaccion en la actividad de aprendizaje    2.3  Modos de interaccion dentro de la actividad    2.3.2  control total por raton u otros dispositivos apuntadores     Se trata de un recurso con adaptabilidad medio-baja   Visual
+53/62 ­ LOM-ES v.1.0 12/03/2008
+
+   Tactil     LOM-ESv1.0 competencia    Competencia LOM-ESv1.0   1  Competencias generales y personales    1.29  Uso eficiente de la informacion      Competencia LOM-ESv1.0   2  Competencias academicas    2.4
+54/62 ­ LOM-ES v.1.0 12/03/2008
+
+ Comprender correctamente en el lenguaje de su disciplina     Es un recurso que cubre competencias basicas   Generalidades   
+
+55/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+7. ESTRUCTURA ELEMENTO TIPO LANGSTRING
+La siguiente tabla define la estructura del elemento LangString.
+No Nombre Explicacion Tamano Orden Espacio de valores Tipo de datos Ejemplo
+
+1
+
+LangString
+
+El tipo de datos que representa una o mas cadenas de caracteres. Un valor LangString puede incluir multiples cadenas m.m.p. 10 de caracteres, semanticamente equivalentes, como pueden ser traducciones o descripciones alternativas. Idioma humano de la cadena de caracteres. NOTA: una herramienta de indexacion o catalogacion 1 podria proporcionar un valor por defecto para este valor, por ejemplo, el idioma utilizado en la interfaz de usuario. La propia cadena de caracteres. 1
+
+No ordenado
+
+Ver 1.3:General. Idioma Si no se especifica el valor para este elemento, entonces el valor de LangString. Cadena deberia ser interpretada como expresada en el idioma que No especificado aparece en 3.4:Meta-metadatos. Idioma. Si no se especifica el valor para este elemento, y no existe ningun valor para el elemento 3.4:Metametadatos, entonces el idioma para LangString no esta definido. No especificado Repertorio del ISO/IEC 10646-1:2000 excluyendo el caracter NUL (caracter UCSU00000000).
+
+1.1 Idioma
+
+"en", "en-GB", CharacterString "de", "fr-CA", "it", (m.m.p.100) "es", "es-AR"
+
+1.2 Cadena
+
+CharacterString
+
+"Una pintura de la Mona Lisa"
+
+56/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+8. ESTRUCTURA ELEMENTO TIPO FECHA
+La siguiente tabla define la estructura del elemento Fecha.
+No Nombre Explicacion Tamano Orden Espacio de valores AAAA[-MM[-DD[Thh[:mm[:ss[.s[IZH]]]]]]] donde: AAAA=ano expresado con cuatro digitos(>=0001) MM=mes expresado con dos digitos (de 01 a 12 en donde 01=Enero, etc.) DD=dia del mes expresado con dos digitos (de 01 a 31, dependiendo del mes concreto y del ano) hh=hora expresada con dos digitos (de 00 a 23)(no se permite am/pm) mm=minuto expresado con dos digitos (de 00 a 59) ss=segundo expresado con dos digitos (de 00 a 59) 1 Fecha Un punto en el tiempo expresado con una precision de hasta un segundo. 1 s=uno o mas digitos representando las decimas de No especificado segundo IZH=identificador de zona horaria ("Z" para UTC o +hh:mm o ­hh:mm) Al menos debe estar presente el ano con sus cuatro digitos. Si se incluyen otras partes de Fecha, entonces los caracteres "-", "T", ":" y "." forman parte de la representacion de Fecha. Si la parte de representacion horaria esta presente, pero no se indica el identificador de zona horaria, entonces se interpretara que se trata de la zona UTC. NOTA 1:--Este espacio de valores esta basado en el ISO8601:2000. (ver tambien http://www.w3.org/TR/NOTE -datetime-970915.html). NOTA 2:-- La parte de representacion anual
+57/62 ­ LOM-ES v.1.0 12/03/2008
+
+Tipo de datos
+
+Ejemplo
+
+"1999-01-11" (11 de enero de1999) "1997-0716T19:20:30+01: CharacterString 00" (16 de julio de (m.m.p.200) 1997, 7.20 p.m. y 30 segundos en la zona horaria UTC mas una hora)
+
+representa fechas expresadas en la Era Cristiana (EC). Se utiliza el calendario gregoriano para fechas posteriores al 15 de octubre de 1582 y el calendario juliano para fechas anteriores al 15 de octubre de 1582. Debe utilizarse el elemento de datos "Descripcion" para fechas anteriores al ano 1 y otros casos. NOTA 3:-- Los corchetes ("[", "]") son meta caracteres que representan elementos opcionales que pueden aparecer cero o una vez dentro de una instancia del tipo Fecha. Estos meta caracteres no aparecen en una instancia particular de este tipo de datos, unicamente pueden aparecen los valores asociados, por ejemplo, "DD" es sustituido por el correspondiente valor de dos digitos representando el dia del mes. Descripcion de la fecha. Esta descripcion es obligatoria siempre que se cumplimente el elemento tipo Fecha. (`es", "alrededor del ano 1300 antes de Cristo")
+
+2
+
+Descripcion
+
+1
+
+No especificado
+
+LangString (m.m.p.1000)
+
+58/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+9. ESTRUCTURA ELEMENTO TIPO DURACION
+La siguiente tabla define la estructura del elemento Duracion.
+No Nombre Explicacion Tamano Orden Espacio de valores P[aA][mM[dD][T[hH][nM][s[.s]S]] donde: a=numero de anos (entero, >0, sin restricciones) m=numero de meses (entero, >0, sin restricciones, por ejemplo, >12 es un valor aceptable) d=numero de dias (entero, >0, sin restricciones, por ejemplo, >31 es un valor aceptable) h=numero de horas (entero, >0, sin restricciones, por ejemplo, >23 es un valor aceptable) n=numero de minutos (entero, >0, sin restricciones, por ejemplo, >59 es un valor aceptable) Un intervalo de tiempo con un error menor de un segundo. s=numero de segundos o fracciones de segundo (entero, >0, sin restricciones, por ejemplo, >59 es un No especificado valor aceptable) Los caracteres literales identificativos "P", "A", "M", "D", "T", "H", "M", "S" deben estar presentes si los correspondientes valores son distintos de cero. Si el valor de anos, meses, dias, horas, minutos o segundos es cero, su valor y el correspondiente identificador (por ejemplo, "M") pueden ser omitidos, pero al menos un identificador y un valor deben estar presentes. El identificador "P" siempre esta presente. El identificador "T" debera omitirse si la hora (horas/minutos/segundos) es cero. No son posibles duraciones negativas. NOTA 1:--Este espacio de valores esta basado en el ISO8601:2000. (Ver tambien
+59/62 ­ LOM-ES v.1.0 12/03/2008
+
+Tipo de datos
+
+Ejemplo
+
+1
+
+Duracion
+
+1
+
+"PT1H30M" (1 CharacterString hora y 30 (m.m.p.200) minutos)
+
+http://www.w3.org/TR/xmlschema-2/#duration) NOTA 2:--El valor esta expresado en el calendario gregoriano. NOTA3: --La ordenacion de las duraciones puede ser indeterminada (por ejemplo, 1 mes puede ser 28, 29, 30 o 31 dias) NOTA 4:--Para duraciones que unicamente tengan sentido mientras que el objeto educativo esta ejecutandose, pero no cuando se encuentra detenido o suspendido, se recomienda que solamente se utilicen horas o unidades mas pequenas. Por ejemplo: PT43H, PT5M35S. Para duraciones que se extienden durante un periodo temporal, con independencia de que el objeto educativo sea utilizado de forma continuada durante ese periodo, se recomienda la utilizacion de dias y unidades mayores. Por ejemplo: P1A6M, P20D. NOTA 5:--Los corchetes ("[", "]") son meta caracteres que representan elementos opcionales que pueden aparecer cero o una vez dentro de una instancia del tipo Duracion. Estos meta caracteres no aparecen en una instancia particular de este tipo de datos, unicamente pueden aparecen los valores asociados, por ejemplo, "dD" es sustituido por el valor que represente el numero de dias de la duracion seguido por el caracter "D". Descripcion de la duracion. Esta descripcion es obligatoria siempre que se 1 cumplimente el elemento tipo Duracion. ("es", "Semestre de la primavera de 1999")
+
+2
+
+Descripcion
+
+No especificado
+
+LangString (m.m.p.1000)
+
+60/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+10.
+
+ESTRUCTURA ELEMENTO TIPO VOCABULARIO
+
+La siguiente tabla define la estructura del elemento Vocabulario.
+No Nombre Explicacion "LOM-ESv1.0" o una indicacion de la fuente del valor, por ejemplo mediante un URI (ver tambien la clausula 4.4 de LOMv1.0). El propio valor. Si la fuente es "LOM-ES v1.0" entonces el valor utilizado se tomara de la lista del espacio de valores para el elemento de datos en cuestion tal y como aparece en el Esquema Base para LOM-ES v1.0. En la terminologia empleada en el ISO 11404:1996, cuando existe un orden implicito en la lista de valores, los valores son "enumerados", cuando no existe tal orden implicito, entonces son "no enumerados". Tamano Orden Espacio de valores Tipo de datos Ejemplo
+
+1
+
+Fuente
+
+1
+
+No especificado
+
+"LOM-ESv1.0", CharacterString "http://www.vocab (m.m.p.1000) ularies.org/OSList "
+
+2
+
+Valor
+
+1
+
+No especificado
+
+CharacterString "MacOS" (m.m.p.1000)
+
+61/62 ­ LOM-ES v.1.0
+
+12/03/2008
+
+62/62 ­ LOM-ES v.1.0
+
+12/03/2008
+

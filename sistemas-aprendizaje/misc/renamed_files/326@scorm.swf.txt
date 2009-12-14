@@ -1,0 +1,312 @@
+
+
+
+
+
+
+SubdirecciA³n de Desarrollo y ProspecciA³n
+
+SCORM
+
+Empaquetamiento de 
+
+Objetos de Contenido
+
+Salir de pantalla completa
+
+Pantalla completa
+
+En esta presentaciA³n se realizarA¡ paso a paso el proceso de empaquetamiento de un Objeto de 
+Contenido, utilizando el estA¡ndar SCORM, y su importaciA³n desde distintos LMS.
+Utilizaremos Reload Editor para crear el paquete. Para comprobar cA³mo se instala el paquete en 
+distintos LMS utilizaremos Reload Player, Moodle y ATutor.
+
+9.- Importar el paquete en Moodle
+
+1: Reload: Empaquetamiento de Contenidos
+
+10.- Importar el paquete en ATutor
+
+IntroducciA³n
+
+ 1.1.- Organizar archivos
+ 1.2.- Crear Paquete de Contenidos
+ 1.3.- AA±adir los recursos
+ 1.4.- Tipos de recursos
+ 1.5.- Organizar contenidos
+ 1.6.- Referenciar elemento
+ 1.7.- Guardar, probar y generar
+ 1.8.- Probar en Reload Player
+
+ 2.1.- Agregar paquete SCORM
+ 2.2.- Definir propiedades
+ 2.3.- Probar 
+ 
+
+ 3.1.- Crear nuevo curso
+ 3.2.- Importar Paquete de Contenidos
+ 3.3.- Probar en ATutor
+ 
+
+videos/archivos.swf
+Generaremos un &quot;paquete&quot; que 
+contiene dos &quot;organizaciones&quot;. 
+Es decir, un curso que contiene 
+dos unidades.
+Debemos organizar en una 
+carpeta todos nuestros archivos.
+Es importante pensar bien cA³mo 
+organizar los archivos en 
+carpetas y quA© nombre dar a 
+dichos archivos.
+
+Organizar archivos
+
+Reload: Empaquetamiento de Contenidos
+
+videos/iniciarReload.swf
+Crearemos el Paquete de 
+Contenidos. Es necesario Iniciar 
+Reload Editor.
+En el menAo &quot;File&quot;, ir a a€œNewa€.
+Seleccionar la opciA³n a€œADL 
+SCORM Packagea€.
+En el cuadro a€œSelect Folder for 
+New Content Packagea€, 
+seleccionar la carpeta en la que 
+se crearA¡ el paquete y presionar 
+el botA³n a€œSelecta€.
+Reload crea unos archivos XML 
+(manifiesto) y XSD (esquemas) 
+en el directorio que se haya 
+indicado.
+
+Crear Paquete de Contenidos
+
+videos/anadirRecursos.swf
+AA±adir al paquete los archivos 
+que permiten ejecutar cada una 
+de las unidades.
+En el panel a€œFilesa€ se pueden ver 
+los archivos que contiene nuestra 
+carpeta.
+Hacer clic en los archivos y 
+arrastrarlos al A­tem a€œResourcesa€ 
+en el panel a€œContent Packagea€.
+
+AA±adir los recursos
+
+1: Reload: Empaquetamiento de Contenidos
+
+videos/tipoRecursos.swf
+Indicar el tipo de recursos:
+Assets: los recursos que 
+componen un objeto de 
+contenido.
+SCO: Objeto de Contenido. Por 
+ejemplo, un HTML que contenga 
+un JPG (asset).
+Seleccionar el recurso.
+En el cuadro de propiedades, 
+seleccione en la fila a€œSCORM 
+Typea€ la columna a€œValuea€, y elija 
+el tipo a€œscoa€ en lugar del valor por 
+defecto a€œasseta€.
+
+Tipos de Recursos
+
+videos/addOrganization.swf
+Haga clic con el botA³n derecho 
+del ratA³n sobre a€œOrganizationsa€ , y 
+en el menAo contextual seleccione 
+la opciA³n a€œAdd Organizationa€.
+Escriba un tA­tulo en la casilla de la 
+parte inferior.
+Ahora, haga clic con el botA³n 
+derecho del ratA³n sobre el 
+elemento Organization y 
+seleccione la opciA³n a€œAdd Itema€.
+Escriba un tA­tulo en la casilla de la 
+parte inferior.
+
+Organizar contenidos
+
+videos/addItem.swf
+Para crear un contenido dentro de 
+otro (por ejemplo un Apartado 
+dentro de una Unidad), haga clic 
+sobre el A­tem que contendrA¡ el 
+nuevo A­tem y seleccione a€œAdd 
+Itema€ en el menAo.
+Escriba un tA­tulo en la casilla de la 
+parte inferior.
+
+videos/referenciar.swf
+Para definir que HTML se ejecuta 
+en cada A­tem de contenido:
+Seleccione el A­tem en el A¡rbol.
+En el recuadro debajo del A¡rbol, 
+en la fila a€œReferenced elementa€, 
+seleccione la columna a€œValuea€ y 
+luego seleccione el recurso 
+correspondiente (los archivos 
+html, en este ejemplo).
+
+Referenciar elemento
+
+videos/guardarYprobar.swf
+Ya hemos concluido la creaciA³n 
+del Paquete de Contenidos con 
+SCORM. Ahora podemos 
+guardarlo y visualizarlo para 
+comprobar cA³mo funciona. 
+Haga clic en el A­cono &quot;Save&quot; o 
+vaya al menAo a€œFilea€ y haga clic 
+sobre la opciA³n a€œSavea€.
+Ahora seleccionA© la opciA³n a€œViewa€ 
+del menAo principal y haga clic 
+sobre la opciA³n a€œPreview Content 
+Packagea€.
+Esta acciA³n abre una ventana del 
+navegador, donde se puede 
+probar el contenido.
+
+Guardar, probar y generar
+
+videos/guardarZip.swf
+Ahora generaremos el archivo ZIP 
+que contendrA¡ todos los recursos 
+y la definiciA³n de los Objetos de 
+Contenido.
+Este archivo ZIP permite a€œinstalara€ 
+el curso en otros LMS, como en 
+Moodle, ATutor y otros.
+Seleccione la opciA³n a€œFilea€ del 
+menAo principal y haga clic sobre 
+la opciA³n a€œZip Content Packagea€.
+En el cuadro a€œSave as Zip Filea€ 
+seleccione la ubicaciA³n y el 
+nombre del archivo.
+
+videos/abreReloadPlayer.swf
+Inicie Reload Player, una 
+herramienta que permite probar 
+Paquetes de Objetos de 
+Contenido SCORM.
+En el menAo &quot;File&quot;, seleccione la 
+opciA³n a€œImport Scorm Packagea€.
+Seleccione el archivo (en el 
+ejemplo: &quot;curso_renacimiento.zip&quot;, 
+creado en el paso anterior).
+Escriba el tA­tulo con el que el 
+contenido se verA¡ en el A¡rbol 
+a€œImported Scorm Packagesa€.
+
+Probar en Reload Player
+
+videos/reloadPlayer.swf
+Ahora, seleccione el paquete 
+(a€œVisiones del Renacimientoa€) en 
+el panel a€œPackagesa€. En el panel 
+a€œOrganizationsa€ se ve el A­ndice de 
+contenido.
+Haga clic en el A­cono a€œRun Scorm 
+Packagea€.
+Se abre un navegador y se 
+ejecuta tal y como se ha definido 
+en el Reload Editor.
+
+videos/iniciarMoodle.swf
+Ahora, importaremos el paquete 
+en Moodle. La gestiA³n y la 
+administraciA³n de Moodle no es 
+nuestro objetivo; por ello partimos 
+con un curso de Moodle creado 
+con anterioridad.
+Seleccione el curso (en el ejemplo 
+a€œVisiones del Renacimientoa€).
+Haga clic en el botA³n a€œActivar 
+ediciA³na€.
+En el combo a€œAgregar Actividada€ 
+seleccione la opciA³n a€œSCORMa€.
+
+2: Importar el paquete en Moodle
+
+Agregar paquete SCORM
+
+videos/subirScormMoodle.swf
+Ahora, defina las propiedades de 
+la actividad.
+En el campo a€œNombrea€ indique el 
+tA­tulo da la actividad.
+Haga clic en el botA³n a€œElegir o 
+actualizar un paquete SCORMa€.
+En la ventana a€œArchivosa€ 
+seleccione el paquete 
+(curso_renacimiento.zip).
+
+Definir propiedades
+
+videos/continuarMoodle.swf
+Hacer clic en el botA³n a€œContinuara€.
+En la siguiente pantalla, a€œValidar 
+un paquete SCORMa€, deje los 
+valores por defecto y haga clic en 
+el botA³n a€œGuardar Cambiosa€.
+La estructura de nuestro curso es 
+la misma.
+Para ver el curso, haga clic en 
+&quot;Introducir el curso SCORM&quot;.
+La actividad que acabamos de 
+crear puede ser vista ya por todos 
+los alumnos del curso.
+
+Probar en Moodle
+
+videos/iniciarATutor.swf
+2: Importar el paquete en ATutor
+
+Ahora, importaremos el paquete 
+en ATutor. La gestiA³n y la 
+administraciA³n de ATutor no es 
+nuestro objetivo; por ello partimos 
+con la creaciA³n de un curso, en 
+una cuenta creda con 
+anterioridad.
+Seleccione &quot;create a new course&quot;.
+Llene los campos:
+Title: Nombre del curso.
+Primary Language: Idioma.
+Description: DescripciA³n.
+Category: CategorA­a.
+Access: Public.
+Initial Content: Empty.
+Presione &quot;Submit&quot;. 
+
+Crear nuevo curso
+
+videos/cargarScormATutor.swf
+Ahora, seleccione &quot;Import Content 
+Package&quot;.
+En el cuadro &quot;Import Content 
+Package&quot; seleccione &quot;examinar&quot;.
+Seleccione el archivo (en el 
+ejemplo: curso_renacimiento.zip).
+Presione &quot;Import&quot;.
+
+Importar Paquete de Contenidos
+
+videos/verEnATutor.swf
+Nuestro curso ha sido creado y 
+puede ser visto por cualquier 
+alumno.
+La estructura del curso es la 
+misma que definimos en Reload 
+Editor.
+Sin embargo, ATutor no muestra 
+imA¡genes, ni animaciones.
+
+Probar en ATutor
+
+
+

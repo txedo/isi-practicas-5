@@ -1,0 +1,2657 @@
+
+
+
+	
+
+
+
+
+	
+	YouTube - Web Search Strategies in Plain English
+
+		
+
+		
+		
+		
+
+
+
+
+
+
+
+
+
+		
+
+
+
+		
+			var gIsGoogleAnalyticsEnabled = false;
+			
+	var gXSRF_token = '';
+	var gXSRF_field_name = '';
+	var gXSRF_ql_pair = '';
+	var onLoadFunctionList = onLoadFunctionList || [];
+
+		gXSRF_token = 'oDkxLoIUefhwXc5GKsrqGj12GZF8MTI0MjczMjAwMQ==';
+		gXSRF_field_name = 'session_token';
+		onLoadFunctionList.push(function() { populate_session_token() });
+
+		gXSRF_ql_pair = 'session_token=GjtmWvQTdeQEET6f8HNc244v0Dp8MA==';
+
+
+		
+
+		
+	
+
+
+
+
+
+
+
+	
+	Sub movie_player_FSCommand(ByVal command, ByVal args)
+		call movie_player_DoFSCommand(command, args)
+	End Sub
+	
+
+
+	
+		var MSG_Hide = 'Ocultar';
+		var MSG_Show = 'Mostrar';
+		var MSG_Login = 'Accede para realizar esta operaciA³n.';
+		var MSG_Loading = 'Cargando...';
+		var MSG_ShowingAll = 'Mostrar todos los vA­deos';
+		var MSG_LoginFavorites = 'Debes haber iniciado sesiA³n para aA±adir este vA­deo a tus favoritos.';
+		var MSG_LoginAddPlaylist = 'Debes haber iniciado sesiA³n para aA±adir este vA­deo a una lista de reproducciA³n.';
+		var MSG_LoginReportConcern = 'Debes haber iniciado sesiA³n para notificar un problema.';
+		var MSG_FlagDefault = 'Seleccionar un motivo';
+
+
+
+			var swfUrl = canPlayV9Swf() ? "http://s.ytimg.com/yt/swf/watch-vfl97134.swf" : "http://s.ytimg.com/yt/swf/watch_v8-vfl97134.swf";
+
+		var swfArgs = {"ad_channel_code": "invideo_overlay_480x70_cat28,afv_overlay,afv_user_leelefever,VidVert485,VidVert725", "ad_host_tier": "7026", "vq": null, "keywords": "commoncraft%2Cpaperworks%2Cplainenglish%2Csearch%2Ctutorial%2Chowto%2Cexplanation", "cr": "ES", "invideo": true, "tk": "asiYDGNChE0wSjnEa9uKDkxMxFgGaCceL39ti5KNg_XZKCKwww5lJw==", "plid": "AARqLfmlz9-I0hS7", "afv": true, "ad_video_pub_id": "ca-pub-6219811747049371", "ad_module": "http://s.ytimg.com/yt/swf/ad-vfl97065.swf", "usef": 0, "ad_host": "ca-host-pub-4005123769456150", "fmt_map": "18/512000/9/0/115,34/0/9/0/115,5/0/7/0/0", "hl": "es", "ad_module_logging_filter": 1, "cust_p": "s-SOeljpyBAvS6fYAR2egw", "is_doubleclick_tracked": "1", "video_id": "CWHPf00Jkqg", "l": 171, "sk": "E7WMdLy5WsfKtdERiyR1SXAb1xYssytwC", "t": "vjVQa1PpcFPkFlZ2---15dozvebu3Tsa1fr6H61xT4w=", "sdetail": "f%3Achannel%2C"};
+		var watchGamUrl = null;
+		var watchDCUrl = "http://ad-bfp.doubleclick.net/pfadx/com.ytpwatch.scitech/main_680;sz=480x70;kl=N;!c=680;k2=485;k2=725;klg=es;kvid=CWHPf00Jkqg;kpu=leelefever;kr=F;khd=0;kt=K;ko=p;kpid=680;kga=-1;u=CWHPf00Jkqg|680;kgg=-1;kcr=es;custp=s-SOeljpyBAvS6fYAR2egw;dc_dedup=1;";
+		var expressInstallUrl = null;
+		var ad_eurl = escape(document.location);
+		var watchIsPlayingAll = false;
+		var isWidescreen = true;
+		var watchSetWmode = false;
+		var isHDAvailable = false;
+		var requestGreyBackgroundOnWidePlayer = false;
+
+		var embedUrl = 'http://www.youtube.com/v/CWHPf00Jkqg&hl=es&fs=1';
+		var fullscreenUrl = '/watch_fullscreen?fs=1&ad_channel_code=invideo_overlay_480x70_cat28%2Cafv_overlay%2Cafv_user_leelefever%2CVidVert485%2CVidVert725&ad_host_tier=7026&vq=None&keywords=commoncraft%252Cpaperworks%252Cplainenglish%252Csearch%252Ctutorial%252Chowto%252Cexplanation&cr=ES&invideo=True&tk=asiYDGNChE0wSjnEa9uKDkxMxFgGaCceL39ti5KNg_XZKCKwww5lJw%3D%3D&plid=AARqLfmlz9-I0hS7&afv=True&ad_video_pub_id=ca-pub-6219811747049371&ad_module=http%3A%2F%2Fs.ytimg.com%2Fyt%2Fswf%2Fad-vfl97065.swf&ad_host=ca-host-pub-4005123769456150&fmt_map=18%2F512000%2F9%2F0%2F115%2C34%2F0%2F9%2F0%2F115%2C5%2F0%2F7%2F0%2F0&hl=es&ad_module_logging_filter=1&cust_p=s-SOeljpyBAvS6fYAR2egw&is_doubleclick_tracked=1&video_id=CWHPf00Jkqg&l=171&sk=E7WMdLy5WsfKtdERiyR1SXAb1xYssytwC&t=vjVQa1PpcFPkFlZ2---15dozvebu3Tsa1fr6H61xT4w%3D&sdetail=f%253Achannel%252C&title=Web Search Strategies in Plain English';
+		var additionalStatsHonorsUrl = '/watch_ajax?v=CWHPf00Jkqg&action_get_statistics_and_data=1&l=EN';
+
+		var watchUsername = 'leelefever';
+		var pageVideoId = 'CWHPf00Jkqg';
+		var pageVideoSearchQueryStr = 'commoncraft paperworks plainenglish search tutorial howto explanation';
+		var playnextFrom = '';
+		var playnextCount = '0';
+		var qlAutoscrollDestination = 0;
+		var ytLocale = 'es_ES';
+		var isPlaylistCssAndJsLoaded = false;
+		var axc = '';
+		var subscribeaxc = '';
+		var isLoggedIn = false ;
+
+
+			function showCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		var msg = new Object();
+		msg["post"] = "Accede a tu cuenta para publicar un comentario.";
+		showCommentReplyForm_js(form_id, reply_parent_id, is_main_comment_form, msg);
+	}
+
+	function updateCharCount(charCount_id, label_id, textArea) {
+		var msg = new Object();
+		msg["exceeded"] = "NAomero de caracteres que superan el lA­mite:";
+		msg["remaining"] = "NAomero de caracteres restantes:"; 
+		updateCharCount_js(charCount_id, label_id, textArea, 500, msg)
+	}
+
+	function loginMsg(div_id, display_val) {
+		var msg = new Object();
+		msg["login"] = 'Accede a tu cuenta.';
+		loginMsg_js(div_id, display_val, msg);
+	}
+
+	function printCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		var msg = new Object();
+		msg["post"] = "Publicar comentario";
+		msg["remaining"] = "NAomero de caracteres restantes:";
+		msg["discard"] = "Descartar"; 
+		printCommentReplyForm_js(form_id, reply_parent_id, is_main_comment_form, 'V', 'top.goog.i18n.bidi.setDirAttribute(event,this)', 'video_id', 'CWHPf00Jkqg', '', 500, msg);
+	}
+
+	function postThreadedComment(comment_form_id) {
+		var msg = new Object();
+		msg["add"] = "AA±adiendo comentario...";
+		postThreadedComment_js(comment_form_id, msg);
+	}
+
+	function commentApproved(xmlHttpRequest) {
+		alert("El comentario se ha aprobado.")
+	}
+
+	function ThreadedCommentHandler(comment_form, comment_form_id) {
+		var msg = new Object();
+		msg["empty"] = "Debes introducir un comentario.";
+		msg["toolong"] = "Tu comentario no puede tener mA¡s de 500 caracteres.";
+		return ThreadedCommentHandler_js(comment_form, comment_form_id, msg);
+	}
+
+	function commentResponse(xmlHttpRequest) {
+		var msg = new Object();
+		msg["ok"] = "Comentario publicado.";
+		msg["pending"] = "Comentario pendiente de aprobaciA³n.";
+		msg["toolong"] = "El comentario que has introducido es demasiado largo. No puede contener mA¡s de 500 caracteres. Escribe un comentario mA¡s corto e intA©ntalo de nuevo.";
+		msg["tooshort"] = "El comentario que has introducido es demasiado corto. Escribe un comentario mA¡s largo e intA©ntalo de nuevo.";
+		msg["toosoon"] = "Se ha superado el lA­mite de comentarios.";
+		msg["email"] = "Para poder enviar comentarios debes confirmar tu direcciA³n de correo electrA³nico. Haz clic en Aceptar para confirmar tu direcciA³n de correo electrA³nico.";
+		msg["captchFail"] = "La respuesta a las letras de la imagen no ha sido correcta. Vuelve a intentarlo.";
+		msg["koreaFail"] = "ë³¸i¸i™•i¸i œë¡œ i¸i•´ i•œeµ­ eµ­e°€ i„¤i •i‹œ ë™i˜iƒ/ëŒ“e¸€ i—…ë¡œë“œ e¸°ëŠ¥i„ ižë°œi iœ¼ë¡œ ë¹„i™œi„±i™”i•©ë‹ˆë‹¤. We have voluntarily disabled this functionality on kr.youtube.com because of the Korean real-name verification law.";
+		msg["default"] = "Publicar comentario"; 
+		commentResponse_js(xmlHttpRequest, msg);
+	}
+
+
+
+
+
+
+		
+
+		onLoadFunctionList.push(function() { if (_gel('watch-customize-embed-div')) { generateEmbed(); } });
+
+
+		onLoadFunctionList.push(function() { enableVideoQualityDisplay() });
+
+		onLoadFunctionList.push(function(event) {
+			url = document.location.href;
+			if (url.match('#fav')) {
+				document.location.href = url.replace('#fav', '#');
+				addToFaves('addToFavesForm', event);
+			}
+		});
+
+
+
+
+
+
+	
+
+
+
+		
+#flash10-promo-div {
+				display: none;
+				background-color: #ffffcc;
+				font-size: 12px;
+				padding: 5px;
+				text-align: left;
+				border:1px solid #FFCC33;
+				border-top: 0px;
+			}
+		
+
+
+
+
+	
+	
+	
+		
+
+
+
+		
+
+
+		
+
+		
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+		
+				
+			
+				
+						EspaA±a
+	EspaA±ol
+
+			
+			
+					
+
+
+	
+
+		
+			Registrarse
+		
+		Lista rA¡pida (0)
+		Ayuda
+			Acceder
+	
+
+	
+		
+	
+
+
+			
+			Cargando...
+			
+		
+		
+		
+			
+				Inicio
+
+
+				VA­deos
+
+
+				Canales
+
+				Comunidad
+
+				
+					
+
+
+	
+		
+		
+		Buscar
+	
+
+						SubirArchivo de vA­deoCaptura rA¡pida  
+
+				
+				
+				
+			
+
+		
+	 
+
+
+			
+		.errorParagraph {
+			margin-top: 0px;
+			margin-bottom: 10px;
+		}
+	
+	
+		
+			Cerrar
+			
+					A¡Bienvenido/a a YouTube! 
+
+					
+					Sugerencia de idioma (preferencia establecida): EspaA±ol (EspaA±a)
+
+					
+					Sugerencia de filtro de paA­s (preferencia establecida): EspaA±a
+
+					
+					El filtro de paA­s muestra tus vA­deos populares del paA­s seleccionado en los resultados de bAosqueda y en una serie de listas (por ejemplo, MA¡s vistos). Si deseas cambiar cualquiera de estas preferencias, utiliza los enlaces situados en la parte superior de la pA¡gina junto al logotipo de YouTube.
+
+					
+					Haz clic en "Aceptar" para aceptar esta configuraciA³n o en "Cancelar" para establecer "InglA©s (Estados Unidos)" como preferencia de idioma y "Mundial (todos)" como filtro de paA­s.
+
+				
+					
+							Aceptar
+							Cancelar
+					
+				
+			
+			
+				
+
+					Welcome to YouTube! 
+
+					
+					Suggested Language (we have set your preference to this): Spanish
+
+					
+					Suggested Country Filter (we have set your preference to this): Spain
+
+					
+					The country filter shows you popular videos from the selected country on lists like Most Viewed and in search results. If you would like to change either of these preferences, please use the links next to the YouTube logo at the top of the page.
+
+					
+					Click &quot;OK&quot; to accept these settings, or click &quot;Cancel&quot; to set your language preference to &quot;English (US)&quot; and your country filter to &quot;Worldwide (All)&quot;.
+
+				
+					
+							OK
+							Cancel
+						
+				
+			
+				
+					Show message in English
+				
+				
+					Hide message in English
+				
+			
+		
+	
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+		
+	
+
+
+		Web Search Strategies in Plain English
+
+
+
+
+
+
+
+
+
+				
+					
+						Hola, tienes JavaScript desactivado o una versiA³n antigua de Adobe Flash Player. Consigue la Aoltima versiA³n de Flash Player.
+						
+							document.write('Hola, tienes JavaScript desactivado o una versiA³n antigua de Adobe Flash Player. Consigue la Aoltima versiA³n de Flash Player.');
+						
+					
+				 				
+					var fo = writeMoviePlayer("watch-player-div", false, null, null, "100%", "100%");
+				
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+				Anuncio
+		
+	
+
+
+
+
+
+
+
+
+		
+			
+		
+
+
+
+
+
+	
+		
+
+
+
+				
+					
+				
+
+				
+
+						
+		Suscribirse
+	
+	
+		Anular suscripciA³n
+	
+
+
+					
+								
+		
+			
+			VA­deo de partner
+		
+		
+
+					
+				
+
+				
+					leelefever
+
+					23 de septiembre de 2008
+
+					
+						
+							(mA¡s informaciA³n)
+						
+						
+							(menos informaciA³n)
+						
+					
+				
+
+
+
+			
+		 
+
+		
+
+		
+			
+		
+			A¿Quieres suscribirte?
+
+
+			A¡Accede o regA­strate ahora!
+
+
+
+	 
+
+		
+
+
+
+
+
+
+
+
+
+		
+
+
+			
+
+				
+
+					
+						A short video designed to help you get more from your web searches. 
+This video comes in an unbranded "presentation quality" version that can be licensed for use in the workplace. 
+http://www.comm... 
+					
+				
+
+				
+
+					
+						A short video designed to help you get more from your web searches. 
+This video comes in an unbranded &quot;presentation quality&quot; version that can be licensed for use in the workplace. 
+http://www.commoncraft.com/store-item... 
+					
+
+
+					
+						CategorA­a:
+						Ciencia y tecnologA­a
+
+					
+
+
+					
+						
+							Etiquetas:
+						
+						
+								commoncraft
+								paperworks
+								plainenglish
+								search
+								tutorial
+								howto
+								explanation
+
+						
+						
+					
+
+
+
+				 
+
+
+				
+					
+						URL
+						
+						
+					
+				
+
+
+				
+					
+						Insertar
+						
+							
+							
+								
+								Personalizar
+							
+
+						
+						
+					
+				 
+			 
+				Cargando...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		 	 
+
+
+
+
+
+
+
+			 
+					MA¡s de: leelefever
+					
+		
+					
+				
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/ddO9idmax0o/default.jpg', 'Twitter in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:25
+		
+			Twitter in Plain English
+			974657 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/0klgLsSxGsU/default.jpg', 'Video: RSS in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:43
+		
+			Video: RSS in Plain English
+			839292 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/KqDsevMW7Ds/default.jpg', 'Saving Money in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:50
+		
+			Saving Money in Plain English
+			37468 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/x66lV7GOcNU/default.jpg', 'Social Bookmarking in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:25
+		
+			Social Bookmarking in Plain English
+			283870 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/ok_VQ8I7g6I/default.jpg', 'Electing a US President in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:43
+		
+			Electing a US President in Plain English
+			656145 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/-dnL00TdmLY/default.jpg', 'Wikis in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:52
+		
+			Wikis in Plain English
+			787853 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/NN2I1pWXjXI/default.jpg', 'Blogs in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:58
+		
+			Blogs in Plain English
+			485699 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/bVnfyradCPY/default.jpg', 'Zombies in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:59
+		
+			Zombies in Plain English
+			697042 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/5lvOfSrFZDc/default.jpg', 'Computer Software in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:34
+		
+			Computer Software in Plain English
+			16980 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/0-Mce3WQx7g/default.jpg', 'Truly UNcut: Time Lapse of Computer Hardware in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:13
+		
+			Truly UNcut: Time Lapse of Computer Hardware in...
+			9126 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/sqRZGhiHGxg/default.jpg', 'Phishing Scams in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:05
+		
+			Phishing Scams in Plain English
+			145285 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/6a_KF7TYKVc/default.jpg', 'Social Networking in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:47
+		
+			Social Networking in Plain English
+			400687 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/y-MSL42NV3c/default.jpg', 'Podcasting in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:00
+		
+			Podcasting in Plain English
+			199314 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/MpIOClX1jPE/default.jpg', 'Social Media in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:44
+		
+			Social Media in Plain English
+			235575 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/4pYiNyGKB84/default.jpg', 'Computer Hardware in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:13
+		
+			Computer Hardware in Plain English
+			36263 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/wZoMbBzqxyc/default.jpg', 'World Wide Web in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:10
+		
+			World Wide Web in Plain English
+			33722 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/8QvW1XETz2g/default.jpg', 'Investing Money in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:41
+		
+			Investing Money in Plain English
+			13006 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/3NWlYK9Ndcc/default.jpg', 'Borrowing Money in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:48
+		
+			Borrowing Money in Plain English
+			31101 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/cF5g0FgZQsA/default.jpg', 'CFL Lightbulbs in Plain English (REVISED)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:12
+		
+			CFL Lightbulbs in Plain English (REVISED)
+			32029 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/vPU4awtuTsk/default.jpg', 'Online Photo Sharing in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:50
+		
+			Online Photo Sharing in Plain English
+			93898 reproducciones
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/26DLW3ktGvI/default.jpg', 'New Light Bulbs in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:00
+		
+			New Light Bulbs in Plain English
+			77283 reproducciones
+		
+
+		
+	
+
+
+		Cargando...
+			
+				
+Ver los 66 vA­deos
+								
+			
+	
+
+		
+		
+	
+
+
+
+
+
+
+
+
+
+
+ 	
+		
+	
+		
+			
+				Reproducir todos
+			
+			
+				Detener reproducciA³n automA¡tica
+			
+			|
+			
+									>Reproducir siguiente
+									onclick="playnextFrom='QL';gotoNext(false, null, true); return false;">Reproducir siguiente
+			
+		
+
+
+
+		Lista rA¡pida (0)
+
+
+
+
+
+		
+			
+							">
+		
+			
+					1
+			
+			
+				
+			
+			
+					
+						
+					
+					
+						
+					
+			
+		
+		
+			
+				
+			
+				
+		
+	
+
+	
+	
+	
+	
+
+
+			
+		
+
+
+		
+				
+					Borrar |
+					Guardar
+				
+
+		
+
+	 
+ 	
+
+
+
+
+	
+			 
+					VA­deos relacionados
+					
+		
+					
+				
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/sqRZGhiHGxg/default.jpg', 'Phishing Scams in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:05
+		
+			Phishing Scams in Plain English
+			145285 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/kjQVn5cmqlg/default.jpg', 'Sync in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:55
+		
+			Sync in Plain English
+			8484 reproducciones
+			commoncraft
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/6a_KF7TYKVc/default.jpg', 'Social Networking in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:47
+		
+			Social Networking in Plain English
+			400687 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/y-MSL42NV3c/default.jpg', 'Podcasting in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:00
+		
+			Podcasting in Plain English
+			199314 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/ddO9idmax0o/default.jpg', 'Twitter in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:25
+		
+			Twitter in Plain English
+			974657 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/VSPZ2Uu_X3Y/default.jpg', 'Google Reader in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:06
+		
+			Google Reader in Plain English
+			1185338 reproducciones
+			Google
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/0klgLsSxGsU/default.jpg', 'Video: RSS in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:43
+		
+			Video: RSS in Plain English
+			839292 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/KqDsevMW7Ds/default.jpg', 'Saving Money in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:50
+		
+			Saving Money in Plain English
+			37468 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/x66lV7GOcNU/default.jpg', 'Social Bookmarking in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:25
+		
+			Social Bookmarking in Plain English
+			283870 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/ok_VQ8I7g6I/default.jpg', 'Electing a US President in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:43
+		
+			Electing a US President in Plain English
+			656145 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/MpIOClX1jPE/default.jpg', 'Social Media in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:44
+		
+			Social Media in Plain English
+			235575 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/-dnL00TdmLY/default.jpg', 'Wikis in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:52
+		
+			Wikis in Plain English
+			787853 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/4pYiNyGKB84/default.jpg', 'Computer Hardware in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:13
+		
+			Computer Hardware in Plain English
+			36263 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/NN2I1pWXjXI/default.jpg', 'Blogs in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:58
+		
+			Blogs in Plain English
+			485699 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/wZoMbBzqxyc/default.jpg', 'World Wide Web in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:10
+		
+			World Wide Web in Plain English
+			33722 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/bVnfyradCPY/default.jpg', 'Zombies in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido2:59
+		
+			Zombies in Plain English
+			697042 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/K8D5uL0y7ho/default.jpg', 'SIMS 141 - Overview of How Search Engines Work')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:44:08
+		
+			SIMS 141 - Overview of How Search Engines Work
+			8403 reproducciones
+			ucberkeley
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/5lvOfSrFZDc/default.jpg', 'Computer Software in Plain English')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido3:34
+		
+			Computer Software in Plain English
+			16980 reproducciones
+			leelefever
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/Ka9IwHNvkfU/default.jpg', 'SIMS 141 - Search, Google, and Life: Sergey Brin - Google')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido39:51
+		
+			SIMS 141 - Search, Google, and Life: Sergey Bri...
+			231980 reproducciones
+			ucberkeley
+		
+
+		
+	
+
+		
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/tk6vZiGiaiQ/default.jpg', 'Google Search Tricks and Tips')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido6:38
+		
+			Google Search Tricks and Tips
+			51437 reproducciones
+			PCWizKid
+		
+
+		
+	
+
+
+		Cargando...
+			
+				
+Ver los 60 vA­deos
+								
+			
+	
+
+		
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+		VA­deos destacados
+		
+				
+					
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/bPdlhem9Zos/default.jpg', 'Zapatero propondrA¡ a sindicatos y empresarios un &quot;acuerdo colectivo&quot;')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido0:11
+		
+			Zapatero propondrA¡ a sindicatos y empresarios u...
+			104 reproducciones
+			libertaddigitaltv
+		
+
+		
+	
+
+				
+				
+					
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/O-_zisKzh8E/default.jpg', 'La GeneraciA³n del 89')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido11:42
+		
+			La GeneraciA³n del 89
+			2860 reproducciones
+			feb
+		
+
+		
+	
+
+				
+				
+					
+
+	
+			onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/LtQNBSB-ZhM/default.jpg', 'Gana uno, perdemos todos')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)"
+	onmousedown="urchinTracker('/Events/VideoWatch/QuickList+AddTo')">AA±adido1:31
+		
+			Gana uno, perdemos todos
+			7164 reproducciones
+			cronopio1979
+		
+
+		
+	
+
+				
+
+			
+		
+	 
+
+
+ 
+
+
+
+
+
+	
+Actualiza a Flash Player 10 para obtener un rendimiento de reproducciA³n mejorado. Actualiza ahora o consulta mA¡s informaciA³n.
+	
+	
+	onLoadFunctionList.push(function() {
+		if (isFlashVersionSupported(8,0,0)) {
+			if (canPlayH264Videos()) {
+				yt.UserPrefs.set('ftuc', 10);
+			}
+		} else {
+			var showCount = yt.UserPrefs.get('ftuc');
+			if (!showCount) {
+				showCount = 0;
+			}
+			_gel('flash10-promo-div').style.display = 'block';
+			yt.UserPrefs.set('ftuc', parseInt(showCount) + 1);
+			yt.UserPrefs.save();
+		}
+	});	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+			
+
+		
+
+
+		document.getElementById('watch-rating-div').onmouseover = function() { hideDiv('defaultRatingMessage'); showDiv('hoverMessage'); };
+		document.getElementById('watch-rating-div').onmouseout = function() { showDiv('defaultRatingMessage'); hideDiv('hoverMessage'); };
+ 	
+		
+
+
+354 puntuacionesAccede para puntuar.
+
+		
+		
+		
+				Reproducciones:
+				103545
+		
+
+
+
+		
+	
+
+
+
+
+	
+		
+			
+				
+					
+						
+						Favoritos
+					
+					
+				
+					
+						
+						Compartir
+					
+					
+				
+					
+						
+						Listas de reproducciA³n
+					
+					
+				
+					
+						
+						Marcar
+					
+					
+				
+			
+
+			
+				
+					
+						
+								mA¡s
+								menos
+						
+
+						
+										
+				
+
+						
+							Tuenti
+						
+
+				
+			
+			
+				
+
+						
+							Facebook
+						
+
+				
+			
+			
+				
+
+						
+							hi5
+						
+
+				
+			
+
+
+							
+						
+						
+								
+		Tuenti
+	
+	
+		Facebook
+	
+	
+		hi5
+	
+	
+		MySpace
+	
+	
+		menA©ame
+	
+	
+		Live Spaces
+	
+	
+		orkut
+	
+	
+		reddit
+	
+
+							
+						
+					 					Este vA­deo aparecerA¡ en breve en tu blog.
+					Cargando...
+					Cargando...
+					Cargando...
+					Cargando...
+					Gracias por compartir este vA­deo.
+				
+				
+					
+						
+							
+							
+							
+							
+						
+					
+					Guardando...
+					
+						
+							
+							
+							
+							
+						
+					
+
+					
+						
+							Cerrar
+							
+							
+Este vA­deo se ha aA±adido a tus favoritos. (Eliminar de Favoritos)
+							
+						
+						
+							Cerrar
+							
+							
+Este vA­deo se ha eliminado de tus favoritos. (AA±adir a Favoritos)
+							
+						
+					
+
+						
+						cerrar
+								A¿Quieres aA±adir vA­deos a favoritos?
+	A¡Accede o regA­strate ahora!
+	
+
+						
+
+				
+				
+					Cargando...
+					El vA­deo se ha aA±adido a tu lista de reproducciA³n.
+						
+						cerrar
+								A¿Quieres aA±adir a listas de reproducciA³n?
+	A¡Accede o regA­strate ahora!
+	
+
+						
+
+				
+				
+					Cargando...
+					
+						
+						cerrar
+								A¿Quieres marcar un vA­deo?
+	A¡Accede o regA­strate ahora!
+	
+
+						
+
+				
+				
+				
+
+
+
+				
+			 			
+		 
+	 	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		EstadA­sticas y datos
+		Cargando...
+	
+
+
+
+
+	
+
+		Respuestas en vA­deo (0)
+		
+Este vA­deo no tiene ninguna respuesta. SA© el primero en publicar una respuesta en vA­deo.
+		
+
+		
+		
+
+
+
+	
+		
+				Accede para publicar un comentario.
+
+		
+
+		Comentarios escritos (124)Opciones
+
+		
+
+		
+			
+				Cargando...
+			
+
+			
+
+			
+								
+
+
+
+
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				PattyMMelt
+				 (hace 1 semana) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	+1
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						Had no idea about the -minus thing :D
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+		
+
+
+
+		
+
+			
+				AcousticNinja623
+				 (hace 1 semana) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						Same here. Neat!
+					
+				
+				
+			
+
+
+
+		
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				yugenro
+				 (hace 2 semanas) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						ogrish84: mullet -hair works pretty well, actually. mullet -hair -haircut works even better, which is the point of Lee's video, I think.
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				ogrish84
+				 (hace 2 semanas) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						mullet -hair 
+
+DOES NOT WORK!
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				FriendTron450
+				 (hace 2 semanas) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						Learning is COOL
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				lukk1983
+				 (hace 1 mes) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						bellissimo!!! ormai l'e-learning ha raggiunto alti livelli... l'ho scoperto da quando mi sono iscritto all'universitA  telematica UNISU e mi sono trovato subito bene!
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				klamatoconlimon
+				 (hace 1 mes) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						Great videos. Even if it something I already know, Im sure im not the only one that enjoys the clear, straigh foward explanation. Theyre great for getting a basic idea on something.
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				LyricalLovexx
+				 (hace 1 mes) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						I actually learned something.
+The quotes thing.
+The other crap I knew but at least it didn't waste ALL three minutes...
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				doctorturkleton
+				 (hace 1 mes) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	0
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						That was really helpful, thanks. :)
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+
+
+		
+
+	
+
+
+
+
+		
+
+			
+				30kguy
+				 (hace 1 mes) 
+
+				Mostrar
+				Ocultar
+			
+					
+
+	+1
+
+		
+		
+		
+
+	
+
+
+			
+	Marcado como spam
+	
+			Responder 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+			
+		
+
+			
+				
+					
+
+						aWESOME GUYS, CAN YOU DO ONE ON PPC. ADWORDS AND YAHOO ADS... HAVING TROUBLE EXPLAINING TO CUSTOMERS.
+					
+				
+				
+			
+
+
+
+
+
+	 
+
+
+
+
+		
+
+
+
+Siguiente
+
+
+
+
+	PA¡ginas:
+
+
+
+			1
+
+			2
+
+			3
+
+
+		&#160;...&#160;
+
+		
+
+
+
+
+
+
+
+
+			
+
+			Ver los 124 comentarios
+
+				
+					A¿Quieres enviar algAon comentario?
+					
+Ašnete a YouTube para obtener una cuenta gratuita o accede si ya eres miembro.
+					
+
+				 
+				
+
+		 	 
+
+ 
+
+		
+	
+	
+		
+			
+				
+
+
+	
+		
+		
+		Buscar
+	
+
+			
+		
+		
+			
+				
+					YouTube
+					
+					Ayuda
+					
+					Descubrir
+				
+				
+					>Ponte en contacto con nosotros
+					>Publicidad
+					>Recursos de ayuda
+					>PolA­tica de privacidad
+					>YouTube en tu mA³vil
+				
+				
+					>Sobre la empresa
+							>API para desarrolladores
+					>Manual de YouTube
+						>TA©rminos de uso
+					>YouTube en tu sitio
+				
+				
+					>Prensa
+					>Asociaciones
+					>Foros de ayuda de la comunidad
+					>Avisos de copyright
+					>Suscripciones
+				
+				
+					>Blog
+					>Sistema de gestiA³n de contenido
+					>Centro de seguridad
+					>Normas de la comunidad
+					>TestTube
+				
+			
+		
+		
+				AA±adir a iGoogle
+		
+	
+	
+		&copy; 2009 YouTube, LLC
+	
+
+
+
+
+
+setCompanionAndOrd('http://ad-bfp.doubleclick.net/adi/com.ytpwatch.scitech/main_680;sz=300x250;kl=N;!c=680;k2=485;k2=725;klg=es;kvid=CWHPf00Jkqg;kpu=leelefever;kr=F;khd=0;kt=K;ko=p;kpid=680;kga=-1;u=CWHPf00Jkqg|680;kgg=-1;kcr=es;custp=s-SOeljpyBAvS6fYAR2egw;dc_dedup=1;ptile=1;dcopt=ist;', 'true');
+
+		
+			
+			var google_language = "es";
+		
+
+	
+	
+		var google_ad_type = "image";
+		var google_ad_format="300x250_as";
+		var google_ad_width = "300";
+		var google_ad_height = "250";
+		var google_ad_client = "ca-pub-6219811747049371";
+		var google_ad_host = "ca-host-pub-4005123769456150";
+		var google_ad_host_tier_id = "7026";
+		var google_ad_channel = "1961111246+0618682152+0854550288+afv_user_leelefever+VidVert485+VidVert725";
+		var google_container_id = "google_companion_ad_div";
+		var google_video_doc_id = "yt_CWHPf00Jkqg";
+		var google_color_border = "FFFFFF";
+		var google_color_bg = "FFFFFF";
+		var google_color_link = "0033CC";
+		var google_color_text = "444444";
+		var google_color_url = "0033CC";
+		var google_alternate_ad_url = "http://www.youtube.com/adsense_script.html?divId=watch-channel-brand-div&depth=2";
+	
+
+	
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+ 
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+		window.setTimeout(
+			"window.google.ac.install(document.searchForm,document.searchForm.search_query,'yt','es','cerrar', \
+			'Sugerencias', \
+			'BAosqueda en la Web', \
+			-1, \
+			false)", 100);
+	
+
+
+

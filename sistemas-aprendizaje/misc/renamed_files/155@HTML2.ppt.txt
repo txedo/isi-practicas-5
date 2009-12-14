@@ -1,0 +1,330 @@
+El lenguaje HTML:Programacion avanzada
+Juan Alberto Siguenza
+Escuela Tecnica Superior de Informatica
+Universidad Autonoma de Madrid
+Tablas (elementos basicos)
+Creacion de una Tabla:
+
+Asignacion de filas
+
+Asignacion de columnas
+>/TD>
+Tablas con Netscape Composer
+Marcos (frames)
+Permiten subdividir el area de visualizacion del browser con diferentes paginas HTML.
+Puede haber una division:
+Horizontal: 
+Vertical: 
+Mixta
+Pincelada
+El lenguaje HTML:Programacion avanzada
+Juan Alberto Siguenza
+Escuela Tecnica Superior de Informatica
+Universidad Autonoma de Madrid
+Tablas (elementos basicos)
+Creacion de una Tabla:
+
+Asignacion de filas
+
+Asignacion de columnas
+>/TD>
+Tablas con Netscape Composer
+Marcos (frames)
+Permiten subdividir el area de visualizacion del browser con diferentes paginas HTML.
+Puede haber una division:
+Horizontal: 
+Vertical: 
+Mixta
+El lenguaje HTML:Programacion avanzada
+Juan Alberto Siguenza
+Escuela Tecnica Superior de Informatica
+Universidad Autonoma de Madrid
+Tablas (elementos basicos)
+Creacion de una Tabla:
+
+Asignacion de filas
+
+Asignacion de columnas
+>/TD>
+Ejemplos 11, 12 y 13
+HTML con Netscape Composer
+Marcos (frames)
+Permiten subdividir el area de visualizacion del browser con diferentes paginas HTML.
+Puede haber una division:
+Horizontal: 
+Vertical: 
+Mixta
+Ejemplos 14, 15 y 16
+Mapas graficos (I)
+Son imagenes sensibles al raton.
+Se definen mediante coordenadas.
+Envian a diferentes paginas HTML al pulsar sobre areas distintas.
+Se pueden configurar utilizando tablas.
+Mapas graficos (II)
+El lenguaje HTML:Programacion avanzada
+Juan Alberto Siguenza
+Escuela Tecnica Superior de Informatica
+Universidad Autonoma de Madrid
+Tablas (elementos basicos)
+Creacion de una Tabla:
+
+Asignacion de filas
+
+Asignacion de columnas
+>/TD>
+Ejemplos 11, 12 y 13
+HTML con Netscape Composer
+Marcos (frames)
+Permiten subdividir el area de visualizacion del browser con diferentes paginas HTML.
+Puede haber una division:
+Horizontal: 
+Vertical: 
+Mixta
+Ejemplos 14, 15 y 16
+Mapas graficos (I)
+Son imagenes sensibles al raton.
+Se definen mediante coordenadas.
+Envian a diferentes paginas HTML al pulsar sobre areas distintas.
+Se pueden configurar utilizando tablas.
+Mapas graficos (II)
+Formularios I
+Equivalentes a los formularios de papel.
+Permite la comunicacion con Bases de Datos.
+Son la base de las Intranets.
+Formularios II
+Especificaciones iniciales:
+
+Formularios III
+Campo de entrada TEXTO
+
+Campo de entrada eleccion multiple
+
+Campo de entrada seleccion multiple
+
+El lenguaje HTML:Programacion avanzada
+Juan Alberto Siguenza
+Escuela Tecnica Superior de Informatica
+Universidad Autonoma de Madrid
+Tablas (elementos basicos)
+Creacion de una Tabla:
+
+Asignacion de filas
+
+Asignacion de columnas
+>/TD>
+Ejemplos 11, 12 y 13
+HTML con Netscape Composer
+Marcos (frames)
+Permiten subdividir el area de visualizacion del browser con diferentes paginas HTML.
+Puede haber una division:
+Horizontal: 
+Vertical: 
+Mixta
+Ejemplos 14, 15 y 16
+Mapas graficos (I)
+Son imagenes sensibles al raton.
+Se definen mediante coordenadas.
+Envian a diferentes paginas HTML al pulsar sobre areas distintas.
+Se pueden configurar utilizando tablas.
+Mapas graficos (II)
+Formularios I
+Equivalentes a los formularios de papel.
+Permite la comunicacion con Bases de Datos.
+Son la base de las Intranets.
+Formularios II
+Especificaciones iniciales:
+
+Formularios III
+Campo de entrada TEXTO
+
+Campo de entrada eleccion multiple
+
+Campo de entrada seleccion multiple
+
+Formularios 4
+Lista desplegable de seleccion
+
+nombre1
+nombre2
+
+El lenguaje HTML:Programacion avanzada
+Juan Alberto Siguenza
+Escuela Tecnica Superior de Informatica
+Universidad Autonoma de Madrid
+Tablas (elementos basicos)
+Creacion de una Tabla:
+
+Asignacion de filas
+
+Asignacion de columnas
+>/TD>
+Ejemplos 11, 12 y 13
+HTML con Netscape Composer
+Marcos (frames)
+Permiten subdividir el area de visualizacion del browser con diferentes paginas HTML.
+Puede haber una division:
+Horizontal: 
+Vertical: 
+Mixta
+Ejemplos 14, 15 y 16
+Mapas graficos (I)
+Son imagenes sensibles al raton.
+Se definen mediante coordenadas.
+Envian a diferentes paginas HTML al pulsar sobre areas distintas.
+Se pueden configurar utilizando tablas.
+Mapas graficos (II)
+Formularios I
+Equivalentes a los formularios de papel.
+Permite la comunicacion con Bases de Datos.
+Son la base de las Intranets.
+Formularios II
+Especificaciones iniciales:
+
+
+Formularios III
+Campo de entrada TEXTO
+
+Campo de entrada eleccion multiple
+
+Campo de entrada seleccion multiple
+
+Formularios 4
+Lista desplegable de seleccion
+
+nombre1
+nombre2
+
+Formularios 5
+Campo Area de Texto
+
+Formulario 6
+Botones de envio y borrado de formulario
+
+
+El lenguaje HTML:Programacion avanzada
+Juan Alberto Siguenza
+Escuela Tecnica Superior de Informatica
+Universidad Autonoma de Madrid
+Tablas (elementos basicos)
+Creacion de una Tabla:
+
+Asignacion de filas
+
+Asignacion de columnas
+>/TD>
+Ejemplos 11, 12 y 13
+HTML con Netscape Composer
+Marcos (frames)
+Permiten subdividir el area de visualizacion del browser con diferentes paginas HTML.
+Puede haber una division:
+Horizontal: 
+Vertical: 
+Mixta
+Ejemplos 14, 15 y 16
+Mapas graficos (I)
+Son imagenes sensibles al raton.
+Se definen mediante coordenadas.
+Envian a diferentes paginas HTML al pulsar sobre areas distintas.
+Se pueden configurar utilizando tablas.
+Mapas graficos (II)
+Formularios I
+Equivalentes a los formularios de papel.
+Permite la comunicacion con Bases de Datos.
+Son la base de las Intranets.
+Formularios II
+Especificaciones iniciales:
+
+
+Formularios III
+Campo de entrada TEXTO
+
+Campo de entrada eleccion multiple
+
+Campo de entrada seleccion multiple
+
+Formularios IV
+Lista desplegable de seleccion
+
+nombre1
+nombre2
+
+Formularios V
+Campo Area de Texto
+
+Formulario VI
+Botones de envio y borrado de formulario
+
+
+Programas CGI
+Common Gateway Interface
+Son una especificacion para los programas que el usuario puede especificar en la WWW.
+Se ejecutan en el servidor.
+Los lenguajes mas comunes son PERL y C.
+Funcionamiento de los CGI
+Se ejecutan por el usuario de forma semejante a como se va a una pagina HTML, al pulsar sobre un enlace.
+El explorador usa la direccion URL del programa CGI para contactar con el servidor web donde se instalo el programa, y el servidor lo ejecuta.
+El lenguaje HTML:Programacion avanzada
+Juan Alberto Siguenza
+Escuela Tecnica Superior de Informatica
+Universidad Autonoma de Madrid
+Tablas (elementos basicos)
+Creacion de una Tabla:
+
+Asignacion de filas
+
+Asignacion de columnas
+>/TD>
+Ejemplos 11, 12 y 13
+HTML con Netscape Composer
+Marcos (frames)
+Permiten subdividir el area de visualizacion del browser con diferentes paginas HTML.
+Puede haber una division:
+Horizontal: 
+Vertical: 
+Mixta
+Ejemplos 14, 15 y 16
+Mapas graficos (I)
+Son imagenes sensibles al raton.
+Se definen mediante coordenadas.
+Envian a diferentes paginas HTML al pulsar sobre areas distintas.
+Se pueden configurar utilizando tablas.
+Mapas graficos (II)
+Formularios I
+Equivalentes a los formularios de papel.
+Permite la comunicacion con Bases de Datos.
+Son la base de las Intranets.
+Formularios II
+Especificaciones iniciales:
+
+
+Formularios III
+Campo de entrada TEXTO
+
+Campo de entrada eleccion multiple
+
+Campo de entrada seleccion multiple
+
+Formularios IV
+Lista desplegable de seleccion
+
+nombre1
+nombre2
+
+Formularios V
+Campo Area de Texto
+
+Formulario VI
+Botones de envio y borrado de formulario
+
+
+Programas CGI
+Common Gateway Interface
+Son una especificacion para los programas que el usuario puede especificar en la WWW.
+Se ejecutan en el servidor.
+Los lenguajes mas comunes son PERL y C.
+Funcionamiento de los CGI
+Se ejecutan por el usuario de forma semejante a como se va a una pagina HTML, al pulsar sobre un enlace.
+El explorador usa la direccion URL del programa CGI para contactar con el servidor web donde se instalo el programa, y el servidor lo ejecuta.
+Recepcion y descodificacion de un formulario
+Elegir el metodo POST o GET.
+Los formularios se basan en una serie de parejas Nombre del Campo-Valor del campo, lo primero es separar todas las parejas del formulario por lo que hay que detectar los simbolos de separacion, p.e. &.

@@ -1,0 +1,2448 @@
+
+
+
+	
+
+
+
+
+	
+	YouTube - El Aula del Futuro
+
+	
+
+	
+
+	
+	
+
+
+	
+	
+	
+
+
+	
+
+	
+			window.google={kHL:"es"};
+	
+
+	
+
+	
+
+			function _hbLink (a,b) { return false; }
+			function urchinTracker (a) { }
+			function urchinTrackerDefer(a) { }
+
+		
+	var gXSRF_token = '';
+	var gXSRF_field_name = '';
+	var gXSRF_ql_pair = '';
+	var onLoadFunctionList = onLoadFunctionList || [];
+
+		gXSRF_token = 'okjBUdxFhKmo88lnqC0B9XBI-jF8MTIyODU4NjQ1Mw==';
+		gXSRF_field_name = 'session_token';
+		onLoadFunctionList.push(function() { populate_session_token() });
+
+		gXSRF_ql_pair = 'session_token=kMQbrK-0N0WEruMiVVmMT65vsa18MA==';
+
+
+		var gGoogleSuggest = true;
+		var gPixelGif = 'http://s.ytimg.com/yt/img/pixel-vfl73.gif'; 
+
+		var gIsResultsPage = false;
+
+		var gGeoTooltipText = 'Mueve este marcador a una nueva ubicaciA³n y, a continuaciA³n, haz clic en \"Buscar\" para encontrar vA­deos grabados en esa zona.';
+		var gGeoTooltipMoreText= 'Acerca o aleja la imagen para cambiar el radio de la bAosqueda.';
+		var gGeoTooltipButton = "" + 'Buscar' + "";
+		var gGeoTooltipMore = "" + 'mA¡s' + "&raquo;";
+		var gGeoTooltip = "" + gGeoTooltipText + gGeoTooltipMore + gGeoTooltipButton + "";
+		var gGeoTooltipMore = "" + gGeoTooltipText + gGeoTooltipMoreText + gGeoTooltipButton + "";
+		var gGeoSelectedLocationText = 'UbicaciA³n seleccionada';
+	
+
+
+
+
+	
+	Sub movie_player_FSCommand(ByVal command, ByVal args)
+		call movie_player_DoFSCommand(command, args)
+	End Sub
+	
+
+	
+		initWatchQueue(true);
+
+		var MSG_Hide = 'Ocultar';
+		var MSG_Show = 'Mostrar';
+		var MSG_Login = 'Accede para realizar esta operaciA³n.';
+		var MSG_Loading = 'Cargando...';
+		var MSG_ShowingAll = 'Mostrar todos los vA­deos';
+		var MSG_LoginFavorites = 'Debes haber iniciado sesiA³n para aA±adir este vA­deo a tus favoritos.';
+		var MSG_LoginAddPlaylist = 'Debes haber iniciado sesiA³n para aA±adir este vA­deo a una lista de reproducciA³n.';
+		var MSG_LoginReportConcern = 'Debes haber iniciado sesiA³n para notificar un problema.';
+		var MSG_FlagDefault = 'Selecciona un motivo.';
+
+		var isLoggedIn = false ;
+		
+
+		var swfUrl = canPlayV9Swf() ? 'http://s.ytimg.com/yt/swf/watch-vfl67812.swf' : 'http://s.ytimg.com/yt/swf/watch_v8-vfl67812.swf';
+		var swfArgs = {"usef": 0, "vq": null, "video_id": "iXpICYXSvNk", "l": 289, "sk": "mIZZUGp5Tml-NJZd465wfT-AbJnI3gp4C", "fmt_map": "", "t": "OEgsToPDskLIUaayiq73gfnkrLijHHGR", "hl": "es", "plid": "AARdUHVOCE-JbkMlAAACoAAQAAA", "sdetail": "f%3Aplayer_embedded%2C"};
+
+		var additionalStatsHonorsUrl = '/watch_ajax?v=iXpICYXSvNk&action_get_statistics_and_data=1&l=EN';
+		var additionalAudioInfoUrl = '/watch_ajax?v=iXpICYXSvNk&action_get_audio_info=1&l=EN';
+		var watchMapUrl = '/watch_ajax?v=iXpICYXSvNk&action_get_map=1';
+		var fullscreenUrl = '/watch_fullscreen?fs=1&vq=None&video_id=iXpICYXSvNk&l=289&sk=mIZZUGp5Tml-NJZd465wfT-AbJnI3gp4C&fmt_map=&t=OEgsToPDskLIUaayiq73gfnkrLijHHGR&hl=es&plid=AARdUHVOCE-JbkMlAAACoAAQAAA&sdetail=f%253Aplayer_embedded%252C&title=El Aula del Futuro';
+		var watchGamUrl = null;
+		var watchDCUrl = null;
+		var watchTrackWithHitbox = false;
+		var watchIsPlayingAll = false;
+		var isWidescreen = false;
+		var watchUsername = 'FChilango';
+		var pageVideoId = 'iXpICYXSvNk';
+		var pageVideoSearchQueryStr = ' Superficies interactivas InnovaciA³n educativa EducaciA³n TecnologA­a';
+		var pageFillRelatedVideoStartIndex = 20;
+		var pageFillRelatedVideoEndIndex = 40;
+		var relatedVideoGridUrl = '/related_ajax?action_get_related&video_id=iXpICYXSvNk&view_type=G&watch3=1&search=%20Superficies%20interactivas%20Innovaci%C3%B3n%20educativa%20Educaci%C3%B3n%20Tecnolog%C3%ADa';
+		var relatedVideoListUrl = '/related_ajax?action_get_related&video_id=iXpICYXSvNk&view_type=L&watch3=1&search=%20Superficies%20interactivas%20Innovaci%C3%B3n%20educativa%20Educaci%C3%B3n%20Tecnolog%C3%ADa';
+		var playnextFrom = '';
+		var playnextCount = 'None';
+		var qlAutoscrollDestination = 0;
+		var watchSetWmode = false;
+		var embedUrl = 'http://www.youtube.com/v/iXpICYXSvNk&hl=es&fs=1';
+		var ytLocale = 'es_ES';
+	
+		var ad_eurl = null;
+
+		var axc = '';
+		var subscribeaxc = '';
+		
+
+
+			function showCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		var msg = new Object();
+		msg["post"] = "Accede a tu cuenta para publicar un comentario.";
+		showCommentReplyForm_js(form_id, reply_parent_id, is_main_comment_form, msg);
+	}
+
+	function updateCharCount(charCount_id, label_id, textArea) {
+		var msg = new Object();
+		msg["exceeded"] = "NAomero de caracteres que superan el lA­mite:";
+		msg["remaining"] = "NAomero de caracteres restantes:"; 
+		updateCharCount_js(charCount_id, label_id, textArea, 500, msg)
+	}
+
+	function loginMsg(div_id, display_val) {
+		var msg = new Object();
+		msg["login"] = 'Accede a tu cuenta.';
+		loginMsg_js(div_id, display_val, msg);
+	}
+
+	function printCommentReplyForm(form_id, reply_parent_id, is_main_comment_form) {
+		var msg = new Object();
+		msg["post"] = "Publicar comentario";
+		msg["remaining"] = "NAomero de caracteres restantes:";
+		msg["discard"] = "Descartar"; 
+		printCommentReplyForm_js(form_id, reply_parent_id, is_main_comment_form, 'V', 'top.goog.i18n.bidi.setDirAttribute(event,this)', 'video_id', 'iXpICYXSvNk', '', 500, msg);
+	}
+
+	function postThreadedComment(comment_form_id) {
+		var msg = new Object();
+		msg["add"] = "AA±adiendo comentario...";
+		postThreadedComment_js(comment_form_id, msg);
+	}
+
+	function commentApproved(xmlHttpRequest) {
+		alert("El comentario se ha aprobado.")
+	}
+
+	function ThreadedCommentHandler(comment_form, comment_form_id) {
+		var msg = new Object();
+		msg["empty"] = "Debes introducir un comentario.";
+		msg["toolong"] = "Tu comentario no puede tener mA¡s de 500 caracteres.";
+		return ThreadedCommentHandler_js(comment_form, comment_form_id, msg);
+	}
+
+	function commentResponse(xmlHttpRequest) {
+		var msg = new Object();
+		msg["ok"] = "Comentario publicado.";
+		msg["pending"] = "Comentario pendiente de aprobaciA³n.";
+		msg["toolong"] = "El comentario que has introducido es demasiado largo. No puede contener mA¡s de 500 caracteres. Escribe un comentario mA¡s corto e intA©ntalo de nuevo.";
+		msg["tooshort"] = "El comentario que has introducido es demasiado corto. Escribe un comentario mA¡s largo e intA©ntalo de nuevo.";
+		msg["toosoon"] = "Se ha superado el lA­mite de comentarios.";
+		msg["email"] = "Para poder enviar comentarios debes confirmar tu direcciA³n de correo electrA³nico. Haz clic en Aceptar para confirmar tu direcciA³n de correo electrA³nico.";
+		msg["captchFail"] = "La respuesta a las letras de la imagen no ha sido correcta. Vuelve a intentarlo.";
+		msg["default"] = "Publicar comentario"; 
+		commentResponse_js(xmlHttpRequest, msg);
+	}
+
+	function load_all_comments(video_id, is_watch2) {
+		var msg = new Object();
+		msg["remove"] = "Cargando comentarios...";
+		load_all_comments_js(video_id, is_watch2, msg);
+	}
+
+
+
+
+	
+		onLoadFunctionList.push(function() { applyUserPrefs() });
+
+
+
+
+		onLoadFunctionList.push(function() { enableVideoQualityDisplay()});
+	
+		// single favorite action, forwarded from /login
+		onLoadFunctionList.push(function(event) {
+			url = document.location.href;
+			if (url.match('#fav')) {
+				document.location.href = url.replace('#fav', '#');
+				addToFaves('addToFavesForm', event);
+			}
+		});
+	
+
+
+
+
+" onunload="performOnUnloadFunctions();">
+
+
+
+	
+
+		
+		
+		
+			
+				
+					
+		Mundial
+		EspaA±ol
+
+				
+
+				
+					
+
+
+
+
+	
+
+		" onclick="_hbLink('SignUp','UtilityLinks');" onmousedown="urchinTracker('/Events/Header/UtilLinks/SignUp');">Registrarse
+		Lista rA¡pida (0)
+		Ayuda
+			" onmousedown="urchinTracker('/Events/Header/UtilLinks/SignIn');">Acceder
+	
+
+	
+		
+	
+
+
+				
+
+			
+
+				
+		
+			Cerrar
+			Establece la preferencia de contenido de tu paA­s (A¿QuA© es esto?)
+				Elige el contenido del paA­s (vA­deos y canales) que quieras ver. Al hacerlo no cambiarA¡ el idioma del sitio. 
+			
+		
+	
+			
+				var gContentRegions = [
+				[
+				['en_US','US','Mundial (todos)']				
+				]
+									,				[
+				['es_ES','ES','EspaA±a']									,				['es_MX','MX','MA©xico']				
+				]
+									,				[
+				['en_AU','AU','Australia']									,				['pt_BR','BR','Brasil']									,				['en_CA','CA','CanadA¡']									,				['cs_CZ','CZ','RepAoblica Checa']									,				['de_DE','DE','Alemania']									,				['fr_FR','FR','Francia']									,				['en_GB','GB','Reino Unido']									,				['zh_HK','HK','Hong Kong']									,				['en_IE','IE','Irlanda']									,				['en_IL','IL','Israel']									,				['en_IN','IN','La India']									,				['it_IT','IT','Italia']									,				['ja_JP','JP','JapA³n']									,				['ko_KR','KR','Corea del Sur']									,				['nl_NL','NL','PaA­ses Bajos']									,				['en_NZ','NZ','Nueva Zelanda']									,				['pl_PL','PL','Polonia']									,				['ru_RU','RU','Rusia']									,				['sv_SE','SE','Suecia']									,				['zh_TW','TW','TaiwA¡n']				
+				]
+				
+				];
+			
+			
+			
+	
+	
+
+				
+		
+			Cerrar
+			Establecer preferencia de idioma (A¿QuA© es esto?)
+			Elige el idioma en el que quieres ver YouTube. SA³lo se cambiarA¡ la interfaz, no el texto introducido por otros usuarios.
+			
+		
+	
+			
+				var gUILanguages = [
+				['de','Deutsch']									,				['en-GB','English (UK)']									,				['en','English (US)']									,				['es','EspaA±ol (EspaA±a)']									,				['es-MX','EspaA±ol (LatinoamA©rica)']									,				['fr','FranA§ais']									,				['it','Italiano']									,				['nl','Nederlands']									,				['pl','Polski']									,				['pt','PortuguAas (Brasil)']									,				['ru','PyccÄ¸Ð¸Ð¹']									,				['sv','Svenska']									,				['cs','ÄŒeskA½']									,				['zh-CN','ä¸­æ–‡ (c®€ä½“)']									,				['zh-TW','ä¸­æ–‡ (c¹e«”)']									,				['ja','æ—¥æœ¬eaž']									,				['ko','i•œeµ­i–´']				
+				];
+			
+			
+			
+	
+	
+
+		
+
+		
+							
+		
+			
+				
+				Subir
+				
+			
+		
+	
+
+
+				
+		
+			
+			
+			
+				
+					
+					Buscar
+					
+				
+			
+		
+	
+
+
+			Inicio
+			VA­deos
+			
+			Canales
+			Comunidad
+		
+
+		
+	 
+
+	
+			
+		
+			Cerrar
+			
+					A¡Bienvenido/a a YouTube! 
+
+					
+					Sugerencia de idioma (preferencia establecida): EspaA±ol (EspaA±a)
+
+					
+					Para cambiar la preferencia de idioma, utiliza los enlaces situados en la parte superior de la pA¡gina junto al logotipo de YouTube.
+
+					
+					Click &quot;OK&quot; to accept this setting, or click &quot;Cancel&quot; to view the site in English.
+
+				
+					
+						
+							
+							Aceptar
+							
+						
+							
+							
+							Cancelar
+							
+						 
+						
+					
+				
+			
+			
+				
+
+					Welcome to YouTube! 
+
+					
+					Suggested Language (we have set your preference to this): Spanish
+
+					
+					To change your language preference, please use the links next to the YouTube logo at the top of the page.
+
+					
+					Click &quot;OK&quot; to accept this setting, or click &quot;Cancel&quot; to view the site in English (US).
+
+				
+					
+						
+							
+							OK
+							
+						
+							
+							
+							Cancel
+							
+						 
+						
+					
+				
+			
+				
+					Show message in English
+				
+				
+					Hide message in English
+				
+			
+		
+	
+
+
+	
+	
+	
+
+
+
+
+
+
+	El Aula del Futuro
+
+
+
+
+	
+		
+			Hola, tienes JavaScript desactivado o una versiA³n antigua de Adobe Flash Player. Consigue la Aoltima versiA³n de Flash Player.
+			
+				document.write('Hola, tienes JavaScript desactivado o una versiA³n antigua de Adobe Flash Player. Consigue la Aoltima versiA³n de Flash Player.');
+			
+		
+	 
+	
+		var fo = writeMoviePlayer("watch-player-div");
+	
+
+
+
+
+
+	
+		
+			">
+				PuntuaciA³n:
+				
+
+		
+
+
+		document.getElementById('watch-rating-div').onmouseover = function() { hideDiv('defaultRatingMessage'); showDiv('hoverMessage'); };
+		document.getElementById('watch-rating-div').onmouseout = function() { showDiv('defaultRatingMessage'); hideDiv('hoverMessage'); };
+ 	
+		
+
+
+
+2 puntuaciones">Accede para puntuar.
+
+			
+
+			
+				
+					Reproducciones:
+					1871
+				
+
+				
+			
+
+			
+		
+
+		
+			
+				
+					
+						
+							
+							Compartir
+						
+						
+					
+						
+							
+							Favoritos
+						
+						
+					
+						
+							
+							Listas de reproducciA³n
+						
+						
+					
+						
+							
+							Marcar
+						
+						
+				
+			
+			
+			
+				
+					
+									
+				
+						
+							
+							MySpace
+						
+				
+			
+			
+				
+						
+							
+							Facebook
+						
+				
+			
+			
+				
+						
+							
+							Digg
+						
+				
+			
+	
+		mA¡s
+		menos
+	
+
+
+
+
+						
+					 
+					Este vA­deo aparecerA¡ en breve en tu blog.
+					Cargando...
+					Cargando...
+					Cargando...
+					Cargando...
+					Gracias por compartir este vA­deo.
+				
+				
+					
+						
+							
+							
+							
+							
+						
+					
+					Guardando...
+					
+						
+							
+							
+							
+							
+						
+					
+					
+						cerrar
+						
+						
+							Este vA­deo se ha aA±adido a tus favoritos.
+						
+						
+							Este vA­deo se ha eliminado de tus favoritos.
+						
+					
+					
+						
+							
+							Eliminar de Favoritos
+							
+						
+						
+							
+							AA±adir a Favoritos
+							
+						
+						
+					
+						
+						cerrar
+						
+						
+			
+	
+			A¿Quieres aA±adir vA­deos a favoritos?
+
+			">Sign in to YouTube now!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 		 
+
+						
+				
+				
+					Cargando...
+					El vA­deo se ha aA±adido a tu lista de reproducciA³n.
+						
+						cerrar
+						
+						
+			
+	
+			A¿Quieres aA±adir a listas de reproducciA³n?
+
+			">Sign in to YouTube now!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 		 
+
+						
+				
+				
+					Cargando...
+					
+						
+						cerrar
+						
+						
+			
+	
+			A¿Quieres marcar un vA­deo?
+
+			">Sign in to YouTube now!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 		 
+
+						
+				
+			 
+			
+		 
+
+	 
+
+
+	
+
+
+
+	
+		
+			
+				
+					Comentario
+				
+				
+					EstadA­sticas y datos
+				
+			
+		
+		
+			
+					
+		Respuestas en vA­deo: 0
+		Comentarios escritos: 0
+	
+
+	 small-expand-panel">
+			
+					" onclick="urchinTracker('/Events/VideoWatch/PostVideoResponseSignIn');">Acceder para publicar una respuesta en vA­deo
+			
+		Respuestas en vA­deo (0)
+		
+			Este vA­deo no tiene ninguna respuesta. SA© el primero en publicar una respuesta en vA­deo.
+		
+	
+
+	
+		
+			Accede para publicar un comentario.
+		
+		Comentarios escritos (0)
+
+		
+		
+
+			
+
+
+				
+					A¿Quieres enviar algAon comentario?
+					
+						Ašnete a YouTube para obtener una cuenta gratuita o accede si ya eres miembro.
+					
+				 
+
+				
+		 
+	 
+
+
+			
+			
+					
+		
+			AA±adido: 23 de mayo de 2008
+			Reproducciones: 1871
+			Puntuaciones: 2
+		
+		
+			Respuestas: 0
+			Comentarios: 0
+			
+				Favorito: 3 veces
+			
+		
+	
+
+
+
+
+	
+
+	
+		
+			Galardones de este vA­deo
+			
+				
+					Cargando...
+				
+			
+		
+		
+			Sitios con enlaces a este vA­deo
+			
+				
+					Cargando...
+				
+			
+		
+	
+
+	
+		Fecha y ubicaciA³n de la grabaciA³n
+		
+			
+		
+	
+
+
+			
+		
+	
+
+ 
+
+
+	
+
+
+	
+		
+			
+				
+			
+			
+				
+					
+						
+						Suscribir
+						
+					
+				
+				
+					
+						
+						Anular suscripciA³n
+						
+					
+				
+				
+					
+				
+			
+			
+				FChilango
+
+
+				23 de mayo de 2008
+
+
+				
+					
+						(mA¡s informaciA³n)
+					
+					
+						(menos informaciA³n)
+					
+				
+			
+			
+		 
+		
+
+		
+			
+		
+			A¿Quieres suscribirte?
+
+			">Sign in to YouTube now!
+		
+		
+		Acceder con tu cuenta de Google!
+		
+		
+	 
+
+		 
+
+			
+		
+
+			
+				
+					Video de presentaciA³n del Proyecto del Aula del Futuro 
+				
+			
+
+			
+				
+					Video de presentaciA³n del Proyecto del Aula del Futuro 
+				
+
+				
+					CategorA­a:
+					Ciencia y tecnologA­a
+
+				
+
+				
+					
+						Etiquetas:
+					
+					
+							Superficies
+							interactivas
+							InnovaciA³n
+							educativa
+							EducaciA³n
+							TecnologA­a
+					
+					
+				
+
+
+			 
+
+							
+				
+					URL
+					
+					
+				
+			
+
+
+			
+				
+					Insertar
+					
+						
+						
+							
+							Personalizar
+						
+					
+					
+				
+			 
+
+		 
+
+			Cargando...
+
+		
+	
+
+	
+		 
+
+
+
+	 
+
+
+
+	 
+
+
+
+
+
+		
+			
+				MA¡s de: FChilango
+			
+			
+				
+						Cargando...
+				 
+			
+			
+		 
+
+	
+ 	
+ 	
+			
+		
+			
+				Reproducir todos
+			
+			
+				Detener reproducciA³n automA¡tica
+			
+			|
+			
+				Reproducir siguiente
+			
+		
+
+
+		 Lista rA¡pida (0)
+
+
+		
+			
+							
+
+
+	
+		
+			
+					 1
+			
+			
+				
+			
+			
+				
+					
+				
+				
+					
+				
+			
+		
+		
+			
+				
+						
+			
+	
+
+	
+
+
+	
+
+			
+		
+
+		
+				
+					Borrar |
+					Guardar
+				
+		
+
+	 
+
+ 	
+	
+			
+			
+				VA­deos relacionados
+			
+			
+				
+							
+		
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/sAIQ7CRzzx8/default.jpg', 'MAESTROS DEL FUTURO')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido00:38
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					MAESTROS DEL FUTURO
+				
+				
+					MAESTROS DEL FUTURO
+				
+				
+						[TRADUCIDO]
+					MAESTROS DEL FUTURO
+				
+			
+
+
+
+			
+
+
+						hace 6 meses
+
+					138 reproducciones
+
+					jarioso92
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i3.ytimg.com/vi/6uPHgyTS2ww/default.jpg', 'Nuevas tecnologA­as en la educaciA³n')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:26
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Nuevas tecnologA­as en la educaciA³n
+				
+				
+					Nuevas tecnologA­as en la educaciA³n
+				
+				
+						[TRADUCIDO]
+					Nuevas tecnologA­as en la educaciA³n
+				
+			
+
+
+
+			
+
+
+						hace 2 aA±os
+
+					24580 reproducciones
+
+					boulesis
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/wBrKtBQE5n0/default.jpg', 'ESCUELAS DEL FUTURO 2')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido09:28
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					ESCUELAS DEL FUTURO 2
+				
+				
+					ESCUELAS DEL FUTURO 2
+				
+				
+						[TRADUCIDO]
+					ESCUELAS DEL FUTURO 2
+				
+			
+
+
+
+			
+
+
+						hace 8 meses
+
+					869 reproducciones
+
+					mexicodelcambio
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/eQEEv2qvgxI/default.jpg', 'Microsoft Research')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:47
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Microsoft Research
+				
+				
+					Microsoft Research
+				
+				
+						[TRADUCIDO]
+					Microsoft Research
+				
+			
+
+
+
+			
+
+
+						hace 9 meses
+
+					524 reproducciones
+
+					omarmolister
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+				onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/d4j_Sk3i71w/default.jpg', 'Educacion e Innovacion tecnologica (parte 2)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido03:18
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Educacion e Innovacion tecnologi...
+				
+				
+					Educacion e Innovacion tecnologica (parte 2)
+				
+				
+						[TRADUCIDO]
+					Educacion e Innovacion tecnologica (parte 2)
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					6498 reproducciones
+
+					sebagalan
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/UGHaDrRCZbA/default.jpg')" qlicon="UGHaDrRCZbA" alt="RALLYINTERNET">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/UGHaDrRCZbA/default.jpg', 'RALLYINTERNET')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:32
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					RALLYINTERNET
+				
+				
+					RALLYINTERNET
+				
+				
+						[TRADUCIDO]
+					RALLYINTERNET
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					1019 reproducciones
+
+					yoyotropico
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/dnKm6E-ieCk/default.jpg')" qlicon="dnKm6E-ieCk" alt="Lanzamiento Escuela del Futuro">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/dnKm6E-ieCk/default.jpg', 'Lanzamiento Escuela del Futuro')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:45
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Lanzamiento Escuela del Futuro
+				
+				
+					Lanzamiento Escuela del Futuro
+				
+				
+						[TRADUCIDO]
+					Lanzamiento Escuela del Futuro
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					1484 reproducciones
+
+					ComunaDigital
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/YgSJt9ffa_Q/default.jpg')" qlicon="YgSJt9ffa_Q" alt="windows del futuro">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/YgSJt9ffa_Q/default.jpg', 'windows del futuro')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido00:25
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					windows del futuro
+				
+				
+					windows del futuro
+				
+				
+						[TRADUCIDO]
+					windows del futuro
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					6678 reproducciones
+
+					valeyoss
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/4uALRa8OCtQ/default.jpg')" qlicon="4uALRa8OCtQ" alt="TecnologA­a Educativa">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/4uALRa8OCtQ/default.jpg', 'TecnologA­a Educativa')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:25
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					TecnologA­a Educativa
+				
+				
+					TecnologA­a Educativa
+				
+				
+						[TRADUCIDO]
+					TecnologA­a Educativa
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					10794 reproducciones
+
+					donmalagar
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/tLeY-jt-32Q/default.jpg')" qlicon="tLeY-jt-32Q" alt="A¿CA³mo convertir cualquier aula en una Clase Interactiva? (2)">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/tLeY-jt-32Q/default.jpg', 'A¿CA³mo convertir cualquier aula en una Clase Interactiva? (2)')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido02:52
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					A¿CA³mo convertir cualquier aula e...
+				
+				
+					A¿CA³mo convertir cualquier aula en una Clase Int...
+				
+				
+						[TRADUCIDO]
+					A¿CA³mo convertir cualquier aula en una Clase Interactiva? (2)
+				
+			
+
+
+
+			
+
+
+						hace 2 aA±os
+
+					24011 reproducciones
+
+					manuelvuelta
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/IK0hADmkF08/default.jpg')" qlicon="IK0hADmkF08" alt="mesa interactiva">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/IK0hADmkF08/default.jpg', 'mesa interactiva')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido03:03
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					mesa interactiva
+				
+				
+					mesa interactiva
+				
+				
+						[TRADUCIDO]
+					mesa interactiva
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					782 reproducciones
+
+					experimediaperu
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/SIlBxhOLR_c/default.jpg')" qlicon="SIlBxhOLR_c" alt="Experiencias institucionales innovaciA³n educativa">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/SIlBxhOLR_c/default.jpg', 'Experiencias institucionales innovaciA³n educativa')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido56:08
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					Experiencias institucionales inn...
+				
+				
+					Experiencias institucionales innovaciA³n educativa
+				
+				
+						[TRADUCIDO]
+					Experiencias institucionales innovaciA³n educativa
+				
+			
+
+
+
+			
+
+
+						hace 5 meses
+
+					440 reproducciones
+
+					upm
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/_HoKw4dwOOE/default.jpg')" qlicon="_HoKw4dwOOE" alt="La tecnologA­a">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/_HoKw4dwOOE/default.jpg', 'La tecnologA­a')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:35
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					La tecnologA­a
+				
+				
+					La tecnologA­a
+				
+				
+						[TRADUCIDO]
+					La tecnologA­a
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					92615 reproducciones
+
+					Gatuvideos
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/wa6dXlEUiP0/default.jpg')" qlicon="wa6dXlEUiP0" alt="ROBOTICA ESCOLAR en Cifuentes">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/wa6dXlEUiP0/default.jpg', 'ROBOTICA ESCOLAR en Cifuentes')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido06:21
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					ROBOTICA ESCOLAR en Cifuentes
+				
+				
+					ROBOTICA ESCOLAR en Cifuentes
+				
+				
+						[TRADUCIDO]
+					ROBOTICA ESCOLAR en Cifuentes
+				
+			
+
+
+
+			
+
+
+						hace 9 meses
+
+					270 reproducciones
+
+					arodriga10
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/7dK1Ty-wlLA/default.jpg')" qlicon="7dK1Ty-wlLA" alt="EvoluciA³n y Futuro de la ComputaciA³n, ProgramaciA³n y CAD2de2">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/7dK1Ty-wlLA/default.jpg', 'EvoluciA³n y Futuro de la ComputaciA³n, ProgramaciA³n y CAD2de2')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido07:57
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					EvoluciA³n y Futuro de la Computa...
+				
+				
+					EvoluciA³n y Futuro de la ComputaciA³n, Programac...
+				
+				
+						[TRADUCIDO]
+					EvoluciA³n y Futuro de la ComputaciA³n, ProgramaciA³n y CAD2de2
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					1769 reproducciones
+
+					usertogo
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+				
+
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/uUKeClSHMUI/default.jpg')" qlicon="uUKeClSHMUI" alt="la educacion del futuro">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/uUKeClSHMUI/default.jpg', 'la educacion del futuro')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido00:57
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					la educacion del futuro
+				
+				
+					la educacion del futuro
+				
+				
+						[TRADUCIDO]
+					la educacion del futuro
+				
+			
+
+
+
+			
+
+
+						hace 9 meses
+
+					430 reproducciones
+
+					MOISES69XXX
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/lOVySRdGyV0/default.jpg')" qlicon="lOVySRdGyV0" alt="EDGAR MORIN LOS 7 SABERES PARA LA EDUCACION DEL FUTURO">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/lOVySRdGyV0/default.jpg', 'EDGAR MORIN LOS 7 SABERES PARA LA EDUCACION DEL FUTURO')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido04:20
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					EDGAR MORIN LOS 7 SABERES PARA L...
+				
+				
+					EDGAR MORIN LOS 7 SABERES PARA LA EDUCACION DEL...
+				
+				
+						[TRADUCIDO]
+					EDGAR MORIN LOS 7 SABERES PARA LA EDUCACION DEL FUTURO
+				
+			
+
+
+
+			
+
+
+						hace 8 meses
+
+					7416 reproducciones
+
+					MultiversidadEM
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i2.ytimg.com/vi/9Ho8Rs7crDo/default.jpg')" qlicon="9Ho8Rs7crDo" alt="educacion al futuro">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i2.ytimg.com/vi/9Ho8Rs7crDo/default.jpg', 'educacion al futuro')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido01:13
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					educacion al futuro
+				
+				
+					educacion al futuro
+				
+				
+						[TRADUCIDO]
+					educacion al futuro
+				
+			
+
+
+
+			
+
+
+						hace 3 meses
+
+					35 reproducciones
+
+					florecita2126
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i1.ytimg.com/vi/DR_a3EwPcZU/default.jpg')" qlicon="DR_a3EwPcZU" alt="La Casa del Futuro">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i1.ytimg.com/vi/DR_a3EwPcZU/default.jpg', 'La Casa del Futuro')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido04:00
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					La Casa del Futuro
+				
+				
+					La Casa del Futuro
+				
+				
+						[TRADUCIDO]
+					La Casa del Futuro
+				
+			
+
+
+
+			
+
+
+						hace 7 meses
+
+					1238 reproducciones
+
+					icaptecnologia
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+
+
+
+		
+
+		
+				
+
+
+
+
+	
+
+
+
+			 onload="delayLoad('related', this, 'http://i4.ytimg.com/vi/KDEPmcRdDls/default.jpg')" qlicon="KDEPmcRdDls" alt="uso de tecnologias">	onclick="return onQuickAddClick(this, this.parentNode.getAttribute('ql'), 'http://i4.ytimg.com/vi/KDEPmcRdDls/default.jpg', 'uso de tecnologias')"
+	onmouseover="mouseOverQuickAdd(this)"
+	onmouseout="mouseOutQuickAdd(this)">AA±adido04:19
+
+
+		
+
+
+			
+				
+						[TRADUCIDO]
+					uso de tecnologias
+				
+				
+					uso de tecnologias
+				
+				
+						[TRADUCIDO]
+					uso de tecnologias
+				
+			
+
+
+
+			
+
+
+						hace 1 aA±o
+
+					2053 reproducciones
+
+					gobyana
+
+
+				
+
+			
+		
+
+
+
+		
+
+		
+		
+
+		
+
+
+
+		Cargando...
+			
+				
+					Ver los 40 vA­deos
+				
+			
+	
+
+				 
+			
+			
+		 
+
+	
+	
+		VA­deos promocionados
+		
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			Heidi Klum In Style
+		
+
+		00:38
+
+		
+			antena3
+
+		
+	
+
+				
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			FC Barcelon a - Estren.. .
+		
+
+		02:36
+
+		
+			fcbarcelona
+
+		
+	
+
+				
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			La Lola - La prueba de ...
+		
+
+		01:55
+
+		
+			antena3
+
+		
+	
+
+				
+				
+					
+
+
+	
+	
+	
+
+		
+		
+			SALVADOS - Rajoy, la pe...
+		
+
+		00:47
+
+		
+			ElTerrat
+
+		
+	
+
+				
+			
+		
+	 
+
+ 
+
+
+
+
+		
+	
+	
+		
+			
+				
+					
+						
+							AA±adir a iGoogle
+						
+					
+
+					
+							
+		
+			
+			
+			
+				
+					
+					Buscar
+					
+				
+			
+		
+	
+
+					
+
+					
+						
+							
+
+						
+					
+
+				
+			
+
+		
+		
+			
+				
+					Tu cuenta
+					Ayuda e informaciA³n
+					YouTube
+				
+				
+					VA­deos
+					Bandeja de entrada
+					Recursos de ayuda
+					Foros de ayuda de la comunidad
+					Sobre la empresa
+					Prensa
+				
+				
+					Favoritos
+					Suscripciones
+					Consejos de seguridad
+					Avisos de copyright
+					TestTube
+					Contacto
+				
+				
+					Listas de reproducciA³n
+					mA¡s...
+					API para desarrolladores
+					Instrucciones de la comunidad
+					TA©rminos de uso
+					Blog
+				
+				
+					
+					Publicidad
+					YouTube en tu sitio
+					PolA­tica de privacidad
+					
+					
+				
+
+				
+					
+					Manual de YouTube
+					
+				
+			
+		
+	
+	
+		&copy; 2008 YouTube, LLC
+	
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+	window.setTimeout('window.google.ac.install(document.searchForm,document.searchForm.search_query,"yt",true,"cerrar",true,"Sugerencias")', 100);
+
+
+
+
