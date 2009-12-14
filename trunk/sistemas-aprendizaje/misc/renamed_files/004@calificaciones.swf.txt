@@ -1,0 +1,597 @@
+
+
+
+
+
+
+ Problema:
+Un alumno obtuvo una calificaciA³n de 94 puntos 
+en un exA¡men de matemA¡ticas de 30 preguntas. 
+Cada respuesta correcta vale 5 puntos y cada 
+respuesta incorrecta son 2 puntos menos.
+A¿CuA¡ntas respuestas correctas e incorrectas 
+obtuvo en el exA¡men?
+
+P
+
+L
+
+A
+
+N
+
+x
+
+2
+
+=
+
+Entender el problema
+
+Entender el problema
+
+Elaborar un plan
+
+Elaborar un plan
+
+Ejecutar el plan
+
+Ejecutar el plan
+
+Verificar la soluciA³n
+
+Verificar la soluciA³n
+
+Calculadora.swf
+Problema
+
+SalA³n de Clases
+
+Un alumno obtuvo una calificaciA³n de 94 puntos en un examen de 
+matemA¡ticas de 30 preguntas. Cada respuesta correcta vale 5 
+puntos y por cada respuesta incorrecta son 2 puntos menos. 
+A¿CuA¡ntas respuestas correctas e incorrectas obtuvo en el exA¡men?
+
+2x=2x
+
+1
+
+1
+
+2
+
+2
+
+3
+
+3
+
+4
+
+4
+
+Un alumno obtuvo una calificaciA³n de 94 puntos en un examen de matemA¡ticas de 30 preguntas. Cada respuesta correcta vale 5 puntos y por cada respuesta incorrecta son 2 puntos menos. 
+A¿CuA¡ntas respuestas correctas e incorrectas obtuvo en el exA¡men?
+
+Les voy a dictar 
+sus 
+calificaciones del 
+exA¡men de la 
+semana pasada
+
+Pablo
+75
+
+AndrA©s
+95
+A¡MUY BIEN!
+
+VA­ctor
+90
+A¡BIEN!
+
+Juan
+94
+A¡BIEN!
+
+Rosa
+80
+
+Sandra
+60
+
+Bonifacio
+55
+A¡Hay que 
+estudiar mA¡s!
+
+Y Sarai
+80
+
+Maestro, 
+A¿cuA¡ntas 
+respuestas 
+correctas e 
+incorrectas tuve?
+
+No lo recuerdo 
+Juan, pero 
+puedo ayudarte 
+a averiguarlo
+
+A¿CA³mo puedo 
+hacerlo?
+
+FA­jate, son 30 preguntas y tu 
+calificaciA³n es 94, cada 
+respuesta correcta vale 5 
+puntos y cada incorrecta son 
+2 puntos menos
+
+A¿Y eso para quA© 
+me sirve?
+
+FA­jate
+
+-3 
+
+-3 -2 
+
+-3 -2 -1 
+
+-3 -2 -1 5 
+
+-3 -2 -1 5 6 
+
+-3 -2 -1 5 6 30 
+
+-3 -2 -1 5 6 30 31 
+
+-3 -2 -1 5 6 30 31 90 
+
+-3 -2 -1 5 6 30 31 90 92 
+
+-3 -2 -1 5 6 30 31 90 92 94
+
+A¿CuA¡les de los 
+siguientes nAomeros 
+son conocidos en el 
+problema?
+
+Escribe en los 
+recuadros los que 
+creas que son 
+cantidades 
+conocidas
+
+Las cantidades 
+conocidas son
+-2 , 5 , 30 , 94
+
+A¿QuA© es lo que 
+te interesa 
+conocer?
+
+a) Tu calificaciA³n
+
+b) La calificaciA³n de Sarai
+
+c) El nAomero de 
+respuestas correctas e 
+incorrectas
+
+Entonces tus incA³gnitas 
+son:
+
+C : NAomero de respuestas
+ correctas
+I : NAomero de respuestas
+ incorrectas
+
+A¿CA³mo 
+encuentro el 
+valor de 
+I y de C?
+
+Sigue este plan:
+
+Para hallar el nAomero de respuestas correctas e incorrectas 
+traduce el problema a lenguaje algebraico y resuelve las 
+ecuaciones resultantes
+
+pregunta asdasdqsdasd
+
+C: Respuestas
+Correctas
+
+I: Respuestas
+Incorrectas
+
+Recuerda 
+que son 30 
+preguntas
+
+Si tienes 2 respuestas incorrectas A¿cuA¡ntas 
+correctas debes tener?
+
+si 2 son incorrectas, 28 son correctas
+
+Si tienes 20 respuestas correctas, 
+A¿cuA¡ntas incorrectas debes tener?
+
+si 20 son correctas, 10 son incorrectas
+
+Entonces, una expresiA³n 
+algebraica que representa 
+el total de respuestas 
+correctas e incorrectas es:
+
+a) C - I = 30
+
+a) C - I = 30
+
+a) C - I = 30
+
+b) I = 20 + C
+
+b) I = 20 + C
+
+c) C + I = 30
+
+c) C + I = 30
+
+C + I =30 es una expresiA³n algebraica 
+que representa el total de respuestas correctas e 
+incorrectas
+
+Ahora, 
+completa la 
+siguiente 
+tabla
+
+5 ( ) - 2( ) =
+
+20
+
+12
+
+21
+
+ 5 (correctas) - 2 (incorrectas) = calificaciA³n
+
+A¿CA³mo la 
+lleno?
+
+Fijate en el 
+ejemplo
+
+10
+
+80
+
+Ahora, termina 
+de completar la 
+tabla
+
+5 ( 20 ) - 2( 10 ) = 80
+
+5 ( 18 ) - 2( 12 ) = 66
+
+5 ( 21 ) - 2( 9 ) = 87
+
+Ahora, A¿cuA¡l de las 
+siguientes expresiones 
+algebraicas representa 
+tu calificaciA³n?
+
+a) 5C - 2I = 94
+
+c) 5C + 2I = 94
+
+b) 5I - 2C = 94
+
+a) 5C - 2I = 94
+
+b) 5I - 2C = 94
+
+c) 5C + 2I = 94
+
+A¿Entonces C+ I = 30 y 
+5C - 2I = 94 son las 
+ecuaciones que me 
+ayudarA¡n a resolver el 
+problema? 
+
+C+ I = 30
+
+5C - 2I = 94
+
+Si, tienes que hallar los 
+valores de C y de I que 
+satisfagan ambas 
+ecuaciones, es decir, 
+hallar la soluciA³n
+
+Y A¿cA³mo 
+resuelvo el 
+sistema?
+
+Utiliza el 
+mA©todo de 
+IGUALACIA“N
+
+Por IgualaciA³n
+
+Selecciona la incA³gnita que deseas eliminar
+
+C
+
+C
+
+C
+
+I
+
+I
+
+I
+
+Por IgualaciA³n
+C + I = 30
+5C - 2I =94
+IncA³gnita = C
+
+Despeja la incA³gnita seleccionada de las ecuaciones
+
+C + I = 30
+
+C = +
+
+5C - 2I = 94
+
+C = 94 + ( )I
+
+C = 30 - I 
+
+C = 94 + ( 2 )I
+
+5
+
+Tenemos:
+ C = 30 - I de la ecuaciA³n C + I = 30
+ C = 94 + 2I de la ecuaciA³n 5C - 2I =94
+ 5 
+
+Igualar las expresiones resultantes
+
+Como C = C entonces 30 - I = 94 + 2I
+
+5
+
+La soluciA³n de esta ecuaciA³n es:
+
+I =
+
+I = 8
+
+Selecciona una ecuaciA³n
+
+C + I = 30
+
+C + I = 30
+
+C + I = 30
+
+5C + 2I = 94
+
+5C + 2I = 94
+
+5C + 2I = 94
+
+Sustituye el valor de la incA³gnita I = 8 en la 
+ecuaciA³n seleccionada: C + I = 30
+
+C + = 30
+
+C = 
+
+C + 8 = 30
+
+La soluciA³n de la ecuaciA³n es :
+C = 22 
+
+Sustituye el valor de la incA³gnita I = 8 en la ecuaciA³n 
+seleccionada: 5C - 2I =94
+
+5C - 2 ( ) = 94
+
+5C - 2 ( 8 ) = 94
+
+multiplica 5C - = 94
+
+multiplica 5C - 16 =94
+
+La soluciA³n de esta ecuaciA³n es:
+ C = 
+
+La soluciA³n de esta ecuaciA³n es:
+ C = 22 
+
+Por IgualaciA³n
+C + I = 30
+5C - 2I =94
+IncA³gnita = I
+
+I = +
+
+I = 
+
+ I = 94 + ( )C
+
+30
+
+- C
+
+-2
+
+ I = 94 - 5C
+
+Tenemos:
+ I = 30 - C de la ecuaciA³n C + I = 30
+ I = 94 - 5C de la ecuaciA³n 5C - 2I =94
+ -2 
+
+Como I = I entonces 30 - C = 94 - 5C
+
+-2
+
+C =
+
+22
+
+C = 22
+
+Sustituye el valor de la incA³gnita C=22 en la 
+ecuaciA³n seleccionada: C + I = 30
+
++ I = 30
+
+I = 
+
+22
+
+8
+
+22 + I = 30
+
+La soluciA³n de la ecuaciA³n es :
+I = 8 
+
+Sustituye el valor de la incA³gnita C = 22 en la ecuaciA³n 
+seleccionada: 5C - 2I =94
+
+5 ( ) - 2 I = 94
+
+5 ( 22 ) - 2 I = 94
+
+multiplica - 2 I = 94
+
+multiplica 110 - 2 I = 94
+
+La soluciA³n de esta ecuaciA³n es:
+ I = 
+
+La soluciA³n de esta ecuaciA³n es:
+ I = 8 
+
+Hasta este momento haz hallado los 
+valores C=22 y I=8, te falta verificar si 
+estos valores son soluciA³n del 
+sistema, es decir, si satisfacen 
+simultA¡neamente ambas ecuaciones.
+
+Sustituye los valores obtenidos en cada una de las ecuaciones
+
+C + I = 30
+
+22 + 8 = 30
+
+30 = 30
+
+5 C - 2 I = 94
+
+5( 22 ) - 2( 8 ) = 94
+
+110 - 16 = 94
+
+94 = 94
+
+A¿Los valores satisfacen ambas ecuaciones?
+
+Si
+
+Si
+
+No
+
+No
+
+Muy bien !!, como C=22 y I=8 satisfacen la primera y la 
+segunda ecuaciA³n simultA¡neamente, entonces estos 
+valores son soluciA³n del sistema.
+
+Observa que al sustituir C=22 y I=8 se obtienen igualdades 
+verdaderas, esto significa que satisfacen ambas 
+ecuaciones simultA¡neamente.
+Por lo tanto, estos valores son soluciA³n del sistema.
+
+94
+
+ 22 correctas (C)
++ 8 incorrectas(I)
+ 30 preguntas
+
+puntos
+
+5
+
+5C
+
+5C - 
+
+5C - 2
+
+5C - 2I
+
+5C - 2I =
+
+5C - 2I = 94
+
+5C - 2I = 94
+5
+
+5C - 2I = 94
+5(22)
+
+5C - 2I = 94
+5(22) -
+
+5C - 2I = 94
+5(22) - 2
+
+5C - 2I = 94
+5(22) - 2(8)
+
+5C - 2I = 94
+5(22) - 2(8) = 
+
+5C - 2I = 94
+5(22) - 2(8) = 94
+
+5C - 2I = 94
+5(22) - 2(8) = 94
+110
+
+5C - 2I = 94
+5(22) - 2(8) = 94
+110 -
+
+5C - 2I = 94
+5(22) - 2(8) = 94
+110 - 16
+
+5C - 2I = 94
+5(22) - 2(8) = 94
+110 - 16 = 
+
+5C - 2I = 94
+5(22) - 2(8) = 94
+110 - 16 = 94
+
+5C - 2I = 94
+5(22) - 2(8) = 94
+110 - 16 = 94
+94 = 94
+
+
+

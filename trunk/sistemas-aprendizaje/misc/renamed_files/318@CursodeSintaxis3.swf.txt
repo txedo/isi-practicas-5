@@ -1,0 +1,334 @@
+
+
+
+
+
+
+PushButton
+
+ 
+
+099
+
+. 099
+
+CoordinaciA³n y OraciA³n compleja
+Tipos de oraciones compuestas
+
+OraciA³n Compuesta
+
+OraciA³n Compuesta
+
+DefiniciA³n de oraciA³n
+Recuerda que la oraciA³n presenta los siguientes rasgos:
+
+a€¢ Puede manifestar por sA­ sola un propA³sito comunicativo.
+
+a€¢ Consta, al menos de una proposiciA³n o juicio.
+
+a€¢ Presenta un sintagma verbal, con verbo en forma personal.
+
+a€¢ EstA¡ delimitada por pausas y posee una entonaciA³n propia.
+
+SegAon esta definiciA³n, las siguientes son oraciones: Pronto tendrA¡ un hijo, Amanece, Sal de aquA­, Es invierno pero hace buen dA­a, No hay quien pueda con A©l. Algunas de estas oraciones tienen mA¡s de un verbo en forma personal: son oraciones compuestas
+
+Procedimientos de ComposiciA³n
+La lengua espaA±ola dispone de dos procedimientos bA¡sicos para la composiciA³n de oraciones.
+
+a€¢ Dos o mA¡s oraciones se relacionan para formar una sola.
+Las oraciones son independientes. A esta modalidad se le llama coordinaciA³n.
+Me ha encantado tu visita pero estoy muy ocupado
+a€¢ Una oraciA³n funciona como un constituyente de otra.
+Las oraciones constituyentes de otras se llaman oraciones subordinadas .
+Me ha dicho que estaba contenta con mi trabajo
+
+a€¢ Al conjunto de dos o mA¡s oraciones coordinadas se le llama grupo oracional.
+a€¢ Las estructuras en las que hay oraciones subordinadas se llaman oraciones complejas.
+a€¢ Ambos procedimientos pueden combinarse: Me ha dicho que volverA¡ pronto y que habrA¡ cambios.
+
+Clases de Oraciones complejas
+SubordinaciA³n
+La funciA³n de una oraciA³n subordinada equivale a la de un sintagma.
+
+a€¢ Subordinadas sustantivas: funcionan como SN.
+Deseaba que regresara pronto (=su rA¡pido regreso)
+
+a€¢ Subordinadas adjetivas: funcionan como sintagmas CN.
+Se comprA³ la casa que estA¡ en la colina (= de la colina)
+
+a€¢ Subordinadas adverbiales: funcionan como SPrep o SAdv (CC y CO)
+Se retiraron cuando anocheciA³ (= entonces)
+SegAon dice el delegado (= En opiniA³n del delegado), habrA¡ huelga.
+
+
+No siempre es posible sustituir una oraciA³n subordinada por un sintagma. Probablemente, la razA³n de su
+existencia es que no todas las nociones que pueden expresarse con oraciones pueden decirse tambiA©n con
+sintagmas.
+
+
+Funciones de las oraciones subordinadas
+
+
+FUNCIA“N
+
+
+ORACIONES
+
+
+Sujeto
+
+
+Complemento
+del Nombre
+
+
+Complemento
+del Adjetivo
+
+
+Complemento
+del Verbo
+
+
+Complemento
+Oracional
+
+
+Subordinada sustantiva: Me gusta que seas sincero.
+
+Subordinada sustantiva: Tuvo la oportunidad de ascender.
+Subordinada adjetiva: El suyo era el coche que mA¡s resplandecA­a.
+
+Subordinada sustantiva: Estaba seguro de que volverA­as.
+
+Subordinada sustantiva: Quiero que vuelva (CD)
+No se acordaba de que me debA­a dinero (CR)
+Subordinada Adverbial:
+No ha llegado porque estA¡ de viaje (CC).
+
+Subordinada Adverbial: Por mucho que trabaja, no lo consigue.
+
+Seleccione el menAo Modificar &gt; Separar.
+Nota: ejecute &quot;Separar&quot; sA³lo una vez por clip de 
+pelA­cula de interacciA³n.
+Anule la selecciA³n (Crtl+MayAos+A) de las piezas.
+Haga clic en este panel. Seleccione el menAo 
+Ventana &gt; Paneles de desarrollo &gt; Inspector de 
+componentes.
+Especifique los valores de parA¡metro que desee 
+para esta instancia.
+Publique la pelA­cula para ver los resultados.
+
+1.
+
+2.
+
+3.
+
+4.
+
+5.
+
+InteracciA³n MAoltiples opciones
+
+Su pregunta aparecerA¡ aquA­.
+
+La respuesta aparecerA¡ aquA­.
+
+Su pregunta aparecerA¡ aquA­.
+
+La respuesta aparecerA¡ aquA­.
+
+InteracciA³n Arrastrar y colocar
+
+Coord
+
+
+SubSust
+
+
+SubAdj
+
+
+SubAdv
+
+
+Tal vez no haya
+mejor razA³n para
+vivir a contraco-
+rriente.
+
+
+A¿Es posible que el
+Big Ben no fuera el
+inicio del uni-
+verso?
+
+
+Con 20 aA±os con-
+trajo una enferme-
+dad que destruye
+las neuronas.
+
+
+Sus ojos vuelven a
+la pantalla y el
+ratA³n suena de
+nuevo.
+
+
+InteracciA³n Zona activa
+
+La info aparecerA¡ aquA­.
+
+AquA­ va la pregunta
+
+1. He conocido a un amigo que se queda en casa en vacaciones.
+2. Tiene la obligaciA³n de contarlo todo a los amigos.
+3. No es posible superar esa carrera sin entrenamiento adecuado.
+4. Sigue debatiA©ndose el papel que los &quot;bloggers&quot; desempeA±an entre los medios.
+5. HabA­a que tener mucho cuidado al pisar.
+6. Se ha aprovechado de que el mejor de los rivales estaba lesionado.
+
+La CoordinaciA³n
+
+a€¢ Es un procedimiento que relaciona unidades sintA¡cticas
+de la misma categorA­a y funciA³n.
+
+a€¢ Pueden coordinarse entre sA­.
+a€¢ oraciones independientes: iba y venA­a.
+a€¢ oraciones subordinadas: me preguntA³ si iba o venA­a.
+a€¢ sintagmas: el oficial y el soldado se saludaron.
+
+a€¢ ActAoan como elementos coordinantes:
+a€¢ las conjunciones coordinantes: y, pero, o, etc.
+a€¢ locuciones conjuntivas: no obstante, sin embargo, amA©n de, es decir, etc.
+a€¢ correlaciones: algunos se divertA­an, otros no.
+
+La CoordinaciA³n: Clases.
+
+a€¢ Copulativas: suman sus significados.
+Llegamos pronto, (y) vimos el panorama y nos fuimos.
+No sA³lo tuvo que tomar el tren, sino tambiA©n el autobAos.
+
+a€¢ Disyuntivas: presentan sus significados como alternativos.
+a€¢ excluyentes: lo conseguiremos o nos dejaremos la piel en el empeA±o.
+a€¢ no excluyentes: se inscriben los que estA¡n empadronados o los que trabajan aquA­.
+
+a€¢ Distributivas: sus significados son alternativos y la coordi-
+naciA³n se establece mediante correlaciones:
+unos dA­as limpiaban las calles, otros la playa.
+
+a€¢ Adversativas: contraste de significados entre dos elementos.
+no escribe cartas, pero (sino que) llama mucho por telA©fono
+
+a€¢ Explicativas: aclaran el significado de la unidad precedente.
+Eso lo hace para hacer daA±o; o sea, para fastidiarme
+
+Su pregunta aparecerA¡ aquA­.
+
+La respuesta aparecerA¡ aquA­.
+
+C.Cop
+
+
+C.Adv
+
+
+C.Disy
+
+
+C.Dist
+
+
+C.Exp
+
+
+1. No parecA­an
+nubes sino
+pedazos de
+espuma.
+
+
+2. Son a‚¬60 mA¡s
+el IVA; es
+decir, a‚¬69,60.
+
+
+3. EscampA³ y
+salieron a toda
+prisa.
+
+
+4. TAo verA¡s: o
+estA¡s con no-
+sotros o con
+ellos.
+
+
+5. Algunos
+pueden hablar;
+la mayorA­a
+callarA¡.
+
+
+InteracciA³n Verdadero o falso
+
+Su pregunta aparecerA¡ aquA­.
+
+La info aparecerA¡ aquA­.
+
+Su pregunta aparecerA¡ aquA­.
+
+La respuesta aparecerA¡ aquA­.
+
+1.Se esfuerza
+mucho, y le
+sale todo mal.
+
+
+2. Todos los
+felinos (y los
+gatos entre
+ellos) cazan
+por instinto.
+
+
+3. AnocheciA³ y
+volvimos a la
+ciudad.
+
+
+La info aparecerA¡ aquA­.
+
+AquA­ va la pregunta
+
+1. He conocido a un amigo y a una amiga que se quedan en casa en vacaciones.
+2. Tiene la obligaciA³n de contarlo y explicarlo todo a los amigos.
+3. No es posible superar esa carrera sin entrenamiento, pero sA­ participar en ella.
+4. Sigue debatiA©ndose el papel que los &quot;bloggers&quot; desempeA±an entre los medios.
+5. HabA­a que tener mucho cuidado o podA­as caerte.
+6. Se ha aprovechado de que el mejor de los rivales estaba lesionado; o sea, no podA­a jugar..
+
+Su pregunta aparecerA¡ aquA­.
+
+La respuesta aparecerA¡ aquA­.
+
+1. es decir, o
+sea, mejor
+dicho...
+
+
+2. y (e), ni.
+
+
+3. o, o bien.
+
+
+3. sin embargo,
+pero, no
+obstante...
+
+
+
+

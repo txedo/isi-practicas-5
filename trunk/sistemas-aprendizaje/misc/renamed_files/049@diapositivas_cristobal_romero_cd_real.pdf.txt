@@ -1,0 +1,216 @@
+Mineria de Datos en Educacion
+Cristobal Romero Morales
+(cromero@uco.es)
+
+Departamento de Informatica y Analisis Numerico. Grupo de Investigacion AYRNA. Universidad de Cordoba
+
+Contenido de la exposicion
+Introduccion a EDM
+Conceptos basicos, Proceso y Actores Objetivos
+
+Tecnicas empleadas en EDM
+Estadistica Visualizacion Clasificacion Clustering Asociacion Patrones de secuencia Mineria de textos
+
+Lineas futuras Referencias
+
+Introduccion
+
+Introduccion
+El desarrollo de sistemas de ensenanza basada en web se ha incrementado exponencialmente en los ultimos anos: Moodle, Ilias, WebCT, Atutor, etc. Estos sistemas almacenan una informacion de la interaccion con los estudiantes que no se suele utilizar.Pero debido al gran cantidad de datos de utilizacion se necesitan herramientas para facilitar el descubrimiento de informacion, y no solo utilizarlos para el seguimiento y la evaluacion de los alumnos. Las tecnicas de mineria de datos se han aplicado con exito en los sistemas de e-commerce, donde el objetivo es maximizar la compra de los clientes. Se estan comenzando a utilizar en sistemas de e-learning, para maximizar el aprendizaje de los estudiantes. Aunque existen sistemas genericos de mineria de datos: Weka, Clementine, DBMiner, etc. se necesita herramientas especificas en educacion debido a la especifidad de los usuarios y los objetivos.
+
+Introduccion
+La Mineria de Datos es el proceso de descubrimiento de conocimiento para encontrar informacion no trivial, desconocida y potencialmente util de grandes repositorios de datos. La Mineria de Datos es uno de los pasos que componen el Proceso de Descubrimiento de Conocimiento en Bases de Datos o KDD (Knowledge Discovery in DataBases):
+
+La Mineria de datos Web (Web Mining) consiste en la aplicacion de tecnicas de mineria de datos para extraer conocimiento a partir de datos de la Web.
+Mineria de Contenidos Web (Web Content Mining) Mineria de Estructura Web (Web Structure Mining) Mineria de Utilizacion Web (Web Usage Mining)
+
+Introduccion
+La Mineria de Datos Educativa (educational data mining, EDM) es la aplicacion de tecnicas de mineria de datos a informacion generada en los entornos educativos. Las primeras referencias del area datan entre 1995 y 2000. Se ha experimentado un crecimiento notable en las publicaciones sobre el tema en los ultimos anos. Se han organizado varios workshops especificos del tema, y ya existe un congreso internacional monografico sobre EDM.
+
+Se ha formado un grupo de trabajo internacional sobre investigacion en EDM: http://www.educationaldatamining.org/
+
+Introduccion
+EDM: Proceso y actores
+
+Introduccion
+Objetivos del EDM El conocimiento que puede extraerse de los sistemas educativos es muy diverso. El objetivo que nos marcamos al intentar aplicar tecnicas de EDM depende de:
+Entorno en el que nos situamos
+Ensenanza presencial Ensenanza a distancia
+
+A quien va dirigido el conocimiento que extraigamos
+Alumnos Profesores Autoridades academicas
+
+Introduccion
+Objetivos del EDM ­ Tipos de Sistemas Educativos Sistemas Educativos Tradicionales. Ensenanza presencial, cara a cara. (primaria, secundaria, superior, especial, etc.) Recomendacion de matriculacion en cursos, detectar posibles fracasos, etc. Sistemas de ensenanza a distancia basados en web.
+Cursos propios y foros educativos en web. Recomendar material, noticias, etc.. Sistemas de Manejo de Cursos (CMS) y Aprendizaje (LMS). Realizar sugerencias y reestructuracion del curso. Sistemas Adaptativos y/o Inteligentes Adaptativos para Educacion basada en Web (AHS/ITS). Mejorar adaptacion y personalizacion.
+
+Introduccion
+Objetivos del EDM ­ Punto de vista del estudiante
+Que actividades, recursos y tareas podrian mejorar su rendimiento academico. Que actividades se ajustan mejor al perfil de un determinado alumno. Que camino recorrer para obtener un resultado concreto:
+Basandonos en conocimiento del camino ya recorrido por el alumno y su exito. Por comparacion con lo realizado por otros alumnos de caracteristicas analogas.
+
+Introduccion
+Objetivos del EDM ­ Punto de vista del profesor
+Cuantificar la efectividad del proceso de ensenanza-aprendizaje Organizar los contenidos de un curso Mejorar o corregir la estructura del curso Clasificar o agrupar alumnos en base a sus caracteristicas
+Tutorizacion Asesoramiento De cara a monitorizar conocimiento interesante
+
+Buscar patrones de comportamiento en alumnos
+Patrones generales Patrones anomalos
+
+Evaluar las actividades realizadas en un curso
+Efectividad Motivacion
+
+Monitorizar actividades:
+Errores mas frecuentes en la realizacion de actividades Grado de dificultad de una actividad
+
+Personalizar y adaptar el contenido de cursos
+Disenar planes de instruccion
+
+Introduccion
+Objetivos del EDM ­ Punto de vista de las instituciones educativas
+Mejora de la eficiencia del sitio web y adaptacion de este a los habitos de sus usuarios:
+Tamano de servidor optimo Distribucion de trafico en la red
+
+Organizacion de los recursos institucionales
+Diseno de horarios Adquisicion de material
+
+Mejora de la oferta educativa
+Programas orientados a demanda Orientacion de alumnos en base a
+Objetivos Capacidades
+
+Tecnicas empleadas en EDM
+
+Tecnicas empleadas en EDM
+Las tecnicas empleadas son las mismas que se utilizan en cualquier campo de aplicacion de la mineria de datos. Los usuarios finales de las herramientas son los agentes implicados en el proceso educativo, por lo que:
+El objetivo final es mejorar el aprendizaje Los algoritmos deben de ser faciles de configurar Los resultados deben de ser faciles de interpretar
+
+Tareas de DM que se han utilizado en educacion:
+Estadisticas Visualizacion de informacion Clasificacion Clustering Asociacion y patrones de secuencia Mineria de Textos
+
+Proceso especifico de ejemplo: Mineria de Datos Moodle
+
+Tecnicas empleadas en EDM
+Estadisticas
+Las estadisticas sobre la utilizacion del curso es la primera tecnica de evaluacion empleada en los sistemas de e- learning, aunque no se suele considerar como mineria de datos. Algunos ejemplos de estadisticos empleados son:
+Numero total de visitas al curso. Numero total de visitas por pagina y/o actividad. Paginas/Actividades mas y menos visitadas Tiempos de acceso al curso y a paginas/actividades. Medias de las puntuaciones obtenidas en las actividades/test. ...
+
+Utilizando estos datos, el profesor puede tener informacion general sobre el curso, incluso podria detectar algunos problemas evidentes.
+
+Tecnicas empleadas en EDM
+Estadisticas - Moodle
+Analisis de los Items o Preguntas de un Quiz/Test de Moodle. Pueden tambien guardarse en formato Excel para posteriores analisis.
+
+Tecnicas empleadas en EDM
+Visualizacion de informacion
+Construyen imagenes digitales interactivas o animadas orientadas a que los usuarios puedan comprender grandes cantidades de informacion. Existen varias herramientas de visualizacion para los sistemas educativos:
+CourseVis (http://www.comp.leeds.ac.uk/vania/umuas/coursevis.html) es una herramienta que permite visualizar informacion generada en los ficheros de log de WebCT. GISMO (http://gismo.sf.net) es un proyecto analogo al anterior (de hecho, el autor es la misma persona ­ R. Mazza) pero que extrae la informacion de las tablas que almacenan la informacion en el sistema Moodle.
+
+Tecnicas empleadas en EDM
+Visualizacion de informacion - GISMO
+Grafica que muestra la informacion de acceso a un curso
+
+Grafica que muestra la informacion de acceso a los recursos por parte del alumnado
+
+Tecnicas empleadas en EDM
+Clasificacion
+A partir de un conjunto de patrones de entrenamiento etiquetados hemos de ser capaces de etiquetar nuevos patrones. Metodo de aprendizaje supervisado. Metodos precisos vs. metodos interpretables. Suelen preferirse los segundos, para:
+Poder contrastar las conclusiones alcanzadas con el conocimiento de los expertos humanos. Que de los modelos pueda extraerse informacion util por parte de los usuarios del proceso de EDM
+
+Algoritmos empleados:
+C4.5 y C5.0 (Chen et al., 2000) Naive Bayes (Ueno, 2004) Algoritmos evolutivos (Minaei & Punch, 2003)
+
+Tecnicas empleadas en EDM
+Clasificacion ­ Algunas aplicaciones
+Descubrir grupos potenciales de estudiantes con caracteristicas similares, para definir una determinada estrategia pedagogica (Chen et al, 2000). Predecir el rendimiento de estudiantes y su calificacion final (Minaei-Bidgoli & Punch, 2003) Detectar estudiantes que hacen un mal uso de las instalaciones o que juegan (Baker et al., 2004). Agrupar los estudiantes en (a) guiados a traves de consejos y (b) a traves de fallos y encontrar los conceptos erroneos que presentan con mas frecuencia (Yudelson et al., 2006). Identificar alumnos con una motivacion baja y encontrar remedio al problema de abandono de los estudios (Cocea & Weibelzahl, 2006).
+
+Tecnicas empleadas en EDM
+Clasificacion ­ Un ejemplo con datos de Moodle
+Datos de alumnos de la Universidad de Cordoba. Intentamos establecer una relacion entre la calificacion final y la participacion en las actividades planteadas a los alumnos a traves de la plataforma Moodle. Informacion disponible:
+Participacion en las distintas actividades Calificacion final discretizada (excellent, good, pass & fail)
+
+Utilizamos el algoritmo C4.5 disponible en la herramienta de Data Mining KEEL (http://www.keel.es). Las reglas extraidas del arbol de decision son indican, por ejemplo, que los alumnos que sacan una elevada calificacion en los cuestionarios suele sacar una elevada calificacion final...
+
+Tecnicas empleadas en EDM
+Clustering
+Establecer grupos de objetos que presentan caracteristicas similares. Metodo no supervisado. Algoritmos principales:
+Jerarquicos: single-link, complete-link Basados en funcion objetivo: K medias, expectation maximization
+
+Algunas aplicaciones:
+Descubrir patrones que reflejen comportamientos analogos en los usuarios, de cara a que, cuando se les incluya en espacios de colaboracion comunes, se asegurar un incremento de la actividad (Talavera & Gaudioso, 2004). Agrupar estudiantes para establecer itinerarios de educacion personalizados (Mor y Minguillon, 2004). Agrupar estudiantes segun sus destrezas y otras caracteristicas, para a realizar tutorias de forma personalizada (Hamalainen et al., 2004). Agrupar alumnos de caracteristicas similares para promover un aprendizaje colaborativo basado en grupos (Tang & McCalla, 2005). Agrupan test y cuestiones en grupos relacionados basandose en datos de una matriz de puntuaciones (Spacco et al., 2006).
+
+Tecnicas empleadas en EDM
+Clustering ­ Un ejemplo con datos de Moodle
+El objetivo es agrupar a los estudiantes de un determinado curso en diferentes grupos, relacionados con las actividades realizadas en Moodle. Para llevar a cabo los experimentos debemos tomar la informacion de la base de datos y llevarla a una aplicacion de mineria de datos (Moodle no dispone aun de un sistema de extraccion de conocimiento integrado). Weka (http://www.cs.waikato.ac.nz/ml/weka/) es la herramienta elegida para realizar el clustering con los datos obtenidos. Utilizamos algoritmo K-medias.
+
+Tecnicas empleadas en EDM
+Clustering ­ Un ejemplo con datos de Moodle
+Se obtienen tres grupos de caracteristicas distintas:
+Grupo 0. Formado por alumnos que no realizan las tareas asignadas, que leen una muy baja proporcion de mensajes de los foros, realizan muy pocos cuestionarios, y pasan muy poco tiempo en las actividades tarea, cuestionario y foro (es decir, participan muy poco). Grupo 1. Alumnos que envian bastantes mensajes al foro (1.22 en media), leen alrededor de 3 mensajes, realizan un elevado numero de cuestionarios, acertando un porcentaje elevado de estos y pasan un tiempo elevado en las actividades tarea, cuestionario y foro. Grupo 2. Valores un poco inferiores a los del grupo 1 pero superiores a los del grupo 0.
+
+Tecnicas empleadas en EDM
+Asociacion
+El objetivo de la mineria de reglas de asociacion es establecer reglas que asocian conceptos que se encuentran en columnas (atributos) diferentes de una misma base de datos. Principales algoritmos:
+Apriori. Es el primero y mas popular Variantes del A priori: A priori-TID, DIC, Eclac, FP-Growth...
+
+Algunas aplicaciones de los algoritmos de asociacion:
+Busqueda de relaciones entre cada patron de comportamiento de los estudiantes (Yu et al, 2001). Construccion de agentes que recomiendan y generan de forma inteligente materiales didacticos para los estudiantes (Zaïane, 2002). Guiar la busqueda de modelos de comportamiento del estudiante mas fiables (Freyberger et al., 2004).
+
+Tecnicas empleadas en EDM
+Asociacion
+Algunas otras aplicaciones de los algoritmos de asociacion:
+Guiar la actividad del estudiante de forma automatica y generar y recomendar automaticamente materiales didacticos (Lu, 2004). Buscar errores de los estudiantes que suelen ocurrir conjuntamente (Merceron & Yacef, 2004). Identificar atributos que caracterizan patrones de disparidad de rendimiento entre grupos de estudiantes (Minaei-Bidgoli et al., 2004). Descubrir relaciones interesantes entre la informacion generada por los estudiantes en un sistema adaptativo (usage information), orientadas a retroalimentar el curso (Romero et al., 2004). Para determinar que materiales didacticos son los mas apropiados para recomendar a los alumnos (Markellou et al, 2005). Para optimizar el contenido de un portal de e-learning determinando que es lo que mas interesa a los usuarios (Ramli, 2005).
+
+Tecnicas empleadas en EDM
+Asociacion ­ Ejemplo con datos de Moodle
+Herramienta INDESHAC:
+La distribucion estandar de Moodle no dispone de cursos adaptativos. El grupo EATCO de la Universidad de Cordoba ha desarrollado una herramienta autor INDESHAC que permite la construccion de cursos adaptativos dentro del sistema Moodle de una forma sencilla. Estos cursos pueden utilizar todos los recursos disponibles en Moodle, y organizan su contenido por niveles, de forma analoga a como lo hace AHA!
+
+Algoritmos de Asociacion:
+A priori. A veces no es sencillo elegir los valores de soporte y confianza para que el numero de reglas no sea demasiado amplio o demasiado reducido. A priori Predictivo. Se define un unico parametro, el numero de reglas que se presentan al usuario.
+
+Tecnicas empleadas en EDM
+Asociacion ­ Ejemplo con datos de Moodle
+
+Tecnicas empleadas en EDM
+Patrones de secuencia
+Descubrir patrones entre sesiones. Algoritmos principales: AprioriAll, GSP, SPADE, PrefixSpan, CloSpan, FreSpan Algunas aplicaciones:
+Dar una indicacion de como organizar mejor el espacio educativo web y ser capaz de hacer sugerencias a los estudiantes que comparten caracteristicas similares (Ha et al., 2000). Evaluar las actividades del estudiante y personalizar el envio de recursos (Zaïane & Luo, 2001). Llevar a cabo la evluacion y validacion de disenos de sitios web educativos (Machado & Becker, 2003). Comparar los caminos extraidos con otros patrones de comportamiento ideales, especificados por el disenador del curso o por el educator (Pahl & Donnellan, 2003). Generar actividades personalizadas para distintos grupos de estudiantes (Wang et al., 2004). Identificar secuencias de interaccion indicativas de problemas y patrones que son indicativos de exito (Kay et al., 2006).
+
+Tecnicas empleadas en EDM
+Patrones de secuencia ­ Un ejemplo con datos de Moodle
+
+Algoritmo PrefixSpan con un umbral de soporte 30 (al menos 30 % de los alumnos deben cumplir cada uno de los patrones extraidos)
+
+Herramienta especifica de Mineria de Reglas de Secuenciacion
+
+En Moodle los patrones de navegacion se representan como secuencias lineales de elementos con tres componentes (nombre del modulo : accion : URL).
+
+Tecnicas empleadas en EDM
+Text Mining
+Extension de las tareas de mineria de datos a datos textuales. Conjunto de disciplinas que incluyen la mineria de datos, recuperacion de informacion y procesamiento del lenguaje natural. Algunas aplicaciones:
+Dar soporte a los autores en el desarrollo de materiales (Grobelnik et al, 2002.) Buscar y organizar material utilizando informacion semantica (Tane et al., 2004) Para evaluar el progreso de un foro de discusion y ver que contribuciones se estan haciendo al debate (Dringus & Ellis, 2005). Agrupar documentos en base a temas y similaridades. Producir resumenes de documentos (Hammouda & Kamel, 2006). Detectar el foco de la conversacion en hilos de discusion, clasificando temas y estimando la profundidad tecnica de una contribucion (Kim et al., 2006).
+
+Tecnicas empleadas en EDM
+Text Mining ­ Un ejemplo con datos de Moodle
+Pretendemos extraer terminos concretos del contenido de los foros de un determinado curso Moodle. Software KEA http://www.paynter.info/academia/Kea.php para mineria de textos. Existen dos tablas relacionadas con los datos de los foros:
+forum_read: Relacionada con los mensajes que se han leido forum_post: Relacionada con los envios de mensajes
+SELECT message FROM moodle.mdl_forum_post where discussion=93
+
+La informacion extraida se pone en ficheros de texto. El algoritmo extraera palabras clave analizando la informacion contenida en estos ficheros (contenido de los foros). Podemos analizar si las palabras clave descubiertas por el algoritmo coinciden con las proporcionadas por el profesor (a traves de un fichero aparte).
+En caso afirmativo, el uso de los foros es correcto. En otro caso, puede que se esten usando inadecuadamente
+
+Lineas Futuras
+
+Lineas Futuras
+Aplicar otras tareas y tecnicas de DM a educacion:
+Analisis de outliers Analisis de redes sociales Descubrimiento de subgrupos Mineria de datos hipermedia Mineria de semantica web
+
+Estandarizacion de metodos y datos en Educacion Desarrollo de herramientas de mineria de datos mas faciles e intuitivas de utilizar, orientadas para personas no expertas en mineria de datos, sino en educacion. Integracion de las herramientas de mineria de datos dentro de las propios sistemas autor de construccion y mantenimiento de los LMS, cursos, etc.
+
+Referencias
+
+Referencias
+Data Mining in E-Learning. C. Romero & S. Ventura (Eds). Editorial WIT Press, 2006.
+
+C. Romero & S. Ventura. Educational Data Mining: A survey from 1995 to 2005. Expert Systems with Applications 33:1 135-146, 2007. C. Romero, S. Ventura & E. Garcia. Data Mining in course management systems: Moodle case study and tutorial. Computers and Education (In press), 2008.
+

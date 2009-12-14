@@ -1,0 +1,344 @@
+Biblioteca Virtual en Ciencias de la Salud
+
+Los Objetos de Aprendizaje:
+Aprender y ensenar de forma interactiva.
+
+Angel Poveda ­ Biblioteca de Biologia angelpoveda@usal.es
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biblioteca Virtual en Ciencias de la Salud
+
+De la clase magistral a las clases virtuales ·Sustitucion de la clase por plataformas educativas: Moodle, WEBct, Claroline... Pizarravirtual ·Sustitucion de apuntes por PDF ·Sustitucion del soporte textual por soportes audiovisuales
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Nuevos entornos de ensenanza y aprendizaje
+Biblioteca Virtual en Ciencias de la Salud
+
+·Autoformacion : ALFIN autoaprendizaje a lo largo de la vida. ·Bolonia y los nuevos tipos de ensenanza :
+-Flexibilizacion de la ensenanza superior,
+
+modalidades abiertas y a distancia -Optimizacion de esfuerzos: recursos compartidos de forma interinstitucional
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Tres ejemplos de los nuevos soportes
+Biblioteca Virtual en Ciencias de la Salud
+
+·Revistas: Journal of visualized experiments ·Enciclopedias virtuales: Kalipedia ·Los Objetos de Aprendizaje ·Animaciones de Biologia Celular ·Introduccion a la Biologia Celular ·Cell´s Alive
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biblioteca Virtual en Ciencias de la Salud
+
+·Los Objetos de Aprendizaje ·Translation Detail (protein synthesis) ·Chromosome 11 flyover ·Becoming human
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biblioteca Virtual en Ciencias de la Salud
+
+¿Que son los Objetos de Aprendizaje? Materiales digitales educativos disenados y creados en pequenas unidades con el proposito de reutilizarse en otras sesiones de aprendizaje
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biblioteca Virtual en Ciencias de la Salud
+
+Caracteristicas ·Contenido educativo ·Reutilizables ·Modificables ·Interactivos ·Formatos y caracterizacion estandarizados ·Granularidad variable
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biblioteca Virtual en Ciencias de la Salud
+
+Tipologias por presentacion ·Videos ·Animaciones ·Ejercicios y cuestionarios ·Simulaciones de laboratorio ·Graficos e ilustraciones, etc.
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biblioteca Virtual en Ciencias de la Salud
+
+Tipologias por formato ·HTML ·JPEG ·Flash ·GIF, etc
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Estructura de las actividades autoformativas
+Biblioteca Virtual en Ciencias de la Salud
+
+· Sin tutor:
+
+el alumno las puede realizar
+
+individualmente · El sistema revisa la actividad y presenta los resultados al estudiante
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Estructura de las actividades autoformativas
+Biblioteca Virtual en Ciencias de la Salud
+
+Aprendizaje dirigido (secuencial):
+-No hay ninguna interaccion con el usuario -Los contenidos se presentan al alumno de una manera predefinida
+
+Aprendizaje guiado por el propio alumno:
+-El alumno decide los contenidos que desea visualizar.
+
+Aprendizaje adaptativo:
+-El sistema decide la secuencia segun la evolucion del alumno.
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Localizar los objetos de aprendizaje
+Biblioteca Virtual en Ciencias de la Salud
+
+·Apartado Educational Resources: instituciones educativas, entidades de investigacion y corporaciones privadas. ·Repositorios de Objetos de Aprendizaje
+
+Programas relacionados con la educacion en Europa Leonardo:http://ec.europa.eu/education/programmes/leonardo /leonardo_en.html Minerva:http://ec.europa.eu/education/programmes/socrates/ minerva/index_en.html
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+¿Que son los repositorios de OA?
+Biblioteca Virtual en Ciencias de la Salud
+
+Plataformas que facilitan la clasificacion, localizacion y uso entre los miembros de los consorcios o abiertas al publico en general . Contienen enlaces a los objetos de aprendizaje localizados en diferentes lugares de la red. Otros los almacenan ellos mismos y facilitan las herramientas para su construccion y empaquetamiento.
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Proyecto Agrega:
+Biblioteca Virtual en Ciencias de la Salud
+
+Mo de Educacion, Mo de Industria y consejerias de las CCAA: iniciativa gubernamental RED.ES Objetivos:
+·Crear una federacion de repositorios con contenidos digitales educativos ya existentes. ·Imponer ciertos estandares en su elaboracion.
+
+Mini-site explicativo del proyecto: www.proyectoagrega.es
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biblioteca Virtual en Ciencias de la Salud
+
+Proyecto Biosfera: Elaborado por el Ministerio de Educacion es un precursor de los ROA que no presenta metadatos, ni son modificables ni descargables y se ordenan por tipos de material. Se encuadra dentro del CNICE http://recursos.cnice.mec.es/biosfera/profesor/ recursos.htm
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+CNICE
+Biblioteca Virtual en Ciencias de la Salud
+
+(Centro Nacional de informacion y comunicacion educativa)
+
+Recursos educativos organizados por nivel de ensenanza que alcanzan hasta educacion superior. Suborganizadas por tematica. Pueden descargarse o acceder a la web de origen http://www.cnice.mec.es/profesores/descargas/
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Atenex (Consejeria de Extremadura)
+Biblioteca Virtual en Ciencias de la Salud
+
+Orientado a educacion no superior, contiene pocos OA, accesibles por materia y generalmente se limitan a imagenes. Materiales editables y modificables. Ofrece software para construir los materiales similar a una pelicula de flash adaptada a los estandares SCORM y una plantilla de metadatos para catalogarlos http://atenex.educarex.es/index.do
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Moreo
+Biblioteca Virtual en Ciencias de la Salud
+
+Universidad de Santiago de Compostela La mayoria de los recursos no estan estandarizados Es preciso registrarse y permite un acceso de invitado http://www.usc.es/morea/
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Edikiak
+Biblioteca Virtual en Ciencias de la Salud
+
+Buscador de recursos educativos. Recopila enlaces principalmente en Euskera. www.edukiak.info
+
+Colombiaaprende
+Libre previo registro. Clasificados por tematica y destinados a educacion superior. Enlace al objeto o posibilidad de descargarselo y modificarlo http://www.colombiaaprende.edu.co/html/directivos/1598/ article-99543.html
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Merlot
+Biblioteca Virtual en Ciencias de la Salud
+
+Pauta para el desarrollo y tendencia de los ROA. Repositorio centralizado que contiene solo los metadatos y apunta a los objetos ubicados en emplazamientos remotos. Provee busquedas y otros servicios personalizados. Importacion y exportacion de objetos.
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Merlot
+Biblioteca Virtual en Ciencias de la Salud
+
+Acceso abierto. Solo los miembros pueden agregar objetos. Para ser miembro solo se precisa que inscribirse. Revision por pares para evaluar la calidad de los objetos. http://www.merlot.org/
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Teacher's domain
+Biblioteca Virtual en Ciencias de la Salud
+
+Videos, presentaciones y animaciones principalmente sobre ciencias e ingenieria. Para poder descargarlos hay que registrarse gratuitamente. Incluye descripcion del recurso y un pequeno guion. Preguntas para profundizar en el tema. Segun los recursos necesitara instalar QuickTime, Flash u otros. http://www.teachersdomain.org/
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biointeractive
+Biblioteca Virtual en Ciencias de la Salud
+
+Archivo de videos, animaciones, lecciones y laboratorios virtuales elaboradas por Howard Hughes Medical Institute. Organizado por temas o tipos de recurso. Descargable y no estandarizado. Precisa instalar Macromedia Shockwave.
+http://www.hhmi.org/biointeractive/vlabs/index.html
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+The Maricopa Learning eXchange
+Biblioteca Virtual en Ciencias de la Salud
+
+Archivo multidisciplinar. Incluye descripcion de metadatos y link al emplazamiento originario. Seleccione su tematica en "Brow by subject" y obtendra un listado de resultados http://www.mcli.dist.maricopa.edu/mlx/
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+GEM (Gateway to Educational Materials)
+Biblioteca Virtual en Ciencias de la Salud
+
+Proyecto del Departamento de Educacion de los EEUU, originalmente conocido como National Library in Education Advisory Task Force . Acceso libre. Interoperabilidad entre multiples bases de datos a traves de la extraccion de los metadatos. http://www.thegateway.org/
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+SMETE (Science Mathematics Engineering & Technology Ed.)
+Biblioteca Virtual en Ciencias de la Salud
+
+Repositorio distribuido, que integra de forma federada las colecciones de varias bibliotecas de recursos educativos. Acceso libre para la consulta. Para realizar busquedas pulsar FIND y escribir en KEYWORDS "learning objects" seguido de la especialidad en la que este interesado. http://www.smete.org/smete/
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biblioteca Virtual en Ciencias de la Salud
+
+CLOE (Co-operative Learning Object Exchange) Modelo cooperativo para el desarrollo, uso y reutilizacion de objetos de aprendizaje. Proyecto de la Universidad de Waterloo en el que participan 17 universidades de Ontario. Solo tienen acceso a su coleccion los miembros de dichas universidades. http://cloe.desire2learn.com/
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biblioteca Virtual en Ciencias de la Salud
+
+ARIADNE-SILO (Search & Index Learning Objects) Proyecto europeo accesible en doce lenguas Acceso libre previa solicitud de registro http://ariadne.cs.kuleuven.be/silo2006/Welcom e.do;jsessionid=3941026FFED2896392EA09C FD87A2510
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+eduSourceCanada
+Biblioteca Virtual en Ciencias de la Salud
+
+Propuesta para crear una red de ROA en Canada, uniendo los principales repositorios creados en este pais y otros externos con una infraestructura abierta e interoperable. De momento ofrece informacion sobre los repositorios existentes y su forma de acceso. http://www.edusource.ca/
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+CeLeBraTe (Context eLearning with Broadband Technologies)
+Biblioteca Virtual en Ciencias de la Salud
+
+Proyecto para el intercambio de los recursos digitales educativos de los miembros de la European Learning Network Repositorio centralizado donde cada miembro tiene la opcion de conservar, total o parcialmente, la administracion local de los metadatos de su coleccion. http://celebrate.eun.org/eun.org2/eun/en/index_ celebrate.cfm
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Necesidad de estandarizar los OA
+Biblioteca Virtual en Ciencias de la Salud
+
+Los productores de OA utilizan diferentes herramientas para crear OA, puestos a disposicion de los usuarios en los repositorios. Los usuarios los utilizan para generar nuevos contenidos (reutilizacion). Para acceder a los OA se realizan busquedas basados en esquemas de meta-datos. La reutilizacion entre sistemas distintos requiere que los OA esten estandarizados.
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Desarrolladores de estandares
+Biblioteca Virtual en Ciencias de la Salud
+
+·IMS (Instructional Management System Proyect) ·AICC (Aviation Industry) ·CBT (Computer Based Training Committee) ·ARIADNE (Alliance of Remote Instruction Authoring &
+Distribution Networks for Europe)
+
+·IEEE (Institute of Electric & Electronic Engineers) ·Learning Technology Standards Committee.
+Programas para integrarlos: "The Advanced Distributed Learning Initiative" "eduSource"
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Metadatos LOM
+Biblioteca Virtual en Ciencias de la Salud
+
+IEEE cuenta con el estandar de meta-datos LOM (Learning Object Metadata): esquema de metadatos acreditado para tecnologia de aprendizaje. El proposito de este estandar es simplificar las operaciones de busqueda, gestion e intercambio de objetos de aprendizaje dentro de la web.
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+LOM : Informacion general que describe el OA
+Biblioteca Virtual en Ciencias de la Salud
+
+·Identificador ·Titulo ·Entrada de catalogo ·Lengua ·Descripcion ·Cobertura ·Estructura ·Nivel de agregacion
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Biblioteca Virtual en Ciencias de la Salud
+
+LOM : Ciclo de vida ·Version ·Estatus ·Otros colaboradores
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+LOM : Informacion sobre los metadatos
+Biblioteca Virtual en Ciencias de la Salud
+
+·Identificador ·Entrada de catalogo ·Otros colaboradores ·Esquema de metadatos ·Lengua
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+LOM : Requisitos y caracteristicas tecnicas del OA
+Biblioteca Virtual en Ciencias de la Salud
+
+·Formato ·Tamano ·Ubicacion ·Requisitos ·Comentarios sobre la instalacion ·Otros requisitos para plataformas ·Duracion
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+LOM : Uso educativo del recurso.
+Biblioteca Virtual en Ciencias de la Salud
+
+·Tipo de interactividad ·Tipo recurso de aprendizaje ·Nivel de interactividad ·Densidad semantica ·Usuario principal ·Contexto [Nivel educativo] ·Edad ·Dificultad ·Tiempo previsto aprendizaje ·Descripcion ·Lengua
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+LOM : Condiciones de explotacion del recurso.
+Biblioteca Virtual en Ciencias de la Salud
+
+·Coste ·Copyright y otras restricciones ·Descripcion
+
+LOM : Relacion con otros OA ·Tipo [naturaleza de la relacion] ·Recurso [recurso principal]
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+LOM : Comentarios sobre el uso educativo del OA.
+Biblioteca Virtual en Ciencias de la Salud
+
+·Persona ·Fecha ·Descripcion LOM : Descripcion tematica y clasificacion del OA ·Finalidad ·Nivel taxon (taxonomico) ·Descripcion ·Descriptor
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+SCORM (Sharable Content Object Reference Model)
+Biblioteca Virtual en Ciencias de la Salud
+
+1997 EEUU lanza una iniciativa para la formacion universal a distancia: ADL (Advanced Distributed Learning) y tres anos despues, SCORM (Modelo Referenciado de Objetos de Contenido Compartible). Especificaciones para desarrollar, empaquetar y entregar materiales educativos de calidad. Principios: reutilizacion, accesibilidad, duracion e interoperabilidad.
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Componentes de SCORM
+Biblioteca Virtual en Ciencias de la Salud
+
+· Modelo de Agregacion de Contenidos:
+-LOM: almacenamiento, identificacion, condiciones para el intercambio y recuperacion. -Codificar los archivos XML que sean legibles por ordenador. -Empaquetar el conjunto de una coleccion de OA: zip + manifest.XML
+
+· Entorno de ejecucion: comandos de ejecucion entre el OA y la plataforma que lo alberga · Secuenciamiento y navegacion: presentacion de los contenidos segun la navegacion hecha por el usuario. Arboles de actividades.
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+RELOAD (Reusable Learning Object Authoring & Delivery)
+Biblioteca Virtual en Ciencias de la Salud
+
+· Software libre para la creacion de contenidos en un paquete Scorm · Financiado por la JISC (Joint Information Systems Committee) · Disponible en version espanola. · Descarga gratuita: http://www.reload.ac.uk
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+CourseGenie
+Biblioteca Virtual en Ciencias de la Salud
+
+· Software comercial desarrollado por Wimba · Funciona como plugin de Microsoft Word · Genera OA en HTML con Scorm a partir de textos en Word · Descargable version de prueba: http://www.wimba.comproductscoursegenie/
+
+Los Objetos de Aprendizaje: aprender y ensenar de forma interactiva.
+
+Otro Software
+Biblioteca Virtual en Ciencias de la Salud
+
+Dokeos: comercial aunque libera funcionalidades "desfasadas":
+· · · · · · · · Conversion de PowerPoint en itinerario formativo Videoconferencia integrada Plantillas y estilos para crear contenido rapidamente Motor de busqueda Nuevos tipos de preguntas: imagenes sensibles y respuestas abiertas Paneles de informacion exportables a MS-Excel Encuestas Blogs educativos
+
+CLAROLINE :
+
+codigo abierto y software libre, antecesor de DOKEOS
+

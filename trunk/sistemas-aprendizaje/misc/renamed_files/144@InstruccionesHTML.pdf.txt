@@ -1,0 +1,76 @@
+Manual Basico de HTML
+Creacion y Estructura de Paginas WEB
+
+3.3 Instrucciones HTML Estas tres etiquetas fundamentales son:   Indica al navegador que el documento texto que esta leyendo es un documento HTML. Esta etiqueta se abre al inicio del archivo y se cierra al final del mismo.   Aca se detalla el encabezado de la pagina WEB. Esta etiqueta se abre luego de .   Cuerpo de la pagina donde se despliega el contenido global. Esta etiqueta se abre luego de cerrar el encabezamiento con  y se extiende hasta el final de la pagina, cerrandose antes de . Ejemplo 1:     Bienvenidos al curso de HTML   El hipertexto sera grabado con el nombre index.html en su disquete o en alguna ubicacion en el disco duro. Al asignar la extension .html o .html ya se crea un hipertexto. Asegurese de ingresar "index.html" como nombre a grabar en su bloque de notas (incluidas las comillas) para evitar que se anada la extension .txt. Sin cerrar el programa de edicion de texto que estamos usando, abra su navegador de WWW. En la pantalla de direccion WEB, introduzca la ruta completa a su archivo index.html, y usted debera poder ver en su pantalla su primera pagina WEB. Importante: Como se ve en el ejemplo 1. Toda etiqueta abierta debe cerrarse. En caso de no cerrarse el error podria causar confusion al navegador. Etiqueta:  
+
+Esta etiqueta va en la parte del encabezamiento de la pagina web, es decir en el HEAD, y define en su contenido el titulo de la pagina web, mismo que aparecera en la parte superior izquierda de la pantalla de su navegador. Sin cerrar nuestro navegador de Internet, volvemos al editor de texto e incluimos el campo  entre las etiquetas de apertura y cierre del encabezado (head). Ejemplo 2:   Curso de HTML   Bienvenidos al curso de HTML   El nuevo archivo HTML se grabara con el mismo nombre index.html, tan solo usando la opcion de Grabar en su editor de Texto. Una vez realizado esto, y sin cerrar su editor de texto, vamos al navegador en el que seleccionamos la opcion de Actualizar/Refresh y nuestra nueva pagina estara visible. Notara que el titulo aparecera en la parte superior de la pagina. Etiqueta   Todo el texto, las imagenes y el formato visibles al usuario deben encontrarse entre las etiquetas .... Esta etiqueta cuenta con los siguientes atributos: Bgcolor define el color de fondo de la pagina Text define el color del texto de la pagina Link define el color de los vinculos en la pagina Alink define el color del vinculo actual o activado en la pagina Vlink define el color del vinculo ya visitado Background define el archivo grafico que sera desplegado como fondo Bgsound define el archivo de audio que se tocara en la pagina.IE Bgproperties define el movimiento vertical del fondo.IE Los atributos se incluyen en la etiqueta de apertura, separados por un espacio. ¿Como se utilizan los colores en HTML? Se pueden llegar a tener 16 millones de colores en una pagina web. Existen dos formas para aplicar colores a una pagina web:
+
+1. Se especifica el color deseado directamente con el nombre del color en ingles: Ej: blue, green, yellow 2. Se especifica el color deseado mediante numeros hexadecimales mediante la siguiente estructura: #RRVVAA El color tiene un signo de numeral # antecediendo a los 6 numeros. Existen dos numeros para cada color principal: rojo, verde y azul. Cada uno de los numeros varia hexadecimalmente {0,1,2....,9,A,B,...F}. Ejemplos de Colores: #RRVVAA Color #RRVVAA Color #FFFFFF Blanco #000000 Negro #FF0000 Rojo #00FF00 Verde #0000FF Azul #FF00FF Magente #00FFFF Cyan #FFFF00 Amarillo #70DB93 Agua Marino #000080 Azul Marino #FF7F00 Coral #A62A2A Cafe #C0C0C0 Plomo #4F2F4F Violeta Utilizando estos datos, haremos una pagina con fondo celeste y letras negras. Usaremos para este efecto los atributos bgcolor y text. : Ejemplo 3:   Curso de HTML   Bienvenidos al curso de HTML   Grabe este archivo seleccionando la opcion de Guardar/Grabar de su editor de texto, de modo que se mantenga el nombre index.html. Cuando usted vaya a su navegador WWW y seleccione la opcion de Actualizar, notara el cambio. Texto en HTML Una vez que ya se tiene una idea de como funcionan la etiqueta de encabezamiento y parte de la etiqueta de definicion del cuerpo de la pagina, trabajemos con el texto. HTML fue creado en principio para el alfabeto en ingles, sin embargo se buscaron modos para mostrar tambien caracteres o simbolos denominados especiales.
+
+Para utilizar caracteres especiales usaremos los simbolos & y ; para denotar el inicio y final respectivamente de un simbolo especial. De esta manera: Texto: Descripcion: Pantalla: &acute; Acento ´ &ntilde; ene n &quot; Comillas Dobles " &deg: Grados ° &aacute; a con acento a &eacute; e con acento e  espacio en blanco La idea basica para acentos y signos latinos es combinar dos teclas. Para lograr una o con acento debemos combinar una o y un acento: &oacute; o Para entender un poco mas este proceso, veamos el siguiente ejemplo: Ejemplo 4:   Curso de HTML   Bienvenidos al curso de HTML Cuando la temperatura es menor a 15&deg;c hace bastante fr&iacute;o.Este es un ejemplo de p&aacute;gina WEB :)   Luego de realizar el proceso para grabar y actualizar la pagina notara que se incluyen en la pagina los simbolos de grados, la i con acento y la a con acento. Notara tambien que el texto se encuentra de corrido en una sola fila, para bajar de linea utilizaremos la siguiente etiqueta especial... Etiqueta 
+ La etiqueta 
+ instruye al navegador cliente que inserte un salto de linea en un documento HTML. La etiqueta  tiene el mismo efecto que un retorno de carro en una maquina de escribir. Es una etiqueta especial, pues no precisa de etiqueta de cierre. Etiqueta  La etiqueta  dibuja de manera predeterminada una regla horizontal alineada automaticamente, con una apariencia de tercera dimension. Esta etiqueta especial, por que no necesita de cierre, tiene los siguientes atributos:
+
+Align establece que la regla se alinee a la izquierda, centro o derecha LEFT, CENTER o RIGHT NOSHADE quita el sombreado predeterminado de la regla WIDTH permite especificar el ancho de la regla (en pixeles o porcentaje) SIZE permite especificar el alto de la regla (en pixeles) Ejemplo 5:   Curso de HTML   Bienvenidos al curso de HTML
+ 
+ Cuando la temperatura es menor a 15&deg;c hace bastante fr&iacute;o.
+ 
+ Este es un ejemplo de p&aacute;gina WEB :)
+   Encabezados Las etiquetas   al   (acronimos de "heading 1..6") son encabezados del cuerpo del texto. El encabezamiento  nos proporciona las letras de mayor tamano. Notara que si usamos una etiqueta de encabezamiento, automaticamente se incluira un retorno de carro al final del mismo. La etiqueta tiene el siguiente atributo: Align Permite ubicar el encabezamiento a la izquierda, centro o derecha de la pantalla. (LEFT, CENTER,RIGHT) Ejemplo 6:   Curso de HTML    Bienvenidos al curso de HTML
+ 
+ Bienvenidos Cuando la temperatura es menor a 15&deg;c hace bastante fr&iacute;o.
+ 
+ Este es un ejemplo de p&aacute;gina WEB :)
+  
+
+Luego de realizar el proceso de grabado/actualizacion notara las diferentes dimensiones de las dos primeras lineas. Ubicacion, formato y atributos de texto Etiqueta   Se utiliza para centrar el texto/imagen o datos que se encuentren entre la apertura y el cierre. Etiqueta   Esta es la etiqueta que nos posibilita un texto con negrillas. Etiqueta   Etiqueta que posibilita resaltar un texto con subrayado. Etiqueta   Etiqueta que permite resaltar el texto con inclinacion italica. Recuerde que puede combinar entre si todas estas etiquetas. Veamos un ejemplo para demostrar el uso de las ultimas 4 etiquetas que se vieron. Ejemplo 7:   Curso de HTML    Bienvenidos al curso de HTML
+ 
+ Bienvenidos Cuando la temperatura es menor a 15&deg;c hace bastante fr&iacute;o.
+ 
+ Este es un ejemplo de p&aacute;gina WEB :)
+ Este texto esta con negrillas
+ Este texto esta con subrayado
+ Este texto esta con inclinaci&oacute;n it&aacute;lica
+ Este texto cuenta con un combinado de todo.
+   Note el cambio en la sentencia de la linea o regla , se elimino "align=left". Notara que la nueva regla saldra al centro, pues esta es la alineacion por defecto. Ademas sacamos el punto final que existia en la primera linea que ahora aparece centrada. Etiqueta  
+
+Esta etiqueta proporciona al autor un medio de personalizar el texto con respecto al tipo de fuente, tamano y color. Atributos: Color determina el color que se aplica al texto Size determina el tamano relativo del texto. Los tamanos validos son del 1 al 7, siendo el predeterminado el 3 y el mas grande el 1. Face asigna una fuente o tipo de letra. Ejemplificando, introduciremos lo siguiente: Bolivia. Note que la primera B es mas grande que el demas texto. Usaremos el tamano 7 para la letra B y el tamano estandar (3) para las demas letras. Ejemplo 8:   Curso de HTML    Bienvenidos al curso de HTML
+ 
+ Bienvenidos Cuando la temperatura es menor a 15&deg;c hace bastante fr&iacute;o.
+ 
+ Este es un ejemplo de p&aacute;gina WEB :)
+ Este texto esta con negrillas
+ Este texto esta con subrayado
+ Este texto esta con inclinaci&oacute;n it&aacute;lica
+ Este texto cuenta con un combinado de todo.
+ Bo livia
+   Imagenes en HTML Hasta este momento se ha trabajado solamente con texto. Comenzemos a introducir graficos en nuestra pagina HTML. Se deben tener dos consideraciones importantes para trabajar con graficos: Los unicos formatos, que por ahora soportan los visualizadores son: *.gif y *.jpg o *.jpeg. Las imagenes no deben ser de tamano grande por que el visualizador o navegador puede demorar demasiado en bajarlas.
+
+Aca trabajaremos tambien con el atributo background de la etiqueta  que habia quedado pendiente. La idea de trabajar con un fondo en una pagina web, es la misma que tener un fondo en nuestro entorno Windows. El archivo puede estar ubicado en la misma carpeta o bien en otra que contenga solo graficos. Trate de que el color de fondo de la pagina (que ya no aparecera) sea parecido al color principal de la imagen que usara como fondo. Si es necesario re acomode los colores de texto y vinculos definidos en . Supondremos tenemos un grafico llamado "fondo.gif" para el ejemplo 8 que como notara sera re formulado en funcion a utilizar las nuevas etiquetas. Importante En Internet por lo general una mayuscula no es igual a una minuscula. Tome en cuenta esto al utilizar y hacer referencia a archivos. Como sugerencia es bueno tener todos los archivos con minusculas. Etiqueta  Se trata de otra etiqueta especial, pues no necesita de etiqueta de cierre. Esta etiqueta instruye al navegador para que exhiba la imagen especificada. El formato basico para incluir un grafico es:  No es necesario re dimensionar en forma permanente un archivo grafico para exhibirlo en contextos variables; sin embargo, el autor de HTML puede indicar al navegador que re dimensione la imagen especificando los siguientes atributos: Src identifica la imagen que se desplegara. Height para redimensionamiento de grafico (en pixeles o en porcentaje) Width para redimensionamiento de grafico (en pixeles o en porcentaje) A la imagen se le puede aplicar un borde que se hace notorio especialmente cuando se trata de una imagen que ademas es un hipervinculo: Border Definido en pixels La imagen tambien puede alinearse con respecto al texto: ALIGN Alineacion, puede ser: TOP, MIDDLE, BOTTOM, LEFT y RIGHT En caso de que la imagen no pueda exhibirse, se puede desplegar un texto: ALT Especifica el texto alterno Es a partir de este ejemplo, que se va a realizar una nueva pagina, la misma que llamaremos pag2.html o bien pude ser grabada con otro nombre. Supondremos contamos con un grafico llamado foto.jpg. Ejemplo 9:
+
+  Curso de HTML    Bienvenidos al curso de HTML
+ 
+ Informaci&oacute;n General Este curso muestra los conceptos b&aacute;sicos del uso de etiquetas e instrucciones en la elaboraci&oacute;n de documentos HTML.
+
+  
+ Es muy importante saber ubicar los gr&aacute;ficos y combinar de buena manera los colores para brindar una buena imagen :).
+
+ Una p&aacute;gina WEB es muy importante, pues provee a nuestro trabajo una ventana al mundo.
+   Realice el proceso de grabado con el nuevo nombre de pagina "pag2.html" y cargue la nueva pagina en su navegador. Tablas En HTML tambien podemos incluir arreglos de tablas. Se deben utilizar varias etiquetas: Etiqueta  Senala el inicio y final de una tabla. Sus atributos son: Align Establece la alineacion de la tabla o texto mediante ALIGN=LEFT o ALIGN=RIGHT Bgcolor Establece el color de fondo de las celdas de la tabla Border Determina el ancho del borde en pixeles BorderColor Asigna un color al borde BorderDark Determina el color de la parte oscura de un borde de 3 dimensiones
+
+BorderLight Asigna el color de la parte clara de un borde de 3 dimensiones Caption Especifica el titulo para la tabla Cellpadding Establece la cantidad de espacio libre junto al contenido de una celda Cellspacing Asigna la cantidad de espacio entre las celdas de una tabla Width Determina el ancho de la tabla en pixeles o en un porcentaje Etiqueta   Indica al navegador cliente que exhiba el texto como un encabezado en la primera fila de una tabla. Atributos principales: Colspan especifica el numero de celdas que cubre el encabezado Align Determina la posicion del texto del titilo Etiqueta   Indica al navegador que exhiba el texto dentro de una fila; puede tambien interpretarse como la etiqueta que define filas. Align Alineacion del texto/objetos en toda la fila Etiqueta   La etiqueta de datos de la tabla, es la que identifica a las columnas o celdas especificas de una tabla. Atributos principales: Align Alineacion del texto/objeto de la celda Bgcolor Color de fondo de la celda Background imagen de fondo de una celda Width Ancho de la celda/columna con respecto al ancho de la tabla Solo precisa definir el ancho en la primera celda de la columna. Recuerde que dentro de una celda, usted puede insertar desde texto o un grafico hasta una tabla entera. Ejemplo 10:   Curso de HTML    Bienvenidos al curso de HTML
+ 
+ Informaci&oacute;n General Este curso muestra los conceptos b&aacute;sicos del uso de etiquetas e instrucciones en la elaboraci&oacute;n de
+
+documentos HTML.
+
+  
+ Es muy importante saber ubicar los gr&aacute;ficos y combinar de buena manera los colores para brindar una buena imagen :).
+
+ Una p&aacute;gina WEB es muy importante, pues provee a nuestro trabajo una ventana al mundo.
+ 
+  Directorio Telef&oacute;nico   Nombre   Telefono   E-Mail     Jos&eacute; Rodr&iacute;guez   223454  jose@prueba.com.bo    Carolina Nu&ntilde;ez   453444  carolina@prueba.com.bo
+
+  
+   Grabe este archivo con el nombre pag2.html sobre escribiendo el archivo anterior. Consejo: Puede usar tablas sin borde (usando BORDER=0 en la sentencia ) para ubicar graficos y texto de forma elegante.
+

@@ -1,0 +1,1282 @@
+INGENIERIA DE SOFTWARE
+LCC JORGE ANTONIO CASTILLO CABRERA
+Proposito
+	Obtener una vision general del proceso de desarrollo de software y adquirir las habilidades para el uso de las herramientas de analisis y diseno de sistemas de informacion, respecto a los principales paradigmas del desarrollo de sistemas.
+Objetivo General
+	Aplicar los conceptos de Ingenieria de Software para especificar los requerimientos de programacion de un sistema, asi como las especificaciones del diseno correspondiente, considerando la factibilidad del sistema y las caracteristicas de calidad.
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+Unidad 2: La definicion de los requerimientos
+Objetivo:
+	Elaborar la definicion de requerimientos para un problema en especifico en el area de desarrollo de sistemas.
+Contenido:
+	2.1 Investigacion Preeliminar
+	2.2 La definicion de requerimientos
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+Objetivo:
+	Describir los principios y conceptos basicos del paradigma orientado a objetos
+Contenido:
+	3.1 El paradigma Orientado a Objetos
+	3.2 Conceptos de OO
+	3.3 El modelado como tecnica (UML)
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+	3.3.1 Diagramas de Casos de Uso
+	3.3.2 Escenarios Operacionales
+	3.3.3 Diagramas de Clases
+	3.3.4 Diagramas de Secuencias
+	3.3.5 Diagramas de Estados
+Unidad 4:Estimacion de Costes de Software
+Objetivo:
+	Introducir las tecnicas de estimacion de coste y esfuerzo requeridas para el desarrollo de software
+Contenidos:
+	4.1 La estimacion
+	4.2 Proceso de Planificacion del proyecto
+	4.3 Ambito del Sw y factibilidad
+	4.4 Recursos
+	4.5 Tecnicas de Estimacion
+Unidad 5:Administracion de la Calidad
+Objetivo:
+	Introduccion a la gestion de la Calidad del Sw.
+Contenido:
+	5.1 Calidad del proceso y del producto
+	5.2 Garantia de la Calidad
+	5.3 Planificacion de la Calidad
+	5.4 Control de Calidad
+	5.5 Medicion y metricas de Software
+Tareas y Examenes
+Proyecto 1: Elaboracion del documento de ERS (25%)
+Examen Parcial 1, unidades 1 y 2 (15%)
+Proyecto 2: Elaboracion del diseno (25%)
+Examen Parcial 2, unidad 3 (15%)
+Examen Parcial 3, unidades 4 y 5 (20%)
+Si la calificacion > 90, se exenta Ordinario
+Minimo aprobatorio 70
+Ordinario = 30%
+Proyectos y Parciales = 70%
+
+Bibliografia
+Ingenieria del Software. Sommerville, I. 2007. 7a edicion. Addison Wesley.
+Ingenieria de Software: un enfoque practico. Pressman, R. 1998. McGrawHill
+	INTRODUCCION A LA INGENIERIA DE SOFTWARE (IS)
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+La Evolucion del Software
+Los primeros anos
+Orientacion por lotes
+Distribucion limitada
+Software “a medida”
+La segunda era
+Multiusuario
+Tiempo Real
+Bases de Datos
+Software como producto
+
+
+La Evolucion del Software
+La tercera era
+Sistemas distribuidos
+Incorporacion de “Inteligencia”
+Hardware de bajo costo
+Impacto en el consumo
+La cuarta era
+Potentes sistemas de sobremesa
+Tecnologias orientadas a objetos
+Sistema expertos
+Redes neuronales artificiales
+Computacion paralela
+
+¿Arte o Disciplina?
+¿Por que lleva tan tiempo terminar los programas?
+¿Por que es tan elevado el costo?
+¿Por que entregamos el software con defectos?
+¿Por que no sabemos en que estado se encuentra el proyecto de desarrollo de software?
+Analogia con la industria del acero
+Sin actualizacion de las herramientas de trabajo.
+Sin mantenimiento a los productos
+Subcontratacion
+Caracteristicas del Software
+Se desarrolla, no se fabrica
+No se estropea
+Se construye a la medida, en vez de ensamblar componentes existentes
+Mitos en el desarrollo de software
+Todo lo que necesito del cliente es un planteamiento general del problema, luego me ocupare de los detalles.
+Como cliente, puedo cambiar de opinion sobre lo que quiero del software, al cabo el software es flexible
+Tenemos que empezar a codificar pues ya estamos retrasados
+Lo unico que se debe de generar es el codigo
+Mitos en el desarrollo de software
+Es imposible valorar la calidad del programa antes de que este trabajando
+Una vez que este escrito el programa, hemos finalizado.
+Cualquier ingeniero competente puede escribir programas
+Solo nos falta correr unos pocos casos de pruebas y habremos terminado
+Sabemos lo que hace el programa, no tenemos tiempo de documentarlo
+Penetracion del SW
+Objetivos
+Tiempo
+Costo
+Calidad
+!¿Falta tiempo?!
+Ejemplos de Desastres
+Fallo en la sonda Mariner 1
+Desintegracion del Ariane 5
+Sobredosis radiologica en el Instituto Nacional del Cancer de la Ciudad de Panama
+Sistema de maletas del Aeropuerto Internacional de Denver
+Algunas de las dificultades
+Factores Tecnicos
+Problemas al entender el contexto del problema
+Problemas al especificar el software (al escribir el que se quiere)
+Problemas con la complejidad y la magnitud del proyecto
+Algunas de las dificultades
+Factores Humanos
+La brecha de comunicacion entre el usuario y el programador.
+Falta de verificacion/validacion en los productos, principalmente en los requerimientos y en el diseno.
+Falta de coordinacion entre las personas del equipo de desarrollo y con los otros equipos.
+Algunas de las dificultades
+Factores Sociales
+La necesidad de las companias de mostrar crecimiento.
+La cultura computacional emergente.
+El crecimiento de las expectativas del publico por servicios y entretenimiento.
+Falta de estandares.
+Falta de apego a los estandares.
+Reflexion
+	¿Me dejaria operar con software creado por mi?
+¿Que versus Como?
+	El como hacer es tan importante como el que se va a hacer.
+Producto
+	Si nos centramos en el producto (el que) podamos no darnos cuenta de como mejorarlo.
+Proceso
+	Si nos centramos en el proceso (el como), podemos:
+Predecir la repeticion de la salida.
+Conocer las tendencias del proyecto.
+Controlar las caracteristicas de calidad del producto.
+Proceso
+Creatividad vs Disciplina
+	La creatividad emerge y se mejora con la disciplina
+¿Podemos cambiar?
+La calidad de los sistemas depende de la calidad de sus componentes.
+La calidad de los componentes depende del conocimiento, disciplina y compromiso de la persona que lo desarrollo.
+¿Podemos cambiar?
+El desarrollo de software es una actividad muy intensa, personas en forma individual siguen escribiendolo.
+Cualquier mejora en la eficiencia productividad de estas personas, resultara en ganancias en los proyectos y en la industria en general.
+¿Que hace falta?
+	Necesitamos una disciplina de Ingenieria de Software que provea a las personas que desarrollan los componentes, un metodo para planear, dar seguimiento y administrar efectivamente los defectos. Mas aun, que les permita aprender de sus exitos y fracasos.
+Definicion formal de la IS
+	La Ingenieria de Software esta definida como la disciplina cuyo fin es la de producir software libre de fallos que satisfagan las necesidades de los usuarios, que sea entregado a tiempo y dentro del presupuesto.
+Cliente, desarrollador, usuario
+Cliente: Es la persona u organizacion que ordena el producto.
+Desarrollador: Es la persona u organizacion que desarrolla el producto.
+Usuario: Es la persona u organizacion que usa el producto.
+Estudio
+INGENIERIA DE SOFTWARE
+LCC JORGE ANTONIO CASTILLO CABRERA
+Proposito
+	Obtener una vision general del proceso de desarrollo de software y adquirir las habilidades para el uso de las herramientas de analisis y diseno de sistemas de informacion, respecto a los principales paradigmas del desarrollo de sistemas.
+Objetivo General
+	Aplicar los conceptos de Ingenieria de Software para especificar los requerimientos de programacion de un sistema, asi como las especificaciones del diseno correspondiente, considerando la factibilidad del sistema y las caracteristicas de calidad.
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+Unidad 2: La definicion de los requerimientos
+Objetivo:
+	Elaborar la definicion de requerimientos para un problema en especifico en el area de desarrollo de sistemas.
+Contenido:
+	2.1 Investigacion Preeliminar
+	2.2 La definicion de requerimientos
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+Objetivo:
+	Describir los principios y conceptos basicos del paradigma orientado a objetos
+Contenido:
+	3.1 El paradigma Orientado a Objetos
+	3.2 Conceptos de OO
+	3.3 El modelado como tecnica (UML)
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+	3.3.1 Diagramas de Casos de Uso
+	3.3.2 Escenarios Operacionales
+	3.3.3 Diagramas de Clases
+	3.3.4 Diagramas de Secuencias
+	3.3.5 Diagramas de Estados
+Unidad 4:Estimacion de Costes de Software
+Objetivo:
+	Introducir las tecnicas de estimacion de coste y esfuerzo requeridas para el desarrollo de software
+Contenidos:
+	4.1 La estimacion
+	4.2 Proceso de Planificacion del proyecto
+	4.3 Ambito del Sw y factibilidad
+	4.4 Recursos
+	4.5 Tecnicas de Estimacion
+Unidad 5:Administracion de la Calidad
+Objetivo:
+	Introduccion a la gestion de la Calidad del Sw.
+Contenido:
+	5.1 Calidad del proceso y del producto
+	5.2 Garantia de la Calidad
+	5.3 Planificacion de la Calidad
+	5.4 Control de Calidad
+	5.5 Medicion y metricas de Software
+Tareas y Examenes
+Proyecto 1: Elaboracion del documento de ERS (25%)
+Examen Parcial 1, unidades 1 y 2 (15%)
+Proyecto 2: Elaboracion del diseno (25%)
+Examen Parcial 2, unidad 3 (15%)
+Examen Parcial 3, unidades 4 y 5 (20%)
+Si la calificacion > 90, se exenta Ordinario
+Minimo aprobatorio 70
+Ordinario = 30%
+Proyectos y Parciales = 70%
+
+Bibliografia
+Ingenieria del Software. Sommerville, I. 2007. 7a edicion. Addison Wesley.
+Ingenieria de Software: un enfoque practico. Pressman, R. 1998. McGrawHill
+	INTRODUCCION A LA INGENIERIA DE SOFTWARE (IS)
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+La Evolucion del Software
+Los primeros anos
+Orientacion por lotes
+Distribucion limitada
+Software “a medida”
+La segunda era
+Multiusuario
+Tiempo Real
+Bases de Datos
+Software como producto
+
+
+La Evolucion del Software
+La tercera era
+Sistemas distribuidos
+Incorporacion de “Inteligencia”
+Hardware de bajo costo
+Impacto en el consumo
+La cuarta era
+Potentes sistemas de sobremesa
+Tecnologias orientadas a objetos
+Sistema expertos
+Redes neuronales artificiales
+Computacion paralela
+
+¿Arte o Disciplina?
+¿Por que lleva tan tiempo terminar los programas?
+¿Por que es tan elevado el costo?
+¿Por que entregamos el software con defectos?
+¿Por que no sabemos en que estado se encuentra el proyecto de desarrollo de software?
+Analogia con la industria del acero
+Sin actualizacion de las herramientas de trabajo.
+Sin mantenimiento a los productos
+Subcontratacion
+Caracteristicas del Software
+Se desarrolla, no se fabrica
+No se estropea
+Se construye a la medida, en vez de ensamblar componentes existentes
+Mitos en el desarrollo de software
+Todo lo que necesito del cliente es un planteamiento general del problema, luego me ocupare de los detalles.
+Como cliente, puedo cambiar de opinion sobre lo que quiero del software, al cabo el software es flexible
+Tenemos que empezar a codificar pues ya estamos retrasados
+Lo unico que se debe de generar es el codigo
+Mitos en el desarrollo de software
+Es imposible valorar la calidad del programa antes de que este trabajando
+Una vez que este escrito el programa, hemos finalizado.
+Cualquier ingeniero competente puede escribir programas
+Solo nos falta correr unos pocos casos de pruebas y habremos terminado
+Sabemos lo que hace el programa, no tenemos tiempo de documentarlo
+Penetracion del SW
+Objetivos
+Tiempo
+Costo
+Calidad
+!¿Falta tiempo?!
+Ejemplos de Desastres
+Fallo en la sonda Mariner 1
+Desintegracion del Ariane 5
+Sobredosis radiologica en el Instituto Nacional del Cancer de la Ciudad de Panama
+Sistema de maletas del Aeropuerto Internacional de Denver
+Algunas de las dificultades
+Factores Tecnicos
+Problemas al entender el contexto del problema
+Problemas al especificar el software (al escribir el que se quiere)
+Problemas con la complejidad y la magnitud del proyecto
+Algunas de las dificultades
+Factores Humanos
+La brecha de comunicacion entre el usuario y el programador.
+Falta de verificacion/validacion en los productos, principalmente en los requerimientos y en el diseno.
+Falta de coordinacion entre las personas del equipo de desarrollo y con los otros equipos.
+Algunas de las dificultades
+Factores Sociales
+La necesidad de las companias de mostrar crecimiento.
+La cultura computacional emergente.
+El crecimiento de las expectativas del publico por servicios y entretenimiento.
+Falta de estandares.
+Falta de apego a los estandares.
+Reflexion
+	¿Me dejaria operar con software creado por mi?
+¿Que versus Como?
+	El como hacer es tan importante como el que se va a hacer.
+Producto
+	Si nos centramos en el producto (el que) podamos no darnos cuenta de como mejorarlo.
+Proceso
+	Si nos centramos en el proceso (el como), podemos:
+Predecir la repeticion de la salida.
+Conocer las tendencias del proyecto.
+Controlar las caracteristicas de calidad del producto.
+Proceso
+Creatividad vs Disciplina
+	La creatividad emerge y se mejora con la disciplina
+¿Podemos cambiar?
+La calidad de los sistemas depende de la calidad de sus componentes.
+La calidad de los componentes depende del conocimiento, disciplina y compromiso de la persona que lo desarrollo.
+¿Podemos cambiar?
+El desarrollo de software es una actividad muy intensa, personas en forma individual siguen escribiendolo.
+Cualquier mejora en la eficiencia productividad de estas personas, resultara en ganancias en los proyectos y en la industria en general.
+¿Que hace falta?
+	Necesitamos una disciplina de Ingenieria de Software que provea a las personas que desarrollan los componentes, un metodo para planear, dar seguimiento y administrar efectivamente los defectos. Mas aun, que les permita aprender de sus exitos y fracasos.
+Definicion formal de la IS
+	La Ingenieria de Software esta definida como la disciplina cuyo fin es la de producir software libre de fallos que satisfagan las necesidades de los usuarios, que sea entregado a tiempo y dentro del presupuesto.
+Cliente, desarrollador, usuario
+Cliente: Es la persona u organizacion que ordena el producto.
+Desarrollador: Es la persona u organizacion que desarrolla el producto.
+Usuario: Es la persona u organizacion que usa el producto.
+INGENIERIA DE SOFTWARE
+LCC JORGE ANTONIO CASTILLO CABRERA
+Proposito
+	Obtener una vision general del proceso de desarrollo de software y adquirir las habilidades para el uso de las herramientas de analisis y diseno de sistemas de informacion, respecto a los principales paradigmas del desarrollo de sistemas.
+Objetivo General
+	Aplicar los conceptos de Ingenieria de Software para especificar los requerimientos de programacion de un sistema, asi como las especificaciones del diseno correspondiente, considerando la factibilidad del sistema y las caracteristicas de calidad.
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+Unidad 2: La definicion de los requerimientos
+Objetivo:
+	Elaborar la definicion de requerimientos para un problema en especifico en el area de desarrollo de sistemas.
+Contenido:
+	2.1 Investigacion Preeliminar
+	2.2 La definicion de requerimientos
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+Objetivo:
+	Describir los principios y conceptos basicos del paradigma orientado a objetos
+Contenido:
+	3.1 El paradigma Orientado a Objetos
+	3.2 Conceptos de OO
+	3.3 El modelado como tecnica (UML)
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+	3.3.1 Diagramas de Casos de Uso
+	3.3.2 Escenarios Operacionales
+	3.3.3 Diagramas de Clases
+	3.3.4 Diagramas de Secuencias
+	3.3.5 Diagramas de Estados
+Unidad 4:Estimacion de Costes de Software
+Objetivo:
+	Introducir las tecnicas de estimacion de coste y esfuerzo requeridas para el desarrollo de software
+Contenidos:
+	4.1 La estimacion
+	4.2 Proceso de Planificacion del proyecto
+	4.3 Ambito del Sw y factibilidad
+	4.4 Recursos
+	4.5 Tecnicas de Estimacion
+Unidad 5:Administracion de la Calidad
+Objetivo:
+	Introduccion a la gestion de la Calidad del Sw.
+Contenido:
+	5.1 Calidad del proceso y del producto
+	5.2 Garantia de la Calidad
+	5.3 Planificacion de la Calidad
+	5.4 Control de Calidad
+	5.5 Medicion y metricas de Software
+Tareas y Examenes
+Proyecto 1: Elaboracion del documento de ERS (25%)
+Examen Parcial 1, unidades 1 y 2 (15%)
+Proyecto 2: Elaboracion del diseno (25%)
+Examen Parcial 2, unidad 3 (15%)
+Examen Parcial 3, unidades 4 y 5 (20%)
+Si la calificacion > 90, se exenta Ordinario
+Minimo aprobatorio 70
+Ordinario = 30%
+Proyectos y Parciales = 70%
+
+Bibliografia
+Ingenieria del Software. Sommerville, I. 2007. 7a edicion. Addison Wesley.
+Ingenieria de Software: un enfoque practico. Pressman, R. 1998. McGrawHill
+	INTRODUCCION A LA INGENIERIA DE SOFTWARE (IS)
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+La Evolucion del Software
+Los primeros anos
+Orientacion por lotes
+Distribucion limitada
+Software “a medida”
+La segunda era
+Multiusuario
+Tiempo Real
+Bases de Datos
+Software como producto
+
+
+La Evolucion del Software
+La tercera era
+Sistemas distribuidos
+Incorporacion de “Inteligencia”
+Hardware de bajo costo
+Impacto en el consumo
+La cuarta era
+Potentes sistemas de sobremesa
+Tecnologias orientadas a objetos
+Sistema expertos
+Redes neuronales artificiales
+Computacion paralela
+
+¿Arte o Disciplina?
+¿Por que lleva tan tiempo terminar los programas?
+¿Por que es tan elevado el costo?
+¿Por que entregamos el software con defectos?
+¿Por que no sabemos en que estado se encuentra el proyecto de desarrollo de software?
+Analogia con la industria del acero
+Sin actualizacion de las herramientas de trabajo.
+Sin mantenimiento a los productos
+Subcontratacion
+Caracteristicas del Software
+Se desarrolla, no se fabrica
+No se estropea
+Se construye a la medida, en vez de ensamblar componentes existentes
+Mitos en el desarrollo de software
+Todo lo que necesito del cliente es un planteamiento general del problema, luego me ocupare de los detalles.
+Como cliente, puedo cambiar de opinion sobre lo que quiero del software, al cabo el software es flexible
+Tenemos que empezar a codificar pues ya estamos retrasados
+Lo unico que se debe de generar es el codigo
+Mitos en el desarrollo de software
+Es imposible valorar la calidad del programa antes de que este trabajando
+Una vez que este escrito el programa, hemos finalizado.
+Cualquier ingeniero competente puede escribir programas
+Solo nos falta correr unos pocos casos de pruebas y habremos terminado
+Sabemos lo que hace el programa, no tenemos tiempo de documentarlo
+Penetracion del SW
+Objetivos
+Tiempo
+Costo
+Calidad
+!¿Falta tiempo?!
+Ejemplos de Desastres
+Fallo en la sonda Mariner 1
+Desintegracion del Ariane 5
+Sobredosis radiologica en el Instituto Nacional del Cancer de la Ciudad de Panama
+Sistema de maletas del Aeropuerto Internacional de Denver
+Algunas de las dificultades
+Factores Tecnicos
+Problemas al entender el contexto del problema
+Problemas al especificar el software (al escribir el que se quiere)
+Problemas con la complejidad y la magnitud del proyecto
+Algunas de las dificultades
+Factores Humanos
+La brecha de comunicacion entre el usuario y el programador.
+Falta de verificacion/validacion en los productos, principalmente en los requerimientos y en el diseno.
+Falta de coordinacion entre las personas del equipo de desarrollo y con los otros equipos.
+Algunas de las dificultades
+Factores Sociales
+La necesidad de las companias de mostrar crecimiento.
+La cultura computacional emergente.
+El crecimiento de las expectativas del publico por servicios y entretenimiento.
+Falta de estandares.
+Falta de apego a los estandares.
+Reflexion
+	¿Me dejaria operar con software creado por mi?
+¿Que versus Como?
+	El como hacer es tan importante como el que se va a hacer.
+Producto
+	Si nos centramos en el producto (el que) podamos no darnos cuenta de como mejorarlo.
+Proceso
+	Si nos centramos en el proceso (el como), podemos:
+Predecir la repeticion de la salida.
+Conocer las tendencias del proyecto.
+Controlar las caracteristicas de calidad del producto.
+Proceso
+Creatividad vs Disciplina
+	La creatividad emerge y se mejora con la disciplina
+¿Podemos cambiar?
+La calidad de los sistemas depende de la calidad de sus componentes.
+La calidad de los componentes depende del conocimiento, disciplina y compromiso de la persona que lo desarrollo.
+¿Podemos cambiar?
+El desarrollo de software es una actividad muy intensa, personas en forma individual siguen escribiendolo.
+Cualquier mejora en la eficiencia productividad de estas personas, resultara en ganancias en los proyectos y en la industria en general.
+¿Que hace falta?
+	Necesitamos una disciplina de Ingenieria de Software que provea a las personas que desarrollan los componentes, un metodo para planear, dar seguimiento y administrar efectivamente los defectos. Mas aun, que les permita aprender de sus exitos y fracasos.
+Definicion formal de la IS
+	La Ingenieria de Software esta definida como la disciplina cuyo fin es la de producir software libre de fallos que satisfagan las necesidades de los usuarios, que sea entregado a tiempo y dentro del presupuesto.
+Cliente, desarrollador, usuario
+Cliente: Es la persona u organizacion que ordena el producto.
+Desarrollador: Es la persona u organizacion que desarrolla el producto.
+Usuario: Es la persona u organizacion que usa el producto.
+INGENIERIA DE SOFTWARE
+LCC JORGE ANTONIO CASTILLO CABRERA
+Proposito
+	Obtener una vision general del proceso de desarrollo de software y adquirir las habilidades para el uso de las herramientas de analisis y diseno de sistemas de informacion, respecto a los principales paradigmas del desarrollo de sistemas.
+Objetivo General
+	Aplicar los conceptos de Ingenieria de Software para especificar los requerimientos de programacion de un sistema, asi como las especificaciones del diseno correspondiente, considerando la factibilidad del sistema y las caracteristicas de calidad.
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+Unidad 2: La definicion de los requerimientos
+Objetivo:
+	Elaborar la definicion de requerimientos para un problema en especifico en el area de desarrollo de sistemas.
+Contenido:
+	2.1 Investigacion Preeliminar
+	2.2 La definicion de requerimientos
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+Objetivo:
+	Describir los principios y conceptos basicos del paradigma orientado a objetos
+Contenido:
+	3.1 El paradigma Orientado a Objetos
+	3.2 Conceptos de OO
+	3.3 El modelado como tecnica (UML)
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+	3.3.1 Diagramas de Casos de Uso
+	3.3.2 Escenarios Operacionales
+	3.3.3 Diagramas de Clases
+	3.3.4 Diagramas de Secuencias
+	3.3.5 Diagramas de Estados
+Unidad 4:Estimacion de Costes de Software
+Objetivo:
+	Introducir las tecnicas de estimacion de coste y esfuerzo requeridas para el desarrollo de software
+Contenidos:
+	4.1 La estimacion
+	4.2 Proceso de Planificacion del proyecto
+	4.3 Ambito del Sw y factibilidad
+	4.4 Recursos
+	4.5 Tecnicas de Estimacion
+Unidad 5:Administracion de la Calidad
+Objetivo:
+	Introduccion a la gestion de la Calidad del Sw.
+Contenido:
+	5.1 Calidad del proceso y del producto
+	5.2 Garantia de la Calidad
+	5.3 Planificacion de la Calidad
+	5.4 Control de Calidad
+	5.5 Medicion y metricas de Software
+Tareas y Examenes
+Proyecto 1: Elaboracion del documento de ERS (25%)
+Examen Parcial 1, unidades 1 y 2 (15%)
+Proyecto 2: Elaboracion del diseno (25%)
+Examen Parcial 2, unidad 3 (15%)
+Examen Parcial 3, unidades 4 y 5 (20%)
+Si la calificacion > 90, se exenta Ordinario
+Minimo aprobatorio 70
+Ordinario = 30%
+Proyectos y Parciales = 70%
+
+Bibliografia
+Ingenieria del Software. Sommerville, I. 2007. 7a edicion. Addison Wesley.
+Ingenieria de Software: un enfoque practico. Pressman, R. 1998. McGrawHill
+	INTRODUCCION A LA INGENIERIA DE SOFTWARE (IS)
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+La Evolucion del Software
+Los primeros anos
+Orientacion por lotes
+Distribucion limitada
+Software “a medida”
+La segunda era
+Multiusuario
+Tiempo Real
+Bases de Datos
+Software como producto
+
+
+La Evolucion del Software
+La tercera era
+Sistemas distribuidos
+Incorporacion de “Inteligencia”
+Hardware de bajo costo
+Impacto en el consumo
+La cuarta era
+Potentes sistemas de sobremesa
+Tecnologias orientadas a objetos
+Sistema expertos
+Redes neuronales artificiales
+Computacion paralela
+
+¿Arte o Disciplina?
+¿Por que lleva tan tiempo terminar los programas?
+¿Por que es tan elevado el costo?
+¿Por que entregamos el software con defectos?
+¿Por que no sabemos en que estado se encuentra el proyecto de desarrollo de software?
+Analogia con la industria del acero
+Sin actualizacion de las herramientas de trabajo.
+Sin mantenimiento a los productos
+Subcontratacion
+Caracteristicas del Software
+Se desarrolla, no se fabrica
+No se estropea
+Se construye a la medida, en vez de ensamblar componentes existentes
+Mitos en el desarrollo de software
+Todo lo que necesito del cliente es un planteamiento general del problema, luego me ocupare de los detalles.
+Como cliente, puedo cambiar de opinion sobre lo que quiero del software, al cabo el software es flexible
+Tenemos que empezar a codificar pues ya estamos retrasados
+Lo unico que se debe de generar es el codigo
+Mitos en el desarrollo de software
+Es imposible valorar la calidad del programa antes de que este trabajando
+Una vez que este escrito el programa, hemos finalizado.
+Cualquier ingeniero competente puede escribir programas
+Solo nos falta correr unos pocos casos de pruebas y habremos terminado
+Sabemos lo que hace el programa, no tenemos tiempo de documentarlo
+Penetracion del SW
+Objetivos
+Tiempo
+Costo
+Calidad
+!¿Falta tiempo?!
+Ejemplos de Desastres
+Fallo en la sonda Mariner 1
+Desintegracion del Ariane 5
+Sobredosis radiologica en el Instituto Nacional del Cancer de la Ciudad de Panama
+Sistema de maletas del Aeropuerto Internacional de Denver
+Algunas de las dificultades
+Factores Tecnicos
+Problemas al entender el contexto del problema
+Problemas al especificar el software (al escribir el que se quiere)
+Problemas con la complejidad y la magnitud del proyecto
+Algunas de las dificultades
+Factores Humanos
+La brecha de comunicacion entre el usuario y el programador.
+Falta de verificacion/validacion en los productos, principalmente en los requerimientos y en el diseno.
+Falta de coordinacion entre las personas del equipo de desarrollo y con los otros equipos.
+Algunas de las dificultades
+Factores Sociales
+La necesidad de las companias de mostrar crecimiento.
+La cultura computacional emergente.
+El crecimiento de las expectativas del publico por servicios y entretenimiento.
+Falta de estandares.
+Falta de apego a los estandares.
+Reflexion
+	¿Me dejaria operar con software creado por mi?
+¿Que versus Como?
+	El como hacer es tan importante como el que se va a hacer.
+Producto
+	Si nos centramos en el producto (el que) podamos no darnos cuenta de como mejorarlo.
+Proceso
+	Si nos centramos en el proceso (el como), podemos:
+Predecir la repeticion de la salida.
+Conocer las tendencias del proyecto.
+Controlar las caracteristicas de calidad del producto.
+Proceso
+Creatividad vs Disciplina
+	La creatividad emerge y se mejora con la disciplina
+¿Podemos cambiar?
+La calidad de los sistemas depende de la calidad de sus componentes.
+La calidad de los componentes depende del conocimiento, disciplina y compromiso de la persona que lo desarrollo.
+¿Podemos cambiar?
+El desarrollo de software es una actividad muy intensa, personas en forma individual siguen escribiendolo.
+Cualquier mejora en la eficiencia productividad de estas personas, resultara en ganancias en los proyectos y en la industria en general.
+¿Que hace falta?
+	Necesitamos una disciplina de Ingenieria de Software que provea a las personas que desarrollan los componentes, un metodo para planear, dar seguimiento y administrar efectivamente los defectos. Mas aun, que les permita aprender de sus exitos y fracasos.
+Definicion formal de la IS
+	La Ingenieria de Software esta definida como la disciplina cuyo fin es la de producir software libre de fallos que satisfagan las necesidades de los usuarios, que sea entregado a tiempo y dentro del presupuesto.
+Cliente, desarrollador, usuario
+Cliente: Es la persona u organizacion que ordena el producto.
+Desarrollador: Es la persona u organizacion que desarrolla el producto.
+Usuario: Es la persona u organizacion que usa el producto.
+INGENIERIA DE SOFTWARE
+LCC JORGE ANTONIO CASTILLO CABRERA
+Proposito
+	Obtener una vision general del proceso de desarrollo de software y adquirir las habilidades para el uso de las herramientas de analisis y diseno de sistemas de informacion, respecto a los principales paradigmas del desarrollo de sistemas.
+Objetivo General
+	Aplicar los conceptos de Ingenieria de Software para especificar los requerimientos de programacion de un sistema, asi como las especificaciones del diseno correspondiente, considerando la factibilidad del sistema y las caracteristicas de calidad.
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+Unidad 2: La definicion de los requerimientos
+Objetivo:
+	Elaborar la definicion de requerimientos para un problema en especifico en el area de desarrollo de sistemas.
+Contenido:
+	2.1 Investigacion Preeliminar
+	2.2 La definicion de requerimientos
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+Objetivo:
+	Describir los principios y conceptos basicos del paradigma orientado a objetos
+Contenido:
+	3.1 El paradigma Orientado a Objetos
+	3.2 Conceptos de OO
+	3.3 El modelado como tecnica (UML)
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+	3.3.1 Diagramas de Casos de Uso
+	3.3.2 Escenarios Operacionales
+	3.3.3 Diagramas de Clases
+	3.3.4 Diagramas de Secuencias
+	3.3.5 Diagramas de Estados
+Unidad 4:Estimacion de Costes de Software
+Objetivo:
+	Introducir las tecnicas de estimacion de coste y esfuerzo requeridas para el desarrollo de software
+Contenidos:
+	4.1 La estimacion
+	4.2 Proceso de Planificacion del proyecto
+	4.3 Ambito del Sw y factibilidad
+	4.4 Recursos
+	4.5 Tecnicas de Estimacion
+Unidad 5:Administracion de la Calidad
+Objetivo:
+	Introduccion a la gestion de la Calidad del Sw.
+Contenido:
+	5.1 Calidad del proceso y del producto
+	5.2 Garantia de la Calidad
+	5.3 Planificacion de la Calidad
+	5.4 Control de Calidad
+	5.5 Medicion y metricas de Software
+Tareas y Examenes
+Proyecto 1: Elaboracion del documento de ERS (25%)
+Examen Parcial 1, unidades 1 y 2 (15%)
+Proyecto 2: Elaboracion del diseno (25%)
+Examen Parcial 2, unidad 3 (15%)
+Examen Parcial 3, unidades 4 y 5 (20%)
+Si la calificacion > 90, se exenta Ordinario
+Minimo aprobatorio 70
+Ordinario = 30%
+Proyectos y Parciales = 70%
+
+Bibliografia
+Ingenieria del Software. Sommerville, I. 2007. 7a edicion. Addison Wesley.
+Ingenieria de Software: un enfoque practico. Pressman, R. 1998. McGrawHill
+	INTRODUCCION A LA INGENIERIA DE SOFTWARE (IS)
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+La Evolucion del Software
+Los primeros anos
+Orientacion por lotes
+Distribucion limitada
+Software “a medida”
+La segunda era
+Multiusuario
+Tiempo Real
+Bases de Datos
+Software como producto
+
+
+La Evolucion del Software
+La tercera era
+Sistemas distribuidos
+Incorporacion de “Inteligencia”
+Hardware de bajo costo
+Impacto en el consumo
+La cuarta era
+Potentes sistemas de sobremesa
+Tecnologias orientadas a objetos
+Sistema expertos
+Redes neuronales artificiales
+Computacion paralela
+
+¿Arte o Disciplina?
+¿Por que lleva tan tiempo terminar los programas?
+¿Por que es tan elevado el costo?
+¿Por que entregamos el software con defectos?
+¿Por que no sabemos en que estado se encuentra el proyecto de desarrollo de software?
+Analogia con la industria del acero
+Sin actualizacion de las herramientas de trabajo.
+Sin mantenimiento a los productos
+Subcontratacion
+Caracteristicas del Software
+Se desarrolla, no se fabrica
+No se estropea
+Se construye a la medida, en vez de ensamblar componentes existentes
+Mitos en el desarrollo de software
+Todo lo que necesito del cliente es un planteamiento general del problema, luego me ocupare de los detalles.
+Como cliente, puedo cambiar de opinion sobre lo que quiero del software, al cabo el software es flexible
+Tenemos que empezar a codificar pues ya estamos retrasados
+Lo unico que se debe de generar es el codigo
+Mitos en el desarrollo de software
+Es imposible valorar la calidad del programa antes de que este trabajando
+Una vez que este escrito el programa, hemos finalizado.
+Cualquier ingeniero competente puede escribir programas
+Solo nos falta correr unos pocos casos de pruebas y habremos terminado
+Sabemos lo que hace el programa, no tenemos tiempo de documentarlo
+Penetracion del SW
+Objetivos
+Tiempo
+Costo
+Calidad
+!¿Falta tiempo?!
+Ejemplos de Desastres
+Fallo en la sonda Mariner 1
+Desintegracion del Ariane 5
+Sobredosis radiologica en el Instituto Nacional del Cancer de la Ciudad de Panama
+Sistema de maletas del Aeropuerto Internacional de Denver
+Algunas de las dificultades
+Factores Tecnicos
+Problemas al entender el contexto del problema
+Problemas al especificar el software (al escribir el que se quiere)
+Problemas con la complejidad y la magnitud del proyecto
+Algunas de las dificultades
+Factores Humanos
+La brecha de comunicacion entre el usuario y el programador.
+Falta de verificacion/validacion en los productos, principalmente en los requerimientos y en el diseno.
+Falta de coordinacion entre las personas del equipo de desarrollo y con los otros equipos.
+Algunas de las dificultades
+Factores Sociales
+La necesidad de las companias de mostrar crecimiento.
+La cultura computacional emergente.
+El crecimiento de las expectativas del publico por servicios y entretenimiento.
+Falta de estandares.
+Falta de apego a los estandares.
+Reflexion
+	¿Me dejaria operar con software creado por mi?
+¿Que versus Como?
+	El como hacer es tan importante como el que se va a hacer.
+Producto
+	Si nos centramos en el producto (el que) podamos no darnos cuenta de como mejorarlo.
+Proceso
+	Si nos centramos en el proceso (el como), podemos:
+Predecir la repeticion de la salida.
+Conocer las tendencias del proyecto.
+Controlar las caracteristicas de calidad del producto.
+Proceso
+Creatividad vs Disciplina
+	La creatividad emerge y se mejora con la disciplina
+¿Podemos cambiar?
+La calidad de los sistemas depende de la calidad de sus componentes.
+La calidad de los componentes depende del conocimiento, disciplina y compromiso de la persona que lo desarrollo.
+¿Podemos cambiar?
+El desarrollo de software es una actividad muy intensa, personas en forma individual siguen escribiendolo.
+Cualquier mejora en la eficiencia productividad de estas personas, resultara en ganancias en los proyectos y en la industria en general.
+¿Que hace falta?
+	Necesitamos una disciplina de Ingenieria de Software que provea a las personas que desarrollan los componentes, un metodo para planear, dar seguimiento y administrar efectivamente los defectos. Mas aun, que les permita aprender de sus exitos y fracasos.
+Definicion formal de la IS
+	La Ingenieria de Software esta definida como la disciplina cuyo fin es la de producir software libre de fallos que satisfagan las necesidades de los usuarios, que sea entregado a tiempo y dentro del presupuesto.
+Cliente, desarrollador, usuario
+Cliente: Es la persona u organizacion que ordena el producto.
+Desarrollador: Es la persona u organizacion que desarrolla el producto.
+Usuario: Es la persona u organizacion que usa el producto.
+INGENIERIA DE SOFTWARE
+LCC JORGE ANTONIO CASTILLO CABRERA
+Proposito
+	Obtener una vision general del proceso de desarrollo de software y adquirir las habilidades para el uso de las herramientas de analisis y diseno de sistemas de informacion, respecto a los principales paradigmas del desarrollo de sistemas.
+Objetivo General
+	Aplicar los conceptos de Ingenieria de Software para especificar los requerimientos de programacion de un sistema, asi como las especificaciones del diseno correspondiente, considerando la factibilidad del sistema y las caracteristicas de calidad.
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+Unidad 2: La definicion de los requerimientos
+Objetivo:
+	Elaborar la definicion de requerimientos para un problema en especifico en el area de desarrollo de sistemas.
+Contenido:
+	2.1 Investigacion Preeliminar
+	2.2 La definicion de requerimientos
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+Objetivo:
+	Describir los principios y conceptos basicos del paradigma orientado a objetos
+Contenido:
+	3.1 El paradigma Orientado a Objetos
+	3.2 Conceptos de OO
+	3.3 El modelado como tecnica (UML)
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+	3.3.1 Diagramas de Casos de Uso
+	3.3.2 Escenarios Operacionales
+	3.3.3 Diagramas de Clases
+	3.3.4 Diagramas de Secuencias
+	3.3.5 Diagramas de Estados
+Unidad 4:Estimacion de Costes de Software
+Objetivo:
+	Introducir las tecnicas de estimacion de coste y esfuerzo requeridas para el desarrollo de software
+Contenidos:
+	4.1 La estimacion
+	4.2 Proceso de Planificacion del proyecto
+	4.3 Ambito del Sw y factibilidad
+	4.4 Recursos
+	4.5 Tecnicas de Estimacion
+Unidad 5:Administracion de la Calidad
+Objetivo:
+	Introduccion a la gestion de la Calidad del Sw.
+Contenido:
+	5.1 Calidad del proceso y del producto
+	5.2 Garantia de la Calidad
+	5.3 Planificacion de la Calidad
+	5.4 Control de Calidad
+	5.5 Medicion y metricas de Software
+Tareas y Examenes
+Proyecto 1: Elaboracion del documento de ERS (25%)
+Examen Parcial 1, unidades 1 y 2 (15%)
+Proyecto 2: Elaboracion del diseno (25%)
+Examen Parcial 2, unidad 3 (15%)
+Examen Parcial 3, unidades 4 y 5 (20%)
+Si la calificacion > 90, se exenta Ordinario
+Minimo aprobatorio 70
+Ordinario = 30%
+Proyectos y Parciales = 70%
+
+Bibliografia
+Ingenieria del Software. Sommerville, I. 2007. 7a edicion. Addison Wesley.
+Ingenieria de Software: un enfoque practico. Pressman, R. 1998. McGrawHill
+	INTRODUCCION A LA INGENIERIA DE SOFTWARE (IS)
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+La Evolucion del Software
+Los primeros anos
+Orientacion por lotes
+Distribucion limitada
+Software “a medida”
+La segunda era
+Multiusuario
+Tiempo Real
+Bases de Datos
+Software como producto
+
+
+La Evolucion del Software
+La tercera era
+Sistemas distribuidos
+Incorporacion de “Inteligencia”
+Hardware de bajo costo
+Impacto en el consumo
+La cuarta era
+Potentes sistemas de sobremesa
+Tecnologias orientadas a objetos
+Sistema expertos
+Redes neuronales artificiales
+Computacion paralela
+
+¿Arte o Disciplina?
+¿Por que lleva tan tiempo terminar los programas?
+¿Por que es tan elevado el costo?
+¿Por que entregamos el software con defectos?
+¿Por que no sabemos en que estado se encuentra el proyecto de desarrollo de software?
+Analogia con la industria del acero
+Sin actualizacion de las herramientas de trabajo.
+Sin mantenimiento a los productos
+Subcontratacion
+Caracteristicas del Software
+Se desarrolla, no se fabrica
+No se estropea
+Se construye a la medida, en vez de ensamblar componentes existentes
+Mitos en el desarrollo de software
+Todo lo que necesito del cliente es un planteamiento general del problema, luego me ocupare de los detalles.
+Como cliente, puedo cambiar de opinion sobre lo que quiero del software, al cabo el software es flexible
+Tenemos que empezar a codificar pues ya estamos retrasados
+Lo unico que se debe de generar es el codigo
+Mitos en el desarrollo de software
+Es imposible valorar la calidad del programa antes de que este trabajando
+Una vez que este escrito el programa, hemos finalizado.
+Cualquier ingeniero competente puede escribir programas
+Solo nos falta correr unos pocos casos de pruebas y habremos terminado
+Sabemos lo que hace el programa, no tenemos tiempo de documentarlo
+Penetracion del SW
+Objetivos
+Tiempo
+Costo
+Calidad
+!¿Falta tiempo?!
+Ejemplos de Desastres
+Fallo en la sonda Mariner 1
+Desintegracion del Ariane 5
+Sobredosis radiologica en el Instituto Nacional del Cancer de la Ciudad de Panama
+Sistema de maletas del Aeropuerto Internacional de Denver
+Algunas de las dificultades
+Factores Tecnicos
+Problemas al entender el contexto del problema
+Problemas al especificar el software (al escribir el que se quiere)
+Problemas con la complejidad y la magnitud del proyecto
+Algunas de las dificultades
+Factores Humanos
+La brecha de comunicacion entre el usuario y el programador.
+Falta de verificacion/validacion en los productos, principalmente en los requerimientos y en el diseno.
+Falta de coordinacion entre las personas del equipo de desarrollo y con los otros equipos.
+Algunas de las dificultades
+Factores Sociales
+La necesidad de las companias de mostrar crecimiento.
+La cultura computacional emergente.
+El crecimiento de las expectativas del publico por servicios y entretenimiento.
+Falta de estandares.
+Falta de apego a los estandares.
+Reflexion
+	¿Me dejaria operar con software creado por mi?
+¿Que versus Como?
+	El como hacer es tan importante como el que se va a hacer.
+Producto
+	Si nos centramos en el producto (el que) podamos no darnos cuenta de como mejorarlo.
+Proceso
+	Si nos centramos en el proceso (el como), podemos:
+Predecir la repeticion de la salida.
+Conocer las tendencias del proyecto.
+Controlar las caracteristicas de calidad del producto.
+Proceso
+Creatividad vs Disciplina
+	La creatividad emerge y se mejora con la disciplina
+¿Podemos cambiar?
+La calidad de los sistemas depende de la calidad de sus componentes.
+La calidad de los componentes depende del conocimiento, disciplina y compromiso de la persona que lo desarrollo.
+¿Podemos cambiar?
+El desarrollo de software es una actividad muy intensa, personas en forma individual siguen escribiendolo.
+Cualquier mejora en la eficiencia productividad de estas personas, resultara en ganancias en los proyectos y en la industria en general.
+¿Que hace falta?
+	Necesitamos una disciplina de Ingenieria de Software que provea a las personas que desarrollan los componentes, un metodo para planear, dar seguimiento y administrar efectivamente los defectos. Mas aun, que les permita aprender de sus exitos y fracasos.
+Definicion formal de la IS
+	La Ingenieria de Software esta definida como la disciplina cuyo fin es la de producir software libre de fallos que satisfagan las necesidades de los usuarios, que sea entregado a tiempo y dentro del presupuesto.
+Cliente, desarrollador, usuario
+Cliente: Es la persona u organizacion que ordena el producto.
+Desarrollador: Es la persona u organizacion que desarrolla el producto.
+Usuario: Es la persona u organizacion que usa el producto.
+INGENIERIA DE SOFTWARE
+LCC JORGE ANTONIO CASTILLO CABRERA
+Proposito
+	Obtener una vision general del proceso de desarrollo de software y adquirir las habilidades para el uso de las herramientas de analisis y diseno de sistemas de informacion, respecto a los principales paradigmas del desarrollo de sistemas.
+Objetivo General
+	Aplicar los conceptos de Ingenieria de Software para especificar los requerimientos de programacion de un sistema, asi como las especificaciones del diseno correspondiente, considerando la factibilidad del sistema y las caracteristicas de calidad.
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+Unidad 2: La definicion de los requerimientos
+Objetivo:
+	Elaborar la definicion de requerimientos para un problema en especifico en el area de desarrollo de sistemas.
+Contenido:
+	2.1 Investigacion Preeliminar
+	2.2 La definicion de requerimientos
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+Objetivo:
+	Describir los principios y conceptos basicos del paradigma orientado a objetos
+Contenido:
+	3.1 El paradigma Orientado a Objetos
+	3.2 Conceptos de OO
+	3.3 El modelado como tecnica (UML)
+Unidad 3: Conceptos y principios de la metodologia Orientada a Objetos
+	3.3.1 Diagramas de Casos de Uso
+	3.3.2 Escenarios Operacionales
+	3.3.3 Diagramas de Clases
+	3.3.4 Diagramas de Secuencias
+	3.3.5 Diagramas de Estados
+Unidad 4:Estimacion de Costes de Software
+Objetivo:
+	Introducir las tecnicas de estimacion de coste y esfuerzo requeridas para el desarrollo de software
+Contenidos:
+	4.1 La estimacion
+	4.2 Proceso de Planificacion del proyecto
+	4.3 Ambito del Sw y factibilidad
+	4.4 Recursos
+	4.5 Tecnicas de Estimacion
+Unidad 5:Administracion de la Calidad
+Objetivo:
+	Introduccion a la gestion de la Calidad del Sw.
+Contenido:
+	5.1 Calidad del proceso y del producto
+	5.2 Garantia de la Calidad
+	5.3 Planificacion de la Calidad
+	5.4 Control de Calidad
+	5.5 Medicion y metricas de Software
+Tareas y Examenes
+Proyecto 1: Elaboracion del documento de ERS (25%)
+Examen Parcial 1, unidades 1 y 2 (15%)
+Proyecto 2: Elaboracion del diseno (25%)
+Examen Parcial 2, unidad 3 (15%)
+Examen Parcial 3, unidades 4 y 5 (20%)
+Si la calificacion > 90, se exenta Ordinario
+Minimo aprobatorio 70
+Ordinario = 30%
+Proyectos y Parciales = 70%
+
+Bibliografia
+Ingenieria del Software. Sommerville, I. 2007. 7a edicion. Addison Wesley.
+Ingenieria de Software: un enfoque practico. Pressman, R. 1998. McGrawHill
+	INTRODUCCION A LA INGENIERIA DE SOFTWARE (IS)
+Unidad 1: Conceptos Basicos
+Objetivo:
+	Describir la evolucion y el ambito de la IS.
+Contenido:
+	1.1 Evolucion historica de la IS.
+	1.2 El software como producto y como proceso.
+	1.3 Factores humanos que intervienen en la IS
+	1.4 El ciclo de vida del desarrollo de sistemas
+	1.5 El ambito de la IS
+
+La Evolucion del Software
+Los primeros anos
+Orientacion por lotes
+Distribucion limitada
+Software “a medida”
+La segunda era
+Multiusuario
+Tiempo Real
+Bases de Datos
+Software como producto
+
+
+La Evolucion del Software
+La tercera era
+Sistemas distribuidos
+Incorporacion de “Inteligencia”
+Hardware de bajo costo
+Impacto en el consumo
+La cuarta era
+Potentes sistemas de sobremesa
+Tecnologias orientadas a objetos
+Sistema expertos
+Redes neuronales artificiales
+Computacion paralela
+
+¿Arte o Disciplina?
+¿Por que lleva tan tiempo terminar los programas?
+¿Por que es tan elevado el costo?
+¿Por que entregamos el software con defectos?
+¿Por que no sabemos en que estado se encuentra el proyecto de desarrollo de software?
+Analogia con la industria del acero
+Sin actualizacion de las herramientas de trabajo.
+Sin mantenimiento a los productos
+Subcontratacion
+Caracteristicas del Software
+Se desarrolla, no se fabrica
+No se estropea
+Se construye a la medida, en vez de ensamblar componentes existentes
+Mitos en el desarrollo de software
+Todo lo que necesito del cliente es un planteamiento general del problema, luego me ocupare de los detalles.
+Como cliente, puedo cambiar de opinion sobre lo que quiero del software, al cabo el software es flexible
+Tenemos que empezar a codificar pues ya estamos retrasados
+Lo unico que se debe de generar es el codigo
+Mitos en el desarrollo de software
+Es imposible valorar la calidad del programa antes de que este trabajando
+Una vez que este escrito el programa, hemos finalizado.
+Cualquier ingeniero competente puede escribir programas
+Solo nos falta correr unos pocos casos de pruebas y habremos terminado
+Sabemos lo que hace el programa, no tenemos tiempo de documentarlo
+Penetracion del SW
+Objetivos
+Tiempo
+Costo
+Calidad
+!¿Falta tiempo?!
+Ejemplos de Desastres
+Fallo en la sonda Mariner 1
+Desintegracion del Ariane 5
+Sobredosis radiologica en el Instituto Nacional del Cancer de la Ciudad de Panama
+Sistema de maletas del Aeropuerto Internacional de Denver
+Algunas de las dificultades
+Factores Tecnicos
+Problemas al entender el contexto del problema
+Problemas al especificar el software (al escribir el que se quiere)
+Problemas con la complejidad y la magnitud del proyecto
+Algunas de las dificultades
+Factores Humanos
+La brecha de comunicacion entre el usuario y el programador.
+Falta de verificacion/validacion en los productos, principalmente en los requerimientos y en el diseno.
+Falta de coordinacion entre las personas del equipo de desarrollo y con los otros equipos.
+Algunas de las dificultades
+Factores Sociales
+La necesidad de las companias de mostrar crecimiento.
+La cultura computacional emergente.
+El crecimiento de las expectativas del publico por servicios y entretenimiento.
+Falta de estandares.
+Falta de apego a los estandares.
+Reflexion
+	¿Me dejaria operar con software creado por mi?
+¿Que versus Como?
+	El como hacer es tan importante como el que se va a hacer.
+Producto
+	Si nos centramos en el producto (el que) podamos no darnos cuenta de como mejorarlo.
+Proceso
+	Si nos centramos en el proceso (el como), podemos:
+Predecir la repeticion de la salida.
+Conocer las tendencias del proyecto.
+Controlar las caracteristicas de calidad del producto.
+Proceso
+Creatividad vs Disciplina
+	La creatividad emerge y se mejora con la disciplina
+¿Podemos cambiar?
+La calidad de los sistemas depende de la calidad de sus componentes.
+La calidad de los componentes depende del conocimiento, disciplina y compromiso de la persona que lo desarrollo.
+¿Podemos cambiar?
+El desarrollo de software es una actividad muy intensa, personas en forma individual siguen escribiendolo.
+Cualquier mejora en la eficiencia productividad de estas personas, resultara en ganancias en los proyectos y en la industria en general.
+¿Que hace falta?
+	Necesitamos una disciplina de Ingenieria de Software que provea a las personas que desarrollan los componentes, un metodo para planear, dar seguimiento y administrar efectivamente los defectos. Mas aun, que les permita aprender de sus exitos y fracasos.
+Definicion formal de la IS
+	La Ingenieria de Software esta definida como la disciplina cuyo fin es la de producir software libre de fallos que satisfagan las necesidades de los usuarios, que sea entregado a tiempo y dentro del presupuesto.
+Cliente, desarrollador, usuario
+Cliente: Es la persona u organizacion que ordena el producto.
+Desarrollador: Es la persona u organizacion que desarrolla el producto.
+Usuario: Es la persona u organizacion que usa el producto.
