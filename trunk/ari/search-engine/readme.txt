@@ -27,11 +27,13 @@ pyDMS v1.0 (Search Engine + Index Engine)
 
 Index Engine (standalone)
 -------------------------
-	Interfaz gráfica de usuario
-	---------------------------
-	./indexEngineGUI.py
+Interfaz gráfica de usuario
+---------------------------
+./indexEngineGUI.py
 
-	Interfaz basada en texto
-	------------------------
-	./indexEngineCMD.py ([-f | --file] <file_path> | [-d | --directory]
-			      <directory_path>)
+Interfaz basada en texto
+------------------------
+./indexEngineCMD.py ([-f | --file] <file_path> | [-d | --directory]
+<directory_path>)
+
+
