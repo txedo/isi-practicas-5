@@ -1,0 +1,36 @@
+\section{Conclusiones}\label{conclusiones}
+
+Después se la realización del sistema, se ha observado que es
+prácticamente imposible llegar a encontrar una solución perfecta al
+problema, debido a que todo el desarrollo ha estado basado en la toma
+de decisiones que mejoran el rendimiento del sistema por un lado y lo
+empeoran por otro. En concreto, algunas acciones que mejoraban
+considerablemente el módulo de indexación provocaban deficiencias en
+el módulo de búsqueda, y viceversa. Es por esto por lo que los
+desarrolladores se han visto en la obligación de llegar a un
+compromiso en todo momento.
+
+Uno de los principales problemas y cuyas decisiones han abarcado todo
+el proceso de desarrollo fue la elaboración del ``parser'', ya que el
+dominio que maneja el sistema se basa en documentos técnicos escritos
+en lenguaje natural y en diferentes idiomas. Un texto en lenguaje
+natural se podría caracterizar por las pocas restricciones que impone
+(p.e. después de un punto va un espacio y letra mayúscula) y los
+frecuentes errores ortográficos y gramaticales que pueden encontrarse
+en ellos. Estos problemas condionan el diseño de dicho ``parser''.
+
+Además, se ha comprobado un rendimiento excelente en el uso de MySQL
+como sistema de almacenamiento. Es cierto que el módulo de
+indexación va experimentando cierto empeoramiento conforme el tamaño
+de la base de datos va creciendo, pero aún así las estadísticas
+revelan tiempos muy aceptables para el volumen de documentos con el
+que se trabaja en este caso de estudio. No obstante, el rendimiento del
+sistema está muy ligado al conocimiento de los desarrolladores del
+lenguaje SQL y diseño de las sentencias de consulta y
+escritura de la base de datos influye drásticamente en éste.
+
+Por último, como futuras mejoras a la aplicación se recomienda
+incorporar el uso de \emph{wordnets} y algoritmos de \emph{stemming},
+con el objetivo de no perder la verdadera relevancia que tienen los
+términos a causa de sinónimos, hipónimos, hiperónimos, palabras
+derivadas, etc.
