@@ -105,8 +105,10 @@ class Aplicacion:
         self.__add_result_column(self.resultView, "Id Doc", 2)
         self.__add_result_column(self.resultView, "Document Title", 3)
         self.__add_result_column(self.resultView, "Relevance", 4)
+        self.resultView.set_search_column(3)
         self.__add_result_column(self.docsView, "Id Doc", 1)
         self.__add_result_column(self.docsView, "Title" ,2)
+        self.docsView.set_search_column(2)
         # Se crea el ListStore
         self.resultList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.docsList = gtk.ListStore(gobject.TYPE_PYOBJECT, gobject.TYPE_STRING, gobject.TYPE_STRING)
