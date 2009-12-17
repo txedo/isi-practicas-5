@@ -14,6 +14,8 @@ import com.rapidminer.tools.XMLException;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -84,7 +86,7 @@ public class JDataMiningClassification extends javax.swing.JFrame {
 	
 	private String rutaXLS, rutaFichero;
 	private String algoritmo="ID3";
-	boolean nombres, id, seleccionadoNombre, seleccionadoId;
+	boolean nombres, id, seleccionadoNombre, seleccionadoId, valido;
 	int clase;
 
 	{
@@ -278,6 +280,7 @@ public class JDataMiningClassification extends javax.swing.JFrame {
 	}
 	
 	private void resetGUI() {
+		valido=false;
 		seleccionadoNombre=false;
 		seleccionadoId=false;
 		rutaXLS = "";
@@ -342,6 +345,11 @@ public class JDataMiningClassification extends javax.swing.JFrame {
 			jButton1 = new JButton();
 			jButton1.setText("Comenzar");
 			jButton1.setBounds(311, 555, 84, 25);
+			jButton1.addMouseListener(new MouseAdapter() {
+				public void mousePressed(MouseEvent evt) {
+					jButton1MousePressed(evt);
+				}
+			});
 			jButton1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent evt) {
 					jButton1ActionPerformed(evt);
@@ -370,7 +378,7 @@ public class JDataMiningClassification extends javax.swing.JFrame {
 		int clase = 0;
 		int nId = 0;
 		String xml="";
-		boolean valido=true;
+		valido=true;
 		rutaXLS = jtxtRuta.getText();
 		rutaFichero = jtxtRes.getText();
 		
@@ -404,10 +412,12 @@ public class JDataMiningClassification extends javax.swing.JFrame {
 						JOptionPane.showMessageDialog(this,"Debe introducir un numero entero para el atributo de clasificacion", "Error", JOptionPane.ERROR_MESSAGE);
 						valido = false;
 					}
-					nId=Integer.parseInt(jtxtID.getText());
-					if (id && nId==0) {
-						valido= false;
-						JOptionPane.showMessageDialog(this,"Debe introducir un numero entero para el atributo identificador", "Error", JOptionPane.ERROR_MESSAGE);
+					if (id) {
+						nId=Integer.parseInt(jtxtID.getText());
+						if (nId==0) {
+							valido= false;
+							JOptionPane.showMessageDialog(this,"Debe introducir un numero entero para el atributo identificador", "Error", JOptionPane.ERROR_MESSAGE);
+						}
 					}
 				}catch (NumberFormatException e) {
 					JOptionPane.showMessageDialog(this,"Se debe introducir un numero entero, tanto en el atributo identificador como en el de clasificacion", "Error", JOptionPane.ERROR_MESSAGE);
@@ -415,6 +425,7 @@ public class JDataMiningClassification extends javax.swing.JFrame {
 				}
 				
 				if(valido) {
+					Thread.sleep(2000);
 					xml = XMLProject.getXMLProyecto(algoritmo, rutaXLS, rutaFichero, nombres, id, clase, nId);
 					IOContainer contenedor = analyzer.AnalizarDatos(xml);
 					JResultados dialogo = new JResultados();
@@ -457,8 +468,7 @@ public class JDataMiningClassification extends javax.swing.JFrame {
 		id=true;
 		seleccionadoId=true;
 		jtxtID.setText("");
-		jtxtID.setEditable(true);
-		
+		jtxtID.setEditable(true);		
 	}
 	
 	private void jcbAlgoritmosActionPerformed(ActionEvent evt) {
@@ -515,6 +525,10 @@ public class JDataMiningClassification extends javax.swing.JFrame {
 			jtxtAreaEstado.setEditable(false);
 		}
 		return jtxtAreaEstado;
+	}
+	
+	private void jButton1MousePressed(MouseEvent evt) {
+		jtxtAreaEstado.setText("Analizando archivo ...\n\n");
 	}
 }
 
