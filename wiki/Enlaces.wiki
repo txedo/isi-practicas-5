@@ -8,4 +8,7 @@ Expresiones regulares en Python: http://www.amk.ca/python/howto/regex/
 
 = Sistemas para la Colaboración =
 Descarga de JXTA (manuales, código fuente, librería, etc.): http://download.java.net/jxta/
+
 Ejemplos: https://jxta.dev.java.net/ (sección Subprojects)
+
+Iconos para los avatares de PlanCoDE: http://www.androidicons.com/download/monster-icons.zip
