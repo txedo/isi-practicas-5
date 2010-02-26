@@ -7,5 +7,5 @@ API de MYSQLdb: http://mysql-python.sourceforge.net/MySQLdb.html#connection-obje
 Expresiones regulares en Python: http://www.amk.ca/python/howto/regex/
 
 = Sistemas para la Colaboración =
-
 Descarga de JXTA (manuales, código fuente, librería, etc.): http://download.java.net/jxta/
+Ejemplos: https://jxta.dev.java.net/ (sección Subprojects)
