@@ -1,3 +1,29 @@
-\section{¿Qué es PlanCoDE?}
+\section{¿Qué es PlanCoDE?} \label{requisitos}
+
+PlanCoDE es el acrónimo de \textit{Planificador Colaborativo para el Diseño de Estrategias y Acciones de Emergencia}. Es, por tanto, una herramienta que permite la colaboración de diferentes especialistas (policías, bomberos, etc.) para desarrollar un plan de actuación poder atender una situación de emergencia. 
+
+Así, PlanCoDE ofrece las siguientes funcionalidades a sus usuarios:
+
+\begin{milista}
+	\item \textbf{Chat}: los diferentes miembros de grupos especialistas en situaciones de emergencia podrán utilizar el chat que la aplicación proporciona para comunicarse en tiempo real e intercambiar opiniones acerca del plan a realizar.
+	\item \textbf{Mostrar mapas}: la aplicación mostrará una imagen del mapa de la zona donde se ha producido la emergencia. Dichos mapas se recuperarán a partir de \textit{Google Maps} o serán imágenes ya almacenadas en disco. 
+	\item \textbf{Edición de mapas}: los usuarios del sistema podrán realizar trazos libres y colocar diferentes símbolos (barreras, puntos conflictivos, etc.) sobre la imagen del mapa que se ha cargado. De este modo, se pueden realizar rutas sobre el propio mapa y marcar con símbolos aquellos puntos de interés. 
+	Del mismo modo, también se podrá liminar los trzos y objetos introducidos por cada usuario de la aplicación.	
+\end{milista}
+
+Por otra parte, además de los requisitos funcionales anteriores, PlanCoDE debe tener como requisitos adicionales la \textbf{movilidad} y la \textbf{tolerancia a fallos}, debido a las situaciones críticas en las que dicha herramienta será utilizada. \\
+\indent Por ello, la arquitectura de la herramienta no será la típica arquitectura cliente-servidor, ya que si en algún momento el servidor está caido, ningún usuario podría iniciar sesión en él y no se podría utilizar la herramienta. \\
+\indent Por tanto, para evitar el problema anterior, el primer usuario que inicie una sesión se convertirá en el servidor, de modo que nuevos usuarios podrán conectarse a él y, a la vez, éste recibirá la información del resto de usuarios, como otro cliente normal. 
+
+Relacionado con lo anterior, la herramienta debe permitir elegir al usuario que la utiliza la dirección IP a la que debe conectarse. Para esto, el usuario podrá introducir manualmente dicha dirección, pero también podrá recuperar una lista de servidores (entendiendo servidor como uno de los clientes que iniciaron la sesión por primera vez, como ya se ha comentado) a través de un servicio Web y conectarse a su sesión. 
+
+Con esta arquitectura, se satisfacen los requisitos críticos de movilidad y tolerancia a fallos, pues cualquier cliente puede conectarse en cualquier momento y lugar y siempre va a existir algún servidor disponible, ya que éste será uno de los propios clientes de la aplicación. Además, si el servicio Web falla al recuperar la lista de servidores, exisitriá la posibildiad de introducir la información para conectarse con otros clientes de manera manual.
+
 
 \subsection{Diagrama de casos de uso}
+
+El diagrama de casos de uso de la aplicación se muestra en la Figura \ref{fig:casosUso}. Dicho diagrama representa los requisitos de la aplicación que se han comentado en el punto anterior, junto con otras funcionalidades que son necesarias para el correcto funcionamiento de la aplicación colaborativa.
+
+Así, un usuario debe iniciar una sesión para poder utilizar la aplicación con el resto de usuarios y cierra la sesión cuando deja de utilizarla. Del mismo modo, la propia aplicación debe actualizar su estado y enviar a todos los usuarios conectados esta información, es decir, los mensajes que se envián al chat, la imagen del mapa que se desea mostrar y los dibujos que se realizan sobre éste.
+
+\imagen{./imagenes/casosUso}{0.7}{Diagrama de casos de uso de la aplicación}{fig:casosUso}
