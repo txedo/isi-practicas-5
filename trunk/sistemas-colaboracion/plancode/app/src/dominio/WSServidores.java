@@ -1,21 +1,21 @@
-/**
- * WSServidores.java
- *
- * This file was auto-generated from WSDL
- * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
- */
-
 package dominio;
 
-public interface WSServidores extends javax.xml.rpc.Service {
-    public java.lang.String getWSServidoresHttpSoap12EndpointAddress();
+import java.util.ArrayList;
 
-    public dominio.WSServidoresPortType getWSServidoresHttpSoap12Endpoint() throws javax.xml.rpc.ServiceException;
+public class WSServidores {
 
-    public dominio.WSServidoresPortType getWSServidoresHttpSoap12Endpoint(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
-    public java.lang.String getWSServidoresHttpSoap11EndpointAddress();
+	  private ArrayList<DatosConexion> servidores = new ArrayList<DatosConexion>() ;
+      
+      public ArrayList<DatosConexion> getServidores() {
+              return servidores;
+      }
+      
+      public void anadirServidor(DatosConexion d) {
+              servidores.add(d);
+      }
+      
+      public void eliminarServidor(DatosConexion d) {
+              servidores.remove(d);
+      }
 
-    public dominio.WSServidoresPortType getWSServidoresHttpSoap11Endpoint() throws javax.xml.rpc.ServiceException;
-
-    public dominio.WSServidoresPortType getWSServidoresHttpSoap11Endpoint(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
 }
