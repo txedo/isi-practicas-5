@@ -4,6 +4,7 @@ Aunque este documento se ha centrado en las funcionalidades principales (ver sec
 
 A continuación se enumerarán y explicarán las distintas funcionalidades adicionales que hacen de Skype una aplicación excepcional. Se seguirá un orden lógico, es decir, desde funcionalidades más básicas (para usuarios principiantes) a funcionalidades más específicas (para usuarios expertos).
 
+
 \subsection{Personalización del perfil de usuario}
 Al instalar la aplicación se ofrece al usuario la posibilidad de crear una cuenta de usuario. Este es un proceso obligatorio y gratuito, ya que sólo los usuarios registrado pueden hacer uso del servicio. El proceso de registro es el típico: elegir un nombre de usuario, una contraseña, y rellenar algunos datos personales como el nombre, la dirección y la fecha de nacimiento.
 
@@ -12,13 +13,11 @@ Una vez que el usuario ha creado la cuenta y ha iniciado sesión en el sistema, a
 \imagen{./imagenes/configurarPerfil.png}{0.4}{Ventana de configuración del perfil de usuario}{fig:configurarPerfil}
 
 
-
 \subsection{Configuración del idioma}
 Actualmente, Skype está disponible en 29 idiomas distintos (para ver la lista completa acuda al menú \textit{Herramientas/Cambiar idioma}). Gracias a esta característica la aplicación puede llegar a una gran variedad de países y culturas. Esto es posible porque la configuración del idioma de Skype se basa en un fichero de extensión \textit{.lang} en el que se escriben los nombres de las variables y sus valores. Por esto, Skype ofrece la posibilidad de crear nuevos archivos de idioma o editar los ya existentes, maximizando así la \textit{internacionalización}.
 
 
-
-\subsection{Gestión de contactos}
+\subsection{Gestión de contactos} \label{sec:contactos}
 Una característica básica en todos los sistemas de comunicaciones es la gestión de contactos. Skype, como el resto de aplicaciones del estilo, permite al usuario la posibilidad de agregar nuevos contactos y organizarlos en grupos.
 
 El proceso de agregación de contactos puede hacerse de 3 formas:
@@ -31,8 +30,7 @@ El proceso de agregación de contactos puede hacerse de 3 formas:
 Por último, Skype también ofrece la posibilidad de guardar y restaurar copias de seguridad de contactos.
 
 
-
-\subsection{Compartir pantalla}
+\subsection{Compartir pantalla}\label{sec:screenshare}
 Para maximizar las posibilidades que ofrece la videollamada, Skype implementa otra funcionalidad que consiste en compartir la pantalla del ordenador. Hay dos modos posibles:
 \begin{milista}
 	\item Compartir pantalla completa.
@@ -50,15 +48,25 @@ Al igual que cualquier programa de mensajería, Skype ofrece la posibilidad de co
 
 
 
-
 \subsection{Compra de crédito}
+Como se indica en la sección \ref{sec:introduccion}, existen una serie de servicios \textbf{no gratuitos} que se pueden realizar en Skype (p.e. llamar desde la cuenta Skype a un teléfono móvil). La duda que puede tener el usuario a la hora de consumir este tipo de servicios es cómo se realiza el pago de los mismos. Para ello, la aplicación facilita una funcionalidad denominada \textit{Comprar}, accesible desde la parte inferior del menú izquierdo. Se muestran tres opciones de compra (ver Figura \ref{fig:comprar}:
+\begin{milista}
+	\item \textbf{Comprar crédito de Skype:} se abrirá una ventana dentro de la aplicación en la que el usuario deberá introducir sus datos personales (nombre, apellidos, dirección de facturación, etc.) y seleccionar el método de pago: PayPal o tarjeta. A continuación, el saldo seleccionado (mínimo 10.00\euro) será sumado al crédito de la cuenta del usuario. También se ofrece la opción de recargar automáticamente la cuenta de Skype cuando el saldo se sitúa por debajo de los 2.00\euro.
+	\item \textbf{Comprar un plan:} los planes son un tipo de tarifa plana para llamar a teléfonos fijos. En la Figura \ref{fig:planes} se muestran los distintos planes que hay ofertados para residentes europeos. Cabe destacar que esta función no se realiza dentro de la propia aplicación, si no que se ejecuta en el navegador Web que el equipo tenga configurado como predeterminado. El pago se realiza de la misma forma que en el caso anterior: PayPal o tarjeta.
+	\item \textbf{Comprar accesorios:} como su propio nombre indica, en este lugar se facilita la compra de accesorios: desde auriculares y teléfonos hasta cámaras Web. Una vez más, esta funcionalidad se ejecutará en el navegador Web que haya configurado de forma predeterminada en el equipo y el pago se hará mediante PayPal o tarjeta.
+\end{milista}
 
+\imagen{./imagenes/comprar.png}{0.4}{Funcionalidad \textit{Comprar} de Skype}{fig:comprar}
 
+\imagen{./imagenes/plan-europa.png}{0.4}{Planes de Skype ofertados en Europa}{fig:planes}
 
 
 \subsection{Gestión del directorio}
-
-
+Esta sección ofrece dos funcionalidades:
+\begin{milista}
+	\item La primera es una segunda vía de acceso para agregar o importar nuevos contactos (ver sección \ref{sec:contactos})
+	\item La segunda sirve para buscar recomendaciones de empresas. Para ello, se introduce el nombre de la empresa o una descripción de ésta (p.e. restaurante y pizzeria italiano) y la ciudad en la que se desea realizar la búsqueda. El sistema nos devolverá una lista de valoraciones que han hecho los usuarios sobre las empresas que se ajusten a las condiciones de búsqueda. También se permite añadir nuevas recomendaciones o valoraciones.
+\end{milista}
 
 
 \subsection{Extras}
