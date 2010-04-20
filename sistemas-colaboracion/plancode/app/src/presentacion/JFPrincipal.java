@@ -1,8 +1,11 @@
 package presentacion;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -29,6 +32,8 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JPanel jPestañaChat;
 	private JPanel jPnlUsuarios;
 	private JPanel panelPaint;
+	private JButton jButton1;
+	private JButton Dibujar;
 	private CanvasPaint canvasPaint;
 	private JTextArea jTxtChat;
 	private JScrollPane jScrollChat;
@@ -67,6 +72,28 @@ public class JFPrincipal extends javax.swing.JFrame {
 				jPnlToolBoox.setBounds(6, 25, 195, 336);
 				jPnlToolBoox.setLayout(null);
 				jPnlToolBoox.setBorder(BorderFactory.createTitledBorder("Toolbox"));
+				{
+					jButton1 = new JButton();
+					jPnlToolBoox.add(jButton1);
+					jButton1.setText("Eliminar");
+					jButton1.setBounds(62, 123, 77, 30);
+					jButton1.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent evt) {
+							jButton1ActionPerformed(evt);
+						}
+					});
+				}
+				{
+					Dibujar = new JButton();
+					jPnlToolBoox.add(Dibujar);
+					Dibujar.setText("Dibujar");
+					Dibujar.setBounds(62, 164, 77, 26);
+					Dibujar.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent evt) {
+							DibujarActionPerformed(evt);
+						}
+					});
+				}
 			}
 			{
 				jTabbedPane = new JTabbedPane();
@@ -120,7 +147,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 				{
 					canvasPaint = new CanvasPaint();
 					panelPaint.add(canvasPaint);
-					canvasPaint.modoPintar();
+					canvasPaint.modoPintarTrazo();
 					canvasPaint.setBackground(Color.white);
 					canvasPaint.setBounds(5, 21, 450, 310);
 				}
@@ -130,6 +157,14 @@ public class JFPrincipal extends javax.swing.JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void jButton1ActionPerformed(ActionEvent evt) {
+		canvasPaint.modoEliminarTrazo();
+	}
+	
+	private void DibujarActionPerformed(ActionEvent evt) {
+		canvasPaint.modoPintarTrazo();
 	}
 
 }

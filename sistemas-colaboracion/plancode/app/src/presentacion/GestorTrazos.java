@@ -1,14 +1,18 @@
 package presentacion;
 
+/**
+ * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php
+ */
+
 import java.awt.Color;
 import java.awt.Component;
 import java.util.LinkedList;
 
 /**
- * Construye trazos según se va arrastrando el ratón
+ * Clase para gestionar lo relacionado con trazos (dibujar/eliminar)
  *
  */
-public class PintaTrazo implements InterfaceArrastrarRaton
+public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRaton
 {
     /** Lista de trazos */
     private LinkedList<Trazo> trazos;
@@ -16,15 +20,15 @@ public class PintaTrazo implements InterfaceArrastrarRaton
     /** Trazo que se está construyendo actualmente */
     private Trazo trazoActual = null;
 
-    /** Lienzo de dibujo (el canvas), necesario para llamar a repaint() según se va
-     * construyendo un nuevo trazo.
+    /** Lienzo de dibujo (el canvas), necesario para llamar a repaint() si se constuye o elimina un trazo
+     * 
      */
     private Component lienzo;
 
     /** Color del que se está dibujando el trazo actual */
     private Color colorActual = Color.black;
 
-    public PintaTrazo(LinkedList<Trazo> trazos, Component lienzo)
+    public GestorTrazos(LinkedList<Trazo> trazos, Component lienzo)
     {
         this.trazos = trazos;
         this.lienzo = lienzo;
@@ -60,4 +64,29 @@ public class PintaTrazo implements InterfaceArrastrarRaton
     {
         this.colorActual = colorActual;
     }
+
+	/** Busca el trazo mas cercano a donde se ha pinchado con el ra´ton para eliminarlo **/
+    // TODO: revisar el algoritmo de distancias, sobre todo para cuando hay 1 trazo
+    
+	public void eliminarObjeto(int x, int y) {
+		int pos = -1;
+
+		 double distancia = trazos.get(0).dameDistanciaMinima(x, y);
+		 pos = 0;
+	        for (int i = 1; i < trazos.size(); i++)
+	        {
+	            double distanciaAux = trazos.get(i).dameDistanciaMinima(x, y);
+	            if (distanciaAux < distancia)
+	            {
+	                distancia = distanciaAux;
+	                pos = i;
+	            }
+	        }
+	       if (pos!=-1){
+	    	   trazos.remove(trazos.get(pos));
+
+	       }
+    	   lienzo.repaint();
+		
+	}
 }

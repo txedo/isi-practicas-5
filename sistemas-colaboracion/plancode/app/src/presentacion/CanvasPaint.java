@@ -1,5 +1,9 @@
 package presentacion;
 
+/**
+ * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php
+ */
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -7,40 +11,61 @@ import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
 /**
- * Panel que hereda de un Canvas, que permite dibujar trazos 
- * arrastrando el ratón.
+ * Clase que hereda de Canvas y que permite dibujar trazos sobre el canvas
+ * 
  */
 public class CanvasPaint extends Canvas
 {
 
     private static final long serialVersionUID = 3978706198935583032L;
 
-    /** Acción de pintar trazo mientras se arrastra el ratón */
-    private PintaTrazo pintaTrazo = null;
+    /** Objeto para gestionar lo relacionado con trazos (dibujar/eliminar) */
+    private GestorTrazos gestorT = null;
 
-    /** Clase manejadora de los arrastres de ratón */
-    private ListenerArrastre listener = null;
+    /** Objeto manejador de los arrastres de ratón (para dibujar el trazo) */
+    private ListenerArrastre listenerA = null;
+    
+    /** Objeto manejador para detectar donde se pincha con el ratón (para eliminar el trazo) */
+    private ListenerPinchar listenerP = null;
 
     /** Lista de trazos dibujados */
     private LinkedList<Trazo> trazos = new LinkedList<Trazo>();
 
+    private boolean modoEliminar = false;
+    
     /** 
      * Pone el modo de dibujo de trazos.
      */
-    public void modoPintar()
+    public void modoPintarTrazo()
     {
-        listener.setAccion(pintaTrazo);
+        listenerA.setAccion(gestorT);
+        listenerP.setAccion(null);
+    }
+    
+    /**
+     * Pone el modo para eliminar trazos 
+     */
+    public void modoEliminarTrazo() {
+    	listenerA.setAccion(null);
+    	listenerP.setAccion(gestorT);
+    	modoEliminar = true;
     }
 
     public CanvasPaint()
     {
-        pintaTrazo = new PintaTrazo(trazos, this);
-        listener = new ListenerArrastre(pintaTrazo);
-        addMouseMotionListener(listener);
+        gestorT = new GestorTrazos(trazos, this);
+        listenerA = new ListenerArrastre(gestorT);
+        listenerP = new ListenerPinchar(gestorT);
+        addMouseMotionListener(listenerA);
+        addMouseListener(listenerP);
     }
 
     public void update(Graphics g)
     {
+    	// Si es el modo eliminar trazos, se llama al padre para borrar el canvas completo.
+    	// Luego se dibujan los trazos que sean necesarios
+    	if (modoEliminar)
+    		super.update(g);
     	paint(g);
     }
 
@@ -76,6 +101,6 @@ public class CanvasPaint extends Canvas
      */
     public void setColorActual(Color colorActual)
     {
-        pintaTrazo.setColorActual(colorActual);
+        gestorT.setColorActual(colorActual);
     }
 }

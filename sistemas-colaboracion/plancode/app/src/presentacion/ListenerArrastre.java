@@ -1,5 +1,9 @@
 package presentacion;
 
+/**
+ * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php
+ */
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
@@ -39,11 +43,13 @@ public class ListenerArrastre implements MouseMotionListener
      */
     public void mouseMoved(MouseEvent e)
     {
-        if (arrastrando == true)
-            accion.finalizaArrastra(xAntigua, yAntigua);
-        arrastrando = false;
-        xAntigua = e.getX();
-        yAntigua = e.getY();
+    	if (accion!=null) {
+	        if (arrastrando == true)
+	            accion.finalizaArrastra(xAntigua, yAntigua);
+	        arrastrando = false;
+	        xAntigua = e.getX();
+	        yAntigua = e.getY();
+    	}
     }
 
     /**
@@ -53,14 +59,16 @@ public class ListenerArrastre implements MouseMotionListener
      */
     public void mouseDragged(MouseEvent e)
     {
-        if (arrastrando == false)
-        {
-            accion.comienzaDibujarTrazo(e.getX(), e.getY());
-            arrastrando = true;
-        }
-        /* Si ya se estaba arrastrando, se añaden más puntos al trazo */
-        accion.añadirPuntosTrazo(xAntigua, yAntigua, e.getX(), e.getY());
-        xAntigua = e.getX();
-        yAntigua = e.getY();
+    	if (accion!=null){
+	        if (arrastrando == false)
+	        {
+	            accion.comienzaDibujarTrazo(e.getX(), e.getY());
+	            arrastrando = true;
+	        }
+	        /* Si ya se estaba arrastrando, se añaden más puntos al trazo */
+	        accion.añadirPuntosTrazo(xAntigua, yAntigua, e.getX(), e.getY());
+	        xAntigua = e.getX();
+	        yAntigua = e.getY();
+    	}
     }
 }
