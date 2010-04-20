@@ -1,21 +1,25 @@
 package dominio;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class WSServidores {
 
-	  private ArrayList<DatosConexion> servidores = new ArrayList<DatosConexion>() ;
+	  private List<DatosConexion> servidores = new ArrayList<DatosConexion>();
+	  private int nServidores = 0;
       
-      public ArrayList<DatosConexion> getServidores() {
-              return servidores;
+      public DatosConexion getServidores() {
+    	  return servidores.get(0);
       }
       
-      public void anadirServidor(DatosConexion d) {
+      public int anadirServidor(DatosConexion d) {
               servidores.add(d);
+              nServidores++;
+              return nServidores;
       }
       
-      public void eliminarServidor(DatosConexion d) {
+      /*public void eliminarServidor(DatosConexion d) {
               servidores.remove(d);
-      }
+      }*/
 
 }
