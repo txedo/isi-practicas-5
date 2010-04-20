@@ -1,7 +1,13 @@
 package dominio;
 
-public class DatosConexion {
+import java.io.Serializable;
 
+public class DatosConexion implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7427165557980228417L;
 	private String ip;
 	private int puerto;
 	

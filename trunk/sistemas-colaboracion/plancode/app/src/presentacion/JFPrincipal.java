@@ -1,4 +1,5 @@
 package presentacion;
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -28,7 +29,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JPanel jPnlToolBoox;
 	private JPanel jPestañaChat;
 	private JPanel jPnlUsuarios;
-	private JPanel jPanel1;
+	private PanelPaint panelPaint1;
 	private JTextArea jTxtChat;
 	private JScrollPane jScrollChat;
 	private JTextArea jTxtLog;
@@ -64,6 +65,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 				jPnlToolBoox = new JPanel();
 				getContentPane().add(jPnlToolBoox);
 				jPnlToolBoox.setBounds(0, 31, 195, 330);
+				jPnlToolBoox.setLayout(null);
 			}
 			{
 				jTabbedPane = new JTabbedPane();
@@ -104,13 +106,15 @@ public class JFPrincipal extends javax.swing.JFrame {
 			{
 				jPnlUsuarios = new JPanel();
 				getContentPane().add(jPnlUsuarios);
-				jPnlUsuarios.setBounds(773, 47, 103, 320);
-				jPnlUsuarios.setSize(195, 330);
+				jPnlUsuarios.setBounds(673, 31, 195, 324);
+				jPnlUsuarios.setLayout(null);
 			}
 			{
-				jPanel1 = new JPanel();
-				getContentPane().add(jPanel1);
-				jPanel1.setBounds(673, 31, 195, 324);
+				panelPaint1 = new PanelPaint();
+				getContentPane().add(panelPaint1);
+				panelPaint1.modoPintar();
+				panelPaint1.setBackground(Color.white);
+				panelPaint1.setBounds(201, 31, 461, 331);
 			}
 			pack();
 			setSize(400, 300);
