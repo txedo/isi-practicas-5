@@ -1,6 +1,10 @@
 package presentacion;
 
 /**
+ * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php
+ */
+
+/**
  * Interface para las clases encargadas de hacer algo cuando se arrastre el
  * ratón.
  */

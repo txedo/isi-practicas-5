@@ -1,5 +1,9 @@
 package presentacion;
 
+/**
+ * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php
+ */
+
 import java.awt.Color;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
@@ -49,6 +53,22 @@ public class Trazo
     public Point2D getPunto(int posicion)
     {
         return puntos.get(posicion);
+    }
+    
+    public double dameDistanciaMinima(int x, int y)
+    {
+        double distancia = dameDistancia(x, y, 0);
+        for (int i = 1; i < puntos.size(); i++)
+        {
+            distancia = Math.min(dameDistancia(x, y, i), distancia);
+        }
+        return distancia;
+    }
+    
+    private double dameDistancia(int x, int y, int i)
+    {
+        return Math.abs(puntos.get(i).getX() - x)
+                + Math.abs(puntos.get(i).getY() - y);
     }
 
 }
