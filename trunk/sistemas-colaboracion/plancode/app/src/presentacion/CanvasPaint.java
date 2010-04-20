@@ -10,7 +10,7 @@ import java.util.LinkedList;
  * Panel que hereda de un Canvas, que permite dibujar trazos 
  * arrastrando el ratón.
  */
-public class PanelPaint extends Canvas
+public class CanvasPaint extends Canvas
 {
 
     private static final long serialVersionUID = 3978706198935583032L;
@@ -32,7 +32,7 @@ public class PanelPaint extends Canvas
         listener.setAccion(pintaTrazo);
     }
 
-    public PanelPaint()
+    public CanvasPaint()
     {
         pintaTrazo = new PintaTrazo(trazos, this);
         listener = new ListenerArrastre(pintaTrazo);
