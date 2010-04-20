@@ -1,9 +1,8 @@
 package presentacion;
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
@@ -29,7 +28,8 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JPanel jPnlToolBoox;
 	private JPanel jPestañaChat;
 	private JPanel jPnlUsuarios;
-	private PanelPaint panelPaint1;
+	private JPanel panelPaint;
+	private CanvasPaint canvasPaint;
 	private JTextArea jTxtChat;
 	private JScrollPane jScrollChat;
 	private JTextArea jTxtLog;
@@ -64,8 +64,9 @@ public class JFPrincipal extends javax.swing.JFrame {
 			{
 				jPnlToolBoox = new JPanel();
 				getContentPane().add(jPnlToolBoox);
-				jPnlToolBoox.setBounds(0, 31, 195, 330);
+				jPnlToolBoox.setBounds(6, 25, 195, 336);
 				jPnlToolBoox.setLayout(null);
+				jPnlToolBoox.setBorder(BorderFactory.createTitledBorder("Toolbox"));
 			}
 			{
 				jTabbedPane = new JTabbedPane();
@@ -106,15 +107,23 @@ public class JFPrincipal extends javax.swing.JFrame {
 			{
 				jPnlUsuarios = new JPanel();
 				getContentPane().add(jPnlUsuarios);
-				jPnlUsuarios.setBounds(673, 31, 195, 324);
+				jPnlUsuarios.setBounds(673, 25, 195, 336);
 				jPnlUsuarios.setLayout(null);
+				jPnlUsuarios.setBorder(BorderFactory.createTitledBorder("Usuarios"));
 			}
 			{
-				panelPaint1 = new PanelPaint();
-				getContentPane().add(panelPaint1);
-				panelPaint1.modoPintar();
-				panelPaint1.setBackground(Color.white);
-				panelPaint1.setBounds(201, 31, 461, 331);
+				panelPaint = new JPanel();
+				getContentPane().add(panelPaint);
+				panelPaint.setBounds(207, 25, 460, 336);
+				panelPaint.setBorder(BorderFactory.createTitledBorder("Área de trabajo"));
+				panelPaint.setLayout(null);
+				{
+					canvasPaint = new CanvasPaint();
+					panelPaint.add(canvasPaint);
+					canvasPaint.modoPintar();
+					canvasPaint.setBackground(Color.white);
+					canvasPaint.setBounds(5, 21, 450, 310);
+				}
 			}
 			pack();
 			setSize(400, 300);
