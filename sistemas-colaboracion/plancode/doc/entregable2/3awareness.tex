@@ -1,28 +1,18 @@
 \section{Soporte de \textit{awareness}}
-% indicar mediante qué tecnicas se responden las preguntas de la transparencia 17 del tema 5. No hace falta que se respondan a todas ya que el sistema puede sobrecargarse.
 
-% Identidad:
-% 	lista de usuarios que indiquen su rol en la emergencia (cuerpo de seguridad, bombero, etc...)
-%	Localizacion:
-%		aqui no se que poner
-%	Nivel de actividad:
-%		se refiere a indicar por ejemplo un idle.
-%	Acciones:
-%		como tenemos un wysiwis se refiere a indicar quien está dibujando (o quién está usando el telepuntero si lo hacemos) y la acción que está haciendo (trazo libre, icono, borrar), o indicar si alguien está escribiendo en el chat
-%	Intenciones:
-%		en caso de implementar el telepuntero, indicar quien será el siguiente que va a cogerlo
-%	Cambios
-%		en el log se muestra de forma textual los cambios que se han hecho en el area de dibujo
-% Objetos
-%		si usamos un telepuntero, sería indicar si el telepunteor tiene seleccinado un objeto o el trazo libre
-%	Extensiones
-%		
-% Capacidades
+En esta sección se va comentar el soporte \textit{awareness} del espacio de trabajo de la aplicación, es decir, como se soporta la interacción entre los diferentes usuarios de la aplicación. 
+Así, se van detallar las técnicas empleadas para intentar responder a las preguntas que aparecen en \cite{tema5}. Cabe destacar que que no es necesario responder a todas ellas, sobrecargando incluso el sistema si se responden a todas ellas.
 
-% Esfera de influencias
+\begin{milista}
+	\item \textbf{Identidad}: PlanCoDE mantendrá una lista de usuarios al sistema, indicando su rol dentro del sistema. Así, se indicará si el usuario corresponde a un cuerpo policial, a un cuerpo de bomberos, etc. De este modo, el resto de usuarios serán conscientes de qué tipos de usuarios están haciendo uso de la herramienta. 
+	Además, cada usuario, y todas las acciones que éste realice, se van a identificar por un color.
+	\item \textbf{Acciones}: para indicar lo que cada usuario está haciendo, se va a utilizar el concepto de \textit{telepuntero}. De este modo, se indica el usuario que está realizando una modificación sobre el área de dibujo, mostrando además la herramienta que está utilizando (trazo libre, icono, borrar, etc.). Por ejemplo, cuando un usuario esté realizando un trazo sobre el área de dibujo, el resto de usuarios podrán ver el trazo que ese usuario está realizando y podrán visualizar el movimiento del cursor, indicando junto a éste qué usuario está modificando el área de dibujo y la herramienta que está utilizando (en este caso, la de trazo libre). \\
+	\indent Por otra parte, cuando un usuario comience a escribir en el chat, el resto de usuarios también serán informados de esta situación, ya que se mostrará un mensaje indicando que ese usuario está escribiendo texto.
+	\item \textbf{Intenciones}: cuando un usuario quiera utilizar el área de dibujo, debe solicitar el \textit{telepuntero}. De este modo, se informará al resto de usuarios acerca de quién lo ha solicitado, pudiendo saber quién va a manipular el área de trabajo a continuación.
+	\item \textbf{Cambios}: relacionado con todo lo anterior, un usuario puede conocer los cambios que otro usuario está haciendo sobre el área de dibujo, pues dichos cambios se irán mostrando al utilizar el \textit{telepuntero}. \\
+	\indent Además, todos los cambios realizados en el área de trabajo se almacenarán también en forma de \textit{log} textual, por lo que cualquier usuario puede consultar las acciones que ha llevado a cabo otro usuario.
+	\item \textbf{Objetos}: el objeto que se utiliza por parte de los usuarios es el \textit{telepuntero}, ya que para poder dibujar en el área de trabajo, previamente deben solicitar su turno para poder hacerlo.
+\end{milista}
 
-%	Expectativas
-
-
-
-% empleo de canales adicionales: chat
+Para terminar, cabe destacar que se ha optado por utilizar un \textit{telepuntero} y no utilizar múltiples punteros para facilitar la legibilidad del área de dibujo, ya que si todos los usuarios pueden dibujar trazos libres, por ejemplo, a la vez, se podría llegar a una situación incomprensible y no se sabría lo que cada usuario ha dibujado.
+Además, para dotar a PlanCoDE de mayor funcionalidad, se ha incluido un canal adicional de texto, que es el chat, para que los usuarios puedan comunicarse en tiempo real. Es un canal adicional porque el principal objetivo de esta herramienta es el diseño de un plan de emergencia realizando modificaciones sobre un área de dibujo, en la cuál se carga una imagen o un mapa.
