@@ -1,7 +1,18 @@
 \section{Introducción}
 
 % Decir el objetivo de este trabajo (dar una visión de JXTA y detallar una pequeá aplicación)
+JXTA es una tecnología para crear aplicaciones \textit{peer-to-peer} (P2P) basadas en Java. Cuando se habla de una red P2P, también llamada red \textit{punto a punto}, se refiere a una red de computadores en la que todos o algunos aspectos de ésta funcionan sin clientes ni servidores fijos, sino una serie de nodos que actúan simultáneamente como clientes y servidores respecto a los demás nodos de la red \ref{p2p-wikipedia}.
 
+La tecnología JXTA \ref{jxta-homepage} es un conjunto de protocolos abiertos que permiten que cualquier dispositivo conectado a la red (teléfonos móviles, PC, PDA, servidores, etc.) pueda comunicarse y colaborar siguiendo el paradigma P2P. Los pares JXTA crean una red virtual donde cualquier par puede interaccionar directamente con otros pares y recursos, aunque estén detrás de algún \textit{firewall}, \textit{NAT} \textit{(Network Address Translation)} o en una red con un protocolo de transporte distinto.
+
+A día de hoy, las aplicaciones P2P son de los tipos de aplicaciones más utilizadas en Internet. Esto es debido que el ancho de banda y los recursos de almacenamiento y cómputo son caros en Internet, y gracias al paradigma P2P es posible distribuir dichos recursos entre los distintos computadores que forman parte de la red. Algunos ejemplos de aplicación de las redes P2P son los siguientes:
+\begin{milista}
+	\item Intercambio y búsqueda de ficheros, como Napster y BitTorrent.
+	\item Sistemas de telefonía por Internet, como Skype.
+	\item Sistemas de mensajería instantánea.
+\end{milista}
+
+Este documento servirá al lector como una guía de iniciación a la tecnología JXTA. En él se profundizará sobre qué es JXTA y por qué es una buena solución para el desarrollo de aplicaciones P2P, se explicarán conceptos básicos que se utilizan en la comunicación de aplicaciones, se desarrollarán los distintos protocolos que implementa esta tecnología y sus propósitos y, por último, se realizará una pequeña aplicación de ejemplo utilizando Java como lenguaje de programación.
 
 % Los puntos de abajo sacarlos de JXTA in a Nutshell i de la guía de programación
 \subsection{¿Qué es JXTA?}
