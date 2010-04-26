@@ -1,18 +1,25 @@
 package presentacion;
-import java.awt.Color;
-import java.awt.Dimension;
+import com.cloudgarden.layout.AnchorConstraint;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import javax.swing.JToolBar;
 
 import javax.swing.WindowConstants;
-import javax.swing.SwingUtilities;
+
+import dominio.control.ControladorPrincipal;
 
 
 /**
@@ -27,133 +34,217 @@ import javax.swing.SwingUtilities;
 * THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
-public class JFPrincipal extends javax.swing.JFrame {
+public class JFPrincipal extends javax.swing.JFrame implements IVentana {
+
+	{
+		//Set Look & Feel
+		try {
+			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	private static final long serialVersionUID = -3368293739950370869L;
+	private ControladorPrincipal controlador;
 	private JPanel jPnlToolBoox;
-	private JPanel jPestañaChat;
 	private JPanel jPnlUsuarios;
 	private JPanel panelPaint;
+	private JMenuItem jmiAcercaDe;
+	private JMenu jMenu2;
+	private JTextArea taChat;
+	private JTextArea taLog;
+	private JScrollPane jScrollPane1;
+	private JScrollPane jScrollPane2;
+	private JPanel jpLog;
+	private JPanel jpChat;
+	private JTabbedPane jTabbedPane;
+	private JLabel lblStatusBar;
+	private JButton jButton3;
+	private JButton jButton2;
+	private JToolBar jToolBar;
+	private JMenuItem jmiExit;
+	private JSeparator jSeparator1;
+	private JMenuItem jmiOpenMap;
+	private JMenuItem jmiOpenImage;
+	private JMenu jMenu1;
+	private JMenuBar jMenuBar;
+	private JPanel jPanel1;
 	private JButton jButton1;
 	private JButton Dibujar;
 	private CanvasPaint canvasPaint;
-	private JTextArea jTxtChat;
-	private JScrollPane jScrollChat;
-	private JTextArea jTxtLog;
-	private JScrollPane jScrollLog;
-	private JPanel jPestañaLog;
-	private JTabbedPane jTabbedPane;
 
-	/**
-	* Auto-generated main method to display this JFrame
-	*/
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				JFPrincipal inst = new JFPrincipal();
-				inst.setLocationRelativeTo(null);
-				inst.setVisible(true);
-			}
-		});
-	}
-	
-	public JFPrincipal() {
+	public JFPrincipal(ControladorPrincipal c) {
 		super();
+		controlador = c;
 		initGUI();
 	}
 	
 	private void initGUI() {
 		try {
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-			getContentPane().setLayout(null);
-			setMinimumSize(new Dimension(892,600));
+			this.setMinimumSize(new java.awt.Dimension(875, 608));
+			GridLayout thisLayout = new GridLayout(1, 1);
+			thisLayout.setHgap(5);
+			thisLayout.setVgap(5);
+			thisLayout.setColumns(1);
+			getContentPane().setLayout(thisLayout);
 			this.setTitle("PlanCoDE");
 			{
-				jPnlToolBoox = new JPanel();
-				getContentPane().add(jPnlToolBoox);
-				jPnlToolBoox.setBounds(6, 25, 195, 336);
-				jPnlToolBoox.setLayout(null);
-				jPnlToolBoox.setBorder(BorderFactory.createTitledBorder("Toolbox"));
+				jPanel1 = new JPanel();
+				getContentPane().add(jPanel1);
+				jPanel1.setLayout(null);
+				jPanel1.setMaximumSize(new java.awt.Dimension(2123123892, 231236100));
+				jPanel1.setMinimumSize(new java.awt.Dimension(10, 10));
+				jPanel1.setPreferredSize(new java.awt.Dimension(867, 555));
 				{
-					jButton1 = new JButton();
-					jPnlToolBoox.add(jButton1);
-					jButton1.setText("Eliminar");
-					jButton1.setBounds(62, 123, 77, 30);
-					jButton1.addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent evt) {
-							jButton1ActionPerformed(evt);
-						}
-					});
-				}
-				{
-					Dibujar = new JButton();
-					jPnlToolBoox.add(Dibujar);
-					Dibujar.setText("Dibujar");
-					Dibujar.setBounds(62, 164, 77, 26);
-					Dibujar.addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent evt) {
-							DibujarActionPerformed(evt);
-						}
-					});
-				}
-			}
-			{
-				jTabbedPane = new JTabbedPane();
-				getContentPane().add(jTabbedPane);
-				jTabbedPane.setBounds(0, 367, 876, 168);
-				{
-					jPestañaChat = new JPanel();
-					jTabbedPane.addTab("Chat", null, jPestañaChat, null);
-					jPestañaChat.setLayout(null);
+					jPnlToolBoox = new JPanel();
+					jPanel1.add(jPnlToolBoox, new AnchorConstraint(25, 222, 634, 6, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_ABS));
+					jPnlToolBoox.setLayout(null);
+					jPnlToolBoox.setBorder(BorderFactory.createTitledBorder("Toolbox"));
+					jPnlToolBoox.setBounds(10, 49, 73, 329);
 					{
-						jScrollChat = new JScrollPane();
-						jPestañaChat.add(jScrollChat);
-						jScrollChat.setBounds(0, 7, 871, 133);
-						jScrollChat.setPreferredSize(new java.awt.Dimension(436, 23));
-						{
-							jTxtChat = new JTextArea();
-							jScrollChat.setViewportView(jTxtChat);
-							jTxtChat.setEditable(false);
-						}
+						jButton1 = new JButton();
+						jPnlToolBoox.add(jButton1, new AnchorConstraint(366, 719, 455, 322, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
+						jButton1.setText("X");
+						jButton1.setBounds(16, 20, 41, 31);
+						jButton1.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								jButton1ActionPerformed(evt);
+							}
+						});
+					}
+					{
+						Dibujar = new JButton();
+						jPnlToolBoox.add(Dibujar, new AnchorConstraint(488, 719, 565, 322, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
+						Dibujar.setText("T");
+						Dibujar.setBounds(16, 62, 42, 28);
+						Dibujar.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								DibujarActionPerformed(evt);
+							}
+						});
 					}
 				}
 				{
-					jPestañaLog = new JPanel();
-					jTabbedPane.addTab("Log", null, jPestañaLog, null);
-					jPestañaLog.setLayout(null);
+					jPnlUsuarios = new JPanel();
+					jPanel1.add(jPnlUsuarios, new AnchorConstraint(25, 17, 632, 757, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
+					jPnlUsuarios.setLayout(null);
+					jPnlUsuarios.setBorder(BorderFactory.createTitledBorder("Usuarios"));
+					jPnlUsuarios.setBounds(664, 49, 193, 329);
+				}
+				{
+					panelPaint = new JPanel();
+					jPanel1.add(panelPaint, new AnchorConstraint(25, 744, 634, 229, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
+					panelPaint.setBorder(BorderFactory.createTitledBorder("Área de trabajo"));
+					panelPaint.setLayout(null);
+					panelPaint.setBounds(89, 49, 569, 329);
 					{
-						jScrollLog = new JScrollPane();
-						jPestañaLog.add(jScrollLog);
-						jScrollLog.setBounds(0, 6, 871, 134);
+						canvasPaint = new CanvasPaint();
+						panelPaint.add(canvasPaint);
+						canvasPaint.modoPintarTrazo();
+						canvasPaint.setBounds(6, 20, 557, 303);
+					}
+				}
+				{
+					jToolBar = new JToolBar();
+					jPanel1.add(jToolBar);
+					jToolBar.setBounds(10, 11, 847, 29);
+					jToolBar.setFloatable(false);
+					{
+						jButton2 = new JButton();
+						jToolBar.add(jButton2);
+						jButton2.setText("jButton2");
+						jButton2.setBounds(3, 21, 75, 23);
+					}
+					{
+						jButton3 = new JButton();
+						jToolBar.add(jButton3);
+						jButton3.setText("jButton3");
+					}
+				}
+				{
+					lblStatusBar = new JLabel();
+					jPanel1.add(lblStatusBar);
+					lblStatusBar.setBounds(10, 539, 848, 16);
+					lblStatusBar.setText("texto de prueba...");
+				}
+				{
+					jTabbedPane = new JTabbedPane();
+					jPanel1.add(jTabbedPane);
+					jTabbedPane.setBounds(10, 384, 847, 149);
+					{
+						jpChat = new JPanel();
+						jTabbedPane.addTab("Chat", null, jpChat, null);
+						jpChat.setLayout(null);
+						jpChat.setPreferredSize(new java.awt.Dimension(825, 88));
 						{
-							jTxtLog = new JTextArea();
-							jScrollLog.setViewportView(jTxtLog);
-							jTxtLog.setEditable(false);
+							jScrollPane1 = new JScrollPane();
+							jpChat.add(jScrollPane1);
+							jScrollPane1.setBounds(10, 11, 821, 104);
+							{
+								taChat = new JTextArea();
+								jScrollPane1.setViewportView(taChat);
+							}
+						}
+					}
+					{
+						jpLog = new JPanel();
+						jTabbedPane.addTab("Log", null, jpLog, null);
+						jpLog.setLayout(null);
+						{
+							jScrollPane2 = new JScrollPane();
+							jpLog.add(jScrollPane2);
+							jScrollPane2.setBounds(10, 11, 821, 104);
+							{
+								taLog = new JTextArea();
+								jScrollPane2.setViewportView(taLog);
+							}
 						}
 					}
 				}
 			}
 			{
-				jPnlUsuarios = new JPanel();
-				getContentPane().add(jPnlUsuarios);
-				jPnlUsuarios.setBounds(673, 25, 195, 336);
-				jPnlUsuarios.setLayout(null);
-				jPnlUsuarios.setBorder(BorderFactory.createTitledBorder("Usuarios"));
-			}
-			{
-				panelPaint = new JPanel();
-				getContentPane().add(panelPaint);
-				panelPaint.setBounds(207, 25, 460, 336);
-				panelPaint.setBorder(BorderFactory.createTitledBorder("Área de trabajo"));
-				panelPaint.setLayout(null);
+				jMenuBar = new JMenuBar();
+				setJMenuBar(jMenuBar);
 				{
-					canvasPaint = new CanvasPaint();
-					panelPaint.add(canvasPaint);
-					canvasPaint.modoPintarTrazo();
-					canvasPaint.setBackground(Color.white);
-					canvasPaint.setBounds(5, 21, 450, 310);
+					jMenu1 = new JMenu();
+					jMenuBar.add(jMenu1);
+					jMenu1.setText("Archivo");
+					{
+						jmiOpenImage = new JMenuItem();
+						jMenu1.add(jmiOpenImage);
+						jmiOpenImage.setText("Cargar imagen local...");
+					}
+					{
+						jmiOpenMap = new JMenuItem();
+						jMenu1.add(jmiOpenMap);
+						jmiOpenMap.setText("Cargar mapa...");
+					}
+					{
+						jSeparator1 = new JSeparator();
+						jMenu1.add(jSeparator1);
+					}
+					{
+						jmiExit = new JMenuItem();
+						jMenu1.add(jmiExit);
+						jmiExit.setText("Salir");
+					}
+				}
+				{
+					jMenu2 = new JMenu();
+					jMenuBar.add(jMenu2);
+					jMenu2.setText("Ayuda");
+					{
+						jmiAcercaDe = new JMenuItem();
+						jMenu2.add(jmiAcercaDe);
+						jmiAcercaDe.setText("Acerca de...");
+					}
 				}
 			}
 			pack();
-			setSize(400, 300);
+			this.setSize(875, 608);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -165,6 +256,16 @@ public class JFPrincipal extends javax.swing.JFrame {
 	
 	private void DibujarActionPerformed(ActionEvent evt) {
 		canvasPaint.modoPintarTrazo();
+	}
+
+	@Override
+	public void cerrarVentana() {
+		this.dispose();
+	}
+
+	@Override
+	public void mostrarVentana() {
+		this.setVisible(true);
 	}
 
 }
