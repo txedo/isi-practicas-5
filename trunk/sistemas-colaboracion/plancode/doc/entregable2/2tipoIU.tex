@@ -1,22 +1,26 @@
-\section{Interfaz WYSIWIS relajado}
-%Explicar por qué es una interfaz de tipo WYSIWIS y por qué es de tipo relajado (ver traspas tema 5)
-% SEPARACION DE ESPACIOS DE TRABAJO
-% se relaja la barra de menus y las ventanas que se abren a partir de él, el toolbox
-% el wusiwis se aplica sobre el chat, log, ventana de dibujo y lista de usuarios
+\section{Interfaz de usuario}
+La interfaz gráfica de usuario de la herramienta PlanCoDE es de tipo WYSIWIS (\textit{What You See s What I see}) relajado. La razón por la que se ha elegido la variante \textit{relajada} es para evitar los problemas asociados con las interfaces WYSIWIS estrictas, tales como las guerras de ventanas y la sobrecarga de información. A continuación se profundizará sobre algunas de las características que se han relajado:
 
-% VISUALIZACION DE CURSORES
-% cada usuario tiene su cursor privado y no puede ver el de los demás, puesto que en un futuro se quiere portar la aplicación a dispositivos móviles y la pantalla no es apta para tal fin.
+\subsection{Separación del espacio de trabajo} \label{sec:separacion-workspace}
+Se ha relajado la barra de menús y las ventanas de uso privado, tales como las ventanas de configuración o carga de planos/imágenes, así como la caja de herramientas. En definitiva, las partes sobre las que se aplica el WYSIWIS es sobre el log del chat, el log de las acciones, el área de dibujo y la lista de usuarios activos en la sesión. De este modo, los usuarios pueden colaborar para realizar el diseño de las estrategias que estimen oportunas sin perder la intimidad y la privacidad de uso de la aplicación.
 
-% GESTION DE LA DISTRIBUCIÓN EN LA PANTALLA
-% si
+\subsection{Visualización de cursores}
+Cada usuario tiene su propio cursor privado y ningún otro usuario puede observarlo ni manipularlo. Esto es debido a que PlanCoDE será portada, en un futuro, a dispositivos móviles. Este tipo de pantallas son muy reducidas y no es recomendable permitir que los cursores de los distintos usuarios las invadan, causando confusión. No obstante, hay un caso especial de puntero que sí será visualizado por todos los usuarios (ver sección \ref{sec:telepunteros}).
 
-% GESTION DE LA INFORMACION VISUALIZADA
-% aquí creo que habría que meter que en el log se va mostrando en modo texto las acciones de dibujo que se realizan sobre el area de trabajo compartida (area de dibujo)
+\subsection{Gestión de la distribución en la pantalla}
+La interfaz gráfica de usuario de la aplicación de escritorio que se hará como primera entrega es un prototipo, por lo que esta característica no se satisfará por completo. No obstante, como se puede deducir de la sección \ref{sec:separacion-workspace}, cada usuario podrá elegir dónde situar las ventanas \textit{no compartidas} de la aplicación de forma privada.
 
-% ACOPLAMIENTO DE INTERFACES DE USUARIO
-% creo que sería nivel medio
+\subsection{Gestión de la información visualizada}
+La aplicación dispone de una ventana de log donde se irán registrando todas las acciones que realizan cada uno de los distintos usuarios en el área de dibujo. De este modo se representa de forma textual la información que se va generando de forma gráfica.
 
-% TELEPUNTEROS
-% podemos hacer que para dibujar haya que solicitar un telepuntero, si no, nada
+\subsection{Acoplamiento de interfaces de usuario}
+El nivel de acoplamiento (ver Figura \ref{fig:acoplamiento}) entre las interfaces de usuario de los distintos clientes se clasifica como \textit{medio}. Esto es debido a que hay partes de la interfaz gráfica que son privadas cada usuario, pero hay otras partes como el chat, la lista de usuarios activos y el área de dibujo que son compartidos (ver sección \ref{sec:separacion-workspace}).
 
+\imagen{imagenes/acoplamiento.png}{0.4}{Niveles de Acoplamiento de Interfaces de Usuario}{fig:acoplamiento}
 
+\subsection{Telepunteros} \label{sec:telepunteros}
+Una característica muy importante de la aplicación es el uso de un telepuntero. Un telepuntero se utiliza para apuntar información compartida en ventanas públicas y sólo una persona puede tener acceso al mismo (acceso mutuamente excluyente).
+
+Todos los usuarios verán en su pantalla dos cursores: el privado y el telepuntero. Los usuarios de PlanCoDE pueden utilizar el telepuntero, previamente solicitado y concedido, para realizar acciones sobre el área de dibujo (dibujar, borrar o colocar elementos). Este mecanismo se implementa para evitar que todos los usuarios traten de dibujar o borrar al mismo tiempo provocando confusión al resto de usuarios.
+
+Además, al lado del telepuntero se mostrará el nombre del usuario que lo tiene en posesión y la acción que va a realizar sobre el área de dibujo. De este modo, los usuarios que observan el telepuntero pueden tener una percepción clara \textit{quién} está realizando \textit{qué}en cada momento.
