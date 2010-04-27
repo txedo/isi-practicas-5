@@ -1,21 +1,160 @@
 \section{Conceptos de JXTA}
 
+
 \subsection{Par (\textit{Peer})}
 
-\subsection{Grupo paritario (\textit{Peer Group})}
+Un par (\textit{peer)} es cualquier entidad de red que implementa uno o más protocolos utilizados en JXTA. Así, un par puede residir en una PDA, un teléfono móvil, un PC, etc, trabajando de manera independiente y asíncrona con respecto a otros pares.
+
+Un par debe publicarse en la red para que pueda ser descubierto por otros pares y puedan establecer una comunicación. Por tanto, cada par va a tener un identificador único y una dirección de red, conocida esta última como \textit{peer endpoint} y utilizada para establecer una comunicación punto a punto entre dos pares. \\
+\indent Normalmente, los pares se configuran para ser descubiertos espontáneamente por otros pares de la red, a partir del concepto de \textit{grupo de pares}, que puede ser, por naturaleza, persistente o transitorio.
+
+Los pares en JXTA pueden clasificarse en tres categorías:
+
+\begin{milista}
+	\item \textbf{\textit{Minimal-Edge Peers}}: pares que implementan sólo los servicios principales JXTA, utilizando otros pares para que actúen como su proxy a la hora de utilizar otros servicios que no pertenecen al \textit{core}de JXTA. Pares que pertenezcan a esta categoría pueden ser sensores.
+	\item \textbf{\textit{Full-Edge Peers}}: pares que implementan todos los servicios de JXTA y pueden participar en todos sus protocolos. Estos pares conforman la mayoría de pares en una red JXTA y pueden ser teléfonos, PC's, servidores, etc.
+	\item \textbf{\textit{Super Peer}}: pares que implementan y proveen recursos para soportar el despliegue y operación de una red JXTA. Hay tres funciones principales que debe tener un \textit{Super-Peer}:
+	\begin{itemize}
+		\item \textbf{Retransmisión}: usada para almacenar y reenviar mensajes entre pares que no tienen conectividad directa debido a cortafuegos o redes privadas.
+		\item \textbf{Citas}: se ocupa de mantener los anuncios globales sobre donde están publicados otros pares y ayuda a los pares que actúan como proxy para buscar esos anuncios. 
+		\item \textbf{Proxy}: utilizado por los \textit{minimal-edge peers} para tener acceso a todas las funcionalidades de la red JXTA. El par proxy traduce las peticiones, responde a las consultas y proporciona soporte para la funcionalidad de los \textit{minimal-edge peers}.
+	\end{itemize}
+
+\end{milista}
+
+
+\subsection{Grupo de pares (\textit{Peer Group})}
+
+Un grupo de pares es una colección de pares que comparten un conjunto común de servicios o intereses. Los pares se auto-organizan en grupos, donde cada uno de los grupos se identifica por un identificador único. Cada grupo establece su propia política de pertenencia al grupo, que puede variar desde una política abierta (cualquier par puede asociarse al grupo) hasta la muy segura y protegida (que requiere credenciales para poder ser miembro).
+
+Los pares pueden pertenecer a más de un grupo simultáneamente. Por defecto, el primer grupo que se instancia es el \textit{Network Peer Group}, y, posteriormente, todos los pares pueden optar por unirse a otros grupos en cualquier momento.
+
+Los protocolos JXTA describen como los pares pueden publicarse, descubrirse, unirse, y monitorear grupos de pares; sin embargo, dichos protocolos no indican cuándo o por qué se crean los grupos de pares. Por otra parte, unirse a un grupo consiste simplemente en instanciar todos los servicios definidos por ese grupo. \\
+\indent Hay varias motivaciones para la creación de grupos de pares:
+
+\begin{milista}
+	\item Para crear un entorno seguro, ya que se puede aplicar una política de seguridad. Ésta puede ser tan simple como un intercambio de texto plano con nombre de usuario y contraseña, o tan sofisticada como criptografía de llave publica. Así, los miembros del grupo pueden publicar y acceder a contenido protegido.
+	\item Para delimitar el alcance, ya que los grupos que permiten la creación de un dominio local específico. Por ejemplo, los pares pueden agruparse para implementar una red de documentos compartidos o una red de CPUs compartidas. Los grupos de pares sirven para subdividir la red en regiones abstractas proporcionando un mecanismo implícito de alcance. De este modo, las fronteras del grupo definen el alcance de la búsqueda cuando se busca algo dentro del grupo.
+	\item Para crear un entorno de monitorización, ya que permiten monitorear un conjunto de pares para un fin especial.
+\end{milista}
+
 
 \subsection{Servicios de red (\textit{Network Services})}
 
-\subsection{Servicios de grupos paritarios (\textit{Peer Group Services})}
+Los pares cooperan y se comunican para publicar, descubrir, e invocar servicios de red. Además, los pares pueden publicar múltiples servicios los cuáles, a su vez, son descubiertos a través del \textit{Peer Discovery Protocol}. De este modo, los protocolos JXTA reconocen dos niveles de servicios de red:
+
+\begin{milista}
+	\item \textbf{Servicios de par}: un servicio de este tipo es solamente accesible por el par que está publicando ese servicio. Si ese par fallara, el servicio también fallaría. 
+	\item \textbf{Servicios de grupo de pares}: un servicio de grupo de pares está compuesto de una colección de instancias del servicio, cooperando entre sí y funcionando en múltiples miembros del grupo. Sí falla cualquiera de los pares, el servicio colectivo del grupo no se verá afectado siempre y cuando el servicio este aún disponible desde al menos un par miembro. 
+\end{milista}
+
+
+\subsection{Servicios de grupos de pares (\textit{Peer Group Services})}
+
+JXTA define un conjunto básico de servicios de grupos de pares, que todos los pares miembros del grupo deben implementar, al igual que los pares que se unan a dicho grupo. Así, para que dos pares puedan interactuar a través de un servicio, deben ser ambos miembros del mismo grupo. Los servicios de grupo que cada uno de los pares debe implementar con el fin de participar en una red JXTA son:
+ 
+\begin{milista}
+	\item\textbf{Servicio de Destino (\textit{Endpoint Service})}: el servicio de destino o de \textit{punto final} es utilizado para enviar y recibir mensajes entre pares. Este servicio normalmente implementa el protocolo de encaminamiento al destino (ERP), aunque implementaciones mínimas proporcionan sólo una pequeña parte del total de este protocolo.
+	\item\textbf{Servicio de Resolución (\textit{Resolver Service})}: el servicio de resolución es utilizado para enviar solicitudes de consulta genérica a otros pares. Los pares pueden definir e intercambiar consultas para encontrar cualquier información que pueda ser necesaria (por ejemplo, encontrar otros pares, determinar el estado de un servicio o la disponibilidad de una tubería, etc.).
+\end{milista}
+
+Además de los servicios básicos anteriores, se pueden definir otros servicios estándares en los grupos, aunque éstos no tienen por qué ser implementados por todos los grupos, sino sólo por aquellos que los necesiten. Los servicios estándares que se encuentran en la mayoría de grupos de pares son:  
+ 
+\begin{milista}
+
+	\item\textbf{Servicio de Descubrimiento (\textit{Discovery Service})}: el servicio de descubrimiento es usado por los pares miembros para buscar recursos en el grupo, tales como otros pares, otros grupos, servicios y tuberías. 
+	\item\textbf{Servicio de afiliación a un grupo(\textit{Membership Service})}: es utilizado por los pares para identificarse con seguridad dentro de un grupo. La identidad de un par permite a las aplicaciones y los servicios determinar quién está solicitando una operación y decidir si la operación debe permitirse o no. Las aplicaciones pueden realizar su propio control de acceso o pueden utilizar el servicio de acceso.
+	\item\textbf{Servicio de Acceso (\textit{Access Service})}: el servicio de acceso es usado para validar las peticiones hechas por un par a otro. El par que recibe la petición verifica las credenciales del par que la solicita para determinar si se le permite el acceso. Sin embargo, no todas las acciones dentro del grupo necesitan comprobarse con el servicio de acceso; sólo aquellas acciones que son limitadas a algunos pares necesitan ser comprobadas.
+	\item\textbf{Servicio de Tuberías (\textit{Pipe Service})}: el servicio de tubería es utilizado para crear y manejar conexiones de tubería  entre los miembros del grupo.
+	\item\textbf{Servicio de Monitoreo (\textit{Monitoring Service})}: el servicio de monitoreo se utiliza para permitir a un par monitorizar a otros miembros del mismo grupo de pares. 
+
+\end{milista}
+
 
 \subsection{Módulos}
 
+Los módulos de JXTA son una abstracción de JXTA de bajo nivel usada para representar cualquier pieza de ''código'' y el API que proporciona ese código para su uso. Los módulos son utilizados para implementar en JXTA servicios, transporte de mensajes, etc.
+ 
+Los módulos proveen una abstracción genérica para permitir a un par instanciar una función o servicio como, por ejemplo, cuando se une a un grupo, ya que necesitan implementar los servicios de ese grupo. Los módulos permiten la representación y la publicación de funcionalidades independientes de la plataforma, y permite a los pares describir e instanciar cualquier tipo de implementación de una funcionalidad. Por ejemplo, un par puede instanciar una implementación en Java o C de una funcionalidad específica.
+ 
+La posibilidad para describir y publicar (o anunciar) una funcionalidad independiente de la plataforma es esencial para soportar el desarrollo de nuevos servicios de grupo. De hecho, JXTA utiliza los anuncios de módulos para auto-describir sus propios servicios.
+
+Un módulo incluye los siguientes elementos: 
+
+\begin{milista}
+	
+	\item \textbf{Clases}: las clases de un módulo se utilizan principalmente para anunciar la existencia de una funcionalidad. Cada clase de un módulo es identificada por un único ID, el \textit{ModuleClassID}.
+	
+	\item \textbf{Especificación}: la especificación de un módulo se utiliza para acceder a un módulo, ya que contiene toda la información necesaria para acceder o invocar dicho módulo. Por tanto, la especificación de un módulo es un método para proporcionar la funcionalidad que implica ese módulo, pudiendo existir diversas especificaciones para un determinada clase. Cada especificación se identifica de manera única, a través del \textit{ModuleSpecID}.
+
+	\item \textbf{Implementación}: la implementación de un módulo es la implementación de una determinada especificación, pudiendo existir múltiples implementaciones para una determinada especificación del módulo. Cada implementación del módulo contiene el \textit{ModuleSpecID} de la especificación asociada que implementa.
+
+\end{milista}
+
+Así, los servicios JXTA pueden usar los módulos para identificar la existencia del servicio (las clases del módulo), la especificación del servicio (una especificación del módulo), o una implementación del servicio (una implementación del módulo). Cada uno de estos componentes tiene un anuncio asociado el cuál puede ser publicado y descubierto por otro par JXTA.
+ 
+Por ejemplo, el servicio de descubrimiento de JXTA (\textit{Discovery Service}) tiene un único \textit{ModuleClassID}, identificándolo como un servicio de descubrimiento, que es su funcionalidad abstracta. Además, puede tener múltiples especificaciones del servicio, utilizando diferentes estrategias para realizar el descubrimiento, adaptadas al tamaño del grupo y su dispersión a través de la red. Para cada especificación, puede haber múltiples implementaciones, cada una de las cuales contiene el mismo \textit{ModuleSpecID}.
+
+
 \subsection{Mensajes}
+
+Los servicios y aplicaciones JXTA se comunican usando mensajes JXTA, que son las unidades básicas de intercambio de datos entre pares. Cada protocolo JXTA está definido como un conjunto de mensajes que intercambian los pares participantes. Los mensajes son enviados entre los pares utilizando el servicio de destino (\textit{Endpoint Service}), el servicio de tubería (\textit{Pipe Service}), así como un socket y otras vías de acceso. La mayoría de las aplicaciones no necesitan utilizar directamente tuberías unidireccionales o el servicio de destino, sino que utilizan comúnmente \textit{sockets} de comunicación y tuberías bidimensionales.
+ 
+Los protocolos de JXTA están especificados como un conjunto de mensajes intercambiados entre pares. El uso de mensajes de XML para definir los protocolos permite a muchos tipos diferentes de pares utilizar un protocolo determinado. Debido a que los datos están etiquetados, cada par es libre para implementar el protocolo de un modo más adecuado a sus capacidades y rol. Por ejemplo, un par que esté muy limitado y no tenga capacidad suficiente para procesar la totalidad de un mensaje, puede usar las etiquetas de datos para extraer las partes que pueda procesar e ignorar las restantes. 
 
 \subsection{Tuberías (\textit{Pipes})}
 
+Los pares de JXTA utilizan tuberías para enviar mensajes a otro par. Por tanto, las tuberías son un mecanismo de transferencia de mensajes asíncrono, unidireccional y no confiable (con la excepción de las tuberías punto a punto segurass) usados para la comunicación y transferencia de datos. Las tuberías son canales de comunicación virtuales y pueden conectar pares que no tienen un vinculo físico directo, lo que se traduce en una conexión lógica. Las tuberías pueden ser usadas para enviar cualquier tipo de datos incluyendo texto XML y HTML, imágenes, música, código binario, cadenas de datos y objetos Java.
+
+La tuberías de destino o de ''punto final'' (\textit{endpoints}) están dinámicamente vinculadas con los pares de destino (correspondientes a interfaces de red, como un puerto TCP) cuando la tubería se abre. Toda la resolución y comunicación de tuberías se realiza dentro del alcance de un grupo de pares. es decir, las tuberías de salida y entrada deberán pertenecer al mismo grupo de pares.
+ 
+Las tuberías ofrecen dos modos de comunicación: punto a punto (\textit{unicast}) y propagación, como se puede observar en la Figura \ref{fig:pipes}.
+
+\imagen{./imagenes/tuberias}{0.7}{Tipos de tuberías}{fig:pipes}
+ 
+\begin{milista}
+	\item \textbf{Tuberías punto a punto}: una tubería punto a punto conecta exactamente dos tuberías de punto final. La tubería de entrada en un par recibe mensajes enviados desde la tubería de salida del otro par. También es posible para varios pares unirse a una sola tubería de entrada.
+ 	\item \textbf{Tuberías de propagación}: este tipo de tuberías conecta una tubería de salida a varias tuberías de entrada. Los mensajes fluyen desde la tubería de salida, que es la fuente de propagación, hacia las tuberías de entrada.
+ 	\item \textbf{Tuberías punto a punto seguras}: es un tipo de tubería punto a punto que provee un canal de comunicación seguro y fiable.
+\end{milista}
+ 
+
 \subsection{Anuncios (\textit{Advertisements})}
+
+Todos los recursos de la red JXTA (servicios, pares, grupos de pares y tuberías) son representados como anuncios. Los anuncios son un lenguaje de estructuras de meta-datos representados como documentos XML (ver Figura \ref{fig:anuncio}). Los protocolos JXTA usan anuncios para describir y publicar la existencia de recursos de un par. Del mismo modo, los pares descubren recursos mediante la búsqueda de sus correspondientes anuncios y pueden guardar en caché cualquier anuncio local descubierto.
+ 
+Cada anuncio es publicado con un tiempo de vida que especifica la disponibilidad de sus recursos asociados. El tiempo de vida permite la supresión de los recursos obsoletos sin la necesidad de un control centralizado, de modo que un anuncio puede ser publicado de nuevo (antes de que el anuncio original expire) para extender la vida útil de un recurso.
+ 
+Los protocolos JXTA definen los siguientes tipos de anuncios:
+
+\begin{milista}
+	\item \textbf{Anuncios de pares (\textit{Peer Group Advertisement})}: describen los recursos de un par. El principal uso de estos anuncios es para mantener información específica sobre el par, como su nombre, su identificador, destinos disponibles, y cualquier atributo que se desee publicar en tiempo de ejecución.
+	\item \textbf{Anuncios de grupos de pares (\textit{Peer Group Advertisement})}: describe los recursos de un grupo específico de pares, como son el nombre, el identificador del grupo, descripción, etc.
+	\item \textbf{Anuncios de tubería (\textit{Pipe Advertisement})}: describe un canal de comunicación de una tubería, y es usado por el servicio de tubería para crear las tuberías asociadas a una entrada y a una salida. Cada anuncio de tubería contiene un identificador simbólico y un tipo de tubería (punto a punto, propagada, segura). 
+		\item \textbf{Anuncio de clases de un módulo (\textit{Module Class Advertisement})}: describe una clase de un módulo. Su objetivo principal es documentar formalmente la existencia de una clase del módulo. Incluye un nombre, descripción, y un único identificador (\textit{ModuleClassID}).
+		\item \textbf{Anuncio de especificación de un módulo (\textit{Module Specification Advertisement})}: describe una especificación de un módulo. Su principal objetivo es proveer referencias a la documentación necesaria con el fin de crear implementaciones conforme con la especificación. Un uso secundario es hacer correr instancias que se puedan utilizar de manera remota mediante la publicación de información. Este anuncio incluye nombre, descripción, identificador único de la especificación del módulo (\textit{ModuleSpecID}), anuncio de tubería y un campo que contiene parámetros arbitrarios a ser interpretados por cada aplicación.
+	\item \textbf{Anuncios de implementación de un módulo (\textit{Module Implementation Advertisement})}: define una implementación de una especificación de un módulo. Incluye un nombre, el \textit{ModuleSpecID} asociado, así como el código, paquete y campos de parámetros que permiten a un par recuperar los datos necesarios para ejecutar la implementación.
+	\item \textbf{Anuncio de citas (\textit{Rendezvous Advertisement})}: describe como se establecen citas entre pares de un grupo.
+	\item \textbf{Anuncio de información de un par (\textit{Peer Info Advertisement})}: describe los recursos de información de un par. El uso principal de este anuncio es contener información especifica acerca del estado actual de un par, tales como el tiempo de actividad, cuenta de mensajes de entrada y salida, el tiempo que ha pasado desde el ultimo mensaje recibido y el tiempo que ha pasado desde el ultimo mensaje enviado.
+\end{milista}
+  
+\imagen{./imagenes/anuncio}{0.6}{Ejemplo de un anuncio de una tubería}{fig:anuncio}
+ 
 
 \subsection{Seguridad}
 
+Redes P2P dinámicas, como la red JXTA, necesitan soportar diferentes niveles de acceso a los recursos. En JXTA, los pares operan en un modelo basado en roles, en el cual un par individual actúa bajo la autoridad de otro par de confianza para realizar una tarea.
 
+Se proveen cinco requisitos básicos de seguridad en JXTA: 
+
+\begin{milista}
+	\item \textbf{Confidencialidad}: garantiza que el contenido de un mensaje no se divulgará a pares no autorizados.
+	\item \textbf{Autenticación}: garantiza que el emisor de un mensaje es quién dice ser.
+	\item \textbf{Autorización}: garantiza que el emisor está autorizado para enviar un mensaje.
+	\item \textbf{Integridad de los datos}: garantiza que el mensaje no ha sido modificado accidental o deliberadamente mientras se transmitía.
+	\item \textbf{Refutabilidad}: garantiza que el mensaje fue transmitido por un emisor identificado y que no es una respuesta de un mensaje previamente transmitido.
+\end{milista}
+
+Los mensajes XML permiten añadir nuevos meta-datos como credenciales, certificados y claves públicas a los mensajes de JXTA, permitiendo que se cumplan los requisitos de seguridad anteriores. Además, los mensaje se pueden encriptar y firmar.
+
+Un credencial es un token que se utiliza para identificar un emisor y para comprobar que tiene autorización para enviar el mensaje. Además, este token está presenta en cada mensaje que ese emisor envía, comprobándose con la identidad del emisor cuando se recibe el mensaje. Cabe destacar que la implementación de las credenciales se realiza como una configuración de un plug-in, por lo que pueden exisitr múltiples configuraciones de credenciales dentro de la misma red. Con esto se intenta que JXTA sea compatible con otros mecanismos de seguridad como SSL (\textit{Secure Socket Layer)} e IPSec (\textit{Internet Protocol Secure}).
