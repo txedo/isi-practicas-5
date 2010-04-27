@@ -14,3 +14,5 @@ Ejemplos: https://jxta.dev.java.net/ (sección Subprojects)
 Iconos para los avatares de PlanCoDE: http://www.androidicons.com/download/monster-icons.zip
 
 Resumen de conceptos de JXTA: http://www.box.net/shared/mhz8x56nus
+
+http://java.sun.com/developer/technicalArticles/Networking/jxta/index.html
