@@ -1,0 +1,41 @@
+\section{Arquitectura Software de JXTA}
+
+En los siguientes apartados se va a detallar la arquitectura software de JXTA y los componentes que en ella intervienen.
+
+\subsection{Descripción}
+
+La arquitectura software de JXTA está dividida en tres capas, como se muestra en la Figura \ref{fig:arquitecturaJXTA}.
+
+\imagen{./imagenes/arquitecturaJXTA}{0.21}{Arquitectura de JXTA}{fig:arquitecturaJXTA}
+
+\begin{milista}
+	\item \textbf{Núcleo (\textit{core}) de JXTA}: el núcleo de JXTA encapsula las primitivas mínimas y esenciales que se utilizan comúnmente para la comunicación P2P. Esto incluye componentes básicos para permitir las funcionalidades clave para las aplicaciones P2P, incluyendo descubrimiento, la creación de pares y grupos de pares y primitivas asociadas con seguridad.
+ 
+ \item \textbf{Capa de servicios}: la capa de servicios incluye los servicios de red que podrían no ser absolutamente necesarios para que una red P2P opere, pero que son comunes o deseables. Los ejemplos de servicios de red incluyen búsqueda e indexación, directorios, sistemas de almacenamiento, uso compartido de archivos, sistemas de archivos distribuidos, agregación y petición de recursos, autenticación y servicios de PKI (\textit{Public Key Infrastructure}).
+ 
+\item \textbf{Capa de aplicaciones}: la capa de aplicaciones incluye la implementación de aplicaciones integradas, como aplicaciones P2P de  mensajería instantánea, distribución de documentos y de recursos, sistemas de correo electrónico P2P, sistemas de subasta distribuido, etc.
+
+\end{milista}
+
+Sin embargo, la frontera entre aplicaciones y servicios no es rígida, ya que una aplicación de un cliente puede considerarse como un servicio para otro cliente. El sistema JXTA está diseñado para ser modular, permitiendo a los desarrolladores seleccionar y escoger una colección de servicios y aplicaciones que se adapten a sus necesidades.
+
+
+\subsection{Componentes de JXTA}
+
+Una red JXTA consiste en una serie de nodos (pares) interconectados mediante cualquier protocolo de interconexión adecuado, incluyendo TCP/IP, HTTP, Bluetooth, GSM, etc. Además, múltiples pares pueden correr sobre un único dispositivo físico y varios dispositivos físicos podrían cooperar para actuar como un solo par.
+
+Cada par ofrece un conjunto de servicios y recursos que están a disposición de otros pares. Así, existen dos tipos de servicios comunes en las redes JXTA, que son los servicios de pares y servicios de grupo. De este modo, todos los pares JXTA implementan un pequeño número de servicios básicos necesarios y también proporcionan varios servicios estándares adicionales. Cada grupo de pares, por su parte, incluye el conjunto de servicios de grupo que cada par debe ejecutar para participar en ese grupo.
+
+Los recursos de un par son normalmente contenido estático (no-interactivo) los cuáles él controla, posee o simplemente tiene una copia. Los recursos pueden incluir archivos, documentos, índices, pero también pueden ser recursos del mundo real tales como switches, sensores e impresoras. Dichos servicios y recursos son publicados como un \textit{anuncio}.
+
+Otro componente necesario en una red JXTA son \textit{sockets} y tuberías, que se utilizan para enviar mensajes entre pares. Como ya se ha comentado en la sección \ref{sec:conceptos}, los \textit{sockets} de JXTA son conexiones bidireccionales confiables usadas por las aplicaciones para comunicarse., y las tuberías son un mecanismo de transferencia de mensajes asíncrono y unidireccional usado para la comunicación del servicio. Los mensajes son simples documentos XML que contienen información acerca de la ruta a seguir, un resumen y credenciales. 
+
+Para terminar, se destacan cuatro aspectos esenciales de la arquitectura JXTA que la distinguen de otros modelos de red distribuida.
+
+\begin{enumerate}
+	\item El uso de documentos XML (\textit{anuncios}) para describir recursos de red.
+	\item La abstracción de tuberías a pares y de pares a ''puntos finales'' (\textit{endpoints}), sin depender de una autoridad central de nombramiento/direccionamiento, tal como DNS.
+	\item Un esquema de direccionamiento uniforme de pares.
+	\item Una infraestructura de búsqueda descentralizada basada sobre tablas Hash distribuidas (\textit{Distributed Hash Table - DHT}) para la  indexación de recursos.
+\end{enumerate}
+
