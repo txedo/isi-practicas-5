@@ -1,13 +1,47 @@
-\section{Aplicación Peer to Peer}
+\section{Iniciación a la programación de aplicaciones con JXTA}
 
-\subsection{Configurando el entorno}
+El objetivo de esta sección es que sirva al lector como guía de referencia en su iniciación a la programación de aplicaciones basadas en JXTA. Para ello se comenzará configurando el entorno de Java y se darán unas nociones básicas de configuración del entorno de JXTA. Acto seguido, se indicará como ejecutar el \textit{shell} de JXTA y, por último, se hará un pequeño ejemplo tipo \textit{HelloWorld}.
 
+\subsection{Requisitos del sistema}
+
+La implementación actual de JXTA requiere que el sistema operativo tenga instalado una versión igual o posterior a la 5.0 del entorno de ejecución de Java (JRE o \textit{Run-Time Environtment}) o del entorno de desarrollo (SDK o \textit{Software Development Kit}). Tanto el JDK como el JRE están disponibles para sistemas basados en Solaris, Microsoft Windows, Linux, Mac OS X, etcétera.
+
+\subsection{Instalación y configuración de los entornos}
 \subsubsection{Java}
+Para comprobar si ya dispone de una instalación del entorno de ejecución de Java en el equipo y que está configurado correctamente, abra una ventana de comandos \textit{(Inicio -\textgreater Ejecutar -\textgreater cmd)} y escriba "`java -version"'. Debe obtener un resultado similar al de la figura \ref{fig:java-version}:
 
-\subsubsection{Programas y clases de JXTA}
+\imagen{./imagenes/java-version.png}{0.80}{Cómo consultar la versión de Java instalada}{fig:java-version}
 
-\subsection{Programando en JXTA}
+Si aparece un mensaje de error, pruebe lo siguiente: 
+\begin{milista}
+	\item Compruebe si tiene instalado Java. Para ello compruebe que exista el directorio Java en \textit{C:\textbackslash Archivos de programa} (típicamente). Si lo está, configúrelo como se indica más abajo.
+	\item Si no existe, vaya a la siguiente dirección de Internet y descargue la última versión del  Java SE Development Kit (JDK) \cite{download-jdk}
+\end{milista}
 
-.... ¿Ponemos aquí lo del HelloWorld, o que demo hacemos? .............
+Una vez descargado, ejecute el archivo, elija el directorio de instalación y siga los pasos para completar la instalación. Tras instalarlo, debe configurarlo. Para ello vaya a \textit{Inicio} y haga clic derecho en \textit{Mi PC}. En las opciones, elija la pestaña de \textit{Opciones Avanzadas} y haga clic en \textit{Variables de entorno}. En la nueva ventana que aparece, busque la variable \textit{Path} y añada al final \texttt{;C:\textbackslash Archivos de programa\textbackslash Java\textbackslash jdk1.x.x\_xx\textbackslash bin}, donde "`x"' hace referencia a la versión que tiene instalada de Java. Ese es el directorio de instalación por defecto de Java. Si en la instalación eligió otro diferente, debe introducir el que eligió al instalarlo.
 
-\subsection{Además de la demo, ¿hablamos de descubrimiento de pares, como se publica un servicio y todo eso?}
+Una vez realizados los pasos descritos, pruebe a ejecutar de nuevo la sentencia "`java -versión"' en una ventana de comandos.
+
+
+\subsubsection{JXTA}
+Para comenzar, debe hacerse de una versión funcional de la librería de JXTA. Se proponen dos métodos (ambos requieren que visite la página de descargas de JXTA \cite{download-jxta}):
+\begin{milista}
+	\item Descargue el fichero \textit{jxse-src-2.5.zip}. Descomprímalo y compílelo con \textit{ant} o \textit{make}. Acto seguido se generará el fichero \textit{jxta.jar} en el directorio \textit{./jxse-src-2.5/dist/}.
+	\item Descargue el fichero \textit{jxse-lib-2.5.zip}. En su interior se encuentra el fichero \textit{jxta.jar} ya compilado.
+\end{milista}
+
+También puede descargar la documentación de JXTA (fichero \textit{jxse-doc-2.5.zip}) o la guía de programación de JXTA para Java SE/EE (JXSE) 2.5 \cite{jxta-programming-guide}.
+
+En versiones anteriores era necesario realizar una instalación de dicho motor, pero hoy en día basta con incluir la librería de JXTA en la aplicación y realizar una configuración del \textit{peer}, bien sea en el código fuente de la aplicación o mediante un \textit{configurator} externo.
+
+
+
+%JXSE includes simple UI configurator. In most cases this default may be overridden by using a programmatic platform configurator such as the NetworkConfigurator class, or by using the NetworkManager, which abstracts configuration to one of the preset configurations:
+%1.Ad-Hoc: A node which is typically deployed in an ad-hoc network. The peer will not use any infrastructure peers (Rendezvous or Relay services).
+%2.Edge: In addition to supporting the Ad-Hoc behavior, an Edge node can attach to an infrastructure peer (a Rendezvous, Relay, or both).
+%3.Rendezvous: Provides network bootstrapping services, such as discovery, pipe resolution, etc.
+%4.Relay: Provides message relaying services, enabling cross firewall traversal.
+%5.Proxy: Provides JXME JXTA for J2ME proxy services.
+%6.Super: Provides the functionality of a Rendezvous, Relay, and Proxy node.
+%It is highly recommended that JXTA peers be configured through the NetworkManager, or NetworkConfigurator static configuration methods with the desired mode of operation such as newEdgeConfiguration(storeHome).
+%Once a configuration is created, it maybe tuned to the application requirements.
