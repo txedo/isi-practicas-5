@@ -1,0 +1,50 @@
+\section{Arquitectura de red de JXTA}
+
+\subsection{Organización de la red}
+
+La red JXTA es una red \textit{Ad-Hoc}, multi-salto y adaptativa, compuesta de pares conectados. Las conexiones en la red pueden ser temporales y, como resultado, el enrutamiento de mensajes entre pares es no determinista, ya que los pares pueden unirse o dejar la red en cualquier momento, lo que resulta siempre en un cambio de información de enrutamiento.
+
+Normalmente se utilizan cuatro tipos de pares en una red JXTA, como se observa en la Figura \ref{fig:redJXTA}:
+
+\begin{milista}
+	\item \textbf{\textit{Minimal-Edge Peer}}: puede enviar y recibir mensajes, pero no guardar anuncios en caché o enrutar mensajes para otros pares. 
+	\item \textbf{\textit{Full-featured Peer}}: puede enviar y recibir mensajes y típicamente guardara en caché los anuncios. Este tipo de par simple contesta a peticiones de descubrimiento con información encontrada en su caché de anuncios, pero no reenvía ninguna petición de descubrimiento. 
+	\item \textbf{\textit{Rendezvous peer}}: es un par de infraestructura que ayuda a otros pares con la propagación de mensajes, descubrimiento de anuncios y rutas y mantiene un mapa topológico de otros pares de infraestructura, que se utilizan para controlar la propagación y el mantenimiento de la tabla Hash distribuida. Cada grupo de pares mantiene su propio conjunto de pares \textit{rendezvous} y puede tener tantos como sea necesario. 
+	\item \textbf{\textit{Relay peer}}: es un par de infraestructura que ayuda a otros pares no direccionables con la retransmisión del mensaje. Un par puede solicitar una sección del mensaje a este tipo de par para facilitar la retransmisión del mensaje cada vez que sea necesario.
+\end{milista}
+
+\imagen{./imagenes/arquitecturaRed}{0.4}{Arquitectura de red de JXTA}{fig:redJXTA}
+
+
+\subsection{Índice Distribuido de Recursos Compartidos (\textit{Shared Resource Distributed Index - SRDI})}
+
+JXTA implementa un SRDI para conseguir un mecanismo eficiente de propagación de peticiones en la red JXTA. Los pares de tipo \textit{rendezvous} mantienen un índice de anuncios publicados por los pares de tipo \textit{edge}, de tal modo que cuándo uno de estos pares publica un anuncio, el par \textit{rendezvous} lo indexa en su SRDI, utilizando como clave el ID del anuncio.
+
+Cada par de tipo \textit{rendezvous} conoce a otros pares de este tipo que se encuentren en su grupo, de tal modo que cuando se indexa un nuevo recurso, el índice utilizado se envía al resto de pares \textit{rendezvous}, para que también lo almacenen en su SRDI. 
+
+A continuación, se va a comentar un ejemplo de uso del SRDI cuando un par solicita un recurso, que es el mostrado en la Figura \ref{fig:ejSRDI}:
+
+\imagen{./imagenes/ejemploSRDI}{0.2}{Propagación de una petición en una red JXTA usando SRDI}{fig:ejSRDI}
+
+\begin{milista}
+	\item El par A de tipo \textit{edge} solicita un recurso a su par R1 de tipo \textit{rendezvous} y al resto de la red, usando difusión (\textit{multicast}).
+	\item Si los pares de la red de A tienen el recurso en su caché, se lo envían.
+	\item Del mismo modo, el par R1 usa el índice del anuncio de petición para buscarlo en su SRDI. Si lo encuentra, se lo envía al par A. Si no lo encuentra, propaga la petición a los pares \textit{rendezvous} que se encuentran en su grupo, para que éstos realicen la búsqueda o repitan este proceso si no tienen ese recurso disponible.
+\end{milista}
+
+
+\subsection{Firewalls y NAT}
+
+Un par detrás de un cortafuegos (\textit{firewall}) puede enviar un mensaje directamente a un par que esté fuera del cortafuegos, pero no es posible establecer una comunicación directa en el otro sentido. Lo mismo ocurre para los pares que se encuentren tras un dispositivo de NAT (\textit{Network Address Translation}).
+
+Para poder realizar la conexión con pares que están tras cortafuegos o usan NAT, se deben cumplir las siguientes condiciones:
+
+\begin{milista}
+	\item Al menos un par del grupo que se encuentra en el cortafuego debe poder comunicarse con un par tras el cortafuegos.
+	\item Estos pares deben soportar un protocolo común de transporte, como TCP o HTTP.
+	\item El cortafuegos debe permitir tráfico HTTP o TCP. 
+\end{milista}
+
+
+	
+	

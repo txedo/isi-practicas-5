@@ -1,4 +1,4 @@
-\section{Conceptos de JXTA}
+\section{Conceptos de JXTA} \label{sec:conceptos}
 
 
 \subsection{Par (\textit{Peer})}
@@ -158,3 +158,14 @@ Se proveen cinco requisitos básicos de seguridad en JXTA:
 Los mensajes XML permiten añadir nuevos meta-datos como credenciales, certificados y claves públicas a los mensajes de JXTA, permitiendo que se cumplan los requisitos de seguridad anteriores. Además, los mensaje se pueden encriptar y firmar.
 
 Un credencial es un token que se utiliza para identificar un emisor y para comprobar que tiene autorización para enviar el mensaje. Además, este token está presenta en cada mensaje que ese emisor envía, comprobándose con la identidad del emisor cuando se recibe el mensaje. Cabe destacar que la implementación de las credenciales se realiza como una configuración de un plug-in, por lo que pueden exisitr múltiples configuraciones de credenciales dentro de la misma red. Con esto se intenta que JXTA sea compatible con otros mecanismos de seguridad como SSL (\textit{Secure Socket Layer)} e IPSec (\textit{Internet Protocol Secure}).
+
+
+\subsection{Identificadores (\textit{IDs})}
+
+Los pares, grupos de pares, tuberías y otros recursos de JXTA necesitan tener un identificador único. Un ID de JXTA únicamente identifica un recurso y sirve como una forma canónica de referirse a ese recurso. 
+
+Este ID se expresa en forma de URN (\textit{Uniform Resource Name}), que son una forma de URI (\textit{Uniform Resource Identifier)} destinados a servir como identificadores de recursos de manera persistente e independiente de la ubicación. En la Figura \ref{fig:URN} se puede observar un ejemplo de un ID de par JXTA.
+
+\imagen{./imagenes/URN}{0.5}{Ejemplo de un ID de un par JXTA}{fig:URN}
+
+
