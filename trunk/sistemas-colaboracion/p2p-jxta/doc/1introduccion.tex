@@ -1,10 +1,5 @@
 \section{Introducción} \label{sec:introduccion}
 
-% Decir el objetivo de este trabajo (dar una visión de JXTA y detallar una pequeá aplicación)
-JXTA es una plataforma \textit{open source}, desarrollada por Sun Microsystems en el año 2001, para crear aplicaciones \textit{peer-to-peer} (P2P) basadas en Java. Cuando se habla de una red P2P, también llamada \textit{red de pares}, se refiere a una red de computadores en la que todos o algunos aspectos de ésta funcionan sin clientes ni servidores fijos, sino una serie de nodos que actúan simultáneamente como clientes y servidores respecto a los demás nodos de la red \ref{p2p-wikipedia}.
-
-La tecnología JXTA \ref{jxta-homepage} es un conjunto de protocolos abiertos que permiten que cualquier dispositivo conectado a la red (teléfonos móviles, PC, PDA, servidores, etc.) pueda comunicarse y colaborar siguiendo el paradigma P2P. Los pares JXTA crean una red virtual donde cualquier par puede interaccionar directamente con otros pares y recursos, aunque estén detrás de algún \textit{firewall}, \textit{NAT} \textit{(Network Address Translation)} o en una red con un protocolo de transporte distinto.
-
 A día de hoy, las aplicaciones P2P son de los tipos de aplicaciones más utilizadas en Internet. Esto es debido que el ancho de banda y los recursos de almacenamiento y cómputo son caros en Internet, y gracias al paradigma P2P es posible distribuir dichos recursos entre los distintos computadores que forman parte de la red. Algunos ejemplos de aplicación de las redes P2P son los siguientes:
 \begin{milista}
 	\item Intercambio y búsqueda de ficheros, como Napster y BitTorrent.
@@ -12,9 +7,92 @@ A día de hoy, las aplicaciones P2P son de los tipos de aplicaciones más utilizad
 	\item Sistemas de mensajería instantánea.
 \end{milista}
 
+Cuando se habla de una red P2P, también llamada \textit{red de pares}, se refiere a una red de computadores en la que todos o algunos aspectos de ésta funcionan sin clientes ni servidores fijos, sino una serie de nodos que actúan simultáneamente como clientes y servidores respecto a los demás nodos de la red \ref{p2p-wikipedia}.
+
+JXTA es una plataforma \textit{open source}, desarrollada por Sun Microsystems en el año 2001, para crear aplicaciones \textit{peer-to-peer} (P2P) basadas en Java. Además, la tecnología JXTA \ref{jxta-homepage} posee un conjunto de protocolos abiertos que permiten que cualquier dispositivo conectado a la red (teléfonos móviles, PC, PDA, servidores, etc.) pueda comunicarse y colaborar siguiendo el paradigma P2P. Los pares JXTA crean una red virtual donde cualquier par puede interaccionar directamente con otros pares y recursos, aunque estén detrás de algún \textit{firewall}, \textit{NAT} \textit{(Network Address Translation)} o en una red con un protocolo de transporte distinto.
+
 Este documento servirá al lector como una guía de iniciación a la tecnología JXTA. En él se profundizará sobre qué es JXTA y por qué es una buena solución para el desarrollo de aplicaciones P2P, se explicarán conceptos básicos que se utilizan en la comunicación de aplicaciones, se desarrollarán los distintos protocolos que implementa esta tecnología y sus propósitos y, por último, se realizará una pequeña aplicación de ejemplo utilizando Java como lenguaje de programación.
 
-% Los puntos de abajo sacarlos de JXTA in a Nutshell i de la guía de programación
 \subsection{¿Qué es JXTA?}
+
+JXTA es un proyecto de investigación colaborativa para construir aplicaciones peer-to-peer (P2P). \textit{Proyecto JXTA} (o simplemente JXTA) son las siglas de \textit{Project Juxtapose}.
+
+Las aplicaciones P2P tienen las siguientes características: 
+
+\begin{milista}
+	\item Son espontáneas por naturaleza.
+	\item Son más eficaces cuando la arquitectura de soporte implica muchos proveedores de servicio en lugar de hacerlo en un servidor único y centralizado.
+	\item Los usuarios de la aplicación pueden ser los proveedores o los consumidores del servicio.
+	\item Los usuarios de la aplicación vienen y van y por lo tanto pueden no estar disponibles en un punto específico en el tiempo. 
+	\item Los usuarios de la aplicación pueden estar usando cualquier dispositivo en cualquier momento y en cualquier ubicación.
+\end{milista}
+	
+Por este motivo, para satisfacer aplicaciones con estos requisitos, que son difíciles de implementar con la tradicional arquitectura cliente/servidor, se desarrolla el proyecto JXTA. Ésta define un conjunto pequeño de protocolos comunes que permiten la comunicación en aplicaciones P2P, donde cada protocolo es fácil de implementar e integrar en los sistemas existentes. Además, JXTA es independiente de la plataforma e independiente de la red: los protocolos JXTA pueden transmitirse por TCP/IP, HTTP, Bluetooth, redes domésticas tales como Home-PNA, etc. Los pares que se encuentren en redes muy diferentes y lejanas pueden comunicarse fácilmente utilizando los protocolos estándares de JXTA.
+
+
 \subsection{¿Por qué JXTA?}
- 		% Incluir aquí la sección de "lo que se puede hacer con JXTA" de la guía de programación
+
+Uno de los motivos por los que utilizar JXTA es que sus protocolos JXTA permiten a los desarrolladores construir y desplegar aplicaciones y servicios interoperables de P2P. Debido a que los protocolos son independientes del lenguaje de programación y de los protocolos de transporte, diferentes dispositivos heterogéneos con arquitecturas de software completamente diferentes pueden interoperar el uno con el otro.
+
+Otra de las razones para usar JXTA es que proporciona una plataforma común en la cual desarrollar aplicaciones P2P, que tan populares son a día de hoy, ya que cuentan con las siguientes características:
+
+
+%Escalabilidad
+%Un sistema P2P tiene un tiempo mucho más fácil de ella: el comensal puede descubrir cerca de servicios
+%automáticamente y en una escala apropiada. Desde no monitores de sistema centralizado
+%todo, no hay problemas con la capacidad del sistema: los usuarios del servicio monitor
+%servicios cercanos en que está interesado y descartar otra información.
+%
+%Robustez
+%Como todos los usuarios de equipo pueden confirmar, red informática es inherentemente poco confiable: conexiones
+%bloqueo de gota, servidores, las empresas salir del negocio y así sucesivamente. Son motores de búsqueda web
+%entidades útiles y muy buena en lo que hacen, pero a menudo conducen a enlaces muertos y
+%documentos movidos. Odiamos dirigir a nuestro comedor tres millas fuera de su camino a un restaurante
+%que cerró la semana pasada; sería mucho mejor si nos podemos dirigir le sólo para abrir
+%restaurantes. Del mismo modo, sería odiamos para que nuestro comedor a pasan hambre porque el restaurante
+%subasta de servidor se ha perdido o está siendo sometido a un ataque de denegación de servicio.
+%En una arquitectura P2P, es más fácil hacer frente a los caprichos de la red. Si un particular
+%Restaurante va sin conexión, puede ser lanzado desde la Comunidad. Y ya que hay no
+%recurso centralizado controlar todo, la comunidad de P2P es menos afectada por
+%fallos de la red o servicio de ataques de denegación de. Estos problemas todavía afectará individuales
+%los participantes en la comunidad de P2P, pero los fracasos que causan no tendrán una generalizada
+%efecto sobre los otros dentro de la Comunidad.
+%
+%Comportamiento dinámico
+%Aplicaciones P2P descubren servicios y otros recursos en forma dinámica y automática
+%cuando sean necesarios. No hay ningún registro central de estos servicios. Esta dinámica
+%comportamiento permite escalabilidad y solidez a través de todo el sistema, por supuesto y también
+%influye en la forma en que usted debe pensar en aplicaciones P2P. Recursos pueden ser
+%disponibles cuando los necesite, pero ellos no podrán; como la imprenta postuló por encima,
+%pueden estar disponibles sólo en el tiempo.
+%Esto agrega una cierta complejidad a una buena aplicación P2P y parece colocar un gran
+%carga para el desarrollador, que debe afrontar explícitamente de servicios que no son siempre
+%disponible. Al final, sin embargo, esto conduce a mejores programas: una red es un cambio
+%entidad y aplicaciones que abrazan y cuenta para esos cambios son más apropiados para
+%ejecutar en ese entorno.
+%
+%Resistencia de fallas
+%Bien escritas aplicaciones P2P que se aprovechan de la naturaleza dinámica de la red
+%tienen un grado de resistencia de fallas que no tienen la mayoría de las aplicaciones: es la aplicación P2P
+%tolerante a fallos en otros servicios y en la red. Tolerancia a errores a menudo implica un nivel
+%de redundancia de hardware; que la definición no se aplica necesariamente a JXTA (aunque hay
+%no es razón, por supuesto, por qué un servicio JXTA no pudo ejecutar en hardware tolerante a falla).
+%
+%Espontaneidad
+%Todos nuestros ejemplos al comienzo de este capítulo habían un cierto grado de espontaneidad a
+%ellos. Esto es una consecuencia natural del comportamiento dinámico de una comunidad de P2P; da
+%una ventaja importante de una arquitectura P2P, particularmente cuando los participantes en el
+%Comunidad son móviles.
+%
+%Autoorganización
+%Debido a que no debe confiar en un registro central, las comunidades P2P son autoorganizadas. Como
+%nuestro comedor pone en contacto con otros, pueden auto-organizarán en un grupo que puede aprovechar sus
+%el poder de compra al acercarse a un restaurante. En un sentido general, es una comunidad de P2P
+%organizada en torno a un grupo de compañeros que están interesados en los servicios de la mismos.
+%Al desarrollar aplicaciones de ejemplo JXTA más adelante en este libro, nos podrá ampliar sobre estas funciones de una
+%
+%
+%
+%
+%
+%Tradicionalmente, estas aplicaciones P2P se han desarrollado desde el principio por separado y son incompatibles unas con otras. Sin embargo, JXTA busca proporcionar una plataforma común en la que se puedan construir fácilmente aplicaciones de este tipo y que puedan interoperar entre ellas, abstrayendo los diferentes dispositivos y tecnologías.
