@@ -1,13 +1,74 @@
 \section{Protocolos utilizados en JXTA}
 
+JXTA define una serie de mensajes XML, o protocolos, para la comunicación entre pares. Los pares utilizan estos protocolos para descubrir uno a otro, anunciar y descubrir los recursos de red.
+
+Existen seis tipos de protocolos en JXTA, que son asíncronos y se basan en un modelo de consultas y respuestas. Un par JXTA utiliza uno de los protocolos para enviar una consulta a uno o más pares de su grupo. Es posible que reciba cero, una o más respuestas a su consulta. Por ejemplo, un par puede utilizar el protocolo PDP para enviar una consulta de descubrimiento, solicitando todos los pares registrados en el grupo por defecto (\textit{Net Peer Group}). En este caso, varios pares responderán con sus respuestas de descubrimiento. \\
+\indent Los pares JXTA no necesitan implementar todos los protocolos, sólo necesitan implementar los protocolos que vayan a utilizar. 
+
+En los siguientes apartados se detallan cada uno de los protocolos que existen en JXTA.
+ 
+ 
 \subsection{Protocolo de Descubrimiento de Pares (\textit{PDP - Peer Discovery Protocol})}
+
+El protocolo de descubrimiento de pares (PDP) se utiliza para descubrir cualquier recurso publicado por otros pares en forma de anuncio. Un recurso puede ser un par, un grupo de pares, una tubería, un servicio o cualquier otro recurso que tenga un anuncio.
+
+PDP es el protocolo de descubrimiento por defecto para todos los grupos de pares definidos por el usuario y para el el grupo de pares por defecto. De este modo, si se definen servicios de descubrimiento personalizado, éstos se pueden aprovechar del PDP, redefiniendo las partes que sean necesarias.
+
+Existen varias formas para descubrir información distribuida. La implementación actual de JXTA utiliza una combinación de propagación (\textit{multicast}) IP a la subred local y el uso de una red de citas, que es una técnica basada en citas mantenido la DHT (tabla hash distribuido). Los nodos de la red de tipo \textit{rendezvous} proporcionan el mecanismo necesario para dirigir las solicitudes y poder descubrir de forma dinámica la información. Además, un nodo puede configurarse para que, al iniciarse, localice dinámicamente nodos o recursos de su red local a través de mensajes de multidifusión.
 
 \subsection{Protocolo de Información de Pares (\textit{PIP - Peer Information Protocol})}
 
+Este protocolo es utilizado por los pares para obtener información de estado (el tiempo de actividad, estado, reciente de tráfico, etc.) de otros pares. Así, una vez que se encuentra un nodo utilizando el protocolo anterior, se pueden consultar sus capacidades y su estado. 
+
+El protocolo de información de pares proporciona un conjunto de mensajes para obtener información del estado de un par. Esta información puede utilizarse para la implementación comercial o interna de aplicaciones JXTA. Por ejemplo, en las implementaciones comerciales, la información puede utilizarse para determinar el uso de un servicio de pares y facturar a los consumidores por el uso de ese servicio. En una implementación interna de una empresa, la información puede utilizarse por el departamento de tecnologías de la información (TI) para supervisar el tráfico de red para mejorar el rendimiento general.
+
+Entre los mensajes que permite utilizar este protocolo, destacan el mensaje de \textit{ping} y el mensaje de \textit{PeerInfo}. El primero de ellos se envía a un para comprobar está vivo y para obtener información acerca de él. El mensaje de ping especifica si se devuelve una respuesta completa (anuncio de pares) o un mensaje de notificación (si está vivo o no y tiempo de actividad).\\
+\indent  Por otra parte, el mensaje de \textit{PeerInfo} se utiliza para enviar un mensaje en respuesta a un mensaje de \textit{ping}. Contiene las credenciales del remitente, el ID de los pares de origen y destino, el tiempo de actividad y el anuncio de pares. 
+
 \subsection{Protocolo de Resolución de Pares (\textit{PRP - Peer Resolver Protocol})}
+
+El protocolo de resolución de pares (PRP) permite a un par enviar solicitudes de consultas genéricas a otros pares, e identificar respuestas coincidente a esas consultas. Las solicitudes de consulta pueden ser enviadas a un punto específico o pueden ser propagadas a través de los servicios de cita a otros pares en el ámbito de un grupo de pares. De este modo, el PRP utiliza el servicio de citas para difundir una consulta a varios pares y utiliza mensajes \textit{unicast} para enviar consultas a pares específicos.
+
+El PRP es un protocolo base para apoyar las solicitudes de consultas genéricas. Tanto el PIP como el PDP se construyen usando PRP y proporcionan consultas y peticiones específicas: el PIP se utiliza para consultar la información de estado y el PDP se utiliza para descubrir recursos de pares. Para cualquier consulta genérica que puede ser necesaria en una aplicación, se puede utilizar el PRP. 
+
+El mensaje de respuesta a la consulta (mensaje de resolución de la consulta) contiene la credencial del par que envía la petición, un controlador de servicio específico, un ID único de la consulta y el remitente. Cada servicio puede registrar un controlador en el grupo de pares para procesar las solicitudes de consulta y generar las respuestas.
+
 
 \subsection{Protocolo de Enlace a Tuberías (\textit{PBP - Pipe Binding Protocol})}
 
+El protocolo de enlace de tubería (es utilizado por miembros del grupo de pares para enlazar un anuncio de tubería a un par que se encuentra en el extremo de la tubería. De este modo, una tubería puede ser vista como una cola de mensajes con nombre abstracto, que soporta operaciones de creación, apertura, cierre y borrado de la tubería, y emisión y recepción de mensajes. Las implementaciones reales de una tubería pueden diferir, pero todas las implementaciones usan PBP para enlazar la tubería a un extremo.
+
+Los mensajes de consulta de este protocolo se envían por un extremo de la tubería para encontrar a un par en el extremo de la tubería enlazado al mismo anuncio de la tubería. El mensaje de consulta podrá solicitar información para obtener información acerca de los pares enlazados a la tubería. El mensaje de consulta también puede contener, opcionalmente, un ID que, si está presente, indica que sólo el par especificado debe responder a la consulta.
+
+En cuánto a los mensajes de respuesta, éstos se envían por cada par asociado a la tubería al par solicitante, es decir, a aquel que realizó la consulta.
+
+
 \subsection{Protocolo de Encaminamiento al Destino (\textit{ERP - Endpoint Routing Protocol})}
 
+El protocolo de encaminamiento al destino permite a los pares enviar mensajes a pares remotos sin tener una conexión directa con ellos. El mensaje se pasará a través de pares intermediarios para llegar a su destino final. ERP define un protocolo de consulta y respuesta que se utiliza para descubrir información de enrutamiento de pares, adjuntando a los mensajes utilizados en JXTA un mensaje especial que describe la ruta por la que debe viajar la información desde un par (el origen) a otro (el destino). 
+
+Para enviar un mensaje a otro par, el origen primero busca en su memoria caché para determinar si tiene una ruta hacia el par destino. Si no tiene una ruta hacia el destino, envía a una consulta de solicitud de ruta pidiendo información de la ruta a seguir para el par de destino. Cualquier par que reciba esta consulta de ruta comprobará si conoce alguna una ruta para el par solicitante. Si conoce una ruta válida, responderá a la consulta de ruta con la información de la ruta que él posee para ese destino. De este modo, cualquier par puede realizar consultas sobre rutas y cualquier par dentro de un grupo de pares puede ofrecer información de ruta o distribuir mensajes destinados a otros pares. 
+
+Las solicitudes de consulta de ruta son enviadas por un par origen para solicitar la información de ruta hacia un par de destino. Las respuestas de la ruta incluyen el ID del par de origen, el ID del par de destino de la ruta y una secuencia semi-ordenada de IDs de pares. Esta secuencia representa los pares que van a formar la ruta para transmitir el mensaje desde el par origen al par de destino, es decir, son los diferentes saltos o nodos que va a seguir el mensaje. Cada par a lo largo de la ruta indicada en la secuencia puede mejorar y optimizar la ruta basándose en su propia información. Por ejemplo, si un par recibe un mensaje que contenga una ruta con diez saltos pero ese par está directamente conectado al destino, puede reenviar el mensaje directamente, en lugar de enviarlo a lo largo de la ruta. 
+
+El procedimiento de enrutamiento de mensajes utilizado por este protocolo sigue aproximadamente estos pasos:
+
+\begin{enumerate}
+	\item El par de origen comprueba si está conectado al destino. Si no tiene una ruta hacia el destino, realiza una consulta de ruta y espera una respuesta, renunciando a la comunicación si no la recibe en un tiempo determinado.
+	\item El mensaje se difunde por los pares del grupo, estableciendo la secuencia de pares que pueden transmitir el mensaje hacia el destino pasando por otros pares. Así, se crea la ruta entre el origen y el destino.
+	\item Si es un par intermedio en la ruta y no tiene una ruta hacia el destino o no se puede reenviar el mensaje a otro par que se haya establecido en la ruta encontrada, se manda un mensaje de fallo al origen, indicando que es imposible enviar su mensaje al destino.
+	\item Si no ocurre la situación anterior, el par intermedio lo reenvía al siguiente par en la ruta, o al destino si está conectado directamente con éste.
+	
+\end{enumerate}
+
+
 \subsection{Protocolo de Citas (\textit{RVP - Rendezvous Protocol})}
+
+El protocolo de citas se utiliza para la propagación de mensajes dentro de un grupo de pares. El RVP proporciona mecanismos para habilitar la propagación de mensajes, realizándose de un modo controlado y eficiente. Este protocolo se divide en tres partes:
+
+\begin{milista}
+	\item El protocolo utilizado por los pares de tipo \textit{Rendezvous} para organizarse, también conocido como protocolo \textit{\textbf{PeerView}}.
+	\item El protocolo utilizado por pares cliente para registrar su interés de recibir mensajes de propagación, conocido como protocolo simple de arrendamiento.
+	\item El protocolo utilizado para la propagación de mensajes a los pares que han registrado su interés para recibir mensajes. Este protocolo es el único que todos los participantes deben implementar.
+ 
+ \end{milista}
