@@ -32,16 +32,65 @@ Para comenzar, debe hacerse de una versión funcional de la librería de JXTA. Se 
 
 También puede descargar la documentación de JXTA (fichero \textit{jxse-doc-2.5.zip}) o la guía de programación de JXTA para Java SE/EE (JXSE) 2.5 \cite{jxta-programming-guide}.
 
-En versiones anteriores era necesario realizar una instalación de dicho motor, pero hoy en día basta con incluir la librería de JXTA en la aplicación y realizar una configuración del \textit{peer}, bien sea en el código fuente de la aplicación o mediante un \textit{configurator} externo.
+En versiones anteriores era necesario realizar una instalación de dicho motor, pero hoy en día basta con incluir la librería de JXTA en la aplicación y realizar una configuración del \textit{peer}, bien sea en el código fuente de la aplicación o mediante un \textit{configurator} gráfico externo (ver sección \ref{howto-run-jxta-apps}).
+
+\subsection{Cómo ejecutar aplicaciones JXTA} \label{howto-run-jxta-apps}
+Para ejecutar una aplicación JXTA es necesario indicar donde se encuentran las librerías, bien incluyéndolas en el \textit{classpath} del sistema operativo o añadiéndolas al proyecto, en el entorno de programación.
+
+JXTA incluye una interfaz gráfica (ver Figura \ref{fig:jxta-configurator}) que nos permite configurar el \textit{peer}, aunque normalmente este paso se suele evitar ya que cada aplicación lo configura por código utilizando la clase \textit{NetworkConigurator} o el \textit{NetkworkManager}, que abstrae la configuración a una serie de configuraciónes predefinidas:
+\begin{milista}
+	\item \textbf{Ad-Hoc}: un nodo típicamente desplegado en una red ad-hoc, es decir, una red en la que no hay un nodo central y todos los dispositivos están en igualidad de condiciones. El \textit{par} no utilizará una infraestructura de \textit{pares} (servicios \textit{rendezvous} o \textit{relay}).
+	\item \textbf{Edge}: este tipo de nodos se pueden unir a una infraestructura de \textit{pares} (servicios \textit{rendezvous} o \textit{relay}).
+	\item \textbf{Rendezvous}: proporiona servicios auto-suficientes (descubrimiento, etc.).
+	\item \textbf{Relay}: proporciona servicios de mensajería, permitiendo atravesar corta-fuegos.
+	\item \textbf{Proxy}: proporciona servicios de proxy.
+	\item \textbf{Super}: proporciona la funcionalidad de un nodo \textit{rendezvous}, \textit{relay} o \textit{proxy}.
+\end{milista}
+
+\imagen{./imagenes/jxta-configurator.png}{0.3}{JXTA Configurator}{fig:jxta-configurator}
+
+Una vez que el \textit{peer} ha sido configurado por alguno de los métodos mencionados, se creará automáticamente un directorio llamado \textit{.jxta} en el directorio de la aplicación. Si se inspecciona dicho directorio, podrá encontrar un fichero llamado \textit{PlatformConfig}, que es el fichero de configuración del par. Si desea volver a configurar el \textit{par}, se recomienda que borre dicho directorio.
 
 
+\subsection{Cómo utilizar el \textit{Shell} de JXTA}
+Para familiarizarse con JXTA, se recomienda practicar primero con el \textit{shell} que incorpora JXTA. De este modo se puede comprender el funcionamiento del sistema antes de adentrarse en el mundo de la programación. A continuación se explicará un sencillo ejemplo de cómo descubrir los pares del grupo por defecto, pero primero debe descargarse el shell de su página Web \cite{download-shell}.
 
-%JXSE includes simple UI configurator. In most cases this default may be overridden by using a programmatic platform configurator such as the NetworkConfigurator class, or by using the NetworkManager, which abstracts configuration to one of the preset configurations:
-%1.Ad-Hoc: A node which is typically deployed in an ad-hoc network. The peer will not use any infrastructure peers (Rendezvous or Relay services).
-%2.Edge: In addition to supporting the Ad-Hoc behavior, an Edge node can attach to an infrastructure peer (a Rendezvous, Relay, or both).
-%3.Rendezvous: Provides network bootstrapping services, such as discovery, pipe resolution, etc.
-%4.Relay: Provides message relaying services, enabling cross firewall traversal.
-%5.Proxy: Provides JXME JXTA for J2ME proxy services.
-%6.Super: Provides the functionality of a Rendezvous, Relay, and Proxy node.
-%It is highly recommended that JXTA peers be configured through the NetworkManager, or NetworkConfigurator static configuration methods with the desired mode of operation such as newEdgeConfiguration(storeHome).
-%Once a configuration is created, it maybe tuned to the application requirements.
+Una vez que haya descargado el shell, descomprímalo y ejecute el script \textit{run-shell.sh} (Linux/MacOS) o \textit{run-shell.bat} (Windows). Estos scripts incluyen automáticamente en su classpath la ubicación de las librerías de JXTA. Obtendrá una ventana como la que se muestra en la Figura \ref{fig:jxta-shell}. Si introduce la órden \textit{'man'} obtendrá una lista con todas las órdenes que puede ejecutar en el \textit{shell} junto a una breve descripción de cada una de ellas.
+
+\imagen{./imagenes/jxta-shell.png}{0.3}{Shell de JXTA}{fig:jxta-shell}
+
+\paragraph{Ejemplo práctico: Descubrimiento de pares}
+A continuación se realizará un sencillo ejemplo de cómo descubrir los pares que hay en el grupo. Se propone al lector que inicie un \textit{shell} en dos ordenadores distintos, pertenecientes a una misma red, y ejecute las órdenes "`peers"' y "`peers -r"'. Para obtener más información acerca de la orden "`peers"' puede ejecutar "`man peers"'. Si observa la figura \ref{fig:jxta-shell-peers} para ver los resultados de este ejemplo.
+
+\imagen{./imagenes/jxta-shell-peers.png}{0.4}{Ejemplo de descubrimiento de pares}{fig:jxta-shell-peers}
+
+Se propone al lector que haga uso de las órdenes \textit{talk} y \textit{xfer} para establecer una conversación de chat entre dos pares y para transferir ficheros, respectivamente. Utilice "`man talk"' y "`man xfer"' para obtener sus respectivas ayudas.
+
+Por último, si no consigue que funcione alguno de los ejercicios propuestos, pruebe a deshabilitar el \textit{firewall} de su equipo.
+
+
+\subsection{Ejemplo de un HelloWorld}
+A continuación se muestra el código Java correspondiente a un programa de tipo \textit{Hola Mundo}. En este ejemplo se hace uso del \textit{NetworkManager} para configurar el \textit{par} en código, por lo que en ningún momento se mostrará el \textit{JXTA UI Configurator}.
+
+La sentencia \texttt{manager = new NetworkManager(ConfigMode.EDGE, "HelloWorld");} configura el \textit{par} con una configuración por defecto: nodo de tipo \textit{edge} y le asigna el nombre \textit{HelloWorld}. Se podría personalizar esta configuración obteniendo el objeto \textit{NetworkConfigurator} que encapsula el \textit{NetworkManager} con una sentencia del tipo a \texttt{NetworkConfigurator configurator = manager.getConfigurator();}.
+
+El cometido de la aplicación es sencillo:
+\begin{enumerate}
+	\item Crea una instancia del \textit{NetworkManager} e inicia la red JXTA.
+	\item Se pone a la escucha de conexiones durante 2 minutos.
+	\item Detiene la red JXTA.
+\end{enumerate}
+
+Una vez que la ejecución de la aplicación termina, se puede comprobar el directorio de configuración que se ha creado (\textit{.jxta}):
+\begin{milista}
+	\item \textbf{PlatformConfig}: el fichero de configuración creado por el \textit{NetworkManager}.
+	\item \textbf{cm}: es un directorio que contiene un subdirectorio para cada grupo que se ha descubierto. En este ejemplo, deberían aparecer los subdirectorios \textit{jxta-NetGroup} y \textit{jxta-WorldGroup}. Estos subdirectorios deben contener ficheros de índice (*.idx) y ficheros de anuncios (advertisements.tbl).
+\end{milista}
+
+\fbox{insertar aquí el código del helloworld.java}
+
+\paragraph{Notas de interés}
+\begin{enumerate}
+	\item Cada vez que se instancia el NetworkManager, se crea un nuevo identificador de \textit{par} (JXTA PeerID), a menos que se haya cargado una configuración local.
+	\item Si se necesita cambiar la configuración local de un \textit{par} (de EDGE a RENDEZVOUS, por ejemplo), se debe hacer mediante el NetworkManager utilizando el método \textit{setMode()} \textbf{antes} de que se inicie la red.
+\end{enumerate}
