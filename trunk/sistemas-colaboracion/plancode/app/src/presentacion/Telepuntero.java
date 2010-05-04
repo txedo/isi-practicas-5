@@ -1,13 +1,9 @@
 package presentacion;
-import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import javax.swing.BoxLayout;
 import javax.swing.JLabel;
-
 import javax.swing.JPanel;
-
 
 /**
 * This code was edited or generated using CloudGarden's Jigloo
@@ -22,15 +18,40 @@ import javax.swing.JPanel;
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
 public class Telepuntero extends JPanel {
+	private static Telepuntero instancia = null;
+	
 	private String propietario;
+	private String accion;
+	
 	private JLabel lblCursor;
 	private JLabel lblPropietario;
 	private JLabel lblAccion;
-	private String accion;
-	
-	public Telepuntero (String p, String a) {
+
+	protected Telepuntero () {
 		super();
-		
+		this.propietario = "";
+		this.accion = "";
+		initGUI();
+	}
+	
+	protected Telepuntero (String p, String a) {
+		this.getTelepuntero();
+		this.propietario = p;
+		this.accion = a;
+	}
+	
+	public static Telepuntero getTelepuntero() {
+		if(instancia == null) {
+			instancia = new Telepuntero();
+		}
+		return instancia;
+	}
+	
+	public static Telepuntero getTelepuntero(String p, String a) {
+		if(instancia == null) {
+			instancia = new Telepuntero(p, a);
+		}
+		return instancia;
 	}
 	
 	private void initGUI() {
