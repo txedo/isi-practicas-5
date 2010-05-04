@@ -14,8 +14,9 @@
 \usepackage{color}
 \usepackage{ifthen}
 \usepackage{longtable}
+\usepackage{listings}
 \usepackage{enumerate}
-\hypersetup{bookmarksopen,bookmarksopenlevel=4,linktocpage,colorlinks,urlcolor=blue,citecolor=blue,
+\hypersetup{bookmarksopen,bookmarksopenlevel=3,linktocpage,colorlinks,urlcolor=blue,citecolor=blue,
 						linkcolor=blue,filecolor=blue,pdfnewwindow,
 						pdftitle={JXTA - Aplicaciones Peer to Peer basadas en Java},
 						pdfauthor={Juan Andrada Romero, Jose Domingo López López},
@@ -45,6 +46,37 @@
  \end{center}
  \end{figure}
 }
+
+% Definicion del "listings" para el lenguaje Java
+\lstdefinelanguage{Java}
+{
+ morecomment = [l]{//}, 
+ morecomment = [l]{///},
+ morecomment = [s]{/*}{*/},
+ morestring = [b]", 
+ sensitive = true,
+ morekeywords = {package, static, while, switch, break, line, void, String, Object, int, Integer, instanceof, else, if, for, private, return, new, public, class, import, int, boolean, true, false, extends, final, super, protected, abstract, this, do, float, double, null, try, catch, implements}
+}
+
+% Configuración del código incluido para el lenguaje Java
+\lstset{
+  language=Java,
+  basicstyle=\footnotesize,
+  backgroundcolor=\color{white},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  frame=single,
+  tabsize=2,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=false,
+  escapeinside={\%},
+  keywordstyle = \color [rgb]{0,0,1},
+  commentstyle = \color [rgb]{0.133,0.545,0.133},
+  stringstyle = \color [rgb]{0.627,0.126,0.941}
+}
+
 
 \begin{document}
 
