@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+"
+      codebase="http://download.java.net/jxta/jxta-jxse/2.5/jnlp"
+      href="myjxta.jnlp">
+  <information>
+    <title>MyJXTA</title>
+    <vendor>MyJXTA</vendor>
+    <homepage href="http://myjxta.dev.java.net"/>
+    <description>MyJXTA: chat, share ... change the world</description>
+    <description kind="short">MyJXTA: chat, share and more</description>
+    <icon href="myjxta.gif" width="10" height="16"/>
+    <shortcut>
+      <desktop online="true"/>
+      <menu submenu="JXTA" online="true"/>
+    </shortcut>
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.5+" href="http://java.sun.com/products/autodl/j2se"/>
+    <package name="net.jxta.myjxta.*" part="myjxta" recursive="true"/>
+    <jar href="lib/myjxta.jar" main="true" part="myjxta" download="eager"/>
+    <extension href="platform-ext.jnlp"/>
+    <extension href="cms-ext.jnlp"/>
+    <extension href="shell-ext.jnlp"/>
+    <extension href="jdnc-ext.jnlp"/>
+    <extension href="freetts-ext.jnlp"/>
+    <extension href="vorbis-ext.jnlp"/>
+    <extension href="prefuse-ext.jnlp"/>
+    <extension href="tablelayout-ext.jnlp"/>
+    <extension href="jspeex-ext.jnlp"/>
+    <property name="freetts.voices"
+              value="com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory"/>
+  </resources>
+  <application-desc main-class="net.jxta.myjxta.Main"/>
+</jnlp>
