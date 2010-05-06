@@ -1,0 +1,32 @@
+\section{Toolkits e implementaciones alternativas}
+Aunque la implementación de JXTA en Java es una buena herramienta para desarrollar aplicaciones P2P, no es la única alternativa de la que disponen los desarrolladores. Existen numerosas alternativas tanto de JXTA para otros lenguajes, como otra plataformas diferentes a JXTA.
+
+\subsection{IBM BabbleNet}
+\textit{AlphaWorks} es un grupo de IBM que desarrolla y distribuye nuevas tecnologías, principalmente para desarrolladores. BabbleNet \cite{babblenet} es una de estas tecnologías y consiste en un programa P2P descentralizado que permite a sus usuarios construir un chat en tiempo real sin la necesidad de conectarse a un servidor. El sistema está desarrollado sobre un framekwork P2P escrito en Java que soporta comunicaciones entre nodos.
+
+El código fuente puede examinarse una vez instalado el software. La documentación es mínima y los comentarios que hay en el código describen el sistema. Se trata de un software en fase experimental y con licencia \textit{open-source}.
+
+\subsection{Intel}
+Intel también se encuentra dentro del mercado del P2P, y lo hace con su \textit{Peer-to-Peer Acelerator Kit} \cite{p2p-acelerator-kit}. Se trata de un \textit{middleware} que se utiliza con Microsoft .NET.
+
+\subsection{Microsoft .NET}
+Microsoft ha desarrollado una página Web en la que se muestra cómo se pueden desarrollar sistemas P2P con la plataforma .NET \cite{net-p2p}. Algunas de las características que destacan son la siguientes:
+\begin{milista}
+	\item Todo el código P2P se basa en la plataforma .NET.
+	\item Los mensajes que se envían entre los \textit{pares} son serializados como XML.
+	\item Los \textit{pares} pueden compartir y acceder a distintos objetos.
+	\item También se ha implementado un servicio de descubrimiento utilizando .NET.
+\end{milista}
+
+\subsection{Peer-to-Peer Trusted Library}
+\textit{Peer-to-Peer Trusted Library} (PtPTL) \cite{ptptl} es una biblioteca \textit{open-source} cuyo objetivo es profundizar en la seguridad de los sistemas P2P. Está disponible tanto para sistemas basados en Windows como en sistemas basados en Linux. Sus principales características son las siguientes:
+\begin{milista}
+	\item Certificados digitales.
+	\item Autenticación de pares.
+	\item Almacenamiento seguro.
+	\item Métodos de codificación simétricos y asimétricos.
+	\item Firmas digitales.
+	\item Tarjetas digitales.
+\end{milista}
+
+Es importante apreciar que esta librería no es un \textit{toolkit} para desarrollar sistemas P2P, si no que es una biblioteca que permite dotar de "`confianza"' a dichos sistemas.
