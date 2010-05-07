@@ -1,7 +1,11 @@
 package presentacion;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -13,6 +17,9 @@ import javax.swing.JTextField;
 
 import javax.swing.WindowConstants;
 import javax.swing.SwingUtilities;
+
+import dominio.conocimiento.Usuario;
+import dominio.control.ControladorPrincipal;
 
 
 /**
@@ -27,7 +34,7 @@ import javax.swing.SwingUtilities;
 * THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
-public class JFLogin extends javax.swing.JFrame {
+public class JFLogin extends javax.swing.JFrame implements IVentana {
 
 	{
 		//Set Look & Feel
@@ -37,6 +44,8 @@ public class JFLogin extends javax.swing.JFrame {
 			e.printStackTrace();
 		}
 	}
+	
+	private ControladorPrincipal controlador;
 
 	private JPanel jPanel1;
 	private JRadioButton rbBombero;
@@ -52,30 +61,21 @@ public class JFLogin extends javax.swing.JFrame {
 	private JLabel lblPuerto;
 	private JLabel lblDireccionIP;
 	private JPanel jPanel3;
-	private JCheckBox cbCrearSesion;
+	private JCheckBox cbUnionSesion;
 	private JButton btnCerrar;
-
-	/**
-	* Auto-generated main method to display this JFrame
-	*/
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				JFLogin inst = new JFLogin();
-				inst.setLocationRelativeTo(null);
-				inst.setVisible(true);
-			}
-		});
-	}
 	
-	public JFLogin() {
+	public JFLogin(ControladorPrincipal c) {
 		super();
 		initGUI();
+		controlador = c;
+		cbUnionSesion.setSelected(false);
+		cambiarEstadoConfiguracionConexion(false);
 	}
 	
 	private void initGUI() {
 		try {
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+			setLocationRelativeTo(null);
 			this.setTitle("Inicio de sesión");
 			this.setResizable(false);
 			{
@@ -95,7 +95,7 @@ public class JFLogin extends javax.swing.JFrame {
 					jPanel1.add(getTxtNick());
 					jPanel1.add(getBtnConectar());
 					jPanel1.add(getBtnCerrar());
-					jPanel1.add(getCbCrearSesion());
+					jPanel1.add(getCbUnionSesion());
 					jPanel1.add(getJPanel3());
 					jPanel2.setBounds(10, 36, 219, 55);
 					jPanel2.setBorder(BorderFactory.createTitledBorder("Rol"));
@@ -128,6 +128,8 @@ public class JFLogin extends javax.swing.JFrame {
 			}
 			pack();
 			this.setSize(251, 290);
+			btnConectar.setDefaultCapable(true);
+			getRootPane().setDefaultButton(btnConectar);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -181,6 +183,11 @@ public class JFLogin extends javax.swing.JFrame {
 			btnConectar = new JButton();
 			btnConectar.setText("Conectar");
 			btnConectar.setBounds(28, 222, 79, 23);
+			btnConectar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					btnConectarActionPerformed(evt);
+				}
+			});
 		}
 		return btnConectar;
 	}
@@ -190,18 +197,27 @@ public class JFLogin extends javax.swing.JFrame {
 			btnCerrar = new JButton();
 			btnCerrar.setText("Cerrar");
 			btnCerrar.setBounds(134, 222, 79, 23);
+			btnCerrar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent evt) {
+					btnCerrarActionPerformed(evt);
+				}
+			});
 		}
 		return btnCerrar;
 	}
 	
-	private JCheckBox getCbCrearSesion() {
-		if(cbCrearSesion == null) {
-			cbCrearSesion = new JCheckBox();
-			cbCrearSesion.setText("Crear una sesión nueva");
-			cbCrearSesion.setBounds(10, 98, 143, 26);
-			cbCrearSesion.setSelected(true);
+	private JCheckBox getCbUnionSesion() {
+		if(cbUnionSesion == null) {
+			cbUnionSesion = new JCheckBox();
+			cbUnionSesion.setText("Unirse a una sesión activa");
+			cbUnionSesion.setBounds(10, 98, 219, 26);
+			cbUnionSesion.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent evt) {
+					cbUnionSesionItemStateChanged(evt);
+				}
+			});
 		}
-		return cbCrearSesion;
+		return cbUnionSesion;
 	}
 	
 	private JPanel getJPanel3() {
@@ -234,6 +250,42 @@ public class JFLogin extends javax.swing.JFrame {
 	
 	private void txtPuertoFocusGained(FocusEvent evt) {
 		txtPuerto.selectAll();
+	}
+	
+	private void cbUnionSesionItemStateChanged(ItemEvent evt) {
+		cambiarEstadoConfiguracionConexion(cbUnionSesion.isSelected());
+	}
+	
+	private void cambiarEstadoConfiguracionConexion (boolean estado) {
+		txtDireccionIP.setEditable(estado);
+		txtDireccionIP.setEnabled(estado);
+		txtPuerto.setEditable(estado);
+		txtPuerto.setEnabled(estado);
+	}
+
+	@Override
+	public void cerrarVentana() {
+		controlador = null;
+		this.dispose();		
+	}
+
+	@Override
+	public void mostrarVentana() {
+		this.setVisible(true);
+	}
+	
+	private void btnCerrarActionPerformed(ActionEvent evt) {
+		controlador = null;
+		this.dispose();
+	}
+	
+	private void btnConectarActionPerformed(ActionEvent evt) {
+		Usuario usuario = new Usuario ();
+		usuario.setNick(txtNick.getText());
+		if (rbPolicia.isSelected()) usuario.setRol("policia");
+		else if (rbBombero.isSelected()) usuario.setRol("bombero");
+		else usuario.setRol("sanidad");
+		controlador.iniciarSesion(null, usuario);
 	}
 
 }

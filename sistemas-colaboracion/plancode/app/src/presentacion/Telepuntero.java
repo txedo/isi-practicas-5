@@ -86,4 +86,9 @@ public class Telepuntero extends JPanel {
 			e.printStackTrace();
 		}
 	}
+	
+	public void mover (int x, int y) {
+		this.setLocation(x, y);
+		this.repaint();
+	}
 }
