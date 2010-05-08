@@ -14,6 +14,7 @@ public class ConsumidorCanalChat implements ChannelConsumer {
 	private EventListenerList listenerList;
 	
 	public ConsumidorCanalChat () {
+		listenerList = new EventListenerList();
 	}
 	
 	@Override
