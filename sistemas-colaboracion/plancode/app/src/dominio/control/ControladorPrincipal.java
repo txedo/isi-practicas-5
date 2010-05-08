@@ -94,6 +94,7 @@ public class ControladorPrincipal implements ICanales {
 		consumidorChat.addMensajeChatRecibidoListener(new MensajeChatRecibidoListener() {
 			@Override
 			public void MensajeChatRecibido(MensajeChatRecibidoEvent evt) {
+				//TODO redirigirlo a la interfaz gráfica
 				System.out.println(evt.getNombre() + "> " + evt.getMensaje());
 			}
 		});
