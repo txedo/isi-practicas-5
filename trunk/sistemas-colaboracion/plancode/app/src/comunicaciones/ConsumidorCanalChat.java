@@ -1,7 +1,5 @@
 package comunicaciones;
 
-import java.util.EventObject;
-
 import javax.swing.event.EventListenerList;
 
 import presentacion.MensajeChatRecibidoEvent;
