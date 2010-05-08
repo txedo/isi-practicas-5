@@ -16,9 +16,22 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import javax.swing.WindowConstants;
-import javax.swing.SwingUtilities;
 
-import dominio.conocimiento.Usuario;
+import com.sun.media.jsdt.ConnectionException;
+import com.sun.media.jsdt.InvalidClientException;
+import com.sun.media.jsdt.InvalidURLException;
+import com.sun.media.jsdt.NameInUseException;
+import com.sun.media.jsdt.NoRegistryException;
+import com.sun.media.jsdt.NoSuchChannelException;
+import com.sun.media.jsdt.NoSuchClientException;
+import com.sun.media.jsdt.NoSuchConsumerException;
+import com.sun.media.jsdt.NoSuchHostException;
+import com.sun.media.jsdt.NoSuchSessionException;
+import com.sun.media.jsdt.PermissionDeniedException;
+import com.sun.media.jsdt.PortInUseException;
+import com.sun.media.jsdt.RegistryExistsException;
+import com.sun.media.jsdt.TimedOutException;
+
 import dominio.control.ControladorPrincipal;
 
 
@@ -280,12 +293,58 @@ public class JFLogin extends javax.swing.JFrame implements IVentana {
 	}
 	
 	private void btnConectarActionPerformed(ActionEvent evt) {
-		Usuario usuario = new Usuario ();
-		usuario.setNick(txtNick.getText());
-		if (rbPolicia.isSelected()) usuario.setRol("policia");
-		else if (rbBombero.isSelected()) usuario.setRol("bombero");
-		else usuario.setRol("sanidad");
-		controlador.iniciarSesion(null, usuario);
+		String rol;
+		if (rbPolicia.isSelected()) rol = "policia";
+		else if (rbBombero.isSelected()) rol = "bombero";
+		else rol = "sanidad";
+		try {
+			controlador.iniciarSesion(txtDireccionIP.getText(), Integer.parseInt(txtPuerto.getText()), txtNick.getText(), rol);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoRegistryException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RegistryExistsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ConnectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NameInUseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchSessionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PermissionDeniedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PortInUseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimedOutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchChannelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchConsumerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
