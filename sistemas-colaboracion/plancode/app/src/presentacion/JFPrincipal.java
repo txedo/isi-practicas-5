@@ -1,5 +1,13 @@
 package presentacion;
 import com.cloudgarden.layout.AnchorConstraint;
+import com.sun.media.jsdt.ConnectionException;
+import com.sun.media.jsdt.InvalidClientException;
+import com.sun.media.jsdt.NoSuchChannelException;
+import com.sun.media.jsdt.NoSuchClientException;
+import com.sun.media.jsdt.NoSuchSessionException;
+import com.sun.media.jsdt.PermissionDeniedException;
+import com.sun.media.jsdt.TimedOutException;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,9 +23,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 import javax.swing.WindowConstants;
+import javax.swing.event.EventListenerList;
 
 import dominio.control.ControladorPrincipal;
 
@@ -51,6 +61,8 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 	private JPanel jPnlToolBoox;
 	private JPanel jPnlUsuarios;
 	private JPanel panelPaint;
+	private JButton btnEnviar;
+	private JTextField txtMensaje;
 	private JMenuItem jmiAcercaDe;
 	private JMenu jMenu2;
 	private JTextArea taChat;
@@ -182,11 +194,28 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 						{
 							jScrollPane1 = new JScrollPane();
 							jpChat.add(jScrollPane1);
-							jScrollPane1.setBounds(10, 11, 821, 104);
+							jScrollPane1.setBounds(10, 11, 821, 80);
 							{
 								taChat = new JTextArea();
 								jScrollPane1.setViewportView(taChat);
+								taChat.setPreferredSize(new java.awt.Dimension(280, 76));
 							}
+						}
+						{
+							txtMensaje = new JTextField();
+							jpChat.add(txtMensaje);
+							txtMensaje.setBounds(10, 97, 283, 20);
+						}
+						{
+							btnEnviar = new JButton();
+							jpChat.add(btnEnviar);
+							btnEnviar.setText("Enviar");
+							btnEnviar.setBounds(303, 96, 65, 23);
+							btnEnviar.addActionListener(new ActionListener() {
+								public void actionPerformed(ActionEvent evt) {
+									btnEnviarActionPerformed(evt);
+								}
+							});
 						}
 					}
 					{
@@ -244,7 +273,6 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 				}
 			}
 			pack();
-			this.setSize(875, 608);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -266,6 +294,34 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 	@Override
 	public void mostrarVentana() {
 		this.setVisible(true);
+	}
+	
+	private void btnEnviarActionPerformed(ActionEvent evt) {
+		try {
+			this.controlador.enviarMensajeChat(txtMensaje.getText());
+		} catch (ConnectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchChannelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchSessionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PermissionDeniedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimedOutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		txtMensaje.setText("");
 	}
 
 }
