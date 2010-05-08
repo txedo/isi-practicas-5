@@ -91,14 +91,11 @@ public class ControladorPrincipal implements ICanales {
 	
 	private void ponerConsumidores () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
 		consumidorChat = new ConsumidorCanalChat ();
-		consumidorChat.addMensajeChatRecibidoListener(new MensajeChatRecibidoListener() {
-			@Override
-			public void MensajeChatRecibido(MensajeChatRecibidoEvent evt) {
-				//TODO redirigirlo a la interfaz gráfica
-				System.out.println(evt.getNombre() + "> " + evt.getMensaje());
-			}
-		});
 		canalChat.addConsumer(cliente, consumidorChat);
+	}
+	
+	public ConsumidorCanalChat getConsumidorCanalChat() {
+		return consumidorChat;
 	}
 	
 	public void enviarMensajeChat (String mensaje) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {

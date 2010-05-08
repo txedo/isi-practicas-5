@@ -91,10 +91,18 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 		super();
 		controlador = c;
 		initGUI();
+		c.getConsumidorCanalChat().addMensajeChatRecibidoListener(new MensajeChatRecibidoListener() {
+			@Override
+			public void MensajeChatRecibido(MensajeChatRecibidoEvent evt) {
+				taChat.setText(taChat.getText() + evt.getNombre() + "> " + evt.getMensaje() + "\n");
+				taChat.setCaretPosition(taChat.getDocument().getLength());
+			}
+		});
 	}
 	
 	private void initGUI() {
 		try {
+			setLocationRelativeTo(null);
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			this.setMinimumSize(new java.awt.Dimension(875, 608));
 			GridLayout thisLayout = new GridLayout(1, 1);
@@ -194,7 +202,7 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 						{
 							jScrollPane1 = new JScrollPane();
 							jpChat.add(jScrollPane1);
-							jScrollPane1.setBounds(10, 11, 821, 80);
+							jScrollPane1.setBounds(10, 11, 821, 74);
 							{
 								taChat = new JTextArea();
 								jScrollPane1.setViewportView(taChat);
@@ -273,6 +281,8 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 				}
 			}
 			pack();
+			btnEnviar.setDefaultCapable(true);
+			getRootPane().setDefaultButton(btnEnviar);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
