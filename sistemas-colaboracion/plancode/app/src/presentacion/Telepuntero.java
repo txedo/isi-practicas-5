@@ -20,24 +20,22 @@ import javax.swing.JPanel;
 public class Telepuntero extends JPanel {
 	private static Telepuntero instancia = null;
 	
-	private String propietario;
-	private String accion;
-	
 	private JLabel lblCursor;
 	private JLabel lblPropietario;
 	private JLabel lblAccion;
 
 	protected Telepuntero () {
 		super();
-		this.propietario = "";
-		this.accion = "";
+		//lblCursor.ponerimagendelcursor
+		lblPropietario.setText("");
+		lblAccion.setText("");
 		initGUI();
 	}
 	
 	protected Telepuntero (String p, String a) {
 		this.getTelepuntero();
-		this.propietario = p;
-		this.accion = a;
+		lblPropietario.setText(p);
+		lblAccion.setText(a);
 	}
 	
 	public static Telepuntero getTelepuntero() {
@@ -88,6 +86,7 @@ public class Telepuntero extends JPanel {
 	}
 	
 	public void mover (int x, int y) {
+		// TODO controlar el borde del canvas para que el telepuntero solo se vea en el area de dibujo
 		this.setLocation(x, y);
 		this.repaint();
 	}

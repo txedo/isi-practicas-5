@@ -7,6 +7,7 @@ package presentacion;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
@@ -33,13 +34,29 @@ public class CanvasPaint extends Canvas
 
     private boolean modoEliminar = false;
     
+    
+    public CanvasPaint()
+    {
+        gestorT = new GestorTrazos(trazos, this);
+        listenerA = new ListenerArrastre(gestorT);
+        listenerP = new ListenerPinchar(gestorT);
+        addMouseMotionListener(listenerA);
+        addMouseListener(listenerP);
+    }
+    
     /** 
      * Pone el modo de dibujo de trazos.
+     * En este caso, el listener de "pinchar" no tiene ninguna acción pero sí recibe 
+     * el propio canvas, para poder cambiar la imagen del cursor cuando éste entra en ese área
      */
     public void modoPintarTrazo()
     {
+    	// El listener de arrastre recibe el gestor de trazos para ir dibujando los trazos
         listenerA.setAccion(gestorT);
+        // El listener de pinchar no tiene accion (porque no se va a colocar ningún objeto) pero si 
+        // recibe el canvas para que cambia el cursor según se entra o se sale del Canvas
         listenerP.setAccion(null);
+        listenerP.setComponent(this);
     }
     
     /**
@@ -49,15 +66,6 @@ public class CanvasPaint extends Canvas
     	listenerA.setAccion(null);
     	listenerP.setAccion(gestorT);
     	modoEliminar = true;
-    }
-
-    public CanvasPaint()
-    {
-        gestorT = new GestorTrazos(trazos, this);
-        listenerA = new ListenerArrastre(gestorT);
-        listenerP = new ListenerPinchar(gestorT);
-        addMouseMotionListener(listenerA);
-        addMouseListener(listenerP);
     }
 
     public void update(Graphics g)
@@ -103,4 +111,5 @@ public class CanvasPaint extends Canvas
     {
         gestorT.setColorActual(colorActual);
     }
+    
 }

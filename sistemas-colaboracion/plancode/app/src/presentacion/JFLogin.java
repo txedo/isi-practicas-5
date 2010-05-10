@@ -298,7 +298,7 @@ public class JFLogin extends javax.swing.JFrame implements IVentana {
 		else if (rbBombero.isSelected()) rol = "bombero";
 		else rol = "sanidad";
 		try {
-			controlador.iniciarSesion(txtDireccionIP.getText(), Integer.parseInt(txtPuerto.getText()), txtNick.getText(), rol);
+			controlador.iniciarSesion(txtDireccionIP.getText(), Integer.parseInt(txtPuerto.getText()), txtNick.getText(), rol, cbUnionSesion.isSelected());
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

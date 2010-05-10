@@ -27,15 +27,19 @@ import com.sun.media.jsdt.Session;
 import com.sun.media.jsdt.SessionFactory;
 import com.sun.media.jsdt.TimedOutException;
 import com.sun.media.jsdt.URLString;
+import com.sun.media.jsdt.event.ChannelEvent;
+import com.sun.media.jsdt.event.ChannelListener;
+
 import comunicaciones.ClienteJSDT;
 import comunicaciones.ConsumidorCanalChat;
 import comunicaciones.ICanales;
+import comunicaciones.ISesion;
 
 import dominio.DatosConexion;
 
-public class ControladorPrincipal implements ICanales {
-	private IVentana ventanaLogin;
-	private IVentana ventanaPrincipal;
+public class ControladorPrincipal implements ICanales, ISesion {
+	private JFLogin ventanaLogin;
+	private JFPrincipal ventanaPrincipal;
 	
 	private DatosConexion con;
 	private URLString url;
@@ -58,11 +62,11 @@ public class ControladorPrincipal implements ICanales {
 		ventanaPrincipal.mostrarVentana();
 	}
 
-	public void iniciarSesion(String host, int puerto, String nick, String rol) throws NoRegistryException, RegistryExistsException, ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException, NoSuchChannelException, NoSuchConsumerException {
+	public void iniciarSesion(String host, int puerto, String nick, String rol, boolean sesionExistente) throws NoRegistryException, RegistryExistsException, ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException, NoSuchChannelException, NoSuchConsumerException {
 		con = new DatosConexion (host, puerto);
 		// 1. Si no está el Registry funcionando, ponerlo en funcionamiento
-		if (RegistryFactory.registryExists(con.getTipoSesion()) == false) {
-			RegistryFactory.startRegistry(con.getTipoSesion());
+		if (RegistryFactory.registryExists(TIPO_SESION) == false) {
+			RegistryFactory.startRegistry(TIPO_SESION);
 		}
 		// 2. Crear un cliente
 		cliente = new ClienteJSDT(nick, rol);
@@ -78,7 +82,7 @@ public class ControladorPrincipal implements ICanales {
 	}
 	
 	private void crearSesion () throws ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoRegistryException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException {
-		url = URLString.createSessionURL(con.getIp(), con.getPuerto(), con.getTipoSesion(), con.getSesion());
+		url = URLString.createSessionURL(con.getIp(), con.getPuerto(), TIPO_SESION, SESION);
 		sesion = SessionFactory.createSession(cliente, url, true);
 	}
 	
@@ -91,7 +95,28 @@ public class ControladorPrincipal implements ICanales {
 	
 	private void ponerConsumidores () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
 		consumidorChat = new ConsumidorCanalChat ();
+		canalChat.addChannelListener(new ChannelListener() {
+			public void channelJoined(ChannelEvent arg0) {
+				ventanaPrincipal.notificarLogin();
+			}
+
+			public void channelConsumerAdded(ChannelEvent arg0) {				
+			}
+
+			public void channelConsumerRemoved(ChannelEvent arg0) {				
+			}
+
+			public void channelExpelled(ChannelEvent arg0) {				
+			}
+
+			public void channelInvited(ChannelEvent arg0) {
+			}
+			
+			public void channelLeft(ChannelEvent arg0) {
+			}
+		});
 		canalChat.addConsumer(cliente, consumidorChat);
+		
 	}
 	
 	public ConsumidorCanalChat getConsumidorCanalChat() {

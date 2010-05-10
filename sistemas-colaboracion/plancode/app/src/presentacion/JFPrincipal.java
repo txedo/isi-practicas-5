@@ -1,16 +1,8 @@
 package presentacion;
-import com.cloudgarden.layout.AnchorConstraint;
-import com.sun.media.jsdt.ConnectionException;
-import com.sun.media.jsdt.InvalidClientException;
-import com.sun.media.jsdt.NoSuchChannelException;
-import com.sun.media.jsdt.NoSuchClientException;
-import com.sun.media.jsdt.NoSuchSessionException;
-import com.sun.media.jsdt.PermissionDeniedException;
-import com.sun.media.jsdt.TimedOutException;
-
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -25,9 +17,16 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
-
 import javax.swing.WindowConstants;
-import javax.swing.event.EventListenerList;
+
+import com.cloudgarden.layout.AnchorConstraint;
+import com.sun.media.jsdt.ConnectionException;
+import com.sun.media.jsdt.InvalidClientException;
+import com.sun.media.jsdt.NoSuchChannelException;
+import com.sun.media.jsdt.NoSuchClientException;
+import com.sun.media.jsdt.NoSuchSessionException;
+import com.sun.media.jsdt.PermissionDeniedException;
+import com.sun.media.jsdt.TimedOutException;
 
 import dominio.control.ControladorPrincipal;
 
@@ -92,7 +91,6 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 		controlador = c;
 		initGUI();
 		c.getConsumidorCanalChat().addMensajeChatRecibidoListener(new MensajeChatRecibidoListener() {
-			@Override
 			public void MensajeChatRecibido(MensajeChatRecibidoEvent evt) {
 				taChat.setText(taChat.getText() + evt.getNombre() + "> " + evt.getMensaje() + "\n");
 				taChat.setCaretPosition(taChat.getDocument().getLength());
@@ -206,7 +204,9 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 							{
 								taChat = new JTextArea();
 								jScrollPane1.setViewportView(taChat);
-								taChat.setPreferredSize(new java.awt.Dimension(280, 76));
+								taChat.setEditable(false);
+								taChat.setFocusable(false);
+								//taChat.setPreferredSize(new java.awt.Dimension(280, 76));
 							}
 						}
 						{
@@ -280,6 +280,7 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 					}
 				}
 			}
+					
 			pack();
 			btnEnviar.setDefaultCapable(true);
 			getRootPane().setDefaultButton(btnEnviar);
@@ -332,6 +333,22 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 			e.printStackTrace();
 		}
 		txtMensaje.setText("");
+	}
+	
+	private void canvasPaintMouseEntered(MouseEvent evt) {
+		System.out.println("canvasPaint.mouseEntered, event="+evt);
+		//TODO add your code for canvasPaint.mouseEntered
+	}
+	
+	private void canvasPaintMouseExited(MouseEvent evt) {
+		System.out.println("canvasPaint.mouseExited, event="+evt);
+		//TODO add your code for canvasPaint.mouseExited
+	}
+
+	public void notificarLogin() {
+		taChat.append("sfbbdfbadufb");
+		taChat.setCaretPosition(taChat.getDocument().getLength());
+		
 	}
 
 }
