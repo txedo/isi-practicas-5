@@ -17,10 +17,12 @@ public class ListenerPinchar implements MouseListener {
 	    /** Interfaz encargada de realizar acciones cuando se pincha el ratón */
 	    private InterfacePincharRaton accion;
 	    private Component canvas;
+	    private Toolkit toolkit;
 
 	    public ListenerPinchar(InterfacePincharRaton accion)
 	    {
 	        this.accion = accion;
+	        toolkit = Toolkit.getDefaultToolkit();
 	    }
 	    
 	    /**
@@ -45,12 +47,23 @@ public class ListenerPinchar implements MouseListener {
 
 		@Override
 		public void mouseEntered(MouseEvent e) {	
-			Toolkit toolkit = Toolkit.getDefaultToolkit();  
-			Image image = toolkit.getImage("./resources/images/pencil.gif");
-			Point hotSpot = new Point(0,0);
-			Cursor cursor = toolkit.createCustomCursor(image, hotSpot, "Pencil");
-			canvas.setCursor(cursor);  
+			// Si es la acción de eliminar (será distinto de null), se pone la imagen del borrador.
+			// Si no, se pone la imagen del lápiz
+			Image image = null;
+			if (accion==null)
+				image = toolkit.getImage("./resources/images/pencil.gif");
+			//else
+				// TODO: cargar la imagen de una goma de borrar
+				//image = toolkit.getImage("./resources/images/pencil.gif");
+			// PROVISIONAL
+			if (image!=null) {
+				Point hotSpot = new Point(0,0);
+				Cursor cursor = toolkit.createCustomCursor(image, hotSpot, "CustomCursor");
+				canvas.setCursor(cursor);
+			}
 		}
+		
+		//TODO: recuperar el cursor original cuando no se dibuje ni se borre ni se haga nada
 
 
 		@Override

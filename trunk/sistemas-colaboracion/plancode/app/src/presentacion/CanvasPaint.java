@@ -35,32 +35,34 @@ public class CanvasPaint extends Canvas
     private boolean modoEliminar = false;
     
     
+    // Se inicializa el gestor de trazos y los listener para arrastrar el ratón y pinchar con el ratón
     public CanvasPaint()
     {
         gestorT = new GestorTrazos(trazos, this);
         listenerA = new ListenerArrastre(gestorT);
         listenerP = new ListenerPinchar(gestorT);
+        // Se pasa el propio canvas, para poder cambiar la imagen del cursor cuando éste entra en ese área
+        listenerP.setComponent(this);
+        // Se añaden los listeners al canvas
         addMouseMotionListener(listenerA);
         addMouseListener(listenerP);
     }
     
     /** 
      * Pone el modo de dibujo de trazos.
-     * En este caso, el listener de "pinchar" no tiene ninguna acción pero sí recibe 
-     * el propio canvas, para poder cambiar la imagen del cursor cuando éste entra en ese área
+     * En este caso, el listener de "pinchar" no tiene ninguna acción. 
      */
     public void modoPintarTrazo()
     {
     	// El listener de arrastre recibe el gestor de trazos para ir dibujando los trazos
         listenerA.setAccion(gestorT);
-        // El listener de pinchar no tiene accion (porque no se va a colocar ningún objeto) pero si 
-        // recibe el canvas para que cambia el cursor según se entra o se sale del Canvas
         listenerP.setAccion(null);
-        listenerP.setComponent(this);
+
     }
     
     /**
-     * Pone el modo para eliminar trazos 
+     * Pone el modo para eliminar trazos. En este caso, el listener de arrastre no tiene acción pero
+     * sí tiene el listener de "pinchar", ya que se elimina un trazo al pinchar cerca de él. 
      */
     public void modoEliminarTrazo() {
     	listenerA.setAccion(null);
