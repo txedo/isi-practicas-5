@@ -1,11 +1,7 @@
 package dominio.control;
 
-
-import presentacion.IVentana;
 import presentacion.JFLogin;
 import presentacion.JFPrincipal;
-import presentacion.MensajeChatRecibidoEvent;
-import presentacion.MensajeChatRecibidoListener;
 
 import com.sun.media.jsdt.Channel;
 import com.sun.media.jsdt.ConnectionException;
@@ -36,6 +32,7 @@ import comunicaciones.ICanales;
 import comunicaciones.ISesion;
 
 import dominio.DatosConexion;
+import dominio.Roles;
 
 public class ControladorPrincipal implements ICanales, ISesion {
 	private JFLogin ventanaLogin;
@@ -62,7 +59,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		ventanaPrincipal.mostrarVentana();
 	}
 
-	public void iniciarSesion(String host, int puerto, String nick, String rol, boolean sesionExistente) throws NoRegistryException, RegistryExistsException, ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException, NoSuchChannelException, NoSuchConsumerException {
+	public void iniciarSesion(String host, int puerto, String nick, Roles rol, boolean sesionExistente) throws NoRegistryException, RegistryExistsException, ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException, NoSuchChannelException, NoSuchConsumerException {
 		con = new DatosConexion (host, puerto);
 		// 1. Si no está el Registry funcionando, ponerlo en funcionamiento
 		if (RegistryFactory.registryExists(TIPO_SESION) == false) {
@@ -86,18 +83,13 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		sesion = SessionFactory.createSession(cliente, url, true);
 	}
 	
-	private void crearCanales () throws ConnectionException, InvalidClientException, NameInUseException, NoSuchSessionException, NoSuchClientException, NoSuchHostException, PermissionDeniedException, TimedOutException {
+	private void crearCanales () throws ConnectionException, InvalidClientException, NameInUseException, NoSuchSessionException, NoSuchClientException, NoSuchHostException, PermissionDeniedException, TimedOutException, NoSuchChannelException {
 		// El último parámetro indica un join implícito
 		canalChat = sesion.createChannel(cliente, CANAL_CHAT, true, true, true);
-		canalTelepuntero = sesion.createChannel(cliente, CANAL_TELEPUNTERO, true, true, true);
-		canalDibujo = sesion.createChannel(cliente, CANAL_DIBUJO, true, true, true);
-	}
-	
-	private void ponerConsumidores () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
-		consumidorChat = new ConsumidorCanalChat ();
 		canalChat.addChannelListener(new ChannelListener() {
-			public void channelJoined(ChannelEvent arg0) {
-				ventanaPrincipal.notificarLogin();
+			// Pasamos a la interfaz gráfica el nick del cliente que se acaba de unir al canal del chat
+			public void channelJoined(ChannelEvent e) {
+				ventanaPrincipal.notificarLogin(e.getClientName());
 			}
 
 			public void channelConsumerAdded(ChannelEvent arg0) {				
@@ -112,10 +104,19 @@ public class ControladorPrincipal implements ICanales, ISesion {
 			public void channelInvited(ChannelEvent arg0) {
 			}
 			
-			public void channelLeft(ChannelEvent arg0) {
+			// Pasamos a la interfaz gráfica el nick del cliente que acaba de dejar el canal del chat
+			public void channelLeft(ChannelEvent e) {
+				ventanaPrincipal.notificarLogout(e.getClientName());
 			}
 		});
+		canalTelepuntero = sesion.createChannel(cliente, CANAL_TELEPUNTERO, true, true, true);
+		canalDibujo = sesion.createChannel(cliente, CANAL_DIBUJO, true, true, true);
+	}
+	
+	private void ponerConsumidores () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
+		consumidorChat = new ConsumidorCanalChat ();
 		canalChat.addConsumer(cliente, consumidorChat);
+		
 		
 	}
 	

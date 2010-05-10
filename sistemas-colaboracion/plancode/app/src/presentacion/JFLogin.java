@@ -32,6 +32,7 @@ import com.sun.media.jsdt.PortInUseException;
 import com.sun.media.jsdt.RegistryExistsException;
 import com.sun.media.jsdt.TimedOutException;
 
+import dominio.Roles;
 import dominio.control.ControladorPrincipal;
 
 
@@ -47,7 +48,7 @@ import dominio.control.ControladorPrincipal;
 * THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
-public class JFLogin extends javax.swing.JFrame implements IVentana {
+public class JFLogin extends javax.swing.JFrame {
 
 	{
 		//Set Look & Feel
@@ -276,13 +277,11 @@ public class JFLogin extends javax.swing.JFrame implements IVentana {
 		txtPuerto.setEnabled(estado);
 	}
 
-	@Override
 	public void cerrarVentana() {
 		controlador = null;
 		this.dispose();		
 	}
 
-	@Override
 	public void mostrarVentana() {
 		this.setVisible(true);
 	}
@@ -293,10 +292,10 @@ public class JFLogin extends javax.swing.JFrame implements IVentana {
 	}
 	
 	private void btnConectarActionPerformed(ActionEvent evt) {
-		String rol;
-		if (rbPolicia.isSelected()) rol = "policia";
-		else if (rbBombero.isSelected()) rol = "bombero";
-		else rol = "sanidad";
+		Roles rol;
+		if (rbPolicia.isSelected()) rol = Roles.Policia;
+		else if (rbBombero.isSelected()) rol = Roles.Bombero;
+		else rol = Roles.Sanidad;
 		try {
 			controlador.iniciarSesion(txtDireccionIP.getText(), Integer.parseInt(txtPuerto.getText()), txtNick.getText(), rol, cbUnionSesion.isSelected());
 		} catch (NumberFormatException e) {

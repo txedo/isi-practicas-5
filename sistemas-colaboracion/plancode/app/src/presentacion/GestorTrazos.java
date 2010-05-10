@@ -65,29 +65,31 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
         this.colorActual = colorActual;
     }
 
-	/** Busca el trazo mas cercano a donde se ha pinchado con el ra´ton para eliminarlo **/
+	/** Busca el trazo mas cercano a donde se ha pinchado con el ratón para eliminarlo **/
     // TODO: revisar el algoritmo de distancias, sobre todo para cuando hay 1 trazo
-    
     
 	public void eliminarObjeto(int x, int y) {
 		int pos = -1;
-
-		 double distancia = trazos.get(0).dameDistanciaMinima(x, y);
-		 pos = 0;
-	        for (int i = 1; i < trazos.size(); i++)
-	        {
-	            double distanciaAux = trazos.get(i).dameDistanciaMinima(x, y);
-	            if (distanciaAux < distancia)
-	            {
-	                distancia = distanciaAux;
-	                pos = i;
-	            }
-	        }
-	       if (pos!=-1){
-	    	   trazos.remove(trazos.get(pos));
-
-	       }
-    	   lienzo.repaint();
+		
+		// Se comprueba si existe algún trazo
+		if (trazos.size()>0) {
+			 double distancia = trazos.get(0).dameDistanciaMinima(x, y);
+			 pos = 0;
+		        for (int i = 1; i < trazos.size(); i++)
+		        {
+		            double distanciaAux = trazos.get(i).dameDistanciaMinima(x, y);
+		            if (distanciaAux < distancia)
+		            {
+		                distancia = distanciaAux;
+		                pos = i;
+		            }
+		        }
+		       if (pos!=-1){
+		    	   trazos.remove(trazos.get(pos));
+	
+		       }
+	    	   lienzo.repaint();
+		}
 		
 	}
 }

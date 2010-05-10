@@ -1,11 +1,13 @@
 package comunicaciones;
 import com.sun.media.jsdt.*;
 
+import dominio.Roles;
+
 public class ClienteJSDT implements Client {
 	private String nombre;
-	private String rol;
+	private Roles rol;
 
-	public ClienteJSDT(String nombre, String rol) {
+	public ClienteJSDT(String nombre, Roles rol) {
 		this.nombre = nombre;
 		this.rol = rol;
 	}
@@ -18,7 +20,7 @@ public class ClienteJSDT implements Client {
 		return nombre;
 	}
 	
-	public String getRol() {
+	public Roles getRol() {
 		return rol;
 	}
 }

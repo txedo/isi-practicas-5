@@ -43,7 +43,7 @@ import dominio.control.ControladorPrincipal;
 * THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
-public class JFPrincipal extends javax.swing.JFrame implements IVentana {
+public class JFPrincipal extends javax.swing.JFrame {
 
 	{
 		//Set Look & Feel
@@ -92,10 +92,14 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 		initGUI();
 		c.getConsumidorCanalChat().addMensajeChatRecibidoListener(new MensajeChatRecibidoListener() {
 			public void MensajeChatRecibido(MensajeChatRecibidoEvent evt) {
-				taChat.setText(taChat.getText() + evt.getNombre() + "> " + evt.getMensaje() + "\n");
-				taChat.setCaretPosition(taChat.getDocument().getLength());
+				ponerMensajeChat(evt);
 			}
 		});
+	}
+	
+	private void ponerMensajeChat(MensajeChatRecibidoEvent evt) {
+		taChat.append(evt.getNombre() + "> " + evt.getMensaje() + "\n");
+		taChat.setCaretPosition(taChat.getDocument().getLength());
 	}
 	
 	private void initGUI() {
@@ -125,7 +129,7 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 					{
 						jButton1 = new JButton();
 						jPnlToolBoox.add(jButton1, new AnchorConstraint(366, 719, 455, 322, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
-						jButton1.setText("X");
+						jButton1.setText("Borrar");
 						jButton1.setBounds(16, 20, 41, 31);
 						jButton1.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {
@@ -136,7 +140,7 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 					{
 						Dibujar = new JButton();
 						jPnlToolBoox.add(Dibujar, new AnchorConstraint(488, 719, 565, 322, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
-						Dibujar.setText("T");
+						Dibujar.setText("Dibujar");
 						Dibujar.setBounds(16, 62, 42, 28);
 						Dibujar.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {
@@ -161,7 +165,8 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 					{
 						canvasPaint = new CanvasPaint();
 						panelPaint.add(canvasPaint);
-						canvasPaint.modoPintarTrazo();
+						// Por defecto, el canvas no tiene ningún modo activo
+						// canvasPaint.modoPintarTrazo();
 						canvasPaint.setBounds(6, 20, 557, 303);
 					}
 				}
@@ -289,6 +294,7 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 		}
 	}
 	
+	//TODO: estos dos botones son provisionales
 	private void jButton1ActionPerformed(ActionEvent evt) {
 		canvasPaint.modoEliminarTrazo();
 	}
@@ -297,12 +303,10 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 		canvasPaint.modoPintarTrazo();
 	}
 
-	@Override
 	public void cerrarVentana() {
 		this.dispose();
 	}
 
-	@Override
 	public void mostrarVentana() {
 		this.setVisible(true);
 	}
@@ -335,18 +339,15 @@ public class JFPrincipal extends javax.swing.JFrame implements IVentana {
 		txtMensaje.setText("");
 	}
 	
-	private void canvasPaintMouseEntered(MouseEvent evt) {
-		System.out.println("canvasPaint.mouseEntered, event="+evt);
-		//TODO add your code for canvasPaint.mouseEntered
+
+	public void notificarLogin(String login) {
+		taChat.append(login + " ha iniciado sesión.\n");
+		taChat.setCaretPosition(taChat.getDocument().getLength());
+		
 	}
 	
-	private void canvasPaintMouseExited(MouseEvent evt) {
-		System.out.println("canvasPaint.mouseExited, event="+evt);
-		//TODO add your code for canvasPaint.mouseExited
-	}
-
-	public void notificarLogin() {
-		taChat.append("sfbbdfbadufb");
+	public void notificarLogout(String login) {
+		taChat.append(login + " ha dejado el chat.\n");
 		taChat.setCaretPosition(taChat.getDocument().getLength());
 		
 	}
