@@ -32,6 +32,7 @@ import com.sun.media.jsdt.PortInUseException;
 import com.sun.media.jsdt.RegistryExistsException;
 import com.sun.media.jsdt.TimedOutException;
 
+import dominio.GestorColores;
 import dominio.Roles;
 import dominio.control.ControladorPrincipal;
 
@@ -144,6 +145,8 @@ public class JFLogin extends javax.swing.JFrame {
 			this.setSize(251, 290);
 			btnConectar.setDefaultCapable(true);
 			getRootPane().setDefaultButton(btnConectar);
+			// Inicializamos los colores
+			GestorColores.inicializaColores();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

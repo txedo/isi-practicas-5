@@ -1,4 +1,5 @@
 package presentacion;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -351,5 +352,11 @@ public class JFPrincipal extends javax.swing.JFrame {
 		taChat.setCaretPosition(taChat.getDocument().getLength());
 		
 	}
+	
+    public void setColorActual(Color colorActual)
+    {
+        canvasPaint.setColorActual(colorActual);
+    }
+    
 
 }

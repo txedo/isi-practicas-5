@@ -33,8 +33,9 @@ public class CanvasPaint extends Canvas
     private LinkedList<Trazo> trazos = new LinkedList<Trazo>();
 
     private boolean modoEliminar = false;
+    private boolean listenersEstablecidos = false;
     
-    
+       
     // Se inicializa el gestor de trazos y los listener para arrastrar el ratón y pinchar con el ratón
     public CanvasPaint()
     {
@@ -43,17 +44,26 @@ public class CanvasPaint extends Canvas
         listenerP = new ListenerPinchar(gestorT);
         // Se pasa el propio canvas, para poder cambiar la imagen del cursor cuando éste entra en ese área
         listenerP.setComponent(this);
-        // Se añaden los listeners al canvas
-        addMouseMotionListener(listenerA);
-        addMouseListener(listenerP);
     }
     
+    public void noAction() {
+    	// Se eliminan los listeners del canvas
+        removeMouseMotionListener(listenerA);
+        removeMouseListener(listenerP);
+        listenersEstablecidos = false;
+    }
     /** 
      * Pone el modo de dibujo de trazos.
      * En este caso, el listener de "pinchar" no tiene ninguna acción. 
      */
     public void modoPintarTrazo()
     {
+    	if (!listenersEstablecidos) {
+    		 // Se añaden los listeners al canvas
+            addMouseMotionListener(listenerA);
+            addMouseListener(listenerP);
+            listenersEstablecidos = true;
+    	}
     	// El listener de arrastre recibe el gestor de trazos para ir dibujando los trazos
         listenerA.setAccion(gestorT);
         listenerP.setAccion(null);
@@ -65,6 +75,12 @@ public class CanvasPaint extends Canvas
      * sí tiene el listener de "pinchar", ya que se elimina un trazo al pinchar cerca de él. 
      */
     public void modoEliminarTrazo() {
+    	if (!listenersEstablecidos) {
+   		 // Se añaden los listeners al canvas
+           addMouseMotionListener(listenerA);
+           addMouseListener(listenerP);
+           listenersEstablecidos = true;
+    	}
     	listenerA.setAccion(null);
     	listenerP.setAccion(gestorT);
     	modoEliminar = true;
