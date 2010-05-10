@@ -1,5 +1,7 @@
 package dominio.control;
 
+import java.awt.Color;
+
 import presentacion.JFLogin;
 import presentacion.JFPrincipal;
 
@@ -32,6 +34,7 @@ import comunicaciones.ICanales;
 import comunicaciones.ISesion;
 
 import dominio.DatosConexion;
+import dominio.GestorColores;
 import dominio.Roles;
 
 public class ControladorPrincipal implements ICanales, ISesion {
@@ -62,7 +65,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	public void iniciarSesion(String host, int puerto, String nick, Roles rol, boolean sesionExistente) throws NoRegistryException, RegistryExistsException, ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException, NoSuchChannelException, NoSuchConsumerException {
 		con = new DatosConexion (host, puerto);
 		// 1. Si no está el Registry funcionando, ponerlo en funcionamiento
-		if (RegistryFactory.registryExists(TIPO_SESION) == false) {
+		if (RegistryFactory.registryExists(TIPO_SESION) == false) {			
 			RegistryFactory.startRegistry(TIPO_SESION);
 		}
 		// 2. Crear un cliente
@@ -72,15 +75,25 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		// 4. Crear los canales y poner el cliente como consumidor
 		crearCanales ();
 		ponerConsumidores();
+		// Buscar un color para este cliente de esta sesion
+		Color c = GestorColores.getColorLibre(sesion);
 		// Cerramos la ventana de login y abrimos la ventana principal
 		ventanaLogin.cerrarVentana();
 		ventanaPrincipal = new JFPrincipal (this);
+		// Asignamos el color elegido al cliente (si quedan colores libres)
+		if (c!=null) 
+			ventanaPrincipal.setColorActual(c);
+		// TODO: else: error
 		ventanaPrincipal.mostrarVentana();
+		
 	}
 	
 	private void crearSesion () throws ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoRegistryException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException {
 		url = URLString.createSessionURL(con.getIp(), con.getPuerto(), TIPO_SESION, SESION);
 		sesion = SessionFactory.createSession(cliente, url, true);
+		// Marcamos una nueva sesión a la hora de elegir colores
+		// TODO: revisar esto, porque aunque te unas a una misma sesión, el objeto es diferente
+		GestorColores.añadirSesion(sesion);
 	}
 	
 	private void crearCanales () throws ConnectionException, InvalidClientException, NameInUseException, NoSuchSessionException, NoSuchClientException, NoSuchHostException, PermissionDeniedException, TimedOutException, NoSuchChannelException {

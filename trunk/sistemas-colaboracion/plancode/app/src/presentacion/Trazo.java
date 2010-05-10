@@ -55,17 +55,17 @@ public class Trazo
         return puntos.get(posicion);
     }
     
-    public double dameDistanciaMinima(int x, int y)
+    public double getDistanciaMinima(int x, int y)
     {
-        double distancia = dameDistancia(x, y, 0);
+        double distancia = getDistanciaAbsoluta(x, y, 0);
         for (int i = 1; i < puntos.size(); i++)
         {
-            distancia = Math.min(dameDistancia(x, y, i), distancia);
+            distancia = Math.min(getDistanciaAbsoluta(x, y, i), distancia);
         }
         return distancia;
     }
     
-    private double dameDistancia(int x, int y, int i)
+    private double getDistanciaAbsoluta(int x, int y, int i)
     {
         return Math.abs(puntos.get(i).getX() - x)
                 + Math.abs(puntos.get(i).getY() - y);

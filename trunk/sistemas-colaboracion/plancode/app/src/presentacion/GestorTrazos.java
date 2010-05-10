@@ -28,6 +28,8 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
     /** Color del que se está dibujando el trazo actual */
     private Color colorActual = Color.black;
 
+    private final double DISTANCIA_MARGEN = 15.0;
+    
     public GestorTrazos(LinkedList<Trazo> trazos, Component lienzo)
     {
         this.trazos = trazos;
@@ -65,31 +67,35 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
         this.colorActual = colorActual;
     }
 
-	/** Busca el trazo mas cercano a donde se ha pinchado con el ratón para eliminarlo **/
-    // TODO: revisar el algoritmo de distancias, sobre todo para cuando hay 1 trazo
-    
+	/** Busca el trazo mas cercano a donde se ha pinchado con el ratón (con un cierto margen) para eliminarlo **/    
 	public void eliminarObjeto(int x, int y) {
 		int pos = -1;
-		
+		double distancia, distanciaAux;
 		// Se comprueba si existe algún trazo
 		if (trazos.size()>0) {
-			 double distancia = trazos.get(0).dameDistanciaMinima(x, y);
-			 pos = 0;
-		        for (int i = 1; i < trazos.size(); i++)
-		        {
-		            double distanciaAux = trazos.get(i).dameDistanciaMinima(x, y);
-		            if (distanciaAux < distancia)
-		            {
+			distancia = trazos.get(0).getDistanciaMinima(x, y);
+			if (trazos.size()==1) {
+				// Si la distancia es mayor que la distancia de margen, no es válido
+				pos = distancia > DISTANCIA_MARGEN ? -1 : 0;
+			}
+			else {
+				for (int i = 0; i < trazos.size(); i++) {
+		            distanciaAux = trazos.get(i).getDistanciaMinima(x, y);
+		            // Este trazo se aproxima más al punto donde se ha pinchado
+		            if (distanciaAux < distancia) {
 		                distancia = distanciaAux;
-		                pos = i;
+		                // Si la nueva distancia está dentro del margen dado, se toma ese trazo
+		                pos = distancia > DISTANCIA_MARGEN ? pos : i;
 		            }
 		        }
-		       if (pos!=-1){
-		    	   trazos.remove(trazos.get(pos));
-	
-		       }
-	    	   lienzo.repaint();
+			}
+		}	
+		// se elimina el trazo encontrado y se repinta el canvas
+		if (pos!=-1) {
+			trazos.remove(trazos.get(pos));
+			lienzo.repaint();
 		}
 		
 	}
+
 }
