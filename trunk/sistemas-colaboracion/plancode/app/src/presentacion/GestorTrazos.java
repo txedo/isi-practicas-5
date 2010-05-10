@@ -68,6 +68,7 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
 	/** Busca el trazo mas cercano a donde se ha pinchado con el ra´ton para eliminarlo **/
     // TODO: revisar el algoritmo de distancias, sobre todo para cuando hay 1 trazo
     
+    
 	public void eliminarObjeto(int x, int y) {
 		int pos = -1;
 
