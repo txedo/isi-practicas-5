@@ -2,6 +2,8 @@ package dominio;
 
 import java.util.ArrayList;
 
+import comunicaciones.DatosConexion;
+
 public class WSServidores {
 
 	  private ArrayList<DatosConexion> servidores = new ArrayList<DatosConexion>();
