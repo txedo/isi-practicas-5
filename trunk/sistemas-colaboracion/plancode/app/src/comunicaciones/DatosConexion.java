@@ -1,4 +1,4 @@
-package dominio;
+package comunicaciones;
 
 import java.io.Serializable;
 

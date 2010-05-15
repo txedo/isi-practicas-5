@@ -1,6 +1,8 @@
 package dominio.control;
 
 import java.awt.Color;
+import java.util.Hashtable;
+import java.util.Vector;
 
 import presentacion.JFLogin;
 import presentacion.JFPrincipal;
@@ -30,16 +32,19 @@ import com.sun.media.jsdt.event.ChannelListener;
 
 import comunicaciones.ClienteJSDT;
 import comunicaciones.ConsumidorCanalChat;
+import comunicaciones.DatosConexion;
 import comunicaciones.ICanales;
 import comunicaciones.ISesion;
 
-import dominio.DatosConexion;
-import dominio.GestorColores;
-import dominio.Roles;
+import dominio.conocimiento.Roles;
+import dominio.conocimiento.Usuario;
 
 public class ControladorPrincipal implements ICanales, ISesion {
 	private JFLogin ventanaLogin;
 	private JFPrincipal ventanaPrincipal;
+	
+	private boolean esServidor = false;
+	private Hashtable<String,Usuario> listaUsuarios;
 	
 	private DatosConexion con;
 	private URLString url;
@@ -52,6 +57,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	
 	public ControladorPrincipal () {
 		ventanaLogin = new JFLogin(this);
+		listaUsuarios = new Hashtable<String,Usuario>();
 	}
 	
 	public void mostrarVentanaLogin() {
@@ -65,25 +71,26 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	public void iniciarSesion(String host, int puerto, String nick, Roles rol, boolean sesionExistente) throws NoRegistryException, RegistryExistsException, ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException, NoSuchChannelException, NoSuchConsumerException {
 		con = new DatosConexion (host, puerto);
 		// 1. Si no está el Registry funcionando, ponerlo en funcionamiento
-		if (RegistryFactory.registryExists(TIPO_SESION) == false) {			
+		if (RegistryFactory.registryExists(TIPO_SESION) == false) {	
 			RegistryFactory.startRegistry(TIPO_SESION);
+			// Como este cliente actua como servidor, se auto-asigna un color
+			esServidor = true;
 		}
 		// 2. Crear un cliente
 		cliente = new ClienteJSDT(nick, rol);
+		if (esServidor) {
+			GestorColores.inicializaColores();
+			Color c = GestorColores.getColorLibre();
+			listaUsuarios.put(cliente.getName(), new Usuario(rol, c));
+		}
 		// 3. Crear la sesión
 		crearSesion ();
 		// 4. Crear los canales y poner el cliente como consumidor
 		crearCanales ();
 		ponerConsumidores();
-		// Buscar un color para este cliente de esta sesion
-		Color c = GestorColores.getColorLibre(sesion);
 		// Cerramos la ventana de login y abrimos la ventana principal
 		ventanaLogin.cerrarVentana();
 		ventanaPrincipal = new JFPrincipal (this);
-		// Asignamos el color elegido al cliente (si quedan colores libres)
-		if (c!=null) 
-			ventanaPrincipal.setColorActual(c);
-		// TODO: else: error
 		ventanaPrincipal.mostrarVentana();
 		
 	}
@@ -91,9 +98,6 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	private void crearSesion () throws ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoRegistryException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException {
 		url = URLString.createSessionURL(con.getIp(), con.getPuerto(), TIPO_SESION, SESION);
 		sesion = SessionFactory.createSession(cliente, url, true);
-		// Marcamos una nueva sesión a la hora de elegir colores
-		// TODO: revisar esto, porque aunque te unas a una misma sesión, el objeto es diferente
-		GestorColores.añadirSesion(sesion);
 	}
 	
 	private void crearCanales () throws ConnectionException, InvalidClientException, NameInUseException, NoSuchSessionException, NoSuchClientException, NoSuchHostException, PermissionDeniedException, TimedOutException, NoSuchChannelException {
@@ -103,6 +107,11 @@ public class ControladorPrincipal implements ICanales, ISesion {
 			// Pasamos a la interfaz gráfica el nick del cliente que se acaba de unir al canal del chat
 			public void channelJoined(ChannelEvent e) {
 				ventanaPrincipal.notificarLogin(e.getClientName());
+				Color c = GestorColores.getColorLibre();
+				//listaUsuarios.put(e.getClientName(), new Usuario(, c));
+				//TODO ver como diferenciamos esto
+				//canalChat.sendToOthers(cliente, new Data(listaUsuarios));
+				
 			}
 
 			public void channelConsumerAdded(ChannelEvent arg0) {				
@@ -128,9 +137,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	
 	private void ponerConsumidores () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
 		consumidorChat = new ConsumidorCanalChat ();
-		canalChat.addConsumer(cliente, consumidorChat);
-		
-		
+		canalChat.addConsumer(cliente, consumidorChat);		
 	}
 	
 	public ConsumidorCanalChat getConsumidorCanalChat() {
@@ -139,5 +146,9 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	
 	public void enviarMensajeChat (String mensaje) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
 		canalChat.sendToAll(cliente, new Data (mensaje));
+	}
+	
+	public Hashtable<String,Usuario> getListaUsuarios() {
+		return listaUsuarios;
 	}
 }

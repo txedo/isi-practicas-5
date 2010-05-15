@@ -9,6 +9,8 @@ import com.sun.media.jsdt.ChannelConsumer;
 import com.sun.media.jsdt.Data;
 
 public class ConsumidorCanalChat implements ChannelConsumer {
+
+	private static final long serialVersionUID = 5198226560215153858L;
 	private EventListenerList listenerList;
 	
 	public ConsumidorCanalChat () {

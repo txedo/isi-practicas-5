@@ -1,9 +1,11 @@
 package comunicaciones;
 import com.sun.media.jsdt.*;
 
-import dominio.Roles;
+import dominio.conocimiento.Roles;
 
 public class ClienteJSDT implements Client {
+
+	private static final long serialVersionUID = 4706016223824672736L;
 	private String nombre;
 	private Roles rol;
 

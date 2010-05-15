@@ -32,9 +32,9 @@ import com.sun.media.jsdt.PortInUseException;
 import com.sun.media.jsdt.RegistryExistsException;
 import com.sun.media.jsdt.TimedOutException;
 
-import dominio.GestorColores;
-import dominio.Roles;
+import dominio.conocimiento.Roles;
 import dominio.control.ControladorPrincipal;
+import dominio.control.GestorColores;
 
 
 /**

@@ -310,8 +310,14 @@ public class JFPrincipal extends javax.swing.JFrame {
 
 	public void mostrarVentana() {
 		this.setVisible(true);
+		this.actualizarListaUsuarios();
 	}
-	
+
+	private void actualizarListaUsuarios() {
+		// Pintar el panel de usuarios conectados
+		// Utilizando controlador.getListaUsuarios()
+	}
+
 	private void btnEnviarActionPerformed(ActionEvent evt) {
 		try {
 			this.controlador.enviarMensajeChat(txtMensaje.getText());
