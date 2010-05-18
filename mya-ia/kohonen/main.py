@@ -20,14 +20,14 @@ if __name__=="__main__":
     radio = DIM -1 
     # Establecemos el numero de iteracion
     iteracion = 0
-    # Establecemos el factor de aprendizaje inicial a 0.9, que es el máximo
+    # Establecemos el factor de aprendizaje inicial a 0.9, que es el maximo
     factorAprendizaje = FACTOR_APRENDIZAJE_INICIAL
     # Leemos todas las lineas del fichero de datos de los abalones y vamos reorganizando el mapa de Kohonen
     # Cada linea representa un abalone con los datos normalizados y separados los valores de los atributos por espacios
     datosAbalone = fileHandler.read_lines_file("./ficheroDatosAbalones.txt")
     # Evaluamos cada vector de entrada (abalone) con el mapa
     for d in datosAbalone:
-        linea = d.split()
+        valoresAtributos = d.split()
         abalone = Abalone(str(valoresAtributos[0]), float(valoresAtributos[1]), float(valoresAtributos[2]), float(valoresAtributos[3]), float(valoresAtributos[4]), float(valoresAtributos[5]), float(valoresAtributos[6]), float(valoresAtributos[7]))
         # Se evalua la similitud, obteniendo una neurona ganadora
         mapa.evaluarSimilitud(abalone)
