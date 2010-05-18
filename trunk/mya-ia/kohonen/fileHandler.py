@@ -34,6 +34,13 @@ class File_Handler:
             raise
         return text
 
+    def read_lines_file (self, filename):
+        try:
+            f = open (filename, "r")
+            return f.readlines()
+        except:
+            raise
+
     def write_text_file (self, filename, lines):
         try:
             f = open(filename, "w")
