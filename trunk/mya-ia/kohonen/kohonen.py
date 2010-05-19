@@ -19,7 +19,7 @@ class Kohonen:
             # Separamos los atributos por el espacio, para poder tomar los numeros decimales
             valoresAtributos = i.split()
 			# Se van tomando los atributos de cada linea del fichero. Entre un atributo y otro del fichero hay un espacio
-            neurona = Abalone(int(valoresAtributos[0]), int(valoresAtributos[1]), int(valoresAtributos[2]), float(valoresAtributos[3]), float(valoresAtributos[4]), float(valoresAtributos[5]), float(valoresAtributos[6]), float(valoresAtributos[7]), float(valoresAtributos[8]), float(valoresAtributos[9]))
+            neurona = Abalone(float(valoresAtributos[0]), float(valoresAtributos[1]), float(valoresAtributos[2]), float(valoresAtributos[3]), float(valoresAtributos[4]), float(valoresAtributos[5]), float(valoresAtributos[6]))
             self.neuronas.append(neurona)
 		
 		
@@ -77,9 +77,6 @@ class Kohonen:
     def variarPesoNeuronas(self, radio, abalone, factorAprendizaje):
         vecinas = self.calcularVecindad(radio)
         for neurona in vecinas:
-            neurona.m = neurona.m + (abalone.m - neurona.m)*factorAprendizaje
-            neurona.f = neurona.f + (abalone.f - neurona.f)*factorAprendizaje
-            neurona.i = neurona.i + (abalone.i - neurona.i)*factorAprendizaje
             neurona.length = neurona.length + (abalone.length - neurona.length)*factorAprendizaje
             neurona.diameter = neurona.diameter + (abalone.diameter - neurona.diameter)*factorAprendizaje
             neurona.height = neurona.height + (abalone.height - neurona.height)*factorAprendizaje

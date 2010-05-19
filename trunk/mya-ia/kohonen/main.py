@@ -26,7 +26,8 @@ if __name__=="__main__":
     # Evaluamos cada vector de entrada (abalone) con el mapa
     for d in datosAbalone:
         valoresAtributos = d.split()
-        abalone = Abalone(int(valoresAtributos[0]), int(valoresAtributos[1]), int(valoresAtributos[2]), float(valoresAtributos[3]), float(valoresAtributos[4]), float(valoresAtributos[5]), float(valoresAtributos[6]), float(valoresAtributos[7]), float(valoresAtributos[8]), float(valoresAtributos[9]))
+        print valoresAtributos
+        abalone = Abalone(float(valoresAtributos[0]), float(valoresAtributos[1]), float(valoresAtributos[2]), float(valoresAtributos[3]), float(valoresAtributos[4]), float(valoresAtributos[5]), float(valoresAtributos[6]))
         # Se evalua la similitud, obteniendo una neurona ganadora
         mapa.evaluarSimilitud(abalone)
         # Se cambian los pesos de la vecindad de la neurona ganadora
