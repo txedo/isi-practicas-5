@@ -22,7 +22,7 @@ if __name__=="__main__":
     factorAprendizaje = FACTOR_APRENDIZAJE_INICIAL
     # Leemos todas las lineas del fichero de datos de los abalones y vamos reorganizando el mapa de Kohonen
     # Cada linea representa un abalone con los datos normalizados y separados los valores de los atributos por espacios
-    datosAbalone = fileHandler.read_lines_file("./abalonesNormalizadosCopia.txt")
+    datosAbalone = fileHandler.read_lines_file("./abalonesNormalizados_EntradaKohonen.txt")
     # Evaluamos cada vector de entrada (abalone) con el mapa
     for d in datosAbalone:
         valoresAtributos = d.split()
