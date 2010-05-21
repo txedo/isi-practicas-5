@@ -87,5 +87,5 @@ class Kohonen:
 	    
 	    
     def getNeuronaGanadora(self):
-	    pass
+        return self.indiceWinner
 
