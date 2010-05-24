@@ -3,9 +3,11 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -29,8 +31,10 @@ import com.sun.media.jsdt.NoSuchSessionException;
 import com.sun.media.jsdt.PermissionDeniedException;
 import com.sun.media.jsdt.TimedOutException;
 
+import dominio.conocimiento.Roles;
+import dominio.conocimiento.Usuario;
 import dominio.control.ControladorPrincipal;
-
+import info.clearthought.layout.TableLayout;
 
 /**
 * This code was edited or generated using CloudGarden's Jigloo
@@ -61,6 +65,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JPanel jPnlToolBoox;
 	private JPanel jPnlUsuarios;
 	private JPanel panelPaint;
+	private JButton jButton4;
 	private JButton btnEnviar;
 	private JTextField txtMensaje;
 	private JMenuItem jmiAcercaDe;
@@ -86,11 +91,22 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JButton jButton1;
 	private JButton Dibujar;
 	private CanvasPaint canvasPaint;
+	
+	private Color colorCliente = null;
 
 	public JFPrincipal(ControladorPrincipal c) {
 		super();
 		controlador = c;
 		initGUI();
+		
+		// Para el caso del servidor, como es el primer cliente que se conecta y no recibe el evento del canal
+		// la primera vez, se solicia al controlador la lista de usuarios (que sólo lo contendrá a él)
+		if (c.isServidor()) {
+			// Establecemos el color
+			setColorActual(controlador.getListaUsuarios());
+			actualizarListaUsuarios(c.getListaUsuarios());
+		}
+		
 		// Ponemos el listener a los consumidores del chat para poder recibir los mensajes de chat
 		c.getConsumidorCanalChat().addMensajeChatRecibidoListener(new MensajeChatRecibidoListener() {
 			public void MensajeChatRecibido(MensajeChatRecibidoEvent evt) {
@@ -101,7 +117,8 @@ public class JFPrincipal extends javax.swing.JFrame {
 		// Ponemos el listener a los consumidores del canal de gestión para poder recibir la lista de usuarios conectados
 		c.getConsumidorGestionListaUsuarios().addMensajeListaUsuariosListener(new MensajeListaUsuariosListener() {
 			public void MensajeListaUsuarios(MensajeListaUsuariosEvent evt) {
-				taChat.append("Se recibe el mensaje del panel de sesiones "+evt.getLista() + "\n");
+				actualizarListaUsuarios(evt.getLista());
+				setColorActual(evt.getLista());
 			}
 		});
 	}
@@ -160,8 +177,11 @@ public class JFPrincipal extends javax.swing.JFrame {
 				}
 				{
 					jPnlUsuarios = new JPanel();
+					TableLayout jPnlUsuariosLayout = new TableLayout(new double[][] {{0.3,0.3,0.3,0.3,0.3,0.3}, {0.2,0.2,0.2,0.2,0.2,0.2}});
+					jPnlUsuariosLayout.setHGap(10);
+					jPnlUsuariosLayout.setVGap(10);
 					jPanel1.add(jPnlUsuarios, new AnchorConstraint(25, 17, 632, 757, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
-					jPnlUsuarios.setLayout(null);
+					jPnlUsuarios.setLayout(jPnlUsuariosLayout);
 					jPnlUsuarios.setBorder(BorderFactory.createTitledBorder("Usuarios"));
 					jPnlUsuarios.setBounds(664, 49, 193, 329);
 				}
@@ -220,6 +240,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 								jScrollPane1.setViewportView(taChat);
 								taChat.setEditable(false);
 								taChat.setFocusable(false);
+								taChat.setForeground(colorCliente);
 								//taChat.setPreferredSize(new java.awt.Dimension(280, 76));
 							}
 						}
@@ -318,12 +339,30 @@ public class JFPrincipal extends javax.swing.JFrame {
 
 	public void mostrarVentana() {
 		this.setVisible(true);
-		this.actualizarListaUsuarios();
 	}
 
-	private void actualizarListaUsuarios() {
-		// Pintar el panel de usuarios conectados
-		// Utilizando controlador.getListaUsuarios()
+	private void actualizarListaUsuarios(Hashtable<String, Usuario> lista) {
+		Enumeration<String> clientesConectados = lista.keys();
+		String cliente;
+		int contador = 0;
+		while (clientesConectados.hasMoreElements()) {
+			JLabel icon = new JLabel();
+			JLabel nombre = new JLabel();
+			cliente = clientesConectados.nextElement();
+			// Segun el rol, cargamos una u otra imagen
+			if (lista.get(cliente).getRol().equals(Roles.Policia))
+					icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("resources/images/ambulancia.GIF")));
+			else if (lista.get(cliente).getRol().equals(Roles.Sanidad))
+				icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("resources/images/ambulancia.GIF")));
+			else
+				icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("resources/images/ambulancia.GIF")));
+			// Colocamos el rol en el icono, junto al nombre
+			nombre.setText(cliente);
+			jPnlUsuarios.add(icon, "0, " + String.valueOf(contador));
+			jPnlUsuarios.add(nombre, "2, " + String.valueOf(contador));
+			contador ++;
+		}
+		jPnlUsuarios.repaint();
 	}
 
 	private void btnEnviarActionPerformed(ActionEvent evt) {
@@ -367,9 +406,11 @@ public class JFPrincipal extends javax.swing.JFrame {
 		
 	}
 	
-    public void setColorActual(Color colorActual)
+    public void setColorActual(Hashtable<String, Usuario> lista)
     {
-        canvasPaint.setColorActual(colorActual);
+		// Ponemos el color a este cliente
+		colorCliente = lista.get(controlador.getNombreCliente()).getColor();
+        canvasPaint.setColorActual(colorCliente);
     }
     
 
