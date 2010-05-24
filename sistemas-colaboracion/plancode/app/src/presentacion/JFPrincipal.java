@@ -99,16 +99,9 @@ public class JFPrincipal extends javax.swing.JFrame {
 		});
 		
 		// Ponemos el listener a los consumidores del canal de gestión para poder recibir la lista de usuarios conectados
-		c.getConsumidorGestion().addMensajeListaUsuariosListener(new MensajeListaUsuariosListener() {
+		c.getConsumidorGestionListaUsuarios().addMensajeListaUsuariosListener(new MensajeListaUsuariosListener() {
 			public void MensajeListaUsuarios(MensajeListaUsuariosEvent evt) {
-				System.out.println(evt.getLista());
-			}
-		});
-		
-		c.getConsumidorGestion().addMensajeRolRecibidoListener(new MensajeRolListener() {
-			public void MensajeRolRecibido(MensajeRolEvent evt) {
-				// Prueba
-				taChat.append(evt.getRol().name());
+				taChat.append("Se recibe el mensaje del panel de sesiones "+evt.getLista() + "\n");
 			}
 		});
 	}
