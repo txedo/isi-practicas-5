@@ -34,7 +34,8 @@ import com.sun.media.jsdt.event.ChannelListener;
 
 import comunicaciones.ClienteJSDT;
 import comunicaciones.ConsumidorCanalChat;
-import comunicaciones.ConsumidorCanalGestion;
+import comunicaciones.ConsumidorCanalGestionListaUsuarios;
+import comunicaciones.ConsumidorCanalGestionRol;
 import comunicaciones.DatosConexion;
 import comunicaciones.ICanales;
 import comunicaciones.ISesion;
@@ -56,12 +57,15 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	private Channel canalChat;
 	private Channel canalTelepuntero;
 	private Channel canalDibujo;
-	/* Este canal se utiliza para intercambiar datos entre clientes para gestionar sus colores y el panel de sesiones
-	 * Se usa este canal para no mostrar estos datos por el chat ni mezclarlos con otros canales
+	/* Estos canales se utilizan para intercambiar datos entre clientes para gestionar sus roles y el panel de sesiones
+	 * Se usan estos canales para no mostrar estos datos por el chat ni mezclarlos con otros canales
+	 * Ademas, se necesitan usar dos, porque cada canl debe tener su listener, ya que si no, no se muestran bien los datos
 	 */	
-	private Channel canalGestion;
+	private Channel canalGestionRol;
+	private Channel canalGestionListaUsuarios;
 	private ConsumidorCanalChat consumidorChat;
-	private ConsumidorCanalGestion consumidorGestion;
+	private ConsumidorCanalGestionRol consumidorGestionRol;
+	private ConsumidorCanalGestionListaUsuarios consumidorGestionListaUsuarios;
 	
 	public ControladorPrincipal () {
 		ventanaLogin = new JFLogin(this);
@@ -99,19 +103,25 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		crearCanales ();
 		ponerConsumidores();
 		
+		// Cerramos la ventana de login y abrimos la ventana principal
+		ventanaLogin.cerrarVentana();
+		ventanaPrincipal = new JFPrincipal (this);
+		ventanaPrincipal.mostrarVentana();
+		
 		// Añadimos el evento para poder recibir el mensaje de rol de otros clientes que se conectan
 		if (esServidor) {
-			consumidorGestion.addMensajeRolRecibidoListener(new MensajeRolListener() {
+			consumidorGestionRol.addMensajeRolRecibidoListener(new MensajeRolListener() {
 				public void MensajeRolRecibido(MensajeRolEvent evt) {
 					/* El mensaje del rol lo gestiona el servidor para saber que se ha conectado un
 					 * nuevo cliente y enviar la lista de usuarios al resto de clientes conectados.
 					 * Además, le asigna un color.
 					 */
 					Color c = GestorColores.getColorLibre();
-					System.out.println(evt.getRol());
+					System.out.println("Recibe el rol el servidor " + evt.getRol().name());
 					listaUsuarios.put(evt.getNombre(), new Usuario(evt.getRol(), c));
+					System.out.println(listaUsuarios);
 					try {
-						canalGestion.sendToOthers(cliente, new Data(listaUsuarios));
+						canalGestionListaUsuarios.sendToAll(cliente, new Data("Hola"));
 						// TODO: donde se tratan estas excepciones?
 					} catch (ConnectionException e) {
 						// TODO Auto-generated catch block
@@ -146,13 +156,8 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		 * nombre del servidor
 		 */
 		if (!esServidor) {
-			canalGestion.sendToOthers(cliente, new Data(cliente.getRol()));
+			canalGestionRol.sendToOthers(cliente, new Data(cliente.getRol().name()));
 		}
-		
-		// Cerramos la ventana de login y abrimos la ventana principal
-		ventanaLogin.cerrarVentana();
-		ventanaPrincipal = new JFPrincipal (this);
-		ventanaPrincipal.mostrarVentana();
 		
 	}
 	
@@ -189,15 +194,18 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		});
 		canalTelepuntero = sesion.createChannel(cliente, CANAL_TELEPUNTERO, true, true, true);
 		canalDibujo = sesion.createChannel(cliente, CANAL_DIBUJO, true, true, true);
-		canalGestion = sesion.createChannel(cliente, CANAL_GESTION, true, true, true);
+		canalGestionRol = sesion.createChannel(cliente, CANAL_GESTION_ROL, true, true, true);
+		canalGestionListaUsuarios = sesion.createChannel(cliente, CANAL_GESTION_LISTA, true, true, true);
 	}
 	
 	private void ponerConsumidores () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
 		// Ponemos los consumidores del chat y del canal de gestión
 		consumidorChat = new ConsumidorCanalChat ();
 		canalChat.addConsumer(cliente, consumidorChat);		
-		consumidorGestion = new ConsumidorCanalGestion ();
-		canalGestion.addConsumer(cliente, consumidorGestion);
+		consumidorGestionRol = new ConsumidorCanalGestionRol ();
+		canalGestionRol.addConsumer(cliente, consumidorGestionRol);
+		consumidorGestionListaUsuarios = new ConsumidorCanalGestionListaUsuarios();
+		canalGestionListaUsuarios.addConsumer(cliente, consumidorGestionListaUsuarios);
 	}
 	
 	
@@ -213,7 +221,11 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		return consumidorChat;
 	}
 	
-	public ConsumidorCanalGestion getConsumidorGestion() {
-		return consumidorGestion;
+	public ConsumidorCanalGestionRol getConsumidorGestionRol() {
+		return consumidorGestionRol;
+	}
+	
+	public ConsumidorCanalGestionListaUsuarios getConsumidorGestionListaUsuarios() {
+		return consumidorGestionListaUsuarios;
 	}
 }
