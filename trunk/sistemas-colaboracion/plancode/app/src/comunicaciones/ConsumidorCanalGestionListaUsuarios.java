@@ -31,11 +31,16 @@ public class ConsumidorCanalGestionListaUsuarios implements ChannelConsumer {
 		listeners = listenerList.getListenerList();
 		for(i = 0; i < listeners.length; i += 2) {	
 			if(listeners[i] == MensajeListaUsuariosListener.class) {
-					((MensajeListaUsuariosListener)listeners[i + 1]).MensajeListaUsuarios(new MensajeListaUsuariosEvent(this, d.getDataAsString()));
-
-
 					// TODO: donde se ponen estas excepciones?
-
+					try {
+						((MensajeListaUsuariosListener)listeners[i + 1]).MensajeListaUsuarios(new MensajeListaUsuariosEvent(this, d.getDataAsObject()));
+					} catch (StreamCorruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 			}
 		}
 	}

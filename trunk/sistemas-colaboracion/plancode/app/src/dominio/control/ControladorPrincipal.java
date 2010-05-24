@@ -117,11 +117,9 @@ public class ControladorPrincipal implements ICanales, ISesion {
 					 * Además, le asigna un color.
 					 */
 					Color c = GestorColores.getColorLibre();
-					System.out.println("Recibe el rol el servidor " + evt.getRol().name());
 					listaUsuarios.put(evt.getNombre(), new Usuario(evt.getRol(), c));
-					System.out.println(listaUsuarios);
 					try {
-						canalGestionListaUsuarios.sendToAll(cliente, new Data("Hola"));
+						canalGestionListaUsuarios.sendToAll(cliente, new Data(listaUsuarios));
 						// TODO: donde se tratan estas excepciones?
 					} catch (ConnectionException e) {
 						// TODO Auto-generated catch block
@@ -227,5 +225,13 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	
 	public ConsumidorCanalGestionListaUsuarios getConsumidorGestionListaUsuarios() {
 		return consumidorGestionListaUsuarios;
+	}
+
+	public boolean isServidor() {
+		return esServidor;
+	}
+	
+	public String getNombreCliente () {
+		return cliente.getName();
 	}
 }
