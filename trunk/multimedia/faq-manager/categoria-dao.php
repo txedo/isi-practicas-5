@@ -1,5 +1,5 @@
 <?php
-// Comprobamos que está definido el tipo de operación (add, del, edit, view)
+// Comprobamos que esta definido el tipo de operacion (add, del, edit, view)
 if (isset($_GET['op'])) {
 	include 'broker.php';
 	$operacion = $_GET['op'];
@@ -8,10 +8,22 @@ if (isset($_GET['op'])) {
 			$id = conectar_bd();
 			$sql = "INSERT INTO categoria_faq (categoria) VALUES ('".$_GET['nombre']."')";
 			$res = ejecutar_consulta ($sql, $id);
-			if ($res) echo "estado=ok";
+			if ($res) {
+				echo "&estado=ok";
+				echo "&mensaje=La categoria ha sido creada con exito.";
+			}
+			else {
+				echo "&estado=error";
+				echo "&mensaje=No se ha podido crear la categoria. " . mysql_error();
+			}
 			cerrar_bd ($id);
 		}
-	} else if ($operacion == "view") {
+		else {
+			echo "&estado=error";
+			echo "&mensaje=Debe especificar el nombre de la categoria.";
+		}
+	}
+	else if ($operacion == "view") {
 		$id = conectar_bd();
 		$sql = "SELECT categoria FROM categoria_faq ORDER BY categoria";
 		$res = ejecutar_consulta ($sql, $id);
@@ -24,10 +36,13 @@ if (isset($_GET['op'])) {
 		echo "&estado=ok";
 		echo "&contador=$contador";
 		cerrar_bd ($id);
-	}else {
-		echo "Operación inválida";
+	}
+	else {
+		echo "&estado=error";
+		echo "&mensaje=Operacion no definida: $operacion";
 	}
 } else {
-	echo "Error: No se ha definido un tipo de operacion";
+	echo "&estado=error";
+	echo "&mensaje=No se ha definido un tipo de operacion";
 }
 ?>
