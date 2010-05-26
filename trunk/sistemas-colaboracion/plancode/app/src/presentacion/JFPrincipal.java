@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
@@ -21,6 +22,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
+
+import presentacion.panelImagenFondo.panelConImagenFondo;
 
 import com.cloudgarden.layout.AnchorConstraint;
 import com.sun.media.jsdt.ConnectionException;
@@ -66,7 +69,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JPanel jPnlUsuarios;
 	private JPanel panelPaint;
 	private JLabel jLabel1;
-	private JPanel jPanel2;
+	private JPanel jPanelFondo;
 	private JButton btnCargarMapa;
 	private JButton jButton4;
 	private JButton btnEnviar;
@@ -201,6 +204,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 					jPnlUsuarios.setBounds(664, 49, 193, 329);
 				}
 				{
+					
 					panelPaint = new JPanel();
 					jPanel1.add(panelPaint, new AnchorConstraint(25, 744, 634, 229, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
 					panelPaint.setBorder(BorderFactory.createTitledBorder("Área de trabajo"));
@@ -208,8 +212,9 @@ public class JFPrincipal extends javax.swing.JFrame {
 					panelPaint.setBounds(89, 49, 569, 329);
 					{
 						canvasPaint = new CanvasPaint();
+						canvasPaint.setOpaque(false);
 						panelPaint.add(canvasPaint);
-						canvasPaint.setBounds(4, 17, 561, 307);
+						canvasPaint.setBounds(6, 17, 557, 305);
 					}
 				}
 				{
@@ -433,26 +438,21 @@ public class JFPrincipal extends javax.swing.JFrame {
     
     // TODO: prueba para cargar un mapa al darle al botón
     private void btnCargarMapaActionPerformed(ActionEvent evt) {
-    	// Primero se borra el mapa que hubiese cargado anteriormente
+    	// Primero se borran los componentes anteriores
     	panelPaint.removeAll();
-    	// Se crea una label del mismo tamaño que el canvas para colocar la imagen del mapa
-    	JLabel lblMapa = new JLabel();
-    	lblMapa.setBounds(4, 17, 561, 307);
-    	// Se carga la imagen
-    	lblMapa.setIcon(new ImageIcon(getClass().getClassLoader().getResource("maps/mapaPrueba.png")));
-    	// Se añade la imagen y el canvas, que se borró anteriormente
-    	//panelPaint.add(canvasPaint);
-    	/*{
-    		jPanel2 = new JPanel();
-    		jPanel2.setOpaque(false);
-    		panelPaint.add(jPanel2);
-    		jPanel2.setLayout(null);
-    		jPanel2.setBounds(0, 41, 565, 271);
-    		jPanel2.add(canvasPaint);
-    	}*/
-    	panelPaint.add(lblMapa);
+    	// Se carga el mapa para ponerlo de fondo al panel 
+    	URL imgFondo = getClass().getClassLoader().getResource("maps/mapaPrueba.png");
+    	// Se crea el panel para mostrar el mapa de fondo
+		jPanelFondo = new panelConImagenFondo(imgFondo);
+		panelPaint.add(jPanelFondo);
+		jPanelFondo.setLayout(null);
+		jPanelFondo.setBounds(6, 20, 557, 298);
+		// Se limpia el canvas, porque solo existe una instancia de él
+		canvasPaint.clear();
+    	panelPaint.add(canvasPaint);
+    	panelPaint.add(jPanelFondo);
     	panelPaint.revalidate();
-    	
+
     }
 
 }

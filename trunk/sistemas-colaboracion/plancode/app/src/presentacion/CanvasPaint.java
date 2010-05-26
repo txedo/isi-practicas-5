@@ -4,18 +4,19 @@ package presentacion;
  * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php
  */
 
-import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
+import javax.swing.JPanel;
+
+
 /**
- * Clase que hereda de Canvas y que permite dibujar trazos sobre el canvas
+ * Clase que hereda de JPanel y que permite dibujar trazos, actuando como un canvas
  * 
  */
-public class CanvasPaint extends Canvas
+public class CanvasPaint extends JPanel
 {
 
     private static final long serialVersionUID = 3978706198935583032L;
@@ -100,12 +101,18 @@ public class CanvasPaint extends Canvas
      */
     public void paint(Graphics g)
     {
+    	super.paint(g);
         for (int i = 0; i < trazos.size(); i++)
         {
             dibujaTrazo(trazos.get(i), g);
         }
     }
 
+    public void clear() {
+    	trazos.clear();
+    	this.repaint();
+    }
+    
     /**
      * Dibuja un trazo en este componente.
      */
