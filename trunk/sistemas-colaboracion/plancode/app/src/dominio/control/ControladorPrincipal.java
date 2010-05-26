@@ -186,8 +186,10 @@ public class ControladorPrincipal implements ICanales, ISesion {
 			}
 			
 			// Pasamos a la interfaz gráfica el nick del cliente que acaba de dejar el canal del chat
+			// Liberamos también su color
 			public void channelLeft(ChannelEvent e) {
 				ventanaPrincipal.notificarLogout(e.getClientName());
+				GestorColores.liberarColor(listaUsuarios.get(e.getClientName()).getColor());
 			}
 		});
 		canalTelepuntero = sesion.createChannel(cliente, CANAL_TELEPUNTERO, true, true, true);

@@ -65,6 +65,9 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JPanel jPnlToolBoox;
 	private JPanel jPnlUsuarios;
 	private JPanel panelPaint;
+	private JLabel jLabel1;
+	private JPanel jPanel2;
+	private JButton btnCargarMapa;
 	private JButton jButton4;
 	private JButton btnEnviar;
 	private JTextField txtMensaje;
@@ -110,6 +113,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 		// Ponemos el listener a los consumidores del chat para poder recibir los mensajes de chat
 		c.getConsumidorCanalChat().addMensajeChatRecibidoListener(new MensajeChatRecibidoListener() {
 			public void MensajeChatRecibido(MensajeChatRecibidoEvent evt) {
+				// Ponemos el mensaje en el chat, coloreandolo con el color del usuario que lo envia
 				ponerMensajeChat(evt);
 			}
 		});
@@ -174,6 +178,17 @@ public class JFPrincipal extends javax.swing.JFrame {
 							}
 						});
 					}
+					{
+						btnCargarMapa = new JButton();
+						jPnlToolBoox.add(btnCargarMapa);
+						btnCargarMapa.setText("CargarMapa");
+						btnCargarMapa.setBounds(1, 109, 66, 23);
+						btnCargarMapa.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								btnCargarMapaActionPerformed(evt);
+							}
+						});
+					}
 				}
 				{
 					jPnlUsuarios = new JPanel();
@@ -194,9 +209,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 					{
 						canvasPaint = new CanvasPaint();
 						panelPaint.add(canvasPaint);
-						// Por defecto, el canvas no tiene ningún modo activo
-						// canvasPaint.modoPintarTrazo();
-						canvasPaint.setBounds(6, 20, 557, 303);
+						canvasPaint.setBounds(4, 17, 561, 307);
 					}
 				}
 				{
@@ -345,24 +358,29 @@ public class JFPrincipal extends javax.swing.JFrame {
 		Enumeration<String> clientesConectados = lista.keys();
 		String cliente;
 		int contador = 0;
+		// Borramos los elementos del panel de sesiones y los volemos a dibujar
+		jPnlUsuarios.removeAll();
 		while (clientesConectados.hasMoreElements()) {
 			JLabel icon = new JLabel();
 			JLabel nombre = new JLabel();
 			cliente = clientesConectados.nextElement();
 			// Segun el rol, cargamos una u otra imagen
 			if (lista.get(cliente).getRol().equals(Roles.Policia))
-					icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("resources/images/ambulancia.GIF")));
+					icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/ambulancia.GIF")));
 			else if (lista.get(cliente).getRol().equals(Roles.Sanidad))
-				icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("resources/images/ambulancia.GIF")));
+				icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/ambulancia.GIF")));
 			else
-				icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("resources/images/ambulancia.GIF")));
+				icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/ambulancia.GIF")));
 			// Colocamos el rol en el icono, junto al nombre
 			nombre.setText(cliente);
+			nombre.setForeground(lista.get(cliente).getColor());
 			jPnlUsuarios.add(icon, "0, " + String.valueOf(contador));
 			jPnlUsuarios.add(nombre, "2, " + String.valueOf(contador));
 			contador ++;
 		}
-		jPnlUsuarios.repaint();
+		// Esta llamada es necesaria para que los clientes uqe ya tenian la interfaz inicializada, refresquen sus paneles de sesiones
+		jPnlUsuarios.revalidate();
+
 	}
 
 	private void btnEnviarActionPerformed(ActionEvent evt) {
@@ -413,5 +431,28 @@ public class JFPrincipal extends javax.swing.JFrame {
         canvasPaint.setColorActual(colorCliente);
     }
     
+    // TODO: prueba para cargar un mapa al darle al botón
+    private void btnCargarMapaActionPerformed(ActionEvent evt) {
+    	// Primero se borra el mapa que hubiese cargado anteriormente
+    	panelPaint.removeAll();
+    	// Se crea una label del mismo tamaño que el canvas para colocar la imagen del mapa
+    	JLabel lblMapa = new JLabel();
+    	lblMapa.setBounds(4, 17, 561, 307);
+    	// Se carga la imagen
+    	lblMapa.setIcon(new ImageIcon(getClass().getClassLoader().getResource("maps/mapaPrueba.png")));
+    	// Se añade la imagen y el canvas, que se borró anteriormente
+    	//panelPaint.add(canvasPaint);
+    	/*{
+    		jPanel2 = new JPanel();
+    		jPanel2.setOpaque(false);
+    		panelPaint.add(jPanel2);
+    		jPanel2.setLayout(null);
+    		jPanel2.setBounds(0, 41, 565, 271);
+    		jPanel2.add(canvasPaint);
+    	}*/
+    	panelPaint.add(lblMapa);
+    	panelPaint.revalidate();
+    	
+    }
 
 }

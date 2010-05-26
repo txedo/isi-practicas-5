@@ -11,7 +11,7 @@ public class GestorColores {
 	public static void inicializaColores() {
 		colores.add(Color.black);
 		colores.add(Color.red);
-		colores.add(Color.yellow);
+		colores.add(Color.orange);
 		colores.add(Color.blue);
 		colores.add(Color.green);
 		colores.add(Color.magenta);
