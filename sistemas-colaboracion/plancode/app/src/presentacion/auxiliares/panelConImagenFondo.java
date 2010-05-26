@@ -1,4 +1,4 @@
-package presentacion.panelImagenFondo;
+package presentacion.auxiliares;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -11,6 +11,10 @@ import javax.swing.JPanel;
 
 public class panelConImagenFondo extends JPanel{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2643504940011956438L;
 	private TexturePaint fondo;
 	 
 	public panelConImagenFondo() {

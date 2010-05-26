@@ -1,4 +1,4 @@
-package presentacion.panelImagenFondo;
+package presentacion.auxiliares;
 
 import java.awt.*;
 import javax.swing.ImageIcon;

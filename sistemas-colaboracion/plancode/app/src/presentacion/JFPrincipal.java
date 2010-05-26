@@ -1,8 +1,11 @@
 package presentacion;
 import java.awt.Color;
+import presentacion.auxiliares.ImageFilter;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -10,6 +13,7 @@ import java.util.Hashtable;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -23,7 +27,7 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 
-import presentacion.panelImagenFondo.panelConImagenFondo;
+import presentacion.auxiliares.panelConImagenFondo;
 
 import com.cloudgarden.layout.AnchorConstraint;
 import com.sun.media.jsdt.ConnectionException;
@@ -97,6 +101,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JButton jButton1;
 	private JButton Dibujar;
 	private CanvasPaint canvasPaint;
+	private JFileChooser fc;
 	
 	private Color colorCliente = null;
 
@@ -438,20 +443,35 @@ public class JFPrincipal extends javax.swing.JFrame {
     
     // TODO: prueba para cargar un mapa al darle al botón
     private void btnCargarMapaActionPerformed(ActionEvent evt) {
-    	// Primero se borran los componentes anteriores
-    	panelPaint.removeAll();
-    	// Se carga el mapa para ponerlo de fondo al panel 
-    	URL imgFondo = getClass().getClassLoader().getResource("maps/mapaPrueba.png");
-    	// Se crea el panel para mostrar el mapa de fondo
-		jPanelFondo = new panelConImagenFondo(imgFondo);
-		panelPaint.add(jPanelFondo);
-		jPanelFondo.setLayout(null);
-		jPanelFondo.setBounds(6, 20, 557, 298);
-		// Se limpia el canvas, porque solo existe una instancia de él
-		canvasPaint.clear();
-    	panelPaint.add(canvasPaint);
-    	panelPaint.add(jPanelFondo);
-    	panelPaint.revalidate();
+    	fc = new JFileChooser();
+    	// Se estable el filtro para mostrar sólo imagenes png, jpg, jpeg y gif
+    	fc.addChoosableFileFilter(new presentacion.auxiliares.ImageFilter());
+    	fc.setAcceptAllFileFilterUsed(false);
+    	// Se pone un mensaje personalizado tanto al botón del fileChooser como a su título
+    	int valor = fc.showDialog(this, "Cargar imagen");
+    	if (valor == fc.APPROVE_OPTION) {
+    	    File image = fc.getSelectedFile();
+	    	// Se borran los componentes anteriores del panel principal del area de trabajo
+	    	panelPaint.removeAll();
+			//imgFondo = new URL(image.getPath());
+	    	try {
+	    		// Se carga el mapa para ponerlo de fondo al panel
+		    	URL imgFondo = image.toURL();
+		    	// Se crea el panel para mostrar el mapa de fondo
+				jPanelFondo = new panelConImagenFondo(imgFondo);
+				panelPaint.add(jPanelFondo);
+				jPanelFondo.setLayout(null);
+				jPanelFondo.setBounds(6, 20, 557, 298);
+				// Se limpia el canvas, porque solo existe una instancia de él
+				canvasPaint.clear();
+		    	panelPaint.add(canvasPaint);
+		    	panelPaint.add(jPanelFondo);
+		    	panelPaint.revalidate();
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
 
     }
 
