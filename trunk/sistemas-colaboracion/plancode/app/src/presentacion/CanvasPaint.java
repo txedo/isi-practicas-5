@@ -4,8 +4,10 @@ package presentacion;
  * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php
  */
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
 
@@ -119,6 +121,8 @@ public class CanvasPaint extends JPanel
     private void dibujaTrazo(Trazo trazo, Graphics g)
     {
         g.setColor(trazo.getColor());
+        // Aumentamos el grosor del trazo, para que se vea mejor sobre el mapa
+        ((Graphics2D)g).setStroke( new BasicStroke(4) ); 
         Point2D p0 = trazo.getPunto(0);
         for (int i = 0; i < trazo.getNumeroPuntos() - 1; i++)
         {
