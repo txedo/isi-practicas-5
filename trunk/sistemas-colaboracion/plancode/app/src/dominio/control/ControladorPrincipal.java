@@ -2,12 +2,15 @@ package dominio.control;
 
 import java.awt.Color;
 import java.util.Hashtable;
+import java.util.LinkedList;
+
 import presentacion.JFLogin;
 import presentacion.JFPrincipal;
 import presentacion.MensajeChatRecibidoEvent;
 import presentacion.MensajeChatRecibidoListener;
 import presentacion.MensajeRolEvent;
 import presentacion.MensajeRolListener;
+import presentacion.Trazo;
 
 import com.sun.media.jsdt.Channel;
 import com.sun.media.jsdt.ConnectionException;
@@ -36,6 +39,7 @@ import comunicaciones.ClienteJSDT;
 import comunicaciones.ConsumidorCanalChat;
 import comunicaciones.ConsumidorCanalGestionListaUsuarios;
 import comunicaciones.ConsumidorCanalGestionRol;
+import comunicaciones.ConsumidorCanalTrazos;
 import comunicaciones.DatosConexion;
 import comunicaciones.ICanales;
 import comunicaciones.ISesion;
@@ -66,6 +70,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	private ConsumidorCanalChat consumidorChat;
 	private ConsumidorCanalGestionRol consumidorGestionRol;
 	private ConsumidorCanalGestionListaUsuarios consumidorGestionListaUsuarios;
+	private ConsumidorCanalTrazos consumidorTrazos;
 	
 	public ControladorPrincipal () {
 		ventanaLogin = new JFLogin(this);
@@ -206,11 +211,40 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		canalGestionRol.addConsumer(cliente, consumidorGestionRol);
 		consumidorGestionListaUsuarios = new ConsumidorCanalGestionListaUsuarios();
 		canalGestionListaUsuarios.addConsumer(cliente, consumidorGestionListaUsuarios);
+		consumidorTrazos = new ConsumidorCanalTrazos();
+		canalDibujo.addConsumer(cliente, consumidorTrazos);
 	}
 	
 	
 	public void enviarMensajeChat (String mensaje) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
 		canalChat.sendToAll(cliente, new Data (mensaje));
+	}
+	
+	public void enviarTrazoDibujado (LinkedList<Trazo> trazo) {
+		try {
+			canalDibujo.sendToOthers(cliente, new Data(trazo));
+		} catch (ConnectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchChannelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchSessionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PermissionDeniedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimedOutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public Hashtable<String,Usuario> getListaUsuarios() {
@@ -235,5 +269,9 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	
 	public String getNombreCliente () {
 		return cliente.getName();
+	}
+
+	public ConsumidorCanalTrazos getConsumidorTrazos() {
+		return consumidorTrazos;
 	}
 }

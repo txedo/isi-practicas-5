@@ -8,12 +8,16 @@ import java.awt.Color;
 import java.awt.Component;
 import java.util.LinkedList;
 
+import dominio.control.ControladorPrincipal;
+
 /**
  * Clase para gestionar lo relacionado con trazos (dibujar/eliminar)
  *
  */
 public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRaton
 {
+	private ControladorPrincipal controlador; 
+	
     /** Lista de trazos */
     private LinkedList<Trazo> trazos;
 
@@ -30,10 +34,11 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
 
     private final double DISTANCIA_MARGEN = 15.0;
     
-    public GestorTrazos(LinkedList<Trazo> trazos, Component lienzo)
+    public GestorTrazos(LinkedList<Trazo> trazos, Component lienzo, ControladorPrincipal c)
     {
         this.trazos = trazos;
         this.lienzo = lienzo;
+        controlador = c;
     }
 
     /**
@@ -45,6 +50,7 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
         trazoActual.setColor(colorActual);
         trazoActual.addPunto(x, y);
         trazos.add(trazoActual);
+        controlador.enviarTrazoDibujado(trazos);
         lienzo.repaint();
     }
 
@@ -52,6 +58,7 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
     public void añadirPuntosTrazo(int xAntigua, int yAntigua, int xNueva, int yNueva)
     {
         trazoActual.addPunto(xNueva, yNueva);
+        controlador.enviarTrazoDibujado(trazos);
         lienzo.repaint();
     }
 

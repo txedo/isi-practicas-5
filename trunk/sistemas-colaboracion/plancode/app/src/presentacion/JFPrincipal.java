@@ -1,6 +1,5 @@
 package presentacion;
 import java.awt.Color;
-import presentacion.auxiliares.ImageFilter;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -71,11 +70,9 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private ControladorPrincipal controlador;
 	private JPanel jPnlToolBoox;
 	private JPanel jPnlUsuarios;
-	private JPanel panelPaint;
-	private JLabel jLabel1;
+	private JPanel panelPaint;	
 	private JPanel jPanelFondo;
 	private JButton btnCargarMapa;
-	private JButton jButton4;
 	private JButton btnEnviar;
 	private JTextField txtMensaje;
 	private JMenuItem jmiAcercaDe;
@@ -131,6 +128,13 @@ public class JFPrincipal extends javax.swing.JFrame {
 			public void MensajeListaUsuarios(MensajeListaUsuariosEvent evt) {
 				actualizarListaUsuarios(evt.getLista());
 				setColorActual(evt.getLista());
+			}
+		});
+		
+		c.getConsumidorTrazos().addMensajeTrazoListener(new MensajeTrazosListener() {
+			public void MensajeTrazo(MensajeTrazosEvent evt) {
+				canvasPaint.setTrazos(evt.getListaTrazos());
+				canvasPaint.repaint();
 			}
 		});
 	}
@@ -216,7 +220,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 					panelPaint.setLayout(null);
 					panelPaint.setBounds(89, 49, 569, 329);
 					{
-						canvasPaint = new CanvasPaint();
+						canvasPaint = new CanvasPaint(controlador);
 						canvasPaint.setOpaque(false);
 						panelPaint.add(canvasPaint);
 						canvasPaint.setBounds(6, 17, 557, 305);
