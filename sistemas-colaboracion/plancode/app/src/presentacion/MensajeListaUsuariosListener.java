@@ -6,5 +6,4 @@ public interface MensajeListaUsuariosListener extends EventListener {
 	
 	public void MensajeListaUsuarios(MensajeListaUsuariosEvent evt);
 
-
 }

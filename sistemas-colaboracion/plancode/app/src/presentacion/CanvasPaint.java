@@ -13,6 +13,8 @@ import java.util.LinkedList;
 
 import javax.swing.JPanel;
 
+import dominio.control.ControladorPrincipal;
+
 
 /**
  * Clase que hereda de JPanel y que permite dibujar trazos, actuando como un canvas
@@ -40,9 +42,9 @@ public class CanvasPaint extends JPanel
     
        
     // Se inicializa el gestor de trazos y los listener para arrastrar el ratón y pinchar con el ratón
-    public CanvasPaint()
+    public CanvasPaint(ControladorPrincipal c)
     {
-        gestorT = new GestorTrazos(trazos, this);
+        gestorT = new GestorTrazos(trazos, this, c);
         listenerA = new ListenerArrastre(gestorT);
         listenerP = new ListenerPinchar(gestorT);
         // Se pasa el propio canvas, para poder cambiar la imagen del cursor cuando éste entra en ese área
@@ -119,7 +121,7 @@ public class CanvasPaint extends JPanel
      * Dibuja un trazo en este componente.
      */
     private void dibujaTrazo(Trazo trazo, Graphics g)
-    {
+    {    	
         g.setColor(trazo.getColor());
         // Aumentamos el grosor del trazo, para que se vea mejor sobre el mapa
         ((Graphics2D)g).setStroke( new BasicStroke(4) ); 
@@ -140,5 +142,13 @@ public class CanvasPaint extends JPanel
     {
         gestorT.setColorActual(colorActual);
     }
+
+	public LinkedList<Trazo> getTrazos() {
+		return trazos;
+	}
+
+	public void setTrazos(LinkedList<Trazo> trazos) {
+		this.trazos.addAll(trazos);
+	}
     
 }

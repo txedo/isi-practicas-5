@@ -6,6 +6,7 @@ package presentacion;
 
 import java.awt.Color;
 import java.awt.geom.Point2D;
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
@@ -13,8 +14,8 @@ import java.util.LinkedList;
  * unirán por una línea de color.
  *
  */
-public class Trazo
-{
+public class Trazo implements Serializable {
+	
 	/** Lista de puntos que compone el trazo */
     private LinkedList<Point2D> puntos = new LinkedList<Point2D>();
     private Color color = Color.black;
