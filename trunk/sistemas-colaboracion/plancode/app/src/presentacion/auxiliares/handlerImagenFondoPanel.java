@@ -10,24 +10,40 @@ import java.net.URL;
  * REFERENCIA: http://bicosyes.com/capas-con-imagen-de-fondo-en-java/
  * 
  */
-public class handlerImagenFondoPanel 
-{
-	private static TexturePaint cargaTextura(URL imageFile, Component c)
-	{
+public class handlerImagenFondoPanel {
+	
+	// TexturePaint no implementa la interfaz serializable, ni la clase Image tampoco. Por ello, se debe crear
+	// un objeto de tipo ImageIcon que si es serializable, encapsulando en él la imagen cargada.
+	private static ImageIcon mapaCargado = null;
+	
+	// Este método carga una imagen desde una URL. Se usa para cargar el mapa desde el disco local al cliente
+	public static void creaImageURL(URL imageFile, Component c) 	{
+		Image img = (new ImageIcon(imageFile)).getImage();
+		mapaCargado = new ImageIcon(img);
+	}
+	
+	// Método para cargar un ImageIcon y crear su textura
+	// Este método se usará cuando un cliente reciba el mapa de otro cliente
+	public static TexturePaint cargaImageIcon(ImageIcon img, Component c) 	{
+		mapaCargado = img;
+		return cargaTextura(c);
+	}
+	
+	// Método para cargar como textura un mapa, ya sea local o recibido de otro cliente
+	public static TexturePaint cargaTextura(Component c) {
 		TexturePaint imageDev;
 		try
 		{
-			Image img = (new ImageIcon(imageFile)).getImage();
-			BufferedImage image = getBufferedImage(img , c);
+			BufferedImage image = getBufferedImage(mapaCargado.getImage() , c);
 			imageDev =  new TexturePaint(image,
 					new Rectangle(0, 0, image.getWidth(), image.getHeight())
 			);
 		}catch(Exception e){
       	imageDev = null;
-      	System.out.println(e.getMessage());
       }
       return imageDev;
-  }
+		
+	}
  
 	private static BufferedImage getBufferedImage(Image image, Component c)
 	{
@@ -49,16 +65,9 @@ public class handlerImagenFondoPanel
 		}catch(InterruptedException ie){}
 		return(!tracker.isErrorAny());
 	}
-	/**
-	 * Crea un textura de una imagen para un componente concreto
-	 */
-	public static TexturePaint carga(URL s, Component c)
-	{
-		TexturePaint image;
-		image = cargaTextura(s, c);
-		if (image == null)
-			// TODO: lanzar excepcion a la interfaz
-			System.err.println("OMG! No puedo leer la imagen " + s);
-		return image;
+
+	// Se devuelve el mapa que se pone como fondo para pasarlo por el canal al resto de clientes conectados
+	public static ImageIcon getMapaCargado() {
+		return mapaCargado;
 	}
 }
