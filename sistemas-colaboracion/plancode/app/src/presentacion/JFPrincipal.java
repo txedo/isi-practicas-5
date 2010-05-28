@@ -26,6 +26,8 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 
+import presentacion.auxiliares.ImageFileView;
+import presentacion.auxiliares.handlerImagenFondoPanel;
 import presentacion.auxiliares.panelConImagenFondo;
 
 import com.cloudgarden.layout.AnchorConstraint;
@@ -71,7 +73,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JPanel jPnlToolBoox;
 	private JPanel jPnlUsuarios;
 	private JPanel panelPaint;	
-	private JPanel jPanelFondo;
+	private panelConImagenFondo jPanelFondo;
 	private JButton btnCargarMapa;
 	private JButton btnEnviar;
 	private JTextField txtMensaje;
@@ -101,6 +103,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JFileChooser fc;
 	
 	private Color colorCliente = null;
+	private ImageIcon mapa = null;
 
 	public JFPrincipal(ControladorPrincipal c) {
 		super();
@@ -137,6 +140,43 @@ public class JFPrincipal extends javax.swing.JFrame {
 				canvasPaint.repaint();
 			}
 		});
+		
+		c.getConsumidorMapa().addMensajeMapaListener(new MensajeMapaListener() {
+			public void MensajeMapa(MensajeMapaEvent evt) {
+				setMapaRecibido(evt.getMapa());
+			}
+
+		});
+	}
+	
+	private void setMapaRecibido(ImageIcon mapa) {
+
+		// Se crea un panel para poner el mapa recibido de fondo
+		jPanelFondo = new panelConImagenFondo();
+		jPanelFondo.setMapaFondoRecibido(mapa);
+		// Se añade ese panel y el canvas al área de trabajo
+		initAreaTrabajo();
+	}
+	
+	private void setMapaLocal(URL urlMapa) {
+		// Se crea un panel para poner el mapa recibido de fondo
+		jPanelFondo = new panelConImagenFondo();
+		jPanelFondo.setMapaFondoLocal(urlMapa);
+		// Se añade ese panel y el canvas al área de trabajo
+		initAreaTrabajo();
+	}
+	
+	private void initAreaTrabajo() {
+		// Al establecer un nuevo mapa, se elimina el panel con el mapa que hubiese cargado (si había alguno)
+		panelPaint.removeAll();
+		jPanelFondo.setLayout(null);
+		jPanelFondo.setBounds(6, 20, 557, 298);
+		// Se limpia el canvas, porque solo existe una instancia de él
+		canvasPaint.clear();
+    	panelPaint.add(canvasPaint);
+    	panelPaint.add(jPanelFondo);
+		jPanelFondo.repaint();
+    	panelPaint.revalidate();
 	}
 	
 	private void ponerMensajeChat(MensajeChatRecibidoEvent evt) {
@@ -426,9 +466,21 @@ public class JFPrincipal extends javax.swing.JFrame {
 	}
 	
 
-	public void notificarLogin(String login) {
+	public void iniciarSesion(String login) {
+		// Cuando un cliente se conecta, se notifica su entrada en el chat al resto de clientes.
 		taChat.append(login + " ha iniciado sesión.\n");
 		taChat.setCaretPosition(taChat.getDocument().getLength());
+		// Además, el cliente que actúa como servidor envía el mapa y los trazos ya dibujados al cliente que 
+		// acaba de iniciar sesión, para que esté sincronizado con el resto
+		if (controlador.isServidor()) {
+			if (mapa!=null) {
+				controlador.enviarMapaRecienConectado(login, mapa);
+			}
+			// TODO: no funciona bien
+			/*if (!canvasPaint.getTrazos().isEmpty()) {
+				controlador.enviarTrazosRecienConectado(login, canvasPaint.getTrazos());
+			}*/
+		}
 		
 	}
 	
@@ -445,7 +497,6 @@ public class JFPrincipal extends javax.swing.JFrame {
         canvasPaint.setColorActual(colorCliente);
     }
     
-    // TODO: prueba para cargar un mapa al darle al botón
     private void btnCargarMapaActionPerformed(ActionEvent evt) {
     	fc = new JFileChooser();
     	// Se estable el filtro para mostrar sólo imagenes png, jpg, jpeg y gif
@@ -454,23 +505,16 @@ public class JFPrincipal extends javax.swing.JFrame {
     	// Se pone un mensaje personalizado tanto al botón del fileChooser como a su título
     	int valor = fc.showDialog(this, "Cargar imagen");
     	if (valor == fc.APPROVE_OPTION) {
-    	    File image = fc.getSelectedFile();
-	    	// Se borran los componentes anteriores del panel principal del area de trabajo
-	    	panelPaint.removeAll();
-			//imgFondo = new URL(image.getPath());
+    	    File image = fc.getSelectedFile();	    	
 	    	try {
-	    		// Se carga el mapa para ponerlo de fondo al panel
-		    	URL imgFondo = image.toURL();
-		    	// Se crea el panel para mostrar el mapa de fondo
-				jPanelFondo = new panelConImagenFondo(imgFondo);
-				panelPaint.add(jPanelFondo);
-				jPanelFondo.setLayout(null);
-				jPanelFondo.setBounds(6, 20, 557, 298);
-				// Se limpia el canvas, porque solo existe una instancia de él
-				canvasPaint.clear();
-		    	panelPaint.add(canvasPaint);
-		    	panelPaint.add(jPanelFondo);
-		    	panelPaint.revalidate();
+	    		// Se toma la ruta del mapa local
+		    	URL urlFondo = image.toURL();
+				// Se dibuja el panel
+				setMapaLocal(urlFondo);
+				// Se toma el objeto ImageIcon de este mapa
+				mapa = handlerImagenFondoPanel.getMapaCargado();
+				// Se envia este mapa al resto de clientes conectados
+				controlador.enviarMapa(mapa);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

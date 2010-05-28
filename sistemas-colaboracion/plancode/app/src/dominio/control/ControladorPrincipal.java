@@ -1,8 +1,11 @@
 package dominio.control;
 
 import java.awt.Color;
+import java.awt.TexturePaint;
 import java.util.Hashtable;
 import java.util.LinkedList;
+
+import javax.swing.ImageIcon;
 
 import presentacion.JFLogin;
 import presentacion.JFPrincipal;
@@ -39,6 +42,7 @@ import comunicaciones.ClienteJSDT;
 import comunicaciones.ConsumidorCanalChat;
 import comunicaciones.ConsumidorCanalGestionListaUsuarios;
 import comunicaciones.ConsumidorCanalGestionRol;
+import comunicaciones.ConsumidorCanalMapa;
 import comunicaciones.ConsumidorCanalTrazos;
 import comunicaciones.DatosConexion;
 import comunicaciones.ICanales;
@@ -67,10 +71,12 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	 */	
 	private Channel canalGestionRol;
 	private Channel canalGestionListaUsuarios;
+	private Channel canalMapa;
 	private ConsumidorCanalChat consumidorChat;
 	private ConsumidorCanalGestionRol consumidorGestionRol;
 	private ConsumidorCanalGestionListaUsuarios consumidorGestionListaUsuarios;
 	private ConsumidorCanalTrazos consumidorTrazos;
+	private ConsumidorCanalMapa consumidorMapa;
 	
 	public ControladorPrincipal () {
 		ventanaLogin = new JFLogin(this);
@@ -107,6 +113,33 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		// 4. Crear los canales y poner el cliente como consumidor
 		crearCanales ();
 		ponerConsumidores();
+		
+		// Tras poner a los lcientes como consumidores, se añaden los eventos al canal del chat
+		canalChat.addChannelListener(new ChannelListener() {
+			// Pasamos a la interfaz gráfica el nick del cliente que se acaba de unir al canal del chat
+			public void channelJoined(ChannelEvent e) {
+				ventanaPrincipal.iniciarSesion(e.getClientName());				
+			}
+
+			public void channelConsumerAdded(ChannelEvent arg0) {				
+			}
+
+			public void channelConsumerRemoved(ChannelEvent arg0) {				
+			}
+
+			public void channelExpelled(ChannelEvent arg0) {				
+			}
+
+			public void channelInvited(ChannelEvent arg0) {
+			}
+			
+			// Pasamos a la interfaz gráfica el nick del cliente que acaba de dejar el canal del chat
+			// Liberamos también su color
+			public void channelLeft(ChannelEvent e) {
+				ventanaPrincipal.notificarLogout(e.getClientName());
+				GestorColores.liberarColor(listaUsuarios.get(e.getClientName()).getColor());
+			}
+		});
 		
 		// Cerramos la ventana de login y abrimos la ventana principal
 		ventanaLogin.cerrarVentana();
@@ -172,35 +205,11 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	private void crearCanales () throws ConnectionException, InvalidClientException, NameInUseException, NoSuchSessionException, NoSuchClientException, NoSuchHostException, PermissionDeniedException, TimedOutException, NoSuchChannelException {
 		// El último parámetro indica un join implícito
 		canalChat = sesion.createChannel(cliente, CANAL_CHAT, true, true, true);
-		canalChat.addChannelListener(new ChannelListener() {
-			// Pasamos a la interfaz gráfica el nick del cliente que se acaba de unir al canal del chat
-			public void channelJoined(ChannelEvent e) {
-				ventanaPrincipal.notificarLogin(e.getClientName());				
-			}
-
-			public void channelConsumerAdded(ChannelEvent arg0) {				
-			}
-
-			public void channelConsumerRemoved(ChannelEvent arg0) {				
-			}
-
-			public void channelExpelled(ChannelEvent arg0) {				
-			}
-
-			public void channelInvited(ChannelEvent arg0) {
-			}
-			
-			// Pasamos a la interfaz gráfica el nick del cliente que acaba de dejar el canal del chat
-			// Liberamos también su color
-			public void channelLeft(ChannelEvent e) {
-				ventanaPrincipal.notificarLogout(e.getClientName());
-				GestorColores.liberarColor(listaUsuarios.get(e.getClientName()).getColor());
-			}
-		});
 		canalTelepuntero = sesion.createChannel(cliente, CANAL_TELEPUNTERO, true, true, true);
 		canalDibujo = sesion.createChannel(cliente, CANAL_DIBUJO, true, true, true);
 		canalGestionRol = sesion.createChannel(cliente, CANAL_GESTION_ROL, true, true, true);
 		canalGestionListaUsuarios = sesion.createChannel(cliente, CANAL_GESTION_LISTA, true, true, true);
+		canalMapa = sesion.createChannel(cliente, CANAL_MAPA, true, true, true);
 	}
 	
 	private void ponerConsumidores () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
@@ -213,6 +222,8 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		canalGestionListaUsuarios.addConsumer(cliente, consumidorGestionListaUsuarios);
 		consumidorTrazos = new ConsumidorCanalTrazos();
 		canalDibujo.addConsumer(cliente, consumidorTrazos);
+		consumidorMapa = new ConsumidorCanalMapa();
+		canalMapa.addConsumer(cliente, consumidorMapa);
 	}
 	
 	
@@ -233,6 +244,95 @@ public class ControladorPrincipal implements ICanales, ISesion {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NoSuchClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchSessionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PermissionDeniedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimedOutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	// Este método es para que el servidor envíe los trazos ya dibujados al cliente que se acaba de conectar 
+	public void enviarTrazosRecienConectado(String clienteDestino, LinkedList<Trazo> trazos) {
+		try {
+			canalDibujo.sendToClient(cliente, clienteDestino, new Data(trazos));
+		} catch (ConnectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchChannelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchSessionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PermissionDeniedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimedOutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchConsumerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void enviarMapa(ImageIcon mapa) {
+		try {
+			canalMapa.sendToOthers(cliente, new Data(mapa));
+		} catch (ConnectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchChannelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchSessionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PermissionDeniedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimedOutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	// Este método es para que el servidor envíe el mapa al cliente que se acaba de conectar 
+	public void enviarMapaRecienConectado(String clienteDestino, ImageIcon mapa) {
+		try {
+			canalMapa.sendToClient(cliente, clienteDestino, new Data(mapa));
+		} catch (ConnectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchChannelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchConsumerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NoSuchSessionException e) {
@@ -273,5 +373,9 @@ public class ControladorPrincipal implements ICanales, ISesion {
 
 	public ConsumidorCanalTrazos getConsumidorTrazos() {
 		return consumidorTrazos;
+	}
+
+	public ConsumidorCanalMapa getConsumidorMapa() {
+		return consumidorMapa;
 	}
 }
