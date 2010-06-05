@@ -75,6 +75,54 @@ if (isset($_GET['op'])) {
 		}
 		cerrar_bd ($id);
 	}
+	else if ($operacion == "modify") {
+		$id = conectar_bd();
+		if (isset($_GET['pregunta']) && isset($_GET['categoria']) && isset($_GET['respuesta'])) {
+			$pregunta = $_GET['pregunta'];
+			$categoria= $_GET['categoria'];
+			$respuesta = $_GET['respuesta'];
+			if ($pregunta!="") {
+				$sql = "UPDATE faq SET idCategoria=(SELECT id FROM categoria_faq WHERE categoria='$categoria'), respuesta='$respuesta' WHERE pregunta='$pregunta'";
+				$res = ejecutar_consulta ($sql, $id);
+				if ($res) {
+					echo "&estado=ok";
+					echo "&mensaje=La pregunta ha sido modificada correctamente.";
+				}
+				else {
+					echo "&estado=error";
+					echo "&mensaje=No se ha podido modificar la pregunta. " . mysql_error();
+				}
+			}
+		}
+		else {
+			echo "&estado=error";
+			echo "&mensaje=Debe especificar la pregunta que desea eliminar junto con su categoría y respuesta.";
+		}
+		cerrar_bd ($id);
+	}
+	else if ($operacion == "del") {
+		$id = conectar_bd();
+		if (isset($_GET['pregunta'])) {
+			$pregunta = $_GET['pregunta'];
+			if ($pregunta!="") {
+				$sql = "DELETE FROM faq WHERE pregunta='$pregunta'";
+				$res = ejecutar_consulta ($sql, $id);
+				if ($res) {
+					echo "&estado=ok";
+					echo "&mensaje=La pregunta ha sido eliminada.";
+				}
+				else {
+					echo "&estado=error";
+					echo "&mensaje=No se ha podido eliminar la pregunta. " . mysql_error();
+				}
+			}
+		}
+		else {
+			echo "&estado=error";
+			echo "&mensaje=Debe especificar la pregunta que desea eliminar.";
+		}
+		cerrar_bd ($id);
+	}
 	else {
 		echo "&estado=error";
 		echo "&mensaje=Operacion no definida: $operacion";
