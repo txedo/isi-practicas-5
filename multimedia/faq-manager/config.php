@@ -1,6 +1,6 @@
 <?php
 	$server = "localhost";
 	$database = "mhrv";
-	$login = "root";
-	$password = "toor";
+	$login = "mhrv";
+	$password = "mhrvpass";
 ?>

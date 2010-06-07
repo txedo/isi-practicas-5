@@ -5,15 +5,14 @@ function conectar_bd ()
 	$id = mysql_connect($server, $login, $password)
 			OR die ("Imposible conectar al servidor MySQL");
 	$descriptor = mysql_select_db ($database, $id)
-					OR die ("Imposible abrir el esquema de la base de datos");
+					OR die ("&estado=error&mensaje=Imposible abrir el esquema de la base de datos");
 	return $id;
 }
 
 function ejecutar_consulta($sql, $id)
 {
 	$result = mysql_query ($sql, $id)
-			OR die ("Error al realizar la consulta: " . mysql_error()
-			AND exit);
+			OR die ("&estado=error&mensaje=Error al realizar la consulta: " . mysql_error());
 	return $result;
 }
 

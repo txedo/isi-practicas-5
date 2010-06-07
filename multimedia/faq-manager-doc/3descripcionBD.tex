@@ -1,0 +1,10 @@
+\section{Descripción de la base de datos}
+
+La persistencia de \textbf{FAQ Manager} consiste en dos tablas que deberán ser creadas en la base de datos del sistema:
+\begin{milista}
+	\item \textit{categoria\_faq} es la tabla que almacenará las categorías en las que se clasificarán las \textit{preguntas frecuentes}. Contiene dos atributos: un identificador autonumérico y el nombre de la categoría.
+	
+	\item \textit{faq} es la tabla que almacenará las \textit{preguntas frecuentes} y sus respuestas correspondientes. Consta de cuatro campos: un identificador autonumérico, la pregunta, la respuesta y el identificador de la categoría a la que pertenece la pregunta.
+\end{milista}
+
+En la distribución de \textit{FAQ Manager} puede encontrar un fichero denominado \texttt{install.sql}. Este fichero es un \textit{script} que contiene las sentencias necesarias para crear una base de datos llamada \textit{mhrv} y las dos tablas mencionadas anteriormente.
