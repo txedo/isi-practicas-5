@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.auxiliares;
 
 /**
  * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php

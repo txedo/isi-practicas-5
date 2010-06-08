@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.auxiliares;
 
 /**
  * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php
@@ -8,7 +8,9 @@ import java.awt.Color;
 import java.awt.Component;
 import java.util.LinkedList;
 
+
 import dominio.conocimiento.InfoTrazo;
+import dominio.conocimiento.Trazo;
 import dominio.control.ControladorPrincipal;
 
 /**

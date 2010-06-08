@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.auxiliares;
 
 /**
  * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php
@@ -6,6 +6,7 @@ package presentacion;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+
 
 /**
  * Clase que implementa la interfaz MouseMotionListener

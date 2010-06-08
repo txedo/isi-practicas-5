@@ -1,7 +1,10 @@
-package presentacion;
+package comunicaciones.EventosCanales;
 
 import java.util.EventObject;
 import java.util.LinkedList;
+
+import dominio.conocimiento.Trazo;
+
 
 public class MensajeTrazosEvent  extends EventObject {
 

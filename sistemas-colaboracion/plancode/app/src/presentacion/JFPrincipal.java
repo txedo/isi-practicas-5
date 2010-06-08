@@ -38,6 +38,14 @@ import com.sun.media.jsdt.NoSuchClientException;
 import com.sun.media.jsdt.NoSuchSessionException;
 import com.sun.media.jsdt.PermissionDeniedException;
 import com.sun.media.jsdt.TimedOutException;
+import comunicaciones.EventosCanales.MensajeChatRecibidoEvent;
+import comunicaciones.EventosCanales.MensajeChatRecibidoListener;
+import comunicaciones.EventosCanales.MensajeListaUsuariosEvent;
+import comunicaciones.EventosCanales.MensajeListaUsuariosListener;
+import comunicaciones.EventosCanales.MensajeMapaEvent;
+import comunicaciones.EventosCanales.MensajeMapaListener;
+import comunicaciones.EventosCanales.MensajeTrazoEvent;
+import comunicaciones.EventosCanales.MensajeTrazoListener;
 
 import dominio.conocimiento.Roles;
 import dominio.conocimiento.Usuario;

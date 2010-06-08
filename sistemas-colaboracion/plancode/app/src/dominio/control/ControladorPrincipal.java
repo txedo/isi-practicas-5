@@ -9,11 +9,6 @@ import javax.swing.ImageIcon;
 
 import presentacion.JFLogin;
 import presentacion.JFPrincipal;
-import presentacion.MensajeChatRecibidoEvent;
-import presentacion.MensajeChatRecibidoListener;
-import presentacion.MensajeRolEvent;
-import presentacion.MensajeRolListener;
-import presentacion.Trazo;
 
 import com.sun.media.jsdt.Channel;
 import com.sun.media.jsdt.ConnectionException;
@@ -47,9 +42,14 @@ import comunicaciones.ConsumidorCanalTrazos;
 import comunicaciones.DatosConexion;
 import comunicaciones.ICanales;
 import comunicaciones.ISesion;
+import comunicaciones.EventosCanales.MensajeChatRecibidoEvent;
+import comunicaciones.EventosCanales.MensajeChatRecibidoListener;
+import comunicaciones.EventosCanales.MensajeRolEvent;
+import comunicaciones.EventosCanales.MensajeRolListener;
 
 import dominio.conocimiento.InfoTrazo;
 import dominio.conocimiento.Roles;
+import dominio.conocimiento.Trazo;
 import dominio.conocimiento.Usuario;
 
 public class ControladorPrincipal implements ICanales, ISesion {

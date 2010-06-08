@@ -3,7 +3,6 @@ package dominio.conocimiento;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-import presentacion.Trazo;
 
 public class InfoTrazo implements Serializable {
 

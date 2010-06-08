@@ -4,12 +4,12 @@ import java.io.StreamCorruptedException;
 
 import javax.swing.event.EventListenerList;
 
-import presentacion.MensajeChatRecibidoListener;
-import presentacion.MensajeTrazoEvent;
-import presentacion.MensajeTrazoListener;
 
 import com.sun.media.jsdt.ChannelConsumer;
 import com.sun.media.jsdt.Data;
+import comunicaciones.EventosCanales.MensajeChatRecibidoListener;
+import comunicaciones.EventosCanales.MensajeTrazoEvent;
+import comunicaciones.EventosCanales.MensajeTrazoListener;
 
 public class ConsumidorCanalTrazos implements ChannelConsumer {
 

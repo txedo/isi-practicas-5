@@ -10,11 +10,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
-import presentacion.Trazo;
+import presentacion.auxiliares.GestorTrazos;
+import presentacion.auxiliares.ListenerArrastre;
+import presentacion.auxiliares.ListenerPinchar;
 
 import javax.swing.JPanel;
 
 import dominio.conocimiento.InfoTrazo;
+import dominio.conocimiento.Trazo;
 import dominio.control.ControladorPrincipal;
 
 

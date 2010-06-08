@@ -4,13 +4,13 @@ import java.io.StreamCorruptedException;
 
 import javax.swing.event.EventListenerList;
 
-import presentacion.MensajeListaUsuariosEvent;
-import presentacion.MensajeListaUsuariosListener;
-import presentacion.MensajeMapaEvent;
-import presentacion.MensajeMapaListener;
 
 import com.sun.media.jsdt.ChannelConsumer;
 import com.sun.media.jsdt.Data;
+import comunicaciones.EventosCanales.MensajeListaUsuariosEvent;
+import comunicaciones.EventosCanales.MensajeListaUsuariosListener;
+import comunicaciones.EventosCanales.MensajeMapaEvent;
+import comunicaciones.EventosCanales.MensajeMapaListener;
 
 public class ConsumidorCanalMapa implements ChannelConsumer {
 	
