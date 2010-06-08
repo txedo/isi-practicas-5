@@ -77,9 +77,8 @@ public class ListenerPinchar implements MouseListener {
 			Image image = null;
 			if (accion==null)
 				image = toolkit.getImage("./resources/images/pencil.gif");
-			//else
-				// TODO: cargar la imagen de una goma de borrar
-				//image = toolkit.getImage("./resources/images/pencil.gif");
+			else
+				image = toolkit.getImage("./resources/images/eraser.png");
 			// PROVISIONAL
 			if (image!=null) {
 				Point hotSpot = new Point(0,0);

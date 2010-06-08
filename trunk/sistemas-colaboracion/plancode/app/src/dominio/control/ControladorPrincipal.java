@@ -11,17 +11,21 @@ import presentacion.JFLogin;
 import presentacion.JFPrincipal;
 
 import com.sun.media.jsdt.Channel;
+import com.sun.media.jsdt.Client;
 import com.sun.media.jsdt.ConnectionException;
 import com.sun.media.jsdt.Data;
 import com.sun.media.jsdt.InvalidClientException;
 import com.sun.media.jsdt.InvalidURLException;
 import com.sun.media.jsdt.NameInUseException;
 import com.sun.media.jsdt.NoRegistryException;
+import com.sun.media.jsdt.NoSuchByteArrayException;
 import com.sun.media.jsdt.NoSuchChannelException;
 import com.sun.media.jsdt.NoSuchClientException;
 import com.sun.media.jsdt.NoSuchConsumerException;
 import com.sun.media.jsdt.NoSuchHostException;
 import com.sun.media.jsdt.NoSuchSessionException;
+import com.sun.media.jsdt.NoSuchTokenException;
+import com.sun.media.jsdt.NotBoundException;
 import com.sun.media.jsdt.PermissionDeniedException;
 import com.sun.media.jsdt.PortInUseException;
 import com.sun.media.jsdt.RegistryExistsException;
@@ -51,6 +55,7 @@ import dominio.conocimiento.InfoTrazo;
 import dominio.conocimiento.Roles;
 import dominio.conocimiento.Trazo;
 import dominio.conocimiento.Usuario;
+import excepciones.NoSlotsDisponiblesException;
 
 public class ControladorPrincipal implements ICanales, ISesion {
 	private JFLogin ventanaLogin;
@@ -92,7 +97,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		ventanaPrincipal.mostrarVentana();
 	}
 
-	public void iniciarSesion(String host, int puerto, String nick, Roles rol, boolean sesionExistente) throws NoRegistryException, RegistryExistsException, ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException, NoSuchChannelException, NoSuchConsumerException {
+	public void iniciarSesion(String host, int puerto, String nick, Roles rol, boolean sesionExistente) throws NoRegistryException, RegistryExistsException, ConnectionException, InvalidClientException, InvalidURLException, NameInUseException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, PermissionDeniedException, PortInUseException, TimedOutException, NoSuchChannelException, NoSuchConsumerException, NoSlotsDisponiblesException {
 		con = new DatosConexion (host, puerto);
 		// 1. Si no está el Registry funcionando, ponerlo en funcionamiento
 		if (RegistryFactory.registryExists(TIPO_SESION) == false) {	
@@ -137,8 +142,11 @@ public class ControladorPrincipal implements ICanales, ISesion {
 			// Pasamos a la interfaz gráfica el nick del cliente que acaba de dejar el canal del chat
 			// Liberamos también su color
 			public void channelLeft(ChannelEvent e) {
+				if (isServidor()) {
+					GestorColores.liberarColor(listaUsuarios.get(e.getClientName()).getColor());
+					listaUsuarios.remove(e.getClientName());
+				}
 				ventanaPrincipal.notificarLogout(e.getClientName());
-				GestorColores.liberarColor(listaUsuarios.get(e.getClientName()).getColor());
 			}
 		});
 		
@@ -150,7 +158,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		// Añadimos el evento para poder recibir el mensaje de rol de otros clientes que se conectan
 		if (esServidor) {
 			consumidorGestionRol.addMensajeRolRecibidoListener(new MensajeRolListener() {
-				public void MensajeRolRecibido(MensajeRolEvent evt) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
+				public void MensajeRolRecibido(MensajeRolEvent evt) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException, NoSlotsDisponiblesException {
 					/* El mensaje del rol lo gestiona el servidor para saber que se ha conectado un
 					 * nuevo cliente y enviar la lista de usuarios al resto de clientes conectados.
 					 * Además, le asigna un color.
@@ -200,6 +208,19 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		canalDibujo.addConsumer(cliente, consumidorTrazos);
 		consumidorMapa = new ConsumidorCanalMapa();
 		canalMapa.addConsumer(cliente, consumidorMapa);
+	}
+	
+	private void quitarConsumidoresYCanales () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException, NoSuchByteArrayException, NoSuchTokenException {
+		canalChat.removeConsumer(cliente, consumidorChat);
+		canalChat.destroy(cliente);
+		canalGestionRol.removeConsumer(cliente, consumidorGestionRol);
+		canalGestionRol.destroy(cliente);
+		canalGestionListaUsuarios.removeConsumer(cliente, consumidorGestionListaUsuarios);
+		canalGestionListaUsuarios.destroy(cliente);
+		canalDibujo.removeConsumer(cliente, consumidorTrazos);
+		canalDibujo.destroy(cliente);
+		canalMapa.removeConsumer(cliente, consumidorMapa);
+		canalMapa.destroy(cliente);
 	}
 	
 	
@@ -256,5 +277,19 @@ public class ControladorPrincipal implements ICanales, ISesion {
 
 	public ConsumidorCanalMapa getConsumidorMapa() {
 		return consumidorMapa;
+	}
+
+	public Channel getCanalGestionListaUsuarios() {
+		return canalGestionListaUsuarios;
+	}
+
+	public Client getCliente() {
+		return cliente;
+	}
+
+	public void forzarCierre() throws NoRegistryException, ConnectionException, InvalidClientException, InvalidURLException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, NotBoundException, PermissionDeniedException, TimedOutException, NoSuchChannelException, NoSuchConsumerException, NoSuchByteArrayException, NoSuchTokenException {
+		quitarConsumidoresYCanales();
+		SessionFactory.destroySession(cliente, url);
+		RegistryFactory.stopRegistry(TIPO_SESION);
 	}
 }

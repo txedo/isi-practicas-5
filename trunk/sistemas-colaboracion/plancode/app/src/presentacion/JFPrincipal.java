@@ -1,10 +1,11 @@
 package presentacion;
 
 import java.awt.Color;
-import java.awt.Dialog;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -34,11 +35,18 @@ import presentacion.auxiliares.panelConImagenFondo;
 
 import com.cloudgarden.layout.AnchorConstraint;
 import com.sun.media.jsdt.ConnectionException;
+import com.sun.media.jsdt.Data;
 import com.sun.media.jsdt.InvalidClientException;
+import com.sun.media.jsdt.InvalidURLException;
+import com.sun.media.jsdt.NoRegistryException;
+import com.sun.media.jsdt.NoSuchByteArrayException;
 import com.sun.media.jsdt.NoSuchChannelException;
 import com.sun.media.jsdt.NoSuchClientException;
 import com.sun.media.jsdt.NoSuchConsumerException;
+import com.sun.media.jsdt.NoSuchHostException;
 import com.sun.media.jsdt.NoSuchSessionException;
+import com.sun.media.jsdt.NoSuchTokenException;
+import com.sun.media.jsdt.NotBoundException;
 import com.sun.media.jsdt.PermissionDeniedException;
 import com.sun.media.jsdt.TimedOutException;
 import comunicaciones.EventosCanales.MensajeChatRecibidoEvent;
@@ -84,6 +92,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JPanel jPnlToolBoox;
 	private JPanel jPnlUsuarios;
 	private JPanel panelPaint;	
+	private JScrollPane jScrollPane3;
 	private panelConImagenFondo jPanelFondo;
 	private JButton btnCargarMapa;
 	private JButton btnEnviar;
@@ -98,12 +107,9 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JPanel jpChat;
 	private JTabbedPane jTabbedPane;
 	private JLabel lblStatusBar;
-	private JButton jButton3;
-	private JButton jButton2;
 	private JToolBar jToolBar;
 	private JMenuItem jmiExit;
 	private JSeparator jSeparator1;
-	private JMenuItem jmiOpenMap;
 	private JMenuItem jmiOpenImage;
 	private JMenu jMenu1;
 	private JMenuBar jMenuBar;
@@ -181,7 +187,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 		// Al establecer un nuevo mapa, se elimina el panel con el mapa que hubiese cargado (si había alguno)
 		panelPaint.removeAll();
 		jPanelFondo.setLayout(null);
-		jPanelFondo.setBounds(6, 20, 544, 302);
+		jPanelFondo.setBounds(6, 20, 591, 302);
 		// Se limpia el canvas, porque solo existe una instancia de él
 		canvasPaint.clear();
     	panelPaint.add(canvasPaint);
@@ -198,7 +204,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private void initGUI() {
 		try {
 			setLocationRelativeTo(null);
-			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 			this.setMinimumSize(new java.awt.Dimension(875, 608));
 			GridLayout thisLayout = new GridLayout(1, 1);
 			thisLayout.setHgap(5);
@@ -206,6 +212,11 @@ public class JFPrincipal extends javax.swing.JFrame {
 			thisLayout.setColumns(1);
 			getContentPane().setLayout(thisLayout);
 			this.setTitle("PlanCoDE");
+			this.addWindowListener(new WindowAdapter() {
+				public void windowClosing(WindowEvent evt) {
+					thisWindowClosing(evt);
+				}
+			});
 			{
 				jPanel1 = new JPanel();
 				getContentPane().add(jPanel1);
@@ -215,15 +226,19 @@ public class JFPrincipal extends javax.swing.JFrame {
 				jPanel1.setPreferredSize(new java.awt.Dimension(867, 555));
 				{
 					jPnlToolBoox = new JPanel();
+					GridLayout jPnlToolBooxLayout = new GridLayout(6, 1);
+					jPnlToolBooxLayout.setHgap(5);
+					jPnlToolBooxLayout.setVgap(5);
+					jPnlToolBooxLayout.setColumns(1);
+					jPnlToolBooxLayout.setRows(6);
+					jPnlToolBoox.setLayout(jPnlToolBooxLayout);
 					jPanel1.add(jPnlToolBoox, new AnchorConstraint(25, 222, 634, 6, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_ABS));
-					jPnlToolBoox.setLayout(null);
 					jPnlToolBoox.setBorder(BorderFactory.createTitledBorder("Toolbox"));
-					jPnlToolBoox.setBounds(10, 49, 132, 329);
+					jPnlToolBoox.setBounds(10, 49, 72, 329);
 					{
 						jButton1 = new JButton();
-						jPnlToolBoox.add(jButton1, new AnchorConstraint(366, 719, 455, 322, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
-						jButton1.setText("Borrar");
-						jButton1.setBounds(16, 20, 41, 31);
+						jPnlToolBoox.add(jButton1);
+						jButton1.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/eraser.png")));
 						jButton1.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {
 								jButton1ActionPerformed(evt);
@@ -232,36 +247,31 @@ public class JFPrincipal extends javax.swing.JFrame {
 					}
 					{
 						Dibujar = new JButton();
-						jPnlToolBoox.add(Dibujar, new AnchorConstraint(488, 719, 565, 322, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
-						Dibujar.setText("Dibujar");
-						Dibujar.setBounds(16, 62, 42, 28);
+						jPnlToolBoox.add(Dibujar);
+						Dibujar.setBounds(16, 52, 42, 39);
+						Dibujar.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/pencil.gif")));
 						Dibujar.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {
 								DibujarActionPerformed(evt);
 							}
 						});
 					}
-					{
-						btnCargarMapa = new JButton();
-						jPnlToolBoox.add(btnCargarMapa);
-						btnCargarMapa.setText("CargarMapa");
-						btnCargarMapa.setBounds(1, 109, 66, 23);
-						btnCargarMapa.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent evt) {
-								btnCargarMapaActionPerformed(evt);
-							}
-						});
-					}
 				}
 				{
-					jPnlUsuarios = new JPanel();
-					TableLayout jPnlUsuariosLayout = new TableLayout(new double[][] {{0.3,0.3,0.3,0.3,0.3,0.3}, {0.2,0.2,0.2,0.2,0.2,0.2}});
-					jPnlUsuariosLayout.setHGap(10);
-					jPnlUsuariosLayout.setVGap(10);
-					jPanel1.add(jPnlUsuarios, new AnchorConstraint(25, 17, 632, 757, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
-					jPnlUsuarios.setLayout(jPnlUsuariosLayout);
-					jPnlUsuarios.setBorder(BorderFactory.createTitledBorder("Usuarios"));
-					jPnlUsuarios.setBounds(697, 49, 160, 329);
+					jScrollPane3 = new JScrollPane();
+					jPanel1.add(jScrollPane3, new AnchorConstraint(25, 17, 632, 757, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
+					jScrollPane3.setBounds(697, 49, 171, 329);
+					jScrollPane3.setBorder(BorderFactory.createTitledBorder("Usuarios"));
+					{
+						jPnlUsuarios = new JPanel();
+						jScrollPane3.setViewportView(jPnlUsuarios);
+						TableLayout jPnlUsuariosLayout = new TableLayout(new double[][] {{0.4,0.02,0.7}, {0.2,0.02,0.2,0.02,0.2,0.02,0.2,0.02,0.2,0.02,0.2,0.02,0.2}});
+						jPnlUsuariosLayout.setHGap(10);
+						jPnlUsuariosLayout.setVGap(10);
+						jPnlUsuarios.setLayout(jPnlUsuariosLayout);
+						jPnlUsuarios.setBounds(697, 49, 160, 329);
+						//jPnlUsuarios.setPreferredSize(new java.awt.Dimension(0, 0));
+					}
 				}
 				{
 					
@@ -269,29 +279,31 @@ public class JFPrincipal extends javax.swing.JFrame {
 					jPanel1.add(panelPaint, new AnchorConstraint(25, 744, 634, 229, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
 					panelPaint.setBorder(BorderFactory.createTitledBorder("Área de trabajo"));
 					panelPaint.setLayout(null);
-					panelPaint.setBounds(142, 49, 555, 329);
+					panelPaint.setBounds(92, 49, 605, 329);
 					{
 						canvasPaint = new CanvasPaint(controlador);
 						canvasPaint.setOpaque(false);
 						panelPaint.add(canvasPaint);
-						canvasPaint.setBounds(4, 17, 548, 305);
+						canvasPaint.setBounds(4, 17, 593, 305);
 					}
 				}
 				{
 					jToolBar = new JToolBar();
 					jPanel1.add(jToolBar);
-					jToolBar.setBounds(10, 11, 847, 29);
+					jToolBar.setBounds(10, 6, 847, 43);
 					jToolBar.setFloatable(false);
 					{
-						jButton2 = new JButton();
-						jToolBar.add(jButton2);
-						jButton2.setText("jButton2");
-						jButton2.setBounds(3, 21, 75, 23);
-					}
-					{
-						jButton3 = new JButton();
-						jToolBar.add(jButton3);
-						jButton3.setText("jButton3");
+						btnCargarMapa = new JButton();
+						jToolBar.add(btnCargarMapa);
+						btnCargarMapa.setBounds(1, 109, 66, 23);
+						btnCargarMapa.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/open.png")));
+						btnCargarMapa.setPreferredSize(new java.awt.Dimension(45, 38));
+						btnCargarMapa.setText("Cargar mapa");
+						btnCargarMapa.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								btnCargarMapaActionPerformed(evt);
+							}
+						});
 					}
 				}
 				{
@@ -368,11 +380,6 @@ public class JFPrincipal extends javax.swing.JFrame {
 						jmiOpenImage.setText("Cargar imagen local...");
 					}
 					{
-						jmiOpenMap = new JMenuItem();
-						jMenu1.add(jmiOpenMap);
-						jmiOpenMap.setText("Cargar mapa...");
-					}
-					{
 						jSeparator1 = new JSeparator();
 						jMenu1.add(jSeparator1);
 					}
@@ -423,29 +430,31 @@ public class JFPrincipal extends javax.swing.JFrame {
 		Enumeration<String> clientesConectados = lista.keys();
 		String cliente;
 		int contador = 0;
-		// Borramos los elementos del panel de sesiones y los volemos a dibujar
+		// Borramos los elementos del panel de sesiones y los volvemos a dibujar
 		jPnlUsuarios.removeAll();
+		jPnlUsuarios.revalidate();
+		jPnlUsuarios.repaint();
 		while (clientesConectados.hasMoreElements()) {
 			JLabel icon = new JLabel();
 			JLabel nombre = new JLabel();
 			cliente = clientesConectados.nextElement();
 			// Segun el rol, cargamos una u otra imagen
 			if (lista.get(cliente).getRol().equals(Roles.Policia))
-					icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/ambulancia.GIF")));
+					icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/police.png")));
 			else if (lista.get(cliente).getRol().equals(Roles.Sanidad))
-				icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/ambulancia.GIF")));
+				icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/doctor.png")));
 			else
-				icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/ambulancia.GIF")));
+				icon.setIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/fireman.png")));
 			// Colocamos el rol en el icono, junto al nombre
 			nombre.setText(cliente);
 			nombre.setForeground(lista.get(cliente).getColor());
 			jPnlUsuarios.add(icon, "0, " + String.valueOf(contador));
 			jPnlUsuarios.add(nombre, "2, " + String.valueOf(contador));
-			contador ++;
+			contador += 2;
 		}
 		// Esta llamada es necesaria para que los clientes uqe ya tenian la interfaz inicializada, refresquen sus paneles de sesiones
 		jPnlUsuarios.revalidate();
-
+		jPnlUsuarios.repaint();
 	}
 
 	private void btnEnviarActionPerformed(ActionEvent evt) {
@@ -509,7 +518,33 @@ public class JFPrincipal extends javax.swing.JFrame {
 	public void notificarLogout(String login) {
 		taChat.append(login + " ha dejado el chat.\n");
 		taChat.setCaretPosition(taChat.getDocument().getLength());
-		
+		if (controlador.isServidor()) {
+		   	try {
+	    		controlador.getCanalGestionListaUsuarios().sendToAll(controlador.getCliente(), new Data(controlador.getListaUsuarios()));
+	    		actualizarListaUsuarios(controlador.getListaUsuarios());
+			} catch (ConnectionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidClientException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchChannelException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchClientException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchSessionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (PermissionDeniedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (TimedOutException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
     public void setColorActual(Hashtable<String, Usuario> lista)
@@ -555,7 +590,56 @@ public class JFPrincipal extends javax.swing.JFrame {
 				Dialogos.mostrarDialogoError(this, "Error", "Tiempo de espera agotado");
 			}
     	}
-
+    }
+    
+    private void thisWindowClosing(WindowEvent evt) {
+    	if (controlador.isServidor()) {
+    		try {
+				controlador.forzarCierre();
+			} catch (NoRegistryException e) {
+				Dialogos.mostrarDialogoError(this, "Error", e.getMessage());
+			} catch (ConnectionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidClientException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchClientException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchSessionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NotBoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (PermissionDeniedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (TimedOutException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchChannelException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchConsumerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchByteArrayException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchTokenException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
+    	this.dispose();
     }
 
 }

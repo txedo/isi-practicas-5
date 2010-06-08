@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
 import presentacion.auxiliares.Dialogos;
+import presentacion.auxiliares.Validacion;
 
 import com.sun.media.jsdt.ConnectionException;
 import com.sun.media.jsdt.InvalidClientException;
@@ -37,6 +38,11 @@ import com.sun.media.jsdt.TimedOutException;
 import dominio.conocimiento.Roles;
 import dominio.control.ControladorPrincipal;
 import dominio.control.GestorColores;
+import excepciones.CadenaIncorrectaException;
+import excepciones.CadenaVaciaException;
+import excepciones.IPInvalidaException;
+import excepciones.NoSlotsDisponiblesException;
+import excepciones.PuertoInvalidoException;
 
 
 /**
@@ -302,6 +308,9 @@ public class JFLogin extends javax.swing.JFrame {
 		else if (rbBombero.isSelected()) rol = Roles.Bombero;
 		else rol = Roles.Sanidad;
 		try {
+			Validacion.comprobarCadena(txtNick.getText().trim());
+			Validacion.comprobarDireccionIP(txtDireccionIP.getText().trim());
+			Validacion.comprobarPuerto(txtPuerto.getText().trim());
 			controlador.iniciarSesion(txtDireccionIP.getText(), Integer.parseInt(txtPuerto.getText()), txtNick.getText(), rol, cbUnionSesion.isSelected());
 		} catch (NumberFormatException e) {
 			Dialogos.mostrarDialogoError(this, "Error", e.getMessage());
@@ -333,6 +342,16 @@ public class JFLogin extends javax.swing.JFrame {
 			Dialogos.mostrarDialogoError(this, "Error", "No existe el canal");
 		} catch (NoSuchConsumerException e) {
 			Dialogos.mostrarDialogoError(this, "Error", "No existe el consumidor");
+		} catch (CadenaIncorrectaException e) {
+			Dialogos.mostrarDialogoError(this, "Error", "El formato del nick es no es válido");
+		} catch (CadenaVaciaException e) {
+			Dialogos.mostrarDialogoError(this, "Error", "Debe especificar un nick para entrar en el sistema");
+		} catch (IPInvalidaException e) {
+			Dialogos.mostrarDialogoError(this, "Error", e.getLocalizedMessage());
+		} catch (PuertoInvalidoException e) {
+			Dialogos.mostrarDialogoError(this, "Error", e.getLocalizedMessage());
+		} catch (NoSlotsDisponiblesException e) {
+			Dialogos.mostrarDialogoError(this, "Error", "No hay colores disponibles");
 		}
 	}
 
