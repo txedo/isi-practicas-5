@@ -4,9 +4,9 @@ import javax.swing.event.EventListenerList;
 
 import com.sun.media.jsdt.ChannelConsumer;
 import com.sun.media.jsdt.Data;
+import comunicaciones.EventosCanales.MensajeRolEvent;
+import comunicaciones.EventosCanales.MensajeRolListener;
 
-import presentacion.MensajeRolEvent;
-import presentacion.MensajeRolListener;
 
 public class ConsumidorCanalGestionRol implements ChannelConsumer {
 	

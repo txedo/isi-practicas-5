@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.auxiliares;
 
 /**
  * REFERENCIA : http://www.chuidiang.com/java/codigo_descargable/appletpaint.php
@@ -11,6 +11,7 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 
 public class ListenerPinchar implements MouseListener {
 	

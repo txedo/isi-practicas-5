@@ -1,4 +1,4 @@
-package presentacion;
+package comunicaciones.EventosCanales;
 
 import java.util.EventObject;
 

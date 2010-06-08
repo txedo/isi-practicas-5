@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.auxiliares;
 
 /**
  * Interfaz para implementar operaciones cuando se pincha con el ratón
