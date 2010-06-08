@@ -17,6 +17,7 @@ import com.sun.media.jsdt.TimedOutException;
 
 import comunicaciones.EventosCanales.MensajeRolEvent;
 import comunicaciones.EventosCanales.MensajeRolListener;
+import excepciones.NoSlotsDisponiblesException;
 
 
 public class ConsumidorCanalGestionRol implements ChannelConsumer {
@@ -56,6 +57,9 @@ public class ConsumidorCanalGestionRol implements ChannelConsumer {
 					Dialogos.mostrarDialogoError(null, "Error", "Permiso denegado");
 				} catch (TimedOutException e) {
 					Dialogos.mostrarDialogoError(null, "Error", "Tiempo de espera agotado");
+				} catch (NoSlotsDisponiblesException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		}

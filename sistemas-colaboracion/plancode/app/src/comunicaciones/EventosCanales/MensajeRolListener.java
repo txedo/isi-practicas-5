@@ -10,8 +10,10 @@ import com.sun.media.jsdt.NoSuchSessionException;
 import com.sun.media.jsdt.PermissionDeniedException;
 import com.sun.media.jsdt.TimedOutException;
 
+import excepciones.NoSlotsDisponiblesException;
+
 public interface MensajeRolListener extends EventListener {
 	
-	public void MensajeRolRecibido(MensajeRolEvent evt) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException;
+	public void MensajeRolRecibido(MensajeRolEvent evt) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException, NoSlotsDisponiblesException;
 
 }
