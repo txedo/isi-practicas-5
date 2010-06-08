@@ -14,8 +14,12 @@ import java.util.LinkedList;
  * unirán por una línea de color.
  *
  */
-public class Trazo implements Serializable {
+public class Trazo implements Serializable, Cloneable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5881732293220888123L;
 	/** Lista de puntos que compone el trazo */
     private LinkedList<Point2D> puntos = new LinkedList<Point2D>();
     private Color color = Color.black;
@@ -71,5 +75,34 @@ public class Trazo implements Serializable {
         return Math.abs(puntos.get(i).getX() - x)
                 + Math.abs(puntos.get(i).getY() - y);
     }
+    
+    public void setPuntos(LinkedList<Point2D> puntos) {
+		this.puntos = puntos;
+	}
+    
+    public String toString(){
+    	String res="";
+    	for (int i=0; i<puntos.size(); i++){
+    		res += puntos.get(i).toString() + " ";
+    	}
+    	return res;
+    }
+    
+    public boolean equals(Object o){
+    	boolean igual = false;
+    	if (o instanceof Trazo) {
+    		Trazo otro = (Trazo) o;
+    		igual = ((this.puntos.equals(otro.getPuntos())) && this.color.equals(otro.getColor()));
+    	}
+    	return igual;
+    }
+    
+    public Object clone(){
+        Trazo t = new Trazo();
+        t.setPuntos((LinkedList<Point2D>)this.puntos.clone());
+        t.setColor(this.color);
+        return t;
+    }
 
+	
 }

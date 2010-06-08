@@ -1,4 +1,5 @@
 package presentacion;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -26,7 +27,6 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 
-import presentacion.auxiliares.ImageFileView;
 import presentacion.auxiliares.handlerImagenFondoPanel;
 import presentacion.auxiliares.panelConImagenFondo;
 
@@ -134,9 +134,9 @@ public class JFPrincipal extends javax.swing.JFrame {
 			}
 		});
 		
-		c.getConsumidorTrazos().addMensajeTrazoListener(new MensajeTrazosListener() {
-			public void MensajeTrazo(MensajeTrazosEvent evt) {
-				canvasPaint.setTrazos(evt.getListaTrazos());
+		c.getConsumidorTrazos().addMensajeTrazoListener(new MensajeTrazoListener() {
+			public void MensajeTrazo(MensajeTrazoEvent evt) {
+				canvasPaint.setTrazos(evt.getInfo());;
 				canvasPaint.repaint();
 			}
 		});
@@ -170,7 +170,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 		// Al establecer un nuevo mapa, se elimina el panel con el mapa que hubiese cargado (si había alguno)
 		panelPaint.removeAll();
 		jPanelFondo.setLayout(null);
-		jPanelFondo.setBounds(6, 20, 557, 298);
+		jPanelFondo.setBounds(6, 20, 544, 302);
 		// Se limpia el canvas, porque solo existe una instancia de él
 		canvasPaint.clear();
     	panelPaint.add(canvasPaint);
@@ -207,7 +207,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 					jPanel1.add(jPnlToolBoox, new AnchorConstraint(25, 222, 634, 6, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_ABS));
 					jPnlToolBoox.setLayout(null);
 					jPnlToolBoox.setBorder(BorderFactory.createTitledBorder("Toolbox"));
-					jPnlToolBoox.setBounds(10, 49, 73, 329);
+					jPnlToolBoox.setBounds(10, 49, 132, 329);
 					{
 						jButton1 = new JButton();
 						jPnlToolBoox.add(jButton1, new AnchorConstraint(366, 719, 455, 322, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
@@ -250,7 +250,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 					jPanel1.add(jPnlUsuarios, new AnchorConstraint(25, 17, 632, 757, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
 					jPnlUsuarios.setLayout(jPnlUsuariosLayout);
 					jPnlUsuarios.setBorder(BorderFactory.createTitledBorder("Usuarios"));
-					jPnlUsuarios.setBounds(664, 49, 193, 329);
+					jPnlUsuarios.setBounds(697, 49, 160, 329);
 				}
 				{
 					
@@ -258,12 +258,12 @@ public class JFPrincipal extends javax.swing.JFrame {
 					jPanel1.add(panelPaint, new AnchorConstraint(25, 744, 634, 229, AnchorConstraint.ANCHOR_ABS, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL, AnchorConstraint.ANCHOR_REL));
 					panelPaint.setBorder(BorderFactory.createTitledBorder("Área de trabajo"));
 					panelPaint.setLayout(null);
-					panelPaint.setBounds(89, 49, 569, 329);
+					panelPaint.setBounds(142, 49, 555, 329);
 					{
 						canvasPaint = new CanvasPaint(controlador);
 						canvasPaint.setOpaque(false);
 						panelPaint.add(canvasPaint);
-						canvasPaint.setBounds(6, 17, 557, 305);
+						canvasPaint.setBounds(4, 17, 548, 305);
 					}
 				}
 				{

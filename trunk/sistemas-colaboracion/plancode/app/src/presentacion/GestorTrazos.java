@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.util.LinkedList;
 
+import dominio.conocimiento.InfoTrazo;
 import dominio.control.ControladorPrincipal;
 
 /**
@@ -17,6 +18,8 @@ import dominio.control.ControladorPrincipal;
 public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRaton
 {
 	private ControladorPrincipal controlador; 
+	private static int LIMITE_PUNTOS = 200;
+	private int puntosDibujados = 0;
 	
     /** Lista de trazos */
     private LinkedList<Trazo> trazos;
@@ -50,15 +53,23 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
         trazoActual.setColor(colorActual);
         trazoActual.addPunto(x, y);
         trazos.add(trazoActual);
-        controlador.enviarTrazoDibujado(trazos);
+        // Se envía al resto de clientes la información del trazo
+        controlador.enviarTrazo(new InfoTrazo(true, trazoActual));
+        //controlador.enviarTrazo(new InfoTrazo(true, trazoActual));
         lienzo.repaint();
     }
 
     /** Añade un nuevo punto al trazo actual */
     public void añadirPuntosTrazo(int xAntigua, int yAntigua, int xNueva, int yNueva)
     {
+        //InfoTrazo info = new InfoTrazo(true, true, null, trazoActual);
+        //info.setTrazoNuevo(trazoActual); 
+    	Trazo aux = (Trazo)trazoActual.clone();
+        InfoTrazo info = new InfoTrazo(true, aux, xNueva, yNueva);
         trazoActual.addPunto(xNueva, yNueva);
-        controlador.enviarTrazoDibujado(trazos);
+        // Se envía al resto de clientes la información del trazo al que se le añaden puntos
+        controlador.enviarTrazo(info);
+        //controlador.enviarTrazo(new InfoTrazo(true, trazoActual));
         lienzo.repaint();
     }
 
@@ -97,9 +108,13 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
 		        }
 			}
 		}	
-		// se elimina el trazo encontrado y se repinta el canvas
+		// Se elimina el trazo encontrado y se repinta el canvas
 		if (pos!=-1) {
+			Trazo aux = (Trazo)trazos.get(pos).clone();
+			// Se elimina el trazo de la lista
 			trazos.remove(trazos.get(pos));
+			// Se envía al resto de clientes la información del trazo que se elimina			
+			controlador.enviarTrazo(new InfoTrazo(false, aux));
 			lienzo.repaint();
 		}
 		

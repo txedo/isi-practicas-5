@@ -5,8 +5,8 @@ import java.io.StreamCorruptedException;
 import javax.swing.event.EventListenerList;
 
 import presentacion.MensajeChatRecibidoListener;
-import presentacion.MensajeTrazosEvent;
-import presentacion.MensajeTrazosListener;
+import presentacion.MensajeTrazoEvent;
+import presentacion.MensajeTrazoListener;
 
 import com.sun.media.jsdt.ChannelConsumer;
 import com.sun.media.jsdt.Data;
@@ -31,9 +31,9 @@ public class ConsumidorCanalTrazos implements ChannelConsumer {
 		// Notificamos que se ha recibido un mensaje para dibujar trazos
 		listeners = listenerList.getListenerList();
 		for(i = 0; i < listeners.length; i += 2) {
-			if(listeners[i] == MensajeTrazosListener.class) {
+			if(listeners[i] == MensajeTrazoListener.class) {
 				try {
-					((MensajeTrazosListener)listeners[i + 1]).MensajeTrazo(new MensajeTrazosEvent(this, d.getDataAsObject()));
+					((MensajeTrazoListener)listeners[i + 1]).MensajeTrazo(new MensajeTrazoEvent(this, d.getDataAsObject()));
 				} catch (StreamCorruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -45,8 +45,9 @@ public class ConsumidorCanalTrazos implements ChannelConsumer {
 		}
 	}
 	
-	public void addMensajeTrazoListener(MensajeTrazosListener listener) {
-		listenerList.add(MensajeTrazosListener.class, listener);
+	public void addMensajeTrazoListener(MensajeTrazoListener listener) {
+		listenerList.add(MensajeTrazoListener.class, listener);
 	}
+	
 
 }
