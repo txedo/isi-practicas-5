@@ -4,6 +4,8 @@ import java.io.StreamCorruptedException;
 
 import javax.swing.event.EventListenerList;
 
+import presentacion.auxiliares.Dialogos;
+
 
 import com.sun.media.jsdt.ChannelConsumer;
 import com.sun.media.jsdt.Data;
@@ -35,11 +37,9 @@ public class ConsumidorCanalTrazos implements ChannelConsumer {
 				try {
 					((MensajeTrazoListener)listeners[i + 1]).MensajeTrazo(new MensajeTrazoEvent(this, d.getDataAsObject()));
 				} catch (StreamCorruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					Dialogos.mostrarDialogoError(null, "Error", e.getMessage());
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					Dialogos.mostrarDialogoError(null, "Error", e.getMessage());
 				}
 			}
 		}

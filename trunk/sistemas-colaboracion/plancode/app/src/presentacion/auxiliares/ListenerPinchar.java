@@ -12,6 +12,14 @@ import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import com.sun.media.jsdt.ConnectionException;
+import com.sun.media.jsdt.InvalidClientException;
+import com.sun.media.jsdt.NoSuchChannelException;
+import com.sun.media.jsdt.NoSuchClientException;
+import com.sun.media.jsdt.NoSuchSessionException;
+import com.sun.media.jsdt.PermissionDeniedException;
+import com.sun.media.jsdt.TimedOutException;
+
 
 public class ListenerPinchar implements MouseListener {
 	
@@ -42,7 +50,23 @@ public class ListenerPinchar implements MouseListener {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			if (accion!=null)
-				accion.eliminarObjeto(e.getX(), e.getY());
+				try {
+					accion.eliminarObjeto(e.getX(), e.getY());
+				} catch (ConnectionException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "No se puede establecer una conexión");
+	    		} catch (InvalidClientException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "Cliente de destino inválido");
+	    		} catch (NoSuchChannelException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "No existe el canal");
+	    		} catch (NoSuchClientException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "No se encuentra el cliente de destino");
+	    		} catch (NoSuchSessionException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "No se encuentra la sesión");
+	    		} catch (PermissionDeniedException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "Permiso denegado");
+	    		} catch (TimedOutException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "Tiempo de espera agotado");
+	    		}
 			
 		}
 
@@ -64,9 +88,6 @@ public class ListenerPinchar implements MouseListener {
 			}
 		}
 		
-		//TODO: recuperar el cursor original cuando no se dibuje ni se borre ni se haga nada
-
-
 		@Override
 		public void mouseExited(MouseEvent e) {
 		}

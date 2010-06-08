@@ -150,39 +150,14 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		// Añadimos el evento para poder recibir el mensaje de rol de otros clientes que se conectan
 		if (esServidor) {
 			consumidorGestionRol.addMensajeRolRecibidoListener(new MensajeRolListener() {
-				public void MensajeRolRecibido(MensajeRolEvent evt) {
+				public void MensajeRolRecibido(MensajeRolEvent evt) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
 					/* El mensaje del rol lo gestiona el servidor para saber que se ha conectado un
 					 * nuevo cliente y enviar la lista de usuarios al resto de clientes conectados.
 					 * Además, le asigna un color.
 					 */
 					Color c = GestorColores.getColorLibre();
 					listaUsuarios.put(evt.getNombre(), new Usuario(evt.getRol(), c));
-					try {
-						canalGestionListaUsuarios.sendToAll(cliente, new Data(listaUsuarios));
-						// TODO: donde se tratan estas excepciones?
-					} catch (ConnectionException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (InvalidClientException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (NoSuchChannelException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (NoSuchClientException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (NoSuchSessionException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (PermissionDeniedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (TimedOutException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
+					canalGestionListaUsuarios.sendToAll(cliente, new Data(listaUsuarios));					
 				}
 			});
 		}
@@ -232,120 +207,23 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		canalChat.sendToAll(cliente, new Data (mensaje));
 	}
 	
-	public void enviarTrazo (InfoTrazo info) {
-		try {
-			canalDibujo.sendToAll(cliente, new Data(info));
-		} catch (ConnectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchChannelException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchSessionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (PermissionDeniedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TimedOutException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void enviarTrazo (InfoTrazo info) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
+		canalDibujo.sendToAll(cliente, new Data(info));
+		
 	}
 	
 	// Este método es para que el servidor envíe los trazos ya dibujados al cliente que se acaba de conectar 
-	public void enviarTrazosRecienConectado(String clienteDestino, LinkedList<Trazo> trazos) {
-		try {
-			canalDibujo.sendToClient(cliente, clienteDestino, new Data(trazos));
-		} catch (ConnectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchChannelException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchSessionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (PermissionDeniedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TimedOutException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchConsumerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void enviarTrazosRecienConectado(String clienteDestino, LinkedList<Trazo> trazos) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
+		canalDibujo.sendToClient(cliente, clienteDestino, new Data(trazos));
 	}
 	
-	public void enviarMapa(ImageIcon mapa) {
-		try {
-			canalMapa.sendToOthers(cliente, new Data(mapa));
-		} catch (ConnectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchChannelException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchSessionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (PermissionDeniedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TimedOutException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void enviarMapa(ImageIcon mapa) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
+		canalMapa.sendToOthers(cliente, new Data(mapa));
 	}
 	
 	// Este método es para que el servidor envíe el mapa al cliente que se acaba de conectar 
-	public void enviarMapaRecienConectado(String clienteDestino, ImageIcon mapa) {
-		try {
-			canalMapa.sendToClient(cliente, clienteDestino, new Data(mapa));
-		} catch (ConnectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchChannelException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchConsumerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchSessionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (PermissionDeniedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TimedOutException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public void enviarMapaRecienConectado(String clienteDestino, ImageIcon mapa) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
+		canalMapa.sendToClient(cliente, clienteDestino, new Data(mapa));
 	}
 	
 	public Hashtable<String,Usuario> getListaUsuarios() {

@@ -8,6 +8,14 @@ import java.awt.Color;
 import java.awt.Component;
 import java.util.LinkedList;
 
+import com.sun.media.jsdt.ConnectionException;
+import com.sun.media.jsdt.InvalidClientException;
+import com.sun.media.jsdt.NoSuchChannelException;
+import com.sun.media.jsdt.NoSuchClientException;
+import com.sun.media.jsdt.NoSuchSessionException;
+import com.sun.media.jsdt.PermissionDeniedException;
+import com.sun.media.jsdt.TimedOutException;
+
 
 import dominio.conocimiento.InfoTrazo;
 import dominio.conocimiento.Trazo;
@@ -20,7 +28,6 @@ import dominio.control.ControladorPrincipal;
 public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRaton
 {
 	private ControladorPrincipal controlador; 
-	private static int LIMITE_PUNTOS = 200;
 	private int puntosDibujados = 0;
 	
     /** Lista de trazos */
@@ -48,8 +55,9 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
 
     /**
      * Crea un trazo nuevo y le pone como primer punto x,y.
+     * 
      */
-    public void comienzaDibujarTrazo(int x, int y)
+    public void comienzaDibujarTrazo(int x, int y) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException
     {
         trazoActual = new Trazo();
         trazoActual.setColor(colorActual);
@@ -61,8 +69,10 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
         lienzo.repaint();
     }
 
-    /** Añade un nuevo punto al trazo actual */
-    public void añadirPuntosTrazo(int xAntigua, int yAntigua, int xNueva, int yNueva)
+    /** Añade un nuevo punto al trazo actual 
+     * 
+     */
+    public void añadirPuntosTrazo(int xAntigua, int yAntigua, int xNueva, int yNueva) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException
     {
         //InfoTrazo info = new InfoTrazo(true, true, null, trazoActual);
         //info.setTrazoNuevo(trazoActual); 
@@ -87,8 +97,9 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
         this.colorActual = colorActual;
     }
 
-	/** Busca el trazo mas cercano a donde se ha pinchado con el ratón (con un cierto margen) para eliminarlo **/    
-	public void eliminarObjeto(int x, int y) {
+	/** Busca el trazo mas cercano a donde se ha pinchado con el ratón (con un cierto margen) para eliminarlo *
+	 *  */    
+	public void eliminarObjeto(int x, int y) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
 		int pos = -1;
 		double distancia, distanciaAux;
 		// Se comprueba si existe algún trazo

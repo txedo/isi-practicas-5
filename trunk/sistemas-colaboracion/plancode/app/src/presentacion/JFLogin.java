@@ -17,6 +17,8 @@ import javax.swing.JTextField;
 
 import javax.swing.WindowConstants;
 
+import presentacion.auxiliares.Dialogos;
+
 import com.sun.media.jsdt.ConnectionException;
 import com.sun.media.jsdt.InvalidClientException;
 import com.sun.media.jsdt.InvalidURLException;
@@ -148,7 +150,7 @@ public class JFLogin extends javax.swing.JFrame {
 			// Inicializamos los colores
 			GestorColores.inicializaColores();
 		} catch (Exception e) {
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", e.getMessage());
 		}
 	}
 	
@@ -302,50 +304,35 @@ public class JFLogin extends javax.swing.JFrame {
 		try {
 			controlador.iniciarSesion(txtDireccionIP.getText(), Integer.parseInt(txtPuerto.getText()), txtNick.getText(), rol, cbUnionSesion.isSelected());
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", e.getMessage());
 		} catch (NoRegistryException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "No se puede inicializar la sesión");
 		} catch (RegistryExistsException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "La sesión ya existe y no se puede crear de nuevo");
 		} catch (ConnectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "No se puede inicializar la conexión");
 		} catch (InvalidClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "Cliente inválido");
 		} catch (InvalidURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "URL de destino inválida");
 		} catch (NameInUseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "Nombre de usuario en uso");
 		} catch (NoSuchClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "No existe el cliente");
 		} catch (NoSuchHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "No existe el host de destino");
 		} catch (NoSuchSessionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "No existe la sesión");
 		} catch (PermissionDeniedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "Permiso denegado");
 		} catch (PortInUseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "Puerto en uso al crear la sesión");
 		} catch (TimedOutException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "Tiempo de espera agotado al crear la sesión");
 		} catch (NoSuchChannelException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "No existe el canal");
 		} catch (NoSuchConsumerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Dialogos.mostrarDialogoError(this, "Error", "No existe el consumidor");
 		}
 	}
 

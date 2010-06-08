@@ -4,6 +4,8 @@ import java.io.StreamCorruptedException;
 
 import javax.swing.event.EventListenerList;
 
+import presentacion.auxiliares.Dialogos;
+
 
 import com.sun.media.jsdt.ChannelConsumer;
 import com.sun.media.jsdt.Data;
@@ -33,15 +35,12 @@ public class ConsumidorCanalMapa implements ChannelConsumer {
 		listeners = listenerList.getListenerList();
 		for(i = 0; i < listeners.length; i += 2) {	
 			if(listeners[i] == MensajeMapaListener.class) {
-					// TODO: donde se ponen estas excepciones?
 					try {
 						((MensajeMapaListener)listeners[i + 1]).MensajeMapa(new MensajeMapaEvent(this, d.getDataAsObject()));
 					} catch (StreamCorruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						Dialogos.mostrarDialogoError(null, "Error", e.getMessage());
 					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						Dialogos.mostrarDialogoError(null, "Error", e.getMessage());
 					}
 			}
 		}
