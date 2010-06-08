@@ -48,6 +48,7 @@ import comunicaciones.DatosConexion;
 import comunicaciones.ICanales;
 import comunicaciones.ISesion;
 
+import dominio.conocimiento.InfoTrazo;
 import dominio.conocimiento.Roles;
 import dominio.conocimiento.Usuario;
 
@@ -231,9 +232,9 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		canalChat.sendToAll(cliente, new Data (mensaje));
 	}
 	
-	public void enviarTrazoDibujado (LinkedList<Trazo> trazo) {
+	public void enviarTrazo (InfoTrazo info) {
 		try {
-			canalDibujo.sendToOthers(cliente, new Data(trazo));
+			canalDibujo.sendToAll(cliente, new Data(info));
 		} catch (ConnectionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

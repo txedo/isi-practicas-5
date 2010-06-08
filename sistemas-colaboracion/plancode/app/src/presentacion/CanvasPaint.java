@@ -10,9 +10,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
 import java.util.LinkedList;
+import presentacion.Trazo;
 
 import javax.swing.JPanel;
 
+import dominio.conocimiento.InfoTrazo;
 import dominio.control.ControladorPrincipal;
 
 
@@ -95,8 +97,9 @@ public class CanvasPaint extends JPanel
     {
     	// Si es el modo eliminar trazos, se llama al padre para borrar el canvas completo.
     	// Luego se dibujan los trazos que sean necesarios
-    	if (modoEliminar)
+    	if (modoEliminar) {    	
     		super.update(g);
+    	}
     	paint(g);
     }
 
@@ -147,8 +150,41 @@ public class CanvasPaint extends JPanel
 		return trazos;
 	}
 
-	public void setTrazos(LinkedList<Trazo> trazos) {
-		this.trazos.addAll(trazos);
+	// Se comrpueba si se está en el modo de dibujo o de eliminacion.
+	// Además, en el modo de dibujo, si se están añadiendo puntos, se elimina el trazo viejo y se incluye el nuevo
+	public void setTrazos(InfoTrazo info) {
+		if (info.isDibujando()){
+			this.modoEliminar = false;
+			// Si no se están añadiendo puntos a algún trazo, se inserta el nuevo trazo
+			if (!info.isAñadiendo()) {
+				this.trazos.add(info.getTrazoNuevo());
+			// Se añaden puntos a un trazo
+			} else {
+				// Se recupera el índice de ese trazo
+				int index = -1;
+				for (int i=0; index==-1 && i<this.trazos.size(); i++) {
+					
+					if (this.trazos.get(i).equals(info.getTrazoNuevo())) {
+						index = i;
+					}
+				}
+				System.out.println(index);
+				if (index!=-1)
+					this.trazos.get(index).addPunto(info.getX(), info.getY());
+			}
+		}
+		else {
+			this.modoEliminar = true;
+			LinkedList<Trazo> aux = new LinkedList<Trazo>();
+			// Se elimina el trazo
+			for (int i=0; i<this.trazos.size(); i++) {
+				if (!this.trazos.get(i).equals(info.getTrazoNuevo())) {
+					aux.add(this.trazos.get(i));
+				}					
+			}
+			this.trazos = aux;
+		}
+		
 	}
     
 }
