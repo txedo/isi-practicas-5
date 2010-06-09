@@ -21,10 +21,17 @@ public class Trazo implements Serializable, Cloneable {
 	 */
 	private static final long serialVersionUID = 5881732293220888123L;
 	/** Lista de puntos que compone el trazo */
-    private LinkedList<Point2D> puntos = new LinkedList<Point2D>();
-    private Color color = Color.black;
+    private LinkedList<Point2D> puntos ;
+    private Color color ;
+    private boolean terminado ;
 
-    public Color getColor()
+    public Trazo () {
+    	terminado = false;
+    	puntos = new LinkedList<Point2D>();
+    	color = Color.black;
+    }
+    
+  	public Color getColor()
     {
         return color;
     }
@@ -49,7 +56,15 @@ public class Trazo implements Serializable, Cloneable {
         return puntos.size();
     }
 
-    public void addPunto(int x, int y)
+    public boolean isTerminado() {
+		return terminado;
+	}
+
+	public void setTerminado(boolean terminado) {
+		this.terminado = terminado;
+	}
+
+	public void addPunto(int x, int y)
     {
         Point2D p = new Point2D.Float(x, y);
         addPunto(p);
@@ -88,11 +103,11 @@ public class Trazo implements Serializable, Cloneable {
     	return res;
     }
     
-    public boolean equals(Object o){
+  public boolean equals(Object o){
     	boolean igual = false;
     	if (o instanceof Trazo) {
     		Trazo otro = (Trazo) o;
-    		igual = ((this.puntos.equals(otro.getPuntos())) && this.color.equals(otro.getColor()));
+    		igual = this.puntos.equals(otro.getPuntos());
     	}
     	return igual;
     }
@@ -100,6 +115,7 @@ public class Trazo implements Serializable, Cloneable {
     public Object clone(){
         Trazo t = new Trazo();
         t.setPuntos((LinkedList<Point2D>)this.puntos.clone());
+        t.setTerminado(this.terminado);
         t.setColor(this.color);
         return t;
     }

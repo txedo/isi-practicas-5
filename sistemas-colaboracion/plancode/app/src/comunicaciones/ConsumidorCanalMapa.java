@@ -36,7 +36,7 @@ public class ConsumidorCanalMapa implements ChannelConsumer {
 		for(i = 0; i < listeners.length; i += 2) {	
 			if(listeners[i] == MensajeMapaListener.class) {
 					try {
-						((MensajeMapaListener)listeners[i + 1]).MensajeMapa(new MensajeMapaEvent(this, d.getDataAsObject()));
+						((MensajeMapaListener)listeners[i + 1]).MensajeMapa(new MensajeMapaEvent(this, d.getSenderName(), d.getDataAsObject()));
 					} catch (StreamCorruptedException e) {
 						Dialogos.mostrarDialogoError(null, "Error", e.getMessage());
 					} catch (ClassNotFoundException e) {

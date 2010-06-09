@@ -154,14 +154,19 @@ public class JFPrincipal extends javax.swing.JFrame {
 		
 		c.getConsumidorTrazos().addMensajeTrazoListener(new MensajeTrazoListener() {
 			public void MensajeTrazo(MensajeTrazoEvent evt) {
-				canvasPaint.setTrazos(evt.getInfo());;
+				canvasPaint.setTrazos(evt.getInfo());
+				canvasPaint.revalidate();
 				canvasPaint.repaint();
+				// TODO: if
+				taLog.append(evt.getNombreCliente() + " ha dibujado un trazo\n");
 			}
 		});
 		
 		c.getConsumidorMapa().addMensajeMapaListener(new MensajeMapaListener() {
 			public void MensajeMapa(MensajeMapaEvent evt) {
 				setMapaRecibido(evt.getMapa());
+
+				
 			}
 
 		});
@@ -518,7 +523,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 	
 	public void notificarLogout(String login) {
 		taChat.append(login + " ha dejado el chat.\n");
-		taChat.setCaretPosition(taChat.getDocument().getLength());
+		taChat.setCaretPosition(taChat.getDocument().getLength());	
 		if (controlador.isServidor()) {
 		   	try {
 	    		controlador.getCanalGestionListaUsuarios().sendToAll(controlador.getCliente(), new Data(controlador.getListaUsuarios()));

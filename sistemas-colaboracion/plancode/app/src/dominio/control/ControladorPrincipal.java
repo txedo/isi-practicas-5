@@ -146,8 +146,9 @@ public class ControladorPrincipal implements ICanales, ISesion {
 					GestorColores.liberarColor(listaUsuarios.get(e.getClientName()).getColor());
 					listaUsuarios.remove(e.getClientName());
 				}
-				if (!isServidor() || (isServidor() && listaUsuarios.size() > 1))
+				if (!isServidor() || (isServidor() && listaUsuarios.size() > 0 )) {
 					ventanaPrincipal.notificarLogout(e.getClientName());
+				}
 			}
 		});
 		
@@ -230,7 +231,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	}
 	
 	public void enviarTrazo (InfoTrazo info) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
-		canalDibujo.sendToAll(cliente, new Data(info));
+		canalDibujo.sendToOthers(cliente, new Data(info));
 		
 	}
 	

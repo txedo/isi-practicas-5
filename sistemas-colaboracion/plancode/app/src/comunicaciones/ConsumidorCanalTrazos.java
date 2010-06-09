@@ -9,7 +9,6 @@ import presentacion.auxiliares.Dialogos;
 
 import com.sun.media.jsdt.ChannelConsumer;
 import com.sun.media.jsdt.Data;
-import comunicaciones.EventosCanales.MensajeChatRecibidoListener;
 import comunicaciones.EventosCanales.MensajeTrazoEvent;
 import comunicaciones.EventosCanales.MensajeTrazoListener;
 
@@ -35,7 +34,7 @@ public class ConsumidorCanalTrazos implements ChannelConsumer {
 		for(i = 0; i < listeners.length; i += 2) {
 			if(listeners[i] == MensajeTrazoListener.class) {
 				try {
-					((MensajeTrazoListener)listeners[i + 1]).MensajeTrazo(new MensajeTrazoEvent(this, d.getDataAsObject()));
+					((MensajeTrazoListener)listeners[i + 1]).MensajeTrazo(new MensajeTrazoEvent(this, d.getSenderName(), d.getDataAsObject()));
 				} catch (StreamCorruptedException e) {
 					Dialogos.mostrarDialogoError(null, "Error", e.getMessage());
 				} catch (ClassNotFoundException e) {
