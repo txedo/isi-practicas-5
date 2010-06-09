@@ -11,29 +11,57 @@ public class InfoTrazo implements Serializable {
 	 */
 	private static final long serialVersionUID = 1732709130048456235L;
 	
-	private Trazo trazoNuevo;
+	private Trazo trazo;
+	/*
+	private Trazo trazoAntiguo;
 	private boolean dibujando;
 	private boolean añadiendo;
-	private int x;
-	private int y;
-	
+	private boolean terminado;*/
+	private boolean dibujando;
+
+
 	// Constructor para el caso de dibujar sin añadir puntos (o para eliminar, si dibujando = false)
 	public InfoTrazo(boolean dibujando, Trazo trazo) {
-		this.añadiendo = false;
-		this.trazoNuevo = trazo;
+		this.trazo = trazo;
 		this.dibujando = dibujando;
-		this.x = -1;
-		this.y = -1;
+	}
+
+
+	public Trazo getTrazo() {
+		return trazo;
+	}
+
+
+	public boolean isDibujando() {
+		return dibujando;
 	}
 	
 	// Constructor para el caso de dibujar añadiendo puntos
-	public InfoTrazo(boolean dibujando, Trazo trazo, int x, int y) {
+	/*public InfoTrazo(boolean dibujando, Trazo trazo, int x, int y) {
 		this.añadiendo = true;
 		this.trazoNuevo = trazo;
 		this.dibujando = dibujando;
 		this.x = x;
 		this.y = y;
-	}	
+	}*/
+	
+	// Constructor para el caso de dibujar añadiendo puntos
+	/*public InfoTrazo(boolean dibujando, Trazo trazoAntiguo, Trazo trazoNuevo) {
+		this.añadiendo = true;
+		this.trazoNuevo = trazoNuevo;
+		this.trazoAntiguo = trazoAntiguo;
+		this.dibujando = dibujando;
+		
+	}
+	
+	// Constructor para el caso de haber terminado de dibujar un trazo
+	public InfoTrazo(Trazo trazoTerminado) {
+		this.terminado = true;
+		this.dibujando = false;
+		this.añadiendo = false;
+		this.trazoNuevo = trazoTerminado;
+	}
+	
 	
 	public Trazo getTrazoNuevo() {
 		return trazoNuevo;
@@ -49,13 +77,13 @@ public class InfoTrazo implements Serializable {
 		this.trazoNuevo = trazoNuevo;
 	}
 
-	public int getX() {
-		return x;
+	public Trazo getTrazoAntiguo() {
+		return trazoAntiguo;
 	}
 
-	public int getY() {
-		return y;
-	}
+	public boolean isTerminado() {
+		return terminado;
+	}*/
 
 	
 }

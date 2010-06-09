@@ -65,7 +65,7 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
         trazos.add(trazoActual);
         // Se envía al resto de clientes la información del trazo
         controlador.enviarTrazo(new InfoTrazo(true, trazoActual));
-        //controlador.enviarTrazo(new InfoTrazo(true, trazoActual));
+        //controlador.enviarTrazo(new InfoTrazo(this.trazos));
         lienzo.repaint();
     }
 
@@ -76,18 +76,25 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
     {
         //InfoTrazo info = new InfoTrazo(true, true, null, trazoActual);
         //info.setTrazoNuevo(trazoActual); 
-    	Trazo aux = (Trazo)trazoActual.clone();
-        InfoTrazo info = new InfoTrazo(true, aux, xNueva, yNueva);
+    	//Trazo antiguo = (Trazo)trazoActual.clone();
         trazoActual.addPunto(xNueva, yNueva);
+        trazoActual.setTerminado(false);
         // Se envía al resto de clientes la información del trazo al que se le añaden puntos
-        controlador.enviarTrazo(info);
-        //controlador.enviarTrazo(new InfoTrazo(true, trazoActual));
+        //InfoTrazo info = new InfoTrazo(true, antiguo, trazoActual);
+        //controlador.enviarTrazo(info);
+        controlador.enviarTrazo(new InfoTrazo(true, trazoActual));
         lienzo.repaint();
     }
 
-    /** Marca que ya no hay trazo actual */
-    public void finalizaArrastra(int x, int y)
+    /** Marca que ya no hay trazo actual 
+     * 
+     *  */
+    public void finalizaArrastra(int x, int y) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException
     {
+    	trazoActual.setTerminado(true);
+    	Trazo t = (Trazo)trazoActual.clone();
+    	// Se envia el trazo terminado a los clientes
+    	controlador.enviarTrazo(new InfoTrazo(true, t));
         trazoActual = null;
     }
 

@@ -153,10 +153,52 @@ public class CanvasPaint extends JPanel
 		return trazos;
 	}
 
-	// Se comrpueba si se está en el modo de dibujo o de eliminacion.
 	// Además, en el modo de dibujo, si se están añadiendo puntos, se elimina el trazo viejo y se incluye el nuevo
 	public void setTrazos(InfoTrazo info) {
-		if (info.isDibujando()){
+		if (info.isDibujando()) {
+			this.modoEliminar = false;
+				// Copia auxiliar de trazos
+				LinkedList<Trazo> aux = new LinkedList<Trazo>();
+				aux = (LinkedList<Trazo>)this.trazos.clone();
+				for (int i=0; i<aux.size(); i++) {
+					if (!aux.get(i).isTerminado()) {
+						this.trazos.remove(aux.get(i));
+					}
+				}
+			this.trazos.add(info.getTrazo());
+			
+		}
+		else {
+			this.modoEliminar = true;
+			this.trazos.remove(info.getTrazo());
+		}
+		
+		
+	}
+		
+		
+			/*if (info.isAñadiendo()) {
+				trazosNoTerminados.remove(info.getTrazoAntiguo());
+				trazosNoTerminados.add(info.getTrazoNuevo());
+				this.trazos.remove(info.getTrazoAntiguo());
+				this.trazos.add(info.getTrazoNuevo());
+				System.out.println("Sin terminar " + this.trazos.size());
+			}
+			else {
+				this.trazos.add(info.getTrazoNuevo());
+			}
+			
+		}
+		else if (info.isTerminado()){
+			this.trazos.removeAll(trazosNoTerminados);
+			this.trazos.add(info.getTrazoNuevo());
+			System.out.println("Terminados " + this.trazos.size());
+		}
+		else {
+			this.trazos.remove(info.getTrazoNuevo());
+		}
+		
+		/*if (info.isDibujando()){
 			this.modoEliminar = false;
 			// Si no se están añadiendo puntos a algún trazo, se inserta el nuevo trazo
 			if (!info.isAñadiendo()) {
@@ -164,15 +206,33 @@ public class CanvasPaint extends JPanel
 			// Se añaden puntos a un trazo
 			} else {
 				// Se recupera el índice de ese trazo
+				Trazo t = null;
 				int index = -1;
+				for (int i=0; index==-1 && i<this.trazos.size(); i++) {
+					if (this.trazos.get(i).equals(info.getTrazoNuevo())) {
+						index = i;
+					}
+				}
+				if (index!=-1) {
+					t = this.trazos.get(index);
+					//System.out.println(t);
+					if (t!= null) {
+						System.out.println(this.trazos.size());
+						this.trazos.remove(t);
+						System.out.println(this.trazos.size());
+						this.trazos.add(info.getTrazoNuevo());
+						System.out.println(this.trazos.size());
+					}
+				}
+				/*int index = -1;
 				for (int i=0; index==-1 && i<this.trazos.size(); i++) {
 					
 					if (this.trazos.get(i).equals(info.getTrazoNuevo())) {
 						index = i;
 					}
 				}
-				System.out.println(index);
-				if (index!=-1)
+				System.out.println(index);*/
+				/*if (index!=-1)
 					this.trazos.get(index).addPunto(info.getX(), info.getY());
 			}
 		}
@@ -186,8 +246,7 @@ public class CanvasPaint extends JPanel
 				}					
 			}
 			this.trazos = aux;
-		}
-		
-	}
+		}*/
+
     
 }

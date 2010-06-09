@@ -53,8 +53,25 @@ public class ListenerArrastre implements MouseMotionListener
     public void mouseMoved(MouseEvent e)
     {
     	if (accion!=null) {
-	        if (arrastrando == true)
-	            accion.finalizaArrastra(xAntigua, yAntigua);
+	        if (arrastrando == true){
+				try {
+					accion.finalizaArrastra(xAntigua, yAntigua);
+				} catch (ConnectionException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "No se puede establecer una conexión");
+	    		} catch (InvalidClientException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "Cliente de destino inválido");
+	    		} catch (NoSuchChannelException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "No existe el canal");
+	    		} catch (NoSuchClientException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "No se encuentra el cliente de destino");
+	    		} catch (NoSuchSessionException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "No se encuentra la sesión");
+	    		} catch (PermissionDeniedException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "Permiso denegado");
+	    		} catch (TimedOutException ex) {
+	    			Dialogos.mostrarDialogoError(null, "Error", "Tiempo de espera agotado");
+	    		}
+	        }
 	        arrastrando = false;
 	        xAntigua = e.getX();
 	        yAntigua = e.getY();
