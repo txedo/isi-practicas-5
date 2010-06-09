@@ -124,7 +124,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		canalChat.addChannelListener(new ChannelListener() {
 			// Pasamos a la interfaz gráfica el nick del cliente que se acaba de unir al canal del chat
 			public void channelJoined(ChannelEvent e) {
-				ventanaPrincipal.iniciarSesion(e.getClientName());				
+				ventanaPrincipal.iniciarSesion(e.getClientName());
 			}
 
 			public void channelConsumerAdded(ChannelEvent arg0) {				
@@ -146,7 +146,8 @@ public class ControladorPrincipal implements ICanales, ISesion {
 					GestorColores.liberarColor(listaUsuarios.get(e.getClientName()).getColor());
 					listaUsuarios.remove(e.getClientName());
 				}
-				ventanaPrincipal.notificarLogout(e.getClientName());
+				if (!isServidor() || (isServidor() && listaUsuarios.size() > 1))
+					ventanaPrincipal.notificarLogout(e.getClientName());
 			}
 		});
 		
@@ -283,13 +284,13 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		return canalGestionListaUsuarios;
 	}
 
-	public Client getCliente() {
+	public ClienteJSDT getCliente() {
 		return cliente;
 	}
 
 	public void forzarCierre() throws NoRegistryException, ConnectionException, InvalidClientException, InvalidURLException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, NotBoundException, PermissionDeniedException, TimedOutException, NoSuchChannelException, NoSuchConsumerException, NoSuchByteArrayException, NoSuchTokenException {
 		quitarConsumidoresYCanales();
 		SessionFactory.destroySession(cliente, url);
-		RegistryFactory.stopRegistry(TIPO_SESION);
+		//RegistryFactory.stopRegistry(TIPO_SESION);
 	}
 }
