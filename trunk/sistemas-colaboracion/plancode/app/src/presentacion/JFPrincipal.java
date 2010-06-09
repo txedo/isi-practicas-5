@@ -127,6 +127,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 		controlador = c;
 		initGUI();
 		
+		lblStatusBar.setText("Sesión iniciada como " + controlador.getNombreCliente() + "@" + controlador.getCliente().getRol());
 		// Para el caso del servidor, como es el primer cliente que se conecta y no recibe el evento del canal
 		// la primera vez, se solicia al controlador la lista de usuarios (que sólo lo contendrá a él)
 		if (c.isServidor()) {
@@ -640,6 +641,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 			}
     	}
     	this.dispose();
+    	System.gc();
     }
 
 }

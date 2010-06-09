@@ -76,9 +76,9 @@ public class ListenerPinchar implements MouseListener {
 			// Si no, se pone la imagen del lápiz
 			Image image = null;
 			if (accion==null)
-				image = toolkit.getImage("./resources/images/pencil.gif");
+				image = toolkit.getImage("./src/icons/pencil.gif");
 			else
-				image = toolkit.getImage("./resources/images/eraser.png");
+				image = toolkit.getImage("./src/icons/eraser.png");
 			// PROVISIONAL
 			if (image!=null) {
 				Point hotSpot = new Point(0,0);
