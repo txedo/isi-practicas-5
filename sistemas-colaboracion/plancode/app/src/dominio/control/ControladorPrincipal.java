@@ -1,7 +1,6 @@
 package dominio.control;
 
 import java.awt.Color;
-import java.awt.TexturePaint;
 import java.util.Hashtable;
 import java.util.LinkedList;
 
@@ -11,7 +10,6 @@ import presentacion.JFLogin;
 import presentacion.JFPrincipal;
 
 import com.sun.media.jsdt.Channel;
-import com.sun.media.jsdt.Client;
 import com.sun.media.jsdt.ConnectionException;
 import com.sun.media.jsdt.Data;
 import com.sun.media.jsdt.InvalidClientException;
@@ -36,7 +34,6 @@ import com.sun.media.jsdt.TimedOutException;
 import com.sun.media.jsdt.URLString;
 import com.sun.media.jsdt.event.ChannelEvent;
 import com.sun.media.jsdt.event.ChannelListener;
-
 import comunicaciones.ClienteJSDT;
 import comunicaciones.ConsumidorCanalChat;
 import comunicaciones.ConsumidorCanalGestionListaUsuarios;
@@ -46,8 +43,6 @@ import comunicaciones.ConsumidorCanalTrazos;
 import comunicaciones.DatosConexion;
 import comunicaciones.ICanales;
 import comunicaciones.ISesion;
-import comunicaciones.EventosCanales.MensajeChatRecibidoEvent;
-import comunicaciones.EventosCanales.MensajeChatRecibidoListener;
 import comunicaciones.EventosCanales.MensajeRolEvent;
 import comunicaciones.EventosCanales.MensajeRolListener;
 
@@ -69,7 +64,6 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	private Session sesion;
 	private ClienteJSDT cliente;
 	private Channel canalChat;
-	private Channel canalTelepuntero;
 	private Channel canalDibujo;
 	/* Estos canales se utilizan para intercambiar datos entre clientes para gestionar sus roles y el panel de sesiones
 	 * Se usan estos canales para no mostrar estos datos por el chat ni mezclarlos con otros canales
@@ -191,7 +185,6 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	private void crearCanales () throws ConnectionException, InvalidClientException, NameInUseException, NoSuchSessionException, NoSuchClientException, NoSuchHostException, PermissionDeniedException, TimedOutException, NoSuchChannelException {
 		// El último parámetro indica un join implícito
 		canalChat = sesion.createChannel(cliente, CANAL_CHAT, true, true, true);
-		canalTelepuntero = sesion.createChannel(cliente, CANAL_TELEPUNTERO, true, true, true);
 		canalDibujo = sesion.createChannel(cliente, CANAL_DIBUJO, true, true, true);
 		canalGestionRol = sesion.createChannel(cliente, CANAL_GESTION_ROL, true, true, true);
 		canalGestionListaUsuarios = sesion.createChannel(cliente, CANAL_GESTION_LISTA, true, true, true);
@@ -235,9 +228,19 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		
 	}
 	
+	public void ponerMensajeLogLocal(InfoTrazo info) {
+		this.ventanaPrincipal.ponerMensajeLog(cliente.getName(), info);
+	}
+	
 	// Este método es para que el servidor envíe los trazos ya dibujados al cliente que se acaba de conectar 
 	public void enviarTrazosRecienConectado(String clienteDestino, LinkedList<Trazo> trazos) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
+		InfoTrazo info = new InfoTrazo(trazos);
 		canalDibujo.sendToClient(cliente, clienteDestino, new Data(trazos));
+	}
+	
+	public void enviarTrazosClean() throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
+		InfoTrazo info = new InfoTrazo();
+		canalDibujo.sendToOthers(cliente, new Data(info));
 	}
 	
 	public void enviarMapa(ImageIcon mapa) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {

@@ -9,8 +9,6 @@ import presentacion.auxiliares.Dialogos;
 
 import com.sun.media.jsdt.ChannelConsumer;
 import com.sun.media.jsdt.Data;
-import comunicaciones.EventosCanales.MensajeListaUsuariosEvent;
-import comunicaciones.EventosCanales.MensajeListaUsuariosListener;
 import comunicaciones.EventosCanales.MensajeMapaEvent;
 import comunicaciones.EventosCanales.MensajeMapaListener;
 

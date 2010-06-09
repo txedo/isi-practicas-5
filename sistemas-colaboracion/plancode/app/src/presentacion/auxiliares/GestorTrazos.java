@@ -28,7 +28,6 @@ import dominio.control.ControladorPrincipal;
 public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRaton
 {
 	private ControladorPrincipal controlador; 
-	private int puntosDibujados = 0;
 	
     /** Lista de trazos */
     private LinkedList<Trazo> trazos;
@@ -64,8 +63,10 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
         trazoActual.addPunto(x, y);
         trazos.add(trazoActual);
         // Se envía al resto de clientes la información del trazo
-        controlador.enviarTrazo(new InfoTrazo(true, trazoActual));
-        //controlador.enviarTrazo(new InfoTrazo(this.trazos));
+        InfoTrazo info = new InfoTrazo(true, trazoActual);
+        controlador.enviarTrazo(info);
+        // Se actualiza el log local
+        controlador.ponerMensajeLogLocal(info);
         lienzo.repaint();
     }
 
@@ -74,15 +75,11 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
      */
     public void añadirPuntosTrazo(int xAntigua, int yAntigua, int xNueva, int yNueva) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException
     {
-        //InfoTrazo info = new InfoTrazo(true, true, null, trazoActual);
-        //info.setTrazoNuevo(trazoActual); 
-    	//Trazo antiguo = (Trazo)trazoActual.clone();
         trazoActual.addPunto(xNueva, yNueva);
         trazoActual.setTerminado(false);
         // Se envía al resto de clientes la información del trazo al que se le añaden puntos
-        //InfoTrazo info = new InfoTrazo(true, antiguo, trazoActual);
-        //controlador.enviarTrazo(info);
-        controlador.enviarTrazo(new InfoTrazo(true, trazoActual));
+        InfoTrazo info = new InfoTrazo(true, trazoActual);
+        controlador.enviarTrazo(info);
         lienzo.repaint();
     }
 
@@ -94,8 +91,12 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
     	trazoActual.setTerminado(true);
     	Trazo t = (Trazo)trazoActual.clone();
     	// Se envia el trazo terminado a los clientes
-    	controlador.enviarTrazo(new InfoTrazo(true, t));
+    	InfoTrazo info = new InfoTrazo(true, t);
+    	controlador.enviarTrazo(info);
         trazoActual = null;
+        // Se actualiza el log local
+        controlador.ponerMensajeLogLocal(info);
+
     }
 
     /** Guarda el color para el próximo trazo que se dibuje */
@@ -133,8 +134,11 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
 			Trazo aux = (Trazo)trazos.get(pos).clone();
 			// Se elimina el trazo de la lista
 			trazos.remove(trazos.get(pos));
-			// Se envía al resto de clientes la información del trazo que se elimina			
-			controlador.enviarTrazo(new InfoTrazo(false, aux));
+			// Se envía al resto de clientes la información del trazo que se elimina	
+			InfoTrazo info = new InfoTrazo(false, aux);
+			controlador.enviarTrazo(info);
+			// Se actualiza el log local
+	        controlador.ponerMensajeLogLocal(info);
 			lienzo.repaint();
 		}
 		
