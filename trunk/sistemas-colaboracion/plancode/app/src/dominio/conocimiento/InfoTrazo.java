@@ -12,18 +12,32 @@ public class InfoTrazo implements Serializable {
 	private static final long serialVersionUID = 1732709130048456235L;
 	
 	private Trazo trazo;
-	/*
-	private Trazo trazoAntiguo;
+	private LinkedList<Trazo> trazos;
 	private boolean dibujando;
-	private boolean añadiendo;
-	private boolean terminado;*/
-	private boolean dibujando;
+	private boolean clear;
+	private boolean recienConectado;
 
 
 	// Constructor para el caso de dibujar sin añadir puntos (o para eliminar, si dibujando = false)
 	public InfoTrazo(boolean dibujando, Trazo trazo) {
 		this.trazo = trazo;
 		this.dibujando = dibujando;
+		clear = false;
+		recienConectado = false;
+	}
+	
+	// Constructor para pasar todos los trazos al conectarse
+	public InfoTrazo (LinkedList<Trazo> trazos) {
+		this.trazos = trazos;
+		clear = false;
+		recienConectado = true;
+	}
+	
+	// El construcotr por defecto significa limpiar el canvas completo
+	public InfoTrazo() {
+		this.clear = true;
+		recienConectado = false;
+		dibujando = false;
 	}
 
 
@@ -36,54 +50,20 @@ public class InfoTrazo implements Serializable {
 		return dibujando;
 	}
 	
-	// Constructor para el caso de dibujar añadiendo puntos
-	/*public InfoTrazo(boolean dibujando, Trazo trazo, int x, int y) {
-		this.añadiendo = true;
-		this.trazoNuevo = trazo;
-		this.dibujando = dibujando;
-		this.x = x;
-		this.y = y;
-	}*/
-	
-	// Constructor para el caso de dibujar añadiendo puntos
-	/*public InfoTrazo(boolean dibujando, Trazo trazoAntiguo, Trazo trazoNuevo) {
-		this.añadiendo = true;
-		this.trazoNuevo = trazoNuevo;
-		this.trazoAntiguo = trazoAntiguo;
-		this.dibujando = dibujando;
-		
-	}
-	
-	// Constructor para el caso de haber terminado de dibujar un trazo
-	public InfoTrazo(Trazo trazoTerminado) {
-		this.terminado = true;
-		this.dibujando = false;
-		this.añadiendo = false;
-		this.trazoNuevo = trazoTerminado;
-	}
-	
-	
-	public Trazo getTrazoNuevo() {
-		return trazoNuevo;
-	}
-	public boolean isDibujando() {
-		return dibujando;
-	}
-	public boolean isAñadiendo() {
-		return añadiendo;
-	}
-
-	public void setTrazoNuevo(Trazo trazoNuevo) {
-		this.trazoNuevo = trazoNuevo;
-	}
-
-	public Trazo getTrazoAntiguo() {
-		return trazoAntiguo;
-	}
-
 	public boolean isTerminado() {
-		return terminado;
-	}*/
+		return trazo.isTerminado();
+	}
 
+	public LinkedList<Trazo> getTrazos() {
+		return trazos;
+	}
+
+	public boolean isClear() {
+		return clear;
+	}
+
+	public boolean isRecienConectado() {
+		return recienConectado;
+	}
 	
 }

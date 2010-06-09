@@ -153,9 +153,22 @@ public class CanvasPaint extends JPanel
 		return trazos;
 	}
 
-	// Además, en el modo de dibujo, si se están añadiendo puntos, se elimina el trazo viejo y se incluye el nuevo
 	public void setTrazos(InfoTrazo info) {
-		if (info.isDibujando()) {
+		
+		// Se limpia el canvas si se recibe el mensaje correspondiente
+		if (info.isClear()) {
+			this.modoEliminar = true;
+			this.clear();
+		}
+		
+		// Si se acaba de conectar, se establecen los trazos del resto de clientes
+		else if (info.isRecienConectado()) {
+			this.modoEliminar = false;
+			this.trazos = info.getTrazos();
+		}
+		
+		// Si se está dibujando, se añade el trazo recibido y se borran aquellos trazos no definitivos
+		else if (info.isDibujando()) {
 			this.modoEliminar = false;
 				// Copia auxiliar de trazos
 				LinkedList<Trazo> aux = new LinkedList<Trazo>();
@@ -168,6 +181,7 @@ public class CanvasPaint extends JPanel
 			this.trazos.add(info.getTrazo());
 			
 		}
+		// Se elimina el trazo recibido
 		else {
 			this.modoEliminar = true;
 			this.trazos.remove(info.getTrazo());
@@ -175,78 +189,4 @@ public class CanvasPaint extends JPanel
 		
 		
 	}
-		
-		
-			/*if (info.isAñadiendo()) {
-				trazosNoTerminados.remove(info.getTrazoAntiguo());
-				trazosNoTerminados.add(info.getTrazoNuevo());
-				this.trazos.remove(info.getTrazoAntiguo());
-				this.trazos.add(info.getTrazoNuevo());
-				System.out.println("Sin terminar " + this.trazos.size());
-			}
-			else {
-				this.trazos.add(info.getTrazoNuevo());
-			}
-			
-		}
-		else if (info.isTerminado()){
-			this.trazos.removeAll(trazosNoTerminados);
-			this.trazos.add(info.getTrazoNuevo());
-			System.out.println("Terminados " + this.trazos.size());
-		}
-		else {
-			this.trazos.remove(info.getTrazoNuevo());
-		}
-		
-		/*if (info.isDibujando()){
-			this.modoEliminar = false;
-			// Si no se están añadiendo puntos a algún trazo, se inserta el nuevo trazo
-			if (!info.isAñadiendo()) {
-				this.trazos.add(info.getTrazoNuevo());
-			// Se añaden puntos a un trazo
-			} else {
-				// Se recupera el índice de ese trazo
-				Trazo t = null;
-				int index = -1;
-				for (int i=0; index==-1 && i<this.trazos.size(); i++) {
-					if (this.trazos.get(i).equals(info.getTrazoNuevo())) {
-						index = i;
-					}
-				}
-				if (index!=-1) {
-					t = this.trazos.get(index);
-					//System.out.println(t);
-					if (t!= null) {
-						System.out.println(this.trazos.size());
-						this.trazos.remove(t);
-						System.out.println(this.trazos.size());
-						this.trazos.add(info.getTrazoNuevo());
-						System.out.println(this.trazos.size());
-					}
-				}
-				/*int index = -1;
-				for (int i=0; index==-1 && i<this.trazos.size(); i++) {
-					
-					if (this.trazos.get(i).equals(info.getTrazoNuevo())) {
-						index = i;
-					}
-				}
-				System.out.println(index);*/
-				/*if (index!=-1)
-					this.trazos.get(index).addPunto(info.getX(), info.getY());
-			}
-		}
-		else {
-			this.modoEliminar = true;
-			LinkedList<Trazo> aux = new LinkedList<Trazo>();
-			// Se elimina el trazo
-			for (int i=0; i<this.trazos.size(); i++) {
-				if (!this.trazos.get(i).equals(info.getTrazoNuevo())) {
-					aux.add(this.trazos.get(i));
-				}					
-			}
-			this.trazos = aux;
-		}*/
-
-    
 }

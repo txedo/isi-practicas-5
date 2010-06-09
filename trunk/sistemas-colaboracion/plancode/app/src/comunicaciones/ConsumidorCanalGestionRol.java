@@ -10,7 +10,6 @@ import com.sun.media.jsdt.Data;
 import com.sun.media.jsdt.InvalidClientException;
 import com.sun.media.jsdt.NoSuchChannelException;
 import com.sun.media.jsdt.NoSuchClientException;
-import com.sun.media.jsdt.NoSuchConsumerException;
 import com.sun.media.jsdt.NoSuchSessionException;
 import com.sun.media.jsdt.PermissionDeniedException;
 import com.sun.media.jsdt.TimedOutException;

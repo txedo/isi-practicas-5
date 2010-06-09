@@ -58,6 +58,7 @@ import comunicaciones.EventosCanales.MensajeMapaListener;
 import comunicaciones.EventosCanales.MensajeTrazoEvent;
 import comunicaciones.EventosCanales.MensajeTrazoListener;
 
+import dominio.conocimiento.InfoTrazo;
 import dominio.conocimiento.Roles;
 import dominio.conocimiento.Usuario;
 import dominio.control.ControladorPrincipal;
@@ -92,6 +93,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private JPanel jPnlToolBoox;
 	private JPanel jPnlUsuarios;
 	private JPanel panelPaint;	
+	private JButton jbtnClear;
 	private JScrollPane jScrollPane3;
 	private panelConImagenFondo jPanelFondo;
 	private JButton btnCargarMapa;
@@ -157,8 +159,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 				canvasPaint.setTrazos(evt.getInfo());
 				canvasPaint.revalidate();
 				canvasPaint.repaint();
-				// TODO: if
-				taLog.append(evt.getNombreCliente() + " ha dibujado un trazo\n");
+				ponerMensajeLog(evt.getNombreCliente(), evt.getInfo());
 			}
 		});
 		
@@ -205,6 +206,23 @@ public class JFPrincipal extends javax.swing.JFrame {
 	private void ponerMensajeChat(MensajeChatRecibidoEvent evt) {
 		taChat.append(evt.getNombre() + "> " + evt.getMensaje() + "\n");
 		taChat.setCaretPosition(taChat.getDocument().getLength());
+	}
+	
+	public void ponerMensajeLog(String nombreCliente, InfoTrazo info) {
+		if (info.isClear()) {
+			taLog.append(nombreCliente + " ha limpiado todos los trazos\n");
+		}
+		if (info.isDibujando()) {
+			if (!info.isTerminado()) {
+				taLog.append(nombreCliente + " está dibujando un trazo\n");
+			}
+			else {
+				taLog.append(nombreCliente + " ha terminado de dibujar un trazo\n");
+			}
+		}
+		else {
+			taLog.append(nombreCliente + " ha eliminado un trazo\n");
+		}
 	}
 	
 	private void initGUI() {
@@ -311,6 +329,16 @@ public class JFPrincipal extends javax.swing.JFrame {
 							}
 						});
 					}
+					{
+						jbtnClear = new JButton();
+						jToolBar.add(jbtnClear);
+						jbtnClear.setText("Limpiar trazos");
+						jbtnClear.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								jbtnClearActionPerformed(evt);
+							}
+						});
+					}
 				}
 				{
 					lblStatusBar = new JLabel();
@@ -384,6 +412,11 @@ public class JFPrincipal extends javax.swing.JFrame {
 						jmiOpenImage = new JMenuItem();
 						jMenu1.add(jmiOpenImage);
 						jmiOpenImage.setText("Cargar imagen local...");
+						jmiOpenImage.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								jmiOpenImageActionPerformed(evt);
+							}
+						});
 					}
 					{
 						jSeparator1 = new JSeparator();
@@ -393,6 +426,11 @@ public class JFPrincipal extends javax.swing.JFrame {
 						jmiExit = new JMenuItem();
 						jMenu1.add(jmiExit);
 						jmiExit.setText("Salir");
+						jmiExit.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								jmiExitActionPerformed(evt);
+							}
+						});
 					}
 				}
 				{
@@ -415,7 +453,6 @@ public class JFPrincipal extends javax.swing.JFrame {
 		}
 	}
 	
-	//TODO: estos dos botones son provisionales
 	private void jButton1ActionPerformed(ActionEvent evt) {
 		canvasPaint.modoEliminarTrazo();
 	}
@@ -493,6 +530,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 		// acaba de iniciar sesión, para que esté sincronizado con el resto
 		if (controlador.isServidor()) {
 			if (mapa!=null) {
+				System.out.println(mapa);
 				try {
 					controlador.enviarMapaRecienConectado(login, mapa);
 				} catch (ConnectionException e) {
@@ -513,9 +551,34 @@ public class JFPrincipal extends javax.swing.JFrame {
 					Dialogos.mostrarDialogoError(this, "Error", "No existe el consumidor");
 				}
 			}
-			// TODO: no funciona bien
 			/*if (!canvasPaint.getTrazos().isEmpty()) {
-				controlador.enviarTrazosRecienConectado(login, canvasPaint.getTrazos());
+				try {
+					controlador.enviarTrazosRecienConectado(login, canvasPaint.getTrazos());
+				} catch (ConnectionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InvalidClientException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (NoSuchChannelException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (NoSuchClientException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (NoSuchConsumerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (NoSuchSessionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (PermissionDeniedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (TimedOutException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}*/
 		}
 		
@@ -561,8 +624,12 @@ public class JFPrincipal extends javax.swing.JFrame {
     }
     
     private void btnCargarMapaActionPerformed(ActionEvent evt) {
+    	cargarMapa();
+    }
+    
+    private void cargarMapa() {
     	fc = new JFileChooser();
-    	// Se estable el filtro para mostrar sólo imagenes png, jpg, jpeg y gif
+    	// Se establece el filtro para mostrar sólo imagenes png, jpg, jpeg y gif
     	fc.addChoosableFileFilter(new presentacion.auxiliares.ImageFilter());
     	fc.setAcceptAllFileFilterUsed(false);
     	// Se pone un mensaje personalizado tanto al botón del fileChooser como a su título
@@ -595,10 +662,18 @@ public class JFPrincipal extends javax.swing.JFrame {
 			} catch (TimedOutException e) {
 				Dialogos.mostrarDialogoError(this, "Error", "Tiempo de espera agotado");
 			}
-    	}
+    	}	
     }
     
     private void thisWindowClosing(WindowEvent evt) {
+    	salir();
+    }
+    
+    private void jmiExitActionPerformed(ActionEvent evt) {
+    	salir();
+    }
+    
+    private void salir () {
     	if (controlador.isServidor()) {
     		try {
 				controlador.forzarCierre();
@@ -647,6 +722,41 @@ public class JFPrincipal extends javax.swing.JFrame {
     	}
     	this.dispose();
     	System.gc();
+    }
+    
+    private void jmiOpenImageActionPerformed(ActionEvent evt) {
+    	cargarMapa();
+    }
+    
+    private void jbtnClearActionPerformed(ActionEvent evt) {
+    	// Se envia el evento al resto de clientes
+    	try {
+			controlador.enviarTrazosClean();
+		} catch (ConnectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvalidClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchChannelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchSessionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PermissionDeniedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimedOutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	this.canvasPaint.clear();
+    	ponerMensajeLog(controlador.getNombreCliente(), new InfoTrazo());
+
     }
 
 }
