@@ -7,11 +7,11 @@ if (isset($_GET['op'])) {
 		if (isset($_GET['pregunta']) && isset($_GET['respuesta']) && isset($_GET['categoria'])) {
 			$id = conectar_bd();
 			$categoria = $_GET['categoria'];
-			$sql = "SELECT id FROM categoria_faq WHERE categoria='$categoria'";
+			$sql = "SELECT id FROM H10_12_categoria_faq WHERE categoria='$categoria'";
 			$res = ejecutar_consulta ($sql, $id);
 			$fila = mysql_fetch_array ($res);
 			$idCategoria = $fila["id"];
-			$sql = "INSERT INTO faq (pregunta, respuesta, idCategoria) VALUES ('".$_GET['pregunta']."','".$_GET['respuesta']."',".$idCategoria.")";
+			$sql = "INSERT INTO H10_12_faq (pregunta, respuesta, idCategoria) VALUES ('".$_GET['pregunta']."','".$_GET['respuesta']."',".$idCategoria.")";
 			$res = ejecutar_consulta ($sql, $id);
 			if ($res) {
 				echo "&estado=ok";
@@ -34,7 +34,7 @@ if (isset($_GET['op'])) {
 			$pregunta = $_GET['pregunta'];
 			if ($pregunta!="") {
 				// Dada una pregunta -> devolver respuesta y categoria
-				$sql = "SELECT respuesta,categoria FROM faq f, categoria_faq c WHERE f.idCategoria=c.id AND f.pregunta='$pregunta'";
+				$sql = "SELECT respuesta,categoria FROM H10_12_faq f, H10_12_categoria_faq c WHERE f.idCategoria=c.id AND f.pregunta='$pregunta'";
 				$res = ejecutar_consulta ($sql, $id);
 				$fila = mysql_fetch_array ($res);
 				$respuesta = $fila["respuesta"];
@@ -47,7 +47,7 @@ if (isset($_GET['op'])) {
 			$categoria = $_GET['categoria'];
 			if ($categoria!="") {
 				// Dada una categoria -> devolver todas sus preguntas y respuestas
-				$sql = "SELECT pregunta,respuesta FROM faq f, categoria_faq c WHERE f.idCategoria=c.id AND c.categoria='$categoria' ORDER BY categoria";
+				$sql = "SELECT pregunta,respuesta FROM H10_12_faq f, H10_12_categoria_faq c WHERE f.idCategoria=c.id AND c.categoria='$categoria' ORDER BY categoria";
 				$res = ejecutar_consulta ($sql, $id);
 				$contador = 0;
 				while ($fila = mysql_fetch_array ($res)) {
@@ -62,7 +62,7 @@ if (isset($_GET['op'])) {
 		}
 		else {
 			// Si no se indica nada -> devolver todos los títulos
-			$sql = "SELECT pregunta FROM faq";
+			$sql = "SELECT pregunta FROM H10_12_faq";
 			$res = ejecutar_consulta ($sql, $id);
 			$contador = 0;
 			while ($fila = mysql_fetch_array ($res)) {
@@ -82,7 +82,7 @@ if (isset($_GET['op'])) {
 			$categoria= $_GET['categoria'];
 			$respuesta = $_GET['respuesta'];
 			if ($pregunta!="") {
-				$sql = "UPDATE faq SET idCategoria=(SELECT id FROM categoria_faq WHERE categoria='$categoria'), respuesta='$respuesta' WHERE pregunta='$pregunta'";
+				$sql = "UPDATE H10_12_faq SET idCategoria=(SELECT id FROM H10_12_categoria_faq WHERE categoria='$categoria'), respuesta='$respuesta' WHERE pregunta='$pregunta'";
 				$res = ejecutar_consulta ($sql, $id);
 				if ($res) {
 					echo "&estado=ok";
@@ -105,7 +105,7 @@ if (isset($_GET['op'])) {
 		if (isset($_GET['pregunta'])) {
 			$pregunta = $_GET['pregunta'];
 			if ($pregunta!="") {
-				$sql = "DELETE FROM faq WHERE pregunta='$pregunta'";
+				$sql = "DELETE FROM H10_12_faq WHERE pregunta='$pregunta'";
 				$res = ejecutar_consulta ($sql, $id);
 				if ($res) {
 					echo "&estado=ok";
