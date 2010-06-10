@@ -144,4 +144,12 @@ public class GestorTrazos implements InterfaceArrastrarRaton, InterfacePincharRa
 		
 	}
 
+	public LinkedList<Trazo> getTrazos() {
+		return trazos;
+	}
+
+	public void setTrazos(LinkedList<Trazo> trazos) {
+		this.trazos = trazos;
+	}
+
 }
