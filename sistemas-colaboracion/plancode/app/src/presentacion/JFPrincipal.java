@@ -165,9 +165,9 @@ public class JFPrincipal extends javax.swing.JFrame {
 		
 		c.getConsumidorMapa().addMensajeMapaListener(new MensajeMapaListener() {
 			public void MensajeMapa(MensajeMapaEvent evt) {
-				setMapaRecibido(evt.getMapa());
-
-				
+				setMapaRecibido(evt.getMapa());	
+		    	// Se actualiza el log
+		    	taLog.append(evt.getNombreCliente() + " ha cargado una imagen\n");
 			}
 
 		});
@@ -201,6 +201,8 @@ public class JFPrincipal extends javax.swing.JFrame {
     	panelPaint.add(jPanelFondo);
 		jPanelFondo.repaint();
     	panelPaint.revalidate();
+    	// Se actualiza el log
+    	taLog.append(controlador.getNombreCliente() + " ha cargado una imagen\n");
 	}
 	
 	private void ponerMensajeChat(MensajeChatRecibidoEvent evt) {
@@ -227,9 +229,10 @@ public class JFPrincipal extends javax.swing.JFrame {
 	
 	private void initGUI() {
 		try {
-			setLocationRelativeTo(null);
 			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 			this.setMinimumSize(new java.awt.Dimension(875, 608));
+			this.setResizable(false);
+			setLocationRelativeTo(null);
 			GridLayout thisLayout = new GridLayout(1, 1);
 			thisLayout.setHgap(5);
 			thisLayout.setVgap(5);
@@ -441,6 +444,11 @@ public class JFPrincipal extends javax.swing.JFrame {
 						jmiAcercaDe = new JMenuItem();
 						jMenu2.add(jmiAcercaDe);
 						jmiAcercaDe.setText("Acerca de...");
+						jmiAcercaDe.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent evt) {
+								jmiAcercaDeActionPerformed(evt);
+							}
+						});
 					}
 				}
 			}
@@ -536,28 +544,21 @@ public class JFPrincipal extends javax.swing.JFrame {
 		   	try {
 	    		controlador.getCanalGestionListaUsuarios().sendToAll(controlador.getCliente(), new Data(controlador.getListaUsuarios()));
 	    		actualizarListaUsuarios(controlador.getListaUsuarios());
-			} catch (ConnectionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvalidClientException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchChannelException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchClientException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchSessionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (PermissionDeniedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (TimedOutException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		    } catch (ConnectionException ex) {
+    			Dialogos.mostrarDialogoError(this, "Error", "No se puede establecer una conexión");
+    		} catch (InvalidClientException ex) {
+    			Dialogos.mostrarDialogoError(this, "Error", "Cliente de destino inválido");
+    		} catch (NoSuchChannelException ex) {
+    			Dialogos.mostrarDialogoError(this, "Error", "No existe el canal");
+    		} catch (NoSuchClientException ex) {
+    			Dialogos.mostrarDialogoError(this, "Error", "No se encuentra el cliente de destino");
+    		} catch (NoSuchSessionException ex) {
+    			Dialogos.mostrarDialogoError(this, "Error", "No se encuentra la sesión");
+    		} catch (PermissionDeniedException ex) {
+    			Dialogos.mostrarDialogoError(this, "Error", "Permiso denegado");
+    		} catch (TimedOutException ex) {
+    			Dialogos.mostrarDialogoError(this, "Error", "Tiempo de espera agotado");
+    		}
 		}
 	}
 	
@@ -624,46 +625,33 @@ public class JFPrincipal extends javax.swing.JFrame {
 				controlador.forzarCierre();
 			} catch (NoRegistryException e) {
 				Dialogos.mostrarDialogoError(this, "Error", e.getMessage());
-			} catch (ConnectionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvalidClientException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvalidURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchClientException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchSessionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NotBoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (PermissionDeniedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (TimedOutException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchChannelException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchConsumerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchByteArrayException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchTokenException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			 } catch (ConnectionException ex) {
+	    			Dialogos.mostrarDialogoError(this, "Error", "No se puede establecer una conexión");
+	    		} catch (InvalidClientException ex) {
+	    			Dialogos.mostrarDialogoError(this, "Error", "Cliente de destino inválido");
+	    		} catch (NoSuchChannelException ex) {
+	    			Dialogos.mostrarDialogoError(this, "Error", "No existe el canal");
+	    		} catch (NoSuchClientException ex) {
+	    			Dialogos.mostrarDialogoError(this, "Error", "No se encuentra el cliente de destino");
+	    		} catch (NoSuchSessionException ex) {
+	    			Dialogos.mostrarDialogoError(this, "Error", "No se encuentra la sesión");
+	    		} catch (PermissionDeniedException ex) {
+	    			Dialogos.mostrarDialogoError(this, "Error", "Permiso denegado");
+	    		} catch (TimedOutException ex) {
+	    			Dialogos.mostrarDialogoError(this, "Error", "Tiempo de espera agotado");
+	    		} catch (InvalidURLException e) {
+	    			Dialogos.mostrarDialogoError(this, "Error", "URL de destino inválida");
+	    		} catch (NoSuchHostException e) {
+	    			Dialogos.mostrarDialogoError(this, "Error", "No existe el host de destino");
+				} catch (NotBoundException e) {
+					Dialogos.mostrarDialogoError(this, "Error", e.getLocalizedMessage());
+				} catch (NoSuchConsumerException e) {
+					Dialogos.mostrarDialogoError(this, "Error", "No existe el consumidor");
+				} catch (NoSuchByteArrayException e) {
+					Dialogos.mostrarDialogoError(this, "Error", e.getLocalizedMessage());
+				} catch (NoSuchTokenException e) {
+					Dialogos.mostrarDialogoError(this, "Error", e.getLocalizedMessage());
+				}
     	}
     	this.dispose();
     	System.gc();
@@ -677,28 +665,21 @@ public class JFPrincipal extends javax.swing.JFrame {
     	// Se envia el evento al resto de clientes
     	try {
 			controlador.enviarTrazosClean();
-		} catch (ConnectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchChannelException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchClientException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchSessionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (PermissionDeniedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TimedOutException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	 } catch (ConnectionException ex) {
+ 			Dialogos.mostrarDialogoError(this, "Error", "No se puede establecer una conexión");
+ 		} catch (InvalidClientException ex) {
+ 			Dialogos.mostrarDialogoError(this, "Error", "Cliente de destino inválido");
+ 		} catch (NoSuchChannelException ex) {
+ 			Dialogos.mostrarDialogoError(this, "Error", "No existe el canal");
+ 		} catch (NoSuchClientException ex) {
+ 			Dialogos.mostrarDialogoError(this, "Error", "No se encuentra el cliente de destino");
+ 		} catch (NoSuchSessionException ex) {
+ 			Dialogos.mostrarDialogoError(this, "Error", "No se encuentra la sesión");
+ 		} catch (PermissionDeniedException ex) {
+ 			Dialogos.mostrarDialogoError(this, "Error", "Permiso denegado");
+ 		} catch (TimedOutException ex) {
+ 			Dialogos.mostrarDialogoError(this, "Error", "Tiempo de espera agotado");
+ 		}
     	this.canvasPaint.clear();
     	ponerMensajeLog(controlador.getNombreCliente(), new InfoTrazo());
 
@@ -710,6 +691,13 @@ public class JFPrincipal extends javax.swing.JFrame {
 
 	public ImageIcon getMapa() {
 		return mapa;
+	}
+	
+	private void jmiAcercaDeActionPerformed(ActionEvent evt) {
+		JDAcercaDe acercaDe = new JDAcercaDe();
+		acercaDe.setLocation(this.getLocation());
+		acercaDe.setModal(true);
+		acercaDe.show();
 	}
 
 }

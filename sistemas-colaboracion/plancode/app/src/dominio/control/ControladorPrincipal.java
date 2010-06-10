@@ -168,7 +168,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 					}
 					// Se espera un pequeño tiempo para que reciba el mapa y sobre él se carguen los trazos (si los hay)
 					try {
-						Thread.sleep(500);
+						Thread.sleep(600);
 					} catch (InterruptedException e) {
 					}
 					// Envía los trazos ya dibujados al nuevo cliente
