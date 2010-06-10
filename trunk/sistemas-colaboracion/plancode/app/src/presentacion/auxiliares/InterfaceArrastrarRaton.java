@@ -30,13 +30,7 @@ public interface InterfaceArrastrarRaton
 
     /**
      * Se llama a este método cuando se termina de arrastrar el ratón.
-     * @throws TimedOutException 
-     * @throws PermissionDeniedException 
-     * @throws NoSuchSessionException 
-     * @throws NoSuchClientException 
-     * @throws NoSuchChannelException 
-     * @throws InvalidClientException 
-     * @throws ConnectionException 
+ 
      */
     public void finalizaArrastra(int x, int y) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException;
 }

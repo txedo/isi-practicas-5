@@ -1,1 +1,64 @@
 \section{Manual de usuario} \label{manual}
+
+\subsection{Requisitos del sistema}
+
+El sistema PlanCode se ha desarrollado bajo el lenguaje de programación Java para hacer posible su portabilidad entre distintos sistemas, siempre y cuando éstos tengan instalada una máquina virtual de Java. De este modo, las aplicaciones son compatibles tanto en entornos basados en Windows 98/NT/XP/Vista/Seven como en entornos GNU/Linux.
+
+\subsubsection{Entorno de Java}
+Para comprobar si ya dispone de una instalación del entorno de ejecucicón de Java en el equipo y que está configurado correctamente, abra una ventana de comandos \textit{(Inicio -\textgreater Ejecutar -\textgreater cmd)} y escriba ''java -version''. Debe obtener un resultado similar al de la Figura \ref{fig:java-version}.
+
+\imagen{./imagenes/usermanual/java-version.png}{0.80}{Cómo averiguar la versión de Java}{fig:java-version}
+
+Si aparece un mensaje de error, pruebe lo siguiente: 
+\begin{milista}
+	\item Compruebe si tiene instalado Java. Para ello compruebe que exista el directorio Java en \textit{C:\textbackslash Archivos de programa} (típicamente). Si lo está, configúrelo como se indica más abajo.
+	\item Si no existe, vaya a la siguiente dirección de Internet y descargue la última versión del  Java SE Development Kit (JDK) \cite{download-jdk}
+\end{milista}
+
+Una vez descargado, ejecute el archivo, elija el directorio de instalación y siga los pasos para completar la instalación. Tras instalarlo, debe configurarlo. Para ello vaya a \textit{Inicio} y haga clic derecho en \textit{Mi PC}. En las opciones, elija la pestaña de \textit{Opciones Avanzadas} y haga clic en \textit{Variables de entorno}. En la nueva ventana que aparece, busque la variable \textit{Path} y añada al final \texttt{;C:\textbackslash Archivos de programa\textbackslash Java\textbackslash jdk1.x.x\_xx\textbackslash bin}, donde ''x'' hace referencia a la versión que tiene instalada de Java.
+
+Ese es el directorio de instalación por defecto de Java. Si en la instalación eligió otro diferente, debe introducir el que eligió al instalarlo.
+
+Tras esto, pruebe de nuevo a ejecutar ''java -versión'' en una ventana de comandos.
+
+\subsection{Guía de uso}
+
+Al ejecutar el fichero JAR correspondiente a la aplicación, obtenemos una ventana como la que se muestra en la Figura \ref{fig:login}. Si la describimos de arriba abajo, se aprecian los siguientes elementos:
+
+\begin{milista}
+	\item Una caja de texto para introducir el nombre de usuario del cliente.
+	\item Unos botones para elegir el rol del usuario en la aplicación.
+	\item Un botón para elegir si se desea iniciar una nueva sesión o unirse a una sesión ya iniciada. En este último caso, se debe introducir la dirección IP del cliente que inició la sesión por primera vez, además del puerto de escucha.
+\end{milista}
+
+\imagen{./imagenes/usermanual/login.png}{0.80}{Ventana de inicio de sesión de PlanCode}{fig:login}
+
+Al iniciar sesión correctamente, se abrirá la ventana principal de PlanCode, mostradad en la Figura \ref{fig:principal}. Como se puede observar, en la lista de usuarios situada en la derecha, aparecen los usuarios conectados actualmente a una sesión. A continuación, se muestran las distintas funcionalidades que ofrece esta herramienta:
+
+\imagen{./imagenes/usermanual/principal.png}{0.5}{Ventana principal de PlanCode}{fig:principal}
+
+\begin{milista}
+	\item \textbf{Chat}: situado en la parte inferior de la ventana, en la primera ventana. Aquí se mostrarán los mensajes que los usuarios envíen, como se muestra en la Figura \ref{fig:chat}. 
+	
+	\imagen{./imagenes/usermanual/chat.png}{0.4}{Ventana principal de PlanCode al enviar un mensaje al chat}{fig:chat}
+	
+	\item \textbf{Cargar imagen}: se puede cargar una imagen en el botón situado en la parte superior o en la opción correspondiente del menú ''Archivo''. Cuando un usuario cargue una imagen, automáticamente se enviará dicha imagen al resto de usuarios conectados y a los futuros clientes que se conecten, para mantener sincronizada el área de trabajo, como se muestra en la Figura \ref{fig:mapa}. Además, como se observa en dicha figura, se actualiza el log de acciones en consecuencia.
+		
+	\imagen{./imagenes/usermanual/mapa.png}{0.4}{Ventana principal de PlanCode al cargar una imagen}{fig:mapa}
+	
+	\item \textbf{Dibujar trazo}: un cliente puede dibujar trazos libremente sobre la imagen cargada (aunque se puede dibujar también sin tener una imagen cargada) seleccionando el botón con el icono del lápiz, mostrándose dichos trazos en todos los clientes conectados. Además, los futuros clientes que se conecten también recibirán esos trazos para mantener el sincronismo de la vista compartida. En la Figura \ref{fig:trazos.png} se muestra un ejemplo de como cada cliente puede dibujar trazos, con su color correspondiente. 
+	
+	\imagen{./imagenes/usermanual/trazos.png}{0.35}{Ventana principal de PlanCode al dibujar trazos}{fig:trazos}
+	
+	\item \textbf{Eliminar trazos}: se puede eliminar un trazo, seleccionando el botón con el icono de la goma de borrar y pinchando en el trazo que se desea borrar. El resto de clientes se actualizarán en consecuencia, como muestra la Figura \ref{fig:borrar}.
+	
+	\imagen{./imagenes/usermanual/borrar.png}{0.35}{Ventana principal de PlanCode al borrar trazos}{fig:borrar}
+	
+	\item \textbf{Limpiar trazos}: se pueden limpiar todos los trazos dibujados al pulsar sobre el botón correspondiente, o al cargar una imagen.
+	
+	\item \textbf{Cerrar sesión}: para salir del sistema, basta con darle a la opción correspondiente del menú ''Archivo'' o cerrar la ventana. Cuando un usuario se desconecta, se notifica en el log y se refresca la lista de usuarios conectados, como se muestra en la Figura \ref{fig:salir}
+	
+	\imagen{./imagenes/usermanual/salir.png}{0.5}{Ventana principal de PlanCode cuando se desconecta un usuario}{fig:salir}
+	
+\end{milista}
+
