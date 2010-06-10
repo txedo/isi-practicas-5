@@ -168,6 +168,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 				setMapaRecibido(evt.getMapa());	
 		    	// Se actualiza el log
 		    	taLog.append(evt.getNombreCliente() + " ha cargado una imagen\n");
+		    	taLog.setCaretPosition(taLog.getDocument().getLength());
 			}
 
 		});
@@ -203,6 +204,7 @@ public class JFPrincipal extends javax.swing.JFrame {
     	panelPaint.revalidate();
     	// Se actualiza el log
     	taLog.append(controlador.getNombreCliente() + " ha cargado una imagen\n");
+    	taLog.setCaretPosition(taLog.getDocument().getLength());
 	}
 	
 	private void ponerMensajeChat(MensajeChatRecibidoEvent evt) {
@@ -213,17 +215,21 @@ public class JFPrincipal extends javax.swing.JFrame {
 	public void ponerMensajeLog(String nombreCliente, InfoTrazo info) {
 		if (info.isClear()) {
 			taLog.append(nombreCliente + " ha limpiado todos los trazos\n");
+			taLog.setCaretPosition(taLog.getDocument().getLength());
 		}
 		if (info.isDibujando()) {
 			if (!info.isTerminado()) {
 				taLog.append(nombreCliente + " está dibujando un trazo\n");
+				taLog.setCaretPosition(taLog.getDocument().getLength());
 			}
 			else {
 				taLog.append(nombreCliente + " ha terminado de dibujar un trazo\n");
+				taLog.setCaretPosition(taLog.getDocument().getLength());
 			}
 		}
 		else {
 			taLog.append(nombreCliente + " ha eliminado un trazo\n");
+			taLog.setCaretPosition(taLog.getDocument().getLength());
 		}
 	}
 	
@@ -336,6 +342,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 						jbtnClear = new JButton();
 						jToolBar.add(jbtnClear);
 						jbtnClear.setText("Limpiar trazos");
+						jbtnClear.setPreferredSize(new java.awt.Dimension(80, 29));
 						jbtnClear.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent evt) {
 								jbtnClearActionPerformed(evt);
