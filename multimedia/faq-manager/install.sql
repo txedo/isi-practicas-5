@@ -12,7 +12,7 @@ CREATE TABLE H10_12_categoria_faq (
 CREATE TABLE H10_12_faq (
     id INT NOT NULL AUTO_INCREMENT,
     pregunta VARCHAR(255) UNIQUE NOT NULL default '', 
-    respuesta VARCHAR(255) NOT NULL default '',
+    respuesta VARCHAR(4096) NOT NULL default '',
     idCategoria INT,
     PRIMARY KEY (id),
     FOREIGN KEY (idCategoria) REFERENCES H10_12_categoria_faq (id) ON DELETE SET NULL ON UPDATE CASCADE

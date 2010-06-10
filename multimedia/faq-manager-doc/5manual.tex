@@ -1,4 +1,44 @@
 \section{Manual de usuario}
 
+Es importante destacar que la aplicación se ha desarrollado desde la perspectiva del administrador, ya que no se ha implementado ningún módulo de \textit{autenticación} para gestionar una política de acceso en la que los visitantes no \textit{autenticados} no puedan modificar el estado de la aplicación.
+
+\subsection{Entrada en la aplicación y descripción general}
+
+Para entrar en la aplicación es necesario visitar la dirección \cite{faq-manager} desde un navegador Web. Inicialmente, las tablas de la base de datos que utiliza la aplicación están vacías, por lo que no contienen información para mostrar (ver Figura \ref{fig:inicio-vacio}) y deberá ser configurada por el administrador del sistema.
+
 \imagen{./imagenes/1inicio.png}{0.65}{Pantalla inicial vacía}{fig:inicio-vacio}
+
+En la esquina superior izquierda de la pantalla principal (ver Figura \ref{fig:inicio-vacio}) se observa un botón denominado \textit{Configuración}. Este botón nos dirigirá a una nueva pantalla correspondiente al \textit{Panel de Control} (ver Figura \ref{fig:panel}) desde el que se podrá añadir nuevas categorías, añadir nuevas preguntas (con sus respuestas), y modificar y eliminar preguntas ya existentes en la base de datos.
+
 \imagen{./imagenes/2panelcontrol.png}{0.65}{Panel de control}{fig:panel}
+
+
+\subsection{Añadir nuevas categorías y FAQ}
+
+Para añadir una nueva categoría es necesario situarse en el \textit{Panel de Control} y escribir el nombre de la categoría que se desea crear en la caja de texto reservada para este propósito. A continuación se pulsa el botón \texttt{Añadir} y aparecerá un mensaje verde, indicando si la categoría se ha creado correctamente, o rojo, si se ha producido algún error.
+
+Inmediatamente después de crear una nueva categoría (ver Figura \ref{fig:catadd}), ya es susceptible de añadir \textit{preguntas frecuentes} bajo la misma, ya que las cajas de selección de las operaciones \textit{Añadir FAQ} y \textit{Modificar o eliminar FAQ} se refrescan automáticamente, no siendo necesario refrescar la página.
+
+\imagen{./imagenes/3catadd.png}{0.65}{Categoría añadida y página refrescada automáticamente}{fig:catadd}
+
+Del mismo modo, se pueden crear nuevas \textit{preguntas frecuentes} utilizando la región dedicada para este propósito (la segunda región). Los tres campos propuestos (pregunta, categoría y respuesta) son obligatorios, por lo que no se podrá crear ninguna pregunta hasta que haya sido dada de alta, al menos, una categoría. Se desea destacar la posibilidad de escribir texto \textbf{HTML}, ofreciendo así un mayor poder expresivo al permitir más flexibilidad a la hora de dar formato al texto (uso de negrita, cursiva y subrayado), inclusión de enlaces e inclusión de imágenes (ver Figura \ref{fig:faqaddimg}) y listas no numeradas.
+
+\imagen{./imagenes/4faqaddimg.png}{0.65}{Añadir una pregunta con código HTML}{fig:faqaddimg}
+
+
+\subsection{Modificar o eliminar FAQ}
+
+Para modificar o eliminar una FAQ, primero deberá seleccionar la pregunta deseada en la lista desplegable destinada para dicho propósito (la tercera región). Una vez que seleccione una pregunta, el cuadro se refrescará automáticamente recuperando del servidor la categoría y la respuesta actual.
+
+Observe que aparecen dos botones: \texttt{eliminar} y \texttt{modificar}. En este momento el usuario puede \textbf{eliminar} la pregunta (y su respuesta) de la base de datos o puede \textbf{modificar} la información de dicha pregunta seleccionando otra categoría distinta (para cambiar la categoría bajo la que se alojará la pregunta) y/o modificando el contenido de la respuesta para rectificar algún error y/o añadir o eliminar información. Una vez más, se permite la escritura utilizando código HTML para enriquecer el formato del texto.
+
+
+\subsection{Consulta de FAQ}
+
+El proceso de consulta y lectura de FAQ es muy sencillo. El usuario deberá situarse en la página principal del sistema. En ella se observan dos paneles (ver Figura \ref{fig:fin}):
+\begin{milista}
+	\item En el panel de la \textbf{izquierda} aparecerán las distintas categorías que han sido dadas de alta en el sistema.
+	\item En el panel de la \textbf{derecha}, inicialmente vacío, irán apareciendo preguntas y respuestas conforme vayamos seleccionando las distintas categorías del panel izquierdo.
+\end{milista}
+
+\imagen{./imagenes/5inicio.png}{0.65}{Sistema configurado y en uso}{fig:fin}
