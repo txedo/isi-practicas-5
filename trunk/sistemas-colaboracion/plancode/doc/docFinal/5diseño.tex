@@ -1,0 +1,110 @@
+\section{Decisiones de diseño} \label{diseño}
+
+En las siguientes subsecciones se van a detallar las decisiones de diseño que se han tenido en cuenta a la hora de desarrollar e implementar este sistema.
+
+\subsection{Lenguaje de programación}
+
+Para implementar el sistema, se ha decidido utilizar el lenguaje de programación \textbf{Java} (\cite{java}). Además, para realizar la comunicación entre los diferentes clientes de la aplicación, se ha utilizado el \textit{toolkit} de comunicaciones y de intercambio de datos \textbf{JSDT} (\textit{Java Shared Data Toolkit} \cite{jsdt}).
+
+Por otra parte, para la realización de la interfaz gráfica, se ha utilizado el paquete \textbf{Swing} (\cite{swing}) que proporciona Java, junto con el plug-in \textbf{Jigloo} (\cite{jigloo}) para el IDE \textbf{Eclipse} (\cite{eclipse}).
+
+\subsection{Diseño multicapa} \label{multicapa}
+
+El sistema \textit{groupware} ha sido desarrollado siguiendo un diseño multicapa, para separar aspectos de la lógica de negocio de aspectos de presentación y de comunicaciones. De este modo, el sistema es extensible y reutilizable, pudiéndose portar en un futuro a una aplicación móvil, ya que sólo habría que modificar la capa de presentación y la de comunicaciones, de acuerdo al API de comunicaciones que se desee utilizar en este tipo de dispositivos.
+
+Así, la aplicación cuenta con las capas de dominio, presentación y comunicaciones. A continuación se enumera el propósito de cada uno de esas capas (o paquetes).
+
+\begin{milista}
+
+	\item \textbf{Dominio}: en esta capa se incluyen todas las clases necesarias para modelar el conocimiento y para controlar la lógica del sistema PlanCode. Así, en el paquete \textit{dominio.conocimiento} se incluyen clases que modelan información necesaria en el sistema, tales como la información de un trazo y la información acerca de un usuario de la aplicación (su nombre de usuario, su rol, etc.). En el paquete \textit{dominio.control} se incluyen clases de control de la propia aplicación, como la clase que controla los colores asignados a los usuarios o el controlador de la aplicación, que inicializa la sesión, los canales, los consumidores, etc.
+	El contenido de esta capa se muestra en la Figura \ref{fig:dominio} y se puede observar con más detalle en el diagrama de clases de Visual Paradigm (\cite{vp}) llamado \textbf{\textit{dominio}}.
+	
+	 \imagen{./imagenes/dominio.png}{0.3}{Diagrama de clases de la capa de dominio}{fig:dominio}
+	
+	\item \textbf{Comunicaciones}: en esta capa se incluyen las clases necesarias para poder comunicar y enviar datos entre los diferentes usuarios de PlanCode utilizando el \textit{toolkit} JSDT. Así, en el paquete \textit{comunicaciones} se incluyen las clases que modelan los consumidores de cada uno de los canales con los que cuenta la aplicación (ver apartado \ref{canales}), además de los datos de una sesión (IP y puerto de comunicación). En el paquete \textit{comunicaciones.EventosCanales} se encuentran todas las clases que sirven para modelar los eventos que se producen cuando se envía información a través de un canal de JSDT. Dichos eventos recogen la información enviada (mensaje de chat, trazo dibujado, etc.). 
+	Además, cada evento tiene su propio manejador (\textit{listener}) para que el consumidor del canal donde se produce dicho evento pueda atenderlo y procesarlo de manera correcta. 
+		El contenido de esta capa se muestra en la Figura \ref{fig:comunicaciones} y se puede observar con más detalle en el diagrama de clases de Visual Paradigm llamado \textbf{\textit{comunicaciones}}.
+		
+		\imagen{./imagenes/comunicaciones.png}{0.2}{Diagrama de clases de la capa de comunicaciones}{fig:comunicaciones}
+	
+	\item \textbf{Presentación}: todas las clases relacionadas con la interfaz gráfica de usuario se encuentran en este paquete. De este modo, se incluye en esta capa las clases necesarias para mostrar la ventana de login de la aplicación, la ventana principal y el componente \textit{canvas} que permite dibujar trazos. Además, en el paquete \textit{presentación.auxiliares} se incluyen clases necesarias para la visualización de información en la interfaz gráfica, tales como diálogos de error, interfaces para capturar los eventos de ratón al dibujar, clases para cargar una imagen en un panel, etc.
+	El contenido de esta capa se muestra en la Figura \ref{fig:presentacion} y se puede observar con más detalle en el diagrama de clases de Visual Paradigm llamado \textbf{\textit{presentacion}}.
+	
+\begin{figure}[!ht]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.2, angle=90]{./imagenes/presentacion.png}
+	\caption{Diagrama de clases de la capa de presentación}
+	\label{fig:presentacion}
+\end{figure} 
+
+\end{milista}
+
+En la Figura \ref{fig:plancode} se muestra el diseño de clases del sistema PlanCode completo, donde se muestra todas las clases de las capas y las relaciones entre ellas. Debido a su extensión, se recomienda consultar el diagrama de clases de Visual Paradigm llamado \textbf{\textit{DiagramaPlanCode}}.
+
+\begin{figure}[!ht]
+	\centering
+		\includegraphics[keepaspectratio, scale=0.08, angle=90]{./imagenes/DiagramaPlanCode.png}
+	\caption{Diagrama de clases del sistema PlanCode}
+	\label{fig:plancode}
+\end{figure} 
+
+\clearpage
+\subsection{Desarrollo del sistema}
+
+\subsubsection{Arquitectura de PlanCode}
+
+PlanCode, como se mencionó en la sección \ref{requisitos}, sigue una arquitectura cliente-cliente, donde el primer cliente que va a utilizar el sistema se convierte en servidor, asegurando la disponibilidad de la sesión para que otros clientes puedan conectarse. 
+
+De este modo, este cliente especial tiene la responsabilidad de crear la sesión y de controlar ciertos aspectos cuando otros clientes se conectan a su sesión (es decir, a su dirección IP). Dichos aspectos son: 
+
+\begin{milista}
+	\item Inicializar la lista de colores disponibles.
+	\item Recibir el rol cuando otro cliente se conecta, asignándole un color y estableciendo el avatar correspondiente.
+	\item Añadir a la lista de usuarios conectados el cliente que se conecta a la aplicación, con su avatar y su color, enviando esa información a los clientes ya conectados para que refresquen su lista de usuarios.
+	\item Enviar al cliente que acaba de iniciar sesión el mapa que hubiese ya cargado y los trazos que hubiese ya dibujados, para sincronizar la vista de ese cliente con el resto.
+\end{milista}
+
+\subsubsection{Canales implementados} \label{canales}
+
+Como ya se comentó anteriormente, se ha utilizado el \textit{toolkit} JSDT para la comunicación y envío de información entre clientes. Los canales que se han utilizado para el paso de información han sido:
+
+\begin{milista}
+	\item \textbf{canalChat}: utilizado para enviar a los clientes los mensajes que se escriben en el chat.
+	\item \textbf{canalDibujo}: utilizado para enviar a los clientes los trazos que se dibujan o se borran del área de trabajo compartida.
+	\item \textbf{canalMapa}: utilizado para enviar a los clientes la imagen que se ha cargado.
+	\item \textbf{canalGestiónRol}: utilizado para enviar al cliente que actúa como ''servidor'' el rol del cliente que acaba de iniciar sesión, para que el servidor pueda, en función de ese rol, cargar la imagen del avatar correspondiente y asignarle un color.
+	\item \textbf{canalGestiónListaUsuarios}: utilizado para enviar a los clientes la lista de usuarios conectados actualizada tras el inicio de sesión de un nuevo cliente. La lista de usuarios contiene el avatar del cliente (según su rol), el nombre de usuario con el que inicia sesión y su color asignado. 
+\end{milista}
+
+
+\subsubsection{Prototipo de la interfaz gráfica de usuario}
+
+La interfaz gráfica de PlanCode ha sido desarrollada siguiendo el prototipo mostrado en la Figura \ref{fig:prototipo}.
+
+\imagen{./imagenes/prototipo}{0.3}{Proptotipo de la interfaz gráfica de PlanCoDE}{fig:prototipo}
+
+Los elementos que componen dicha interfaz son:
+
+\begin{enumerate}
+	\item \textbf{Barra de herramientas}: en este elemento se mostrarán los diferentes menús de la aplicación.
+	\item \textbf{Caja de herramientas}: aquí se mostrarán las herramientas necesarias para poder dibujar y eliminar trazos sobre las imágenes de los mapas.
+	\item \textbf{Lista de usuarios}: en este elemento se muestran los usuarios que están utilizando la aplicación. 
+	\item \textbf{Terminal}: en la primera pestaña de este elemento se muestran los mensajes que se envián al chat, y en la segunda, se muestra todo el \textit{log} de acciones que realizan los usuarios.
+	\item \textbf{Área de trabajo}: aquí se muestra la imagen del mapa seleccionado y se establece el \textit{canvas} para poder dibujar y eliminar trazos.
+	\item \textbf{Barra de estado}: este elemento indica el usuario que ha iniciado sesión y con que rol.
+\end{enumerate}
+
+Como se puede apreciar en la Figura \ref{fig:prototipo}, la interfaz de usuario se ha diseñado siguiendo los principios de WYSIWIS relajado que se comentaron en la sección \ref{requisitosFuncionales}.
+
+\subsubsection{Gestión de trazos}
+
+La principal funcionalidad de PlanCode es el diseño de rutas sobre mapas para situaciones de emergencia. Es por tanto que la gestión de los trazos que los usuarios pueden dibujar sobre los mapas es la parte más importante en el diseño de este sistema \textit{groupware}.
+
+Para poder dibujar trazos sobre una imagen (en este caso, una imagen de un mapa), no se puede utilizar el componente \textit{Canvas} que proporciona Java, ya que dicho componente no es transparente. Por ello, se decidió implementar un \textit{canvas} personalizado a partir de un \textit{JPanel}. De este modo, la imagen del mapa seleccionado se carga sobre un \textit{JPanel} al que se le añade dicha imagen como fondo, y sobre este panel se coloca el \textit{canvas}.
+
+En lo que concierne a la visualización de los trazos, éstos se visualizan en tiempo real según el usuario los va dibujando. Así, cada vez que el usuario arrastra el ratón para dibujar un trazo, se toman las coordenadas por la que se está moviendo el ratón y se van añadiendo esos puntos al trazo y visualizándolos en el área de trabajo. Además, toda esa información del trazo se envía al resto de clientes, que también visualizan los trazos que otro cliente está realizando en tiempo real. De este modo, un trazo se representa como una lista enlazada de puntos 2D. \\
+\indent De forma análoga, cuando un usuario desea borrar un trazo, se captura la posición donde ha pinchado y se borra el trazo de esa posición (o de una muy próxima) y se refresca el área de trabajo compartida, borrando también ese trazo en el resto de clientes. 
+
+Para poder eliminar un trazo, ha sido necesario implementar un pequeño algoritmo de distancia para comprobar la distancia que hay entre la posición donde el usuario pincha con el ratón y el trazo más cercano. Esto es así porque no se tiene la suficiente precisión para poder hacer clic con el ratón justo encima de un punto del trazo que se desea eliminar, por lo que hay que obtener con este algoritmo de distancias el trazo más cercano al punto donde el usuario ha pinchado.
+
+Para terminar, cabe destacar que los eventos del ratón que se utilizan para dibujar o eliminar trazos están encapsulados dentro de manejadores y que las acciones que se pueden hacer en el área de trabajo (dibujar y eliminar trazos) se definen como interfaces (ver subsección \ref{multicapa}). De este modo, se podría extender el sistema con nuevas funcionalidades en el área de trabajo sólo modificando los manejadores y extendiendo las interfaces de las acciones permitidas. 

@@ -308,6 +308,5 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	public void forzarCierre() throws NoRegistryException, ConnectionException, InvalidClientException, InvalidURLException, NoSuchClientException, NoSuchHostException, NoSuchSessionException, NotBoundException, PermissionDeniedException, TimedOutException, NoSuchChannelException, NoSuchConsumerException, NoSuchByteArrayException, NoSuchTokenException {
 		quitarConsumidoresYCanales();
 		SessionFactory.destroySession(cliente, url);
-		//RegistryFactory.stopRegistry(TIPO_SESION);
 	}
 }
