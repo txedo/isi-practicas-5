@@ -157,19 +157,17 @@ public class CanvasPaint extends JPanel
 		
 		// Se limpia el canvas si se recibe el mensaje correspondiente
 		if (info.isClear()) {
-			this.modoEliminar = true;
 			this.clear();
 		}
 		
 		// Si se acaba de conectar, se establecen los trazos del resto de clientes
 		else if (info.isRecienConectado()) {
-			this.modoEliminar = false;
-			this.trazos = info.getTrazos();
+			this.trazos = (LinkedList<Trazo>)info.getTrazos().clone();
+			gestorT.setTrazos(trazos);
 		}
 		
 		// Si se está dibujando, se añade el trazo recibido y se borran aquellos trazos no definitivos
 		else if (info.isDibujando()) {
-			this.modoEliminar = false;
 				// Copia auxiliar de trazos
 				LinkedList<Trazo> aux = new LinkedList<Trazo>();
 				aux = (LinkedList<Trazo>)this.trazos.clone();
@@ -183,7 +181,6 @@ public class CanvasPaint extends JPanel
 		}
 		// Se elimina el trazo recibido
 		else {
-			this.modoEliminar = true;
 			this.trazos.remove(info.getTrazo());
 		}
 		

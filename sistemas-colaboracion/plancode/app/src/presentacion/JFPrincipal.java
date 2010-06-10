@@ -195,7 +195,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 		panelPaint.removeAll();
 		jPanelFondo.setLayout(null);
 		jPanelFondo.setBounds(6, 20, 591, 302);
-		// Se limpia el canvas, porque solo existe una instancia de él
+		// Se limpia el canvas al cambiar el mapa, porque solo existe una instancia de él
 		canvasPaint.clear();
     	panelPaint.add(canvasPaint);
     	panelPaint.add(jPanelFondo);
@@ -498,6 +498,7 @@ public class JFPrincipal extends javax.swing.JFrame {
 		// Esta llamada es necesaria para que los clientes uqe ya tenian la interfaz inicializada, refresquen sus paneles de sesiones
 		jPnlUsuarios.revalidate();
 		jPnlUsuarios.repaint();
+		
 	}
 
 	private void btnEnviarActionPerformed(ActionEvent evt) {
@@ -526,62 +527,6 @@ public class JFPrincipal extends javax.swing.JFrame {
 		// Cuando un cliente se conecta, se notifica su entrada en el chat al resto de clientes.
 		taChat.append(login + " ha iniciado sesión.\n");
 		taChat.setCaretPosition(taChat.getDocument().getLength());
-		// Además, el cliente que actúa como servidor envía el mapa y los trazos ya dibujados al cliente que 
-		// acaba de iniciar sesión, para que esté sincronizado con el resto
-		if (controlador.isServidor()) {
-			if (mapa!=null) {
-				System.out.println(mapa);
-				try {
-					controlador.enviarMapaRecienConectado(login, mapa);
-				} catch (ConnectionException e) {
-					Dialogos.mostrarDialogoError(this, "Error", "No se puede establecer una conexión");
-				} catch (InvalidClientException e) {
-					Dialogos.mostrarDialogoError(this, "Error", "Cliente de destino inválido");
-				} catch (NoSuchChannelException e) {
-					Dialogos.mostrarDialogoError(this, "Error", "No existe el canal");
-				} catch (NoSuchClientException e) {
-					Dialogos.mostrarDialogoError(this, "Error", "No se encuentra el cliente de destino");
-				} catch (NoSuchSessionException e) {
-					Dialogos.mostrarDialogoError(this, "Error", "No se encuentra la sesión");
-				} catch (PermissionDeniedException e) {
-					Dialogos.mostrarDialogoError(this, "Error", "Permiso denegado");
-				} catch (TimedOutException e) {
-					Dialogos.mostrarDialogoError(this, "Error", "Tiempo de espera agotado");
-				} catch (NoSuchConsumerException e) {
-					Dialogos.mostrarDialogoError(this, "Error", "No existe el consumidor");
-				}
-			}
-			/*if (!canvasPaint.getTrazos().isEmpty()) {
-				try {
-					controlador.enviarTrazosRecienConectado(login, canvasPaint.getTrazos());
-				} catch (ConnectionException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (InvalidClientException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (NoSuchChannelException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (NoSuchClientException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (NoSuchConsumerException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (NoSuchSessionException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (PermissionDeniedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (TimedOutException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}*/
-		}
-		
 	}
 	
 	public void notificarLogout(String login) {
@@ -758,5 +703,13 @@ public class JFPrincipal extends javax.swing.JFrame {
     	ponerMensajeLog(controlador.getNombreCliente(), new InfoTrazo());
 
     }
+
+	public CanvasPaint getCanvas() {
+		return canvasPaint;
+	}
+
+	public ImageIcon getMapa() {
+		return mapa;
+	}
 
 }

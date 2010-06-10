@@ -114,6 +114,11 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		crearCanales ();
 		ponerConsumidores();
 		
+		// Cerramos la ventana de login y abrimos la ventana principal
+		ventanaLogin.cerrarVentana();
+		ventanaPrincipal = new JFPrincipal (this);
+		ventanaPrincipal.mostrarVentana();
+		
 		// Tras poner a los lcientes como consumidores, se añaden los eventos al canal del chat
 		canalChat.addChannelListener(new ChannelListener() {
 			// Pasamos a la interfaz gráfica el nick del cliente que se acaba de unir al canal del chat
@@ -146,22 +151,31 @@ public class ControladorPrincipal implements ICanales, ISesion {
 			}
 		});
 		
-		// Cerramos la ventana de login y abrimos la ventana principal
-		ventanaLogin.cerrarVentana();
-		ventanaPrincipal = new JFPrincipal (this);
-		ventanaPrincipal.mostrarVentana();
-		
 		// Añadimos el evento para poder recibir el mensaje de rol de otros clientes que se conectan
 		if (esServidor) {
 			consumidorGestionRol.addMensajeRolRecibidoListener(new MensajeRolListener() {
-				public void MensajeRolRecibido(MensajeRolEvent evt) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException, NoSlotsDisponiblesException {
+				public void MensajeRolRecibido(MensajeRolEvent evt) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException, NoSlotsDisponiblesException, NoSuchConsumerException {
 					/* El mensaje del rol lo gestiona el servidor para saber que se ha conectado un
 					 * nuevo cliente y enviar la lista de usuarios al resto de clientes conectados.
 					 * Además, le asigna un color.
 					 */
 					Color c = GestorColores.getColorLibre();
 					listaUsuarios.put(evt.getNombre(), new Usuario(evt.getRol(), c));
-					canalGestionListaUsuarios.sendToAll(cliente, new Data(listaUsuarios));					
+					canalGestionListaUsuarios.sendToAll(cliente, new Data(listaUsuarios));
+					// Se envía también el mapa cargado (si lo hay)
+					if (ventanaPrincipal.getMapa()!=null) {
+						enviarMapaRecienConectado(evt.getNombre(), ventanaPrincipal.getMapa());
+					}
+					// Se espera un pequeño tiempo para que reciba el mapa y sobre él se carguen los trazos (si los hay)
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+					}
+					// Envía los trazos ya dibujados al nuevo cliente
+					if (!ventanaPrincipal.getCanvas().getTrazos().isEmpty()) {
+						enviarTrazosRecienConectado(evt.getNombre(), ventanaPrincipal.getCanvas().getTrazos());
+					}
+					
 				}
 			});
 		}
@@ -191,10 +205,7 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		canalMapa = sesion.createChannel(cliente, CANAL_MAPA, true, true, true);
 	}
 	
-	private void ponerConsumidores () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
-		// Ponemos los consumidores del chat y del canal de gestión
-		consumidorChat = new ConsumidorCanalChat ();
-		canalChat.addConsumer(cliente, consumidorChat);		
+	private void ponerConsumidores () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {			
 		consumidorGestionRol = new ConsumidorCanalGestionRol ();
 		canalGestionRol.addConsumer(cliente, consumidorGestionRol);
 		consumidorGestionListaUsuarios = new ConsumidorCanalGestionListaUsuarios();
@@ -203,6 +214,8 @@ public class ControladorPrincipal implements ICanales, ISesion {
 		canalDibujo.addConsumer(cliente, consumidorTrazos);
 		consumidorMapa = new ConsumidorCanalMapa();
 		canalMapa.addConsumer(cliente, consumidorMapa);
+		consumidorChat = new ConsumidorCanalChat ();
+		canalChat.addConsumer(cliente, consumidorChat);	
 	}
 	
 	private void quitarConsumidoresYCanales () throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException, NoSuchByteArrayException, NoSuchTokenException {
@@ -234,8 +247,8 @@ public class ControladorPrincipal implements ICanales, ISesion {
 	
 	// Este método es para que el servidor envíe los trazos ya dibujados al cliente que se acaba de conectar 
 	public void enviarTrazosRecienConectado(String clienteDestino, LinkedList<Trazo> trazos) throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchConsumerException, NoSuchSessionException, PermissionDeniedException, TimedOutException {
-		InfoTrazo info = new InfoTrazo(trazos);
-		canalDibujo.sendToClient(cliente, clienteDestino, new Data(trazos));
+		InfoTrazo info = new InfoTrazo((LinkedList<Trazo>)trazos.clone());
+		canalDibujo.sendToClient(cliente, clienteDestino, new Data(info));
 	}
 	
 	public void enviarTrazosClean() throws ConnectionException, InvalidClientException, NoSuchChannelException, NoSuchClientException, NoSuchSessionException, PermissionDeniedException, TimedOutException {

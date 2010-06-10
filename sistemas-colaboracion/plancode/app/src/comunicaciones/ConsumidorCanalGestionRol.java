@@ -10,6 +10,7 @@ import com.sun.media.jsdt.Data;
 import com.sun.media.jsdt.InvalidClientException;
 import com.sun.media.jsdt.NoSuchChannelException;
 import com.sun.media.jsdt.NoSuchClientException;
+import com.sun.media.jsdt.NoSuchConsumerException;
 import com.sun.media.jsdt.NoSuchSessionException;
 import com.sun.media.jsdt.PermissionDeniedException;
 import com.sun.media.jsdt.TimedOutException;
@@ -57,8 +58,9 @@ public class ConsumidorCanalGestionRol implements ChannelConsumer {
 				} catch (TimedOutException e) {
 					Dialogos.mostrarDialogoError(null, "Error", "Tiempo de espera agotado");
 				} catch (NoSlotsDisponiblesException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					Dialogos.mostrarDialogoError(null, "Error", "No se puede iniciar sesión porque el sistema ha alcanzado su capacidad máxima");
+				} catch (NoSuchConsumerException e) {
+					Dialogos.mostrarDialogoError(null, "Error", "No existe el consumidor");
 				}
 			}
 		}
