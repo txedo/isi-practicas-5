@@ -1,0 +1,76 @@
+\section{Descripción de los requisitos funcionales} \label{requisitosFuncionales}
+
+En las siguientes subsecciones, se comentarán sólo aquellos requisitos funcionales que aparecen en \cite{groupware} y que son cubiertos por PlanCode.
+
+\subsection{Participación}
+
+\begin{milista}
+	\item \textbf{Métodos para entrar a una sesión}: es un método \textit{predefinido}, pues los usuarios, para poder utilizar esta herramienta deben loguearse.
+	\item \textbf{Unión a una sesión}: se permite \textit{entradas posteriores}, pues los usuarios pueden loguearse en cualquier momento.
+	\item \textbf{Salidas de una sesión}: en este caso, se \textit{permite salir antes}, pues cualquier usuario puede abandonar la herramienta en cualquier momento.
+	\item \textbf{Tamaño del grupo}: PlanCode está diseñado para ser utilizado por \textit{grupos pequeños} (3-5 personas) dentro de una misma sesión.
+	\item \textbf{Actividades de trabajo}: las actividades se realizan de manera \textit{conjunta}, pues todos los usuarios interaccionan al mismo tiempo (es decir, de manera síncrona).
+	\item \textbf{Formas de comunicación}: PlanCode permite el intercambio de mensajes \textit{textuales} y de \textit{imágenes}.
+	\item \textbf{Duración de los elementos}: la duración de los elementos es \textit{no persistente}, ya que no se almacena información producida o modificada en una sesión.
+	\item \textbf{Representación de los datos}: los datos que se intercambian tienen una representación \textit{idéntica} en todos los usuarios. Es decir, todos los usuarios reciben los mensajes del chat de la misma forma y se muestran los mismos mensajes a todos, al igual que en la imagen del mapa, la lista de usuarios conectados y los trazos dibujados.
+\end{milista}
+
+
+\subsection{Interacción}
+
+\begin{milista}
+	\item \textbf{Momento de la interacción}: \textit{síncrono}, como ya se comentó en la sección \ref{clasificacion}
+	\item \textbf{Localización}: \textit{distribuida}, pues cada usuario puede interaccionar desde cualquier lugar y momento.
+	\item \textbf{Estructura social de la sesión}: la estructura social es \textit{democrática}, ya que un usuario no tiene un rol superior a otro dentro del grupo creado en PlanCode. 
+	\item \textbf{Convocatoria de los asistentes}: en este caso, la convocatoria podría considerarse como \textit{planeada}, pues la herramienta se va a utilizar cuando ocurra una situación de emergencia.
+	\item \textbf{Identificación de los participantes}: los usuarios están \textit{identificados}.
+	\item \textbf{Forma de llevar a cabo las actividades}: \textit{simultánea}, pues no hay control de turnos para realizar ninguna acción.
+\end{milista}
+
+\subsection{Coordinación}
+
+Como se ha dicho en el último apartado del punto anterior, no existe control de turnos ni aspectos explícitos de coordinación en PlanCode, ya que es una herramienta cuyo principal objetivo es la colaboración.
+
+\subsection{Distribución y soporte}
+
+\begin{milista}
+	\item \textbf{Almacenamiento de los datos}: el almacenamiento de los datos es \textit{distribuido}, pues no existe un servidor centralizado que almacene y maneje los datos.
+	\item \textbf{Arquitectura de implementación}: en lo que se refiere al procesamiento de la información, es una arquitectura \textit{híbrida}, ya que cada cliente procesa y visualiza la información recibida del resto de clientes, pero cuando un cliente inicia sesión, es el ''servidor'' (el primer cliente que inició sesión) el que le asigna cierta información para su sesión (como el color con el que va a dibujar o la imagen de su avatar).
+\end{milista}
+
+\subsection{Notificación de eventos}
+
+\begin{milista}
+	\item \textbf{Conocimiento de uso compartido}: el conocimiento de uso compartido es \textit{consciente}, ya que la herramienta permite una visualización de los usuarios que están conectados, qué usuario envía cada mensaje al chat, etc.
+	\item \textbf{Representación gráfica de los participantes}: se utiliza una \textit{lista de usuarios} con avatares según su rol (policía, bombero, etc.) para mostrar los usuarios conectados. Además, cada usuario tendrá asociado un color y los trazos que realice serán de ese color, facilitando la identificación de los trazos que cada usuario dibuja en el área de trabajo compartida. 
+\end{milista}
+
+\subsection{Visualización}
+
+\begin{milista}
+
+	\item \textbf{Interfaz de grupo}: la interfaz gráfica de usuario de la herramienta PlanCoDE es de tipo WYSIWIS relajado. La razón por la que se ha elegido la variante \textit{relajada} es para evitar los problemas asociados con las interfaces WYSIWIS estrictas, tales como las guerras de ventanas y la sobrecarga de información. A continuación se profundizará sobre algunas de las características que se han relajado.
+	\begin{itemize}
+		\item \textit{Separación del espacio de trabajo}: se ha relajado la barra de menús y las ventanas de uso privado, tales como las ventanas de configuración o carga de planos/imágenes, así como la caja de herramientas. En definitiva, las partes sobre las que se aplica el WYSIWIS es sobre el chat, el log de las acciones, el área de dibujo y la lista de usuarios activos en la sesión. De este modo, los usuarios pueden colaborar para realizar el diseño de las estrategias que estimen oportunas sin perder la intimidad y la privacidad de uso de la aplicación.
+		\item \textit{Visualización de cursores}: cada usuario tiene su propio cursor privado y ningún otro usuario puede observarlo ni manipularlo. Esto es debido a que PlanCoDE será portada, en un futuro, a dispositivos móviles. Este tipo de pantallas son muy reducidas y no es recomendable permitir que los cursores de los distintos usuarios las invadan, causando confusión.
+		\item \textit{Gestión de la distribución en la pantalla}: cada usuario podrá elegir dónde situar las ventanas \textit{no compartidas} de la aplicación de forma privada.
+		\item \textit{Gestión de la información visualizada}: la aplicación dispone de una ventana de log donde se irán registrando todas las acciones que realizan cada uno de los distintos usuarios en el área de dibujo. De este modo se representa de forma textual la información que se va generando de forma gráfica.
+		\item \textit{Acoplamiento de interfaces de usuario}: el nivel de acoplamiento (ver Figura \ref{fig:acoplamiento}) entre las interfaces de usuario de los distintos clientes se clasifica como \textit{medio}. Esto es debido a que hay partes de la interfaz gráfica que son privadas cada usuario, pero hay otras partes como el chat, la lista de usuarios activos y el área de dibujo que son compartidos.
+
+		\imagen{imagenes/acoplamiento.png}{0.4}{Niveles de Acoplamiento de Interfaces de Usuario}{fig:acoplamiento}
+		
+	\end{itemize}
+	
+	\item \textbf{Transmisión de los datos para mantener las vistas sincronizadas}: existe una transmisión de los datos para que la aplicación correspondiente a cada usuario esté sincronizada.
+	\item \textbf{Actualización de la información}: ésta se produce para actualizar el avatar que representa a cada usuario, para actualizar el chat con nuevos mensajes y para actualizar el log de acciones y el área de dibujo cuando un usuario inserta o elimina o un trazo o cuando se carga una imagen de un mapa.
+\end{milista}
+
+	
+
+
+
+
+
+
+% Transmisión de los datos para mantener las vistas sincronizadas
+% Actualización de la información
